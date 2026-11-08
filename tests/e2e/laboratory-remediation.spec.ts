@@ -2,6 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { remediationWorld } from '../fixtures/remediation-world';
 import { laboratoryV3Nb as c } from '../../src/content/nb';
+import { laboratoryTopologyNb as currentWorkspace } from '../../src/content/laboratory-topology-nb';
 import { laboratoryRemediationNb as t } from '../../src/content/laboratory-remediation-nb';
 import { laboratoryNetworkNb as n } from '../../src/content/laboratory-networking-nb';
 import { laboratoryEndpointsNb as e } from '../../src/content/laboratory-endpoints-nb';
@@ -23,6 +24,10 @@ async function apply(page: Page, command: Command) {
 }
 async function seed(page: Page) {
   await page.goto('/labs/laboratory');
+  await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();
+  await page
+    .getByRole('combobox', { name: 'Arbeidsområdemodell', exact: true })
+    .selectOption('laboratory@3.6.0');
   await page.getByRole('button', { name: c.start, exact: true }).click();
   await expect(page.locator('.laboratory-workspace-status')).toContainText('laboratory@3.6.0');
   const before = await state(page),
@@ -406,7 +411,7 @@ test('remediation two native editors preserve pinned revisions reject stale save
   await second.close();
 });
 
-test('remediation explicit new workspace preserves original3.5 rules receipts and course storage while creating empty3.6 only after confirmation', async ({
+test('remediation explicit new workspace preserves original3.5 rules receipts and course storage while creating empty3.7 only after confirmation', async ({
   page,
   playwright,
 }) => {
@@ -453,16 +458,16 @@ test('remediation explicit new workspace preserves original3.5 rules receipts an
     await expect(page.locator('#lab-page-title')).toHaveText('old-allow');
     await expect(page.locator('.lab-rule-lifecycle')).toHaveCount(0);
     await page.goto('/labs/laboratory?view=groups');
-    await page.getByRole('button', { name: t.newWorkspace, exact: true }).click();
-    let dialog = page.getByRole('dialog', { name: t.newWorkspace, exact: true });
-    await expect(dialog).toContainText(t.newWorkspaceNote);
+    await page.getByRole('button', { name: currentWorkspace.newWorkspace, exact: true }).click();
+    let dialog = page.getByRole('dialog', { name: currentWorkspace.newWorkspace, exact: true });
+    await expect(dialog).toContainText(currentWorkspace.newWorkspaceNote);
     expect(await state(page)).toEqual(original);
     await page.keyboard.press('Escape');
     expect(await state(page)).toEqual(original);
-    await page.getByRole('button', { name: t.newWorkspace, exact: true }).click();
-    dialog = page.getByRole('dialog', { name: t.newWorkspace, exact: true });
-    await dialog.getByRole('button', { name: t.newWorkspace, exact: true }).click();
-    await expect(page.locator('.laboratory-workspace-status')).toContainText('laboratory@3.6.0');
+    await page.getByRole('button', { name: currentWorkspace.newWorkspace, exact: true }).click();
+    dialog = page.getByRole('dialog', { name: currentWorkspace.newWorkspace, exact: true });
+    await dialog.getByRole('button', { name: currentWorkspace.newWorkspace, exact: true }).click();
+    await expect(page.locator('.laboratory-workspace-status')).toContainText('laboratory@3.7.0');
     const next = await state(page);
     expect(next.workspace).not.toBe(original.workspace);
     expect(next.entries).toEqual([]);

@@ -1,0 +1,227 @@
+[
+  {
+    "disableReverse": false,
+    "revision": 36,
+    "setupEntries": 36,
+    "replayMatches": true,
+    "disabledDirectPeerings": [
+      {
+        "id": "peering-32",
+        "name": "review-app-data",
+        "vnetId": "vnet-3",
+        "remoteVnetId": "vnet-4",
+        "origin": "topology-33",
+        "allowForwardedTraffic": false,
+        "forwardingOrigin": null,
+        "allowVirtualNetworkAccess": false,
+        "accessOrigin": "topology-35"
+      }
+    ],
+    "status": "undetermined",
+    "reason": "peering-access-disabled-or-return-unresolved",
+    "accessEvaluation": "undetermined",
+    "virtualNetworkTagScope": "undetermined-disabled-peering",
+    "accessChecks": [
+      {
+        "peeringId": "peering-8",
+        "localVnetId": "vnet-2",
+        "remoteVnetId": "vnet-3",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "accessOrigin": null
+      },
+      {
+        "peeringId": "peering-9",
+        "localVnetId": "vnet-3",
+        "remoteVnetId": "vnet-2",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "accessOrigin": null
+      },
+      {
+        "peeringId": "peering-10",
+        "localVnetId": "vnet-2",
+        "remoteVnetId": "vnet-4",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "accessOrigin": null
+      },
+      {
+        "peeringId": "peering-11",
+        "localVnetId": "vnet-4",
+        "remoteVnetId": "vnet-2",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "accessOrigin": null
+      },
+      {
+        "peeringId": "peering-32",
+        "localVnetId": "vnet-3",
+        "remoteVnetId": "vnet-4",
+        "allowVirtualNetworkAccess": false,
+        "allowForwardedTraffic": false,
+        "accessOrigin": "topology-35"
+      },
+      {
+        "peeringId": "peering-33",
+        "localVnetId": "vnet-4",
+        "remoteVnetId": "vnet-3",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "accessOrigin": null
+      }
+    ],
+    "firewallPath": {
+      "disposition": "incomplete",
+      "configurationPathAssessed": false
+    },
+    "layers": [
+      {
+        "id": "source-nic-outbound",
+        "status": "not-evaluated",
+        "reason": "unsupported-path",
+        "matchedRuleId": null,
+        "evaluated": []
+      },
+      {
+        "id": "source-subnet-outbound",
+        "status": "not-evaluated",
+        "reason": "unsupported-path",
+        "matchedRuleId": null,
+        "evaluated": []
+      },
+      {
+        "id": "destination-subnet-inbound",
+        "status": "not-evaluated",
+        "reason": "unsupported-path",
+        "matchedRuleId": null,
+        "evaluated": []
+      },
+      {
+        "id": "destination-nic-inbound",
+        "status": "not-evaluated",
+        "reason": "unsupported-path",
+        "matchedRuleId": null,
+        "evaluated": []
+      }
+    ]
+  },
+  {
+    "disableReverse": true,
+    "revision": 37,
+    "setupEntries": 37,
+    "replayMatches": true,
+    "disabledDirectPeerings": [
+      {
+        "id": "peering-32",
+        "name": "review-app-data",
+        "vnetId": "vnet-3",
+        "remoteVnetId": "vnet-4",
+        "origin": "topology-33",
+        "allowForwardedTraffic": false,
+        "forwardingOrigin": null,
+        "allowVirtualNetworkAccess": false,
+        "accessOrigin": "topology-35"
+      },
+      {
+        "id": "peering-33",
+        "name": "review-data-app",
+        "vnetId": "vnet-4",
+        "remoteVnetId": "vnet-3",
+        "origin": "topology-34",
+        "allowForwardedTraffic": false,
+        "forwardingOrigin": null,
+        "allowVirtualNetworkAccess": false,
+        "accessOrigin": "topology-36"
+      }
+    ],
+    "status": "undetermined",
+    "reason": "peering-access-disabled-or-return-unresolved",
+    "accessEvaluation": "undetermined",
+    "virtualNetworkTagScope": "undetermined-disabled-peering",
+    "accessChecks": [
+      {
+        "peeringId": "peering-8",
+        "localVnetId": "vnet-2",
+        "remoteVnetId": "vnet-3",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "accessOrigin": null
+      },
+      {
+        "peeringId": "peering-9",
+        "localVnetId": "vnet-3",
+        "remoteVnetId": "vnet-2",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "accessOrigin": null
+      },
+      {
+        "peeringId": "peering-10",
+        "localVnetId": "vnet-2",
+        "remoteVnetId": "vnet-4",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "accessOrigin": null
+      },
+      {
+        "peeringId": "peering-11",
+        "localVnetId": "vnet-4",
+        "remoteVnetId": "vnet-2",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "accessOrigin": null
+      },
+      {
+        "peeringId": "peering-32",
+        "localVnetId": "vnet-3",
+        "remoteVnetId": "vnet-4",
+        "allowVirtualNetworkAccess": false,
+        "allowForwardedTraffic": false,
+        "accessOrigin": "topology-35"
+      },
+      {
+        "peeringId": "peering-33",
+        "localVnetId": "vnet-4",
+        "remoteVnetId": "vnet-3",
+        "allowVirtualNetworkAccess": false,
+        "allowForwardedTraffic": false,
+        "accessOrigin": "topology-36"
+      }
+    ],
+    "firewallPath": {
+      "disposition": "incomplete",
+      "configurationPathAssessed": false
+    },
+    "layers": [
+      {
+        "id": "source-nic-outbound",
+        "status": "not-evaluated",
+        "reason": "unsupported-path",
+        "matchedRuleId": null,
+        "evaluated": []
+      },
+      {
+        "id": "source-subnet-outbound",
+        "status": "not-evaluated",
+        "reason": "unsupported-path",
+        "matchedRuleId": null,
+        "evaluated": []
+      },
+      {
+        "id": "destination-subnet-inbound",
+        "status": "not-evaluated",
+        "reason": "unsupported-path",
+        "matchedRuleId": null,
+        "evaluated": []
+      },
+      {
+        "id": "destination-nic-inbound",
+        "status": "not-evaluated",
+        "reason": "unsupported-path",
+        "matchedRuleId": null,
+        "evaluated": []
+      }
+    ]
+  }
+]

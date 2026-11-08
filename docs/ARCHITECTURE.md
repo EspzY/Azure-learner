@@ -262,3 +262,7 @@ The free Laboratory uses [read-only Studio](ARCHITECTURE_STUDIO_PART_A.md): orig
 ## PR69 — Security Rule Lifecycle
 
 New workspaces may explicitly use laboratory@3.6.0; old3.0–3.5 dispatch stays frozen. Four typed rule Update/Delete commands use original PostgreSQL locking/commit/receipt authority. A private validator proposal reuses existing full Create validation without publishing a temporary resource. Shared Portal pins Review/Save/Delete to actual workspace/model/revision/ID/parent. Studio remains a read-only consumer. See [contract](LABORATORY_SECURITY_REMEDIATION_PART_A.md).
+
+## PR70 — stable topology remediation in3.7
+
+[Topology Remediation](LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md) extends the same PostgreSQL command/replay authority with in-place Route Update, subnet-NSG disassociation and directional peering access changes. Immutable topologyChange receipts preserve original Create-origin and full before/after state. All existing subnet users are validated before one route mutation; no delete/create commits or alternate inventory. The shared rule lifecycle dialog now presents both rule and bounded topology changes. Studio remains read-only. New access preconditions compose with existing route/NSG/Firewall analysis and conservatively expose incomplete route/tag assumptions; old evaluators stay frozen.

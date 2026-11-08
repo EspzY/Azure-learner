@@ -1,6 +1,6 @@
 /** Test-only finite compatibility reader: actual changed bytes are hash-checked;
  * inherited assertions then inspect their original PR68 baseline. Never runtime. */
-import { readFileSync } from 'node:fs';
+import { readPR70 as readFileSync } from './pr70-preservation';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { strict as assert } from 'node:assert';

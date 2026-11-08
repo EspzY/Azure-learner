@@ -1,0 +1,43 @@
+import { createJiti } from '/workspace/Azure-learner/node_modules/jiti/lib/jiti.mjs';
+import { writeFileSync } from 'node:fs';
+const jiti = createJiti(import.meta.url, { moduleCache: false, fsCache: false });
+const { topologyWorld } = await jiti.import('/workspace/Azure-learner/tests/fixtures/topology-world.ts');
+const { analysePolicy } = await jiti.import('/workspace/Azure-learner/src/laboratory/v37/analysis.ts');
+const { replay } = await jiti.import('/workspace/Azure-learner/src/laboratory/v37/domain.ts');
+
+function reproduce(disableReverse) {
+  const f = topologyWorld();
+  function run(command) {
+    const r = f.s.run(command);
+    if (r.outcome !== 'accepted') throw Error(JSON.stringify({ command, r }));
+    return r;
+  }
+  const appData = f.s.create({ type: 'CreateVnetPeering', vnetId: f.app, remoteVnetId: f.data, name: 'review-app-data' });
+  const dataApp = f.s.create({ type: 'CreateVnetPeering', vnetId: f.data, remoteVnetId: f.app, name: 'review-data-app' });
+  run({ type: 'SetPeeringVirtualNetworkAccess', peeringId: appData, vnetId: f.app, value: 'false' });
+  if (disableReverse) run({ type: 'SetPeeringVirtualNetworkAccess', peeringId: dataApp, vnetId: f.data, value: 'false' });
+  run({ type: 'DeleteSecurityRule', ruleId: f.appRule, nsgId: f.appNsg });
+  const result = analysePolicy(f.s.world, f.input);
+  if (!result.ok) throw Error(JSON.stringify(result));
+  const a = result.analysis;
+  const summary = {
+    disableReverse,
+    revision: f.s.world.revision,
+    setupEntries: f.s.entries.length,
+    replayMatches: JSON.stringify(replay(f.s.entries)) === JSON.stringify(f.s.world),
+    disabledDirectPeerings: f.s.world.peerings.filter(p => !p.allowVirtualNetworkAccess),
+    status: a.status,
+    reason: a.reason,
+    accessEvaluation: a.accessEvaluation,
+    virtualNetworkTagScope: a.virtualNetworkTagScope,
+    accessChecks: a.accessChecks,
+    firewallPath: { disposition: a.firewallPath.disposition, configurationPathAssessed: a.firewallPath.configurationPathAssessed },
+    layers: a.layers.map(l => ({ id: l.id, status: l.status, reason: l.reason, matchedRuleId: l.matchedRuleId,
+      evaluated: l.rules.filter(r => r.result !== 'not-evaluated') })),
+  };
+  writeFileSync(`/workspace/azurelab-pr70/correction/independent-peering-${disableReverse ? 'both-disabled' : 'local-disabled'}-entries.json`, JSON.stringify(f.s.entries, null, 2));
+  return summary;
+}
+const output = [reproduce(false), reproduce(true)];
+writeFileSync('/workspace/azurelab-pr70/correction/independent-peering-repro.json', JSON.stringify(output, null, 2));
+console.log(JSON.stringify(output, null, 2));

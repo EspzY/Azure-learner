@@ -2,3 +2,5 @@
 # Original licensed Microsoft SVG bytes must survive checkout without normalization.
 public/icons/azure/*.svg -text
 public/icons/fluent/*.svg -text
+# Preserve original PR70 source/failure evidence bytes and their recorded SHA256.
+docs/reviews/evidence/pr70/**/*.raw -text

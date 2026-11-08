@@ -4,6 +4,7 @@ import { FirewallPathDetails } from './firewall';
 import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
+import { TopologyAccess } from './topology-access';
 import type { World, Command } from '@/laboratory/v33/contract';
 import type { PolicyAnalysis } from '@/laboratory/v33/policy';
 import type { Snapshot } from '@/laboratory/engine';
@@ -42,7 +43,8 @@ export function EndpointViews({
     | World
     | import('@/laboratory/v34/contract').World
     | import('@/laboratory/v35/contract').World
-    | import('@/laboratory/v36/contract').World;
+    | import('@/laboratory/v36/contract').World
+    | import('@/laboratory/v37/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -141,6 +143,7 @@ export type LaboratoryPolicyResult = (
   | import('@/laboratory/v34/analysis').PolicyAnalysis
   | import('@/laboratory/v35/analysis').PolicyAnalysis
   | import('@/laboratory/v36/analysis').PolicyAnalysis
+  | import('@/laboratory/v37/analysis').PolicyAnalysis
 ) & { workspace: string };
 export function PolicyAnalysisView({
   snapshot,
@@ -329,6 +332,7 @@ export function PolicyAnalysisView({
               </p>
             </>
           )}
+          {'accessChecks' in result && <TopologyAccess analysis={result} />}
           <PropertyList
             items={[
               [e.source, nicLabel(result.sourceNicId)],

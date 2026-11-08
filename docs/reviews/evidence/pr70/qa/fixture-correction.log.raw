@@ -1,0 +1,30 @@
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ src/laboratory-remediation.test.ts (34 tests | 1 failed) 1509ms
+   × rejects stale writes before validation, preserves original replay receipts and fails tampered change evidence 104ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/laboratory-remediation.test.ts > rejects stale writes before validation, preserves original replay receipts and fails tampered change evidence
+AssertionError: expected 'rejected' to be 'unsupported' // Object.is equality
+
+Expected: "unsupported"
+Received: "rejected"
+
+ ❯ src/laboratory-remediation.test.ts:460:31
+    458|       );
+    459|     expect(r.world).toEqual(old);
+    460|     expect(r.receipt.outcome).toBe('unsupported');
+       |                               ^
+    461|     expect(r.receipt.code).toBe('unsupported-capability');
+    462|   }
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 36 passed (37)
+   Start at  21:41:36
+   Duration  3.22s (tests 90%, transform 5%, import 4%)
+

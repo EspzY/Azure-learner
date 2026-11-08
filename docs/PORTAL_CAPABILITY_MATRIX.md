@@ -98,3 +98,15 @@ Free Laboratory navigation now exposes actual topology, scope/type filters, sele
 ## PR69 — Rule remediation in free Laboratory3.6
 
 Custom NSG rules: full supported-field Update/Delete. Nested Firewall network rules: source/destination/protocol/destination-port Update/Delete. Existing frozen models have no such operations. Standard NSG rules remain read-only; Firewall collection action/priority and ancestry remain fixed. Shared Portal Review → Save/Delete, immutable receipts, before/after replay and Studio return are implemented through the original server command path. No AZ-900/v2 capability is implied. See [contract](LABORATORY_SECURITY_REMEDIATION_PART_A.md).
+
+## PR70 — free Laboratory3.7 topology remediation
+
+| Capability                     | Actual scope                                                                                                                                   |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| UpdateRoute                    | One atomic replacement of supported destination/next-hop fields; same ID/name/table/Create-origin. All current table subnet users validated.   |
+| DisassociateSubnetNsg          | Removes only the exact actual attachment, preserves NSG/rules/evidence. No security-improvement claim.                                         |
+| SetPeeringVirtualNetworkAccess | One directional access flag; remote flag, forwarding and derived status remain separate.                                                       |
+| Topology diagnostics           | Original LPM/NSG/Firewall engine plus conservative selected/return/service-tag access preconditions. No actual packets or connectivity result. |
+| Peering Delete                 | Not implemented: official shared-Portal versus single-link side effects remain insufficiently resolved.                                        |
+
+The existing shared Portal Review/Save/confirmation and Studio resource links are reused. Earlier models/coursev2 do not inherit the new operations and are not upgraded. [Contract and source distinction](LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md).

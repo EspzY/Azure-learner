@@ -1,0 +1,6 @@
+src/features/laboratory/laboratory.tsx(1002,11): error TS2322: Type 'World | World | World | World | World | World | World' is not assignable to type 'World | World | World | World | World | World'.
+  Type 'World' is not assignable to type 'World | World | World | World | World | World'.
+    Type 'import("/workspace/Azure-learner/src/laboratory/v37/contract").World' is not assignable to type 'import("/workspace/Azure-learner/src/laboratory/v35/contract").World'.
+      Types of property 'model' are incompatible.
+        Type '"laboratory@3.7.0"' is not assignable to type '"laboratory@3.5.0"'.
+src/laboratory/v37/projection.ts(7,10): error TS1361: 'P' cannot be used as a value because it was imported using 'import type'.

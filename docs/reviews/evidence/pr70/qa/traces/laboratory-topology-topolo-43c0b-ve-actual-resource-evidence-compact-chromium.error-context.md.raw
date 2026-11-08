@@ -1,0 +1,441 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: laboratory-topology.spec.ts >> topology native short desktop Review keyboard focus reduced motion Axe and pinned disassociation preserve actual resource evidence
+- Location: tests/e2e/laboratory-topology.spec.ts:296:1
+
+# Error details
+
+```
+Error: expect(received).toEqual(expected) // deep equality
+
+- Expected  -  1
++ Received  + 70
+
+- Array []
++ Array [
++   Object {
++     "description": "Ensure links are distinguished from surrounding text in a way that does not rely on color",
++     "help": "Links must be distinguishable without relying on color",
++     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/link-in-text-block?application=playwright",
++     "id": "link-in-text-block",
++     "impact": "serious",
++     "nodes": Array [
++       Object {
++         "all": Array [],
++         "any": Array [
++           Object {
++             "data": Object {
++               "contrastRatio": 2.68,
++               "messageKey": "fgContrast",
++               "nodeColor": "#0067b8",
++               "parentColor": "#242424",
++               "requiredContrastRatio": 3,
++             },
++             "id": "link-in-text-block",
++             "impact": "serious",
++             "message": "The link has insufficient color contrast of 2.68:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0067b8, surrounding text: #242424)",
++             "relatedNodes": Array [
++               Object {
++                 "html": "<p>Åpne kvittering for tilknytningen: <a href=\"/labs/laboratory?view=history&amp;receipt=topology-29\">Åpne original kvittering</a></p>",
++                 "target": Array [
++                   "p:nth-child(7)",
++                 ],
++               },
++             ],
++           },
++           Object {
++             "data": null,
++             "id": "link-in-text-block-style",
++             "impact": "serious",
++             "message": "The link has no styling (such as underline) to distinguish it from the surrounding text",
++             "relatedNodes": Array [
++               Object {
++                 "html": "<p>Åpne kvittering for tilknytningen: <a href=\"/labs/laboratory?view=history&amp;receipt=topology-29\">Åpne original kvittering</a></p>",
++                 "target": Array [
++                   "p:nth-child(7)",
++                 ],
++               },
++             ],
++           },
++         ],
++         "failureSummary": "Fix any of the following:
++   The link has insufficient color contrast of 2.68:1 with the surrounding text. (Minimum contrast is 3:1, link text: #0067b8, surrounding text: #242424)
++   The link has no styling (such as underline) to distinguish it from the surrounding text",
++         "html": "<a href=\"/labs/laboratory?view=history&amp;receipt=topology-29\">Åpne original kvittering</a>",
++         "impact": "serious",
++         "none": Array [],
++         "target": Array [
++           "p:nth-child(7) > a",
++         ],
++       },
++     ],
++     "tags": Array [
++       "cat.color",
++       "wcag2a",
++       "wcag141",
++       "TTv5",
++       "TT13.a",
++       "EN-301-549",
++       "EN-9.1.4.1",
++       "RGAAv4",
++       "RGAA-10.6.1",
++     ],
++   },
++ ]
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f2e1]:
+  - alert [ref=f2e2]
+  - generic [ref=f2e3]:
+    - link "Hopp til innhold" [ref=f2e4] [cursor=pointer]:
+      - /url: "#lab-main"
+    - banner [ref=f2e5]:
+      - button "Åpne eller lukk portalmenyen" [ref=f2e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=f2e8] [cursor=pointer]:
+        - /url: /labs/laboratory
+      - searchbox "Search resources and services" [ref=f2e10]
+      - generic [ref=f2e11]: Fri Laboratory
+      - button "Originale kvitteringer" [ref=f2e12] [cursor=pointer]
+      - button "Modellgrenser" [ref=f2e14] [cursor=pointer]
+      - link "Kursarbeidsområde" [ref=f2e16] [cursor=pointer]:
+        - /url: /portal
+      - link "Til kurset" [ref=f2e17] [cursor=pointer]:
+        - /url: /learn
+    - main [ref=f2e19]:
+      - generic [ref=f2e20]:
+        - button "Fri Laboratory" [ref=f2e21] [cursor=pointer]
+        - button "Virtual networks" [ref=f2e23] [cursor=pointer]
+        - button "vnet-app" [ref=f2e25] [cursor=pointer]
+        - generic [ref=f2e27]: snet-app
+      - generic [ref=f2e31]:
+        - heading "snet-app" [level=1] [ref=f2e32]
+        - generic [ref=f2e33]: Subnet · Lokal AzureLab-simulator · eget serverlagret arbeidsområde · ingen kursresultater eller XP
+      - generic [ref=f2e36]:
+        - navigation "snet-app · Overview" [ref=f2e37]:
+          - strong [ref=f2e38]: snet-app
+          - generic [ref=f2e40]:
+            - generic [ref=f2e41]: Search this resource
+            - searchbox "Search this resource" [ref=f2e42]
+          - button "Overview" [ref=f2e43] [cursor=pointer]
+          - button "Activity log" [ref=f2e45] [cursor=pointer]
+          - group [ref=f2e47]:
+            - generic "Settings" [ref=f2e48] [cursor=pointer]
+            - button "Properties" [ref=f2e49] [cursor=pointer]
+          - generic [ref=f2e51]: Lokalt simulator-scope
+        - generic [ref=f2e52]:
+          - generic [ref=f2e53]:
+            - button "Associate network security group" [ref=f2e54] [cursor=pointer]
+            - button "Tilknytt Route Table" [ref=f2e56] [cursor=pointer]
+            - button "Fjern Route Table-tilknytning" [ref=f2e58] [cursor=pointer]
+          - region "Edit" [ref=f2e60]:
+            - button "Disassociate subnet NSG" [ref=f2e62] [cursor=pointer]
+            - dialog [ref=f2e63]:
+              - generic [ref=f2e64]:
+                - heading "Disassociate subnet NSG" [level=2] [ref=f2e65]
+                - button "Close" [ref=f2e66] [cursor=pointer]
+              - generic [ref=f2e69]:
+                - paragraph [ref=f2e70]: Frakobling fjerner bare denne subnett-tilknytningen. NSG og regler beholdes. Frakobling kan redusere beskyttelsen og er ikke automatisk en forbedring.
+                - generic [ref=f2e71]:
+                  - generic [ref=f2e72]:
+                    - term [ref=f2e73]: Ressursnavn
+                    - definition [ref=f2e74]: snet-app
+                  - generic [ref=f2e75]:
+                    - term [ref=f2e76]: Ressurs-ID
+                    - definition [ref=f2e77]: subnet-6
+                  - generic [ref=f2e78]:
+                    - term [ref=f2e79]: Parent-scope
+                    - definition [ref=f2e80]: vnet-3
+                  - generic [ref=f2e81]:
+                    - term [ref=f2e82]: Arbeidsområde
+                    - definition [ref=f2e83]: 12c94656-4795-41c4-8df9-c290ce7c711c
+                  - generic [ref=f2e84]:
+                    - term [ref=f2e85]: Modell
+                    - definition [ref=f2e86]: laboratory@3.7.0
+                  - generic [ref=f2e87]:
+                    - term [ref=f2e88]: Gjennomgått revisjon
+                    - definition [ref=f2e89]: "33"
+                - paragraph [ref=f2e90]: Review er skrivebeskyttet. Først Save bekrefter en atomisk endring på serveren.
+                - generic [ref=f2e91]:
+                  - heading "Review changes" [level=3] [ref=f2e92]
+                  - table [ref=f2e94]:
+                    - caption [ref=f2e95]: Bekreftet endringsgrunnlag
+                    - rowgroup [ref=f2e96]:
+                      - row [ref=f2e97]:
+                        - columnheader "Felt" [ref=f2e98]
+                        - columnheader "Før" [ref=f2e99]
+                        - columnheader "Etter" [ref=f2e100]
+                    - rowgroup [ref=f2e101]:
+                      - row [ref=f2e102]:
+                        - cell "Network security group" [ref=f2e103]
+                        - cell "nsg-28" [ref=f2e104]
+                        - cell "null" [ref=f2e105]
+                      - row [ref=f2e106]:
+                        - cell "associationOrigin" [ref=f2e107]
+                        - cell "topology-29" [ref=f2e108]
+                        - cell "c220fa7c-67ad-4c2f-a919-2e6327f96985" [ref=f2e109]
+                  - generic [ref=f2e110]:
+                    - checkbox "Bekreft frakobling av NSG fra snet-app · subnet-6" [checked] [active] [ref=f2e111]
+                    - generic [ref=f2e112]: Bekreft frakobling av NSG fra snet-app · subnet-6
+                - generic [ref=f2e113]:
+                  - button "Disassociate subnet NSG" [ref=f2e114] [cursor=pointer]
+                  - button "Avbryt" [ref=f2e115] [cursor=pointer]
+          - heading "Azure Firewalls" [level=2] [ref=f2e116]
+          - generic [ref=f2e117]:
+            - generic [ref=f2e118]:
+              - generic [ref=f2e119]:
+                - text: Filter by name or type
+                - searchbox "Filter by name or type" [ref=f2e120]
+              - generic [ref=f2e121]:
+                - text: Subscription
+                - combobox "Subscription" [ref=f2e122]:
+                  - option "All subscriptions" [selected]
+              - generic [ref=f2e123]:
+                - text: Type
+                - combobox "Type" [ref=f2e124]:
+                  - option "All types" [selected]
+              - generic [ref=f2e125]:
+                - text: Location
+                - combobox "Location" [ref=f2e126]:
+                  - option "All locations" [selected]
+            - table [ref=f2e128]:
+              - caption [ref=f2e129]: Resources · 0
+              - rowgroup [ref=f2e130]:
+                - row [ref=f2e131]:
+                  - columnheader [ref=f2e132]:
+                    - button "Name" [ref=f2e133] [cursor=pointer]:
+                      - text: Name
+                      - generic [aria-hidden] [ref=f2e134]: ↑
+                  - columnheader [ref=f2e135]:
+                    - button "Type" [ref=f2e136] [cursor=pointer]
+                  - columnheader "Resource group" [ref=f2e137]
+                  - columnheader [ref=f2e138]:
+                    - button "Location" [ref=f2e139] [cursor=pointer]
+                  - columnheader "Subscription" [ref=f2e140]
+              - rowgroup [ref=f2e141]:
+                - row [ref=f2e142]:
+                  - cell "Ingen objekter i denne listen ennå." [ref=f2e143]
+          - generic [ref=f2e144]:
+            - generic [ref=f2e145]:
+              - term [ref=f2e146]: Lokal ID
+              - definition [ref=f2e147]: subnet-6
+            - generic [ref=f2e148]:
+              - term [ref=f2e149]: Virtual network
+              - definition [ref=f2e150]:
+                - link "vnet-app" [ref=f2e151] [cursor=pointer]:
+                  - /url: /labs/laboratory?view=vnet&id=vnet-3
+            - generic [ref=f2e152]:
+              - term [ref=f2e153]: Subnet IPv4 prefix
+              - definition [ref=f2e154]: 10.10.1.0/24
+            - generic [ref=f2e155]:
+              - term [ref=f2e156]: Adresseintervall
+              - definition [ref=f2e157]: 10.10.1.0 – 10.10.1.255
+            - generic [ref=f2e158]:
+              - term [ref=f2e159]: Azure-reserverte adresser · referanse
+              - definition [ref=f2e160]: 10.10.1.0, 10.10.1.1, 10.10.1.2, 10.10.1.3, 10.10.1.255
+            - generic [ref=f2e161]:
+              - term [ref=f2e162]: Adresser etter fem Azure-reservasjoner · ikke allokert
+              - definition [ref=f2e163]: "251"
+            - generic [ref=f2e164]:
+              - term [ref=f2e165]: Region
+              - definition [ref=f2e166]: norwayeast
+            - generic [ref=f2e167]:
+              - term [ref=f2e168]: Resource group
+              - definition [ref=f2e169]:
+                - link "rg-firewall" [ref=f2e170] [cursor=pointer]:
+                  - /url: /labs/laboratory?view=group&id=group-1
+            - generic [ref=f2e171]:
+              - term [ref=f2e172]: Subscription
+              - definition [ref=f2e173]: sub-shared
+            - generic [ref=f2e174]:
+              - term [ref=f2e175]: Network security group
+              - definition [ref=f2e176]:
+                - link "nsg-app" [ref=f2e177] [cursor=pointer]:
+                  - /url: /labs/laboratory?view=nsg&id=nsg-28
+          - link "Åpne original kvittering" [ref=f2e178] [cursor=pointer]:
+            - /url: /labs/laboratory?view=history&receipt=topology-6
+          - paragraph [ref=f2e179]:
+            - text: "Åpne kvittering for tilknytningen:"
+            - link "Åpne original kvittering" [ref=f2e180] [cursor=pointer]:
+              - /url: /labs/laboratory?view=history&receipt=topology-29
+          - paragraph [ref=f2e181]: NSG og VNet må ha samme region og subscription. Én NSG per subnett; Apply kan erstatte gjeldende tilknytning.
+          - region "Route table" [ref=f2e182]:
+            - heading "Route table" [level=2] [ref=f2e183]
+            - paragraph [ref=f2e184]:
+              - link "rt-app" [ref=f2e185] [cursor=pointer]:
+                - /url: /labs/laboratory?view=routeTable&id=route-table-18
+            - link "Åpne original kvittering" [ref=f2e186] [cursor=pointer]:
+              - /url: /labs/laboratory?view=history&receipt=topology-23
+            - paragraph [ref=f2e187]: Samme region og abonnement som subnettets VNet. Én tabell per subnett; en tabell kan deles av flere kompatible subnett.
+            - paragraph [ref=f2e188]:
+              - link "Ruteanalyse" [ref=f2e189] [cursor=pointer]:
+                - /url: /labs/laboratory?view=analysis&id=subnet-6
+          - generic [ref=f2e190]:
+            - heading "Network interfaces" [level=2] [ref=f2e191]
+            - generic [ref=f2e192]:
+              - generic [ref=f2e193]:
+                - generic [ref=f2e194]:
+                  - text: Filter by name or type
+                  - searchbox "Filter by name or type" [ref=f2e195]
+                - generic [ref=f2e196]:
+                  - text: Subscription
+                  - combobox "Subscription" [ref=f2e197]:
+                    - option "All subscriptions" [selected]
+                    - option "Shared Sandbox"
+                - generic [ref=f2e198]:
+                  - text: Type
+                  - combobox "Type" [ref=f2e199]:
+                    - option "All types" [selected]
+                    - option "Network interface"
+                - generic [ref=f2e200]:
+                  - text: Location
+                  - combobox "Location" [ref=f2e201]:
+                    - option "All locations" [selected]
+                    - option "Norway East"
+              - table [ref=f2e203]:
+                - caption [ref=f2e204]: Resources · 1
+                - rowgroup [ref=f2e205]:
+                  - row [ref=f2e206]:
+                    - columnheader [ref=f2e207]:
+                      - button "Name" [ref=f2e208] [cursor=pointer]:
+                        - text: Name
+                        - generic [aria-hidden] [ref=f2e209]: ↑
+                    - columnheader [ref=f2e210]:
+                      - button "Type" [ref=f2e211] [cursor=pointer]
+                    - columnheader "Resource group" [ref=f2e212]
+                    - columnheader [ref=f2e213]:
+                      - button "Location" [ref=f2e214] [cursor=pointer]
+                    - columnheader "Subscription" [ref=f2e215]
+                - rowgroup [ref=f2e216]:
+                  - row [ref=f2e217]:
+                    - cell [ref=f2e218]:
+                      - link "vm-app-01-nic" [ref=f2e219] [cursor=pointer]:
+                        - /url: /labs/laboratory?view=nic&id=nic-22
+                    - cell "Network interface" [ref=f2e221]
+                    - cell "rg-firewall" [ref=f2e222]
+                    - cell "Norway East" [ref=f2e223]
+                    - cell "Shared Sandbox" [ref=f2e224]
+      - generic [ref=f2e225]:
+        - generic [ref=f2e226]: Fri Laboratory
+        - button "Oppdater fra serveren" [ref=f2e227] [cursor=pointer]
+        - generic [ref=f2e229]: "World-revisjon: 33 · Arbeidsforsøk: 1 · Arbeidsområdets modell: laboratory@3.7.0"
+        - button "Nullstill eget arbeidsområde" [ref=f2e230] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  240 |   await expect(page.locator('main')).toContainText('Connected');
+  241 |   await expect(page.locator('main')).toContainText('Deaktivert');
+  242 |   const form = await diagnose(page, a);
+  243 |   await expect(form.locator('.lab-topology-access')).toContainText(x.accessLimit);
+  244 |   await expect(form).toContainText(f.outcome.incomplete);
+  245 |   await page.screenshot({ path: test.info().outputPath('topology-disabled-peering-studio.png') });
+  246 |   expect(await state(page)).toEqual(after);
+  247 |   await edit(page, 'peering', a.appHub, { value: 'true' });
+  248 |   await review(page);
+  249 |   await save(page);
+  250 |   await expect(await diagnose(page, a)).toContainText(f.outcome['allowed-via-firewall']);
+  251 | });
+  252 | test('topology two native editors reject stale Save idempotent redelivery and changed workspace without lost update or fake success', async ({
+  253 |   page,
+  254 |   context,
+  255 | }) => {
+  256 |   const a = await seed(page),
+  257 |     other = await context.newPage();
+  258 |   await edit(page, 'route', a.route, { nextHopType: 'None' });
+  259 |   await review(page);
+  260 |   await edit(other, 'route', a.route, { nextHopType: 'Internet' });
+  261 |   await review(other);
+  262 |   // Natural cross-tab notification may disable Save; an unrefreshed editor must instead receive the server conflict.
+  263 |   await save(page);
+  264 |   const after = await state(page);
+  265 |   const button = other.getByRole('dialog').getByRole('button', { name: t.save, exact: true });
+  266 |   if (await button.isEnabled()) {
+  267 |     await button.click();
+  268 |     await expect(other.locator('main')).toContainText('stale-revision');
+  269 |   } else await expect(other.getByRole('dialog').getByRole('alert')).toContainText(t.stale);
+  270 |   const final = await state(page);
+  271 |   expect(final.world).toEqual(after.world);
+  272 |   const original = after.entries.at(-1).request;
+  273 |   const response = await page.request.post('/api/laboratory/command', {
+  274 |     headers: { Origin: 'http://127.0.0.1:3000', 'If-Laboratory-Workspace': a.workspace },
+  275 |     data: original,
+  276 |   });
+  277 |   expect(response.status()).toBe(200);
+  278 |   expect((await response.json()).receipt).toEqual(after.entries.at(-1).receipt);
+  279 |   expect((await state(page)).world).toEqual(after.world);
+  280 |   await other.close();
+  281 |   await edit(page, 'route', a.route, { nextHopType: 'Internet' });
+  282 |   await review(page);
+  283 |   const replacement = await page.request.post('/api/laboratory/session', {
+  284 |     headers: { Origin: 'http://127.0.0.1:3000' },
+  285 |     data: { model: 'laboratory@3.7.0', newWorkspace: true },
+  286 |   });
+  287 |   expect(replacement.status()).toBe(200);
+  288 |   await page.getByRole('dialog').getByRole('button', { name: t.save, exact: true }).click();
+  289 |   await expect(page.getByRole('dialog')).toHaveCount(0);
+  290 |   await expect(page.locator('main')).toContainText('workspace-changed');
+  291 |   const empty = await state(page);
+  292 |   expect(empty.workspace).not.toBe(a.workspace);
+  293 |   expect(empty.entries).toEqual([]);
+  294 |   expect(empty.world.routes).toEqual([]);
+  295 | });
+  296 | test('topology native short desktop Review keyboard focus reduced motion Axe and pinned disassociation preserve actual resource evidence', async ({
+  297 |   page,
+  298 | }) => {
+  299 |   const a = await seed(page);
+  300 |   await page.emulateMedia({ reducedMotion: 'reduce' });
+  301 |   await edit(page, 'route', a.route, { nextHopType: 'None' });
+  302 |   const dialog = await review(page);
+  303 |   await expect(dialog.getByRole('textbox')).toHaveCount(0);
+  304 |   await dialog.getByRole('button', { name: t.backEdit, exact: true }).click();
+  305 |   await expect(
+  306 |     dialog.getByRole('textbox', { name: x.fields.addressPrefix, exact: true }),
+  307 |   ).toBeFocused();
+  308 |   expect(
+  309 |     await dialog.getByRole('combobox', { name: x.fields.nextHopType, exact: true }).inputValue(),
+  310 |   ).toBe('None');
+  311 |   await review(page);
+  312 |   for (const viewport of [
+  313 |     { width: 1440, height: 900 },
+  314 |     { width: 1024, height: 768 },
+  315 |     { width: 1024, height: 500 },
+  316 |   ]) {
+  317 |     await page.setViewportSize(viewport);
+  318 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  319 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+  320 |       true,
+  321 |     );
+  322 |     await expect(dialog.getByRole('button', { name: t.save, exact: true })).toBeInViewport();
+  323 |     await page.screenshot({
+  324 |       path: test.info().outputPath(`topology-review-${viewport.width}-${viewport.height}.png`),
+  325 |     });
+  326 |   }
+  327 |   await save(page);
+  328 |   await page.goto(url('subnet', a.appSubnet));
+  329 |   await page
+  330 |     .locator('.lab-rule-lifecycle')
+  331 |     .getByRole('button', { name: x.disassociate, exact: true })
+  332 |     .click();
+  333 |   await page.getByRole('dialog').getByRole('button', { name: t.review, exact: true }).click();
+  334 |   await expect(
+  335 |     page.getByRole('dialog').getByRole('button', { name: x.disassociate, exact: true }),
+  336 |   ).toBeDisabled();
+  337 |   await page.getByRole('dialog').getByRole('checkbox').focus();
+  338 |   await page.keyboard.press('Space');
+  339 |   await expect(page.getByRole('dialog').getByRole('checkbox')).toBeChecked();
+> 340 |   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+      |                                                                 ^ Error: expect(received).toEqual(expected) // deep equality
+  341 |   await page.screenshot({ path: test.info().outputPath('topology-disassociate-1024-500.png') });
+  342 | });
+  343 | 
+```

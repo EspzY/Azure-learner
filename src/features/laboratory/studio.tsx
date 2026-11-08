@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import { MarkerType, type Edge } from '@xyflow/react';
 import type { Snapshot } from '@/laboratory/engine';
 import { architectureStudioNb as t } from '@/content/architecture-studio-nb';
+import { laboratoryTopologyNb as topologyCopy } from '@/content/laboratory-topology-nb';
 import { laboratoryFirewallNb as firewallCopy } from '@/content/laboratory-firewall-nb';
 import { laboratoryEndpointsNb as endpointCopy } from '@/content/laboratory-endpoints-nb';
 import { laboratoryInventory } from './portal-adapter';
@@ -415,7 +416,14 @@ export function ArchitectureStudio({
           <ul>
             {observations.map((o) => (
               <li key={o.id} data-observation={o.type}>
-                <strong>{t.observationTypes[o.type]}</strong> · {t.classes[o.classification]}
+                <strong>
+                  {o.type in topologyCopy.observationTypes
+                    ? topologyCopy.observationTypes[
+                        o.type as keyof typeof topologyCopy.observationTypes
+                      ]
+                    : t.observationTypes[o.type as keyof typeof t.observationTypes]}
+                </strong>{' '}
+                · {t.classes[o.classification]}
                 <p>{o.reason}</p>
                 {o.ruleId && (
                   <p>

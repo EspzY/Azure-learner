@@ -449,7 +449,7 @@ it('rejects stale writes before validation, preserves original replay receipts a
   const altered = structuredClone(f.s.entries);
   altered.find((e) => e.receipt.change)!.receipt.change!.createOrigin = 'forged';
   expect(replay(altered)).toBeNull();
-  for (const model of engine.models.filter((m) => m !== laboratoryModel)) {
+  for (const model of engine.models.slice(0, engine.models.indexOf(laboratoryModel))) {
     const old = engine.freshWorld(model),
       r = engine.execute(
         old,

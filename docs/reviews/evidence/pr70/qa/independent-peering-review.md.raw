@@ -1,0 +1,59 @@
+# PR70 independent Azure peering semantic review
+
+AI review only, 8 November 2026. Read-only review of the current 3.7 proposal on `/workspace/Azure-learner`, base `41a187a4437eeea76749c61c94219a2577848645`. Scope: supplied current official source snapshots, new `v37/{analysis,contract,domain}.ts`, design document, and relevant frozen evaluator dependencies after the owner agent explicitly allowed dependency inspection. No implementation/repository edits, external requests, credentials, or full suite execution. Reproduction artifacts were written only under `/workspace/azurelab-pr70`.
+
+## Verdict
+
+**One MAJOR; no BLOCKER identified in this scope.** The selected-route access guard misses disabled peerings that the frozen NSG evaluator uses to infer `VirtualNetwork` membership. A command-created, replay-valid case returns a definite assessed Allow. Directional access mutation and provisional Delete deferral otherwise match the supplied evidence conservatively.
+
+## MAJOR — An unselected disabled peering can still grant a default-rule Allow
+
+**Implementation location:** `src/laboratory/v37/analysis.ts:53` collects peering IDs exclusively from selected `VnetPeering` route rows; lines 54–59 derive both access evaluation and tag scope from that set. The `checks` helper at lines 15–22 adds only those selected links and their reverse counterparts. `v37/projection.ts:9–12` replaces every access flag with `true` before inherited evaluation. The frozen `v33/policy.ts:119–138` treats the remote address space of every Connected local peering as guaranteed positive `VirtualNetwork` membership, regardless of whether a route selected that peering. Therefore these two dependency sets differ.
+
+**Command-only reproduction:** `/workspace/azurelab-pr70/independent-peering-repro.mjs` imports the existing `topologyWorld()` fixture, whose resources are entirely created through registered commands, and then:
+
+1. Creates direct app→data and data→app peerings alongside the existing enabled hub-and-spoke Firewall path.
+2. Disables app→data with `SetPeeringVirtualNetworkAccess`. A second case disables both direct directions.
+3. Deletes the custom app NSG outbound rule with registered `DeleteSecurityRule`, leaving its default outbound rules.
+4. Analyses the existing app→data TCP/1433 input. The existing app/data UDRs still select the Firewall path through enabled hub peerings.
+
+Both cases return:
+
+```json
+{
+  "status": "allowed-by-modeled-network-policy",
+  "reason": "modeled-configuration-path-assessed",
+  "accessEvaluation": "enabled",
+  "virtualNetworkTagScope": "original-enabled-profile",
+  "firewallPath": {
+    "disposition": "allowed-via-firewall",
+    "configurationPathAssessed": true
+  }
+}
+```
+
+The source subnet NSG matches `default:nsg-28:AllowVnetOutBound`. Its destination check returns `match / known-virtual-network-member` for the data NIC address through the disabled, unselected app→data relationship. `accessChecks` lists only the four enabled hub peerings and omits the disabled direct links. The 36-command one-disabled and 37-command both-disabled histories replay exactly to their resulting Worlds.
+
+**Evidence artifacts:** `independent-peering-repro.json`, `independent-peering-local-disabled-entries.json`, and `independent-peering-both-disabled-entries.json` in this directory. Run with `node /workspace/azurelab-pr70/independent-peering-repro.mjs`. A rejected exploratory custom `VirtualNetwork` Deny rule was excluded from the saved reproductions: the registered custom-rule validator rejects that expression. No actual false Deny was demonstrated.
+
+**Official support / limit:** `sources/peering.raw:108` establishes inclusion of local and peered networks in the NSG `VirtualNetwork` tag when the access option is selected. It does not establish the full tag after access is disabled. `sources/nsg.raw:334` and `:339` define service tags as predefined address categories and refer elsewhere for their full meaning. The design itself says the full post-change membership is not established (`docs/LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md:18`). This is consequently an unsupported positive Allow under the approved conservative contract, **not proof that actual Azure would deny this packet**. UDR-dependent tag expansion or other Azure membership must not be guessed from these snapshots.
+
+**Required correction:** Account for the disabled peering dependencies of NSG tag matching independently of selected route dependencies. The minimal conservative remedy can mark the relevant policy result/tag scope undetermined and avoid carrying definite NSG rule matches from the private all-enabled projection. A more precise adapter can preserve locally guaranteed/literal matches and return unknown for affected remote tag membership. Keep frozen 3.0–3.6 evaluators unchanged. Add a command-created regression for the unselected direct peering alongside an enabled Firewall path; cover the destination default inbound tag symmetrically if implementing per-layer inference.
+
+## Supported decisions and conservative limits
+
+**Directional `allowVirtualNetworkAccess` ownership:** `sources/peering.raw:115` explicitly describes local→remote traffic; `sources/peering-arm.raw:348` describes local VMs accessing remote VMs. The new command's `peeringId` plus exact owning `vnetId` check and single-record flag/origin update (`v37/domain.ts:96–107`) agree. It does not mutate remote access or forwarding. No MAJOR found here.
+
+**Forwarding remains separate:** the current management guide calls the local forwarded-traffic setting a receiving permission (`sources/peering.raw:116`) and states that enabling it does not create UDRs or NVAs. The same guide describes the remote receiving setting separately at `:109`. ARM's `allowForwardedTraffic` description at `sources/peering-arm.raw:346` instead uses local-forwarded-to-remote wording. That inconsistency should remain a documented source limit; the new access command does not change the frozen forwarding model, and the management-guide receiving interpretation is explicit. No new forwarding semantic defect was demonstrated.
+
+**Connected is relationship status:** `sources/peering.raw:336–339` ties Initiated/Connected to whether both directional peerings have been created; `:269` separately describes disabling network access to block remote traffic. Keeping the records and derived Connected status while changing access, and refusing to treat Connected as an Allow, is supported. Including reverse counterparts in the new conservative access guard can reduce certainty but does not invent a Deny.
+
+**Modeled route selection:** `sources/udr.raw:105` describes peering system routes, `:236–246` describes LPM and source precedence. These excerpts do not establish exact effective-route propagation after this access toggle. Retaining configuration candidates with an explicit access-uncertainty boundary is a defensible scope restriction. Do not turn a disabled flag into an invented `None` route or claim actual NIC effective routes. The MAJOR above concerns the missing independent NSG tag guard, not a requirement to remove modeled route rows.
+
+**Delete deferral:** the Portal note explicitly says remote peering is also deleted (`sources/peering.raw:285`); the same article's CLI/PowerShell examples delete both links separately (`:292–304`, `:311–321`). Troubleshooting explicitly describes a surviving single-sided link becoming Disconnected (`sources/peering-troubleshoot.raw:141–145`) and resolving it by deleting/recreating remaining links (`:168–184`). REST only says “Deletes the specified virtual network peering” and targets one local named resource (`sources/peering-rest.raw:64–77`); it does not document the remote side effect. These descriptions may reflect Portal orchestration versus directional API deletion rather than an unavoidable platform contradiction. Nevertheless, this snapshot set does not uniquely establish the desired shared Portal command's atomic side-effect/receipt contract. Deferring Delete is a transparent conservative scope choice, not a MAJOR defect. A future explicit directional operation could model its own documented profile, but this review does not authorize one.
+
+## Evidence checks and limits
+
+Source response metadata/hashes are in `sources/fetch.json`. Recomputed SHA-256 of `peering.raw` is `e7e68fc9ca1852bc4c39ca8948caf247bfe8f7de00a1011b96192b0c61aacfe1`; `peering-arm.raw` is `0d5c5abd05a8535e11fed2997e637351ae5c8ae054e86d95f419f9e26f2ae21e`, matching that manifest. Reproduction script SHA-256: `b9dc8f8fb1a6fba8cfa568ad198ef2877ec57a0bf3f6e0e4ece0f7e8bc1c0f28`; output JSON SHA-256: `5700d596d43dddc5e355208cda8d40b1ea9a1da40317f617a19b965774043e0a`.
+
+No production Azure behavior was exercised. No human Azure SME, learning, UX, screen-reader, or security validation is claimed. This report records the reviewed pre-correction behavior; any correction requires a focused recheck. It is not a general release audit or approval.

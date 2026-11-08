@@ -1,176 +1,163 @@
 {
   "schema": 1,
-  "id": "PR69-security-remediation-A",
-  "baseCommit": "37f6083f09dda8fceae0ba78b80b2ac91874a9fd",
-  "author": "pr69-remediation-author",
+  "id": "PR70-topology-remediation-B",
+  "baseCommit": "41a187a4437eeea76749c61c94219a2577848645",
+  "author": "pr70-topology-author",
   "scope": {
-    "kind": "versioned-security-rule-lifecycle",
-    "description": "Four server-authoritative custom NSG/nested Firewall network rule Update/Delete operations in explicit3.6 workspaces; pinned shared Portal Review/Save/Delete, original before/after evidence and read-only Studio verification. No course or older-engine semantics. Existing explicit new-workspace entry opens empty3.6 for older sessions; deterministic new-epoch JSONB rejection diagnostics and strict empty-key rejection.",
-    "objectives": ["LAB-REMEDIATION-A"]
+    "kind": "versioned-topology-remediation",
+    "description": "Explicit new3.7 atomic stable-ID Route Update, exact subnet NSG disassociation and directional peering access through existing Portal lifecycle controller and read-only Studio; no old model or course migration. Peering Delete deferred for documented ambiguity.",
+    "objectives": ["LAB-TOPOLOGY-REMEDIATION-B"]
   },
   "sources": [
     {
-      "id": "nsg-manage",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group",
-      "title": "Create, Change, or Delete Azure Network Security Groups | Microsoft Learn",
-      "reviewed": "2026-11-08T17:41:22.091022+00:00",
-      "version": "HTML SHA256 c2bea3f66c244b52c12527fc13de39e13851225be60c1e999b827a085a236da0; ms.date 2025-07-26T00:00:00Z",
-      "kind": "official-public-Microsoft-Learn",
-      "objectives": ["LAB-REMEDIATION-A"],
-      "claims": ["rule.lifecycle", "rule.evidence"],
+      "id": "route-table",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table",
+      "title": "Manage route tables",
+      "reviewed": "2026-11-08T21:10:18.752780+00:00",
+      "version": "Markdown SHA256 38be214ae0b8e4f9f83fa2a44d714a9cb57ef4a3f95dfc07c0acc30b650a5ce4; Last-Modified Sun, 23 Aug 2026 23:33:08 GMT",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-TOPOLOGY-REMEDIATION-B"],
+      "claims": ["topology.lifecycle", "topology.evidence", "peering.boundary"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production.",
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table",
+          "disposition": "reviewed-scope",
+          "reason": "Actual current Markdown response retained with status/date/hash and final redirected URL. Scoped route mutation, subnet association, directional access/forwarding and conflicting deletion effects; no unsupported inference."
+        }
+      ]
+    },
+    {
+      "id": "udr",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
+      "title": "Azure virtual network traffic routing",
+      "reviewed": "2026-11-08T21:10:18.784794+00:00",
+      "version": "Markdown SHA256 f4d7136c60a44ef9acb9774c5de8c87b29247e9740cb1b423e59f48b71bcda62; Last-Modified Wed, 16 Sep 2026 12:31:19 GMT",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-TOPOLOGY-REMEDIATION-B"],
+      "claims": ["topology.lifecycle", "topology.evidence", "peering.boundary"],
+      "availability": "AVAILABLE",
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
+          "disposition": "reviewed-scope",
+          "reason": "Actual current Markdown response retained with status/date/hash and final redirected URL. Scoped route mutation, subnet association, directional access/forwarding and conflicting deletion effects; no unsupported inference."
+        }
+      ]
+    },
+    {
+      "id": "nsg",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group",
+      "title": "Manage network security groups",
+      "reviewed": "2026-11-08T21:10:19.011858+00:00",
+      "version": "Markdown SHA256 1fb4efa082f56a0a9107a3c22886e19cc7ac26695dd3789d1399996d2e10670e; Last-Modified Wed, 26 Aug 2026 02:45:10 GMT",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-TOPOLOGY-REMEDIATION-B"],
+      "claims": ["topology.lifecycle", "topology.evidence", "peering.boundary"],
+      "availability": "AVAILABLE",
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group",
           "disposition": "reviewed-scope",
-          "reason": "Actual dated response body/headers/hash retained. NSG custom/default identity and priority semantics; Firewall nested hierarchy and collection action/priority; existing supported expression subset retained."
+          "reason": "Actual current Markdown response retained with status/date/hash and final redirected URL. Scoped route mutation, subnet association, directional access/forwarding and conflicting deletion effects; no unsupported inference."
         }
       ]
     },
     {
-      "id": "nsg-overview",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview",
-      "title": "Azure network security groups overview | Microsoft Learn",
-      "reviewed": "2026-11-08T17:41:22.131351+00:00",
-      "version": "HTML SHA256 bc347ceb6bf037a4843546842ea366a982d01a703249ada01ae89144521a6753; ms.date 2025-07-15T00:00:00Z",
-      "kind": "official-public-Microsoft-Learn",
-      "objectives": ["LAB-REMEDIATION-A"],
-      "claims": ["rule.lifecycle", "rule.evidence"],
+      "id": "peering",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
+      "title": "Manage virtual network peering",
+      "reviewed": "2026-11-08T21:10:18.952704+00:00",
+      "version": "Markdown SHA256 e7e68fc9ca1852bc4c39ca8948caf247bfe8f7de00a1011b96192b0c61aacfe1; Last-Modified Mon, 24 Aug 2026 01:46:46 GMT",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-TOPOLOGY-REMEDIATION-B"],
+      "claims": ["topology.lifecycle", "topology.evidence", "peering.boundary"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production.",
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
           "disposition": "reviewed-scope",
-          "reason": "Actual dated response body/headers/hash retained. NSG custom/default identity and priority semantics; Firewall nested hierarchy and collection action/priority; existing supported expression subset retained."
+          "reason": "Actual current Markdown response retained with status/date/hash and final redirected URL. Scoped route mutation, subnet association, directional access/forwarding and conflicting deletion effects; no unsupported inference."
         }
       ]
     },
     {
-      "id": "firewall-policy",
-      "url": "https://learn.microsoft.com/en-us/azure/firewall/policy-rule-sets",
-      "title": "Azure Firewall policy rule sets | Microsoft Learn",
-      "reviewed": "2026-11-08T17:41:22.108139+00:00",
-      "version": "HTML SHA256 25f0a1b43174ef201f9a2ec7725370896615f1325046c31b67c5190345ed86f9; ms.date 2026-03-28T00:00:00Z",
-      "kind": "official-public-Microsoft-Learn",
-      "objectives": ["LAB-REMEDIATION-A"],
-      "claims": ["rule.lifecycle", "rule.evidence"],
+      "id": "peering-troubleshoot",
+      "url": "https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-peering-issues",
+      "title": "Troubleshoot virtual network peering",
+      "reviewed": "2026-11-08T21:10:18.746935+00:00",
+      "version": "Markdown SHA256 35eba100d7fb79a3c27cc25283a10227533befd22a922eb2930e3ef35e96f0fc; Last-Modified Tue, 08 Sep 2026 20:22:25 GMT",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-TOPOLOGY-REMEDIATION-B"],
+      "claims": ["topology.lifecycle", "topology.evidence", "peering.boundary"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production.",
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/firewall/policy-rule-sets",
+          "url": "https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-network/virtual-network-troubleshoot-peering-issues",
           "disposition": "reviewed-scope",
-          "reason": "Actual dated response body/headers/hash retained. NSG custom/default identity and priority semantics; Firewall nested hierarchy and collection action/priority; existing supported expression subset retained."
+          "reason": "Actual current Markdown response retained with status/date/hash and final redirected URL. Scoped route mutation, subnet association, directional access/forwarding and conflicting deletion effects; no unsupported inference."
         }
       ]
     },
     {
-      "id": "firewall-processing",
-      "url": "https://learn.microsoft.com/en-us/azure/firewall/rule-processing",
-      "title": "Azure Firewall rule processing logic | Microsoft Learn",
-      "reviewed": "2026-11-08T17:41:22.173904+00:00",
-      "version": "HTML SHA256 0ac86d6d10fdaeb60dd55acd0889ac3668a7377848751fe3f346f20273ae82b1; ms.date 2026-03-23T00:00:00Z",
-      "kind": "official-public-Microsoft-Learn",
-      "objectives": ["LAB-REMEDIATION-A"],
-      "claims": ["rule.lifecycle", "rule.evidence"],
+      "id": "peering-arm",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/virtualnetworks/virtualnetworkpeerings",
+      "title": "Virtual network peerings ARM contract",
+      "reviewed": "2026-11-08T21:10:18.974284+00:00",
+      "version": "Markdown SHA256 0d5c5abd05a8535e11fed2997e637351ae5c8ae054e86d95f419f9e26f2ae21e; Last-Modified Wed, 21 Oct 2026 05:16:26 GMT",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-TOPOLOGY-REMEDIATION-B"],
+      "claims": ["topology.lifecycle", "topology.evidence", "peering.boundary"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production.",
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/firewall/rule-processing",
+          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/virtualnetworks/virtualnetworkpeerings",
           "disposition": "reviewed-scope",
-          "reason": "Actual dated response body/headers/hash retained. NSG custom/default identity and priority semantics; Firewall nested hierarchy and collection action/priority; existing supported expression subset retained."
+          "reason": "Actual current Markdown response retained with status/date/hash and final redirected URL. Scoped route mutation, subnet association, directional access/forwarding and conflicting deletion effects; no unsupported inference."
         }
       ]
     },
     {
-      "id": "firewall-arm",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/firewallpolicies/rulecollectiongroups",
-      "title": "Microsoft.Network/firewallPolicies/ruleCollectionGroups - Bicep, ARM template & Terraform AzAPI reference | Microsoft Learn",
-      "reviewed": "2026-11-08T17:41:22.114587+00:00",
-      "version": "HTML SHA256 527dd817792ae17707ab1633acde700928f7bc1379d00df4e440facfc74883e1; ms.date 2024-12-09T00:00:00Z",
-      "kind": "official-public-Microsoft-Learn",
-      "objectives": ["LAB-REMEDIATION-A"],
-      "claims": ["rule.lifecycle", "rule.evidence"],
+      "id": "peering-rest",
+      "url": "https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-network-peerings/delete?view=rest-virtualnetwork-2026-01-01&viewFallbackFrom=rest-virtualnetwork-2025-05-01",
+      "title": "Delete a named virtual network peering REST contract",
+      "reviewed": "2026-11-08T21:10:19.142710+00:00",
+      "version": "Markdown SHA256 01d8840514680794560aff2e77e3f96cb2c0426438e75d03066d036051e9b360; Last-Modified Wed, 28 Oct 2026 21:02:21 GMT",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-TOPOLOGY-REMEDIATION-B"],
+      "claims": ["topology.lifecycle", "topology.evidence", "peering.boundary"],
       "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production.",
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/firewallpolicies/rulecollectiongroups",
+          "url": "https://learn.microsoft.com/en-us/rest/api/virtualnetwork/virtual-network-peerings/delete?view=rest-virtualnetwork-2025-05-01",
           "disposition": "reviewed-scope",
-          "reason": "Actual dated response body/headers/hash retained. NSG custom/default identity and priority semantics; Firewall nested hierarchy and collection action/priority; existing supported expression subset retained."
-        }
-      ]
-    },
-    {
-      "id": "nsg-arm",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/networksecuritygroups/securityrules",
-      "title": "Microsoft.Network/networkSecurityGroups/securityRules - Bicep, ARM template & Terraform AzAPI reference | Microsoft Learn",
-      "reviewed": "2026-11-08T17:41:22.278598+00:00",
-      "version": "HTML SHA256 0aa553afc25939a956aa6b9446bda072f49ede72adbd29a279e848a4a55e2655; ms.date 2024-12-09T00:00:00Z",
-      "kind": "official-public-Microsoft-Learn",
-      "objectives": ["LAB-REMEDIATION-A"],
-      "claims": ["rule.lifecycle", "rule.evidence"],
-      "availability": "AVAILABLE",
-      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/networksecuritygroups/securityrules",
-          "disposition": "reviewed-scope",
-          "reason": "Actual dated response body/headers/hash retained. NSG custom/default identity and priority semantics; Firewall nested hierarchy and collection action/priority; existing supported expression subset retained."
+          "reason": "Actual current Markdown response retained with status/date/hash and final redirected URL. Scoped route mutation, subnet association, directional access/forwarding and conflicting deletion effects; no unsupported inference."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "PR69-security-remediation-A",
-      "objectives": ["LAB-REMEDIATION-A"],
-      "claims": ["rule.lifecycle", "rule.evidence"],
+      "id": "PR70-topology-remediation-B",
+      "objectives": ["LAB-TOPOLOGY-REMEDIATION-B"],
+      "claims": ["topology.lifecycle", "topology.evidence", "peering.boundary"],
       "assessmentStatus": "unchanged-existing",
-      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production.",
-      "theory": [
-        {
-          "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
-        }
-      ],
-      "mechanism": [
-        {
-          "path": "src/laboratory/v36/domain.ts"
-        }
-      ],
-      "practice": [
-        {
-          "path": "tests/e2e/laboratory-remediation.spec.ts"
-        }
-      ],
-      "feedback": [
-        {
-          "path": "src/features/laboratory/rule-lifecycle.tsx"
-        }
-      ],
-      "visual": [
-        {
-          "path": "src/features/laboratory/rule-lifecycle.css"
-        }
-      ],
-      "accessible": [
-        {
-          "path": "tests/e2e/laboratory-remediation.spec.ts"
-        }
-      ],
-      "assessment": [
-        {
-          "path": "src/laboratory-remediation-preservation.test.ts"
-        }
-      ],
-      "savvyshark": [
-        {
-          "path": "src/laboratory-remediation-preservation.test.ts"
-        }
-      ]
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open.",
+      "theory": [{ "path": "docs/LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md" }],
+      "mechanism": [{ "path": "src/laboratory/v37/domain.ts" }],
+      "practice": [{ "path": "tests/e2e/laboratory-topology.spec.ts" }],
+      "feedback": [{ "path": "src/features/laboratory/rule-lifecycle.tsx" }],
+      "visual": [{ "path": "src/features/laboratory/rule-lifecycle.css" }],
+      "accessible": [{ "path": "tests/e2e/laboratory-topology.spec.ts" }],
+      "assessment": [{ "path": "src/laboratory-topology-preservation.test.ts" }],
+      "savvyshark": [{ "path": "src/laboratory-topology-preservation.test.ts" }]
     }
   ],
   "modules": [],
@@ -192,85 +179,75 @@
     "src/features/learning/",
     "src/features/landing/",
     "src/features/portal/",
-    "docs/reviews/evidence/pr68/",
-    "docs/quality/PR68",
     ".github/",
-    "playwright.config.ts"
+    "playwright.config.ts",
+    "src/laboratory/v36/",
+    "docs/reviews/evidence/pr69/",
+    "docs/quality/PR69",
+    "database/laboratory-v3/001.sql",
+    "database/laboratory-v3/002-networking.sql",
+    "database/laboratory-v3/003-routing.sql",
+    "database/laboratory-v3/004-endpoints.sql",
+    "database/laboratory-v3/005-compute.sql",
+    "database/laboratory-v3/006-firewall.sql",
+    "database/laboratory-v3/007-security-rules.sql"
   ],
   "gates": {
     "source": {
       "checks": [
-        {
-          "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
-        },
-        {
-          "path": "docs/reviews/evidence/pr69/verification.json"
-        }
+        { "path": "docs/LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md" },
+        { "path": "docs/reviews/evidence/pr70/verification.json" },
+        { "path": "docs/quality/PR70_FINAL_AUDIT.md" }
       ],
-      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production."
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open."
     },
     "curriculum": {
       "checks": [
-        {
-          "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
-        },
-        {
-          "path": "docs/reviews/evidence/pr69/verification.json"
-        }
+        { "path": "docs/LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md" },
+        { "path": "docs/reviews/evidence/pr70/verification.json" },
+        { "path": "docs/quality/PR70_FINAL_AUDIT.md" }
       ],
-      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production."
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open."
     },
     "simulation": {
       "checks": [
-        {
-          "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
-        },
-        {
-          "path": "docs/reviews/evidence/pr69/verification.json"
-        }
+        { "path": "docs/LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md" },
+        { "path": "docs/reviews/evidence/pr70/verification.json" },
+        { "path": "docs/quality/PR70_FINAL_AUDIT.md" }
       ],
-      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production."
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open."
     },
     "savvyshark": {
       "checks": [
-        {
-          "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
-        },
-        {
-          "path": "docs/reviews/evidence/pr69/verification.json"
-        }
+        { "path": "docs/LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md" },
+        { "path": "docs/reviews/evidence/pr70/verification.json" },
+        { "path": "docs/quality/PR70_FINAL_AUDIT.md" }
       ],
-      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production."
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open."
     },
     "visual-accessibility": {
       "checks": [
-        {
-          "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
-        },
-        {
-          "path": "docs/reviews/evidence/pr69/verification.json"
-        }
+        { "path": "docs/LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md" },
+        { "path": "docs/reviews/evidence/pr70/verification.json" },
+        { "path": "docs/quality/PR70_FINAL_AUDIT.md" }
       ],
-      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production."
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open."
     },
     "independent-final-audit": {
       "checks": [
-        {
-          "path": "docs/quality/PR69_FINAL_AUDIT.md"
-        }
+        { "path": "docs/LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md" },
+        { "path": "docs/reviews/evidence/pr70/verification.json" },
+        { "path": "docs/quality/PR70_FINAL_AUDIT.md" }
       ],
-      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production."
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open."
     },
     "delivery": {
       "checks": [
-        {
-          "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
-        },
-        {
-          "path": "docs/reviews/evidence/pr69/verification.json"
-        }
+        { "path": "docs/LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md" },
+        { "path": "docs/reviews/evidence/pr70/verification.json" },
+        { "path": "docs/quality/PR70_FINAL_AUDIT.md" }
       ],
-      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production."
+      "limits": "New explicit laboratory3.7 only, frozen3.0–3.6 and SQL001–007/course/v2/history retained. Local PostgreSQL/isolated CI; no automatic upgrade, external resources, course credit, traffic/runtime or human approval. Disabled relevant access and uncertain VirtualNetwork-tag dependencies yield incomplete/undetermined, not an invented routing drop or Allow. Peering Delete deferred. Frozen3.5 malformed-input history is not repaired. Public functional Lab remains owner-deferred503; older timing causes remain open."
     }
   },
   "humanReview": {
@@ -282,379 +259,319 @@
   },
   "visualEvidence": [
     {
-      "path": "docs/reviews/evidence/pr69/screens/remediation-review-1440-900.png",
+      "path": "docs/reviews/evidence/pr70/screens/topology-review-1440-900.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual shared Portal modal with pinned identity/scope/model/revision, server Before/After, only supported fields and explicit Save; no duplicated editor in accepted Review."
+      "observation": "Actual pinned route identity/workspace/revision and complete server Before/After including removed Firewall/IP, explicit noncommitting Review and Save."
     },
     {
-      "path": "docs/reviews/evidence/pr69/screens/remediation-review-1024-768.png",
+      "path": "docs/reviews/evidence/pr70/screens/topology-review-1024-768.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Same actual Review; normal vertical inner scroll retains all rows and pinned Save/Cancel, no horizontal page overflow."
+      "observation": "Actual shared modal, compact metadata pairs, comparison and reachable footer; ordinary vertical scroll, no horizontal overflow."
     },
     {
-      "path": "docs/reviews/evidence/pr69/screens/remediation-review-1024-500.png",
+      "path": "docs/reviews/evidence/pr70/screens/topology-review-1024-500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Short-window identity and Review use vertical modal scroll; Save remains in viewport. No claim that all scope and comparison rows fit simultaneously."
+      "observation": "Actual short window needs internal scrolling to read all comparison rows; Save/Cancel retained in viewport, no all-content-at-once claim."
     },
     {
-      "path": "docs/reviews/evidence/pr69/screens/remediation-delete-confirmation-1024-500.png",
+      "path": "docs/reviews/evidence/pr70/screens/topology-disassociate-1024-500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Native checked confirmation explicitly names target ID/name; removal comparison and Delete/Cancel remain reachable."
+      "observation": "Checked exact subnet name/ID confirmation, actual removed NSG ID and separate change origin; Disassociate/Cancel reachable."
     },
     {
-      "path": "docs/reviews/evidence/pr69/screens/nsg-before-broad-studio.png",
+      "path": "docs/reviews/evidence/pr70/screens/topology-before-route-drop-studio.png",
       "viewport": "1440x960",
       "inspected": true,
-      "observation": "Actual modeled broad3389 policy result before narrowing; resource/observation references come from server-verified World."
+      "observation": "Actual None route produces modeled routing drop without fabricated NSG or Firewall success."
     },
     {
-      "path": "docs/reviews/evidence/pr69/screens/nsg-review-diff.png",
+      "path": "docs/reviews/evidence/pr70/screens/topology-after-firewall-studio.png",
       "viewport": "1440x960",
       "inspected": true,
-      "observation": "Actual server-validated wildcard to specific source/destination/TCP1433 difference, pinned same rule ID/parent."
+      "observation": "Actual same stable route after supported Firewall change; explicit limited policy result, SQL match and no real traffic/runtime claim."
     },
     {
-      "path": "docs/reviews/evidence/pr69/screens/firewall-before-broad-analysis.png",
+      "path": "docs/reviews/evidence/pr70/screens/topology-disabled-peering-studio.png",
       "viewport": "1440x960",
       "inspected": true,
-      "observation": "Actual broad3389 network policy Allow names app-sql/allow-data and explicitly disclaims real packets/VM runtime."
+      "observation": "Disabled relevant directional access yields visible undetermined/incomplete caveat and no evaluated NSG success; details collapsed after outcome."
     },
     {
-      "path": "docs/reviews/evidence/pr69/screens/firewall-after-delete-analysis.png",
+      "path": "docs/reviews/evidence/pr70/screens/topology-route-review-firewall.png",
       "viewport": "1440x960",
       "inspected": true,
-      "observation": "Original rule removed, remaining SQL rule/default deny evaluated by frozen engine; actual revision shown, no connection-success claim."
+      "observation": "Actual server-valid None to VirtualAppliance change shows added existing Firewall and private IP before Save."
+    },
+    {
+      "path": "docs/reviews/evidence/pr70/screens/topology-subnet-disassociation-history.png",
+      "viewport": "1440x960",
+      "inspected": true,
+      "observation": "Separate immutable detach receipt, preserved Create-origin link and verified original through replay, no NSG deletion."
     }
   ],
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Corrected candidate actual exit0:1042Vitest/86files,24Node,503curriculum,57objectives/126facets; all checks and production build. qa/check-renewal-final.log.raw"
+      "details": "Actual final exit0:1082Vitest/89files,24Node,503curriculum,57objectives/126facets and production build; qa/check-final.log.raw"
     },
     {
       "command": "npm run test:e2e:plan",
       "result": "passed",
-      "details": "402desktop+46compact=448; retains441 inherited witnesses/assertions/settings. Collection is not a full-profile execution claim. qa/plan-renewed.log.raw"
+      "details": "455=408desktop+47compact retains448 controls/settings; collection only, not executed full profile; qa/plan-final.log.raw"
     },
     {
-      "command": "npx vitest run src/laboratory-remediation.test.ts src/laboratory-remediation.integration.test.ts src/laboratory-remediation-preservation.test.ts",
+      "command": "npx vitest run src/laboratory-topology.test.ts src/laboratory-topology.integration.test.ts src/laboratory-topology-preservation.test.ts",
       "result": "passed",
-      "details": "53/53 actual:34pure+16realPG+3directguard. Multiple unsupported fields/permutations and empty keys on all4 operations, canonical inherited malformed command, unchanged World/read/replay/idempotency. qa/strict-input-targeted.log.raw"
+      "details": "40/40 pure/realPG/directpreservation, actual cold/historical upgrades/rollback/concurrency/JSONB adversarial/through; qa/targeted-precheck.log.raw"
     },
     {
-      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/laboratory-remediation.spec.ts",
+      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/laboratory-topology.spec.ts",
       "result": "passed",
-      "details": "Corrected production build + real localPG:6desktop+1compact=7/7,41.0s,zero retry. Actual NSG/FW Edit/Delete, Studio before/after, stale native Save409, histories/reset/error, explicit3.5→empty3.6/no migration, keyboard/focus/Axe/reduced motion/3sizes. Targeted, not full448-case CI. qa/browser-renewal.log.raw"
+      "details": "Final normal production + real localPG7/7 in55.8s zero retry;1440x900/1024x768/1024x500 keyboard/focus/Axe/reducedmotion. Historical3.6 native7/7 also passed; targeted only, not full455; qa/browser-final.log.raw and browser-legacy.log.raw"
     }
   ],
+  "snapshot": {
+    "files": {
+      ".gitattributes": "5599d9e75216a91ec847701acbf3f8193d91599f238af7a02c365caec0df2094",
+      "AGENTS.md": "057b5d6cf5a6c68dc4597a18ab3cb428695ba62822f16a72e36aa88ca2163d4c",
+      "database/laboratory-v3/008-topology-remediation.sql": "5d90b5f32009b7d1a480256dd81ef0afc96e2eb3fc85a7f414ede9e32c179bc7",
+      "docs/ARCHITECTURE.md": "3549adf15ccab7f050f5040254204ed5ef2f4287ae7db8d6dbfa8fdca1cb21b3",
+      "docs/DECISIONS.md": "6861691106ce55d99d9e8f588e7f45fb973b8ff84403f4fd5d669effd33bab72",
+      "docs/LABORATORY_REMEDIATION_CAPABILITIES.md": "cd28381e542de52971f096c16825ab4a294d871b89a809b87f05534dbde05bc4",
+      "docs/LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md": "7bdb7ed31abf7f4d58c66d4b5d1e36d09b05d704c3133138ab88136a79811903",
+      "docs/LABORATORY_V3_SERVER.md": "1ea8785d4f70888db66ad54e36147faa7760960a4fd0daf129da88ef5c0d748d",
+      "docs/PORTAL_CAPABILITY_MATRIX.md": "4bc49e81e2526395879bc183db4be0972c6bea5b67a4df5b0d41283ffd590c4b",
+      "docs/reviews/evidence/pr70/manifest.json": "8f98f5a7fc49dd8dc83d4299273683008b3e703b357c66ae505562f681a40695",
+      "docs/reviews/evidence/pr70/preservation.json": "c55083cadfd1f61d688d2109a720662ff7245c132b443469cc25f5fc8d887094",
+      "docs/reviews/evidence/pr70/qa/browser-corrected.log.raw": "93d3719518abdd39d006ecdaddce2587f7bee1ceba5de902cd98f735192ee994",
+      "docs/reviews/evidence/pr70/qa/browser-final.log.raw": "ff18b498ac7cc5de1b2f4a2d2332bfc49e3839a3e3d61a7b30c41485a71456cd",
+      "docs/reviews/evidence/pr70/qa/browser-initial.log.raw": "a21ea43185f9d3c6e0ef3a7a50ff87ab0ee723e0031beaf7093e648ec7755ea4",
+      "docs/reviews/evidence/pr70/qa/browser-legacy.log.raw": "a58a8bfc6b4f705ac52d15359ebbe1c9747f2c5f9471b8dec1d9eb76f7016eeb",
+      "docs/reviews/evidence/pr70/qa/check-corrected.log.raw": "19e4e835d0ab0f879ea4f47afc44393eb5003458b778cae3518d71f0cac9d0a1",
+      "docs/reviews/evidence/pr70/qa/check-final.log.raw": "58a9d32d9d264952cd8da95fbdd7c8e6fa378e9e1ed60f1203997b6dc1947d04",
+      "docs/reviews/evidence/pr70/qa/correction-both-defaults-both-disabled-entries.json.raw": "f55e94ad870d236686b599fb639ca4099c8dfbd53bb516633328d46328c810d8",
+      "docs/reviews/evidence/pr70/qa/correction-challenge.json.raw": "36aa07fa8add323781198c8f92dbd1cd57834021dfaa9985e16708e122628466",
+      "docs/reviews/evidence/pr70/qa/correction-challenge.mjs.raw": "63eafe928313491dc3afc1cd60b8b21fede6c388226b27c62443dcf742e5131d",
+      "docs/reviews/evidence/pr70/qa/correction-destination-default-local-disabled-entries.json.raw": "c524f5f4f5716d428e650cfb471ffff8471f48721701b23379f2963acdd0847b",
+      "docs/reviews/evidence/pr70/qa/correction-destination-default-reverse-disabled-entries.json.raw": "eadbb72091c89c23dcbe1a7fc4b9623e314d51b93d856e83107bb83628fd65d6",
+      "docs/reviews/evidence/pr70/qa/correction-independent-peering-both-disabled-entries.json.raw": "2a4164b11adf576417710cbc779fcafdff90580d76030bd9d061709bc722687f",
+      "docs/reviews/evidence/pr70/qa/correction-independent-peering-local-disabled-entries.json.raw": "d53459f26d509e99b62baaa671ee4ea57dc0b5c4290c7975a70a413df8f6cecd",
+      "docs/reviews/evidence/pr70/qa/correction-independent-peering-repro.json.raw": "fe6f585999e2dde48382a04b83e0bd37223a6ab2ce4a863f751cde7bd6ba50f0",
+      "docs/reviews/evidence/pr70/qa/correction-literal-allows-unused-both-disabled-entries.json.raw": "9f861452878de1a25af062ab3434edda9bab41cae285ac59b041878d9fcdbc0f",
+      "docs/reviews/evidence/pr70/qa/correction-literal-deny-unused-both-disabled-entries.json.raw": "bf869dacc2f843d6c60edebbceda5815e913bef40b03821c8272f1143c11b11e",
+      "docs/reviews/evidence/pr70/qa/correction-manifest.json.raw": "6913fb36bd1462a1009e28b4a1f97af9e7e317e8f669153fd6ecefa167d03b09",
+      "docs/reviews/evidence/pr70/qa/correction-original-repro-rerun.mjs.raw": "ce6d0925599a09c9433f22347d204989acc45591a6e0f32416484cf8d110e253",
+      "docs/reviews/evidence/pr70/qa/correction-source-default-both-disabled-entries.json.raw": "2a4164b11adf576417710cbc779fcafdff90580d76030bd9d061709bc722687f",
+      "docs/reviews/evidence/pr70/qa/correction-source-default-local-disabled-entries.json.raw": "d53459f26d509e99b62baaa671ee4ea57dc0b5c4290c7975a70a413df8f6cecd",
+      "docs/reviews/evidence/pr70/qa/correction-source-default-reverse-disabled-entries.json.raw": "95d7f13e0fa8f1aaf6c701310e7ab02ea41ca84722edc47099bf8b7d16e38c49",
+      "docs/reviews/evidence/pr70/qa/correction-source-default-unrelated-disabled-range-entries.json.raw": "6037619c0f45de8f437d64f54b843a4228d3fae1a7c74f0fbad5fd410ef32fa0",
+      "docs/reviews/evidence/pr70/qa/domain-initial.log.raw": "401e0fac9a1cd073334635c8df75c802646a413c7b33b3e036212dc677f6ab70",
+      "docs/reviews/evidence/pr70/qa/domain-pg-initial.log.raw": "830acfac76b13302f4a170e3364cb0dfed7ce72302bc373a9532246f7b3cee62",
+      "docs/reviews/evidence/pr70/qa/fixture-correction-applied.log.raw": "c9487cea50090dc3dbe3e708c686ce9534e25c54b475fcdfb3bbfeba3e5caa76",
+      "docs/reviews/evidence/pr70/qa/fixture-correction.log.raw": "b9cc434b6da4a0516fba39d85551d8642ff8f83b467bec673a859b8147cd1d7b",
+      "docs/reviews/evidence/pr70/qa/historical-ci110-attempt1.log.raw": "92069cb8cd29a82f874bd4c886f470370bb7fbf1dd06bc7b28bf1322eb798c18",
+      "docs/reviews/evidence/pr70/qa/historical-ci110-attempt2.log.raw": "87c0df534f7797c97a584feff8b9a0fd17717444ca178cc754dad924486d62c9",
+      "docs/reviews/evidence/pr70/qa/independent-peering-both-disabled-entries.json.raw": "2a4164b11adf576417710cbc779fcafdff90580d76030bd9d061709bc722687f",
+      "docs/reviews/evidence/pr70/qa/independent-peering-correction-validation.md.raw": "517f205f6fd3c33c6d218b4bbfe053c63a1888341670e33ae8464ec1701d2f07",
+      "docs/reviews/evidence/pr70/qa/independent-peering-local-disabled-entries.json.raw": "d53459f26d509e99b62baaa671ee4ea57dc0b5c4290c7975a70a413df8f6cecd",
+      "docs/reviews/evidence/pr70/qa/independent-peering-repro.json.raw": "5700d596d43dddc5e355208cda8d40b1ea9a1da40317f617a19b965774043e0a",
+      "docs/reviews/evidence/pr70/qa/independent-peering-review.md.raw": "831de5371e2d53650c2bfe1aacc99d3b53e0a74bb6b093f400cf0d02b9e22123",
+      "docs/reviews/evidence/pr70/qa/lint-initial.log.raw": "e37154e476cf5132493252a85a9b8e0f602c019f09b5b7c4ae88e032b0002b3d",
+      "docs/reviews/evidence/pr70/qa/plan-final.log.raw": "997200e1a520d1db9672bfdd98a05195552affa4b99f01fa1e5e6805147815eb",
+      "docs/reviews/evidence/pr70/qa/preservation-corrected.log.raw": "a806c6ed9ef0a0a737d36b76597ecc2a585a14251e4ca213cd2d9e8415cb4111",
+      "docs/reviews/evidence/pr70/qa/preservation-initial.log.raw": "9234325f715942af9f843ccf6d619efe032dce93876de72fc4c51df738a7e63a",
+      "docs/reviews/evidence/pr70/qa/targeted-precheck.log.raw": "22dea83fe4baa06f95771e529b37e778b080a36bee2ac621ce18fa0df9e9a649",
+      "docs/reviews/evidence/pr70/qa/trace-provenance.json": "336ec38e69c99f59caf31e773c049af76eae0e38667e4b7da84844c7399bcf7c",
+      "docs/reviews/evidence/pr70/qa/traces/laboratory-topology-topolo-43c0b-ve-actual-resource-evidence-compact-chromium.error-context.md.raw": "2207091303958782f2d3ea73de7674289981b2d3dd43bc801a3ee09438a3ff94",
+      "docs/reviews/evidence/pr70/qa/traces/laboratory-topology-topolo-43c0b-ve-actual-resource-evidence-compact-chromium.redacted.zip": "5fb2809df434cab9960c6bb7bfbc6792759988292faca9840c901d0a89128098",
+      "docs/reviews/evidence/pr70/qa/traces/laboratory-topology-topolo-43c0b-ve-actual-resource-evidence-desktop-chromium.error-context.md.raw": "330673cbe4b2e491dc3b8cff1634cd4493b2ea3ee4915097d979e73ff6274649",
+      "docs/reviews/evidence/pr70/qa/traces/laboratory-topology-topolo-43c0b-ve-actual-resource-evidence-desktop-chromium.redacted.zip": "10e0edceb1e877562aad5f4477cd2d41605ee509c198f65d30cb6c56bc0eec0c",
+      "docs/reviews/evidence/pr70/qa/traces/laboratory-topology-topolo-4a94a-nce-without-a-partial-write-desktop-chromium.error-context.md.raw": "cfc75476bc3ecad539327a0b4a86c2bc7699d38d68d4072f7f35efaabc5dd4dc",
+      "docs/reviews/evidence/pr70/qa/traces/laboratory-topology-topolo-4a94a-nce-without-a-partial-write-desktop-chromium.redacted.zip": "580dac0f38ce683c5a3161be56346d773a20e1fd6fcb41d1a8fc82a8c10e19a7",
+      "docs/reviews/evidence/pr70/qa/traces/laboratory-topology-topolo-72a2d-lost-update-or-fake-success-desktop-chromium.error-context.md.raw": "ef6cbdc03e73577a20ec29a2b2bcee71f2dc70c5d6e2205302820419b11826fa",
+      "docs/reviews/evidence/pr70/qa/traces/laboratory-topology-topolo-72a2d-lost-update-or-fake-success-desktop-chromium.redacted.zip": "3116fcd922030154466e81eaa8a857a9cab5ebe48c47a6951de0740219d103e5",
+      "docs/reviews/evidence/pr70/qa/traces/laboratory-topology-topolo-a2b58-hout-writes-from-inspection-desktop-chromium.error-context.md.raw": "cc91dc2731fdec6d08182f872b8f6afe5e68b2283a1625fdeebc3054508099eb",
+      "docs/reviews/evidence/pr70/qa/traces/laboratory-topology-topolo-a2b58-hout-writes-from-inspection-desktop-chromium.redacted.zip": "103b0d251ded8d18a7d2640e877c3bb9f3d47b66246307d834f103827fdb26a6",
+      "docs/reviews/evidence/pr70/qa/traces/laboratory-topology-topolo-e91b1-ceipts-and-no-course-credit-desktop-chromium.error-context.md.raw": "0a8671be0f4acec436525f60fd9dee8ffe689d15db76c1e9ad3e55280c704917",
+      "docs/reviews/evidence/pr70/qa/traces/laboratory-topology-topolo-e91b1-ceipts-and-no-course-credit-desktop-chromium.redacted.zip": "0b3c3e7b7777b103acda3cb6173389e15ce755c3a1b755f4f61f6a7a4236bc09",
+      "docs/reviews/evidence/pr70/qa/typecheck-initial.log.raw": "883ab6d11b3c045d1a374763fc7d7ad5083697676d31d0dbb88edfd00b11f70e",
+      "docs/reviews/evidence/pr70/qa/typecheck-ui.log.raw": "e152813c884696305ca1b1af4b81a49dc73e64ec53cecb60ee654a583e37591e",
+      "docs/reviews/evidence/pr70/screens/topology-after-firewall-studio.png": "9d8861a0e74feff506063927899de3ae1195f3f77e6a30d8155d66bb4ae4293a",
+      "docs/reviews/evidence/pr70/screens/topology-before-route-drop-studio.png": "a7d691bd91a1d8cb39d2cd19c82a497877c580da3564206ae38d73725ffcb881",
+      "docs/reviews/evidence/pr70/screens/topology-disabled-peering-studio.png": "574847bbfa7cc1390a642202f0a925d1a8e2939f71344b431ff5694f994c9db7",
+      "docs/reviews/evidence/pr70/screens/topology-disassociate-1024-500.png": "c2f28da1c1f4935677101d3ecdabd80bd9b29f2a9e15905ab38a6738078174cd",
+      "docs/reviews/evidence/pr70/screens/topology-review-1024-500.png": "f7c4b4e3decefe4ad4c746b5a8a9f1c9183bea7eab43112ada96a2a184aa011c",
+      "docs/reviews/evidence/pr70/screens/topology-review-1024-768.png": "05046b2d6bf9f50a969f7b23953f18efd97605d5ff8f6c756be36ff6b92412c2",
+      "docs/reviews/evidence/pr70/screens/topology-review-1440-900.png": "6231ae3c0dd59aada3e93f51643683abda146447a889ce0ea689c8f13faee6f9",
+      "docs/reviews/evidence/pr70/screens/topology-route-review-firewall.png": "5146c0cf6398849675e9e0076bbafc3371d7136fcd02d087ec03ed87f9429557",
+      "docs/reviews/evidence/pr70/screens/topology-subnet-disassociation-history.png": "0c3cc38d5da00f15166ded6895077a00463b8b8e10c0a5de383365c43a77bf56",
+      "docs/reviews/evidence/pr70/sources/fetch.json": "0c0b9774fae6b000f80ea5ed9e087d89f740329f08eb8761fa130d5a7d56b600",
+      "docs/reviews/evidence/pr70/sources/images.json": "85384abe5df2a2a39e6275fb4c65ee73511505dc33288c9a9001cf5866519865",
+      "docs/reviews/evidence/pr70/sources/nsg.raw": "1fb4efa082f56a0a9107a3c22886e19cc7ac26695dd3789d1399996d2e10670e",
+      "docs/reviews/evidence/pr70/sources/peering-arm.raw": "0d5c5abd05a8535e11fed2997e637351ae5c8ae054e86d95f419f9e26f2ae21e",
+      "docs/reviews/evidence/pr70/sources/peering-current.png": "65bc791e51662bbb46074c97b73f83a65e1d51c8cbd807f25b155f208105f2d3",
+      "docs/reviews/evidence/pr70/sources/peering-rest.raw": "01d8840514680794560aff2e77e3f96cb2c0426438e75d03066d036051e9b360",
+      "docs/reviews/evidence/pr70/sources/peering-troubleshoot.raw": "35eba100d7fb79a3c27cc25283a10227533befd22a922eb2930e3ef35e96f0fc",
+      "docs/reviews/evidence/pr70/sources/peering.raw": "e7e68fc9ca1852bc4c39ca8948caf247bfe8f7de00a1011b96192b0c61aacfe1",
+      "docs/reviews/evidence/pr70/sources/route-current.png": "71191a38a62f51721d1a0f176cd42e768e761d95af5cede938c0b8237242fe64",
+      "docs/reviews/evidence/pr70/sources/route-table.raw": "38be214ae0b8e4f9f83fa2a44d714a9cb57ef4a3f95dfc07c0acc30b650a5ce4",
+      "docs/reviews/evidence/pr70/sources/udr.raw": "f4d7136c60a44ef9acb9774c5de8c87b29247e9740cb1b423e59f48b71bcda62",
+      "docs/reviews/evidence/pr70/verification.json": "8ded9c3a06dfb15fb24fabc4fcbc018217607eee4fa003ccbbf172f692bda894",
+      "playwright.desktop.config.ts": "8e98da9fd843ac37643fa5b9f4b3c7af1b9aefa070a2f1c34ed7e46a3f5e8d69",
+      "scripts/laboratory-db.mjs": "493f08925470c4fccf84dfc540292abfd1c83a28ec28605bc7e8dbb26dd95b8c",
+      "src/content/laboratory-topology-nb.ts": "5d66895b3d2166666335d3d4f7971005017a1825f3460923d2d7184487a1a601",
+      "src/features/laboratory/capabilities.ts": "2361447a55c37089a7dc4182cb3b954c4157f3fb7aa69445345897c2251352e5",
+      "src/features/laboratory/compute.tsx": "2d3d27c6b6ab155712f825d64436588f1fb9b9d103c32427496e0afd746db419",
+      "src/features/laboratory/endpoints.tsx": "e963e17b9d1d0dc38006031681c863f67620483863090b1ee5486ec469392217",
+      "src/features/laboratory/firewall.tsx": "19ba67933fb875a0ed833de784755c17bf71b1f4a730e2c86eb26c268a602db4",
+      "src/features/laboratory/laboratory.tsx": "1302aacb59aa7aef0c655f9e8ae08f3e4a84ba36cf6fb4bdd7a8f452500eb21f",
+      "src/features/laboratory/networking.tsx": "7133c9a33782ab99d9764e2d08745d25e008fa46f05bbb1b676371b6d5de6525",
+      "src/features/laboratory/portal-adapter.tsx": "88e0643eb4ee7b2402a3b2b7198ee93bab38ec61b18c3dcbdbbbeeb653eec0c0",
+      "src/features/laboratory/routing.tsx": "2d9d11cb031b67c81879efb6dab438b75576daee10e2a7b503d59ed71981e64a",
+      "src/features/laboratory/rule-lifecycle.css": "387ff35408213623800e4e0f5a740486c4bda4d4b3aa330e8142d9f7b8858eac",
+      "src/features/laboratory/rule-lifecycle.tsx": "93b54d5bb33e9a36e5fdfb6231e16cf8f253598379196ccf75d0fe5308b893e2",
+      "src/features/laboratory/studio-model.ts": "ed5a2ecfd44ac1e5a81a20db8125645c2982673f36b2ca912bd73d80c51a6cd2",
+      "src/features/laboratory/studio.tsx": "6d661e5a1f1ef1830783fb60072e5a648283b07413483ef2640856f75504fe05",
+      "src/features/laboratory/topology-access.tsx": "02b80bccb9ad0a26ef66d47e6171a0f274d683e20f589851a5ccf1602046ae1c",
+      "src/features/laboratory/topology-target.ts": "82386552d2f100a772ff7561b6742c627807b3229c9e474263d1545395a4f113",
+      "src/laboratory-compute.test.ts": "5ad0d14dbd272588254ab34fb6221778e2b011937a98e70a40b461a738c46037",
+      "src/laboratory-remediation-preservation.test.ts": "2c9759c284ea4cd536e286988cf895ce39dbdaf726960c7cd9b0b4cc1e2b460d",
+      "src/laboratory-remediation.test.ts": "06983b430bdd79c9170e99286d9a579dfbe3817059d90f918ca846e535711097",
+      "src/laboratory-topology-preservation.test.ts": "ac636edc7e626c3950254b8edbd17bcebc563209c06c4a232fc8087d186d55f8",
+      "src/laboratory-topology.integration.test.ts": "93097c268d53516ce2d460d449e2cd097e64bb7f82fac4375a30b5c215e1e2ce",
+      "src/laboratory-topology.test.ts": "6dee5bb6491f6dc9e39d7f82bad75be4bf424b18f01def6ca560ef3862ec1a8d",
+      "src/laboratory/engine.ts": "ecb16434e62eda278e7496e2408fc2bc734211ed295661c5df9ffea805247f9f",
+      "src/laboratory/v3/server.ts": "689edf2234fd214b754847b030b253a7e7f41b6901a9662b7e4d0a7eddbb2ed5",
+      "src/laboratory/v37/analysis.ts": "a0822b900fd2756bb327cb2dab6fd795e8266e1ec9898090991122e14ac55e01",
+      "src/laboratory/v37/contract.ts": "abe816460898cbbfbcefaceda4d3677653495bdc9079e5b6fb8dbab2e16195d9",
+      "src/laboratory/v37/domain.ts": "469ca4202052802271ecac410f77f3f6d4d5b97217e3887cc2ffbb889f29ecf6",
+      "src/laboratory/v37/projection.ts": "06f6bac3b4d3909dd01da6f314e67f664a6c200308480149cc23e643d49fc2b8",
+      "tests/e2e/laboratory-remediation.spec.ts": "ccf8b25951e92e366da71887fbef5a9460bac99bd10a112a301d992f66f60144",
+      "tests/e2e/laboratory-topology.spec.ts": "e65ab355c24639d09892a887aca476edfeaaf26865debb9415500565ec87ac35",
+      "tests/fixtures/topology-world.ts": "9a860707a66d507073a760f3d7e428848ff35d8a7529ec7ccfb77e8838393250",
+      "tests/pr69-preservation.ts": "ee623b6cc8a95664d2a7be4012acd8380952cb164d508d8a73ff17a7bdcaf4ce",
+      "tests/pr70-preservation.ts": "bc96f47121d3b011edcc329ca557c1c5713256ac3d96f18f18570d505c28fb84"
+    }
+  },
+  "implementationFinished": "2026-11-08T22:00:45.133Z",
   "review": {
     "status": "complete",
-    "fingerprint": "11489ef1e18a8fbcd8338c20e31cd0c0c76023ab8eda38d6af9f4adeb38a1ced",
-    "reviewer": {
-      "id": "pr69-independent-final-auditor",
-      "kind": "agent"
-    },
-    "started": "2026-11-08T19:10:06.348Z",
+    "fingerprint": "ce4eb3088e126bb55cc77a12cdfe593a79163024c05952acc2ccebf322ae842c",
+    "reviewer": { "id": "pr70-independent-final-auditor", "kind": "agent" },
+    "started": "2026-11-08T22:01:02Z",
     "domains": {
       "content": {
-        "finding": "Accepted within the documented literal-rule subset: independently read six official retained bodies/provenance and checked source/image/manifest hashes; hierarchy, custom/default identity, priorities and runtime limits agree. No live-tenant parity claim.",
+        "finding": "Scoped claims supported by independent live refetch of all seven official Markdown bodies, byte-identical retained hashes and actual source-image inspection. Directional access, receiving forwarding and Connected remain separate; Portal versus directional Delete side effects are not uniquely established, so deferral is justified. No full Azure runtime or human SME claim. Packaging renewal independently confirms all75 evidence manifest files and staged raw blobs match original recorded bytes; seven source bodies retain original reviewed hashes.",
         "evidence": [
-          {
-            "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
-          },
-          {
-            "path": "docs/reviews/evidence/pr69/sources/fetch.json"
-          },
-          {
-            "path": "docs/quality/PR69_FINAL_AUDIT.md"
-          }
+          { "path": "docs/LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md" },
+          { "path": "docs/reviews/evidence/pr70/sources/fetch.json" },
+          { "path": "src/content/laboratory-topology-nb.ts" },
+          { "path": "docs/quality/PR70_FINAL_AUDIT.md" },
+          { "path": "docs/reviews/evidence/pr70/manifest.json" }
         ]
       },
       "technical": {
-        "finding": "Accepted after deterministic JSONB and empty-key corrections, independently reproduced then retested. Stable identity/origin, full frozen-validator reuse, immutable receipts, verified history, exact parents and original repository semantics verified by actual PG and adversarial cases. Frozen historical limitation disclosed separately.",
+        "finding": "Independent40 real-PG/domain/preservation tests and21 command-created challenges pass. Atomic full-validator/all-subnet route replacement preserves exact ID/name/parent/Create-origin/count/nextId; detach retains NSGs/rules; owned access is separate from forwarding. Default-tag dependencies and selected/return access produce conservative unknown. Original repository locking/revision/rollback/idempotency and canonical JSONB replay remain authoritative. Renewed119-file snapshot differs only in attributes, finite preservation guard/proof and its manifest row; all runtime/domain payload hashes are unchanged.",
         "evidence": [
-          {
-            "path": "src/laboratory/v36/domain.ts"
-          },
-          {
-            "path": "src/laboratory/v36/analysis.ts"
-          },
-          {
-            "path": "src/laboratory-remediation.integration.test.ts"
-          },
-          {
-            "path": "docs/quality/PR69_FINAL_AUDIT.md"
-          }
+          { "path": "src/laboratory/v37/domain.ts" },
+          { "path": "src/laboratory/v37/analysis.ts" },
+          { "path": "src/laboratory-topology.integration.test.ts" },
+          { "path": "src/laboratory/v3/repository.ts" },
+          { "path": "docs/quality/PR70_FINAL_AUDIT.md" }
         ]
       },
       "visual": {
-        "finding": "Inspected actual author PNGs and fresh reviewer production captures at1366x768/1024x500. Review replaces fields, Back restores draft/focus, sticky actions and actual Delete checkbox remain usable with normal vertical scroll; Axe/keyboard/reduced-motion/overflow probes pass. No human UX/screen-reader approval.",
+        "finding": "Inspected actual author source/UI images plus fresh independent production captures at1920x1080/1440x900/1366x768/1024x500. Zero Axe violations, no horizontal overflow and Save visible; internal short-window scrolling is necessary. Exact scope and Before/After remain legible. Ineffective grid declaration has no credited density effect and author prose now matches actual rows. No human UX/screen-reader or new browser-zoom approval. Packaging renewal preserves every UI/CSS/image/browser-test hash; no new visual change or review credit is inferred.",
         "evidence": [
-          {
-            "path": "src/features/laboratory/rule-lifecycle.tsx"
-          },
-          {
-            "path": "src/features/laboratory/rule-lifecycle.css"
-          },
-          {
-            "path": "docs/quality/PR69_VISUAL_REVIEW.md"
-          },
-          {
-            "path": "docs/reviews/evidence/pr69/screens/remediation-delete-confirmation-1024-500.png"
-          },
-          {
-            "path": "docs/quality/PR69_FINAL_AUDIT.md"
-          }
+          { "path": "src/features/laboratory/rule-lifecycle.tsx" },
+          { "path": "src/features/laboratory/rule-lifecycle.css" },
+          { "path": "docs/quality/PR70_VISUAL_REVIEW.md" },
+          { "path": "docs/reviews/evidence/pr70/screens/topology-review-1024-768.png" },
+          { "path": "docs/reviews/evidence/pr70/screens/topology-disassociate-1024-500.png" },
+          { "path": "docs/quality/PR70_FINAL_AUDIT.md" }
         ]
       },
       "assessment": {
-        "finding": "No course assessment/rubric/assistance/Journal/XP/SavvyShark authority change. Actual2400-file base guard and finite proof preserve bytes; technical remediation evidence grants no learning credit and introduces no answer bank.",
+        "finding": "No assessment bank/rubric/learning-evidence/XP change. Actual full2498-file-base guard with finite hash-pinned deltas independently preserves course/domain/locale/assessment/mascot authorities and original assertions. Native independent Lab actions leave course localStorage unchanged; technical receipts do not grant learning credit. Packaging renewal preserves all original assessment/course/learning authorities; six direct preservation checks pass independently.",
         "evidence": [
-          {
-            "path": "src/laboratory-remediation-preservation.test.ts"
-          },
-          {
-            "path": "tests/pr69-preservation.ts"
-          },
-          {
-            "path": "docs/reviews/evidence/pr69/preservation.json"
-          },
-          {
-            "path": "docs/quality/PR69_FINAL_AUDIT.md"
-          }
+          { "path": "src/laboratory-topology-preservation.test.ts" },
+          { "path": "tests/pr70-preservation.ts" },
+          { "path": "docs/reviews/evidence/pr70/preservation.json" },
+          { "path": "docs/quality/PR70_FINAL_AUDIT.md" }
         ]
       },
       "guidance": {
-        "finding": "Read-only Studio observation to exact resource/shared Portal Edit and return remains explicit; revisions invalidate analysis and deletes remove active nodes. Independent native old3.5 confirmation/cancel/new-empty3.6 proves no migration, original-history and course-storage preservation. Existing older workspaces stay create-only.",
+        "finding": "Shared Portal editor pins exact workspace/model/revision/identity/parent and uses original server Review/Save path; detach requires explicit target confirmation. Read-only Studio consumes original analyses and opens same resource flow. Seven independent assertions verify workspace/model/revision rejection and stale-observation suppression; retained native evidence reaches stale409/idempotency/replacement-session rejection. Frozen SavvyShark/assistance authorities preserved. Packaging renewal preserves exact Portal/Studio/guidance payload hashes and original limitations.",
         "evidence": [
-          {
-            "path": "src/features/laboratory/laboratory.tsx"
-          },
-          {
-            "path": "src/features/laboratory/studio-model.ts"
-          },
-          {
-            "path": "src/content/laboratory-remediation-nb.ts"
-          },
-          {
-            "path": "tests/e2e/laboratory-remediation.spec.ts"
-          },
-          {
-            "path": "docs/quality/PR69_FINAL_AUDIT.md"
-          }
+          { "path": "src/features/laboratory/rule-lifecycle.tsx" },
+          { "path": "src/features/laboratory/topology-target.ts" },
+          { "path": "src/features/laboratory/studio-model.ts" },
+          { "path": "tests/e2e/laboratory-topology.spec.ts" },
+          { "path": "docs/quality/PR70_FINAL_AUDIT.md" }
         ]
       },
       "regression": {
-        "finding": "Read actual diff and finite historical reader plus actual filesystem guard. Frozen engines/SQL001–006/course/PR68 bytes and441 original browser assertions/settings preserved. Own53 domain/PG/guard,8 adversarial,3 native and448-plan checks pass; author full check inspected. Full448 candidate CI/strict and deployed SHA/503 remain pending; inherited QA/timing issues remain open.",
+        "finding": "Frozen3.0–3.6 engines/receipts, SQL001–007, repository/course/v2 and locked PR69 evidence remain byte-preserved. Independently reran40 tests and455-plan; retains448 browser controls/settings. Inspected actual author full-check1082Vitest/24Node/build and targeted new7/7 plus historical3.6-native7/7 logs, including initial6fail/1pass and corrected Axe/test-assumption evidence. Full exact-head455CI/strict and anonymous deployedSHA/503 remain pending; inherited causes remain open. Packaging-only renewal independently validates staged/worktree bytes for75manifest files including53raw; exactly8normalized blobs restored to original341… hashes. Scoped -text rule, one-line finite guard extension and proof/manifest hashes verified;6/6 preservation tests pass. Other115original snapshot rows unchanged; full CI remains pending.",
         "evidence": [
-          {
-            "path": "src/laboratory-remediation-preservation.test.ts"
-          },
-          {
-            "path": "tests/pr69-preservation.ts"
-          },
-          {
-            "path": "docs/reviews/evidence/pr69/preservation.json"
-          },
-          {
-            "path": "playwright.desktop.config.ts"
-          },
-          {
-            "path": "docs/reviews/evidence/pr69/qa/check-renewal-final.log.raw"
-          },
-          {
-            "path": "docs/quality/PR69_FINAL_AUDIT.md"
-          }
+          { "path": "src/laboratory-topology-preservation.test.ts" },
+          { "path": "playwright.desktop.config.ts" },
+          { "path": "docs/reviews/evidence/pr70/qa/check-final.log.raw" },
+          { "path": "docs/reviews/evidence/pr70/qa/browser-initial.log.raw" },
+          { "path": "docs/reviews/evidence/pr70/qa/browser-final.log.raw" },
+          { "path": "docs/reviews/evidence/pr70/qa/trace-provenance.json" },
+          { "path": "docs/quality/PR70_FINAL_AUDIT.md" },
+          { "path": ".gitattributes" },
+          { "path": "docs/reviews/evidence/pr70/manifest.json" }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR69-AUDIT-01",
+        "id": "PR70-SEM-01",
         "severity": "major",
         "status": "fixed",
-        "description": "Incoming unsupported-key order differed from PostgreSQL JSONB replay, making a rejected new3.6 command corrupt verified history.",
-        "fix": "New v36 sorts unsupported keys and privately canonicalizes inherited command evaluation in new3.6 without mutating the original Request or frozen older executors/receipts.",
+        "description": "Earlier focused independent review demonstrated an unselected disabled direct peering supplying definite VirtualNetwork default-rule Allow through another Firewall path; original failing evidence is retained.",
+        "fix": "Stamped v37 analysis independently checks actually evaluated source/destination tag dependencies and reverse access, clears unsupported NSG match traces and Firewall decision, and leaves frozen evaluators unchanged.",
         "retests": [
-          "Original reviewer actual-PG reproducer now passes; reviewer8/8 adversarial and actual HTTP negative preserve World/readability.",
-          "53/53 domain/PG/preservation cases include both key orders on all four new operations and inherited CreateGroup; valid inherited fixture parity and original Request nonmutation independently pass."
+          "Independent post-stamp21 command-created challenges include source/destination default tags with either direct direction disabled; each becomes undetermined/incomplete with exact replay.",
+          "Independent40/40 domain/realPG/preservation tests include original unselected-disabled regression; retained original2+9 correction evidence preserved."
         ]
       },
       {
-        "id": "PR69-AUDIT-02",
+        "id": "PR70-V01",
         "severity": "minor",
-        "status": "fixed",
-        "description": "Existing new-workspace dialog promised3.5 while server created3.6;3.5 lacked the existing entry.",
-        "fix": "Accurate remediation-local new-empty3.6 copy and existing explicit newWorkspace path at existing groups/services location for all older models; frozen content untouched.",
-        "retests": [
-          "Independent renewed native3/3 includes old3.5 read-only rule, cancel/no mutation, explicit empty3.6 creation, byte-equivalent original owned3.5 history and unchanged course local storage."
-        ]
+        "status": "accepted-limitation",
+        "description": "Topology-only grid-template declaration is ineffective on the original non-grid Properties layout. Readable label/value rows and tested short-window inner scroll remain; inaccurate author density prose was corrected during audit without implementation/fingerprint changes."
       },
       {
-        "id": "PR69-AUDIT-03",
-        "severity": "minor",
-        "status": "fixed",
-        "description": "Unsupported empty property name was parser-admitted and skipped by a truthiness guard, accepting Delete.",
-        "fix": "New v36 uses !== undefined for unsupported-key guard and explicit field metadata; frozen parser unchanged.",
-        "retests": [
-          "Independent original actual-PG and HTTP empty-key Delete now reject with unchanged configuration/readable history.",
-          "53/53 domain/PG/preservation cases include complete parser-admitted shapes for all four operations with rejection/unchanged World/replay/idempotency."
-        ]
-      },
-      {
-        "id": "PR69-N01",
-        "severity": "note",
-        "status": "open",
-        "description": "Exact-head full448-case candidate CI and candidate-bound browser receipt/strict release remain pending. Local targeted runs and collection plan are not full-profile execution."
-      },
-      {
-        "id": "PR69-N02",
-        "severity": "note",
-        "status": "open",
-        "description": "Anonymous deployed full-SHA root and deliberate Laboratory503 remain pending delivery; public functional Laboratory is unconfigured. Human SME/security/learning/UX/screen-reader reviews remain unperformed."
-      },
-      {
-        "id": "PR69-N03",
-        "severity": "note",
-        "status": "open",
-        "description": "Inherited landing/resume duplicate-shell, Compute/Axe/PG, near-capacity timing and35-minute CI-budget uncertainties remain open. Isolated base/current passes do not establish cause or repair."
-      },
-      {
-        "id": "PR69-N04",
+        "id": "PR70-N01",
         "severity": "note",
         "status": "accepted-limitation",
-        "description": "Actual owned frozen3.5 malformed CreateGroup priority/action rejection still makes current/through0 reads unverifiable-history503. Older executors/receipts are explicitly frozen; the new3.6 correction is not retrospective recovery. Ordinary3.5 history preservation is separately verified."
+        "description": "Standalone VirtualAppliance route selection has no recursive next-hop access check and reports not-required for selected-row peering checks. Independent disabling of each hub direction preserves configured route selection but full policy becomes undetermined/incomplete; no false connectivity or policy Allow was demonstrated."
+      },
+      {
+        "id": "PR70-N02",
+        "severity": "note",
+        "status": "open",
+        "description": "Complete exact-head455-case CI, candidate-bound full-browser receipt/strict release and actual anonymous deployed full-SHA root/expected Laboratory503 remain pending. Targeted runs and plan collection do not close delivery. Human reviews, actualAzuretraffic, historical3.5 recovery and inherited Compute/Back/Axe/landing/PG/budget causes remain unperformed or open."
+      },
+      {
+        "id": "PR70-P01",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Root text=auto/eol=lf normalized eight first-commit raw evidence blobs away from their recorded exact-byte source/output hashes; reviewed working bytes and runtime content were intact.",
+        "fix": "Scoped docs/reviews/evidence/pr70/**/*.raw -text preserves original bytes, restored staged blobs match original reviewed stamp, and finite direct guard/proof/manifest extend only to this exact attribute change.",
+        "retests": [
+          "Independent comparison of75manifest files including53raw: working/staged bytes, SHA256 and byte lengths match; exactly8restored blobs are EOL-only changes and match original341… stamped hashes.",
+          "Independent6/6 direct preservation checks pass;119-file renewed fingerprint verified, onlyattributes/guard/proof/manifest delta and other115original rows unchanged."
+        ]
       }
     ],
-    "report": {
-      "path": "docs/quality/PR69_FINAL_AUDIT.md"
-    }
-  },
-  "snapshot": {
-    "files": {
-      "AGENTS.md": "88a20eb7f0c34af2048c8b7657ee2a86335e251a74e8259a8643b31898267327",
-      "database/laboratory-v3/007-security-rules.sql": "5f855a34c684b07467af58bd73619d444d345bda1557062fe146d6634610bdc5",
-      "docs/ARCHITECTURE.md": "4b9c6f4b7dbf3dca4fab6b9b6bb74a5a0aabb9d597b63b6735eb5bd91d19f7b1",
-      "docs/DECISIONS.md": "95d54fcb107ee49f8c293a5329f5232bbae6387fad34bf0813d6d140c5725e16",
-      "docs/LABORATORY_REMEDIATION_CAPABILITIES.md": "6c5baf349fe96b9b11c898da273af0f8fb30526016bef1d6ad95ae2d208ca5de",
-      "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md": "4b05e4352d1ff13f09ce427d6f7915ccc3011e8e58ac66624706783d1d791637",
-      "docs/LABORATORY_V3_SERVER.md": "401bf07a47e05e6c1e6bf2f23ff97f6f710b90b6a46bc5fcb41a66bfe9ecae85",
-      "docs/PORTAL_CAPABILITY_MATRIX.md": "baa6d09d629471e3dbd1e3765b7b2ae3ea81255a8c5df448ea8f5178a7c58764",
-      "docs/reviews/evidence/pr69/.gitattributes": "790f5f7d9cddfcf9839093868d537bef7e7734e7b65213ed2db612c4d0da2f8d",
-      "docs/reviews/evidence/pr69/artifact-manifest.json": "ae720415914b95667eac2719a67a6f1a1f7793d3c521e78388e7d1edcbd4f4fb",
-      "docs/reviews/evidence/pr69/baseline-release-pr68.json.raw": "f78d615d6fae2c4fb3966f5367ba28c836633f8d6c9ab9056924aee95f4b05d4",
-      "docs/reviews/evidence/pr69/preservation.json": "b3af4fad3917359a8b5303270e38221763c8860815a8acec367dc4afdc718031",
-      "docs/reviews/evidence/pr69/qa/baseline68-native-near.log.raw": "7fa32cd55854b17273a0d3b03802a38a503e63f091e8e4b7b771f4532b1406cc",
-      "docs/reviews/evidence/pr69/qa/browser-final-with-inherited-timing.log.raw": "a0e92dae573eaae190060e8b482f9bd462ef0ae0e21ca6d133d3c4076b612112",
-      "docs/reviews/evidence/pr69/qa/browser-first.log.raw": "efd6e5b792a4ddec80e7e521a28dfddc23c9856d5866180a41ddebcd7e9dce83",
-      "docs/reviews/evidence/pr69/qa/browser-new-final.log.raw": "0af91beabff85b3f734154734a902df72983a169ffd023166d0ce265fc32c5c3",
-      "docs/reviews/evidence/pr69/qa/browser-renewal.log.raw": "5ae5b40402ef2a771f455007042c689f815a56b831d0cd8c88a49ab53a046e95",
-      "docs/reviews/evidence/pr69/qa/browser-review-final.log.raw": "9be4f72e8a64bdaafb924348850247b19ca7b2e2c6a4b1ac3385a97580b86715",
-      "docs/reviews/evidence/pr69/qa/browser-signed-candidate.log.raw": "8bd47cadc8396fafae5b86adb560cd0883cfab620cfa558aee715fc6c73b8a23",
-      "docs/reviews/evidence/pr69/qa/browser-third.log.raw": "645feeec7ffa0c7f3d96570047fd3721c8e124dd8335ab88965e367d1ce1843b",
-      "docs/reviews/evidence/pr69/qa/check-audit-metadata-failure.log.raw": "d3b64e484cd903d0494c2ccf3bfa4ff17abb576f62cf752a18152e85869b9494",
-      "docs/reviews/evidence/pr69/qa/check-candidate.log.raw": "4f42e1841d6db7571590a4da545cf118ca62326901f09d6d39c7f7b5ddde93b1",
-      "docs/reviews/evidence/pr69/qa/check-finished.log.raw": "0ba73bacff01bf6597e6342a6b2606a18c52ba011049b0f12cecd4b76eb8c01a",
-      "docs/reviews/evidence/pr69/qa/check-first.log.raw": "84cd9a57f82d81553d8ac0a9a86c0a77fd8071e439c1f7a7c92dbe4fe20b79d1",
-      "docs/reviews/evidence/pr69/qa/check-renewal-final.log.raw": "8e3a9d27da9ba73d6eee2cc1f37c171a876f924f1320159e9eb9019b03c4205f",
-      "docs/reviews/evidence/pr69/qa/check-renewal-negative-type-failure.log.raw": "9989258b26a1a6cc94f57a01259d739bfbef83f595d4f4e3e61b93402b22e8bb",
-      "docs/reviews/evidence/pr69/qa/check-second-format-failure.log.raw": "9b996a65412dcaa4b616f3c90cc77d823cc36a26d5359140149d40ead76f360d",
-      "docs/reviews/evidence/pr69/qa/combined-migration-test-before-split.ts.raw": "5b523a50d5f7188643e74f7a86dc9c4e43c0783fb93acecdc6802984c1bb0185",
-      "docs/reviews/evidence/pr69/qa/current-isolated-near.log.raw": "1165c9d6aacc2dda79b9f1f59954c0a6e3438fe17102d737ca3da8acb0ae2a25",
-      "docs/reviews/evidence/pr69/qa/db-setup.log.raw": "0a39b1b7fc62f6beb8af885b4eb7d7b8a64630d9ccfbcfc6118b45bdfbbb0b54",
-      "docs/reviews/evidence/pr69/qa/domain-pg-expanded.log.raw": "594ba53d98fb810bcd2c3ca8e12a32fd521bce09c3e0a744c5b7d6a3b685408c",
-      "docs/reviews/evidence/pr69/qa/domain-pg-first.log.raw": "5cc4ae5cdff416976b43fa24e6313c62ada5d29b69c596f76d84ba790957ac2f",
-      "docs/reviews/evidence/pr69/qa/evidence-scan.json": "51fc6b5989690580b5d2cff3c5b62852cb67cbc1e670dfc0957fdff9b50b71ea",
-      "docs/reviews/evidence/pr69/qa/final-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium-bounds.json.raw": "c56cf9d99b66435edfb81332d19e97cc84ad5f7ff43e9a97a306c70fa789b29c",
-      "docs/reviews/evidence/pr69/qa/final-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium.context.raw": "d1dc1c60e6aa73b91408571d9ee4696e10b457847ed8bf7315a6198df950f3c1",
-      "docs/reviews/evidence/pr69/qa/final-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium.redacted.zip": "32d94c7ddb36750ecc1d2defae8eb072bcd86dde0ab325748462cb1a206c32d6",
-      "docs/reviews/evidence/pr69/qa/final-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium-bounds.json.raw": "0ca726e03880d49bb27307043fdf8d6d5a38f1694483cb258eebc2aeb9fabd40",
-      "docs/reviews/evidence/pr69/qa/final-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium.context.raw": "e932f2172361f45f4162c82c9ebfba9f66eb8da38b5c5fc54eda4a0ca23e50ea",
-      "docs/reviews/evidence/pr69/qa/final-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium.redacted.zip": "1ff7937663c33fdd1181afcdc09fd42f4998a3b2fe76076929ee5f64491d71d1",
-      "docs/reviews/evidence/pr69/qa/first-laboratory-remediation-rem-e966a--identity-or-course-storage-desktop-chromium.context.raw": "4c4a840848187debccaf5023739a383dd635f05462e3cd4b5dfd5571636d5588",
-      "docs/reviews/evidence/pr69/qa/first-laboratory-remediation-rem-e966a--identity-or-course-storage-desktop-chromium.redacted.zip": "b29f95dfb38fac33b3c4303a712806b3dcd2f4694837ff6da97c77dbe559350d",
-      "docs/reviews/evidence/pr69/qa/first-laboratory-remediation-rem-fd0c9-nd-IDs-without-lost-updates-desktop-chromium.context.raw": "596fe5a2130f40942307b6613ad9b9e40008783ae779e34d916b27c90c5f40bf",
-      "docs/reviews/evidence/pr69/qa/first-laboratory-remediation-rem-fd0c9-nd-IDs-without-lost-updates-desktop-chromium.redacted.zip": "524cd9e2a828818e402989276949d0c8c7b526f1f907e97a319ce05fdb8d7b06",
-      "docs/reviews/evidence/pr69/qa/independent-adversarial-expanded.log.raw": "218888dcf6bd47e24d09d643e9b7f68b4026ccc9ae996e66c72ed6d3e802dbac",
-      "docs/reviews/evidence/pr69/qa/independent-empty-key-first.log.raw": "20e79118ea738bbd83e56de7f9b29f3c441b023866b67da7ec3292fff6619915",
-      "docs/reviews/evidence/pr69/qa/independent-red-provenance.json": "f8b7483683c7964ed3d95ef64a4d0bdf31075d289a7338af933dd04968533169",
-      "docs/reviews/evidence/pr69/qa/plan-first.log.raw": "dda3305ee2a76724f42eb9e861f2977224896a0ebb31bdcaef476df40c89920e",
-      "docs/reviews/evidence/pr69/qa/plan-renewed.log.raw": "fc8c7908278da3981726e6065d7390a68175562502a391e11d00c4c7a35c193b",
-      "docs/reviews/evidence/pr69/qa/pre-renewal-independent-review.md.raw": "590511ca413f07e66c6637623f6c28a8c796cb9b4aee4b016fb8f82d0dc7ee5b",
-      "docs/reviews/evidence/pr69/qa/preservation-first.log.raw": "fd3bc7dbe526707bfd756dd07b5562a59e4b8ab7901de0824d766ef9557b9c58",
-      "docs/reviews/evidence/pr69/qa/preservation-second.log.raw": "cbd18660986ace149dbf39da5719be0adfacd42885b4c01ccb86c27d17eb07f6",
-      "docs/reviews/evidence/pr69/qa/strict-input-targeted.log.raw": "ab33fe16beefe8c4e662d9cb6bb2c99a914b6972a463c82f398303c26724d64f",
-      "docs/reviews/evidence/pr69/qa/third-laboratory-remediation-rem-7035a-erve-readable-rule-evidence-desktop-chromium.context.raw": "2fc369ca49af817130d27bb5c776353e30243cd03a476948599003fee2b46ccb",
-      "docs/reviews/evidence/pr69/qa/third-laboratory-remediation-rem-7035a-erve-readable-rule-evidence-desktop-chromium.redacted.zip": "fd6c92397ed1a11570ac951b91d61d875f95bb496a9c2653f8f3ab6efcfb8128",
-      "docs/reviews/evidence/pr69/qa/third-laboratory-remediation-rem-fd0c9-nd-IDs-without-lost-updates-desktop-chromium.context.raw": "86db742fd0ef01bfc0773e24e95576c38f5377d57648bf9bd0388b9a6f986895",
-      "docs/reviews/evidence/pr69/qa/third-laboratory-remediation-rem-fd0c9-nd-IDs-without-lost-updates-desktop-chromium.redacted.zip": "2b415b3554f6c2c6690b385edfce3fd12d3a695cefc1a0726b9a8a7c4d59935a",
-      "docs/reviews/evidence/pr69/qa/third-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium.context.raw": "b19df6ab0aaeb7a17ad3fbf23c9de50eaef56a1944a0eb9aa0e1125d44621f82",
-      "docs/reviews/evidence/pr69/qa/third-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium.redacted.zip": "994bfbfea638caff732c6097fc76261cd43fc5a8e2ebeabda11e3320fa291cae",
-      "docs/reviews/evidence/pr69/qa/trace-provenance.json": "351e205daa422a974d4dbc2c357bab9fcb5f73528bc293c8d5170887432abf1a",
-      "docs/reviews/evidence/pr69/screens/deleted-nsg-historical-replay-after-reset.png": "88e8141419f422b6093b473d9b53e6bdb7641087ba49d903edb1b5b8a66c1676",
-      "docs/reviews/evidence/pr69/screens/firewall-after-delete-analysis.png": "6d38fdde517accda1e5ef1bd547ad2e8b7d197aed0fbc2e6e272dc0ebf80ceff",
-      "docs/reviews/evidence/pr69/screens/firewall-before-broad-analysis.png": "874da08a8ba3d98b28e25c106fabfd56cc361432787c707117de7429031275cd",
-      "docs/reviews/evidence/pr69/screens/nsg-after-narrow-studio.png": "7fa6f82c119e6552ff73961788664e11a76d2416b0772988e477d413c27480ea",
-      "docs/reviews/evidence/pr69/screens/nsg-before-broad-studio.png": "bb179366a19283db473b33a0816a24d14bbfc875758aeb3329dcbe2221461ccb",
-      "docs/reviews/evidence/pr69/screens/nsg-review-diff.png": "9a02865da87cb09b4568625d84c575d69156bb4835f297e697bf070f8cc57632",
-      "docs/reviews/evidence/pr69/screens/remediation-delete-confirmation-1024-500.png": "c6f31462043d905cb77f5efd980daafcb42a161b64270309d86eb3485f0dc307",
-      "docs/reviews/evidence/pr69/screens/remediation-review-1024-500.png": "3c4a2629b33e574b6c8d8976905ae85bf2b53d945cee2c076b5fb356da7f9c2f",
-      "docs/reviews/evidence/pr69/screens/remediation-review-1024-768.png": "a89202bce6086cda9e780b0af1a7926fc5d16f05e7caf485998e211e4f0a4c30",
-      "docs/reviews/evidence/pr69/screens/remediation-review-1440-900.png": "34be766fc63deed763c52beffa853a83b7ddbc8918497508cf9c47d874c9cc79",
-      "docs/reviews/evidence/pr69/sources/fetch.json": "9ed75a5dec88e6d2c5565f676e4269087bc5dd90b0d7600ae5b5806f6e16a8d0",
-      "docs/reviews/evidence/pr69/sources/firewall-arm.html.raw": "527dd817792ae17707ab1633acde700928f7bc1379d00df4e440facfc74883e1",
-      "docs/reviews/evidence/pr69/sources/firewall-arm.txt": "70e54d7b6edf15699c57b1a8929287a0a0bd550d6d793d19fa3f45b5c143fd9a",
-      "docs/reviews/evidence/pr69/sources/firewall-policy.html.raw": "25f0a1b43174ef201f9a2ec7725370896615f1325046c31b67c5190345ed86f9",
-      "docs/reviews/evidence/pr69/sources/firewall-policy.txt": "f2309427fc067b245880d1bdb9d4fcb65f94080b4cd923e9e2f29174cc9d0397",
-      "docs/reviews/evidence/pr69/sources/firewall-processing.html.raw": "0ac86d6d10fdaeb60dd55acd0889ac3668a7377848751fe3f346f20273ae82b1",
-      "docs/reviews/evidence/pr69/sources/firewall-processing.txt": "d3c343eb7f3b57229878abcac472d7931bf22e31092f247a431b423e812336db",
-      "docs/reviews/evidence/pr69/sources/image-fetch.json": "3863ea5da4151fda6fdabb6ed5f790c6514d9b1276908fc686f97b7720c179e0",
-      "docs/reviews/evidence/pr69/sources/nsg-arm.html.raw": "0aa553afc25939a956aa6b9446bda072f49ede72adbd29a279e848a4a55e2655",
-      "docs/reviews/evidence/pr69/sources/nsg-arm.txt": "13142b1aae854f47c4d022b375921b280bd25746e005f62c72d3a91ebfa850fa",
-      "docs/reviews/evidence/pr69/sources/nsg-manage.html.raw": "c2bea3f66c244b52c12527fc13de39e13851225be60c1e999b827a085a236da0",
-      "docs/reviews/evidence/pr69/sources/nsg-manage.txt": "af94fc42d86f44eba24b8cb85ee8754a856bdb08d7c944d4549b8e1fae2aa179",
-      "docs/reviews/evidence/pr69/sources/nsg-overview.html.raw": "bc347ceb6bf037a4843546842ea366a982d01a703249ada01ae89144521a6753",
-      "docs/reviews/evidence/pr69/sources/nsg-overview.txt": "2dc8bb8da17669dfe4773edc22536f40ff7079d99eda63ec70719fb3680a421a",
-      "docs/reviews/evidence/pr69/sources/view-security-rule-details.png": "b0acd9f805226ff1bbe5718acdfb6296ae7f35f6a8c82708ace129d778095e9e",
-      "docs/reviews/evidence/pr69/sources/view-security-rules.png": "ac399a75b06721ec1cfe2af4df008e06d547f384d7f7673faa6f3bef1800fa89",
-      "docs/reviews/evidence/pr69/verification.json": "e92e8d8ec0c5879ca04dac3bb0a79256cae44de6a36062cfc28a0ec29fec1b9a",
-      "playwright.desktop.config.ts": "5cd1be1b227527b0c0d5335b87a80e987c93334274ef9a751ce49ce00910589e",
-      "scripts/laboratory-db.mjs": "6ac73eceb18be1886cf9fcb946c96ac0afece844a233b23270eb9795562d4ea2",
-      "src/content/laboratory-remediation-nb.ts": "fc327b97c87e29384d2f069874394d462f2cb7f950824395a080851d611e5664",
-      "src/features/laboratory/capabilities.ts": "3364a91249cf6792e3aba609da8656348ce344889ef2b6ab5af8f32a0f8a6a01",
-      "src/features/laboratory/compute.tsx": "c5cdc543daa27d73daf25b052098ddcf223a3cde92ae17d2e99f8d7a5fbe71f9",
-      "src/features/laboratory/endpoints.tsx": "aedfffb85a922c50dfb44d210fc9a0c5a32d6aeb6550653f7f2f3abcfd0bb870",
-      "src/features/laboratory/firewall.tsx": "a37ee4250e4bba61c21e6974bcde176e6374cfa2393fde47c2deb5fcc84ae981",
-      "src/features/laboratory/laboratory.tsx": "ab89f635809a654dac2e82a08b12dbe0d8f8a388d537b648d917a83c9dd4605d",
-      "src/features/laboratory/networking.tsx": "81691705d6933cf07631ad9193de231ef3ffa245818d2cfeb9f80f1d4f6efe88",
-      "src/features/laboratory/portal-adapter.tsx": "f2f113e74f0c018935158742dfbc90bcd51617a0214d3a306529cc21d4e22a7d",
-      "src/features/laboratory/routing.tsx": "e6b620909a84f5e3b5302092e6aaa3004e98ab1ea1f812f50c1c9fecf6546b61",
-      "src/features/laboratory/rule-lifecycle.css": "442775325c619a4e322575a17d73d44812461f9a97e93b7dcd810d7c687fc859",
-      "src/features/laboratory/rule-lifecycle.tsx": "e54dae4ec55f32c385b0bcfd84ac1e1191f0543694e185662be415448d2b65b2",
-      "src/features/laboratory/studio-model.ts": "37de3a000fa34008061984c6b5d900dbda6ef26366cced84ab33be78e9c6e0a5",
-      "src/laboratory-compute.test.ts": "a3dc6b07ce3ae0dbc50066c373a3b5881422cda628d51646205dd5c39872b152",
-      "src/laboratory-remediation-preservation.test.ts": "1356be4e63be02863fca8901fc448eac5b0a21fcfd6b9407fb198c6529d0ef90",
-      "src/laboratory-remediation.integration.test.ts": "50291383c973d92c9ae35ef34e537c3642fc2805f2f67ff66ab48ad0401e9dc0",
-      "src/laboratory-remediation.test.ts": "61420ea816138e6e0dcf3685f578a8689ec6b667c6be377a585e8ddcb1db63ee",
-      "src/laboratory-studio-preservation.test.ts": "11279807265af6a3dc3f3faf6a2102f0545df354a0993bb748e0f8c6d404e69c",
-      "src/laboratory/engine.ts": "7efd298dd98e9b478eea10a12d1390bfe30ac6a279b17fd4dace1caab7af388a",
-      "src/laboratory/v3/server.ts": "3315ef1cfee6a2467cfe2d1136efcc7978fbacae2d0edac0d22664f85e73f34e",
-      "src/laboratory/v36/analysis.ts": "4cf81e5af7086b2decc1ef35e57b75ec43d32592990a0c3104566d1af2a164c2",
-      "src/laboratory/v36/contract.ts": "70fa1b2ac5b4e8e23cbc80a6ae2547121356bf5b729496f583b39ac4f818d99f",
-      "src/laboratory/v36/domain.ts": "c5ae6edf05a137f41fc7818e3ffcc1368df45701d4596155d8bc09883a09d786",
-      "src/laboratory/v36/projection.ts": "f48cbf68f978629717edcc377ba4469324860e2874fa51912c69f23dbecbfb0b",
-      "tests/e2e/laboratory-firewall.spec.ts": "f8f9472a702aa0340dee9a240e8d844bd975f9cca9adc39f6a65908b1e6291f8",
-      "tests/e2e/laboratory-remediation.spec.ts": "95dd417c31764aec2ff7be4f70635062ca9e57e529849f761f804f36cfd053ed",
-      "tests/e2e/laboratory-studio.spec.ts": "abe4d54015af2a70bef395f927b9887626a7a1c8cfb7c6728ede07c5d2078393",
-      "tests/fixtures/remediation-world.ts": "eae8aa18b5d10d0a734770784deedde5d60dc0278aaa5b0d30754cd5d367ec19",
-      "tests/pr68-preservation.ts": "6a9a9bac9ac354cc38651e00c853fdb8281e50cb7317a64482b01627f337ac86",
-      "tests/pr69-preservation.ts": "c48f5e6b529da8ac8232dd26e2e097d4c891797b48cd384cac11bccba19239a9"
-    }
-  },
-  "implementationFinished": "2026-11-08T19:09:47.617Z"
+    "report": { "path": "docs/quality/PR70_FINAL_AUDIT.md" }
+  }
 }

@@ -280,6 +280,7 @@ describe('Compute3.4 atomic configuration and frozen networking', () => {
       'laboratory@3.4.0',
       'laboratory@3.5.0',
       'laboratory@3.6.0',
+      'laboratory@3.7.0',
     ]);
   });
   it('counts VM and disk resources in delegated shared capacity checks and never commits beyond96', () => {
