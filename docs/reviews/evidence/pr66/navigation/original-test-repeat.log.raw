@@ -1,0 +1,114 @@
+[WebServer] (node:31418) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 15 tests using 1 worker
+
+(node:31434) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+(node:31556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+(node:31682) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+(node:31804) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[4/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+(node:31956) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[5/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+(node:32067) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[6/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+(node:32176) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[7/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+(node:32302) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[8/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+(node:32432) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[9/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+(node:32551) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[10/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+(node:32669) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[11/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+(node:32788) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[12/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+(node:32899) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[13/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+(node:33010) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[14/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+(node:33123) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[15/15] [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits
+  1) [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits 
+
+    Error: locator.click: Error: strict mode violation: locator('#course-activities-computing > li > a[href$="topic=resource-bridge"]') resolved to 2 elements:
+        1) <a href="/learn/computing?topic=resource-bridge">Fra forståelse til Portal-laboratoriet</a> aka getByRole('link', { name: 'Fra forståelse til Portal-' })
+        2) <a href="/learn/computing?topic=resource-bridge">Fra forståelse til Portal-laboratoriet</a> aka getByText('Fra forståelse til Portal-').nth(1)
+
+    Call log:
+      - waiting for locator('#course-activities-computing > li > a[href$="topic=resource-bridge"]')
+
+
+      114 |   await native
+      115 |     .locator('#course-activities-computing > li > a[href$="topic=resource-bridge"]')
+    > 116 |     .click();
+          |      ^
+      117 |   await native.locator('.related-activities summary').click();
+      118 |   await native.getByRole('link', { name: a.assessment, exact: true }).click();
+      119 |   await native.getByRole('button', { name: t.retry, exact: true }).click();
+        at /workspace/Azure-learner/tests/e2e/owner-acceptance.spec.ts:116:6
+
+    Error Context: ../azurelab-pr66/original-navigation-traces/owner-acceptance-owner-bro-c32a1-lose-only-intentional-exits-desktop-chromium-repeat14/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr66/original-navigation-traces/owner-acceptance-owner-bro-c32a1-lose-only-intentional-exits-desktop-chromium-repeat14/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr66/original-navigation-traces/owner-acceptance-owner-bro-c32a1-lose-only-intentional-exits-desktop-chromium-repeat14/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  1 failed
+    [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits 
+  14 passed (2.2m)

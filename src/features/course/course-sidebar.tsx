@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { ChevronDown, LayoutGrid } from 'lucide-react';
 import { nb, courseHubNb as h } from '@/content/nb';
@@ -19,6 +19,12 @@ export type CourseActivities = Record<
   }[]
 >;
 
+// Streamed server segments can coexist with the hydrated menu before React swaps them.
+// Attach interactive IDs/controls only to the committed client menu; SSR links remain ordinary links.
+const subscribeHydration = () => () => {};
+const clientHydration = () => true;
+const serverHydration = () => false;
+
 export function CourseSidebar({
   module,
   topic,
@@ -32,6 +38,7 @@ export function CourseSidebar({
   activities: CourseActivities;
   onNavigate: () => void;
 }) {
+  const hydrated = useSyncExternalStore(subscribeHydration, clientHydration, serverHydration);
   const activePath = coursePathFor(module)?.id;
   const ref = useRef<HTMLElement>(null);
   const [openPaths, setOpenPaths] = useState<string[]>([activePath ?? 'cloud']);
@@ -81,7 +88,7 @@ export function CourseSidebar({
                 <button
                   type="button"
                   aria-expanded={open}
-                  aria-controls={`course-path-${path.id}`}
+                  aria-controls={hydrated ? `course-path-${path.id}` : undefined}
                   onClick={() => setOpenPaths(toggle(openPaths, path.id))}
                 >
                   <span className="course-tree-number">{path.number}</span>
@@ -89,7 +96,7 @@ export function CourseSidebar({
                   <ChevronDown size={15} aria-hidden="true" />
                 </button>
               </h2>
-              <div id={`course-path-${path.id}`} hidden={!open}>
+              <div id={hydrated ? `course-path-${path.id}` : undefined} hidden={!open}>
                 <ul className="course-tree-modules">
                   {path.modules.map((group) => (
                     <li key={group.title}>
@@ -117,14 +124,14 @@ export function CourseSidebar({
                                 type="button"
                                 aria-label={`${h.activities}: ${moduleLabels[part]}`}
                                 aria-expanded={expanded}
-                                aria-controls={`course-activities-${part}`}
+                                aria-controls={hydrated ? `course-activities-${part}` : undefined}
                                 onClick={() => setOpenModules(toggle(openModules, part))}
                               >
                                 <ChevronDown size={14} aria-hidden="true" />
                               </button>
                             </div>
                             <ol
-                              id={`course-activities-${part}`}
+                              id={hydrated ? `course-activities-${part}` : undefined}
                               className="course-units"
                               hidden={!expanded}
                             >

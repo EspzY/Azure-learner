@@ -1,0 +1,5177 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>Naming rules and restrictions for Azure resources - Azure Resource Manager | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="Learn the rules and restrictions for naming Azure resources." />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="Naming rules and restrictions for Azure resources - Azure Resource Manager" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules" />
+			<meta property="og:description" content="Learn the rules and restrictions for naming Azure resources." />
+			<meta name="platform_id" content="03d684e1-13ba-5035-f592-0596fe8267cf" /> <meta name="scope" content="Azure,Azure management service" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="azure" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="breadcrumb_path" content="/azure/bread/toc.json" />
+	
+		<meta name="feedback_help_link_url" content="https://learn.microsoft.com/answers/tags/133/azure" />
+	
+		<meta name="feedback_help_link_type" content="get-help-at-qna" />
+	
+		<meta name="feedback_product_url" content="https://feedback.azure.com/d365community/forum/9a0ece70-ff24-ec11-b6e6-000d3a4f07b8" />
+	
+		<meta name="feedback_system" content="Standard" />
+	
+		<meta name="permissioned-type" content="public" />
+	
+		<meta name="recommendations" content="true" />
+	
+		<meta name="recommendation_types" content="Training" />
+	
+		<meta name="recommendation_types" content="Certification" />
+	
+		<meta name="ms.suite" content="office" />
+	
+		<meta name="adobe-target" content="true" />
+	
+		<meta name="author" content="kgremban" />
+	
+		<meta name="learn_banner_products" content="azure" />
+	
+		<meta name="ms.author" content="kgremban" />
+	
+		<meta name="ms.update-cycle" content="365-days" />
+	
+		<meta name="ms.service" content="azure-resource-manager" />
+	
+		<meta name="ms.subservice" content="management" />
+	
+		<meta name="ms.topic" content="article" />
+	
+		<meta name="ms.date" content="2026-08-05T00:00:00Z" />
+	
+		<meta name="document_id" content="374ec8eb-64d4-3766-5c5e-39137a262ffd" />
+	
+		<meta name="document_version_independent_id" content="3abeeae9-6854-651a-483c-a1673eea9f9f" />
+	
+		<meta name="updated_at" content="2026-08-07T17:22:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/azure-resource-manager/management/resource-name-rules.md" />
+	
+		<meta name="gitcommit" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/4966c6cb088804bf367be4399949194a937c8cba/articles/azure-resource-manager/management/resource-name-rules.md" />
+	
+		<meta name="git_commit_id" content="4966c6cb088804bf367be4399949194a937c8cba" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="Azure.azure-documents" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="toc_rel" content="toc.json" />
+	
+		<meta name="pdf_url_template" content="https://learn.microsoft.com/pdfstore/en-us/Azure.azure-documents/{branchName}{pdfName}" />
+	
+		<meta name="word_count" content="6820" />
+	
+		<meta name="asset_id" content="azure-resource-manager/management/resource-name-rules" />
+	
+		<meta name="moniker_range_name" content="" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="articles/azure-resource-manager/management/resource-name-rules.md" />
+	
+		<meta name="previous_tlsh_hash" content="60A30233F0569B63E615CDA6BFDBA6FFD62FF44A5C70EEC81D7946FEC3482C4B1084C605E70EAB5B1325CDCB03191C39E680A6194295BB049CDD2CDC160A834BEEE523A7B1" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-resource-manager/management/resource-name-rules.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules?accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/43093068-2dda-408b-b3fe-dfd705c84f78" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/4e834929-0ce1-4c1d-9c81-fcb14721edfb" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/e453d60d-ba7e-43bc-8028-ec38e6b62512" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/75670257-a3f0-4627-9981-8046f99219e6" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03595.8353-c1321031/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "azure",
+    "context": {},
+    "standardFeedback": true,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "get-help-at-qna",
+    "feedbackHelpLinkUrl": "https://learn.microsoft.com/answers/tags/133/azure",
+    "feedbackSystem": "Standard",
+    "feedbackGitHubRepo": "MicrosoftDocs/azure-docs",
+    "feedbackProductUrl": "https://feedback.azure.com/d365community/forum/9a0ece70-ff24-ec11-b6e6-000d3a4f07b8",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": true,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03595.8353-c1321031/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div> 
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					aria-expanded="false"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			
+			href="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/azure-resource-manager/management/resource-name-rules.md"
+			data-original_content_git_url="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/azure-resource-manager/management/resource-name-rules.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/articles/azure-resource-manager/management/resource-name-rules.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="naming-rules-and-restrictions-for-azure-resources">Naming rules and restrictions for Azure resources</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	 <div class="content"><p>This article summarizes naming rules and restrictions for Azure resources. For recommendations about how to name resources, see <a href="/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging" data-linktype="absolute-path">Recommended naming and tagging conventions</a>.</p>
+<p>This article also lists resources by resource provider namespace. For a list of how resource providers match Azure services, see <a href="azure-services-resource-providers" data-linktype="relative-path">Azure resource providers for Azure services</a>.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>Resource and resource group names are case-insensitive unless specifically noted in the <strong>Valid Characters</strong> column.</p>
+<p>When using various APIs to retrieve the name for a resource or resource group, the returned value might have different casing than what you originally specified for the name. The returned value could also display different case values than what is listed in the <strong>Valid Characters</strong> column.</p>
+<p>Always perform a case-insensitive comparison of names.</p>
+</div>
+<p>In the following tables, the term alphanumeric refers to:</p>
+<ul>
+<li><strong>a</strong> through <strong>z</strong> (lowercase letters)</li>
+<li><strong>A</strong> through <strong>Z</strong> (uppercase letters)</li>
+<li><strong>0</strong> through <strong>9</strong> (numbers)</li>
+</ul>
+<div class="NOTE">
+<p>Note</p>
+<p>Resources with a public endpoint can't include reserved words or trademarks in the name. For a list of blocked words, see <a href="../templates/error-reserved-resource-name" data-linktype="relative-path">Resolve reserved resource name errors</a>.</p>
+<p>Don't use <code>#</code> in a resource name since this interferes with URL parsing during Azure Resource Manager requests.</p>
+</div>
+<h2 id="microsoftanalysisservices">Microsoft.AnalysisServices</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>servers</td>
+<td>resource group</td>
+<td>3-63</td>
+<td>Lowercase letters and numbers<br><br>Start with a lowercase letter.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftapimanagement">Microsoft.ApiManagement</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>service</td>
+<td>global</td>
+<td>1-50</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / apis</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / apis / issues</td>
+<td>api</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / apis / issues / attachments</td>
+<td>issue</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / apis / issues / comments</td>
+<td>issue</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / apis / operations</td>
+<td>api</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / apis / operations / tags</td>
+<td>operation</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / apis / releases</td>
+<td>api</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>service / apis / schemas</td>
+<td>api</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / apis / tagDescriptions</td>
+<td>api</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / apis / tags</td>
+<td>api</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / api-version-sets</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / authorizationServers</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / backends</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / certificates</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / diagnostics</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / groups</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / groups / users</td>
+<td>group</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / identityProviders</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / loggers</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / notifications</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / notifications / recipientEmails</td>
+<td>notification</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / openidConnectProviders</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / policies</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / products</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / products / apis</td>
+<td>product</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / products / groups</td>
+<td>product</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / products / tags</td>
+<td>product</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / properties</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / subscriptions</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / tags</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / templates</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>service / users</td>
+<td>service</td>
+<td>1-80</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftapp">Microsoft.App</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>containerApps</td>
+<td>resource group</td>
+<td>2-32</td>
+<td>nLowercase letters, numbers, and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftappconfiguration">Microsoft.AppConfiguration</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>configurationStores*</td>
+<td>global</td>
+<td>5-50</td>
+<td>Alphanumerics and hyphens<br><br>Can't contain a sequence of more than two hyphens.<br><br>Can't start with or end with a hyphen.</td>
+</tr>
+<tr>
+<td>configurationStores / replicas</td>
+<td>configurationStore</td>
+<td>1-50<br><br>The combined length of the configurationStore name and the replica name can't exceed 60 characters.</td>
+<td>Only alphanumerics are valid.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>* {storeName}-{replicaName} needs to be globally unique.</p>
+<h2 id="microsoftappplatform">Microsoft.AppPlatform</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>spring</td>
+<td>global</td>
+<td>4-32</td>
+<td>Lowercase letters, numbers, and hyphens</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftauthorization">Microsoft.Authorization</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>locks</td>
+<td>scope of assignment</td>
+<td>1-90</td>
+<td>Alphanumerics, periods, underscores, hyphens, and parentheses<br><br>Can't end in period.</td>
+</tr>
+<tr>
+<td>policyAssignments</td>
+<td>scope of assignment</td>
+<td>1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope</td>
+<td>Display name can contain any characters.<br><br>Resource name can't use:<br><code>#&lt;&gt;%&amp;:\?/</code> or control characters. <br><br>Can't end with period or space.</td>
+</tr>
+<tr>
+<td>policyDefinitions</td>
+<td>scope of definition</td>
+<td>1-128 display name<br><br>1-64 resource name</td>
+<td>Display name can contain any characters.<br><br>Resource name can't use:<br><code>#&lt;&gt;%&amp;:\?/</code> or control characters. <br><br>Can't end with period or space.</td>
+</tr>
+<tr>
+<td>policyExemptions</td>
+<td>scope of exemption</td>
+<td>1-128 display name<br><br>1-64 resource name</td>
+<td>Display name can contain any characters.<br><br>Resource name can't use:<br><code>#&lt;&gt;%&amp;:\?/</code> or control characters. <br><br>Can't end with period or space.</td>
+</tr>
+<tr>
+<td>policySetDefinitions</td>
+<td>scope of definition</td>
+<td>1-128 display name<br><br>1-64 resource name</td>
+<td>Display name can contain any characters.<br><br>Resource name can't use:<br><code>#&lt;&gt;%&amp;:\?/</code> or control characters. <br><br>Can't end with period or space.</td>
+</tr>
+<tr>
+<td>roleAssignments</td>
+<td>tenant</td>
+<td>36</td>
+<td>Must be a globally unique identifier (GUID).</td>
+</tr>
+<tr>
+<td>roleDefinitions</td>
+<td>tenant</td>
+<td>36</td>
+<td>Must be a GUID.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftautomation">Microsoft.Automation</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>automationAccounts</td>
+<td>resource group &amp; region <br>(See note below)</td>
+<td>6-50</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>automationAccounts / certificates</td>
+<td>automation account</td>
+<td>1-128</td>
+<td>Can't use:<br> <code>&lt;&gt;*%&amp;:\?.+/</code> or control characters <br><br>Can't end with space.</td>
+</tr>
+<tr>
+<td>automationAccounts / connections</td>
+<td>automation account</td>
+<td>1-128</td>
+<td>Can't use:<br> <code>&lt;&gt;*%&amp;:\?.+/</code> or control characters <br><br>Can't end with space.</td>
+</tr>
+<tr>
+<td>automationAccounts / credentials</td>
+<td>automation account</td>
+<td>1-128</td>
+<td>Can't use:<br> <code>&lt;&gt;*%&amp;:\?.+/</code> or control characters <br><br>Can't end with space.</td>
+</tr>
+<tr>
+<td>automationAccounts / runbooks</td>
+<td>automation account</td>
+<td>1-63</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>automationAccounts / schedules</td>
+<td>automation account</td>
+<td>1-128</td>
+<td>Can't use:<br> <code>&lt;&gt;*%&amp;:\?.+/</code> or control characters <br><br>Can't end with space.</td>
+</tr>
+<tr>
+<td>automationAccounts / variables</td>
+<td>automation account</td>
+<td>1-128</td>
+<td>Can't use:<br> <code>&lt;&gt;*%&amp;:\?.+/</code> or control characters <br><br>Can't end with space.</td>
+</tr>
+<tr>
+<td>automationAccounts / watchers</td>
+<td>automation account</td>
+<td>1-63</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>automationAccounts / webhooks</td>
+<td>automation account</td>
+<td>1-128</td>
+<td>Can't use:<br> <code>&lt;&gt;*%&amp;:\?.+/</code> or control characters <br><br>Can't end with space.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="NOTE">
+<p>Note</p>
+<p>Automation account names are unique per region and resource group. Names for deleted Automation accounts might not be immediately available.</p>
+</div>
+<h2 id="microsoftavs">Microsoft.AVS</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>privateClouds</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start with alphanumeric and end with alphanumeric or underscore.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftbatch">Microsoft.Batch</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>batchAccounts</td>
+<td>Region</td>
+<td>3-24</td>
+<td>Lowercase letters and numbers</td>
+</tr>
+<tr>
+<td>batchAccounts / applications</td>
+<td>batch account</td>
+<td>1-64</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>batchAccounts / certificates</td>
+<td>batch account</td>
+<td>5-45</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>batchAccounts / pools</td>
+<td>batch account</td>
+<td>1-64</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftblockchain">Microsoft.Blockchain</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>blockchainMembers</td>
+<td>global</td>
+<td>2-20</td>
+<td>Lowercase letters and numbers<br><br>Start with lowercase letter.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftblueprint">Microsoft.Blueprint</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>blueprint</td>
+<td>Management groups, Subscriptions, Resource groups</td>
+<td>90</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>blueprintAssignments</td>
+<td>Management groups, Subscriptions, Resource groups</td>
+<td>90</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftbotservice">Microsoft.BotService</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>botServices</td>
+<td>global</td>
+<td>2-64</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>botServices / channels</td>
+<td>bot service</td>
+<td>2-64</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>botServices / Connections</td>
+<td>bot service</td>
+<td>2-64</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>enterpriseChannels</td>
+<td>resource group</td>
+<td>2-64</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftcache">Microsoft.Cache</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Redis</td>
+<td>global</td>
+<td>1-63</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with alphanumeric. Consecutive hyphens not allowed.</td>
+</tr>
+<tr>
+<td>Redis / firewallRules</td>
+<td>Redis</td>
+<td>1-256</td>
+<td>Alphanumerics</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftcdn">Microsoft.Cdn</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>profiles</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>profiles / endpoints</td>
+<td>global</td>
+<td>1-50</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>profiles / originGroups</td>
+<td>global</td>
+<td>1-50</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>profiles / originGroups / origins</td>
+<td>global</td>
+<td>1-50</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>profiles / afdEndpoints / routes</td>
+<td>global</td>
+<td>1-50</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftcertificateregistration">Microsoft.CertificateRegistration</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>certificateOrders</td>
+<td>resource group</td>
+<td>3-50</td>
+<td>Alphanumerics</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftcognitiveservices">Microsoft.CognitiveServices</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accounts</td>
+<td>resource group</td>
+<td>2-64</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftcompute">Microsoft.Compute</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>availabilitySets</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>cloudservices</td>
+<td>resource group</td>
+<td>1-15 <br><br>See note below.</td>
+<td>Can't use spaces, control characters, or these characters:<br> <code>~ ! @ # $ % ^ &amp; * ( ) = + _ [ ] { } \ | ; : . ' " , &lt; &gt; / ?</code><br><br>Can't start with underscore. Can't end with period or hyphen.</td>
+</tr>
+<tr>
+<td>diskEncryptionSets</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>disks</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>galleries</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, and periods<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>galleries / applications</td>
+<td>gallery</td>
+<td>1-80</td>
+<td>Alphanumerics, hyphens, and periods<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>galleries / applications/versions</td>
+<td>application</td>
+<td>32-bit integer</td>
+<td>Numbers and periods<br>(Each segment is converted to an int32. So each segment has a max value of 2,147,483,647.)</td>
+</tr>
+<tr>
+<td>galleries / images</td>
+<td>gallery</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, hyphens, and periods<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>galleries / images / versions</td>
+<td>image</td>
+<td>32-bit integer</td>
+<td>Numbers and periods<br>Each segment is converted to an int32, so each segment has a max value of 2,147,483,647.</td>
+</tr>
+<tr>
+<td>images</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>snapshots</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>virtualMachines</td>
+<td>resource group</td>
+<td>1-15 (Windows)<br>1-64 (Linux)<br><br>See note below.</td>
+<td>Can't use spaces, control characters, or these characters:<br> <code>~ ! @ # $ % ^ &amp; * ( ) = + _ [ ] { } \ | ; : . ' " , &lt; &gt; / ?</code><br><br>Windows virtual machines can't include periods or end with hyphens.<br><br>Linux virtual machines can't end with periods or hyphens.</td>
+</tr>
+<tr>
+<td>virtualMachineScaleSets</td>
+<td>resource group</td>
+<td>1-15 (Windows)<br>1-64 (Linux)<br><br>See note below.</td>
+<td>Can't use spaces, control characters, or these characters:<br> <code>~ ! @ # $ % ^ &amp; * ( ) = + _ [ ] { } \ | ; : . ' " , &lt; &gt; / ?</code><br><br>Can't start with underscore. Can't end with period or hyphen.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="NOTE">
+<p>Note</p>
+<p>Azure virtual machines have two distinct names: resource name and host name. When you create a virtual machine in the portal, the same value is used for both names. The restrictions in the preceding table are for the host name. The actual resource name can have up to 64 characters.</p>
+</div>
+<h2 id="microsoftcommunication">Microsoft.Communication</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>communicationServices</td>
+<td>global</td>
+<td>1-63</td>
+<td>Alphanumerics and hyphens<br><br>Can't start or end with hyphen.<br><br>Can't use underscores.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftconfidentialledger">Microsoft.ConfidentialLedger</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ledgers</td>
+<td>Resource group</td>
+<td>3-32</td>
+<td>Alphanumerics and hyphens<br><br>Can't start or end with hyphen.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftconsumption">Microsoft.Consumption</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>budgets</td>
+<td>subscription or resource group</td>
+<td>1-63</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftcontainerinstance">Microsoft.ContainerInstance</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>containerGroups</td>
+<td>resource group</td>
+<td>1-63</td>
+<td>Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphen. Consecutive hyphens aren't allowed.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftcontainerregistry">Microsoft.ContainerRegistry</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>registries</td>
+<td>global</td>
+<td>5-50</td>
+<td>Alphanumerics</td>
+</tr>
+<tr>
+<td>registries / buildTasks</td>
+<td>registry</td>
+<td>5-50</td>
+<td>Alphanumerics</td>
+</tr>
+<tr>
+<td>registries / buildTasks/steps</td>
+<td>build task</td>
+<td>5-50</td>
+<td>Alphanumerics</td>
+</tr>
+<tr>
+<td>registries / replications</td>
+<td>registry</td>
+<td>5-50</td>
+<td>Alphanumerics</td>
+</tr>
+<tr>
+<td>registries / scopeMaps</td>
+<td>registry</td>
+<td>5-50</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>registries / tasks</td>
+<td>registry</td>
+<td>5-50</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>registries / tokens</td>
+<td>registry</td>
+<td>5-50</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>registries / webhooks</td>
+<td>registry</td>
+<td>5-50</td>
+<td>Alphanumerics</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftcontainerservice">Microsoft.ContainerService</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>managedClusters</td>
+<td>resource group</td>
+<td>1-63</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>managedClusters / agentPools</td>
+<td>managed cluster</td>
+<td>1-12 for Linux<br>1-6 for Windows</td>
+<td>Lowercase letters and numbers<br><br>Can't start with a number.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftcustomerinsights">Microsoft.CustomerInsights</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hubs</td>
+<td>resource group</td>
+<td>1-64</td>
+<td>Alphanumerics<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>hubs / authorizationPolicies</td>
+<td>hub</td>
+<td>1-50</td>
+<td>Alphanumerics, underscores, and periods<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>hubs / connectors</td>
+<td>hub</td>
+<td>1-128</td>
+<td>Alphanumerics and underscores<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>hubs / connectors/mappings</td>
+<td>connector</td>
+<td>1-128</td>
+<td>Alphanumerics and underscores<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>hubs / interactions</td>
+<td>hub</td>
+<td>1-128</td>
+<td>Alphanumerics and underscores<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>hubs / kpi</td>
+<td>hub</td>
+<td>1-512</td>
+<td>Alphanumerics and underscores<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>hubs / links</td>
+<td>hub</td>
+<td>1-512</td>
+<td>Alphanumerics and underscores<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>hubs / predictions</td>
+<td>hub</td>
+<td>1-512</td>
+<td>Alphanumerics and underscores<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>hubs / profiles</td>
+<td>hub</td>
+<td>1-128</td>
+<td>Alphanumerics and underscores<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>hubs / relationshipLinks</td>
+<td>hub</td>
+<td>1-512</td>
+<td>Alphanumerics and underscores<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>hubs / relationships</td>
+<td>hub</td>
+<td>1-512</td>
+<td>Alphanumerics and underscores<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>hubs / roleAssignments</td>
+<td>hub</td>
+<td>1-128</td>
+<td>Alphanumerics and underscores<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>hubs / views</td>
+<td>hub</td>
+<td>1-512</td>
+<td>Alphanumerics and underscores<br><br>Start with a letter.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftcustomproviders">Microsoft.CustomProviders</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>associations</td>
+<td>resource group</td>
+<td>1-180</td>
+<td>Can't use:<br><code>%&amp;\\?/</code> or control characters<br><br>Can't end with period or space.</td>
+</tr>
+<tr>
+<td>resourceProviders</td>
+<td>resource group</td>
+<td>3-64</td>
+<td>Can't use:<br><code>%&amp;\\?/</code> or control characters<br><br>Can't end with period or space.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftdatabox">Microsoft.DataBox</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jobs</td>
+<td>resource group</td>
+<td>3-24</td>
+<td>Alphanumerics, hyphens, underscores, and periods</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftdatabricks">Microsoft.Databricks</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>workspaces</td>
+<td>resource group</td>
+<td>3-64</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftdatafactory">Microsoft.DataFactory</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>factories</td>
+<td>global</td>
+<td>3-63</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>factories / dataflows</td>
+<td>factory</td>
+<td>1-260</td>
+<td>Can't use:<br><code>&lt;&gt;*#.%&amp;:\\+?/</code> or control characters<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>factories / datasets</td>
+<td>factory</td>
+<td>1-260</td>
+<td>Can't use:<br><code>&lt;&gt;*#.%&amp;:\\+?/-</code> or control characters<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>factories / integrationRuntimes</td>
+<td>factory</td>
+<td>3-63</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>factories / linkedservices</td>
+<td>factory</td>
+<td>1-260</td>
+<td>Can't use:<br><code>&lt;&gt;*#.%&amp;:\\+?/</code> or control characters<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>factories / pipelines</td>
+<td>factory</td>
+<td>1-260</td>
+<td>Can't use:<br><code>&lt;&gt;*#.%&amp;:\\+?/</code> or control characters<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>factories / triggers</td>
+<td>factory</td>
+<td>1-260</td>
+<td>Can't use:<br><code>&lt;&gt;*#.%&amp;:\\+?/</code> or control characters<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>factories / triggers / rerunTriggers</td>
+<td>trigger</td>
+<td>1-260</td>
+<td>Can't use:<br><code>&lt;&gt;*#.%&amp;:\\+?/</code> or control characters<br><br>Start with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftdatalakeanalytics">Microsoft.DataLakeAnalytics</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accounts</td>
+<td>global</td>
+<td>3-24</td>
+<td>Lowercase letters and numbers</td>
+</tr>
+<tr>
+<td>accounts / computePolicies</td>
+<td>account</td>
+<td>3-60</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>accounts / dataLakeStoreAccounts</td>
+<td>account</td>
+<td>3-24</td>
+<td>Lowercase letters and numbers</td>
+</tr>
+<tr>
+<td>accounts / firewallRules</td>
+<td>account</td>
+<td>3-50</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>accounts / storageAccounts</td>
+<td>account</td>
+<td>3-60</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftdatalakestore">Microsoft.DataLakeStore</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accounts</td>
+<td>global</td>
+<td>3-24</td>
+<td>Lowercase letters and numbers</td>
+</tr>
+<tr>
+<td>accounts / firewallRules</td>
+<td>account</td>
+<td>3-50</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>accounts / virtualNetworkRules</td>
+<td>account</td>
+<td>3-50</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftdatamigration">Microsoft.DataMigration</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>services</td>
+<td>resource group</td>
+<td>2-62</td>
+<td>Alphanumerics, hyphens, periods, and underscores<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>services / projects</td>
+<td>service</td>
+<td>2-57</td>
+<td>Alphanumerics, hyphens, periods, and underscores<br><br>Start with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftdataprotection">Microsoft.DataProtection</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>backupVaults</td>
+<td>resource group</td>
+<td>2-50</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>backupvaults / backupInstances</td>
+<td>backup vault</td>
+<td>1-75</td>
+<td>Alphanumerics and hyphens</td>
+</tr>
+<tr>
+<td>backupVaults / backupPolicies</td>
+<td>backup vault</td>
+<td>1-75</td>
+<td>Alphanumerics and hyphens</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftdbformariadb">Microsoft.DBforMariaDB</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>servers</td>
+<td>global</td>
+<td>3-63</td>
+<td>Lowercase letters, hyphens, and numbers<br><br>Can't start or end with hyphen.</td>
+</tr>
+<tr>
+<td>servers / databases</td>
+<td>servers</td>
+<td>1-63</td>
+<td>Alphanumerics and hyphens</td>
+</tr>
+<tr>
+<td>servers / firewallRules</td>
+<td>servers</td>
+<td>1-128</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>servers / virtualNetworkRules</td>
+<td>servers</td>
+<td>1-128</td>
+<td>Alphanumerics and hyphens</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftdbformysql">Microsoft.DBforMySQL</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>servers</td>
+<td>global</td>
+<td>3-63</td>
+<td>Lowercase letters, hyphens, and numbers<br><br>Can't start or end with hyphen.</td>
+</tr>
+<tr>
+<td>servers / databases</td>
+<td>servers</td>
+<td>1-63</td>
+<td>Alphanumerics and hyphens</td>
+</tr>
+<tr>
+<td>servers / firewallRules</td>
+<td>servers</td>
+<td>1-128</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>servers / virtualNetworkRules</td>
+<td>servers</td>
+<td>1-128</td>
+<td>Alphanumerics and hyphens</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftdbforpostgresql">Microsoft.DBforPostgreSQL</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>servers</td>
+<td>global</td>
+<td>3-63</td>
+<td>Lowercase letters, hyphens, and numbers<br><br>Can't start or end with hyphens.</td>
+</tr>
+<tr>
+<td>servers / databases</td>
+<td>servers</td>
+<td>1-63</td>
+<td>Alphanumerics and hyphens</td>
+</tr>
+<tr>
+<td>servers / firewallRules</td>
+<td>servers</td>
+<td>1-128</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>servers / virtualNetworkRules</td>
+<td>servers</td>
+<td>1-128</td>
+<td>Alphanumerics and hyphens</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftdesktopvirtualization">Microsoft.DesktopVirtualization</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>applicationGroups</td>
+<td>resource group</td>
+<td>3-64</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with a letter or number. End with letter, number, or underscore.</td>
+</tr>
+<tr>
+<td>hostPools</td>
+<td>resource group</td>
+<td>3-64</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with a letter or number. End with letter, number, or underscore.</td>
+</tr>
+<tr>
+<td>workspaces</td>
+<td>resource group</td>
+<td>3-64</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with a letter or number. End with letter, number, or underscore.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftdevices">Microsoft.Devices</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IotHubs</td>
+<td>global</td>
+<td>3-50</td>
+<td>Alphanumerics and hyphens<br><br>Can't end with hyphen.</td>
+</tr>
+<tr>
+<td>IotHubs / certificates</td>
+<td>IoT hub</td>
+<td>1-64</td>
+<td>Alphanumerics, hyphens, periods, and underscores</td>
+</tr>
+<tr>
+<td>IotHubs / eventHubEndpoints / ConsumerGroups</td>
+<td>eventHubEndpoints</td>
+<td>1-50</td>
+<td>Alphanumerics, hyphens, periods, and underscores</td>
+</tr>
+<tr>
+<td>provisioningServices</td>
+<td>resource group</td>
+<td>3-64</td>
+<td>Alphanumerics and hyphens<br><br>End with alphanumeric.</td>
+</tr>
+<tr>
+<td>provisioningServices / certificates</td>
+<td>provisioningServices</td>
+<td>1-64</td>
+<td>Alphanumerics, hyphens, periods, and underscores</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftdevtestlab">Microsoft.DevTestLab</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>labs</td>
+<td>resource group</td>
+<td>1-50</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>labs / customimages</td>
+<td>lab</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, hyphens, and parentheses</td>
+</tr>
+<tr>
+<td>labs / formulas</td>
+<td>lab</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, hyphens, and parentheses</td>
+</tr>
+<tr>
+<td>labs / virtualmachines</td>
+<td>lab</td>
+<td>1-15 (Windows)<br>1-64 (Linux)</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with alphanumeric; can't be all numbers.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftdocumentdb">Microsoft.DocumentDB</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>databaseAccounts</td>
+<td>global</td>
+<td>3-44</td>
+<td>Lowercase letters, numbers, and hyphens<br><br>Start with lowercase letter or number.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftelasticsan-preview">Microsoft.ElasticSan (preview)</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>elasticSans</td>
+<td>global</td>
+<td>3-24</td>
+<td>Lowercase letters, numbers, hyphens, and underscores<br><br>Start with lowercase letter or number.<br><br>Must begin and end with a letter or number.<br><br>Each hyphen and underscore must be preceded and followed by an alphanumeric character.</td>
+</tr>
+<tr>
+<td>elasticSans / volumeGroups</td>
+<td>elastic san</td>
+<td>3-63</td>
+<td>Lowercase letters, numbers, and hyphens<br><br>Start with lowercase letter or number.<br><br>Must begin and end with a letter or number.<br><br>Each hyphen must be preceded and followed by an alphanumeric character.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsofteventgrid">Microsoft.EventGrid</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>domains</td>
+<td>resource group</td>
+<td>3-50</td>
+<td>Alphanumerics and hyphens</td>
+</tr>
+<tr>
+<td>domains / topics</td>
+<td>domain</td>
+<td>3-50</td>
+<td>Alphanumerics and hyphens</td>
+</tr>
+<tr>
+<td>eventSubscriptions</td>
+<td>resource group</td>
+<td>3-64</td>
+<td>Alphanumerics and hyphens</td>
+</tr>
+<tr>
+<td>topics</td>
+<td>region</td>
+<td>3-50</td>
+<td>Alphanumerics and hyphens</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsofteventhub">Microsoft.EventHub</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clusters</td>
+<td>resource group</td>
+<td>6-50</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter. End with letter or number.</td>
+</tr>
+<tr>
+<td>namespaces</td>
+<td>global</td>
+<td>6-50</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter. End with letter or number.</td>
+</tr>
+<tr>
+<td>namespaces / AuthorizationRules</td>
+<td>namespace</td>
+<td>1-50</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with letter or number.</td>
+</tr>
+<tr>
+<td>namespaces / disasterRecoveryConfigs</td>
+<td>global</td>
+<td>6-50</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter. End with alphanumeric.</td>
+</tr>
+<tr>
+<td>namespaces / eventhubs</td>
+<td>namespace</td>
+<td>1-256</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with letter or number.</td>
+</tr>
+<tr>
+<td>namespaces / eventhubs / authorizationRules</td>
+<td>event hub</td>
+<td>1-50</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with letter or number.</td>
+</tr>
+<tr>
+<td>namespaces / eventhubs / consumergroups</td>
+<td>event hub</td>
+<td>1-50</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with letter or number.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftfileshares">Microsoft.FileShares</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>file share</td>
+<td>global</td>
+<td>3-63</td>
+<td>Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphens. Can't use consecutive hyphens.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsofthdinsight">Microsoft.HDInsight</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clusters</td>
+<td>global</td>
+<td>3-59</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with letter or number.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftimportexport">Microsoft.ImportExport</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jobs</td>
+<td>resource group</td>
+<td>2-64</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftinsights">Microsoft.Insights</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>actionGroups</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Can't use:<br><code>:&lt;&gt;+/&amp;%\?|</code> or control characters <br><br>Can't end with space or period.</td>
+</tr>
+<tr>
+<td>autoScaleSettings</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Can't use:<br><code>:&lt;&gt;+/&amp;%\?|</code> or control characters <br><br>Can't end with space or period.</td>
+</tr>
+<tr>
+<td>components</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Can't use:<br><code>%&amp;\?/</code> or control characters <br><br>Can't end with space or period.</td>
+</tr>
+<tr>
+<td>scheduledQueryRules</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Can't use:<br><code>*&lt;&gt;%{}&amp;:\\?/#|</code> or control characters <br><br>Can't end with space or period.</td>
+</tr>
+<tr>
+<td>metricAlerts</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Can't use:<br><code>*#&amp;+:&lt;&gt;?@%{}\/|</code> or control characters <br><br>Can't end with space or period.</td>
+</tr>
+<tr>
+<td>activityLogAlerts</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Can't use:<br><code>&lt;&gt;*%{}&amp;:\\?+/#|</code> or control characters <br><br>Can't end with space or period.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftalertsmanagement">Microsoft.AlertsManagement</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>prometheusRuleGroups</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Can't use:<br><code>&lt;&gt;*%{}&amp;:\\?+/#|</code> or control characters <br><br>Can't end with space or period.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftiotcentral">Microsoft.IoTCentral</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IoTApps</td>
+<td>global</td>
+<td>2-63</td>
+<td>Lowercase letters, numbers, and hyphens<br><br>Start with lowercase letter or number.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftkeyvault">Microsoft.KeyVault</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vaults</td>
+<td>global</td>
+<td>3-24</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter. End with letter or number. Can't contain consecutive hyphens.</td>
+</tr>
+<tr>
+<td>vaults / secrets</td>
+<td>Vault</td>
+<td>1-127</td>
+<td>Alphanumerics and hyphens</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftkusto">Microsoft.Kusto</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clusters</td>
+<td>global</td>
+<td>4-22</td>
+<td>Lowercase letters and numbers<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>/clusters / databases</td>
+<td>cluster</td>
+<td>1-260</td>
+<td>Alphanumerics, hyphens, spaces, and periods</td>
+</tr>
+<tr>
+<td>/clusters / databases / dataConnections</td>
+<td>database</td>
+<td>1-40</td>
+<td>Alphanumerics, hyphens, spaces, and periods</td>
+</tr>
+<tr>
+<td>/clusters / databases / eventhubconnections</td>
+<td>database</td>
+<td>1-40</td>
+<td>Alphanumerics, hyphens, spaces, and periods</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftlabservices">Microsoft.LabServices</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>labplans</td>
+<td>resource group</td>
+<td>1-100</td>
+<td>Alphanumerics, hyphens, periods, and underscores<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>labs</td>
+<td>resource group</td>
+<td>1-100</td>
+<td>Alphanumerics, hyphens, periods, and underscores<br><br>Start with a letter and end with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftloadtestservice">Microsoft.LoadTestService</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>loadtests</td>
+<td>global</td>
+<td>1-64</td>
+<td>Can't use:<br><code>&lt;&gt;*&amp;@:?+/\,;=.|[]"</code> or space<br><br>Can't start with underscore, hyphen, or number. Can't end with underscore or hyphen.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftlogic">Microsoft.Logic</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>integrationAccounts</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, hyphens, underscores, periods, and parentheses</td>
+</tr>
+<tr>
+<td>integrationAccounts / assemblies</td>
+<td>integration account</td>
+<td>1-80</td>
+<td>Alphanumerics, hyphens, underscores, periods, and parentheses</td>
+</tr>
+<tr>
+<td>integrationAccounts / batchConfigurations</td>
+<td>integration account</td>
+<td>1-20</td>
+<td>Alphanumerics</td>
+</tr>
+<tr>
+<td>integrationAccounts / certificates</td>
+<td>integration account</td>
+<td>1-80</td>
+<td>Alphanumerics, hyphens, underscores, periods, and parentheses</td>
+</tr>
+<tr>
+<td>integrationAccounts / maps</td>
+<td>integration account</td>
+<td>1-80</td>
+<td>Alphanumerics, hyphens, underscores, periods, and parentheses</td>
+</tr>
+<tr>
+<td>integrationAccounts / partners</td>
+<td>integration account</td>
+<td>1-80</td>
+<td>Alphanumerics, hyphens, underscores, periods, and parentheses</td>
+</tr>
+<tr>
+<td>integrationAccounts / rosettanetprocessconfigurations</td>
+<td>integration account</td>
+<td>1-80</td>
+<td>Alphanumerics, hyphens, underscores, periods, and parentheses</td>
+</tr>
+<tr>
+<td>integrationAccounts / schemas</td>
+<td>integration account</td>
+<td>1-80</td>
+<td>Alphanumerics, hyphens, underscores, periods, and parentheses</td>
+</tr>
+<tr>
+<td>integrationAccounts / sessions</td>
+<td>integration account</td>
+<td>1-80</td>
+<td>Alphanumerics, hyphens, underscores, periods, and parentheses</td>
+</tr>
+<tr>
+<td>integrationServiceEnvironments</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, hyphens, periods, and underscores</td>
+</tr>
+<tr>
+<td>integrationServiceEnvironments / managedApis</td>
+<td>integration service environment</td>
+<td>1-80</td>
+<td>Alphanumerics, hyphens, periods, and underscores</td>
+</tr>
+<tr>
+<td>workflows</td>
+<td>resource group</td>
+<td>1-43</td>
+<td>Alphanumerics, hyphens, underscores, periods, and parentheses</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftmachinelearning">Microsoft.MachineLearning</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>commitmentPlans</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Can't use:<br><code>&lt;&gt;*%&amp;:?+/\\</code> or control characters<br><br>Can't end with a space.</td>
+</tr>
+<tr>
+<td>webServices</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Can't use:<br><code>&lt;&gt;*%&amp;:?+/\\</code> or control characters<br><br>Can't end with a space.</td>
+</tr>
+<tr>
+<td>workspaces</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Can't use:<br><code>&lt;&gt;*%&amp;:?+/\\</code> or control characters<br><br>Can't end with a space.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftmachinelearningservices">Microsoft.MachineLearningServices</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>workspaces</td>
+<td>resource group</td>
+<td>3-33</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>workspaces / computes</td>
+<td>workspace</td>
+<td>3-24 for compute instance<br>3-32 for AML compute<br>2-16 for other compute types</td>
+<td>Alphanumerics and hyphens</td>
+</tr>
+<tr>
+<td>workspaces / datastores</td>
+<td>workspace</td>
+<td>Maximum 255 characters for datastore name</td>
+<td>Datastore name consists only of lowercase letters, digits, and underscores.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftmanagedidentity">Microsoft.ManagedIdentity</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>userAssignedIdentities</td>
+<td>resource group</td>
+<td>3-128</td>
+<td>Alphanumerics, hyphens, and underscores<br><br>Start with a letter or number.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftmanagement">Microsoft.Management</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>managementgroups</td>
+<td>tenant</td>
+<td>1-90</td>
+<td>Alphanumerics, hyphens, underscores, periods, and parentheses <br><br> Start with a letter or number.<br><br>Can't end with period.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftmaps">Microsoft.Maps</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>accounts</td>
+<td>resource group</td>
+<td>1-98 (for resource group name and account name)</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftmedia">Microsoft.Media</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mediaservices</td>
+<td>Azure region</td>
+<td>3-24</td>
+<td>Lowercase letters and numbers</td>
+</tr>
+<tr>
+<td>mediaservices / liveEvents</td>
+<td>Media service</td>
+<td>1-32</td>
+<td>Alphanumerics and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>mediaservices / liveEvents / liveOutputs</td>
+<td>Live event</td>
+<td>1-256</td>
+<td>Alphanumerics and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>mediaservices / streamingEndpoints</td>
+<td>Media service</td>
+<td>1-24</td>
+<td>Alphanumerics and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftmobilenetwork">Microsoft.MobileNetwork</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mobileNetworks</td>
+<td>Resource Group</td>
+<td>1-64</td>
+<td>Alphanumerics and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>mobileNetworks / sites</td>
+<td>Mobile Network</td>
+<td>1-64</td>
+<td>Alphanumerics and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>mobileNetworks / slices</td>
+<td>Mobile Network</td>
+<td>1-64</td>
+<td>Alphanumerics and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>mobileNetworks / services</td>
+<td>Mobile Network</td>
+<td>1-64</td>
+<td>Alphanumerics and hyphens<br><br>Start with alphanumeric. <br><br> The following words can't be used on their own as the name: <code>default</code>, <code>requested</code>, <code>service</code>.</td>
+</tr>
+<tr>
+<td>mobileNetworks / dataNetworks</td>
+<td>Mobile Network</td>
+<td>1-64</td>
+<td>Alphanumeric, hyphens, and a period/dot (<code>.</code>) <br><br> Start and end with alphanumeric. <br><br> Note: A period/dot (<code>.</code>) must be followed by an alphanumeric character.</td>
+</tr>
+<tr>
+<td>mobileNetworks / simPolicies</td>
+<td>Mobile Network</td>
+<td>1-64</td>
+<td>Alphanumerics and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>packetCoreControlPlanes</td>
+<td>Resource Group</td>
+<td>1-64</td>
+<td>Alphanumeric, underscores and hyphens <br><br> Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>packetCoreControlPlanes / packetCoreDataPlanes</td>
+<td>Packet Core Control Plane</td>
+<td>1-64</td>
+<td>Alphanumeric, underscores, and hyphens <br><br> Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>packetCoreControlPlanes / packetCoreDataPlanes / attachedDataNetworks</td>
+<td>Mobile Network</td>
+<td>1-64</td>
+<td>Alphanumeric, hyphens and a period/dot (<code>.</code>) <br><br> Start and end with alphanumeric. <br><br> Note: A period/dot (<code>.</code>) must be followed by an alphanumeric character.</td>
+</tr>
+<tr>
+<td>simGroups</td>
+<td>Resource Group</td>
+<td>1-64</td>
+<td>Alphanumeric, underscores, and hyphens <br><br> Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>simGroups / sims</td>
+<td>Sim Group</td>
+<td>1-64</td>
+<td>Alphanumeric, underscores, and hyphens <br><br> Start with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftnetapp">Microsoft.NetApp</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>netAppAccounts</td>
+<td>resource group</td>
+<td>1-128</td>
+<td>Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>netAppAccounts / backups</td>
+<td>NetApp account</td>
+<td>3-225</td>
+<td>Alphanumerics, underscores, periods, and hyphens <br><br> Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>netAppAccounts / backupPolicies</td>
+<td>NetApp account</td>
+<td>1-64</td>
+<td>Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>netAppAccounts / capacityPools</td>
+<td>NetApp account</td>
+<td>1-64</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>netAppAccounts / shareNames</td>
+<td>NetApp account</td>
+<td>1-64</td>
+<td>Alphanumerics and hyphens. <br><br>Start with alphanumeric.<br><br>Underscores aren't supported.</td>
+</tr>
+<tr>
+<td>netAppAccounts / snapshots</td>
+<td>NetApp account</td>
+<td>1-255</td>
+<td>Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>netAppAccounts / snapshotPolicies</td>
+<td>NetApp account</td>
+<td>1-64</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+<tr>
+<td>netAppAccounts / volumes</td>
+<td>NetApp account</td>
+<td>1-64</td>
+<td>Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named <code>bin</code> or <code>default</code>.</td>
+</tr>
+<tr>
+<td>netAppAccounts / buckets</td>
+<td>NetApp account</td>
+<td>13-64</td>
+<td>Alphanumerics and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named <code>bin</code> or <code>default</code>.</td>
+</tr>
+<tr>
+<td>netAppAccounts / volumeGroups</td>
+<td>NetApp account</td>
+<td>3-64</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftnetwork">Microsoft.Network</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>applicationGateways</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>applicationSecurityGroups</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>azureFirewalls</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>bastionHosts</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>connections</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>dnsForwardingRuleset</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>dnsResolvers</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>dnsResolvers / inboundEndpoints</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>dnsResolvers / outboundEndpoints</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>dnsZones</td>
+<td>resource group</td>
+<td>1-63 characters<br><br>2 to 34 labels<br><br>Each label is a set of characters separated by a period. For example, <strong>contoso.com</strong> has two labels.</td>
+<td>Each label can contain alphanumerics, underscores, and hyphens.<br><br>Each label is separated by a period.</td>
+</tr>
+<tr>
+<td>expressRouteCircuits</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>firewallPolicies</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>firewallPolicies / ruleGroups</td>
+<td>firewall policy</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>frontDoors</td>
+<td>global</td>
+<td>5-64</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>frontdoorWebApplicationFirewallPolicies</td>
+<td>resource group</td>
+<td>1-128</td>
+<td>Alphanumerics<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>loadBalancers</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>loadBalancers / inboundNatRules</td>
+<td>load balancer</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>localNetworkGateways</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>networkInterfaces</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>networkSecurityGroups</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>networkSecurityGroups / securityRules</td>
+<td>network security group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>networkWatchers</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>privateDnsZones</td>
+<td>resource group</td>
+<td>1-63 characters<br><br>2 to 34 labels<br><br>Each label is a set of characters separated by a period. For example, <strong>contoso.com</strong> has two labels.</td>
+<td>Each label can contain alphanumerics, underscores, and hyphens.<br><br>Each label is separated by a period.</td>
+</tr>
+<tr>
+<td>privateDnsZones / virtualNetworkLinks</td>
+<td>private Domain Name System zone</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>privateEndpoints</td>
+<td>resource group</td>
+<td>2-64</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>privateLinkServices</td>
+<td>resource group</td>
+<td>2-64</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>privateLinkServices / privateEndpointConnections</td>
+<td>private link service</td>
+<td>2-64</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>publicIPAddresses</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>publicIPPrefixes</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>routeFilters</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>routeFilters / routeFilterRules</td>
+<td>route filter</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>routeTables</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>routeTables / routes</td>
+<td>route table</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>serviceEndpointPolicies</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>trafficmanagerprofiles</td>
+<td>global</td>
+<td>1-63</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with alphanumeric. <br><br>Note: A period/dot (.) is not allowed in the profile name.</td>
+</tr>
+<tr>
+<td>virtualNetworkGateways</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>virtualNetworks</td>
+<td>resource group</td>
+<td>2-64</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>virtualnetworks / subnets</td>
+<td>virtual network</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>virtualNetworks / virtualNetworkPeerings</td>
+<td>virtual network</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>virtualWans</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>vpnGateways</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>vpnGateways / vpnConnections</td>
+<td>VPN gateway</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+<tr>
+<td>vpnSites</td>
+<td>resource group</td>
+<td>1-80</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric. End with alphanumeric or underscore.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftnetworkcloud">Microsoft.NetworkCloud</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bareMetalMachineKeySets</td>
+<td>resource group</td>
+<td>2-30</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>bareMetalMachines</td>
+<td>resource group</td>
+<td>2-64</td>
+<td>Alphanumerics</td>
+</tr>
+<tr>
+<td>bmcKeySets</td>
+<td>resource group</td>
+<td>2-30</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>cloudServicesNetworks</td>
+<td>resource group</td>
+<td>2-30</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>clusterManagers</td>
+<td>resource group</td>
+<td>2-30</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>clusters</td>
+<td>resource group</td>
+<td>2-30</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>clusters / metricsConfigurations</td>
+<td>cluster</td>
+<td>see value</td>
+<td>Must be <code>default</code>.</td>
+</tr>
+<tr>
+<td>edgeClusters</td>
+<td>resource group</td>
+<td>2-30</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>edgeClusters / nodes</td>
+<td>edge cluster</td>
+<td>2-64</td>
+<td>Alphanumerics</td>
+</tr>
+<tr>
+<td>kubernetesClusters</td>
+<td>resource group</td>
+<td>2-30</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>kubernetesClusters / agentPools</td>
+<td>kubernetes cluster</td>
+<td>2-30</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>kubernetesClusters / features</td>
+<td>kubernetes cluster</td>
+<td>2-63</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.<br><br> Only predefined values are valid.</td>
+</tr>
+<tr>
+<td>l2Networks</td>
+<td>resource group</td>
+<td>2-30</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>l3Networks</td>
+<td>resource group</td>
+<td>2-30</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>racks</td>
+<td>resource group</td>
+<td>2-30</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>registrationHubs</td>
+<td>resource group</td>
+<td>2-30</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>registrationHubs / machines</td>
+<td>registration hub</td>
+<td>2-40</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>storageAppliances</td>
+<td>resource group</td>
+<td>2-30</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>trunkedNetworks</td>
+<td>resource group</td>
+<td>2-30</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>volumes</td>
+<td>resource group</td>
+<td>2-64</td>
+<td>Alphanumerics, underscores, and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>virtualMachines</td>
+<td>resource group</td>
+<td>2-64</td>
+<td>Alphanumerics</td>
+</tr>
+<tr>
+<td>virtualMachines / consoles</td>
+<td>virtual machine</td>
+<td>see value</td>
+<td>Must be <code>default</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftnotificationhubs">Microsoft.NotificationHubs</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>namespaces</td>
+<td>global</td>
+<td>6-50</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter. End with alphanumeric.</td>
+</tr>
+<tr>
+<td>namespaces / AuthorizationRules</td>
+<td>namespace</td>
+<td>1-256</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start alphanumeric.</td>
+</tr>
+<tr>
+<td>namespaces / notificationHubs</td>
+<td>namespace</td>
+<td>1-260</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start alphanumeric.</td>
+</tr>
+<tr>
+<td>namespaces / notificationHubs / AuthorizationRules</td>
+<td>notification hub</td>
+<td>1-256</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftoperationalinsights">Microsoft.OperationalInsights</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clusters</td>
+<td>resource group</td>
+<td>4-63</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>workspaces</td>
+<td>resource group</td>
+<td>4-63</td>
+<td>Alphanumerics and hyphens<br><br>Start and end with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftoperationsmanagement">Microsoft.OperationsManagement</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>solutions</td>
+<td>workspace</td>
+<td>N/A</td>
+<td>For solutions authored by Microsoft, the name must be in the pattern:<br><code>SolutionType(WorkspaceName)</code><br><br>For solutions authored by third parties, the name must be in the pattern:<br><code>SolutionType[WorkspaceName]</code><br><br>For example, a valid name is:<br><code>AntiMalware(contoso-IT)</code><br><br>The solution type is case-sensitive.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftportal">Microsoft.Portal</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dashboards</td>
+<td>resource group</td>
+<td>3-160</td>
+<td>Alphanumerics and hyphens<br><br>To use restricted characters, add a tag named <strong>hidden-title</strong> with the dashboard name you want to use. The portal displays that name when showing the dashboard.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftpowerbi">Microsoft.PowerBI</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>workspaceCollections</td>
+<td>region</td>
+<td>3-63</td>
+<td>Alphanumerics and hyphens<br><br>Can't start with hyphen. Can't use consecutive hyphens.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftpowerbidedicated">Microsoft.PowerBIDedicated</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>capacities</td>
+<td>region</td>
+<td>3-63</td>
+<td>Lowercase letters or numbers<br><br>Start with lowercase letter.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftquantum">Microsoft.Quantum</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>workspaces</td>
+<td>region</td>
+<td>2-54</td>
+<td>Alphanumerics and hyphens<br><br>Can't start or end with hyphen.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftrecoveryservices">Microsoft.RecoveryServices</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vaults</td>
+<td>resource group</td>
+<td>2-50</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter.</td>
+</tr>
+<tr>
+<td>vaults / backupPolicies</td>
+<td>vault</td>
+<td>3-150</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter. Can't end with hyphen.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftrelay">Microsoft.Relay</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>namespaces</td>
+<td>global</td>
+<td>6-50</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter. End with a letter or number.</td>
+</tr>
+<tr>
+<td>namespaces / AuthorizationRules</td>
+<td>namespace</td>
+<td>1-50</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>namespaces / HybridConnections</td>
+<td>namespace</td>
+<td>1-260</td>
+<td>Alphanumerics, periods, hyphens, underscores, and slashes<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>namespaces / HybridConnections/authorizationRules</td>
+<td>hybrid connection</td>
+<td>1-50</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>namespaces / WcfRelays</td>
+<td>namespace</td>
+<td>1-260</td>
+<td>Alphanumerics, periods, hyphens, underscores, and slashes<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>namespaces / WcfRelays / authorizationRules</td>
+<td>Wcf relay</td>
+<td>1-50</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftresources">Microsoft.Resources</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>deployments</td>
+<td>resource group</td>
+<td>1-64</td>
+<td>Alphanumerics, underscores, parentheses, hyphens, and periods</td>
+</tr>
+<tr>
+<td>resourcegroups</td>
+<td>subscription</td>
+<td>1-90</td>
+<td>Underscores, hyphens, periods, parentheses, and letters or digits as defined by the <a href="/en-us/dotnet/api/system.char.isletterordigit" data-linktype="absolute-path"><code>Char.IsLetterOrDigit</code></a> function<br><br>Valid characters are members of the following categories in <a href="/en-us/dotnet/api/system.globalization.unicodecategory" data-linktype="absolute-path">UnicodeCategory</a>:<br><strong>UppercaseLetter</strong>,<br><strong>LowercaseLetter</strong>,<br><strong>TitlecaseLetter</strong>,<br><strong>ModifierLetter</strong>,<br><strong>OtherLetter</strong>,<br><strong>DecimalDigitNumber</strong>.<br><br>Can't end with period.</td>
+</tr>
+<tr>
+<td>tagNames</td>
+<td>resource</td>
+<td>1-512</td>
+<td>Can't use:<br><code>&lt;&gt;%&amp;\?/</code> or control characters</td>
+</tr>
+<tr>
+<td>tagNames / tagValues</td>
+<td>tag name</td>
+<td>1-256</td>
+<td>All characters</td>
+</tr>
+<tr>
+<td>templateSpecs</td>
+<td>resource group</td>
+<td>1-90</td>
+<td>Alphanumerics, underscores, parentheses, hyphens, and periods</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftsecurity">Microsoft.Security</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>advancedThreatProtectionSettings</td>
+<td>resource group</td>
+<td>see value</td>
+<td>Must be <code>current</code></td>
+</tr>
+<tr>
+<td>alertsSuppressionRules</td>
+<td>subscription</td>
+<td>1-260</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>assessmentMetadata</td>
+<td>assessment type</td>
+<td>1-260</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>assessments</td>
+<td>assessment type</td>
+<td>1-260</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>automations</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>autoProvisioningSettings</td>
+<td>subscription</td>
+<td>1-260</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>connectors</td>
+<td>subscription</td>
+<td>1-260</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>deviceSecurityGroups</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>informationProtectionPolicies</td>
+<td>resource group</td>
+<td>see values</td>
+<td>Use one of:<br><code>custom</code><br><code>effective</code></td>
+</tr>
+<tr>
+<td>iotSecuritySolutions</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>locations / applicationWhitelistings</td>
+<td>subscription</td>
+<td>1-260</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>locations / jitNetworkAccessPolicies</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>ingestionSettings</td>
+<td>subscription</td>
+<td>1-260</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>pricings</td>
+<td>subscription</td>
+<td>1-260</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>securityContacts</td>
+<td>subscription</td>
+<td>1-260</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+<tr>
+<td>settings</td>
+<td>subscription</td>
+<td>see values</td>
+<td>Use one of:<br><code>MCAS</code><br><code>Sentinel</code><br><code>WDATP</code><br><code>WDATP_EXCLUDE_LINUX_PUBLIC_PREVIEW</code></td>
+</tr>
+<tr>
+<td>serverVulnerabilityAssessments</td>
+<td>resource type</td>
+<td>see value</td>
+<td>Must be <code>Default</code></td>
+</tr>
+<tr>
+<td>sqlVulnerabilityAssessments / baselineRules</td>
+<td>Vulnerability assessment</td>
+<td>1-260</td>
+<td>Alphanumerics, underscores, and hyphens</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftservicebus">Microsoft.ServiceBus</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>namespaces</td>
+<td>global</td>
+<td>6-50</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter. End with a letter or number.<br><br>For more information, see <a href="/en-us/rest/api/servicebus/create-namespace" data-linktype="absolute-path">Create namespace</a>.</td>
+</tr>
+<tr>
+<td>namespaces / AuthorizationRules</td>
+<td>namespace</td>
+<td>1-50</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with alphnumeric.</td>
+</tr>
+<tr>
+<td>namespaces / disasterRecoveryConfigs</td>
+<td>global</td>
+<td>6-50</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter. End with alphanumeric.</td>
+</tr>
+<tr>
+<td>namespaces / migrationConfigurations</td>
+<td>namespace</td>
+<td></td>
+<td>Should always be <strong>$default</strong>.</td>
+</tr>
+<tr>
+<td>namespaces / queues</td>
+<td>namespace</td>
+<td>1-260</td>
+<td>Alphanumerics, periods, hyphens, underscores, and slashes<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>namespaces / queues / authorizationRules</td>
+<td>queue</td>
+<td>1-50</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with alphnumeric.</td>
+</tr>
+<tr>
+<td>namespaces / topics</td>
+<td>namespace</td>
+<td>1-260</td>
+<td>Alphanumerics, periods, hyphens, underscores, and slashes<br><br>Start and end with alphanumeric.</td>
+</tr>
+<tr>
+<td>namespaces / topics / authorizationRules</td>
+<td>topic</td>
+<td>1-50</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with alphnumeric.</td>
+</tr>
+<tr>
+<td>namespaces / topics / subscriptions</td>
+<td>topic</td>
+<td>1-50</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with alphnumeric.</td>
+</tr>
+<tr>
+<td>namespaces / topics / subscriptions / rules</td>
+<td>subscription</td>
+<td>1-50</td>
+<td>Alphanumerics, periods, hyphens, and underscores<br><br>Start and end with alphnumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftservicefabric">Microsoft.ServiceFabric</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clusters</td>
+<td>region</td>
+<td>4-23</td>
+<td>Lowercase letters, numbers, and hyphens<br><br>Start with lowercase letter. End with lowercase letter or number.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftsignalrservice">Microsoft.SignalRService</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>signalR</td>
+<td>global</td>
+<td>3-63</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter. End with letter or number.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftsql">Microsoft.Sql</h2>
+<div class="NOTE">
+<p>Note</p>
+<p>Don't include any personal, sensitive, or confidential information in resource names (for example, table name, database name) and resource tags. Data you enter in these fields isn't considered customer data.</p>
+</div>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>managedInstances</td>
+<td>global</td>
+<td>1-63</td>
+<td>Lowercase letters, numbers, and hyphens<br><br> Can't start or end with hyphen.</td>
+</tr>
+<tr>
+<td>servers</td>
+<td>global</td>
+<td>1-63</td>
+<td>Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphen.</td>
+</tr>
+<tr>
+<td>servers / administrators</td>
+<td>server</td>
+<td></td>
+<td>Must be <code>ActiveDirectory</code>.</td>
+</tr>
+<tr>
+<td>servers / databases</td>
+<td>server</td>
+<td>1-128</td>
+<td>Can't use:<br><code>&lt;&gt;*%&amp;:\/?</code> or control characters<br><br>Can't end with period or space.</td>
+</tr>
+<tr>
+<td>servers / databases / syncGroups</td>
+<td>database</td>
+<td>1-150</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>servers / elasticPools</td>
+<td>server</td>
+<td>1-128</td>
+<td>Can't use:<br><code>&lt;&gt;*%&amp;:\/?</code> or control characters<br><br>Can't end with period or space.</td>
+</tr>
+<tr>
+<td>servers / failoverGroups</td>
+<td>global</td>
+<td>1-63</td>
+<td>Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphen.</td>
+</tr>
+<tr>
+<td>servers / firewallRules</td>
+<td>server</td>
+<td>1-128</td>
+<td>Can't use:<br><code>&lt;&gt;*%&amp;:;\/?</code> or control characters<br><br>Can't end with period.</td>
+</tr>
+<tr>
+<td>servers / keys</td>
+<td>server</td>
+<td></td>
+<td>Must be in format:<br><code>VaultName_KeyName_KeyVersion</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftstorage">Microsoft.Storage</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>storageAccounts</td>
+<td>global</td>
+<td>3-24</td>
+<td>Lowercase letters and numbers</td>
+</tr>
+<tr>
+<td>storageAccounts / blobServices</td>
+<td>storage account</td>
+<td></td>
+<td>Must be <code>default</code>.</td>
+</tr>
+<tr>
+<td>storageAccounts / blobServices / containers</td>
+<td>storage account</td>
+<td>3-63</td>
+<td>Lowercase letters, numbers, and hyphens<br><br>Start with lowercase letter or number. Can't use consecutive hyphens.</td>
+</tr>
+<tr>
+<td>storageAccounts / fileServices</td>
+<td>storage account</td>
+<td></td>
+<td>Must be <code>default</code>.</td>
+</tr>
+<tr>
+<td>storageAccounts / fileServices / shares</td>
+<td>storage account</td>
+<td>3-63</td>
+<td>Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphen. Can't use consecutive hyphens.</td>
+</tr>
+<tr>
+<td>storageAccounts / managementPolicies</td>
+<td>storage account</td>
+<td></td>
+<td>Must be <code>default</code>.</td>
+</tr>
+<tr>
+<td>blob</td>
+<td>container</td>
+<td>1-1024</td>
+<td>Any URL characters and case sensitive</td>
+</tr>
+<tr>
+<td>queue</td>
+<td>storage account</td>
+<td>3-63</td>
+<td>Lowercase letters, numbers, and hyphens<br><br>Can't start or end with hyphens. Can't use consecutive hyphens.</td>
+</tr>
+<tr>
+<td>table</td>
+<td>storage account</td>
+<td>3-63</td>
+<td>Alphanumerics<br><br>Start with a letter.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftstoragesync">Microsoft.StorageSync</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>storageSyncServices</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Alphanumerics, spaces, periods, hyphens, and underscores<br><br>Can't end with period or space.</td>
+</tr>
+<tr>
+<td>storageSyncServices / syncGroups</td>
+<td>storage sync service</td>
+<td>1-260</td>
+<td>Alphanumerics, spaces, periods, hyphens, and underscores<br><br>Can't end with period or space.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftstorsimple">Microsoft.StorSimple</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>managers</td>
+<td>resource group</td>
+<td>2-50</td>
+<td>Alphanumerics and hyphens<br><br>Start with a letter. End with alphanumeric.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftstreamanalytics">Microsoft.StreamAnalytics</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>streamingjobs</td>
+<td>resource group</td>
+<td>3-63</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>streamingjobs / functions</td>
+<td>streaming job</td>
+<td>3-63</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>streamingjobs / inputs</td>
+<td>streaming job</td>
+<td>3-63</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>streamingjobs / outputs</td>
+<td>streaming job</td>
+<td>3-63</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+<tr>
+<td>streamingjobs / transformations</td>
+<td>streaming job</td>
+<td>3-63</td>
+<td>Alphanumerics, hyphens, and underscores</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftsynapse">Microsoft.Synapse</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>privateLinkHubs</td>
+<td>resource group</td>
+<td>1-45</td>
+<td>Lowercase letters and numbers</td>
+</tr>
+<tr>
+<td>workspaces</td>
+<td>global</td>
+<td>1-50</td>
+<td>Lowercase letters, hyphens, and numbers<br><br>Start and end with letter or number.<br><br>Can't contain <code>-ondemand</code>.</td>
+</tr>
+<tr>
+<td>workspaces / bigDataPools</td>
+<td>workspace</td>
+<td>1-15</td>
+<td>Letters and numbers<br><br>Start with a letter. End with letter or number.<br><br>Can't contain <a href="../troubleshooting/error-reserved-resource-name" data-linktype="relative-path">reserved words</a>.</td>
+</tr>
+<tr>
+<td>workspaces / sqlPools</td>
+<td>workspace</td>
+<td>1-60</td>
+<td>Can't contain <code>&lt;&gt;*%&amp;:\/?@-</code> or control characters <br><br>Can't end with <code>.</code> or space. <br><br>Can't contain <a href="../troubleshooting/error-reserved-resource-name" data-linktype="relative-path">reserved words</a>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsofttimeseriesinsights">Microsoft.TimeSeriesInsights</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>environments</td>
+<td>resource group</td>
+<td>1-90</td>
+<td>Can't use:<br><code>'&lt;&gt;%&amp;:\?/#</code> or control characters</td>
+</tr>
+<tr>
+<td>environments / accessPolicies</td>
+<td>environment</td>
+<td>1-90</td>
+<td>Can't use:<br> <code>'&lt;&gt;%&amp;:\?/#</code> or control characters</td>
+</tr>
+<tr>
+<td>environments / eventSources</td>
+<td>environment</td>
+<td>1-90</td>
+<td>Can't use:<br><code>'&lt;&gt;%&amp;:\?/#</code> or control characters</td>
+</tr>
+<tr>
+<td>environments / referenceDataSets</td>
+<td>environment</td>
+<td>3-63</td>
+<td>Alphanumerics</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="microsoftweb">Microsoft.Web</h2>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Scope</th>
+<th>Length</th>
+<th>Valid Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>certificates</td>
+<td>resource group</td>
+<td>1-260</td>
+<td>Can't use:<br><code>/</code> <br><br>Can't end with a space or period.</td>
+</tr>
+<tr>
+<td>serverfarms</td>
+<td>resource group</td>
+<td>1-60</td>
+<td>Alphanumeric, hyphens, and Unicode characters that can be mapped to Punycode</td>
+</tr>
+<tr>
+<td>sites</td>
+<td>Global or per domain; see note below.</td>
+<td>2-60</td>
+<td>Alphanumeric, hyphens, and Unicode characters that can be mapped to Punycode<br><br>Can't start or end with hyphen.</td>
+</tr>
+<tr>
+<td>sites / slots</td>
+<td>site</td>
+<td>2-59</td>
+<td>Alphanumeric, hyphens, and Unicode characters that can be mapped to Punycode</td>
+</tr>
+<tr>
+<td>sites / privateEndpointConnections</td>
+<td>site</td>
+<td>2-64</td>
+<td>Alphanumerics, underscores, periods, and hyphens<br><br>Start with alphanumeric; end alphanumeric or underscore.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="NOTE">
+<p>Note</p>
+<p>A web site must have a globally unique URL. When you create a web site that uses a hosting plan, the URL is <code>http://&lt;app-name&gt;.azurewebsites.net</code>. The app name must be globally unique. When you create a web site that uses an App Service Environment, the app name must be unique within the <a href="../../app-service/environment/using-an-ase#app-access" data-linktype="relative-path">domain for the App Service Environment</a>. For both cases, the URL of the site is globally unique.</p>
+<p>Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites. When generating the host ID, the function app name is truncated to 32 characters. This can cause host ID collision when a shared storage account is used. For more information, see <a href="../../azure-functions/storage-considerations#host-id-considerations" data-linktype="relative-path">Host ID considerations</a>.</p>
+<p>Unicode characters are parsed to Punycode using the <a href="/en-us/dotnet/api/system.globalization.idnmapping.getascii" data-linktype="absolute-path">IdnMapping.GetAscii method</a></p>
+</div>
+<h2 id="next-steps">Next steps</h2>
+<ul>
+<li><p>For recommendations about how to name resources, see <a href="/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging" data-linktype="absolute-path">Ready: Recommended naming and tagging conventions</a>.</p>
+</li>
+<li><p>Resources with public endpoints can't include reserved words or trademarks in their names. For a list of the blocked words, see <a href="../templates/error-reserved-resource-name" data-linktype="relative-path">Resolve reserved resource name errors</a>.</p>
+</li>
+</ul>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2026-08-05T08:00:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2026-08-05
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

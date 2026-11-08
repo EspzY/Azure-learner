@@ -1,0 +1,328 @@
+Table of contents
+Exit editor mode
+Ask Learn
+Ask Learn
+Reading mode
+Table of contents
+Read in English
+Add
+Add to Plans
+Edit
+Copy Markdown
+Print
+Note
+Access to this page requires authorization. You can try
+signing in
+or
+changing directories
+.
+Access to this page requires authorization. You can try
+changing directories
+.
+Dsv3 sizes series
+Feedback
+Summarize this article for me
+In this article
+Warning
+The Dsv3-series is in the
+End of Life
+lifecycle stage and retires on
+November 15, 2029
+. After that date, you can't create, resize into, run, or purchase Dsv3-series sizes. This retirement affects all Dsv3-series sizes: Standard_D2s_v3, Standard_D4s_v3, Standard_D8s_v3, Standard_D16s_v3, Standard_D32s_v3, Standard_D48s_v3, and Standard_D64s_v3. This retirement doesn't apply to Azure Government, Azure operated by 21Vianet, or sovereign cloud regions.
+Transition your workloads before the retirement date. For the smoothest transition, see
+Modernize to the v5 VM series
+. For the latest features and performance, see
+Modernize to the v6 and v7 VM series
+. For retirement dates and replacement series, see
+Retired and retiring VM size series
+.
+The Dv3-series run on the Intel® Xeon® Platinum 8573C (Emerald Rapids), Intel® Xeon® Platinum 8370C (Ice Lake), Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2.1GHz (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads. Memory has been expanded (from ~3.5 GiB/vCPU to 4 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading. The Dv3-series no longer has the high memory VM sizes of the D/Dv2-series, those have been moved to the memory optimized Ev3 and Esv3-series. Example D-series use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics.
+Host specifications
+Part
+Quantity
+Count Units
+Specs
+SKU ID, Performance Units, etc.
+Processor
+2 - 64 vCPUs
+Intel Xeon Platinum 8370C (Ice Lake) [x86-64]
+Intel Xeon Platinum 8272CL (Cascade Lake) [x86-64]
+Intel Xeon 8171M (Skylake) [x86-64]
+Intel Xeon E5-2673 v4 (Broadwell) [x86-64]
+Intel Xeon E5-2673 v3 (Haswell) [x86-64]
+Intel Xeon Platinum 8573C (Emerald Rapids) [x86-64]
+Memory
+8 - 256 GiB
+Local Storage
+1 Disks
+16 - 512 GiB
+4,000 - 128,000 IOPS
+32 - 1,024 MBps
+Remote Storage
+4 - 32 Disks
+4,000 - 80,000 IOPS
+48 - 1,200 MBps
+Disk Types:
+Standard SDD/HDD
+,
+Premium SSD
+,
+Premium SSD v2
+,
+Ultra Disk
+Network
+2 - 8 NICs
+1,000 - 30,000 Mbps
+Interfaces: NetVSC, ConnectX,
+MANA
+Accelerators
+None
+For features supported by this series, see the
+Feature support
+section.
+Sizes in series
+Basics
+Local Storage
+Remote Storage
+Network
+Accelerators
+vCPUs (Qty.) and Memory for each size
+Size Name
+vCPUs (Qty.)
+Memory (GiB)
+Standard_D2s_v3
+2
+8
+Standard_D4s_v3
+4
+16
+Standard_D8s_v3
+8
+32
+Standard_D16s_v3
+16
+64
+Standard_D32s_v3
+32
+128
+Standard_D48s_v3
+48
+192
+Standard_D64s_v3
+64
+256
+VM Basics resources
+What are vCPUs
+Check vCPU quotas
+Local (cached & temp) storage info for each size
+Size Name
+Temp Storage Disks (Qty.)
+Temp Disk Size (GiB)
+Disk Cache Size (GiB)
+Cached Disk Random Read IOPS
+Cached Disk Sequential Read Throughput (MBps)
+Standard_D2s_v3
+1
+16
+50
+4,000
+32
+Standard_D4s_v3
+1
+32
+100
+8,000
+64
+Standard_D8s_v3
+1
+64
+200
+16,000
+128
+Standard_D16s_v3
+1
+128
+400
+32,000
+256
+Standard_D32s_v3
+1
+256
+800
+64,000
+512
+Standard_D48s_v3
+1
+384
+1,200
+96,000
+768
+Standard_D64s_v3
+1
+512
+1,600
+128,000
+1,024
+Storage resources
+Introduction to Azure managed disks
+Azure managed disk types
+Share an Azure managed disk
+Table definitions
+Temp disk performance depends on many factors including block size, workload patterns of read/writes, queue depth (QD), and others. Temp disk performance specifications should be viewed as best case performance numbers, assuming 4k block sizes and QD=256 for IOPS, and 256k block sizes with QD=64 for throughput. Additionally, temp disk performance often differs between read and write operations. During steady state operations, write performance is expected to be lower than read performance.
+Storage capacity is shown in units of GiB or 1,024^3 bytes. When you compare disks measured in GB (1,000^3 bytes) to disks measured in GiB (1,024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1,023 GiB = 1,098.4 GB.
+Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
+To learn how to get the best storage performance for your VMs, see
+Virtual machine and disk performance
+.
+Remote (uncached) storage info for each size
+Size Name
+Max Remote Storage Disks (Qty.)
+Uncached Premium SSD IOPS
+Uncached Premium SSD Throughput (MBps)
+Uncached Premium SSD Burst IOPS
+Uncached Premium SSD Burst Throughput (MBps)
+Standard_D2s_v3
+4
+3,200
+48
+4,000
+200
+Standard_D4s_v3
+8
+6,400
+96
+8,000
+200
+Standard_D8s_v3
+16
+12,800
+192
+16,000
+400
+Standard_D16s_v3
+32
+25,600
+384
+32,000
+800
+Standard_D32s_v3
+32
+51,200
+768
+64,000
+1,600
+Standard_D48s_v3
+32
+76,800
+1,152
+80,000
+2,000
+Standard_D64s_v3
+32
+80,000
+1,200
+80,000
+2,000
+Storage resources
+Introduction to Azure managed disks
+Azure managed disk types
+Share an Azure managed disk
+Table definitions
+These sizes support
+bursting
+to temporarily increase disk performance. Burst speeds can be maintained for up to 30 minutes at a time.
+Storage capacity is shown in units of GiB or 1,024^3 bytes. When you compare disks measured in GB (1,000^3 bytes) to disks measured in GiB (1,024^3) remember that capacity numbers given in GiB may appear smaller. For example, 1,023 GiB = 1,098.4 GB.
+Disk throughput is measured in input/output operations per second (IOPS) and MBps where MBps = 10^6 bytes/sec.
+Data disks can operate in cached or uncached modes. For cached data disk operation, the host cache mode is set to ReadOnly or ReadWrite. For uncached data disk operation, the host cache mode is set to None.
+To learn how to get the best storage performance for your VMs, see
+Virtual machine and disk performance
+.
+Network interface info for each size
+Size Name
+Max NICs (Qty.)
+Max Network Bandwidth (Mbps)
+Standard_D2s_v3
+2
+1,000
+Standard_D4s_v3
+2
+2,000
+Standard_D8s_v3
+4
+2,000
+Standard_D16s_v3
+8
+2,000
+Standard_D32s_v3
+8
+16,000
+Standard_D48s_v3
+8
+24,000
+Standard_D64s_v3
+8
+30,000
+Networking resources
+Virtual networks and virtual machines in Azure
+Virtual machine network bandwidth
+Table definitions
+Expected network bandwidth is the maximum aggregated bandwidth allocated per VM type across all NICs, for all destinations. For more information, see
+Virtual machine network bandwidth
+Upper limits aren't guaranteed. Limits offer guidance for selecting the right VM type for the intended application. Actual network performance will depend on several factors including network congestion, application loads, and network settings. For information on optimizing network throughput, see
+Optimize network throughput for Azure virtual machines
+.
+To achieve the expected network performance on Linux or Windows, you may need to select a specific version or optimize your VM. For more information, see
+Bandwidth/Throughput testing (NTTTCP)
+.
+Accelerator (GPUs, FPGAs, etc.) info for each size
+Note
+No accelerators are present in this series.
+Feature support
+Feature name
+Support status
+Premium Storage
+Supported
+Premium Storage caching
+Supported
+Live Migration
+Supported
+Memory Preserving Updates
+Supported
+VM Generation Support
+Generation 1 and 2
+Accelerated Networking
+Supported
+Ephemeral OS Disks
+Supported
+Nested Virtualization
+Supported
+Other size information
+List of all available sizes:
+Sizes
+Pricing Calculator:
+Pricing Calculator
+Information on Disk Types:
+Disk Types
+Next steps
+Take advantage of the latest performance and features available for your workloads by
+changing the size of a virtual machine
+.
+Utilize Microsoft's in-house designed ARM processors with
+Azure Cobalt VMs
+.
+Learn how to
+Monitor Azure virtual machines
+.
+Feedback
+Was this page helpful?
+Yes
+No
+No
+Need help with this topic?
+Want to try using Ask Learn to clarify or guide you through this topic?
+Ask Learn
+Ask Learn
+Suggest a fix?
+Additional resources
+Last updated on
+2026-09-25

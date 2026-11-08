@@ -7,6 +7,7 @@ import { nb, regionLabels, laboratoryV3Nb as c } from '@/content/nb';
 import { portalWorkspaceNb as copy } from '@/content/portal-workspace-nb';
 import { ServiceIcon } from '@/features/portal/service-icon';
 import { routingProjection } from '@/laboratory/v33/projection';
+import { endpointProjection } from '@/laboratory/v34/projection';
 import { peeringStatus } from '@/laboratory/v32/peering';
 import { PortalListFilters, PortalTable, type PortalColumn } from '@/features/portal/presentation';
 
@@ -52,7 +53,7 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
       category:
         view === 'group'
           ? 'scope'
-          : ['account', 'vnet', 'nsg', 'routeTable', 'nic'].includes(view)
+          : ['account', 'vnet', 'nsg', 'routeTable', 'nic', 'vm', 'disk'].includes(view)
             ? 'resource'
             : ['container', 'blob'].includes(view)
               ? 'data'
@@ -93,7 +94,11 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
       if (nsg) add('rule', rule, nsg.groupId, nsg.region, nsg.id);
     }
   }
-  if (world.model === 'laboratory@3.2.0' || world.model === 'laboratory@3.3.0') {
+  if (
+    world.model === 'laboratory@3.2.0' ||
+    world.model === 'laboratory@3.3.0' ||
+    world.model === 'laboratory@3.4.0'
+  ) {
     for (const table of world.routeTables)
       add('routeTable', table, table.groupId, table.region, table.groupId);
     for (const route of world.routes) {
@@ -110,14 +115,22 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
           vnet.region,
           vnet.id,
           peeringStatus(
-            world.model === 'laboratory@3.3.0' ? routingProjection(world) : world,
+            world.model === 'laboratory@3.4.0'
+              ? routingProjection(endpointProjection(world))
+              : world.model === 'laboratory@3.3.0'
+                ? routingProjection(world)
+                : world,
             peering,
           ),
         );
     }
   }
-  if (world.model === 'laboratory@3.3.0')
+  if (world.model === 'laboratory@3.3.0' || world.model === 'laboratory@3.4.0')
     for (const nic of world.nics) add('nic', nic, nic.groupId, nic.region, nic.subnetId);
+  if (world.model === 'laboratory@3.4.0') {
+    for (const vm of world.vms) add('vm', vm, vm.groupId, vm.region, vm.groupId);
+    for (const disk of world.disks) add('disk', disk, disk.groupId, disk.region, disk.groupId);
+  }
   return rows;
 }
 

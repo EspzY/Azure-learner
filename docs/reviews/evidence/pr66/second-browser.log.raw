@@ -1,0 +1,62 @@
+[WebServer] (node:37119) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 12 tests using 1 worker
+
+(node:37135) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/12] [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:75:1 › compute native Linux atomic VM NIC disk Properties networking original receipt reload and through preserve authoritative identities
+  1) [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:75:1 › compute native Linux atomic VM NIC disk Properties networking original receipt reload and through preserve authoritative identities 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('link', { name: 'vm-app-01', exact: true })
+
+
+      105 |   await page.goBack();
+      106 |   await page.goBack();
+    > 107 |   await page.getByRole('link', { name: vm.name, exact: true }).click();
+          |                                                                ^
+      108 |   await page.getByRole('button', { name: m.network, exact: true }).click();
+      109 |   await page.getByRole('link', { name: m.route, exact: true }).click();
+      110 |   await expect(page.getByText('NIC:', { exact: false })).toContainText(nic.name);
+        at /workspace/Azure-learner/tests/e2e/laboratory-compute.spec.ts:107:64
+
+    Error Context: ../azurelab-pr66/browser-final/laboratory-compute-compute-fff23-ve-authoritative-identities-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr66/browser-final/laboratory-compute-compute-fff23-ve-authoritative-identities-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr66/browser-final/laboratory-compute-compute-fff23-ve-authoritative-identities-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:37228) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/12] [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:143:1 › compute native Windows profile and invalid reserved duplicate IP name and region reviews never create partial bundles
+[3/12] [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:195:1 › compute native two-tab stale review and lost response recover original three-resource commit without duplicate VMs
+[4/12] [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:239:1 › compute explicit reset retains historical through and course bytes while earlier workspace model stays unchanged
+[5/12] [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:286:1 › compute compact native keyboard Properties networking focus reduced motion Axe and original three-resource receipt remain usable
+[6/12] [desktop-chromium] › tests/e2e/laboratory-endpoints.spec.ts:126:1 › endpoint Laboratory native NIC subnet and NIC NSG layers explain1433 allow3389 deny priority alternate source UDP receipts reload and disassociation without course writes
+[7/12] [desktop-chromium] › tests/e2e/laboratory-endpoints.spec.ts:216:1 › endpoint Laboratory native invalid reserved duplicate IP incompatible region strict review and original receipts remain atomic
+[8/12] [desktop-chromium] › tests/e2e/laboratory-endpoints.spec.ts:253:1 › endpoint Laboratory real same-session tabs concurrent revision idempotency isolated cookie old v2 and read-only stale analysis stay conservative
+[9/12] [desktop-chromium] › tests/e2e/laboratory-endpoints.spec.ts:327:1 › endpoint Laboratory compact native keyboard Properties policy focus reduced motion Axe original receipts and short-height controls remain usable
+[10/12] [desktop-chromium] › tests/e2e/laboratory-endpoints.spec.ts:356:1 › endpoint Laboratory duplicate NIC IP and parent names in different RGs expose exact scope before selection and preserve distinct policy outcomes
+(node:37671) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[11/12] [compact-chromium] › tests/e2e/laboratory-compute.spec.ts:286:1 › compute compact native keyboard Properties networking focus reduced motion Axe and original three-resource receipt remain usable
+[12/12] [compact-chromium] › tests/e2e/laboratory-endpoints.spec.ts:327:1 › endpoint Laboratory compact native keyboard Properties policy focus reduced motion Axe original receipts and short-height controls remain usable
+  1 failed
+    [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:75:1 › compute native Linux atomic VM NIC disk Properties networking original receipt reload and through preserve authoritative identities 
+  11 passed (2.1m)

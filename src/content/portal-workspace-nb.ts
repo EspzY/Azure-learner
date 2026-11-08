@@ -14,6 +14,8 @@ export const portalWorkspaceNb = {
   localScope: 'Lokalt simulator-scope',
   menuNote: 'Støttede tjenester i dette arbeidsområdet',
   resourceKinds: {
+    vm: 'Virtual machine',
+    disk: 'Managed disk',
     nic: 'Network interface',
     group: 'Resource group',
     account: 'Storage account',

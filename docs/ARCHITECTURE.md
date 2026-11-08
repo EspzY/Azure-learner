@@ -1,5 +1,9 @@
 # Architecture
 
+## PR66 — Compute Part A
+
+PR66 adds immutable `laboratory@3.4.0` for explicit new VM workspaces. A single CreateVirtualMachine transaction creates VM, primary NIC and managed OS disk; the private NIC proposal calls frozen3.3 validation, not another resource engine. One revision and original receipt cover all three. Inverse ownership and diagnostics derive from the same verified World. SQL005 extends only allowlists; current cold setup001/002/005 supersedes constraint-only003/004 without changing them. Existing3.0–3.3 sessions and AZ-900 remain unchanged. See [the bounded contract](LABORATORY_COMPUTE_PART_A.md).
+
 ## PR65 scoped extension
 
 PR65 adds explicit new laboratory@3.3.0 NIC resources and read-only five-tuple NSG policy projection. One PostgreSQL authority and shared Portal remain. Frozen3.0/3.1/3.2 replay, receipts and course/v2 are unchanged. Additive004 replaces allowed-model constraints only; current initialization uses001/002/004 to avoid narrowing populated3.3 with historical003. See [Networking Part C](LABORATORY_NETWORKING_PART_C.md).

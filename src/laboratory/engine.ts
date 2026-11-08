@@ -7,30 +7,35 @@ import * as routing from './v32/domain';
 import * as v32 from './v32/contract';
 import * as endpoints from './v33/domain';
 import * as v33 from './v33/contract';
+import * as compute from './v34/domain';
+import * as v34 from './v34/contract';
 export const models = [
   v30.laboratoryModel,
   v31.laboratoryModel,
   v32.laboratoryModel,
   v33.laboratoryModel,
+  v34.laboratoryModel,
 ] as const;
 export type Model = (typeof models)[number];
-export type World = v30.World | v31.World | v32.World | v33.World;
-export type Request = v33.Request;
-export type Command = v33.Command;
-export type Receipt = v33.Receipt;
+export type World = v30.World | v31.World | v32.World | v33.World | v34.World;
+export type Request = v34.Request;
+export type Command = v34.Command;
+export type Receipt = v34.Receipt;
 export type Entry = { model: Model; attempt: number; request: Request; receipt: Receipt };
 export type Snapshot = { workspace: string; world: World; entries: Entry[]; historical: boolean };
 export type CommandResult = Snapshot & { receipt: Receipt; redelivered: boolean };
 export const canonical = legacy.canonical;
-export const parseRequest = endpoints.parseRequest;
+export const parseRequest = compute.parseRequest;
 export const freshWorld = (model: Model = v30.laboratoryModel): World =>
-  model === v33.laboratoryModel
-    ? endpoints.freshWorld()
-    : model === v32.laboratoryModel
-      ? routing.freshWorld()
-      : model === v31.laboratoryModel
-        ? current.freshWorld()
-        : legacy.freshWorld();
+  model === v34.laboratoryModel
+    ? compute.freshWorld()
+    : model === v33.laboratoryModel
+      ? endpoints.freshWorld()
+      : model === v32.laboratoryModel
+        ? routing.freshWorld()
+        : model === v31.laboratoryModel
+          ? current.freshWorld()
+          : legacy.freshWorld();
 export const execute = (
   world: World,
   request: Request,
@@ -42,7 +47,9 @@ export const execute = (
       ? current.execute(world, request as v31.Request, sequence)
       : world.model === v32.laboratoryModel
         ? routing.execute(world, request as v32.Request, sequence)
-        : endpoints.execute(world, request, sequence);
+        : world.model === v33.laboratoryModel
+          ? endpoints.execute(world, request as v33.Request, sequence)
+          : compute.execute(world, request, sequence);
 export const replay = (entries: Entry[], model: Model, through = entries.length): World | null => {
   if (!models.includes(model)) return null;
   return model === v30.laboratoryModel
@@ -51,5 +58,7 @@ export const replay = (entries: Entry[], model: Model, through = entries.length)
       ? current.replay(entries as v31.Entry[], through)
       : model === v32.laboratoryModel
         ? routing.replay(entries as v32.Entry[], through)
-        : endpoints.replay(entries as v33.Entry[], through);
+        : model === v33.laboratoryModel
+          ? endpoints.replay(entries as v33.Entry[], through)
+          : compute.replay(entries as v34.Entry[], through);
 };

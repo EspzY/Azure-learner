@@ -1,3 +1,8 @@
+import { laboratoryModel as computeModel } from '../v34/contract';
+import {
+  analyseRoutes as analyseComputeRoutes,
+  analysePolicy as analyseComputePolicy,
+} from '../v34/analysis';
 import 'server-only';
 import { Pool } from 'pg';
 import { Repository, LabError } from './repository';
@@ -167,12 +172,18 @@ export async function handle(
       const snapshot = await repo.read(session);
       if (req.headers.get('If-Laboratory-Workspace') !== snapshot.workspace)
         throw new LabError('workspace-changed', 409);
-      if (snapshot.world.model !== routingModel && snapshot.world.model !== endpointModel)
+      if (
+        snapshot.world.model !== routingModel &&
+        snapshot.world.model !== endpointModel &&
+        snapshot.world.model !== computeModel
+      )
         throw new LabError('unsupported-model', 422);
       const result =
         snapshot.world.model === routingModel
           ? analyseRoutes(snapshot.world, subnetId, destination)
-          : analyseEndpointRoutes(snapshot.world, subnetId, destination);
+          : snapshot.world.model === endpointModel
+            ? analyseEndpointRoutes(snapshot.world, subnetId, destination)
+            : analyseComputeRoutes(snapshot.world, subnetId, destination);
       if (!result.ok) throw new LabError(result.code, 422);
       return json({ ...snapshot, analysis: result.analysis });
     }
@@ -183,14 +194,19 @@ export async function handle(
       const snapshot = await repo.read(session);
       if (req.headers.get('If-Laboratory-Workspace') !== snapshot.workspace)
         throw new LabError('workspace-changed', 409);
-      if (snapshot.world.model !== endpointModel) throw new LabError('unsupported-model', 422);
-      const result = analysePolicy(snapshot.world, {
+      if (snapshot.world.model !== endpointModel && snapshot.world.model !== computeModel)
+        throw new LabError('unsupported-model', 422);
+      const input = {
         sourceNicId: values.sourceNicId!,
         destinationNicId: values.destinationNicId!,
         protocol: values.protocol!,
         sourcePort: values.sourcePort!,
         destinationPort: values.destinationPort!,
-      });
+      };
+      const result =
+        snapshot.world.model === endpointModel
+          ? analysePolicy(snapshot.world, input)
+          : analyseComputePolicy(snapshot.world, input);
       if (!result.ok) throw new LabError(result.code, 422);
       return json({ ...snapshot, analysis: result.analysis });
     }

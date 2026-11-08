@@ -1,0 +1,1557 @@
+Table of contents
+Exit editor mode
+Ask Learn
+Ask Learn
+Reading mode
+Table of contents
+Read in English
+Add
+Add to Plans
+Edit
+Copy Markdown
+Print
+Note
+Access to this page requires authorization. You can try
+signing in
+or
+changing directories
+.
+Access to this page requires authorization. You can try
+changing directories
+.
+Microsoft.Compute disks
+Feedback
+Summarize this article for me
+In this article
+Latest
+2026-03-02
+2025-01-02
+2024-03-02
+2023-10-02
+2023-04-02
+2023-01-02
+2022-07-02
+2022-03-02
+2021-12-01
+2021-08-01
+2021-04-01
+2020-12-01
+2020-06-30
+2020-05-01
+2019-11-01
+2019-07-01
+2019-03-01
+2018-09-30
+2018-06-01
+2018-04-01
+2017-03-30
+2016-04-30-preview
+Bicep resource definition
+The disks resource type can be deployed with operations that target:
+Resource groups
+- See
+resource group deployment commands
+For a list of changed properties in each API version, see
+change log
+.
+Usage Examples
+Bicep Samples
+A basic example of deploying Managed Disk.
+param location string = 'westeurope'
+param resourceName string = 'acctest0001'
+
+resource disk 'Microsoft.Compute/disks@2022-03-02' = {
+  name: resourceName
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  properties: {
+    creationData: {
+      createOption: 'Empty'
+    }
+    diskSizeGB: 10
+    encryption: {
+      type: 'EncryptionAtRestWithPlatformKey'
+    }
+    networkAccessPolicy: 'AllowAll'
+    osType: ''
+    publicNetworkAccess: 'Enabled'
+  }
+}
+Azure Verified Modules
+The following
+Azure Verified Modules
+can be used to deploy this resource type.
+Module
+Description
+Compute Disk
+AVM Resource Module for Compute Disk
+Azure Quickstart Samples
+The following
+Azure Quickstart templates
+contain Bicep samples for deploying this resource type.
+Bicep File
+Description
+Create Disk & enable protection via Backup Vault
+Template that creates a disk and enables protection via Backup Vault
+Windows Docker Host with Portainer and Traefik pre-installed
+Windows Docker Host with Portainer and Traefik pre-installed
+Windows Server VM with SSH
+Deploy a single Windows VM with Open SSH enabled so that you can connect through SSH using key-based authentication.
+Resource format
+To create a Microsoft.Compute/disks resource, add the following Bicep to your template.
+resource symbolicname 'Microsoft.Compute/disks@2026-03-02' = {
+  extendedLocation: {
+    name: 'string'
+    type: 'string'
+  }
+  location: 'string'
+  name: 'string'
+  properties: {
+    availabilityPolicy: {
+      actionOnDiskDelay: 'string'
+    }
+    burstingEnabled: bool
+    completionPercent: int
+    creationData: {
+      createOption: 'string'
+      elasticSanResourceId: 'string'
+      galleryImageReference: {
+        communityGalleryImageId: 'string'
+        id: 'string'
+        lun: int
+        sharedGalleryImageId: 'string'
+      }
+      imageReference: {
+        communityGalleryImageId: 'string'
+        id: 'string'
+        lun: int
+        sharedGalleryImageId: 'string'
+      }
+      instantAccessDurationMinutes: int
+      logicalSectorSize: int
+      performancePlus: bool
+      provisionedBandwidthCopySpeed: 'string'
+      securityDataUri: 'string'
+      securityMetadataUri: 'string'
+      sourceResourceId: 'string'
+      sourceUri: 'string'
+      storageAccountId: 'string'
+      uploadSizeBytes: int
+    }
+    dataAccessAuthMode: 'string'
+    diskAccessId: 'string'
+    diskIOPSReadOnly: int
+    diskIOPSReadWrite: int
+    diskMBpsReadOnly: int
+    diskMBpsReadWrite: int
+    diskSizeGB: int
+    encryption: {
+      diskEncryptionSetId: 'string'
+      type: 'string'
+    }
+    encryptionSettingsCollection: {
+      enabled: bool
+      encryptionSettings: [
+        {
+          diskEncryptionKey: {
+            secretUrl: 'string'
+            sourceVault: {
+              id: 'string'
+            }
+          }
+          keyEncryptionKey: {
+            keyUrl: 'string'
+            sourceVault: {
+              id: 'string'
+            }
+          }
+        }
+      ]
+      encryptionSettingsVersion: 'string'
+    }
+    hyperVGeneration: 'string'
+    maxShares: int
+    networkAccessPolicy: 'string'
+    optimizedForFrequentAttach: bool
+    osType: 'string'
+    publicNetworkAccess: 'string'
+    purchasePlan: {
+      name: 'string'
+      product: 'string'
+      promotionCode: 'string'
+      publisher: 'string'
+    }
+    securityProfile: {
+      secureVMDiskEncryptionSetId: 'string'
+      securityType: 'string'
+    }
+    supportedCapabilities: {
+      acceleratedNetwork: bool
+      architecture: 'string'
+      diskControllerTypes: 'string'
+      supportedSecurityOption: 'string'
+    }
+    supportsHibernation: bool
+    tier: 'string'
+  }
+  sku: {
+    name: 'string'
+  }
+  tags: {
+    {customized property}: 'string'
+  }
+  zones: [
+    'string'
+  ]
+}
+Property Values
+Microsoft.Compute/disks
+Name
+Description
+Value
+extendedLocation
+The extended location where the disk will be created. Extended location cannot be changed.
+ExtendedLocation
+location
+The geo-location where the resource lives
+string (required)
+name
+The resource name
+string (required)
+properties
+Disk resource properties.
+DiskProperties
+sku
+The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS.
+DiskSku
+tags
+Resource tags
+Dictionary of tag names and values. See
+Tags in templates
+zones
+The Logical zone list for Disk.
+string[]
+AvailabilityPolicy
+Name
+Description
+Value
+actionOnDiskDelay
+Determines on how to handle disks with slow I/O.
+'AutomaticReattach'
+'None'
+CreationData
+Name
+Description
+Value
+createOption
+This enumerates the possible sources of a disk's creation.
+'Attach'
+'Copy'
+'CopyFromSanSnapshot'
+'CopyStart'
+'Empty'
+'FromImage'
+'Import'
+'ImportSecure'
+'Restore'
+'Upload'
+'UploadPreparedSecure' (required)
+elasticSanResourceId
+Required if createOption is CopyFromSanSnapshot. This is the ARM id of the source elastic san volume snapshot.
+string
+galleryImageReference
+Required if creating from a Gallery Image. The id/sharedGalleryImageId/communityGalleryImageId of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+ImageDiskReference
+imageReference
+Disk source information for PIR or user images.
+ImageDiskReference
+instantAccessDurationMinutes
+For snapshots created from Premium SSD v2 or Ultra disk, this property determines the time in minutes the snapshot is retained for instant access to enable faster restore.
+int
+Constraints:
+Min value = 1
+logicalSectorSize
+Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
+int
+performancePlus
+Set this flag to true to get a boost on the performance target of the disk deployed, see here on the respective performance target. This flag can only be set on disk creation time and cannot be disabled after enabled.
+bool
+provisionedBandwidthCopySpeed
+If this field is set on a snapshot and createOption is CopyStart, the snapshot will be copied at a quicker speed.
+'Enhanced'
+'None'
+securityDataUri
+If createOption is ImportSecure, this is the URI of a blob to be imported into VM guest state.
+string
+securityMetadataUri
+If createOption is ImportSecure, this is the URI of a blob to be imported into VM metadata for Confidential VM.
+string
+sourceResourceId
+If createOption is Copy, this is the ARM id of the source snapshot or disk.
+string
+sourceUri
+If createOption is Import, this is the URI of a blob to be imported into a managed disk.
+string
+storageAccountId
+Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
+string
+uploadSizeBytes
+If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+int
+DiskProperties
+Name
+Description
+Value
+availabilityPolicy
+Determines how platform treats disk failures
+AvailabilityPolicy
+burstingEnabled
+Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+bool
+completionPercent
+Percentage complete for the background copy when a resource is created via the CopyStart operation.
+int
+creationData
+Disk source information. CreationData information cannot be changed after the disk has been created.
+CreationData
+(required)
+dataAccessAuthMode
+Additional authentication requirements when exporting or uploading to a disk or snapshot.
+'AzureActiveDirectory'
+'None'
+diskAccessId
+ARM id of the DiskAccess resource for using private endpoints on disks.
+string
+diskIOPSReadOnly
+The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
+int
+diskIOPSReadWrite
+The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+int
+diskMBpsReadOnly
+The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+int
+diskMBpsReadWrite
+The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+int
+diskSizeGB
+If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+int
+encryption
+Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+Encryption
+encryptionSettingsCollection
+Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+EncryptionSettingsCollection
+hyperVGeneration
+The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+'V1'
+'V2'
+maxShares
+The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+int
+networkAccessPolicy
+Policy for accessing the disk via network.
+'AllowAll'
+'AllowPrivate'
+'DenyAll'
+optimizedForFrequentAttach
+Setting this property to true improves reliability and performance of data disks that are frequently (more than 5 times a day) by detached from one virtual machine and attached to another. This property should not be set for disks that are not detached and attached frequently as it causes the disks to not align with the fault domain of the virtual machine.
+bool
+osType
+The Operating System type.
+'Linux'
+'Windows'
+publicNetworkAccess
+Policy for controlling export on the disk.
+'Disabled'
+'Enabled'
+purchasePlan
+Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+DiskPurchasePlan
+securityProfile
+Contains the security related information for the resource.
+DiskSecurityProfile
+supportedCapabilities
+List of supported capabilities for the image from which the OS disk was created.
+SupportedCapabilities
+supportsHibernation
+Indicates the OS on a disk supports hibernation.
+bool
+tier
+Performance tier of the disk (e.g, P4, S10) as described here:
+https://azure.microsoft.com/pricing/details/managed-disks/
+. Does not apply to Ultra disks.
+string
+DiskPurchasePlan
+Name
+Description
+Value
+name
+The plan ID.
+string (required)
+product
+Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+string (required)
+promotionCode
+The Offer Promotion Code.
+string
+publisher
+The publisher ID.
+string (required)
+DiskSecurityProfile
+Name
+Description
+Value
+secureVMDiskEncryptionSetId
+ResourceId of the disk encryption set associated to Confidential VM supported disk encrypted with customer managed key
+string
+securityType
+Specifies the SecurityType of the VM. Applicable for OS disks only.
+'ConfidentialVM_DiskEncryptedWithCustomerKey'
+'ConfidentialVM_DiskEncryptedWithPlatformKey'
+'ConfidentialVM_NonPersistedTPM'
+'ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey'
+'TrustedLaunch'
+DiskSku
+Name
+Description
+Value
+name
+The sku name.
+'PremiumV2_LRS'
+'Premium_LRS'
+'Premium_ZRS'
+'StandardSSD_LRS'
+'StandardSSD_ZRS'
+'Standard_LRS'
+'UltraSSD_LRS'
+Encryption
+Name
+Description
+Value
+diskEncryptionSetId
+ResourceId of the disk encryption set to use for enabling encryption at rest.
+string
+type
+The type of key used to encrypt the data of the disk.
+'EncryptionAtRestWithCustomerKey'
+'EncryptionAtRestWithPlatformAndCustomerKeys'
+'EncryptionAtRestWithPlatformKey'
+EncryptionSettingsCollection
+Name
+Description
+Value
+enabled
+Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
+bool (required)
+encryptionSettings
+A collection of encryption settings, one for each disk volume.
+EncryptionSettingsElement
+[]
+encryptionSettingsVersion
+Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
+string
+EncryptionSettingsElement
+Name
+Description
+Value
+diskEncryptionKey
+Key Vault Secret Url and vault id of the disk encryption key
+KeyVaultAndSecretReference
+keyEncryptionKey
+Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
+KeyVaultAndKeyReference
+ExtendedLocation
+Name
+Description
+Value
+name
+The name of the extended location.
+string
+type
+The type of the extended location.
+'EdgeZone'
+ImageDiskReference
+Name
+Description
+Value
+communityGalleryImageId
+A relative uri containing a community Azure Compute Gallery image reference.
+string
+id
+A relative uri containing either a Platform Image Repository, user image, or Azure Compute Gallery image reference.
+string
+lun
+If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+int
+sharedGalleryImageId
+A relative uri containing a direct shared Azure Compute Gallery image reference.
+string
+KeyVaultAndKeyReference
+Name
+Description
+Value
+keyUrl
+Url pointing to a key or secret in KeyVault
+string (required)
+sourceVault
+Resource id of the KeyVault containing the key or secret
+SourceVault
+(required)
+KeyVaultAndSecretReference
+Name
+Description
+Value
+secretUrl
+Url pointing to a key or secret in KeyVault
+string (required)
+sourceVault
+Resource id of the KeyVault containing the key or secret
+SourceVault
+(required)
+SourceVault
+Name
+Description
+Value
+id
+Resource Id
+string
+SupportedCapabilities
+Name
+Description
+Value
+acceleratedNetwork
+True if the image from which the OS disk is created supports accelerated networking.
+bool
+architecture
+CPU architecture supported by an OS disk.
+'Arm64'
+'x64'
+diskControllerTypes
+The disk controllers that an OS disk supports. If set it can be SCSI or SCSI, NVME or NVME, SCSI.
+string
+supportedSecurityOption
+Refers to the security capability of the disk supported to create a Trusted launch or Confidential VM
+'TrustedLaunchAndConfidentialVMSupported'
+'TrustedLaunchSupported'
+TrackedResourceTags
+Name
+Description
+Value
+ARM template resource definition
+The disks resource type can be deployed with operations that target:
+Resource groups
+- See
+resource group deployment commands
+For a list of changed properties in each API version, see
+change log
+.
+Usage Examples
+Azure Quickstart Templates
+The following
+Azure Quickstart templates
+deploy this resource type.
+Template
+Description
+Create a VM from a EfficientIP VHD
+This template creates a VM from a EfficientIP VHD and let you connect it to an existing VNET that can reside in another Resource Group then the virtual machine
+Create a VM in a new or existing vnet from a custom VHD
+This template creates a VM from a specialized VHD and let you connect it to a new or existing VNET that can reside in another Resource Group than the virtual machine
+Create Disk & enable protection via Backup Vault
+Template that creates a disk and enables protection via Backup Vault
+Create VM from existing VHDs and connect it to existingVNET
+This template creates a VM from VHDs (OS + data disk) and let you connect it to an existing VNET that can reside in another Resource Group then the virtual machine
+Creates an ultra managed disk with a specific sector size
+This template creates a new ultra managed disk allowing the user to specify a sector size of either 512 or 4096.
+Deploy a 3 node Percona XtraDB Cluster in Availability Zones
+This template deploys a 3 node MySQL high availability cluster on CentOS 6.5 or Ubuntu 12.04
+Gallery image version with UEFI CA 2011 certs
+This template creates an Azure Compute Gallery, image definition, and image version from a marketplace Linux image with custom UEFI security profile signatures.
+SQL VM Performance Optimized Storage Settings on UltraSSD
+Create a SQL Server Virtual Machine with performance optimized storage settings, using UltraSSD for SQL Log files
+Windows Docker Host with Portainer and Traefik pre-installed
+Windows Docker Host with Portainer and Traefik pre-installed
+Windows Server VM with SSH
+Deploy a single Windows VM with Open SSH enabled so that you can connect through SSH using key-based authentication.
+Resource format
+To create a Microsoft.Compute/disks resource, add the following JSON to your template.
+{
+  "type": "Microsoft.Compute/disks",
+  "apiVersion": "2026-03-02",
+  "name": "string",
+  "extendedLocation": {
+    "name": "string",
+    "type": "string"
+  },
+  "location": "string",
+  "properties": {
+    "availabilityPolicy": {
+      "actionOnDiskDelay": "string"
+    },
+    "burstingEnabled": "bool",
+    "completionPercent": "int",
+    "creationData": {
+      "createOption": "string",
+      "elasticSanResourceId": "string",
+      "galleryImageReference": {
+        "communityGalleryImageId": "string",
+        "id": "string",
+        "lun": "int",
+        "sharedGalleryImageId": "string"
+      },
+      "imageReference": {
+        "communityGalleryImageId": "string",
+        "id": "string",
+        "lun": "int",
+        "sharedGalleryImageId": "string"
+      },
+      "instantAccessDurationMinutes": "int",
+      "logicalSectorSize": "int",
+      "performancePlus": "bool",
+      "provisionedBandwidthCopySpeed": "string",
+      "securityDataUri": "string",
+      "securityMetadataUri": "string",
+      "sourceResourceId": "string",
+      "sourceUri": "string",
+      "storageAccountId": "string",
+      "uploadSizeBytes": "int"
+    },
+    "dataAccessAuthMode": "string",
+    "diskAccessId": "string",
+    "diskIOPSReadOnly": "int",
+    "diskIOPSReadWrite": "int",
+    "diskMBpsReadOnly": "int",
+    "diskMBpsReadWrite": "int",
+    "diskSizeGB": "int",
+    "encryption": {
+      "diskEncryptionSetId": "string",
+      "type": "string"
+    },
+    "encryptionSettingsCollection": {
+      "enabled": "bool",
+      "encryptionSettings": [
+        {
+          "diskEncryptionKey": {
+            "secretUrl": "string",
+            "sourceVault": {
+              "id": "string"
+            }
+          },
+          "keyEncryptionKey": {
+            "keyUrl": "string",
+            "sourceVault": {
+              "id": "string"
+            }
+          }
+        }
+      ],
+      "encryptionSettingsVersion": "string"
+    },
+    "hyperVGeneration": "string",
+    "maxShares": "int",
+    "networkAccessPolicy": "string",
+    "optimizedForFrequentAttach": "bool",
+    "osType": "string",
+    "publicNetworkAccess": "string",
+    "purchasePlan": {
+      "name": "string",
+      "product": "string",
+      "promotionCode": "string",
+      "publisher": "string"
+    },
+    "securityProfile": {
+      "secureVMDiskEncryptionSetId": "string",
+      "securityType": "string"
+    },
+    "supportedCapabilities": {
+      "acceleratedNetwork": "bool",
+      "architecture": "string",
+      "diskControllerTypes": "string",
+      "supportedSecurityOption": "string"
+    },
+    "supportsHibernation": "bool",
+    "tier": "string"
+  },
+  "sku": {
+    "name": "string"
+  },
+  "tags": {
+    "{customized property}": "string"
+  },
+  "zones": [ "string" ]
+}
+Property Values
+Microsoft.Compute/disks
+Name
+Description
+Value
+apiVersion
+The api version
+'2026-03-02'
+extendedLocation
+The extended location where the disk will be created. Extended location cannot be changed.
+ExtendedLocation
+location
+The geo-location where the resource lives
+string (required)
+name
+The resource name
+string (required)
+properties
+Disk resource properties.
+DiskProperties
+sku
+The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS.
+DiskSku
+tags
+Resource tags
+Dictionary of tag names and values. See
+Tags in templates
+type
+The resource type
+'Microsoft.Compute/disks'
+zones
+The Logical zone list for Disk.
+string[]
+AvailabilityPolicy
+Name
+Description
+Value
+actionOnDiskDelay
+Determines on how to handle disks with slow I/O.
+'AutomaticReattach'
+'None'
+CreationData
+Name
+Description
+Value
+createOption
+This enumerates the possible sources of a disk's creation.
+'Attach'
+'Copy'
+'CopyFromSanSnapshot'
+'CopyStart'
+'Empty'
+'FromImage'
+'Import'
+'ImportSecure'
+'Restore'
+'Upload'
+'UploadPreparedSecure' (required)
+elasticSanResourceId
+Required if createOption is CopyFromSanSnapshot. This is the ARM id of the source elastic san volume snapshot.
+string
+galleryImageReference
+Required if creating from a Gallery Image. The id/sharedGalleryImageId/communityGalleryImageId of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+ImageDiskReference
+imageReference
+Disk source information for PIR or user images.
+ImageDiskReference
+instantAccessDurationMinutes
+For snapshots created from Premium SSD v2 or Ultra disk, this property determines the time in minutes the snapshot is retained for instant access to enable faster restore.
+int
+Constraints:
+Min value = 1
+logicalSectorSize
+Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
+int
+performancePlus
+Set this flag to true to get a boost on the performance target of the disk deployed, see here on the respective performance target. This flag can only be set on disk creation time and cannot be disabled after enabled.
+bool
+provisionedBandwidthCopySpeed
+If this field is set on a snapshot and createOption is CopyStart, the snapshot will be copied at a quicker speed.
+'Enhanced'
+'None'
+securityDataUri
+If createOption is ImportSecure, this is the URI of a blob to be imported into VM guest state.
+string
+securityMetadataUri
+If createOption is ImportSecure, this is the URI of a blob to be imported into VM metadata for Confidential VM.
+string
+sourceResourceId
+If createOption is Copy, this is the ARM id of the source snapshot or disk.
+string
+sourceUri
+If createOption is Import, this is the URI of a blob to be imported into a managed disk.
+string
+storageAccountId
+Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
+string
+uploadSizeBytes
+If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+int
+DiskProperties
+Name
+Description
+Value
+availabilityPolicy
+Determines how platform treats disk failures
+AvailabilityPolicy
+burstingEnabled
+Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+bool
+completionPercent
+Percentage complete for the background copy when a resource is created via the CopyStart operation.
+int
+creationData
+Disk source information. CreationData information cannot be changed after the disk has been created.
+CreationData
+(required)
+dataAccessAuthMode
+Additional authentication requirements when exporting or uploading to a disk or snapshot.
+'AzureActiveDirectory'
+'None'
+diskAccessId
+ARM id of the DiskAccess resource for using private endpoints on disks.
+string
+diskIOPSReadOnly
+The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
+int
+diskIOPSReadWrite
+The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+int
+diskMBpsReadOnly
+The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+int
+diskMBpsReadWrite
+The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+int
+diskSizeGB
+If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+int
+encryption
+Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+Encryption
+encryptionSettingsCollection
+Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+EncryptionSettingsCollection
+hyperVGeneration
+The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+'V1'
+'V2'
+maxShares
+The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+int
+networkAccessPolicy
+Policy for accessing the disk via network.
+'AllowAll'
+'AllowPrivate'
+'DenyAll'
+optimizedForFrequentAttach
+Setting this property to true improves reliability and performance of data disks that are frequently (more than 5 times a day) by detached from one virtual machine and attached to another. This property should not be set for disks that are not detached and attached frequently as it causes the disks to not align with the fault domain of the virtual machine.
+bool
+osType
+The Operating System type.
+'Linux'
+'Windows'
+publicNetworkAccess
+Policy for controlling export on the disk.
+'Disabled'
+'Enabled'
+purchasePlan
+Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+DiskPurchasePlan
+securityProfile
+Contains the security related information for the resource.
+DiskSecurityProfile
+supportedCapabilities
+List of supported capabilities for the image from which the OS disk was created.
+SupportedCapabilities
+supportsHibernation
+Indicates the OS on a disk supports hibernation.
+bool
+tier
+Performance tier of the disk (e.g, P4, S10) as described here:
+https://azure.microsoft.com/pricing/details/managed-disks/
+. Does not apply to Ultra disks.
+string
+DiskPurchasePlan
+Name
+Description
+Value
+name
+The plan ID.
+string (required)
+product
+Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+string (required)
+promotionCode
+The Offer Promotion Code.
+string
+publisher
+The publisher ID.
+string (required)
+DiskSecurityProfile
+Name
+Description
+Value
+secureVMDiskEncryptionSetId
+ResourceId of the disk encryption set associated to Confidential VM supported disk encrypted with customer managed key
+string
+securityType
+Specifies the SecurityType of the VM. Applicable for OS disks only.
+'ConfidentialVM_DiskEncryptedWithCustomerKey'
+'ConfidentialVM_DiskEncryptedWithPlatformKey'
+'ConfidentialVM_NonPersistedTPM'
+'ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey'
+'TrustedLaunch'
+DiskSku
+Name
+Description
+Value
+name
+The sku name.
+'PremiumV2_LRS'
+'Premium_LRS'
+'Premium_ZRS'
+'StandardSSD_LRS'
+'StandardSSD_ZRS'
+'Standard_LRS'
+'UltraSSD_LRS'
+Encryption
+Name
+Description
+Value
+diskEncryptionSetId
+ResourceId of the disk encryption set to use for enabling encryption at rest.
+string
+type
+The type of key used to encrypt the data of the disk.
+'EncryptionAtRestWithCustomerKey'
+'EncryptionAtRestWithPlatformAndCustomerKeys'
+'EncryptionAtRestWithPlatformKey'
+EncryptionSettingsCollection
+Name
+Description
+Value
+enabled
+Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
+bool (required)
+encryptionSettings
+A collection of encryption settings, one for each disk volume.
+EncryptionSettingsElement
+[]
+encryptionSettingsVersion
+Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
+string
+EncryptionSettingsElement
+Name
+Description
+Value
+diskEncryptionKey
+Key Vault Secret Url and vault id of the disk encryption key
+KeyVaultAndSecretReference
+keyEncryptionKey
+Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
+KeyVaultAndKeyReference
+ExtendedLocation
+Name
+Description
+Value
+name
+The name of the extended location.
+string
+type
+The type of the extended location.
+'EdgeZone'
+ImageDiskReference
+Name
+Description
+Value
+communityGalleryImageId
+A relative uri containing a community Azure Compute Gallery image reference.
+string
+id
+A relative uri containing either a Platform Image Repository, user image, or Azure Compute Gallery image reference.
+string
+lun
+If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+int
+sharedGalleryImageId
+A relative uri containing a direct shared Azure Compute Gallery image reference.
+string
+KeyVaultAndKeyReference
+Name
+Description
+Value
+keyUrl
+Url pointing to a key or secret in KeyVault
+string (required)
+sourceVault
+Resource id of the KeyVault containing the key or secret
+SourceVault
+(required)
+KeyVaultAndSecretReference
+Name
+Description
+Value
+secretUrl
+Url pointing to a key or secret in KeyVault
+string (required)
+sourceVault
+Resource id of the KeyVault containing the key or secret
+SourceVault
+(required)
+SourceVault
+Name
+Description
+Value
+id
+Resource Id
+string
+SupportedCapabilities
+Name
+Description
+Value
+acceleratedNetwork
+True if the image from which the OS disk is created supports accelerated networking.
+bool
+architecture
+CPU architecture supported by an OS disk.
+'Arm64'
+'x64'
+diskControllerTypes
+The disk controllers that an OS disk supports. If set it can be SCSI or SCSI, NVME or NVME, SCSI.
+string
+supportedSecurityOption
+Refers to the security capability of the disk supported to create a Trusted launch or Confidential VM
+'TrustedLaunchAndConfidentialVMSupported'
+'TrustedLaunchSupported'
+TrackedResourceTags
+Name
+Description
+Value
+Terraform (AzAPI provider) resource definition
+The disks resource type can be deployed with operations that target:
+Resource groups
+For a list of changed properties in each API version, see
+change log
+.
+Usage Examples
+Terraform Samples
+A basic example of deploying Managed Disk.
+terraform {
+  required_providers {
+    azapi = {
+      source = "Azure/azapi"
+    }
+  }
+}
+
+provider "azapi" {
+  skip_provider_registration = false
+}
+
+variable "resource_name" {
+  type    = string
+  default = "acctest0001"
+}
+
+variable "location" {
+  type    = string
+  default = "westeurope"
+}
+
+resource "azapi_resource" "resourceGroup" {
+  type     = "Microsoft.Resources/resourceGroups@2020-06-01"
+  name     = var.resource_name
+  location = var.location
+}
+
+resource "azapi_resource" "disk" {
+  type      = "Microsoft.Compute/disks@2022-03-02"
+  parent_id = azapi_resource.resourceGroup.id
+  name      = var.resource_name
+  location  = var.location
+  body = {
+    properties = {
+      creationData = {
+        createOption = "Empty"
+      }
+      diskSizeGB = 10
+      encryption = {
+        type = "EncryptionAtRestWithPlatformKey"
+      }
+      networkAccessPolicy = "AllowAll"
+      osType              = ""
+      publicNetworkAccess = "Enabled"
+    }
+    sku = {
+      name = "Standard_LRS"
+    }
+  }
+  schema_validation_enabled = false
+  response_export_values    = ["*"]
+}
+Azure Verified Modules
+The following
+Azure Verified Modules
+can be used to deploy this resource type.
+Module
+Description
+Compute Disk
+AVM Resource Module for Compute Disk
+Resource format
+To create a Microsoft.Compute/disks resource, add the following Terraform to your template.
+resource "azapi_resource" "symbolicname" {
+  type = "Microsoft.Compute/disks@2026-03-02"
+  name = "string"
+  parent_id = "string"
+  location = "string"
+  tags = {
+    {customized property} = "string"
+  }
+  body = {
+    extendedLocation = {
+      name = "string"
+      type = "string"
+    }
+    properties = {
+      availabilityPolicy = {
+        actionOnDiskDelay = "string"
+      }
+      burstingEnabled = bool
+      completionPercent = int
+      creationData = {
+        createOption = "string"
+        elasticSanResourceId = "string"
+        galleryImageReference = {
+          communityGalleryImageId = "string"
+          id = "string"
+          lun = int
+          sharedGalleryImageId = "string"
+        }
+        imageReference = {
+          communityGalleryImageId = "string"
+          id = "string"
+          lun = int
+          sharedGalleryImageId = "string"
+        }
+        instantAccessDurationMinutes = int
+        logicalSectorSize = int
+        performancePlus = bool
+        provisionedBandwidthCopySpeed = "string"
+        securityDataUri = "string"
+        securityMetadataUri = "string"
+        sourceResourceId = "string"
+        sourceUri = "string"
+        storageAccountId = "string"
+        uploadSizeBytes = int
+      }
+      dataAccessAuthMode = "string"
+      diskAccessId = "string"
+      diskIOPSReadOnly = int
+      diskIOPSReadWrite = int
+      diskMBpsReadOnly = int
+      diskMBpsReadWrite = int
+      diskSizeGB = int
+      encryption = {
+        diskEncryptionSetId = "string"
+        type = "string"
+      }
+      encryptionSettingsCollection = {
+        enabled = bool
+        encryptionSettings = [
+          {
+            diskEncryptionKey = {
+              secretUrl = "string"
+              sourceVault = {
+                id = "string"
+              }
+            }
+            keyEncryptionKey = {
+              keyUrl = "string"
+              sourceVault = {
+                id = "string"
+              }
+            }
+          }
+        ]
+        encryptionSettingsVersion = "string"
+      }
+      hyperVGeneration = "string"
+      maxShares = int
+      networkAccessPolicy = "string"
+      optimizedForFrequentAttach = bool
+      osType = "string"
+      publicNetworkAccess = "string"
+      purchasePlan = {
+        name = "string"
+        product = "string"
+        promotionCode = "string"
+        publisher = "string"
+      }
+      securityProfile = {
+        secureVMDiskEncryptionSetId = "string"
+        securityType = "string"
+      }
+      supportedCapabilities = {
+        acceleratedNetwork = bool
+        architecture = "string"
+        diskControllerTypes = "string"
+        supportedSecurityOption = "string"
+      }
+      supportsHibernation = bool
+      tier = "string"
+    }
+    sku = {
+      name = "string"
+    }
+    zones = [
+      "string"
+    ]
+  }
+}
+Property Values
+Microsoft.Compute/disks
+Name
+Description
+Value
+extendedLocation
+The extended location where the disk will be created. Extended location cannot be changed.
+ExtendedLocation
+location
+The geo-location where the resource lives
+string (required)
+name
+The resource name
+string (required)
+properties
+Disk resource properties.
+DiskProperties
+sku
+The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS.
+DiskSku
+tags
+Resource tags
+Dictionary of tag names and values.
+type
+The resource type
+"Microsoft.Compute/disks@2026-03-02"
+zones
+The Logical zone list for Disk.
+string[]
+AvailabilityPolicy
+Name
+Description
+Value
+actionOnDiskDelay
+Determines on how to handle disks with slow I/O.
+'AutomaticReattach'
+'None'
+CreationData
+Name
+Description
+Value
+createOption
+This enumerates the possible sources of a disk's creation.
+'Attach'
+'Copy'
+'CopyFromSanSnapshot'
+'CopyStart'
+'Empty'
+'FromImage'
+'Import'
+'ImportSecure'
+'Restore'
+'Upload'
+'UploadPreparedSecure' (required)
+elasticSanResourceId
+Required if createOption is CopyFromSanSnapshot. This is the ARM id of the source elastic san volume snapshot.
+string
+galleryImageReference
+Required if creating from a Gallery Image. The id/sharedGalleryImageId/communityGalleryImageId of the ImageDiskReference will be the ARM id of the shared galley image version from which to create a disk.
+ImageDiskReference
+imageReference
+Disk source information for PIR or user images.
+ImageDiskReference
+instantAccessDurationMinutes
+For snapshots created from Premium SSD v2 or Ultra disk, this property determines the time in minutes the snapshot is retained for instant access to enable faster restore.
+int
+Constraints:
+Min value = 1
+logicalSectorSize
+Logical sector size in bytes for Ultra disks. Supported values are 512 ad 4096. 4096 is the default.
+int
+performancePlus
+Set this flag to true to get a boost on the performance target of the disk deployed, see here on the respective performance target. This flag can only be set on disk creation time and cannot be disabled after enabled.
+bool
+provisionedBandwidthCopySpeed
+If this field is set on a snapshot and createOption is CopyStart, the snapshot will be copied at a quicker speed.
+'Enhanced'
+'None'
+securityDataUri
+If createOption is ImportSecure, this is the URI of a blob to be imported into VM guest state.
+string
+securityMetadataUri
+If createOption is ImportSecure, this is the URI of a blob to be imported into VM metadata for Confidential VM.
+string
+sourceResourceId
+If createOption is Copy, this is the ARM id of the source snapshot or disk.
+string
+sourceUri
+If createOption is Import, this is the URI of a blob to be imported into a managed disk.
+string
+storageAccountId
+Required if createOption is Import. The Azure Resource Manager identifier of the storage account containing the blob to import as a disk.
+string
+uploadSizeBytes
+If createOption is Upload, this is the size of the contents of the upload including the VHD footer. This value should be between 20972032 (20 MiB + 512 bytes for the VHD footer) and 35183298347520 bytes (32 TiB + 512 bytes for the VHD footer).
+int
+DiskProperties
+Name
+Description
+Value
+availabilityPolicy
+Determines how platform treats disk failures
+AvailabilityPolicy
+burstingEnabled
+Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
+bool
+completionPercent
+Percentage complete for the background copy when a resource is created via the CopyStart operation.
+int
+creationData
+Disk source information. CreationData information cannot be changed after the disk has been created.
+CreationData
+(required)
+dataAccessAuthMode
+Additional authentication requirements when exporting or uploading to a disk or snapshot.
+'AzureActiveDirectory'
+'None'
+diskAccessId
+ARM id of the DiskAccess resource for using private endpoints on disks.
+string
+diskIOPSReadOnly
+The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
+int
+diskIOPSReadWrite
+The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
+int
+diskMBpsReadOnly
+The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+int
+diskMBpsReadWrite
+The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
+int
+diskSizeGB
+If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
+int
+encryption
+Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
+Encryption
+encryptionSettingsCollection
+Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
+EncryptionSettingsCollection
+hyperVGeneration
+The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
+'V1'
+'V2'
+maxShares
+The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
+int
+networkAccessPolicy
+Policy for accessing the disk via network.
+'AllowAll'
+'AllowPrivate'
+'DenyAll'
+optimizedForFrequentAttach
+Setting this property to true improves reliability and performance of data disks that are frequently (more than 5 times a day) by detached from one virtual machine and attached to another. This property should not be set for disks that are not detached and attached frequently as it causes the disks to not align with the fault domain of the virtual machine.
+bool
+osType
+The Operating System type.
+'Linux'
+'Windows'
+publicNetworkAccess
+Policy for controlling export on the disk.
+'Disabled'
+'Enabled'
+purchasePlan
+Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
+DiskPurchasePlan
+securityProfile
+Contains the security related information for the resource.
+DiskSecurityProfile
+supportedCapabilities
+List of supported capabilities for the image from which the OS disk was created.
+SupportedCapabilities
+supportsHibernation
+Indicates the OS on a disk supports hibernation.
+bool
+tier
+Performance tier of the disk (e.g, P4, S10) as described here:
+https://azure.microsoft.com/pricing/details/managed-disks/
+. Does not apply to Ultra disks.
+string
+DiskPurchasePlan
+Name
+Description
+Value
+name
+The plan ID.
+string (required)
+product
+Specifies the product of the image from the marketplace. This is the same value as Offer under the imageReference element.
+string (required)
+promotionCode
+The Offer Promotion Code.
+string
+publisher
+The publisher ID.
+string (required)
+DiskSecurityProfile
+Name
+Description
+Value
+secureVMDiskEncryptionSetId
+ResourceId of the disk encryption set associated to Confidential VM supported disk encrypted with customer managed key
+string
+securityType
+Specifies the SecurityType of the VM. Applicable for OS disks only.
+'ConfidentialVM_DiskEncryptedWithCustomerKey'
+'ConfidentialVM_DiskEncryptedWithPlatformKey'
+'ConfidentialVM_NonPersistedTPM'
+'ConfidentialVM_VMGuestStateOnlyEncryptedWithPlatformKey'
+'TrustedLaunch'
+DiskSku
+Name
+Description
+Value
+name
+The sku name.
+'PremiumV2_LRS'
+'Premium_LRS'
+'Premium_ZRS'
+'StandardSSD_LRS'
+'StandardSSD_ZRS'
+'Standard_LRS'
+'UltraSSD_LRS'
+Encryption
+Name
+Description
+Value
+diskEncryptionSetId
+ResourceId of the disk encryption set to use for enabling encryption at rest.
+string
+type
+The type of key used to encrypt the data of the disk.
+'EncryptionAtRestWithCustomerKey'
+'EncryptionAtRestWithPlatformAndCustomerKeys'
+'EncryptionAtRestWithPlatformKey'
+EncryptionSettingsCollection
+Name
+Description
+Value
+enabled
+Set this flag to true and provide DiskEncryptionKey and optional KeyEncryptionKey to enable encryption. Set this flag to false and remove DiskEncryptionKey and KeyEncryptionKey to disable encryption. If EncryptionSettings is null in the request object, the existing settings remain unchanged.
+bool (required)
+encryptionSettings
+A collection of encryption settings, one for each disk volume.
+EncryptionSettingsElement
+[]
+encryptionSettingsVersion
+Describes what type of encryption is used for the disks. Once this field is set, it cannot be overwritten. '1.0' corresponds to Azure Disk Encryption with AAD app.'1.1' corresponds to Azure Disk Encryption.
+string
+EncryptionSettingsElement
+Name
+Description
+Value
+diskEncryptionKey
+Key Vault Secret Url and vault id of the disk encryption key
+KeyVaultAndSecretReference
+keyEncryptionKey
+Key Vault Key Url and vault id of the key encryption key. KeyEncryptionKey is optional and when provided is used to unwrap the disk encryption key.
+KeyVaultAndKeyReference
+ExtendedLocation
+Name
+Description
+Value
+name
+The name of the extended location.
+string
+type
+The type of the extended location.
+'EdgeZone'
+ImageDiskReference
+Name
+Description
+Value
+communityGalleryImageId
+A relative uri containing a community Azure Compute Gallery image reference.
+string
+id
+A relative uri containing either a Platform Image Repository, user image, or Azure Compute Gallery image reference.
+string
+lun
+If the disk is created from an image's data disk, this is an index that indicates which of the data disks in the image to use. For OS disks, this field is null.
+int
+sharedGalleryImageId
+A relative uri containing a direct shared Azure Compute Gallery image reference.
+string
+KeyVaultAndKeyReference
+Name
+Description
+Value
+keyUrl
+Url pointing to a key or secret in KeyVault
+string (required)
+sourceVault
+Resource id of the KeyVault containing the key or secret
+SourceVault
+(required)
+KeyVaultAndSecretReference
+Name
+Description
+Value
+secretUrl
+Url pointing to a key or secret in KeyVault
+string (required)
+sourceVault
+Resource id of the KeyVault containing the key or secret
+SourceVault
+(required)
+SourceVault
+Name
+Description
+Value
+id
+Resource Id
+string
+SupportedCapabilities
+Name
+Description
+Value
+acceleratedNetwork
+True if the image from which the OS disk is created supports accelerated networking.
+bool
+architecture
+CPU architecture supported by an OS disk.
+'Arm64'
+'x64'
+diskControllerTypes
+The disk controllers that an OS disk supports. If set it can be SCSI or SCSI, NVME or NVME, SCSI.
+string
+supportedSecurityOption
+Refers to the security capability of the disk supported to create a Trusted launch or Confidential VM
+'TrustedLaunchAndConfidentialVMSupported'
+'TrustedLaunchSupported'
+TrackedResourceTags
+Name
+Description
+Value
+Feedback
+Was this page helpful?
+Yes
+No
+No
+Need help with this topic?
+Want to try using Ask Learn to clarify or guide you through this topic?
+Ask Learn
+Ask Learn
+Suggest a fix?
+Additional resources
+Last updated on
+2025-07-07

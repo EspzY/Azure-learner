@@ -32,7 +32,11 @@ const href = (view: string, id?: string) =>
   '/labs/laboratory?' + new URLSearchParams({ view, ...(id ? { id } : {}) });
 
 type Props = {
-  world: PreviousWorld | RoutingWorld | import('@/laboratory/v33/contract').World;
+  world:
+    | PreviousWorld
+    | RoutingWorld
+    | import('@/laboratory/v33/contract').World
+    | import('@/laboratory/v34/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -181,7 +185,12 @@ export function NetworkViews({
                   [n.addressPrefix, subnet.addressPrefix],
                   [n.interval, `${meta.first} – ${meta.last}`],
                   [n.reserved, meta.reserved.join(', ')],
-                  [w.model === 'laboratory@3.3.0' ? e.usable : n.usable, meta.usableCount],
+                  [
+                    w.model === 'laboratory@3.3.0' || w.model === 'laboratory@3.4.0'
+                      ? e.usable
+                      : n.usable,
+                    meta.usableCount,
+                  ],
                   [c.region, parent.region],
                   ...scope(parent.groupId),
                   [
@@ -216,7 +225,11 @@ export function NetworkViews({
           {table(nsg.id)}
           <details className="lab-default-rules">
             <summary>{n.defaultRules}</summary>
-            <p>{w.model === 'laboratory@3.3.0' ? e.defaultNote : n.defaultNote}</p>
+            <p>
+              {w.model === 'laboratory@3.3.0' || w.model === 'laboratory@3.4.0'
+                ? e.defaultNote
+                : n.defaultNote}
+            </p>
             <div
               className="lab-rules-scroll"
               role="region"
