@@ -1,0 +1,613 @@
+/workspace/azurelab-pr67/sources/policy.txt-177-Firewall Policy is a top-level resource that contains security and operational settings for Azure Firewall. It allows you to manage rule sets that Azure Firewall uses to filter traffic. Firewall Policy organizes, prioritizes, and processes rule sets based on a hierarchy with the following components: rule collection groups, rule collections, and rules.
+/workspace/azurelab-pr67/sources/policy.txt-178-Rule collection groups
+/workspace/azurelab-pr67/sources/policy.txt:179:Use a rule collection group to group rule collections. It's the first unit processed by the firewall and follows a priority order based on values. Three default rule collection groups exist with preset priority values. The firewall processes them in the following order:
+/workspace/azurelab-pr67/sources/policy.txt-180-Rule collection group name
+/workspace/azurelab-pr67/sources/policy.txt:181:Priority
+/workspace/azurelab-pr67/sources/policy.txt-182-Default DNAT (Destination Network Address Translation) rule collection group
+/workspace/azurelab-pr67/sources/policy.txt:183:100
+/workspace/azurelab-pr67/sources/policy.txt-184-Default Network rule collection group
+/workspace/azurelab-pr67/sources/policy.txt-185-200
+/workspace/azurelab-pr67/sources/policy.txt-186-Default Application rule collection group
+/workspace/azurelab-pr67/sources/policy.txt-187-300
+/workspace/azurelab-pr67/sources/policy.txt:188:Although you can't delete the default rule collection groups or modify their priority values, you can change the processing order by creating custom rule collection groups with your desired priority values. In this case, don't use the default rule collection groups. Instead, use only the custom ones to define the processing logic.
+/workspace/azurelab-pr67/sources/policy.txt-189-Rule collection groups contain one or multiple rule collections, which can be of type DNAT, network, or application. For example, you can group rules belonging to the same workloads or a virtual network in a rule collection group.
+/workspace/azurelab-pr67/sources/policy.txt-190-For rule collection group size limits, see 
+--
+/workspace/azurelab-pr67/sources/policy.txt-192-.
+/workspace/azurelab-pr67/sources/policy.txt-193-Rule collections
+/workspace/azurelab-pr67/sources/policy.txt:194:A rule collection belongs to a rule collection group and contains one or more rules. It's the second unit processed by the firewall and follows a priority order based on values. Each rule collection must have a defined action (allow or deny) and a priority value. The action applies to all rules within the collection, and the priority value determines the order in which the rule collections are processed.
+/workspace/azurelab-pr67/sources/policy.txt-195-There are three types of rule collections:
+/workspace/azurelab-pr67/sources/policy.txt-196-DNAT
+--
+/workspace/azurelab-pr67/sources/policy.txt-199-The rule types must match their parent rule collection category. For example, a DNAT rule can only be part of a DNAT rule collection.
+/workspace/azurelab-pr67/sources/policy.txt-200-Rules
+/workspace/azurelab-pr67/sources/policy.txt:201:A rule belongs to a rule collection and specifies which traffic is allowed or denied in your network. It's the third unit processed by the firewall and does not follow a priority order based on values. The firewall processes rules in a top-down approach, evaluating all traffic against the defined rules to determine if it matches an allow or deny condition. If no rule allows the traffic, it's denied by default.
+/workspace/azurelab-pr67/sources/policy.txt-202-The built-in 
+/workspace/azurelab-pr67/sources/policy.txt-203-infrastructure rule collection
+--
+/workspace/azurelab-pr67/sources/policy.txt-209-An 
+/workspace/azurelab-pr67/sources/policy.txt-210-outbound
+/workspace/azurelab-pr67/sources/policy.txt:211: firewall rule protects against malicious traffic originating internally (traffic sourced from a private IP address within Azure) and traveling outward. This protection typically involves traffic from within Azure resources being redirected through the firewall before reaching a destination.
+/workspace/azurelab-pr67/sources/policy.txt-212-Rule types
+/workspace/azurelab-pr67/sources/policy.txt-213-There are three types of rules:
+--
+/workspace/azurelab-pr67/sources/policy.txt-216-Application
+/workspace/azurelab-pr67/sources/policy.txt-217-DNAT rules
+/workspace/azurelab-pr67/sources/policy.txt:218:DNAT rules manage inbound traffic through one or more firewall public IP addresses. Use a DNAT rule to translate a public IP address into a private IP address. Azure Firewall public IP addresses can listen to inbound traffic from the Internet, filter it, and translate it to internal Azure resources.
+/workspace/azurelab-pr67/sources/policy.txt-219-Network rules
+/workspace/azurelab-pr67/sources/policy.txt-220-Network rules control inbound, outbound, and east-west traffic based on the network layer (L3) and transport layer (L4). Use a network rule to filter traffic based on IP addresses, ports, and protocols.
+--
+/workspace/azurelab-pr67/sources/policy.txt-317-				
+/workspace/azurelab-pr67/sources/policy.txt-318-Last updated on 
+/workspace/azurelab-pr67/sources/policy.txt:319:		2026-03-29
+/workspace/azurelab-pr67/sources/policy.txt-320-			
+/workspace/azurelab-pr67/sources/policy.txt-321-		
+--
+/workspace/azurelab-pr67/sources/peering.txt-175-		
+/workspace/azurelab-pr67/sources/peering.txt-176-	 
+/workspace/azurelab-pr67/sources/peering.txt:177:This article explains how to create, change, or delete Azure virtual network peering. Virtual network peering connects virtual networks across regions using the Azure backbone network. Learn more in the 
+/workspace/azurelab-pr67/sources/peering.txt-178-virtual network peering overview
+/workspace/azurelab-pr67/sources/peering.txt-179- or the 
+--
+/workspace/azurelab-pr67/sources/peering.txt-274-supported different
+/workspace/azurelab-pr67/sources/peering.txt-275- Azure 
+/workspace/azurelab-pr67/sources/peering.txt:276:region
+/workspace/azurelab-pr67/sources/peering.txt-277- as this virtual network.
+/workspace/azurelab-pr67/sources/peering.txt-278- The full resource ID looks similar to 
+--
+/workspace/azurelab-pr67/sources/peering.txt-300-Azure service tags
+/workspace/azurelab-pr67/sources/peering.txt-301-.
+/workspace/azurelab-pr67/sources/peering.txt:302:Allow the peered virtual network to receive forwarded traffic from 'vnet-1'
+/workspace/azurelab-pr67/sources/peering.txt-303-This option 
+/workspace/azurelab-pr67/sources/peering.txt-304-isn't selected by default.
+/workspace/azurelab-pr67/sources/peering.txt:305: - Enabling this option allows the peered virtual network to receive traffic from virtual networks peered to 'vnet-1.' For example, if vnet-2 has an NVA that receives traffic from outside of vnet-2 that forwards to vnet-1, you can select this setting to allow that traffic to reach vnet-1 from vnet-2. While enabling this capability allows the forwarded traffic through the peering, it doesn't create any user-defined routes or network virtual appliances. User-defined routes and network virtual appliances are created separately.
+/workspace/azurelab-pr67/sources/peering.txt-306-Allow gateway or route server in the peered virtual network to forward traffic to 'vnet-1'
+/workspace/azurelab-pr67/sources/peering.txt-307-This option 
+--
+/workspace/azurelab-pr67/sources/peering.txt-330-, this option is selected.
+/workspace/azurelab-pr67/sources/peering.txt-331- - Select this option to allow traffic from 'vnet-1' to the peered virtual network. This setting enables communication between hub and spoke in hub-spoke network topology and allows a VM in 'vnet-1' to communicate with a VM in the peered virtual network.
+/workspace/azurelab-pr67/sources/peering.txt:332:Allow 'vnet-1' to receive forwarded traffic from the peered virtual network
+/workspace/azurelab-pr67/sources/peering.txt-333-This option 
+/workspace/azurelab-pr67/sources/peering.txt-334-isn't selected by default.
+/workspace/azurelab-pr67/sources/peering.txt:335: - Enabling this option allows 'vnet-1' to receive traffic from virtual networks peered to the peered virtual network. For example, if vnet-2 has an NVA that receives traffic from outside of vnet-2 that gets forwards to vnet-1, you can select this setting to allow that traffic to reach vnet-1 from vnet-2. While enabling this capability allows the forwarded traffic through the peering, it doesn't create any user-defined routes or network virtual appliances. User-defined routes and network virtual appliances are created separately.
+/workspace/azurelab-pr67/sources/peering.txt-336-Allow gateway or route server in 'vnet-1' to forward traffic to the peered virtual network
+/workspace/azurelab-pr67/sources/peering.txt-337-This option 
+--
+/workspace/azurelab-pr67/sources/peering.txt-397-    --resource-group test-rg \
+/workspace/azurelab-pr67/sources/peering.txt-398-    --allow-vnet-access \
+/workspace/azurelab-pr67/sources/peering.txt:399:    --allow-forwarded-traffic
+/workspace/azurelab-pr67/sources/peering.txt-400-## Create peering from vnet-2 to vnet-1. ##
+/workspace/azurelab-pr67/sources/peering.txt-401-az network vnet peering create \
+--
+/workspace/azurelab-pr67/sources/peering.txt-405-    --resource-group test-rg-2 \
+/workspace/azurelab-pr67/sources/peering.txt-406-    --allow-vnet-access \
+/workspace/azurelab-pr67/sources/peering.txt:407:    --allow-forwarded-traffic
+/workspace/azurelab-pr67/sources/peering.txt-408-View or change peering settings
+/workspace/azurelab-pr67/sources/peering.txt-409-Before changing a peering, familiarize yourself with the 
+--
+/workspace/azurelab-pr67/sources/peering.txt-450-}
+/workspace/azurelab-pr67/sources/peering.txt-451-$peering = Get-AzVirtualNetworkPeering @peer
+/workspace/azurelab-pr67/sources/peering.txt:452:# Allow traffic forwarded from remote virtual network. ##
+/workspace/azurelab-pr67/sources/peering.txt:453:$peering.AllowForwardedTraffic = $True
+/workspace/azurelab-pr67/sources/peering.txt-454-## Update the peering with changes made. ##
+/workspace/azurelab-pr67/sources/peering.txt-455-Set-AzVirtualNetworkPeering -VirtualNetworkPeering $peering
+--
+/workspace/azurelab-pr67/sources/peering.txt-471-az network vnet peering update
+/workspace/azurelab-pr67/sources/peering.txt-472- to change peering settings.
+/workspace/azurelab-pr67/sources/peering.txt:473:## Block traffic forwarded from remote virtual network. ##
+/workspace/azurelab-pr67/sources/peering.txt-474-az network vnet peering update \
+/workspace/azurelab-pr67/sources/peering.txt-475-    --resource-group test-rg \
+/workspace/azurelab-pr67/sources/peering.txt-476-    --name vnet-1-to-vnet-2 \
+/workspace/azurelab-pr67/sources/peering.txt-477-    --vnet-name vnet-1 \
+/workspace/azurelab-pr67/sources/peering.txt:478:    --set allowForwardedTraffic=false
+/workspace/azurelab-pr67/sources/peering.txt-479-Delete a peering
+/workspace/azurelab-pr67/sources/peering.txt-480-Before deleting a peering, familiarize yourself with the 
+--
+/workspace/azurelab-pr67/sources/peering.txt-549-    --vnet-name vnet-2
+/workspace/azurelab-pr67/sources/peering.txt-550-Requirements and constraints
+/workspace/azurelab-pr67/sources/peering.txt:551:You can peer virtual networks in the same region, or different regions. Peering virtual networks in different regions is also referred to as 
+/workspace/azurelab-pr67/sources/peering.txt-552-Global Virtual Network Peering
+/workspace/azurelab-pr67/sources/peering.txt-553-.
+/workspace/azurelab-pr67/sources/peering.txt:554:If the 2 Virtual Networks are in different subscriptions or different resource groups within same subscription, please note that you have to introduce the full resource URI of the remote Virtual Network when using Powershell or CLI.
+/workspace/azurelab-pr67/sources/peering.txt:555:When you create a global peering, the peered virtual networks can exist in any Azure public cloud region, China cloud region, or Government cloud region. However, you can't peer virtual networks across different clouds. For example, a virtual network in Azure public cloud can't connect to a virtual network in Microsoft Azure operated by 21Vianet cloud.
+/workspace/azurelab-pr67/sources/peering.txt-556-You can't move a virtual network while it's part of a peering. To move a virtual network to a different resource group or subscription, first delete the peering, then move the virtual network, and finally recreate the peering.
+/workspace/azurelab-pr67/sources/peering.txt:557:Resources in one virtual network can't communicate with the front-end IP address of a basic load balancer (internal or public) in a globally peered virtual network. Support for basic load balancer only exists within the same region. Support for standard load balancer exists for both, Virtual Network Peering and Global Virtual Network Peering. Some services that use a basic load balancer don't work over global virtual network peering. For more information, see 
+/workspace/azurelab-pr67/sources/peering.txt-558-Constraints related to Global Virtual Network Peering and Load Balancers
+/workspace/azurelab-pr67/sources/peering.txt-559-.
+/workspace/azurelab-pr67/sources/peering.txt:560:You can use remote gateways or allow gateway transit in globally peered virtual networks and locally peered virtual networks. To use a gateway that's in a different Azure region from your workload virtual networks, see 
+/workspace/azurelab-pr67/sources/peering.txt:561:Use a VPN or ExpressRoute gateway in a different region
+/workspace/azurelab-pr67/sources/peering.txt-562-.
+/workspace/azurelab-pr67/sources/peering.txt-563-The virtual networks can be in the same, or different 
+--
+/workspace/azurelab-pr67/sources/peering.txt-592-Name resolution using your own DNS server
+/workspace/azurelab-pr67/sources/peering.txt-593-.
+/workspace/azurelab-pr67/sources/peering.txt:594:Resources in peered virtual networks in the same region can communicate with each other with the same latency as if they were within the same virtual network. The network throughput is based on the bandwidth allowed for the virtual machine, proportionate to its size. There isn't any extra restriction on bandwidth within the peering. Each virtual machine size has its own maximum network bandwidth. To learn more about maximum network bandwidth for different virtual machine sizes, see 
+/workspace/azurelab-pr67/sources/peering.txt-595-Sizes for virtual machines in Azure
+/workspace/azurelab-pr67/sources/peering.txt-596-.
+--
+/workspace/azurelab-pr67/sources/processing.txt-177-You can configure Azure Firewall with NAT rules, network rules, and application rules by using either classic rules or a Firewall Policy. By default, Azure Firewall denies all traffic until you manually configure rules to allow traffic. The rules are terminating, so rule processing stops on a match.
+/workspace/azurelab-pr67/sources/processing.txt-178-Rule processing by using classic rules
+/workspace/azurelab-pr67/sources/processing.txt:179:The firewall processes rule collections in priority order by rule type, from lower numbers to higher numbers (100 to 65,000). A rule collection name can contain only letters, numbers, underscores, periods, or hyphens. It must begin with a letter or number, and end with a letter, number, or underscore. The maximum name length is 80 characters.
+/workspace/azurelab-pr67/sources/processing.txt:180:Initially, space your rule collection priority numbers in 100 increments (100, 200, 300, and so on) so you have room to add more rule collections if needed.
+/workspace/azurelab-pr67/sources/processing.txt-181-Rule processing by using Firewall Policy
+/workspace/azurelab-pr67/sources/processing.txt-182-By using Firewall Policy, you organize rules inside rule collections and rule collection groups. Rule collection groups contain zero or more rule collections. Rule collections are type NAT, Network, or Applications. You can define multiple rule collection types within a single rule group. You can define zero or more rules in a rule collection. Rules in a rule collection must be of the same type (NAT, Network, or Application).
+/workspace/azurelab-pr67/sources/processing.txt:183:The system processes rules based on rule collection group priority and rule collection priority. Priority is any number between 100 (highest priority) to 65,000 (lowest priority). The system processes highest priority rule collection groups first. Inside a rule collection group, the system processes rule collections with highest priority (lowest number) first.
+/workspace/azurelab-pr67/sources/processing.txt:184:If you inherit a Firewall Policy from a parent policy, rule collection groups in the parent policy always take precedence regardless of the priority of a child policy.
+/workspace/azurelab-pr67/sources/processing.txt-185-Note
+/workspace/azurelab-pr67/sources/processing.txt:186:The system always processes application rules after network rules, and processes network rules after DNAT rules regardless of rule collection group or rule collection priority and policy inheritance.
+/workspace/azurelab-pr67/sources/processing.txt-187-To summarize:
+/workspace/azurelab-pr67/sources/processing.txt-188-The parent policy always takes precedence over the child policy.
+/workspace/azurelab-pr67/sources/processing.txt:189:The system processes rule collection groups in priority order.
+/workspace/azurelab-pr67/sources/processing.txt:190:The system processes rule collections in priority order.
+/workspace/azurelab-pr67/sources/processing.txt-191-The system processes DNAT rules, then network rules, then application rules.
+/workspace/azurelab-pr67/sources/processing.txt-192-Here's an example policy with four rule collection groups. 
+--
+/workspace/azurelab-pr67/sources/processing.txt-201-Tip
+/workspace/azurelab-pr67/sources/processing.txt-202-Abbreviations used in these tables:
+/workspace/azurelab-pr67/sources/processing.txt:203: RCG = rule collection group, RC = rule collection. Priority numbers range from 100 (highest priority) to 65,000 (lowest priority).
+/workspace/azurelab-pr67/sources/processing.txt-204-Policy structure:
+/workspace/azurelab-pr67/sources/processing.txt-205-Level
+/workspace/azurelab-pr67/sources/processing.txt-206-Name
+/workspace/azurelab-pr67/sources/processing.txt-207-Type
+/workspace/azurelab-pr67/sources/processing.txt:208:Priority
+/workspace/azurelab-pr67/sources/processing.txt-209-Rules
+/workspace/azurelab-pr67/sources/processing.txt-210-Policy
+--
+/workspace/azurelab-pr67/sources/processing.txt-278-ChNetRC2
+/workspace/azurelab-pr67/sources/processing.txt-279-Network
+/workspace/azurelab-pr67/sources/processing.txt:280:1100
+/workspace/azurelab-pr67/sources/processing.txt-281-2
+/workspace/azurelab-pr67/sources/processing.txt-282-Child
+--
+/workspace/azurelab-pr67/sources/processing.txt-293-2
+/workspace/azurelab-pr67/sources/processing.txt-294-Child
+/workspace/azurelab-pr67/sources/processing.txt:295:The firewall iterates through all rule collection groups three times — once per rule type in order: DNAT, then Network, then Application. Within each pass, it processes groups in priority order, then rule collections within each group in priority order. The following table shows the complete processing sequence for this example:
+/workspace/azurelab-pr67/sources/processing.txt-296-Processing order:
+/workspace/azurelab-pr67/sources/processing.txt-297-Step
+--
+/workspace/azurelab-pr67/sources/processing.txt-343-.
+/workspace/azurelab-pr67/sources/processing.txt-344-Threat intelligence
+/workspace/azurelab-pr67/sources/processing.txt:345:If you enable threat intelligence-based filtering, those rules have the highest priority. Azure Firewall always processes them first, before network and application rules. Threat intelligence-based filtering can block traffic before Azure Firewall processes any configured rules. For more information, see 
+/workspace/azurelab-pr67/sources/processing.txt-346-Azure Firewall threat intelligence-based filtering
+/workspace/azurelab-pr67/sources/processing.txt-347-.
+--
+/workspace/azurelab-pr67/sources/processing.txt-376-Outbound connectivity
+/workspace/azurelab-pr67/sources/processing.txt-377-Network rules and application rules
+/workspace/azurelab-pr67/sources/processing.txt:378:If you configure network rules and application rules, Azure Firewall applies network rules in priority order before application rules. The rules are terminating. So, if Azure Firewall finds a match in a network rule, it doesn't process any other rules. If you configure IDPS, Azure Firewall runs it on all traversed traffic. When IDPS finds a signature match, it can generate alerts or block suspicious traffic, depending on the IDPS mode.
+/workspace/azurelab-pr67/sources/processing.txt:379:Application rules evaluate the packet in priority order if there's no network rule match and if the protocol is HTTP, HTTPS, or MSSQL.
+/workspace/azurelab-pr67/sources/processing.txt-380-For HTTP, Azure Firewall looks for an application rule match according to the Host header. For HTTPS, Azure Firewall looks for an application rule match according to SNI only.
+/workspace/azurelab-pr67/sources/processing.txt-381-In both HTTP and TLS inspected HTTPS cases, the firewall ignores the packet's destination IP address and uses the DNS resolved IP address from the Host header. If there's a port mismatch between the actual TCP port and the port in the host header, the firewall drops the traffic. Azure DNS or a custom DNS that you configure on the firewall performs DNS resolution.
+/workspace/azurelab-pr67/sources/processing.txt-382-Note
+/workspace/azurelab-pr67/sources/processing.txt:383:Azure Firewall always fills both HTTP and HTTPS protocols (with TLS inspection) with the XFF (X-Forwarded-For) header set to the original source IP address.
+/workspace/azurelab-pr67/sources/processing.txt-384-When an application rule contains TLS inspection, the firewall rules engine processes SNI, Host header, and also the URL to match the rule.
+/workspace/azurelab-pr67/sources/processing.txt-385-If Azure Firewall doesn't find a match within application rules, it evaluates the packet against the infrastructure rule collection. If Azure Firewall still doesn't find a match, it denies the packet by default.
+--
+/workspace/azurelab-pr67/sources/processing.txt-414-You can enable inbound Internet or intranet connectivity by configuring Destination Network Address Translation (DNAT) as described in 
+/workspace/azurelab-pr67/sources/processing.txt-415-Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal
+/workspace/azurelab-pr67/sources/processing.txt:416:. NAT rules apply in priority before network rules. If Azure Firewall finds a match, it translates the traffic according to the DNAT rule and allows it. So, the traffic isn't subject to any further processing by other network rules. For security reasons, add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
+/workspace/azurelab-pr67/sources/processing.txt-417-Azure Firewall doesn't apply application rules for inbound connections. So, if you want to filter inbound HTTP/S traffic, use Web Application Firewall (WAF). For more information, see 
+/workspace/azurelab-pr67/sources/processing.txt-418-What is Azure Web Application Firewall
+--
+/workspace/azurelab-pr67/sources/processing.txt-455- network rule. Rule processing stops here.
+/workspace/azurelab-pr67/sources/processing.txt-456-Example 2
+/workspace/azurelab-pr67/sources/processing.txt:457:SSH traffic is denied because a higher priority 
+/workspace/azurelab-pr67/sources/processing.txt-458-Deny
+/workspace/azurelab-pr67/sources/processing.txt-459- network rule collection blocks it.
+/workspace/azurelab-pr67/sources/processing.txt-460-Network rule collection 1
+/workspace/azurelab-pr67/sources/processing.txt:461: — Name: Allow-collection, Priority: 200, Action: Allow
+/workspace/azurelab-pr67/sources/processing.txt-462-Name
+/workspace/azurelab-pr67/sources/processing.txt-463-Protocol
+--
+/workspace/azurelab-pr67/sources/processing.txt-475-22
+/workspace/azurelab-pr67/sources/processing.txt-476-Network rule collection 2
+/workspace/azurelab-pr67/sources/processing.txt:477: — Name: Deny-collection, Priority: 100, Action: Deny
+/workspace/azurelab-pr67/sources/processing.txt-478-Name
+/workspace/azurelab-pr67/sources/processing.txt-479-Protocol
+--
+/workspace/azurelab-pr67/sources/processing.txt-491-22
+/workspace/azurelab-pr67/sources/processing.txt-492-Result
+/workspace/azurelab-pr67/sources/processing.txt:493:SSH connections are denied because a higher priority network rule collection blocks them. Rule processing stops at this point.
+/workspace/azurelab-pr67/sources/processing.txt-494-Rule changes
+/workspace/azurelab-pr67/sources/processing.txt-495-If you change a rule to deny previously allowed traffic, Azure Firewall drops any relevant existing sessions.
+--
+/workspace/azurelab-pr67/sources/processing.txt-597-				
+/workspace/azurelab-pr67/sources/processing.txt-598-Last updated on 
+/workspace/azurelab-pr67/sources/processing.txt:599:		2026-04-02
+/workspace/azurelab-pr67/sources/processing.txt-600-			
+/workspace/azurelab-pr67/sources/processing.txt-601-		
+--
+/workspace/azurelab-pr67/sources/faq.txt-180-What is the typical deployment model for Azure Firewall?
+/workspace/azurelab-pr67/sources/faq.txt-181-			
+/workspace/azurelab-pr67/sources/faq.txt:182:Azure Firewall can be deployed on any virtual network. However, it's typically deployed on a central virtual network in a hub-and-spoke model, with other virtual networks peered to it. The default route from the peered virtual networks is set to point to this central firewall virtual network. While global virtual network peering is supported, it isn't recommended due to potential performance and latency issues across regions. For optimal performance, deploy one firewall per region.
+/workspace/azurelab-pr67/sources/faq.txt-183-This model allows centralized control over multiple spoke VNets across different subscriptions and offers cost savings by avoiding the need to deploy a firewall in each virtual network. Cost savings should be evaluated against the associated peering costs based on traffic patterns.
+/workspace/azurelab-pr67/sources/faq.txt-184-			
+--
+/workspace/azurelab-pr67/sources/faq.txt-191-What are some key Azure Firewall concepts?
+/workspace/azurelab-pr67/sources/faq.txt-192-			
+/workspace/azurelab-pr67/sources/faq.txt:193:Azure Firewall uses rules and rule collections. A rule collection is a set of rules with the same order and priority. Rule collections are executed in priority order. DNAT rule collections have higher priority than network rule collections, which in turn have higher priority than application rule collections. All rules are terminating.
+/workspace/azurelab-pr67/sources/faq.txt-194-There are three types of rule collections:
+/workspace/azurelab-pr67/sources/faq.txt-195-Application rules
+--
+/workspace/azurelab-pr67/sources/faq.txt-229-What is the added value of Azure Firewall with private endpoints?
+/workspace/azurelab-pr67/sources/faq.txt-230-			
+/workspace/azurelab-pr67/sources/faq.txt:231:Private endpoints are a component of Private Link, a technology that allows to interact with Azure PaaS services using private IP addresses instead of public ones. Azure Firewall can be used to prevent access to public IP addresses, hence avoiding data exfiltration to Azure services not leveraging Private Link, as well as to implement zero-trust policies by defining who in your organization needs to access those Azure PaaS services, since Private Link per default opens up network access for your whole corporate network.
+/workspace/azurelab-pr67/sources/faq.txt-232-The right design to inspect traffic to private endpoints with Azure Firewall will depend on your network architecture, you can find more details in the article 
+/workspace/azurelab-pr67/sources/faq.txt-233-Azure Firewall scenarios to inspect traffic destined to a private endpoint
+--
+/workspace/azurelab-pr67/sources/faq.txt-236-What is the added value of Azure Firewall with virtual network service endpoints?
+/workspace/azurelab-pr67/sources/faq.txt-237-			
+/workspace/azurelab-pr67/sources/faq.txt:238:Virtual Network service endpoints are an alternative to Private Link to control network access to Azure PaaS services. Even if the client still uses public IP addresses to access the PaaS service, the source subnet is made visible so that the destination PaaS service can implement filter rules and restrict access on a per-subnet basis. You can find a detailed comparison between both mechanisms in 
+/workspace/azurelab-pr67/sources/faq.txt-239-Compare Private Endpoints and Service Endpoints
+/workspace/azurelab-pr67/sources/faq.txt-240-.
+--
+/workspace/azurelab-pr67/sources/faq.txt-255-Where does Azure Firewall store customer data?
+/workspace/azurelab-pr67/sources/faq.txt-256-			
+/workspace/azurelab-pr67/sources/faq.txt:257:Azure Firewall doesn't move or store customer data outside the region where it's deployed.
+/workspace/azurelab-pr67/sources/faq.txt-258-			
+/workspace/azurelab-pr67/sources/faq.txt-259-Is Azure Firewall in secured virtual hubs (vWAN) supported in Qatar?
+--
+/workspace/azurelab-pr67/sources/faq.txt-283-			
+/workspace/azurelab-pr67/sources/faq.txt-284-No, Azure Firewall doesn't natively support BGP peering. However, the 
+/workspace/azurelab-pr67/sources/faq.txt:285:Auto-learn SNAT routes feature
+/workspace/azurelab-pr67/sources/faq.txt-286- indirectly uses BGP through Azure Route Server.
+/workspace/azurelab-pr67/sources/faq.txt-287-			
+--
+/workspace/azurelab-pr67/sources/faq.txt-317-$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+/workspace/azurelab-pr67/sources/faq.txt-318-$vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+/workspace/azurelab-pr67/sources/faq.txt:319:$publicip1 = Get-AzPublicIpAddress -Name "Public IP1 Name" -ResourceGroupName "RG Name"
+/workspace/azurelab-pr67/sources/faq.txt:320:$publicip2 = Get-AzPublicIpAddress -Name "Public IP2 Name" -ResourceGroupName "RG Name"
+/workspace/azurelab-pr67/sources/faq.txt-321-$azfw.Allocate($vnet, @($publicip1, $publicip2))
+/workspace/azurelab-pr67/sources/faq.txt-322-Set-AzFirewall -AzureFirewall $azfw
+--
+/workspace/azurelab-pr67/sources/faq.txt-333-$azfw.Allocate($vnet, $pip, $mgmtPip)
+/workspace/azurelab-pr67/sources/faq.txt-334-Set-AzFirewall -AzureFirewall $azfw
+/workspace/azurelab-pr67/sources/faq.txt:335:For a firewall with a Management NIC and no public IP associated with the Dataplane NIC:
+/workspace/azurelab-pr67/sources/faq.txt-336-# Stop the firewall
+/workspace/azurelab-pr67/sources/faq.txt-337-$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+--
+/workspace/azurelab-pr67/sources/faq.txt-355-Set-AzFirewall -AzureFirewall $azfw
+/workspace/azurelab-pr67/sources/faq.txt-356-Note
+/workspace/azurelab-pr67/sources/faq.txt:357:When stopping and starting the firewall, billing stops and starts accordingly. However, the private IP address might change, which can affect connectivity if route tables are configured.
+/workspace/azurelab-pr67/sources/faq.txt-358-			
+/workspace/azurelab-pr67/sources/faq.txt-359-Do I need to specify availability zones when deploying Azure Firewall?
+/workspace/azurelab-pr67/sources/faq.txt-360-			
+/workspace/azurelab-pr67/sources/faq.txt-361-No. For new deployments, don't specify firewall availability zones. Azure manages backend allocation across multiple availability zones in 
+/workspace/azurelab-pr67/sources/faq.txt:362:ZR compatible regions
+/workspace/azurelab-pr67/sources/faq.txt-363-. Omit 
+/workspace/azurelab-pr67/sources/faq.txt-364--Zone
+--
+/workspace/azurelab-pr67/sources/faq.txt-371-, and the firewall's 
+/workspace/azurelab-pr67/sources/faq.txt-372-zones
+/workspace/azurelab-pr67/sources/faq.txt:373: property from deployment templates. Public IP zone configuration is separate.
+/workspace/azurelab-pr67/sources/faq.txt:374:In regions without availability zones, the firewall remains a regional resource.
+/workspace/azurelab-pr67/sources/faq.txt-375-			
+/workspace/azurelab-pr67/sources/faq.txt-376-Do existing firewalls need to be redeployed to become zone redundant?
+/workspace/azurelab-pr67/sources/faq.txt-377-			
+/workspace/azurelab-pr67/sources/faq.txt:378:No. Azure automatically migrates existing non-zone-redundant firewalls in regions that support multiple availability zones. Migration is complete in the 
+/workspace/azurelab-pr67/sources/faq.txt:379:listed regions
+/workspace/azurelab-pr67/sources/faq.txt-380-.
+/workspace/azurelab-pr67/sources/faq.txt-381-You don't need to deallocate, redeploy, or change zone settings to receive the migration.
+--
+/workspace/azurelab-pr67/sources/faq.txt-391-Are there any Azure firewall resource group restrictions?
+/workspace/azurelab-pr67/sources/faq.txt-392-			
+/workspace/azurelab-pr67/sources/faq.txt:393:The Azure Firewall and virtual network must be in the same resource group.
+/workspace/azurelab-pr67/sources/faq.txt:394:The public IP address can be in a different resource group.
+/workspace/azurelab-pr67/sources/faq.txt:395:All resources (Azure firewall, virtual network, public IP) must be in the same subscription.
+/workspace/azurelab-pr67/sources/faq.txt-396-			
+/workspace/azurelab-pr67/sources/faq.txt-397-What does provisioning state **Failed** mean?
+--
+/workspace/azurelab-pr67/sources/faq.txt-411-Yes, firewall names are limited to 50 characters.
+/workspace/azurelab-pr67/sources/faq.txt-412-			
+/workspace/azurelab-pr67/sources/faq.txt:413:Why does Azure Firewall need a /26 subnet size?
+/workspace/azurelab-pr67/sources/faq.txt-414-			
+/workspace/azurelab-pr67/sources/faq.txt:415:A /26 subnet ensures sufficient IP addresses for scaling as the Azure Firewall provisions extra virtual machine instances.
+/workspace/azurelab-pr67/sources/faq.txt-416-			
+/workspace/azurelab-pr67/sources/faq.txt-417-Does the firewall subnet size need to change as the service scales?
+/workspace/azurelab-pr67/sources/faq.txt-418-			
+/workspace/azurelab-pr67/sources/faq.txt:419:No, a /26 subnet is sufficient for all scaling scenarios.
+/workspace/azurelab-pr67/sources/faq.txt-420-			
+/workspace/azurelab-pr67/sources/faq.txt-421-How can I increase my firewall throughput?
+/workspace/azurelab-pr67/sources/faq.txt-422-			
+/workspace/azurelab-pr67/sources/faq.txt:423:Azure Firewall scales automatically based on CPU usage, throughput, and connection count. Throughput capacity ranges from 2.5–3 Gbps initially to 30 Gbps (Standard SKU) or 100 Gbps (Premium SKU).
+/workspace/azurelab-pr67/sources/faq.txt-424-			
+/workspace/azurelab-pr67/sources/faq.txt-425-How many firewalls can reference a single IP Group?
+--
+/workspace/azurelab-pr67/sources/faq.txt-448-.
+/workspace/azurelab-pr67/sources/faq.txt-449-			
+/workspace/azurelab-pr67/sources/faq.txt:450:Can I deploy Azure Firewall without a public IP address?
+/workspace/azurelab-pr67/sources/faq.txt-451-			
+/workspace/azurelab-pr67/sources/faq.txt:452:Yes, but you must configure the firewall in Forced Tunneling Mode. This configuration creates a management interface with a public IP address that is used by Azure Firewall for its operations. This public IP address is for management traffic. It's used exclusively by the Azure platform and can't be used for any other purpose. The tenant data path network can be configured without a public IP address, and Internet traffic can be forced tunneled to another Firewall or completely blocked.
+/workspace/azurelab-pr67/sources/faq.txt-453-			
+/workspace/azurelab-pr67/sources/faq.txt-454-Is there a way to automatically back up Azure Firewall and policies?
+--
+/workspace/azurelab-pr67/sources/faq.txt-474-. Managing these routes might be cumbersome and prone to error. The recommended method for internal network segmentation is to use Network Security Groups, which don't require UDRs.
+/workspace/azurelab-pr67/sources/faq.txt-475-			
+/workspace/azurelab-pr67/sources/faq.txt:476:Does Azure Firewall outbound SNAT between private networks?
+/workspace/azurelab-pr67/sources/faq.txt-477-			
+/workspace/azurelab-pr67/sources/faq.txt:478:Azure Firewall doesn't SNAT when the destination IP address is a private IP range per 
+/workspace/azurelab-pr67/sources/faq.txt-479-IANA RFC 1918
+/workspace/azurelab-pr67/sources/faq.txt-480- or 
+/workspace/azurelab-pr67/sources/faq.txt-481-IANA RFC 6598
+/workspace/azurelab-pr67/sources/faq.txt:482: for private networks. If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to 
+/workspace/azurelab-pr67/sources/faq.txt-483-not
+/workspace/azurelab-pr67/sources/faq.txt:484: SNAT your public IP address range. For more information, see 
+/workspace/azurelab-pr67/sources/faq.txt:485:Azure Firewall SNAT private IP address ranges
+/workspace/azurelab-pr67/sources/faq.txt-486-.
+/workspace/azurelab-pr67/sources/faq.txt:487:In addition, traffic processed by application rules are always SNAT-ed. If you want to see the original source IP address in your logs for FQDN traffic, you can use network rules with the destination FQDN.
+/workspace/azurelab-pr67/sources/faq.txt-488-			
+/workspace/azurelab-pr67/sources/faq.txt-489-Is forced tunneling/chaining to a Network Virtual Appliance supported?
+--
+/workspace/azurelab-pr67/sources/faq.txt-635-.
+/workspace/azurelab-pr67/sources/faq.txt-636-			
+/workspace/azurelab-pr67/sources/faq.txt:637:Can I deploy Azure Firewall without a public IP address?
+/workspace/azurelab-pr67/sources/faq.txt-638-			
+/workspace/azurelab-pr67/sources/faq.txt:639:Yes, but you must configure the firewall in Forced Tunneling Mode. This configuration creates a management interface with a public IP address that is used by Azure Firewall for its operations. This public IP address is for management traffic. It's used exclusively by the Azure platform and can't be used for any other purpose. The tenant data path network can be configured without a public IP address, and Internet traffic can be forced tunneled to another Firewall or completely blocked.
+/workspace/azurelab-pr67/sources/faq.txt-640-			
+/workspace/azurelab-pr67/sources/faq.txt-641-Where does Azure Firewall store customer data?
+/workspace/azurelab-pr67/sources/faq.txt-642-			
+/workspace/azurelab-pr67/sources/faq.txt:643:Azure Firewall doesn't move or store customer data out of the region it's deployed in.
+/workspace/azurelab-pr67/sources/faq.txt-644-			
+/workspace/azurelab-pr67/sources/faq.txt-645-Is there a way to automatically back up Azure Firewall and policies?
+--
+/workspace/azurelab-pr67/sources/faq.txt-660-The total limit per firewall is the virtual machine connection limit (250k) x the number of virtual machines in the firewall backend pool. Azure Firewall starts with two virtual machines and scales out based on CPU usage and throughput.
+/workspace/azurelab-pr67/sources/faq.txt-661-			
+/workspace/azurelab-pr67/sources/faq.txt:662:What is the SNAT TCP/UDP port reuse behavior in Azure Firewall?
+/workspace/azurelab-pr67/sources/faq.txt-663-			
+/workspace/azurelab-pr67/sources/faq.txt:664:Azure Firewall currently uses TCP/UDP source ports for outbound SNAT traffic, with no idle wait time. When a TCP/UDP connection is closed, the TCP port used is immediately seen as available for upcoming connections.
+/workspace/azurelab-pr67/sources/faq.txt-665-As a workaround for certain architectures, you can deploy and scale with 
+/workspace/azurelab-pr67/sources/faq.txt-666-NAT Gateway with Azure Firewall
+/workspace/azurelab-pr67/sources/faq.txt:667: to provide a wider pool of SNAT ports for variability and availability.
+/workspace/azurelab-pr67/sources/faq.txt-668-			
+/workspace/azurelab-pr67/sources/faq.txt:669:How do I resolve SNAT port exhaustion?
+/workspace/azurelab-pr67/sources/faq.txt-670-			
+/workspace/azurelab-pr67/sources/faq.txt:671:You have two options. Add multiple public IP addresses to your firewall for a lower-cost solution, or use an Azure NAT Gateway for a more scalable and robust solution. For a comparison of both options, see 
+/workspace/azurelab-pr67/sources/faq.txt-672-Best practices for Azure Firewall performance
+/workspace/azurelab-pr67/sources/faq.txt-673-.
+--
+/workspace/azurelab-pr67/sources/faq.txt-690-How does Azure Firewall handle VM instance shutdowns during Virtual Machine Scale Set scale in (scale down) or fleet software upgrades?
+/workspace/azurelab-pr67/sources/faq.txt-691-			
+/workspace/azurelab-pr67/sources/faq.txt:692:An Azure Firewall VM instance shutdown might occur during Virtual Machine Scale Set scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and aren't forwarded to the down firewall instance. After 45 seconds, the firewall starts rejecting existing connections by sending TCP RST packets. After another 45 seconds the firewall VM shuts down. For more information, see 
+/workspace/azurelab-pr67/sources/faq.txt-693-Load Balancer TCP Reset and Idle Timeout
+/workspace/azurelab-pr67/sources/faq.txt-694-.
+--
+/workspace/azurelab-pr67/sources/faq.txt-727-Customer-controlled maintenance supports guest OS and service updates, which account for most maintenance items of concern to customers. However, some updates, such as host updates, are outside the scope of customer-controlled maintenance. In rare cases, we might override your control of the maintenance window to address high-severity security issues.
+/workspace/azurelab-pr67/sources/faq.txt-728-			
+/workspace/azurelab-pr67/sources/faq.txt:729:Do maintenance configuration resources need to be in the same region as the Azure Firewall?
+/workspace/azurelab-pr67/sources/faq.txt-730-			
+/workspace/azurelab-pr67/sources/faq.txt-731-Yes.
+--
+/workspace/azurelab-pr67/sources/faq.txt-754-	
+/workspace/azurelab-pr67/sources/faq.txt-755-	
+/workspace/azurelab-pr67/sources/faq.txt:756:	{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.\u003c/p\u003e\n"}},{"@type":"Question","name":"What capabilities does Azure Firewall support?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eFor a detailed list of Azure Firewall features, see \u003ca href=\"features\"\u003eAzure Firewall features\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the typical deployment model for Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall can be deployed on any virtual network. However, it's typically deployed on a central virtual network in a hub-and-spoke model, with other virtual networks peered to it. The default route from the peered virtual networks is set to point to this central firewall virtual network. While global virtual network peering is supported, it isn't recommended due to potential performance and latency issues across regions. For optimal performance, deploy one firewall per region.\u003c/p\u003e\n\u003cp\u003eThis model allows centralized control over multiple spoke VNets across different subscriptions and offers cost savings by avoiding the need to deploy a firewall in each virtual network. Cost savings should be evaluated against the associated peering costs based on traffic patterns.\u003c/p\u003e\n"}},{"@type":"Question","name":"How can I deploy Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall can be deployed using the Azure portal, PowerShell, REST API, or templates. For step-by-step instructions, see \u003ca href=\"tutorial-firewall-deploy-portal\"\u003eTutorial: Deploy and configure Azure Firewall using the Azure portal\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"What are some key Azure Firewall concepts?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall uses rules and rule collections. A rule collection is a set of rules with the same order and priority. Rule collections are executed in priority order. DNAT rule collections have higher priority than network rule collections, which in turn have higher priority than application rule collections. All rules are terminating.\u003c/p\u003e\n\u003cp\u003eThere are three types of rule collections:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eApplication rules\u003c/strong\u003e: Configure fully qualified domain names (FQDNs) that can be accessed from a virtual network.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eNetwork rules\u003c/strong\u003e: Configure rules with source addresses, protocols, destination ports, and destination addresses.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eNAT rules\u003c/strong\u003e: Configure DNAT rules to allow incoming Internet or intranet (preview) connections.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor more information, see \u003ca href=\"rule-processing\"\u003eConfigure Azure Firewall rules\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Which logging and analytics services does Azure Firewall support?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall integrates with Azure Monitor for viewing and analyzing logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hubs and analyzed using tools like Log Analytics, Excel, or Power BI. For more information, see \u003ca href=\"firewall-diagnostics\"\u003eTutorial: Monitor Azure Firewall logs\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"How does Azure Firewall differ from NVAs in the marketplace?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall is a managed, cloud-based network security service that protects virtual network resources. It's a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. It's preintegrated with third-party security-as-a-service (SECaaS) providers to enhance security for virtual network and branch Internet connections. For more information, see \u003ca href=\"../networking/security/\"\u003eAzure network security\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the difference between Application Gateway WAF and Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eApplication Gateway WAF provides centralized inbound protection for web applications against common exploits and vulnerabilities. Azure Firewall provides inbound protection for non-HTTP/S protocols (for example, RDP, SSH, FTP), outbound network-level protection for all ports and protocols, and application-level protection for outbound HTTP/S.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the difference between Network Security Groups (NSGs) and Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall complements NSGs to provide better \u0026quot;defense-in-depth\u0026quot; network security. NSGs offer distributed network layer traffic filtering to limit traffic within virtual networks in each subscription. Azure Firewall provides centralized, fully stateful network and application-level protection across subscriptions and virtual networks.\u003c/p\u003e\n"}},{"@type":"Question","name":"Are Network Security Groups (NSGs) supported on the AzureFirewallSubnet?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall is a managed service with multiple protection layers, including platform protection with NIC-level NSGs (not viewable). Subnet-level NSGs aren't required on the AzureFirewallSubnet and are disabled to prevent service interruptions.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the added value of Azure Firewall with private endpoints?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003ePrivate endpoints are a component of Private Link, a technology that allows to interact with Azure PaaS services using private IP addresses instead of public ones. Azure Firewall can be used to prevent access to public IP addresses, hence avoiding data exfiltration to Azure services not leveraging Private Link, as well as to implement zero-trust policies by defining who in your organization needs to access those Azure PaaS services, since Private Link per default opens up network access for your whole corporate network.\u003c/p\u003e\n\u003cp\u003eThe right design to inspect traffic to private endpoints with Azure Firewall will depend on your network architecture, you can find more details in the article \u003ca href=\"../private-link/inspect-traffic-with-azure-firewall\"\u003eAzure Firewall scenarios to inspect traffic destined to a private endpoint\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the added value of Azure Firewall with virtual network service endpoints?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eVirtual Network service endpoints are an alternative to Private Link to control network access to Azure PaaS services. Even if the client still uses public IP addresses to access the PaaS service, the source subnet is made visible so that the destination PaaS service can implement filter rules and restrict access on a per-subnet basis. You can find a detailed comparison between both mechanisms in \u003ca href=\"../virtual-network/vnet-integration-for-azure-services\"\u003eCompare Private Endpoints and Service Endpoints\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eAzure Firewall application rules can be used to make sure that no data exfiltration to rogue services takes place, and to implement access policies with an increased granularity beyond the subnet level. Usually, virtual network service endpoints need to be enabled in the subnet of the client that will connect to an Azure service. However, when inspecting traffic to service endpoints with Azure Firewall, you need to enable the corresponding service endpoint in the Azure Firewall subnet instead and disable them on the subnet of the actual client (usually a spoke virtual network). This way you can use Application Rules in Azure Firewall to control to which Azure services your Azure workloads will have access to.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the pricing for Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eFor pricing details, see \u003ca href=\"https://azure.microsoft.com/pricing/details/azure-firewall/\"\u003eAzure Firewall Pricing\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"What are the known service limits for Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eFor service limits, see \u003ca href=\"../azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits\"\u003eAzure subscription and service limits, quotas, and constraints\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Where does Azure Firewall store customer data?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall doesn't move or store customer data outside the region where it's deployed.\u003c/p\u003e\n"}},{"@type":"Question","name":"Is Azure Firewall in secured virtual hubs (vWAN) supported in Qatar?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, Azure Firewall in secured virtual hubs (vWAN) isn't currently supported in Qatar.\u003c/p\u003e\n"}},{"@type":"Question","name":"Does Azure Firewall support inbound traffic filtering?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes, Azure Firewall supports both inbound and outbound traffic filtering. Inbound filtering is typically used for non-HTTP protocols such as RDP, SSH, and FTP. For inbound HTTP and HTTPS traffic, consider using a web application firewall like \u003ca href=\"../web-application-firewall/overview\"\u003eAzure Web Application Firewall (WAF)\u003c/a\u003e or the TLS offload and deep packet inspection features of \u003ca href=\"premium-features\"\u003eAzure Firewall Premium\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Does Azure Firewall Basic support forced tunneling?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes, Azure Firewall Basic supports forced tunneling.\u003c/p\u003e\n"}},{"@type":"Question","name":"Why does a TCP ping or similar tool appear to connect to a target FQDN even when no rule allows the traffic?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eA TCP ping doesn't actually connect to the target FQDN. Azure Firewall blocks connections to any target IP address or FQDN unless explicitly allowed by a rule.\u003c/p\u003e\n\u003cp\u003eIn the case of a TCP ping, if no rule allows the traffic, the Firewall itself responds to the client's TCP ping request. This response doesn't reach the target IP address or FQDN and isn't logged. If a network rule explicitly allows access to the target IP address or FQDN, the ping request reaches the target server, and its response is relayed back to the client. This event is logged in the Network rules log.\u003c/p\u003e\n"}},{"@type":"Question","name":"Does Azure Firewall support BGP peering?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, Azure Firewall doesn't natively support BGP peering. However, the \u003ca href=\"snat-private-range#auto-learn-snat-routes\"\u003eAuto-learn SNAT routes feature\u003c/a\u003e indirectly uses BGP through Azure Route Server.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can Azure Firewall pass ESP packets (IPSec VPN)?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall does not natively support ESP (Encapsulating Security Payload), but you can allow ESP traffic by configuring a network rule as follows:\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eAzure Firewall configuration (Network Rule):\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eProtocol: Any\u003c/li\u003e\n\u003cli\u003eSource port: * (Any)\u003c/li\u003e\n\u003cli\u003eDestination port: * (Any)\u003c/li\u003e\n\u003cli\u003eSource/Destination: Specify IP addresses as needed\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThis configuration allows ESP packets (IP protocol number 50) and other non-TCP/UDP traffic to match the rule. However, note that Azure Firewall does not inspect ESP payloads.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReference : If using NSG (Network Security Group) instead of Azure Firewall:\u003c/strong\u003e\nNSG does not provide a direct option to specify ESP (IP protocol number 50), but ESP packets can be allowed by using the following settings:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eProtocol: Any\u003c/li\u003e\n\u003cli\u003ePort: * (Any)\u003c/li\u003e\n\u003cli\u003eSource/Destination: Specify IP addresses as needed\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eRecommendations:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eFor IPsec VPN configurations, using Azure VPN Gateway is recommended.\u003c/li\u003e\n\u003cli\u003eConsider using an NVA (Network Virtual Appliance) pattern depending on your requirements.\u003c/li\u003e\n\u003c/ul\u003e\n"}},{"@type":"Question","name":"How can I stop and start Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYou can use Azure PowerShell to deallocate and allocate the Azure Firewall. The process varies depending on the configuration.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eFor a firewall without a Management NIC:\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"lang-azurepowershell\"\u003e# Stop the firewall\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$azfw.Deallocate()\nSet-AzFirewall -AzureFirewall $azfw\n\n# Start the firewall\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$vnet = Get-AzVirtualNetwork -ResourceGroupName \u0026quot;RG Name\u0026quot; -Name \u0026quot;VNet Name\u0026quot;\n$publicip1 = Get-AzPublicIpAddress -Name \u0026quot;Public IP1 Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$publicip2 = Get-AzPublicIpAddress -Name \u0026quot;Public IP2 Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$azfw.Allocate($vnet, @($publicip1, $publicip2))\nSet-AzFirewall -AzureFirewall $azfw\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eFor a firewall with a Management NIC:\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"lang-azurepowershell\"\u003e# Stop the firewall\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$azfw.Deallocate()\nSet-AzFirewall -AzureFirewall $azfw\n\n# Start the firewall\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$vnet = Get-AzVirtualNetwork -ResourceGroupName \u0026quot;RG Name\u0026quot; -Name \u0026quot;VNet Name\u0026quot;\n$pip = Get-AzPublicIpAddress -ResourceGroupName \u0026quot;RG Name\u0026quot; -Name \u0026quot;azfwpublicip\u0026quot;\n$mgmtPip = Get-AzPublicIpAddress -ResourceGroupName \u0026quot;RG Name\u0026quot; -Name \u0026quot;mgmtpip\u0026quot;\n$azfw.Allocate($vnet, $pip, $mgmtPip)\nSet-AzFirewall -AzureFirewall $azfw\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eFor a firewall with a Management NIC and no public IP associated with the Dataplane NIC:\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"lang-azurepowershell\"\u003e# Stop the firewall\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$azfw.Deallocate()\nSet-AzFirewall -AzureFirewall $azfw\n\n# Start the firewall\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$vnet = Get-AzVirtualNetwork -ResourceGroupName \u0026quot;RG Name\u0026quot; -Name \u0026quot;VNet Name\u0026quot;\n$mgmtPip = Get-AzPublicIpAddress -ResourceGroupName \u0026quot;RG Name\u0026quot; -Name \u0026quot;mgmtpip\u0026quot;\n$azfw.Allocate($vnet, $null, $mgmtPip)\nSet-AzFirewall -AzureFirewall $azfw\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eFor a firewall in a secured virtual hub:\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"lang-azurepowershell\"\u003e# Stop the firewall\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$azfw.Deallocate()\nSet-AzFirewall -AzureFirewall $azfw\n\n# Start the firewall\n$virtualhub = Get-AzVirtualHub -ResourceGroupName \u0026quot;vHUB RG Name\u0026quot; -Name \u0026quot;vHUB Name\u0026quot;\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;Firewall RG Name\u0026quot;\n$azfw.Allocate($virtualhub.Id)\nSet-AzFirewall -AzureFirewall $azfw\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"NOTE\"\u003e\n\u003cp\u003eNote\u003c/p\u003e\n\u003cp\u003eWhen stopping and starting the firewall, billing stops and starts accordingly. However, the private IP address might change, which can affect connectivity if route tables are configured.\u003c/p\u003e\n\u003c/div\u003e\n"}},{"@type":"Question","name":"Do I need to specify availability zones when deploying Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo. For new deployments, don't specify firewall availability zones. Azure manages backend allocation across multiple availability zones in \u003ca href=\"deploy-availability-zone-powershell#zr-compatible-regions\"\u003eZR compatible regions\u003c/a\u003e. Omit \u003ccode\u003e-Zone\u003c/code\u003e from \u003ccode\u003eNew-AzFirewall\u003c/code\u003e, \u003ccode\u003e--zones\u003c/code\u003e from \u003ccode\u003eaz network firewall create\u003c/code\u003e, and the firewall's \u003ccode\u003ezones\u003c/code\u003e property from deployment templates. Public IP zone configuration is separate.\u003c/p\u003e\n\u003cp\u003eIn regions without availability zones, the firewall remains a regional resource.\u003c/p\u003e\n"}},{"@type":"Question","name":"Do existing firewalls need to be redeployed to become zone redundant?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo. Azure automatically migrates existing non-zone-redundant firewalls in regions that support multiple availability zones. Migration is complete in the \u003ca href=\"deploy-availability-zone-powershell#zr-compatible-regions\"\u003elisted regions\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eYou don't need to deallocate, redeploy, or change zone settings to receive the migration.\u003c/p\u003e\n"}},{"@type":"Question","name":"Why don't the firewall's zone properties show its backend zone redundancy?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003ePlatform-managed migration doesn't necessarily update the configured \u003ccode\u003ezones\u003c/code\u003e property. It can remain empty or continue to show the originally configured single zone even when the backend is zone redundant. Don't use the portal, ARM, CLI, PowerShell, or Azure Resource Graph zone property alone as proof of backend redundancy. For more information, see \u003ca href=\"deploy-availability-zone-powershell#understanding-zone-properties-after-migration\"\u003eUnderstanding zone properties after migration\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Are there any Azure firewall resource group restrictions?","acceptedAnswer":{"@type":"Answer","text":"\u003cul\u003e\n\u003cli\u003eThe Azure Firewall and virtual network must be in the same resource group.\u003c/li\u003e\n\u003cli\u003eThe public IP address can be in a different resource group.\u003c/li\u003e\n\u003cli\u003eAll resources (Azure firewall, virtual network, public IP) must be in the same subscription.\u003c/li\u003e\n\u003c/ul\u003e\n"}},{"@type":"Question","name":"What does provisioning state **Failed** mean?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eA \u003cstrong\u003eFailed\u003c/strong\u003e provisioning state indicates that a configuration update failed on one or more backend instances. The Azure Firewall remains operational, but the configuration might be inconsistent. Retry the update until the provisioning state changes to \u003cstrong\u003eSucceeded\u003c/strong\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"How does Azure Firewall handle planned maintenance and unplanned failures?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall uses an active-active configuration with multiple backend nodes. During planned maintenance, connection draining ensures graceful updates. For unplanned failures, a new node replaces the failed one, and connectivity is typically restored within 10 seconds.\u003c/p\u003e\n"}},{"@type":"Question","name":"Is there a character limit for a firewall name?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes, firewall names are limited to 50 characters.\u003c/p\u003e\n"}},{"@type":"Question","name":"Why does Azure Firewall need a /26 subnet size?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eA /26 subnet ensures sufficient IP addresses for scaling as the Azure Firewall provisions extra virtual machine instances.\u003c/p\u003e\n"}},{"@type":"Question","name":"Does the firewall subnet size need to change as the service scales?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, a /26 subnet is sufficient for all scaling scenarios.\u003c/p\u003e\n"}},{"@type":"Question","name":"How can I increase my firewall throughput?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall scales automatically based on CPU usage, throughput, and connection count. Throughput capacity ranges from 2.5–3 Gbps initially to 30 Gbps (Standard SKU) or 100 Gbps (Premium SKU).\u003c/p\u003e\n"}},{"@type":"Question","name":"How many firewalls can reference a single IP Group?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eA single IP Group has a soft limit of 50 referencing firewalls. Exceeding this limit might affect performance and cause IP Group updates to fail. For more information, see \u003ca href=\"../azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits\"\u003eAzure Firewall limits\u003c/a\u003e and \u003ca href=\"ip-groups\"\u003eIP Groups in Azure Firewall\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Are there limits for the number of IP addresses supported by IP Groups?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes. For details, see \u003ca href=\"../azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits\"\u003eAzure subscription and service limits, quotas, and constraints\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I move an IP Group to another resource group?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, moving an IP Group to another resource group isn't currently supported.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the TCP Idle Timeout for Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eA standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't user configurable, but you can contact Azure Support to increase the Idle Timeout for inbound and outbound connections up to 15 minutes. Idle Timeout for east-west traffic can't be changed.\u003c/p\u003e\n\u003cp\u003eIf a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the \u003ca href=\"/dotnet/api/system.net.servicepoint.settcpkeepalive\"\u003e.NET examples\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I deploy Azure Firewall without a public IP address?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes, but you must configure the firewall in Forced Tunneling Mode. This configuration creates a management interface with a public IP address that is used by Azure Firewall for its operations. This public IP address is for management traffic. It's used exclusively by the Azure platform and can't be used for any other purpose. The tenant data path network can be configured without a public IP address, and Internet traffic can be forced tunneled to another Firewall or completely blocked.\u003c/p\u003e\n"}},{"@type":"Question","name":"Is there a way to automatically back up Azure Firewall and policies?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes. For more information, see \u003ca href=\"https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928\"\u003eBackup Azure Firewall and Azure Firewall Policy with Logic Apps\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"How do I set up Azure Firewall with my service endpoints?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eFor secure access to PaaS services, we recommend service endpoints. You can choose to enable service endpoints in the Azure Firewall subnet and disable them on the connected spoke virtual networks. This way you benefit from both features: service endpoint security and central logging for all traffic.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can Azure Firewall in a hub virtual network forward and filter network traffic between multiple spoke virtual networks?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes, you can use Azure Firewall in a hub virtual network to route and filter traffic between multiple spoke virtual network. Subnets in each of the spoke virtual networks must have a UDR pointing to the Azure Firewall as a default gateway for this scenario to work properly.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can Azure Firewall forward and filter network traffic between subnets in the same virtual network or peered virtual networks?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes. However, configuring the UDRs to redirect traffic between subnets in the same virtual network requires more attention. While using the virtual network address range as a target prefix for the UDR is sufficient, this also routes all traffic from one machine to another machine in the same subnet through the Azure Firewall instance. To avoid this, include a route for the subnet in the UDR with a next hop type of \u003cstrong\u003evirtual network\u003c/strong\u003e. Managing these routes might be cumbersome and prone to error. The recommended method for internal network segmentation is to use Network Security Groups, which don't require UDRs.\u003c/p\u003e\n"}},{"@type":"Question","name":"Does Azure Firewall outbound SNAT between private networks?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall doesn't SNAT when the destination IP address is a private IP range per \u003ca href=\"https://tools.ietf.org/html/rfc1918\"\u003eIANA RFC 1918\u003c/a\u003e or \u003ca href=\"https://datatracker.ietf.org/doc/html/rfc6598\"\u003eIANA RFC 6598\u003c/a\u003e for private networks. If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to \u003cstrong\u003enot\u003c/strong\u003e SNAT your public IP address range. For more information, see \u003ca href=\"snat-private-range\"\u003eAzure Firewall SNAT private IP address ranges\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eIn addition, traffic processed by application rules are always SNAT-ed. If you want to see the original source IP address in your logs for FQDN traffic, you can use network rules with the destination FQDN.\u003c/p\u003e\n"}},{"@type":"Question","name":"Is forced tunneling/chaining to a Network Virtual Appliance supported?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eForced tunneling is supported when creating a new firewall, and it is also supported for existing firewalls by adding a management NIC for forced tunneling. For more details about new deployments, see \u003ca href=\"forced-tunneling\"\u003eAzure Firewall forced tunneling\u003c/a\u003e. For existing firewalls, see \u003ca href=\"management-nic\"\u003eAzure Firewall Management NIC\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eAzure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the \u003cstrong\u003eNextHopType\u003c/strong\u003e value set as \u003cstrong\u003eInternet\u003c/strong\u003e to maintain direct Internet connectivity.\u003c/p\u003e\n\u003cp\u003eIf your configuration requires forced tunneling to an on-premises network and you can determine the target IP prefixes for your Internet destinations, you can configure these ranges with the on-premises network as the next hop via a user defined route on the AzureFirewallSubnet. Or, you can use BGP to define these routes.\u003c/p\u003e\n"}},{"@type":"Question","name":"How do wildcards work in target URLs and target FQDNs in application rules?","acceptedAnswer":{"@type":"Answer","text":"\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eURL\u003c/strong\u003e - Asterisks work when placed on the right-most or left-most side. If it is on the left, it can't be part of the FQDN.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eFQDN\u003c/strong\u003e - Asterisks work when placed on the left-most side.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eGENERAL\u003c/strong\u003e - Asterisks on the left-most side mean literally \u003cem\u003eanything\u003c/em\u003e to the left matches, meaning multiple subdomains and/or potentially unwanted domain name variations are matched - see the following examples.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eExamples:\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eRule\u003c/th\u003e\n\u003cth\u003eSupported?\u003c/th\u003e\n\u003cth\u003ePositive examples\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com\u003c/code\u003e\u003cbr\u003e\u003ccode\u003ewww.contoso.com/\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e*.contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eany.contoso.com/\u003c/code\u003e\u003cbr\u003e\u003ccode\u003esub1.any.contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e*contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eexample.anycontoso.com\u003c/code\u003e\u003cbr\u003e\u003ccode\u003esub1.example.contoso.com\u003c/code\u003e\u003cbr\u003e\u003ccode\u003econtoso.com\u003c/code\u003e\u003cbr\u003eWarning: this usage of wildcard also allows potentially undesired/risky variations such as \u003ccode\u003eth3re4lcontoso.com\u003c/code\u003e - use with caution.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com/test\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com/test\u003c/code\u003e\u003cbr\u003e\u003ccode\u003ewww.contoso.com/test/\u003c/code\u003e\u003cbr\u003e\u003ccode\u003ewww.contoso.com/test?with_query=1\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com/test/*\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com/test/anything\u003c/code\u003e\u003cbr\u003eNote: \u003ccode\u003ewww.contoso.com/test\u003c/code\u003e \u003cstrong\u003edoesn't\u003c/strong\u003e match (last slash)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.*/test/*\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com/test?example=1\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.*\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.*contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com:8080\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e*.contoso.*\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetFQDN\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetFQDN\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e*.contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eany.contoso.com\u003c/code\u003e\u003cbr\u003e\u003cbr\u003eNote: If you want to specifically allow \u003ccode\u003econtoso.com\u003c/code\u003e, you must include contoso.com in the rule. Otherwise, the connection is dropped by default because the request doesn't match any rule.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetFQDN\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e*contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eexample.anycontoso.com\u003c/code\u003e\u003cbr\u003e\u003ccode\u003econtoso.com\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetFQDN\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.*\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetFQDN\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e*.contoso.*\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n"}},{"@type":"Question","name":"Does Azure Firewall allow access to Active Directory by default?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo. Azure Firewall blocks Active Directory access by default. To allow access, configure the AzureActiveDirectory service tag. For more information, see \u003ca href=\"service-tags\"\u003eAzure Firewall service tags\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I exclude an FQDN or an IP address from Azure Firewall Threat Intelligence based filtering?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes, you can use Azure PowerShell to do it:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"lang-azurepowershell\"\u003e# Add a Threat Intelligence allowlist to an Existing Azure Firewall.\n\n# Create the allowlist with both FQDN and IPAddresses\n$fw = Get-AzFirewall -Name \u0026quot;Name_of_Firewall\u0026quot; -ResourceGroupName \u0026quot;Name_of_ResourceGroup\u0026quot;\n$fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `\n   -FQDN @(\u0026quot;fqdn1\u0026quot;, \u0026quot;fqdn2\u0026quot;, …) -IpAddress @(\u0026quot;ip1\u0026quot;, \u0026quot;ip2\u0026quot;, …)\n\n# Or Update FQDNs and IpAddresses separately\n$fw = Get-AzFirewall -Name $firewallname -ResourceGroupName $RG\n$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses)\n$fw.ThreatIntelWhitelist.fqdns = @($fw.ThreatIntelWhitelist.fqdns + $fqdns)\n\n\nSet-AzFirewall -AzureFirewall $fw\n\u003c/code\u003e\u003c/pre\u003e\n"}},{"@type":"Question","name":"Why can a TCP ping and similar tools successfully connect to a target FQDN even when no rule on Azure Firewall allows that traffic?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eA TCP ping isn't actually connecting  to the target FQDN. Azure Firewall doesn't allow a connection to any target IP address/FQDN unless there's an explicit rule that allows it.\u003c/p\u003e\n\u003cp\u003eTCP ping is a unique use case where if there's no allowed rule, the Firewall itself responds to the client's TCP ping request even though the TCP ping doesn't reach the target IP address/FQDN. In this case, the event isn't logged. If there's a network rule that allows access to the target IP address/FQDN, then the ping request reaches the target server and its response is relayed back to the client. This event is logged in the Network rules log.\u003c/p\u003e\n"}},{"@type":"Question","name":"Why do TCP ping and similar tools successfully connect to a target FQDN/IP address on ports 80, 443, and 1433 but aren't observed in the Azure Firewall logs?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall acts as a passive listener for ports 80, 443, and 1433. Azure Firewall doesn't log TCP SYN packets on these ports unless there's application traffic. The HTTP GET request and TLS client hello are logged in Azure Firewall.\u003c/p\u003e\n"}},{"@type":"Question","name":"Are there limits for the number of IP addresses supported by IP Groups?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes. For more information, see \u003ca href=\"../azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits\"\u003eAzure subscription and service limits, quotas, and constraints\u003c/a\u003e\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I move an IP Group to another resource group?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, moving an IP Group to another resource group isn't currently supported.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the TCP Idle Timeout for Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eA standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't user configurable, but you can contact Azure Support to increase the Idle Timeout for inbound and outbound connections up to 15 minutes. Idle Timeout for east-west traffic can't be changed.\u003c/p\u003e\n\u003cp\u003eIf a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the \u003ca href=\"/dotnet/api/system.net.servicepoint.settcpkeepalive\"\u003e.NET examples\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I deploy Azure Firewall without a public IP address?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes, but you must configure the firewall in Forced Tunneling Mode. This configuration creates a management interface with a public IP address that is used by Azure Firewall for its operations. This public IP address is for management traffic. It's used exclusively by the Azure platform and can't be used for any other purpose. The tenant data path network can be configured without a public IP address, and Internet traffic can be forced tunneled to another Firewall or completely blocked.\u003c/p\u003e\n"}},{"@type":"Question","name":"Where does Azure Firewall store customer data?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall doesn't move or store customer data out of the region it's deployed in.\u003c/p\u003e\n"}},{"@type":"Question","name":"Is there a way to automatically back up Azure Firewall and policies?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes. For more information, see \u003ca href=\"https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928\"\u003eBackup Azure Firewall and Azure Firewall Policy with Logic Apps\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Is Azure Firewall in secured virtual hubs (vWAN) supported in Qatar?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, currently Azure Firewall in secured virtual hubs (vWAN) isn't supported in Qatar.\u003c/p\u003e\n"}},{"@type":"Question","name":"How many parallel connections can Azure Firewall support?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall uses Azure Virtual Machines underneath that have a \u003ca href=\"/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-active-connections-recommendations\"\u003ehard limit number of connections\u003c/a\u003e. The total number of active connections per virtual machine is 250k.\u003c/p\u003e\n\u003cp\u003eThe total limit per firewall is the virtual machine connection limit (250k) x the number of virtual machines in the firewall backend pool. Azure Firewall starts with two virtual machines and scales out based on CPU usage and throughput.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the SNAT TCP/UDP port reuse behavior in Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall currently uses TCP/UDP source ports for outbound SNAT traffic, with no idle wait time. When a TCP/UDP connection is closed, the TCP port used is immediately seen as available for upcoming connections.\u003c/p\u003e\n\u003cp\u003eAs a workaround for certain architectures, you can deploy and scale with \u003ca href=\"../nat-gateway/tutorial-hub-spoke-nat-firewall\"\u003eNAT Gateway with Azure Firewall\u003c/a\u003e to provide a wider pool of SNAT ports for variability and availability.\u003c/p\u003e\n"}},{"@type":"Question","name":"How do I resolve SNAT port exhaustion?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYou have two options. Add multiple public IP addresses to your firewall for a lower-cost solution, or use an Azure NAT Gateway for a more scalable and robust solution. For a comparison of both options, see \u003ca href=\"firewall-best-practices#recommendations\"\u003eBest practices for Azure Firewall performance\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"What are NAT behaviors in Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eSpecific NAT behaviors depend on the firewall's configuration and the type of NAT that's configured. For example, the firewall has DNAT rules for inbound traffic, and network rules and application rules for outbound traffic through the firewall.\u003c/p\u003e\n\u003cp\u003eFor more information, see \u003ca href=\"https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-nat-behaviors/ba-p/3825834\"\u003eAzure Firewall NAT Behaviors\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"How does connection draining work?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eFor any planned maintenance, connection draining logic gracefully updates backend nodes. Azure Firewall waits 90 seconds for existing connections to close. In the first 45 seconds, the backend node doesn't accept new connections, and in the remaining time it responds with \u003ccode\u003eRST\u003c/code\u003e to all incoming packets. If needed, clients can automatically re-establish connectivity to another backend node.\u003c/p\u003e\n"}},{"@type":"Question","name":"How does Azure Firewall handle VM instance shutdowns during Virtual Machine Scale Set scale in (scale down) or fleet software upgrades?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAn Azure Firewall VM instance shutdown might occur during Virtual Machine Scale Set scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and aren't forwarded to the down firewall instance. After 45 seconds, the firewall starts rejecting existing connections by sending TCP RST packets. After another 45 seconds the firewall VM shuts down. For more information, see \u003ca href=\"../load-balancer/load-balancer-tcp-reset\"\u003eLoad Balancer TCP Reset and Idle Timeout\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"How long does it take for Azure Firewall to scale out?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall gradually scales when average throughput or CPU consumption is at 60%, or the number of connections usage is at 80%. For example, it starts to scale out when it reaches 60% of its maximum throughput. Maximum throughput numbers vary based on the Azure Firewall SKU and enabled features. For more information, see \u003ca href=\"firewall-performance\"\u003eAzure Firewall performance\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eScale out takes five to seven minutes. When performance testing, make sure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created Azure Firewall nodes.\u003c/p\u003e\n"}},{"@type":"Question","name":"How does Azure Firewall handle idle timeouts?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eWhen a connection has an Idle Timeout (four minutes of no activity), Azure Firewall gracefully terminates the connection by sending a TCP RST packet.\u003c/p\u003e\n"}},{"@type":"Question","name":"What type of maintenance does customer-controlled maintenance support?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure services undergo regular maintenance updates to enhance functionality, reliability, performance, and security. With a configured maintenance period, guest OS maintenance and service maintenance are performed during that window. However, customer-controlled maintenance doesn't include host updates or critical security updates.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I get advanced notification of the maintenance event?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAdvanced notifications for Azure Firewall maintenance aren't available.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I configure a maintenance window shorter than five hours?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, a minimum five-hour maintenance window is required.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I configure a maintenance window other than a daily schedule?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, maintenance windows is currently be configured to recur daily.\u003c/p\u003e\n"}},{"@type":"Question","name":"Are there cases where I can't control certain updates?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eCustomer-controlled maintenance supports guest OS and service updates, which account for most maintenance items of concern to customers. However, some updates, such as host updates, are outside the scope of customer-controlled maintenance. In rare cases, we might override your control of the maintenance window to address high-severity security issues.\u003c/p\u003e\n"}},{"@type":"Question","name":"Do maintenance configuration resources need to be in the same region as the Azure Firewall?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can we create more than one maintenance configuration for a single Azure Firewall?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo. Currently, only one maintenance configuration can be associated with an Azure Firewall.\u003c/p\u003e\n"}},{"@type":"Question","name":"Which Azure Firewall SKUs can I configure to use customer-controlled maintenance?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAll Azure Firewall SKUs - Basic, Standard, and Premium support customer-controlled maintenance.\u003c/p\u003e\n"}},{"@type":"Question","name":"How long does it take for a maintenance configuration policy to become effective after it's assigned to the Azure Firewall?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eIt might take up to 24 hours for the Azure Firewall to follow the maintenance schedule after the maintenance policy is associated.\u003c/p\u003e\n"}},{"@type":"Question","name":"I scheduled a maintenance window for a future date for one of my Azure Firewall resources. Are maintenance activities paused on this resource until then?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eMaintenance activities on your Azure Firewall aren't paused during the period preceding the scheduled maintenance window. For days that aren't included in your maintenance schedule, regular maintenance operations continue as usual on the resource.\u003c/p\u003e\n"}},{"@type":"Question","name":"How do I find out more about customer-controlled maintenance on the Azure Firewall?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eFor more information, see \u003ca href=\"customer-controlled-maintenance\"\u003eConfigure customer-controlled maintenance\u003c/a\u003e.\u003c/p\u003e\n"}}]}
+/workspace/azurelab-pr67/sources/faq.txt-757-					
+/workspace/azurelab-pr67/sources/faq.txt-758-	 
+--
+/workspace/azurelab-pr67/sources/faq.txt-847-				
+/workspace/azurelab-pr67/sources/faq.txt-848-Last updated on 
+/workspace/azurelab-pr67/sources/faq.txt:849:		2026-10-14
+/workspace/azurelab-pr67/sources/faq.txt-850-			
+/workspace/azurelab-pr67/sources/faq.txt-851-		
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-145-		
+/workspace/azurelab-pr67/sources/hub-spoke.txt-146-	
+/workspace/azurelab-pr67/sources/hub-spoke.txt:147:Design a secure hub-spoke network for regional web applications in Azure
+/workspace/azurelab-pr67/sources/hub-spoke.txt-148-					
+/workspace/azurelab-pr67/sources/hub-spoke.txt-149-			 
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-178-This article explains a repeatable architecture pattern that uses a minimal 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-179-hub-spoke topology
+/workspace/azurelab-pr67/sources/hub-spoke.txt:180: to build a secure-by-default foundation for single-region web applications. A hub virtual network hosts shared services like Azure Bastion, while a spoke virtual network contains your workload—whether running on Azure App Service (PaaS) or virtual machines (IaaS). The pattern scales from a single web app to multiple workloads by adding spokes.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-181-The pattern follows a layered approach. The hub and spoke virtual networks form the base, virtual network (VNet) peering connects them, and NSGs add default-deny access control at every subnet boundary. Higher-level services—Application Gateway with Web Application Firewall (WAF) in the spoke, Azure Bastion in the hub, and DDoS Protection across both—layer on top. Each layer depends on the one below it. The 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-182-Deployment steps
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-187-Enforce default-deny traffic rules at the subnet level.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-188-Eliminate direct RDP/SSH exposure to backend VMs.
+/workspace/azurelab-pr67/sources/hub-spoke.txt:189:Protect public IPs from volumetric DDoS attacks when the threat profile warrants it.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-190-Keep the design simple enough to deploy without specialized networking expertise.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-191-Note
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-207- — Hosts shared services that workloads use. In this minimal pattern, the hub contains Azure Bastion for secure VM management. As the organization grows, the hub can also host Azure Firewall for centralized egress control, a VPN or ExpressRoute gateway for on-premises connectivity, or centralized DNS.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-208-Spoke virtual network
+/workspace/azurelab-pr67/sources/hub-spoke.txt:209: — Contains workload-specific resources. Internet traffic arrives at a public IP address associated with 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-210-Azure Application Gateway
+/workspace/azurelab-pr67/sources/hub-spoke.txt-211-, which operates as a Layer 7 reverse proxy in a dedicated spoke subnet. A WAF policy inspects every HTTP/HTTPS request against OWASP Core Rule Set rules before forwarding traffic to the backend pool. The backend pool contains either PaaS endpoints (such as App Service) or IaaS resources (VMs or Virtual Machine Scale Sets) in a dedicated workload subnet.
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-215- (NSGs) enforce default-deny rules on every subnet in both virtual networks. The Application Gateway subnet allows inbound HTTPS and the required 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-216-GatewayManager
+/workspace/azurelab-pr67/sources/hub-spoke.txt:217: health probe ports. The workload subnet accepts traffic only from the Application Gateway subnet. When the backend includes VMs, Azure Bastion in the hub provides secure RDP/SSH access across the peering connection. When there are internet-facing public IPs, Azure DDoS Protection defends against volumetric and protocol attacks at Layers 3 and 4.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-218-Each component in this pattern has a clear role:
+/workspace/azurelab-pr67/sources/hub-spoke.txt-219-Component
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-244-Both
+/workspace/azurelab-pr67/sources/hub-spoke.txt-245-Layer 3/4 volumetric attack mitigation
+/workspace/azurelab-pr67/sources/hub-spoke.txt:246:When public IPs face the internet
+/workspace/azurelab-pr67/sources/hub-spoke.txt-247-Azure Bastion
+/workspace/azurelab-pr67/sources/hub-spoke.txt-248-Hub
+/workspace/azurelab-pr67/sources/hub-spoke.txt:249:Secure RDP/SSH without public IPs on VMs
+/workspace/azurelab-pr67/sources/hub-spoke.txt-250-When backend is IaaS
+/workspace/azurelab-pr67/sources/hub-spoke.txt-251-NAT Gateway
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-282-Hub virtual network with 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-283-AzureBastionSubnet
+/workspace/azurelab-pr67/sources/hub-spoke.txt:284: (/26) and optional 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-285-AzureFirewallSubnet
+/workspace/azurelab-pr67/sources/hub-spoke.txt:286: (/26) + 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-287-AzureFirewallManagementSubnet
+/workspace/azurelab-pr67/sources/hub-spoke.txt:288: (/26)
+/workspace/azurelab-pr67/sources/hub-spoke.txt-289-The hub is the shared services foundation. Creating it first establishes the address space that all spokes must avoid overlapping.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-290-Quickstart: Create a virtual network
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-310- (conditional)
+/workspace/azurelab-pr67/sources/hub-spoke.txt-311-DDoS Protection plan linked to both VNets
+/workspace/azurelab-pr67/sources/hub-spoke.txt:312:DDoS Protection enables at the VNet level and covers every public IP in that VNet. Enabling the plan before you create public IPs for Application Gateway or Bastion means those IPs are protected from the moment they come online. Skip this step if the architecture has no public IPs.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-313-Quickstart: Create and configure Azure DDoS Network Protection
+/workspace/azurelab-pr67/sources/hub-spoke.txt-314-7a
+/workspace/azurelab-pr67/sources/hub-spoke.txt-315-Ingress security
+/workspace/azurelab-pr67/sources/hub-spoke.txt:316:Application Gateway WAF_v2 with public IP, WAF policy, and Key Vault TLS certificates (in spoke)
+/workspace/azurelab-pr67/sources/hub-spoke.txt-317-With the network foundation, peering, NSG rules, and DDoS protection in place, the Application Gateway can deploy into a spoke subnet that's already locked down. The WAF policy inspects traffic before it reaches any backend.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-318-Quickstart: Direct web traffic with Azure Application Gateway
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-361-AzureBastionSubnet
+/workspace/azurelab-pr67/sources/hub-spoke.txt-362-Hosts Azure Bastion (IaaS management)
+/workspace/azurelab-pr67/sources/hub-spoke.txt:363:/26 (59 usable IPs)
+/workspace/azurelab-pr67/sources/hub-spoke.txt-364-Must be named exactly 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-365-AzureBastionSubnet
+/workspace/azurelab-pr67/sources/hub-spoke.txt-366-AzureFirewallSubnet (optional)
+/workspace/azurelab-pr67/sources/hub-spoke.txt-367-Hosts Azure Firewall for centralized egress control
+/workspace/azurelab-pr67/sources/hub-spoke.txt:368:/26 (59 usable IPs)
+/workspace/azurelab-pr67/sources/hub-spoke.txt-369-Must be named exactly 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-370-AzureFirewallSubnet
+/workspace/azurelab-pr67/sources/hub-spoke.txt-371-AzureFirewallManagementSubnet (required for Basic SKU)
+/workspace/azurelab-pr67/sources/hub-spoke.txt-372-Separates management traffic from customer traffic on Azure Firewall Basic
+/workspace/azurelab-pr67/sources/hub-spoke.txt:373:/26 (59 usable IPs)
+/workspace/azurelab-pr67/sources/hub-spoke.txt-374-Must be named exactly 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-375-AzureFirewallManagementSubnet
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-420-Value
+/workspace/azurelab-pr67/sources/hub-spoke.txt-421-Why
+/workspace/azurelab-pr67/sources/hub-spoke.txt:422:Allow forwarded traffic
+/workspace/azurelab-pr67/sources/hub-spoke.txt-423-Enabled on both sides
+/workspace/azurelab-pr67/sources/hub-spoke.txt-424-Required when Azure Firewall or an NVA inspects traffic
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-457- exactly. Bastion has specific inbound and outbound rules that you must apply for connectivity to work across peered VNets.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-458-Restrict egress.
+/workspace/azurelab-pr67/sources/hub-spoke.txt:459: Use NSG outbound rules to deny unwanted outbound traffic. For most regional web apps, limiting egress to known Azure service destinations is sufficient. If you need FQDN-based filtering, add 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-460-Azure Firewall
+/workspace/azurelab-pr67/sources/hub-spoke.txt-461- in the hub virtual network (see 
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-470-Note
+/workspace/azurelab-pr67/sources/hub-spoke.txt-471-Deployment step 6.
+/workspace/azurelab-pr67/sources/hub-spoke.txt:472: Enable DDoS Protection on both virtual networks before creating public IPs for Application Gateway or Bastion. See 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-473-Deployment steps
+/workspace/azurelab-pr67/sources/hub-spoke.txt-474-.
+/workspace/azurelab-pr67/sources/hub-spoke.txt:475:Azure DDoS infrastructure protection and Azure DDoS Protection are separate services. All Azure services with public IPv4 and IPv6 addresses receive 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-476-Azure DDoS infrastructure protection
+/workspace/azurelab-pr67/sources/hub-spoke.txt-477- at no extra cost. However, infrastructure protection defends the Azure platform as a whole—it operates at a higher threshold than most individual applications can handle and 
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-479-. It provides no adaptive tuning to your specific traffic patterns, no diagnostics or alerting, and no response support. For workloads that accept traffic from the public internet, enable a DDoS Protection plan (Network Protection or IP Protection) to get resource-level adaptive tuning, attack diagnostics, rapid response support, and cost protection guarantees. Don't rely on infrastructure protection alone to protect your services.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-480-The decision is straightforward:
+/workspace/azurelab-pr67/sources/hub-spoke.txt:481:Public IP facing the internet → Enable DDoS Protection.
+/workspace/azurelab-pr67/sources/hub-spoke.txt:482: Choose the tier based on how many public IPs you protect. Don't rely on infrastructure protection alone for customer-facing workloads.
+/workspace/azurelab-pr67/sources/hub-spoke.txt:483:Private only (no public IP), or behind Azure Front Door → A DDoS Protection plan is optional.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-484- Front Door includes its own integrated DDoS protection. Private-only resources have no public endpoint to attack, but infrastructure protection alone doesn't provide resource-level guarantees.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-485-Tier
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-488-Pricing model
+/workspace/azurelab-pr67/sources/hub-spoke.txt-489-DDoS Network Protection
+/workspace/azurelab-pr67/sources/hub-spoke.txt:490:15+ public IPs, need rapid response or WAF discounts
+/workspace/azurelab-pr67/sources/hub-spoke.txt-491-Adaptive tuning, DDoS Rapid Response, cost protection, 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-492-WAF discount
+/workspace/azurelab-pr67/sources/hub-spoke.txt:493:Fixed monthly per plan (up to 100 IPs)
+/workspace/azurelab-pr67/sources/hub-spoke.txt-494-DDoS IP Protection
+/workspace/azurelab-pr67/sources/hub-spoke.txt:495:Fewer than 15 public IPs
+/workspace/azurelab-pr67/sources/hub-spoke.txt-496-Adaptive tuning, attack diagnostics
+/workspace/azurelab-pr67/sources/hub-spoke.txt:497:Per public IP
+/workspace/azurelab-pr67/sources/hub-spoke.txt:498:In a hub-spoke topology, link the DDoS Protection plan to both the hub and spoke VNets so that public IPs in either network are covered.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-499-Important
+/workspace/azurelab-pr67/sources/hub-spoke.txt:500:Don't treat Azure DDoS infrastructure protection as a substitute for a DDoS Protection plan. Infrastructure protection safeguards the Azure ecosystem but has a higher mitigation threshold than most applications can handle. It provides no telemetry, no alerting, and no resource-level tuning. Enable a paid DDoS Protection tier for any customer-facing workload with public IPs.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-501-For more information, see 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-502-Azure DDoS Protection tier comparison
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-508-Deployment steps
+/workspace/azurelab-pr67/sources/hub-spoke.txt-509-.
+/workspace/azurelab-pr67/sources/hub-spoke.txt:510:Application Gateway is a regional Layer 7 load balancer purpose-built for web traffic. The 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-511-WAF_v2 SKU
+/workspace/azurelab-pr67/sources/hub-spoke.txt-512- provides OWASP CRS-based protection against SQL injection, cross-site scripting, and other common web exploits. It supports autoscaling, zone redundancy, and a static VIP.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-513-You deploy Application Gateway into its dedicated subnet in the spoke virtual network—close to the workload it protects. This placement keeps ingress traffic in the spoke and avoids routing internet traffic through the hub unnecessarily.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-514-When to choose something else:
+/workspace/azurelab-pr67/sources/hub-spoke.txt:515: If you need global load balancing across multiple Azure regions, use 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-516-Azure Front Door with WAF
+/workspace/azurelab-pr67/sources/hub-spoke.txt-517- instead. If traffic isn't HTTP/HTTPS (for example, raw TCP or UDP), use 
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-539-Important
+/workspace/azurelab-pr67/sources/hub-spoke.txt-540-Application Gateway v1 SKU 
+/workspace/azurelab-pr67/sources/hub-spoke.txt:541:retires April 28, 2026
+/workspace/azurelab-pr67/sources/hub-spoke.txt-542-. Deploy all new workloads on v2.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-543-For security hardening guidance, see 
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-563- (VMs, Virtual Machine Scale Sets)
+/workspace/azurelab-pr67/sources/hub-spoke.txt-564-Yes
+/workspace/azurelab-pr67/sources/hub-spoke.txt:565:Eliminates public IPs on VMs and removes RDP/SSH exposure to the internet.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-566-Why Bastion lives in the hub
+/workspace/azurelab-pr67/sources/hub-spoke.txt-567-When you place Bastion in the hub virtual network, you can deploy it once and use it to manage VMs across all peered spokes. If you put Bastion in each spoke, every new workload needs its own Bastion instance, which adds cost and management overhead.
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-574-Deploy Bastion in a dedicated 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-575-AzureBastionSubnet
+/workspace/azurelab-pr67/sources/hub-spoke.txt:576: of /26 or larger.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-577- Azure requires this exact subnet name and you can't share it with other resources.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-578-Use Premium SKU for production workloads.
+/workspace/azurelab-pr67/sources/hub-spoke.txt:579: Premium supports private-only deployment (no public IP required), session recording for compliance, and host scaling (2–50 instances). The cost difference over Standard is marginal. For smaller deployments, Basic is an acceptable minimum - it provides dedicated instances and supports VNet peering. The Developer SKU uses shared infrastructure, doesn't support peering, and 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-580-isn't suitable for production
+/workspace/azurelab-pr67/sources/hub-spoke.txt-581-.
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-614-Deploy in 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-615-AzureFirewallSubnet
+/workspace/azurelab-pr67/sources/hub-spoke.txt:616: (/26) in the hub.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-617- Azure Firewall Basic also requires a dedicated 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-618-AzureFirewallManagementSubnet
+/workspace/azurelab-pr67/sources/hub-spoke.txt:619: (/26) to separate management traffic from customer traffic. Create both subnets before deploying the firewall.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-620-Create UDRs on spoke subnets
+/workspace/azurelab-pr67/sources/hub-spoke.txt-621- with a default route (
+/workspace/azurelab-pr67/sources/hub-spoke.txt-622-0.0.0.0/0
+/workspace/azurelab-pr67/sources/hub-spoke.txt:623:) pointing to the firewall's private IP. This route forces all outbound traffic through the hub for inspection.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-624-Start simple.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-625- Begin with a small set of application and network rules. Add rules as you understand your workload's traffic patterns.
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-629- anyway. Adding Firewall later is straightforward when the subnet already exists. Adding a subnet to a hub that's already peered requires no downtime - just add the subnet and deploy.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-630-Outbound access and private subnets
+/workspace/azurelab-pr67/sources/hub-spoke.txt:631:Starting after March 31, 2026, new virtual networks in Azure default to 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-632-private subnets
+/workspace/azurelab-pr67/sources/hub-spoke.txt-633- (
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-635- set to 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-636-false
+/workspace/azurelab-pr67/sources/hub-spoke.txt:637:). VMs in a private subnet receive no implicit outbound public IP from Azure - an explicit outbound method is required to reach public endpoints. This change aligns with Zero Trust principles: the previous default assigned a Microsoft-owned IP address that could change without notice, making outbound traffic unpredictable. For full details, see 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-638-Default outbound access for VMs in Azure
+/workspace/azurelab-pr67/sources/hub-spoke.txt-639-.
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-655-Workloads already behind a load balancer
+/workspace/azurelab-pr67/sources/hub-spoke.txt-656-Reuses existing infrastructure.
+/workspace/azurelab-pr67/sources/hub-spoke.txt:657:Instance-level public IP
+/workspace/azurelab-pr67/sources/hub-spoke.txt-658-Single VM that needs direct outbound
+/workspace/azurelab-pr67/sources/hub-spoke.txt-659-Use only when other methods aren't practical.
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-663- to the workload subnet for explicit, predictable outbound connectivity. NAT Gateway provides a static outbound IP, supports up to 50 Gbps throughput (Standard SKU), and requires no UDRs.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-664-NAT Gateway V2 (StandardV2 SKU)
+/workspace/azurelab-pr67/sources/hub-spoke.txt:665: offers zone-redundant operation across all availability zones, IPv6 support, and 100 Gbps throughput at the same price as the Standard SKU. When deploying a new NAT Gateway, prefer StandardV2 where available. Note current limitations: StandardV2 requires StandardV2-SKU public IPs (Standard public IPs aren't compatible), doesn't yet support Terraform, and isn't available in all regions. For a full comparison, see 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-666-NAT Gateway SKU comparison
+/workspace/azurelab-pr67/sources/hub-spoke.txt-667-.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-668-Important
+/workspace/azurelab-pr67/sources/hub-spoke.txt:669:Azure DDoS Protection plans can't protect public IPs attached to NAT Gateway. If DDoS Protection is critical for your outbound IPs, use Azure Firewall with a DDoS-protected public IP instead.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-670-Note
+/workspace/azurelab-pr67/sources/hub-spoke.txt-671-VMs in private subnets can't reach Windows Activation or Windows Update endpoints without an explicit egress path. Attach a NAT Gateway or configure another outbound method before deploying Windows VMs.
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-696-Exposing RDP/SSH ports to the internet
+/workspace/azurelab-pr67/sources/hub-spoke.txt-697-Persistent attack surface for brute-force and credential-stuffing attacks.
+/workspace/azurelab-pr67/sources/hub-spoke.txt:698:Use Azure Bastion in the hub. Remove all public IPs from backend VMs.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-699-Relying on NSGs alone for web app security
+/workspace/azurelab-pr67/sources/hub-spoke.txt-700-NSGs operate at Layers 3 and 4 and can't inspect HTTP request bodies. SQL injection and XSS pass through undetected.
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-719-Use Bicep, Terraform, or ARM templates for all production deployments.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-720-Enabling DDoS Network Protection for private-only workloads
+/workspace/azurelab-pr67/sources/hub-spoke.txt:721:Adds fixed monthly cost with no benefit when no public IPs are exposed.
+/workspace/azurelab-pr67/sources/hub-spoke.txt:722:Evaluate whether your architecture exposes public IPs before purchasing.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-723-Deploying resources before NSGs are in place
+/workspace/azurelab-pr67/sources/hub-spoke.txt-724-Resources operate briefly in an uncontrolled subnet, creating a window of exposure.
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-731-Reserve nonoverlapping address ranges for future spokes before deploying the first spoke.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-732-Relying on default outbound access for internet egress
+/workspace/azurelab-pr67/sources/hub-spoke.txt:733:Default outbound uses an implicit, Microsoft-owned IP that can change without notice. After March 31, 2026, new VNets default to private subnets with no implicit outbound.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-734-Use private subnets with NAT Gateway or Azure Firewall for explicit, predictable outbound connectivity.
+/workspace/azurelab-pr67/sources/hub-spoke.txt-735-When things go wrong
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-758- Verify the 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-759-AzureBastionSubnet
+/workspace/azurelab-pr67/sources/hub-spoke.txt:760: is /26 or larger. Check that the NSG on the Bastion subnet in the hub has the 
+/workspace/azurelab-pr67/sources/hub-spoke.txt-761-required rules
+/workspace/azurelab-pr67/sources/hub-spoke.txt-762-. Confirm the target VM's NSG in the spoke allows inbound RDP (3389) or SSH (22) from the hub VNet's address space.
+--
+/workspace/azurelab-pr67/sources/hub-spoke.txt-863-				
+/workspace/azurelab-pr67/sources/hub-spoke.txt-864-Last updated on 
+/workspace/azurelab-pr67/sources/hub-spoke.txt:865:		2026-08-05
+/workspace/azurelab-pr67/sources/hub-spoke.txt-866-			
+/workspace/azurelab-pr67/sources/hub-spoke.txt-867-		

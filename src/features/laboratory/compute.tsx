@@ -34,7 +34,7 @@ export function ComputeViews({
   receipt,
   networking,
 }: {
-  world: World;
+  world: World | import('@/laboratory/v35/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;

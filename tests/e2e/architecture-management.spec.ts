@@ -63,10 +63,12 @@ async function review(page: Page) {
 }
 
 async function go(page: Page, topic: ManagementTopic) {
+  // A streamed, hidden server segment is not a closed compact menu.
+  await expect(page.locator('.course-layout:visible')).toBeVisible();
   const nav = page.locator('.course-architecture-nav');
   const link = nav.getByRole('link', { name: b.topics[topic], exact: true });
-  if (!(await link.isVisible()))
-    await page.getByRole('button', { name: c.learning, exact: true }).click();
+  const toggle = page.getByRole('button', { name: c.learning, exact: true });
+  if ((await toggle.isVisible()) && !(await link.isVisible())) await toggle.click();
   await link.click();
   await expect(page.locator('.management-lesson > header h2')).toHaveText(b.topics[topic]);
 }

@@ -1,0 +1,238 @@
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ src/laboratory-firewall.test.ts (14 tests | 14 failed) 58ms
+   ❯ Firewall3.5 authoritative configuration and composed analysis (14)
+     × A: creates Firewall/PIP atomically and assesses exact two-spoke selected forward/return path without reverse initiation rules 16ms
+     × B/G: explicit collection Deny and unmatched default deny remain different terminating decisions 3ms
+     × C: removing source UDR exposes actual default routing drop rather than invented spoke transit 2ms
+     × D: only the receiving spoke forwarding flags satisfy the two directions 2ms
+     × E: missing return route never becomes a positive configuration-path result 3ms
+     × F: original NSG first-match deny remains decisive after Firewall Allow 2ms
+     × selected local/direct peering routes are reported as bypass, not inspected firewall success 3ms
+     × reuses LPM: a more-specific None shadows the appliance route and preserves all candidate provenance 3ms
+     × group priority wins before collection priority; a higher group terminates and rules have no invented priorities/actions 5ms
+     × rejects unknown per-rule action/priority instead of weakening hierarchy 3ms
+     × validates literal addresses, canonical CIDR, supported protocol/ports, bounds and duplicate collection priorities atomically 3ms
+     × rejects arbitrary next-hop IP, unsupported scope and dedicated endpoint/NSG use 3ms
+     × reset preserves through replay/original receipts and rejects tampered archives; stale and invalid requests cannot change World 4ms
+     × missing policy cannot fabricate default-deny certainty or a valid positive result 3ms
+
+⎯⎯⎯⎯⎯⎯ Failed Tests 14 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > A: creates Firewall/PIP atomically and assesses exact two-spoke selected forward/return path without reverse initiation rules
+Error: {"command":{"type":"CreateSubnet","vnetId":"vnet-2","name":"AzureFirewallSubnet","addressPrefix":"10.0.0.0/26"},"r":{"commandId":"firewall-test-5","sequence":5,"beforeRevision":4,"afterRevision":4,"operation":"CreateSubnet","targetType":"Microsoft.Network/virtualNetworks/subnets","scopeId":"vnet-2","location":null,"outcome":"unsupported","code":"unsupported-profile","ruleId":"lab-network@3.4","addedIds":[],"removedIds":[],"beforeCount":4,"afterCount":4,"field":"name"}}
+ ❯ Object.create tests/fixtures/firewall-world.ts:25:43
+     23|     create(command: Command) {
+     24|       const r = this.run(command);
+     25|       if (r.outcome !== 'accepted') throw Error(JSON.stringify({ comma…
+       |                                           ^
+     26|       return r.addedIds[0]!;
+     27|     },
+ ❯ subnet tests/fixtures/firewall-world.ts:47:7
+ ❯ firewallWorld tests/fixtures/firewall-world.ts:48:21
+ ❯ src/laboratory-firewall.test.ts:8:61
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/14]⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > B/G: explicit collection Deny and unmatched default deny remain different terminating decisions
+Error: {"command":{"type":"CreateSubnet","vnetId":"vnet-2","name":"AzureFirewallSubnet","addressPrefix":"10.0.0.0/26"},"r":{"commandId":"firewall-test-5","sequence":5,"beforeRevision":4,"afterRevision":4,"operation":"CreateSubnet","targetType":"Microsoft.Network/virtualNetworks/subnets","scopeId":"vnet-2","location":null,"outcome":"unsupported","code":"unsupported-profile","ruleId":"lab-network@3.4","addedIds":[],"removedIds":[],"beforeCount":4,"afterCount":4,"field":"name"}}
+ ❯ Object.create tests/fixtures/firewall-world.ts:25:43
+     23|     create(command: Command) {
+     24|       const r = this.run(command);
+     25|       if (r.outcome !== 'accepted') throw Error(JSON.stringify({ comma…
+       |                                           ^
+     26|       return r.addedIds[0]!;
+     27|     },
+ ❯ subnet tests/fixtures/firewall-world.ts:47:7
+ ❯ firewallWorld tests/fixtures/firewall-world.ts:48:21
+ ❯ src/laboratory-firewall.test.ts:40:43
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/14]⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > C: removing source UDR exposes actual default routing drop rather than invented spoke transit
+Error: {"command":{"type":"CreateSubnet","vnetId":"vnet-2","name":"AzureFirewallSubnet","addressPrefix":"10.0.0.0/26"},"r":{"commandId":"firewall-test-5","sequence":5,"beforeRevision":4,"afterRevision":4,"operation":"CreateSubnet","targetType":"Microsoft.Network/virtualNetworks/subnets","scopeId":"vnet-2","location":null,"outcome":"unsupported","code":"unsupported-profile","ruleId":"lab-network@3.4","addedIds":[],"removedIds":[],"beforeCount":4,"afterCount":4,"field":"name"}}
+ ❯ Object.create tests/fixtures/firewall-world.ts:25:43
+     23|     create(command: Command) {
+     24|       const r = this.run(command);
+     25|       if (r.outcome !== 'accepted') throw Error(JSON.stringify({ comma…
+       |                                           ^
+     26|       return r.addedIds[0]!;
+     27|     },
+ ❯ subnet tests/fixtures/firewall-world.ts:47:7
+ ❯ firewallWorld tests/fixtures/firewall-world.ts:48:21
+ ❯ src/laboratory-firewall.test.ts:67:36
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/14]⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > D: only the receiving spoke forwarding flags satisfy the two directions
+Error: {"command":{"type":"CreateSubnet","vnetId":"vnet-2","name":"AzureFirewallSubnet","addressPrefix":"10.0.0.0/26"},"r":{"commandId":"firewall-test-5","sequence":5,"beforeRevision":4,"afterRevision":4,"operation":"CreateSubnet","targetType":"Microsoft.Network/virtualNetworks/subnets","scopeId":"vnet-2","location":null,"outcome":"unsupported","code":"unsupported-profile","ruleId":"lab-network@3.4","addedIds":[],"removedIds":[],"beforeCount":4,"afterCount":4,"field":"name"}}
+ ❯ Object.create tests/fixtures/firewall-world.ts:25:43
+     23|     create(command: Command) {
+     24|       const r = this.run(command);
+     25|       if (r.outcome !== 'accepted') throw Error(JSON.stringify({ comma…
+       |                                           ^
+     26|       return r.addedIds[0]!;
+     27|     },
+ ❯ subnet tests/fixtures/firewall-world.ts:47:7
+ ❯ firewallWorld tests/fixtures/firewall-world.ts:48:21
+ ❯ src/laboratory-firewall.test.ts:74:44
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/14]⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > E: missing return route never becomes a positive configuration-path result
+Error: {"command":{"type":"CreateSubnet","vnetId":"vnet-2","name":"AzureFirewallSubnet","addressPrefix":"10.0.0.0/26"},"r":{"commandId":"firewall-test-5","sequence":5,"beforeRevision":4,"afterRevision":4,"operation":"CreateSubnet","targetType":"Microsoft.Network/virtualNetworks/subnets","scopeId":"vnet-2","location":null,"outcome":"unsupported","code":"unsupported-profile","ruleId":"lab-network@3.4","addedIds":[],"removedIds":[],"beforeCount":4,"afterCount":4,"field":"name"}}
+ ❯ Object.create tests/fixtures/firewall-world.ts:25:43
+     23|     create(command: Command) {
+     24|       const r = this.run(command);
+     25|       if (r.outcome !== 'accepted') throw Error(JSON.stringify({ comma…
+       |                                           ^
+     26|       return r.addedIds[0]!;
+     27|     },
+ ❯ subnet tests/fixtures/firewall-world.ts:47:7
+ ❯ firewallWorld tests/fixtures/firewall-world.ts:48:21
+ ❯ src/laboratory-firewall.test.ts:82:37
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/14]⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > F: original NSG first-match deny remains decisive after Firewall Allow
+Error: {"command":{"type":"CreateSubnet","vnetId":"vnet-2","name":"AzureFirewallSubnet","addressPrefix":"10.0.0.0/26"},"r":{"commandId":"firewall-test-5","sequence":5,"beforeRevision":4,"afterRevision":4,"operation":"CreateSubnet","targetType":"Microsoft.Network/virtualNetworks/subnets","scopeId":"vnet-2","location":null,"outcome":"unsupported","code":"unsupported-profile","ruleId":"lab-network@3.4","addedIds":[],"removedIds":[],"beforeCount":4,"afterCount":4,"field":"name"}}
+ ❯ Object.create tests/fixtures/firewall-world.ts:25:43
+     23|     create(command: Command) {
+     24|       const r = this.run(command);
+     25|       if (r.outcome !== 'accepted') throw Error(JSON.stringify({ comma…
+       |                                           ^
+     26|       return r.addedIds[0]!;
+     27|     },
+ ❯ subnet tests/fixtures/firewall-world.ts:47:7
+ ❯ firewallWorld tests/fixtures/firewall-world.ts:48:21
+ ❯ src/laboratory-firewall.test.ts:89:35
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/14]⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > selected local/direct peering routes are reported as bypass, not inspected firewall success
+Error: {"command":{"type":"CreateSubnet","vnetId":"vnet-2","name":"AzureFirewallSubnet","addressPrefix":"10.0.0.0/26"},"r":{"commandId":"firewall-test-5","sequence":5,"beforeRevision":4,"afterRevision":4,"operation":"CreateSubnet","targetType":"Microsoft.Network/virtualNetworks/subnets","scopeId":"vnet-2","location":null,"outcome":"unsupported","code":"unsupported-profile","ruleId":"lab-network@3.4","addedIds":[],"removedIds":[],"beforeCount":4,"afterCount":4,"field":"name"}}
+ ❯ Object.create tests/fixtures/firewall-world.ts:25:43
+     23|     create(command: Command) {
+     24|       const r = this.run(command);
+     25|       if (r.outcome !== 'accepted') throw Error(JSON.stringify({ comma…
+       |                                           ^
+     26|       return r.addedIds[0]!;
+     27|     },
+ ❯ subnet tests/fixtures/firewall-world.ts:47:7
+ ❯ firewallWorld tests/fixtures/firewall-world.ts:48:21
+ ❯ src/laboratory-firewall.test.ts:109:58
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/14]⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > reuses LPM: a more-specific None shadows the appliance route and preserves all candidate provenance
+Error: {"command":{"type":"CreateSubnet","vnetId":"vnet-2","name":"AzureFirewallSubnet","addressPrefix":"10.0.0.0/26"},"r":{"commandId":"firewall-test-5","sequence":5,"beforeRevision":4,"afterRevision":4,"operation":"CreateSubnet","targetType":"Microsoft.Network/virtualNetworks/subnets","scopeId":"vnet-2","location":null,"outcome":"unsupported","code":"unsupported-profile","ruleId":"lab-network@3.4","addedIds":[],"removedIds":[],"beforeCount":4,"afterCount":4,"field":"name"}}
+ ❯ Object.create tests/fixtures/firewall-world.ts:25:43
+     23|     create(command: Command) {
+     24|       const r = this.run(command);
+     25|       if (r.outcome !== 'accepted') throw Error(JSON.stringify({ comma…
+       |                                           ^
+     26|       return r.addedIds[0]!;
+     27|     },
+ ❯ subnet tests/fixtures/firewall-world.ts:47:7
+ ❯ firewallWorld tests/fixtures/firewall-world.ts:48:21
+ ❯ src/laboratory-firewall.test.ts:119:47
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/14]⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > group priority wins before collection priority; a higher group terminates and rules have no invented priorities/actions
+Error: {"command":{"type":"CreateSubnet","vnetId":"vnet-2","name":"AzureFirewallSubnet","addressPrefix":"10.0.0.0/26"},"r":{"commandId":"firewall-test-5","sequence":5,"beforeRevision":4,"afterRevision":4,"operation":"CreateSubnet","targetType":"Microsoft.Network/virtualNetworks/subnets","scopeId":"vnet-2","location":null,"outcome":"unsupported","code":"unsupported-profile","ruleId":"lab-network@3.4","addedIds":[],"removedIds":[],"beforeCount":4,"afterCount":4,"field":"name"}}
+ ❯ Object.create tests/fixtures/firewall-world.ts:25:43
+     23|     create(command: Command) {
+     24|       const r = this.run(command);
+     25|       if (r.outcome !== 'accepted') throw Error(JSON.stringify({ comma…
+       |                                           ^
+     26|       return r.addedIds[0]!;
+     27|     },
+ ❯ subnet tests/fixtures/firewall-world.ts:47:7
+ ❯ firewallWorld tests/fixtures/firewall-world.ts:48:21
+ ❯ src/laboratory-firewall.test.ts:138:34
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/14]⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > rejects unknown per-rule action/priority instead of weakening hierarchy
+Error: {"command":{"type":"CreateSubnet","vnetId":"vnet-2","name":"AzureFirewallSubnet","addressPrefix":"10.0.0.0/26"},"r":{"commandId":"firewall-test-5","sequence":5,"beforeRevision":4,"afterRevision":4,"operation":"CreateSubnet","targetType":"Microsoft.Network/virtualNetworks/subnets","scopeId":"vnet-2","location":null,"outcome":"unsupported","code":"unsupported-profile","ruleId":"lab-network@3.4","addedIds":[],"removedIds":[],"beforeCount":4,"afterCount":4,"field":"name"}}
+ ❯ Object.create tests/fixtures/firewall-world.ts:25:43
+     23|     create(command: Command) {
+     24|       const r = this.run(command);
+     25|       if (r.outcome !== 'accepted') throw Error(JSON.stringify({ comma…
+       |                                           ^
+     26|       return r.addedIds[0]!;
+     27|     },
+ ❯ subnet tests/fixtures/firewall-world.ts:47:7
+ ❯ firewallWorld tests/fixtures/firewall-world.ts:48:21
+ ❯ src/laboratory-firewall.test.ts:167:31
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/14]⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > validates literal addresses, canonical CIDR, supported protocol/ports, bounds and duplicate collection priorities atomically
+Error: {"command":{"type":"CreateSubnet","vnetId":"vnet-2","name":"AzureFirewallSubnet","addressPrefix":"10.0.0.0/26"},"r":{"commandId":"firewall-test-5","sequence":5,"beforeRevision":4,"afterRevision":4,"operation":"CreateSubnet","targetType":"Microsoft.Network/virtualNetworks/subnets","scopeId":"vnet-2","location":null,"outcome":"unsupported","code":"unsupported-profile","ruleId":"lab-network@3.4","addedIds":[],"removedIds":[],"beforeCount":4,"afterCount":4,"field":"name"}}
+ ❯ Object.create tests/fixtures/firewall-world.ts:25:43
+     23|     create(command: Command) {
+     24|       const r = this.run(command);
+     25|       if (r.outcome !== 'accepted') throw Error(JSON.stringify({ comma…
+       |                                           ^
+     26|       return r.addedIds[0]!;
+     27|     },
+ ❯ subnet tests/fixtures/firewall-world.ts:47:7
+ ❯ firewallWorld tests/fixtures/firewall-world.ts:48:21
+ ❯ src/laboratory-firewall.test.ts:183:48
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/14]⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > rejects arbitrary next-hop IP, unsupported scope and dedicated endpoint/NSG use
+Error: {"command":{"type":"CreateSubnet","vnetId":"vnet-2","name":"AzureFirewallSubnet","addressPrefix":"10.0.0.0/26"},"r":{"commandId":"firewall-test-5","sequence":5,"beforeRevision":4,"afterRevision":4,"operation":"CreateSubnet","targetType":"Microsoft.Network/virtualNetworks/subnets","scopeId":"vnet-2","location":null,"outcome":"unsupported","code":"unsupported-profile","ruleId":"lab-network@3.4","addedIds":[],"removedIds":[],"beforeCount":4,"afterCount":4,"field":"name"}}
+ ❯ Object.create tests/fixtures/firewall-world.ts:25:43
+     23|     create(command: Command) {
+     24|       const r = this.run(command);
+     25|       if (r.outcome !== 'accepted') throw Error(JSON.stringify({ comma…
+       |                                           ^
+     26|       return r.addedIds[0]!;
+     27|     },
+ ❯ subnet tests/fixtures/firewall-world.ts:47:7
+ ❯ firewallWorld tests/fixtures/firewall-world.ts:48:21
+ ❯ src/laboratory-firewall.test.ts:217:70
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/14]⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > reset preserves through replay/original receipts and rejects tampered archives; stale and invalid requests cannot change World
+Error: {"command":{"type":"CreateSubnet","vnetId":"vnet-2","name":"AzureFirewallSubnet","addressPrefix":"10.0.0.0/26"},"r":{"commandId":"firewall-test-5","sequence":5,"beforeRevision":4,"afterRevision":4,"operation":"CreateSubnet","targetType":"Microsoft.Network/virtualNetworks/subnets","scopeId":"vnet-2","location":null,"outcome":"unsupported","code":"unsupported-profile","ruleId":"lab-network@3.4","addedIds":[],"removedIds":[],"beforeCount":4,"afterCount":4,"field":"name"}}
+ ❯ Object.create tests/fixtures/firewall-world.ts:25:43
+     23|     create(command: Command) {
+     24|       const r = this.run(command);
+     25|       if (r.outcome !== 'accepted') throw Error(JSON.stringify({ comma…
+       |                                           ^
+     26|       return r.addedIds[0]!;
+     27|     },
+ ❯ subnet tests/fixtures/firewall-world.ts:47:7
+ ❯ firewallWorld tests/fixtures/firewall-world.ts:48:21
+ ❯ src/laboratory-firewall.test.ts:245:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/14]⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > missing policy cannot fabricate default-deny certainty or a valid positive result
+Error: {"command":{"type":"CreateSubnet","vnetId":"vnet-2","name":"AzureFirewallSubnet","addressPrefix":"10.0.0.0/26"},"r":{"commandId":"firewall-test-5","sequence":5,"beforeRevision":4,"afterRevision":4,"operation":"CreateSubnet","targetType":"Microsoft.Network/virtualNetworks/subnets","scopeId":"vnet-2","location":null,"outcome":"unsupported","code":"unsupported-profile","ruleId":"lab-network@3.4","addedIds":[],"removedIds":[],"beforeCount":4,"afterCount":4,"field":"name"}}
+ ❯ Object.create tests/fixtures/firewall-world.ts:25:43
+     23|     create(command: Command) {
+     24|       const r = this.run(command);
+     25|       if (r.outcome !== 'accepted') throw Error(JSON.stringify({ comma…
+       |                                           ^
+     26|       return r.addedIds[0]!;
+     27|     },
+ ❯ subnet tests/fixtures/firewall-world.ts:47:7
+ ❯ firewallWorld tests/fixtures/firewall-world.ts:48:21
+ ❯ src/laboratory-firewall.test.ts:273:26
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/14]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  14 failed (14)
+   Start at  09:44:25
+   Duration  623ms (transform 61%, import 18%, tests 18%, worker 2%)
+

@@ -21,7 +21,10 @@ import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { laboratoryV3Nb as c } from '@/content/nb';
 import type { Snapshot, Request as LabRequest, Command, Receipt, Model } from '@/laboratory/engine';
-import { laboratoryModel } from '@/laboratory/v34/contract';
+import { laboratoryModel } from '@/laboratory/v35/contract';
+import { firewallFields } from '@/laboratory/v35/contract';
+import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
+import { FirewallViews, firewallDefaults, firewallOptions } from './firewall';
 import { laboratoryComputeNb as m } from '@/content/laboratory-compute-nb';
 import { images, sizes, diskSizes, childNames } from '@/laboratory/v34/profiles';
 import { ComputeViews, computeFields } from './compute';
@@ -41,46 +44,56 @@ const href = (view: string, id?: string, receipt?: string) =>
   '?' +
   new URLSearchParams({ view, ...(id ? { id } : {}), ...(receipt ? { receipt } : {}) });
 const message = (code: string, operation?: string) =>
-  code === 'incompatible-association' &&
-  ['CreateNetworkInterface', 'AssociateNicNsg', 'CreateVirtualMachine'].includes(operation ?? '')
-    ? e.associationError
-    : code === 'not-associated' && operation === 'DisassociateNicNsg'
-      ? e.noAssociation
-      : Object.hasOwn(e.codes, code)
-        ? e.codes[code as keyof typeof e.codes]
-        : code === 'incompatible-association' && operation === 'AssociateSubnetRouteTable'
-          ? r.associationError
-          : Object.hasOwn(r.codes, code)
-            ? r.codes[code as keyof typeof r.codes]
-            : Object.hasOwn(n.codes, code)
-              ? n.codes[code as keyof typeof n.codes]
-              : Object.hasOwn(c.codes, code)
-                ? c.codes[code as keyof typeof c.codes]
-                : c.unavailable;
+  Object.hasOwn(f.codes, code) &&
+  (!['incompatible-association', 'invalid-priority', 'priority-conflict'].includes(code) ||
+    Object.hasOwn(f.operations, operation ?? ''))
+    ? f.codes[code as keyof typeof f.codes]
+    : code === 'incompatible-association' &&
+        ['CreateNetworkInterface', 'AssociateNicNsg', 'CreateVirtualMachine'].includes(
+          operation ?? '',
+        )
+      ? e.associationError
+      : code === 'not-associated' && operation === 'DisassociateNicNsg'
+        ? e.noAssociation
+        : Object.hasOwn(e.codes, code)
+          ? e.codes[code as keyof typeof e.codes]
+          : code === 'incompatible-association' && operation === 'AssociateSubnetRouteTable'
+            ? r.associationError
+            : Object.hasOwn(r.codes, code)
+              ? r.codes[code as keyof typeof r.codes]
+              : Object.hasOwn(n.codes, code)
+                ? n.codes[code as keyof typeof n.codes]
+                : Object.hasOwn(c.codes, code)
+                  ? c.codes[code as keyof typeof c.codes]
+                  : c.unavailable;
 const label = (key: string) =>
-  Object.hasOwn(m.fields, key)
-    ? m.fields[key as keyof typeof m.fields]
-    : Object.hasOwn(e.fields, key)
-      ? e.fields[key as keyof typeof e.fields]
-      : Object.hasOwn(r.fields, key)
-        ? r.fields[key as keyof typeof r.fields]
-        : Object.hasOwn(n.fields, key)
-          ? n.fields[key as keyof typeof n.fields]
-          : Object.hasOwn(c.fields, key)
-            ? c.fields[key as keyof typeof c.fields]
-            : key;
+  Object.hasOwn(f.fields, key)
+    ? f.fields[key as keyof typeof f.fields]
+    : Object.hasOwn(m.fields, key)
+      ? m.fields[key as keyof typeof m.fields]
+      : Object.hasOwn(e.fields, key)
+        ? e.fields[key as keyof typeof e.fields]
+        : Object.hasOwn(r.fields, key)
+          ? r.fields[key as keyof typeof r.fields]
+          : Object.hasOwn(n.fields, key)
+            ? n.fields[key as keyof typeof n.fields]
+            : Object.hasOwn(c.fields, key)
+              ? c.fields[key as keyof typeof c.fields]
+              : key;
 const operation = (key: string) =>
-  key === 'CreateVirtualMachine'
-    ? m.create
-    : Object.hasOwn(e.operations, key)
-      ? e.operations[key as keyof typeof e.operations]
-      : Object.hasOwn(r.operations, key)
-        ? r.operations[key as keyof typeof r.operations]
-        : Object.hasOwn(n.operations, key)
-          ? n.operations[key as keyof typeof n.operations]
-          : Object.hasOwn(c.operations, key)
-            ? c.operations[key as keyof typeof c.operations]
-            : key;
+  Object.hasOwn(f.operations, key)
+    ? f.operations[key as keyof typeof f.operations]
+    : key === 'CreateVirtualMachine'
+      ? m.create
+      : Object.hasOwn(e.operations, key)
+        ? e.operations[key as keyof typeof e.operations]
+        : Object.hasOwn(r.operations, key)
+          ? r.operations[key as keyof typeof r.operations]
+          : Object.hasOwn(n.operations, key)
+            ? n.operations[key as keyof typeof n.operations]
+            : Object.hasOwn(c.operations, key)
+              ? c.operations[key as keyof typeof c.operations]
+              : key;
 async function api(action: string, request?: unknown, workspace?: string) {
   let response: Response, value;
   try {
@@ -248,6 +261,12 @@ export function Laboratory() {
         const kind =
           (
             {
+              CreateAzureFirewall: 'firewall',
+              CreateFirewallPolicy: 'firewallPolicy',
+              CreateFirewallRuleCollectionGroup: 'firewallGroup',
+              CreateFirewallNetworkCollection: 'firewallCollection',
+              CreateFirewallNetworkRule: 'firewallRule',
+              CreateFirewallRoute: 'route',
               CreateVirtualMachine: 'vm',
               CreateNetworkInterface: 'nic',
               CreateVirtualNetwork: 'vnet',
@@ -267,21 +286,33 @@ export function Laboratory() {
                 ? 'container'
                 : 'blob');
         router.push(
-          ['AssociateNicNsg', 'DisassociateNicNsg'].includes(request.command.type) &&
-            'nicId' in request.command &&
+          request.command.type === 'SetPeeringForwardedTraffic' &&
             result.receipt.outcome === 'accepted'
-            ? href('nic', request.command.nicId)
-            : [
-                  'AssociateSubnetNsg',
-                  'AssociateSubnetRouteTable',
-                  'DisassociateSubnetRouteTable',
-                ].includes(request.command.type) &&
-                'subnetId' in request.command &&
-                result.receipt.outcome === 'accepted'
-              ? href('subnet', request.command.subnetId)
-              : target && result.receipt.outcome === 'accepted'
-                ? href(kind, target)
-                : href('history', undefined, result.receipt.commandId),
+            ? href('peering', request.command.peeringId)
+            : request.command.type === 'DeleteRoute' && result.receipt.outcome === 'accepted'
+              ? href(
+                  'routeTable',
+                  snapshotRef.current?.world.model === laboratoryModel
+                    ? snapshotRef.current.world.routes.find(
+                        (r) => r.id === (request.command as { routeId: string }).routeId,
+                      )?.routeTableId
+                    : undefined,
+                )
+              : ['AssociateNicNsg', 'DisassociateNicNsg'].includes(request.command.type) &&
+                  'nicId' in request.command &&
+                  result.receipt.outcome === 'accepted'
+                ? href('nic', request.command.nicId)
+                : [
+                      'AssociateSubnetNsg',
+                      'AssociateSubnetRouteTable',
+                      'DisassociateSubnetRouteTable',
+                    ].includes(request.command.type) &&
+                    'subnetId' in request.command &&
+                    result.receipt.outcome === 'accepted'
+                  ? href('subnet', request.command.subnetId)
+                  : target && result.receipt.outcome === 'accepted'
+                    ? href(kind, target)
+                    : href('history', undefined, result.receipt.commandId),
         );
         channel.current?.postMessage('changed');
       } else {
@@ -341,12 +372,19 @@ export function Laboratory() {
     routing =
       world?.model === 'laboratory@3.2.0' ||
       world?.model === 'laboratory@3.3.0' ||
+      world?.model === 'laboratory@3.4.0' ||
       world?.model === laboratoryModel
         ? world
         : undefined,
     endpoints =
-      world?.model === laboratoryModel || world?.model === 'laboratory@3.3.0' ? world : undefined,
-    compute = world?.model === laboratoryModel ? world : undefined,
+      world?.model === laboratoryModel ||
+      world?.model === 'laboratory@3.4.0' ||
+      world?.model === 'laboratory@3.3.0'
+        ? world
+        : undefined,
+    compute =
+      world?.model === laboratoryModel || world?.model === 'laboratory@3.4.0' ? world : undefined,
+    firewall = world?.model === laboratoryModel ? world : undefined,
     view = query.get('view') ?? 'groups',
     id = query.get('id'),
     selectedReceipt = snapshot?.entries.find((e) => e.receipt.commandId === query.get('receipt'));
@@ -410,6 +448,7 @@ export function Laboratory() {
       routeTableId:
         routing?.routeTables.find((x) => x.id === id)?.id ?? routing?.routeTables[0]?.id ?? '',
       nextHopType: 'None',
+      ...(firewall ? firewallDefaults(firewall, id, type) : {}),
     });
   };
   const receiptLink = (origin: string) => (
@@ -430,11 +469,25 @@ export function Laboratory() {
         <select
           aria-label={label}
           aria-describedby={note ? `lab-note-${key}` : undefined}
-          value={values[key] ?? ''}
+          value={
+            firewall &&
+            form &&
+            Object.hasOwn(firewallFields, form) &&
+            !options.some(([value]) => value === values[key])
+              ? ''
+              : (values[key] ?? '')
+          }
           onChange={(e) => {
             setValues({
               ...values,
               [key]: e.target.value,
+              ...(key === 'firewallId' && firewall
+                ? {
+                    nextHopIp:
+                      firewall.firewalls.find((f) => f.id === e.target.value)?.privateIpAddress ??
+                      '',
+                  }
+                : {}),
               ...(key === 'vnetId' &&
               ['CreateNetworkInterface', 'CreateVirtualMachine'].includes(form ?? '')
                 ? { subnetId: '' }
@@ -489,7 +542,12 @@ export function Laboratory() {
   const review = async () => {
     if (!world || !form || !snapshot) return;
     setBusy(true);
+    const requestType =
+      form === 'CreateRoute' && firewall && values.nextHopType === 'VirtualAppliance'
+        ? 'CreateFirewallRoute'
+        : form;
     const keys =
+      firewallFields[requestType]?.filter((k) => k !== 'type') ??
       computeFields[form] ??
       endpointFields[form] ??
       routingFields[form] ??
@@ -505,7 +563,7 @@ export function Laboratory() {
       commandId: crypto.randomUUID(),
       expectedRevision: world.revision,
       command: {
-        type: form,
+        type: requestType,
         ...Object.fromEntries(keys.map((k) => [k, values[k] ?? ''])),
       } as Command,
     };
@@ -568,6 +626,13 @@ export function Laboratory() {
         ? 'networking'
         : 'overview';
   const services: [string, string, string][] = [
+    ...(firewall
+      ? ([
+          ['firewalls', f.firewalls, 'firewall'],
+          ['firewallPolicies', f.policies, 'firewallPolicy'],
+          ['publicIps', f.publicIps, 'publicIp'],
+        ] as [string, string, string][])
+      : []),
     ...(compute
       ? ([
           ['vms', m.vms, 'vm'],
@@ -577,7 +642,7 @@ export function Laboratory() {
     ...(endpoints
       ? ([
           ['nics', e.nics, 'nic'],
-          ['policy', e.analysis, 'properties'],
+          ['policy', firewall ? f.analysis : e.analysis, 'properties'],
         ] as [string, string, string][])
       : []),
     ['groups', c.groups, 'groups'],
@@ -598,6 +663,12 @@ export function Laboratory() {
   const serviceView = resource
     ? (
         {
+          firewall: 'firewalls',
+          firewallPolicy: 'firewallPolicies',
+          firewallGroup: 'firewallPolicies',
+          firewallCollection: 'firewallPolicies',
+          firewallRule: 'firewallPolicies',
+          publicIp: 'publicIps',
           vm: 'vms',
           disk: 'disks',
           nic: 'nics',
@@ -634,23 +705,29 @@ export function Laboratory() {
     services.find(([key]) => key === view)?.[2] ??
     (view === 'history' ? 'activity' : view === 'services' ? 'services' : 'resources');
   const formIcon =
-    form === 'CreateVirtualMachine'
-      ? 'vm'
-      : form === 'CreateGroup'
-        ? 'groups'
-        : form === 'CreateStorageAccount'
-          ? 'account'
-          : form === 'CreateBlobContainer'
-            ? 'container'
-            : form === 'CreateTextBlob'
-              ? 'blob'
-              : form === 'CreateVirtualNetwork'
-                ? 'vnet'
-                : form === 'CreateSubnet'
-                  ? 'subnet'
-                  : form === 'CreateNetworkSecurityGroup'
-                    ? 'nsg'
-                    : 'settings';
+    form && firewallFields[form]
+      ? form === 'CreateAzureFirewall'
+        ? 'firewall'
+        : form === 'CreateFirewallPolicy'
+          ? 'firewallPolicy'
+          : 'properties'
+      : form === 'CreateVirtualMachine'
+        ? 'vm'
+        : form === 'CreateGroup'
+          ? 'groups'
+          : form === 'CreateStorageAccount'
+            ? 'account'
+            : form === 'CreateBlobContainer'
+              ? 'container'
+              : form === 'CreateTextBlob'
+                ? 'blob'
+                : form === 'CreateVirtualNetwork'
+                  ? 'vnet'
+                  : form === 'CreateSubnet'
+                    ? 'subnet'
+                    : form === 'CreateNetworkSecurityGroup'
+                      ? 'nsg'
+                      : 'settings';
   const parent = records.find((r) => r.id === resource?.parentId);
   const actions: [Command['type'], string][] =
     view === 'nic' && endpoints
@@ -846,6 +923,17 @@ export function Laboratory() {
           {receiptLink(blob.origin)}
         </>
       )}
+      {firewall && (
+        <FirewallViews
+          world={firewall}
+          view={view}
+          id={id}
+          begin={begin}
+          disabled={busy || !!error}
+          list={links}
+          receipt={receiptLink}
+        />
+      )}
       {compute && (
         <ComputeViews
           world={compute}
@@ -889,6 +977,7 @@ export function Laboratory() {
           snapshot={snapshot}
           initialSource={id}
           initialNic={query.get('nic')}
+          initialDestination={query.get('destination')}
           accept={accept}
         />
       )}
@@ -987,6 +1076,19 @@ export function Laboratory() {
         ...(compute ? ['vms', 'vm', 'disks', 'disk'] : []),
         ...(endpoints ? ['nics', 'nic', 'policy'] : []),
         ...(network ? ['vnets', 'vnet', 'subnet', 'nsgs', 'nsg', 'rule'] : []),
+        ...(firewall
+          ? [
+              'firewalls',
+              'firewall',
+              'firewallPolicies',
+              'firewallPolicy',
+              'firewallGroup',
+              'firewallCollection',
+              'firewallRule',
+              'publicIps',
+              'publicIp',
+            ]
+          : []),
         ...(routing
           ? ['peerings', 'peering', 'routeTables', 'routeTable', 'route', 'analysis']
           : []),
@@ -1166,7 +1268,7 @@ export function Laboratory() {
           )}
           {newWorkspace && (
             <PortalDialog title={m.newWorkspace} onClose={() => setNewWorkspace(false)}>
-              <p>{m.newWorkspaceNote}</p>
+              <p>{f.newWorkspaceNote}</p>
               <button
                 className="primary"
                 disabled={busy}
@@ -1255,7 +1357,10 @@ export function Laboratory() {
                     value={startModel}
                     onChange={(e) => setStartModel(e.target.value as Model)}
                   >
-                    <option value={laboratoryModel}>3.4 · Storage, Networking og Compute A</option>
+                    <option value={laboratoryModel}>
+                      3.5 · Storage, Networking, Compute og Firewall A
+                    </option>
+                    <option value="laboratory@3.4.0">3.4 · Storage, Networking og Compute A</option>
                     <option value="laboratory@3.3.0">3.3 · Storage og Networking A/B/C</option>
                     <option value="laboratory@3.2.0">3.2 · Storage og Networking A/B</option>
                     <option value="laboratory@3.1.0">3.1 · Storage og Networking A</option>
@@ -1281,9 +1386,9 @@ export function Laboratory() {
           {snapshot && world && (
             <>
               {!network && <p className="lab-network-boundary">{n.legacy}</p>}
-              {!compute && ['groups', 'services'].includes(view) && (
+              {!firewall && ['groups', 'services'].includes(view) && (
                 <div className="lab-network-boundary">
-                  <p>{m.legacy}</p>
+                  <p>{compute ? f.legacy : m.legacy}</p>
                   <button
                     disabled={busy || !!pendingView || !!error}
                     onClick={() => setNewWorkspace(true)}
@@ -1314,6 +1419,8 @@ export function Laboratory() {
                   >
                     <fieldset disabled={busy || !!pendingView}>
                       {![
+                        'SetPeeringForwardedTraffic',
+                        'DeleteRoute',
                         'AssociateNicNsg',
                         'DisassociateNicNsg',
                         'AssociateSubnetNsg',
@@ -1324,14 +1431,33 @@ export function Laboratory() {
                           'name',
                           c.name,
                           undefined,
-                          form === 'CreateStorageAccount'
-                            ? c.accountLimit
-                            : form === 'CreateBlobContainer'
-                              ? c.containerLimit
-                              : form === 'CreateTextBlob'
-                                ? c.blobLimit
-                                : undefined,
+                          form === 'CreateAzureFirewall'
+                            ? f.nameNote
+                            : form === 'CreateStorageAccount'
+                              ? c.accountLimit
+                              : form === 'CreateBlobContainer'
+                                ? c.containerLimit
+                                : form === 'CreateTextBlob'
+                                  ? c.blobLimit
+                                  : undefined,
                         )}
+                      {firewall &&
+                        firewallFields[form] &&
+                        firewallFields[form]!.filter((k) => !['type', 'name'].includes(k)).map(
+                          (key) =>
+                            field(
+                              key,
+                              label(key),
+                              firewallOptions(firewall, key),
+                              key === 'priority' ? f.priorityNote : undefined,
+                            ),
+                        )}
+                      {firewall && form === 'CreateAzureFirewall' && (
+                        <>
+                          <p>{f.publicNote}</p>
+                          <p>{f.privateNote}</p>
+                        </>
+                      )}
                       {compute && form === 'CreateVirtualMachine' && (
                         <>
                           {field(
@@ -1484,7 +1610,12 @@ export function Laboratory() {
                                 n.vnet,
                                 network.vnets.map((v) => [v.id, vnetScope(v.id)]),
                               )}
-                              {field('addressPrefix', n.addressPrefix, undefined, n.subnetLimit)}
+                              {field(
+                                'addressPrefix',
+                                n.addressPrefix,
+                                undefined,
+                                firewall ? f.subnetNote : n.subnetLimit,
+                              )}
                             </>
                           )}
                           {form === 'CreateSecurityRule' && (
@@ -1583,8 +1714,26 @@ export function Laboratory() {
                                 ['VnetLocal', 'Virtual network'],
                                 ['Internet', 'Internet'],
                                 ['None', 'None · dropp'],
+                                ...(firewall
+                                  ? [
+                                      [
+                                        'VirtualAppliance',
+                                        'Virtual appliance · modellert Firewall',
+                                      ] as [string, string],
+                                    ]
+                                  : []),
                               ])}
-                              <p>{r.routeNote}</p>
+                              {firewall && values.nextHopType === 'VirtualAppliance' && (
+                                <>
+                                  {field(
+                                    'firewallId',
+                                    f.fields.firewallId,
+                                    firewallOptions(firewall, 'firewallId'),
+                                  )}
+                                  {field('nextHopIp', f.fields.nextHopIp)}
+                                </>
+                              )}
+                              <p>{firewall ? f.routeNote : r.routeNote}</p>
                             </>
                           )}
                           {['AssociateSubnetRouteTable', 'DisassociateSubnetRouteTable'].includes(
@@ -1726,6 +1875,8 @@ export function Laboratory() {
                         }}
                       >
                         {[
+                          'SetPeeringForwardedTraffic',
+                          'DeleteRoute',
                           'AssociateNicNsg',
                           'DisassociateNicNsg',
                           'AssociateSubnetNsg',
@@ -1803,13 +1954,29 @@ export function Laboratory() {
                           resource.view === 'disk' && key === 'sku' ? m.osDiskSku : label(key),
                           value === null ? (
                             '—'
-                          ) : ['origin', 'associationOrigin', 'routeAssociationOrigin'].includes(
-                              key,
-                            ) ? (
+                          ) : [
+                              'origin',
+                              'associationOrigin',
+                              'routeAssociationOrigin',
+                              'forwardingOrigin',
+                            ].includes(key) ? (
                             receiptLink(String(value))
-                          ) : compute &&
-                            ['vm', 'disk'].includes(resource.view) &&
+                          ) : ((compute && ['vm', 'disk'].includes(resource.view)) ||
+                              (firewall &&
+                                [
+                                  'firewall',
+                                  'firewallPolicy',
+                                  'firewallGroup',
+                                  'firewallCollection',
+                                  'firewallRule',
+                                  'publicIp',
+                                ].includes(resource.view))) &&
                             [
+                              'policyId',
+                              'collectionGroupId',
+                              'collectionId',
+                              'firewallId',
+                              'publicIpId',
                               'nicId',
                               'osDiskId',
                               'subnetId',

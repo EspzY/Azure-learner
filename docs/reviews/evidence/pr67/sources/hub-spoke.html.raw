@@ -1,0 +1,2079 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>Design a secure hub-spoke network for regional web applications in Azure | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="Learn how to build a secure-by-default network foundation for regional web applications using a minimal hub-spoke topology with Application Gateway, WAF, DDoS Protection, Bastion, NSGs, and virtual network peering." />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/azure/networking/cross-service-scenarios/design-secure-hub-spoke-network" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="Design a secure hub-spoke network for regional web applications in Azure" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/azure/networking/cross-service-scenarios/design-secure-hub-spoke-network" />
+			<meta property="og:description" content="Learn how to build a secure-by-default network foundation for regional web applications using a minimal hub-spoke topology with Application Gateway, WAF, DDoS Protection, Bastion, NSGs, and virtual network peering." />
+			<meta name="platform_id" content="cc65122c-42f2-cc21-42a6-7ffc33739655" /> <meta name="scope" content="Azure" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="azure" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="breadcrumb_path" content="/azure/bread/toc.json" />
+	
+		<meta name="feedback_help_link_url" content="https://learn.microsoft.com/answers/tags/143/azure-virtual-network" />
+	
+		<meta name="feedback_help_link_type" content="get-help-at-qna" />
+	
+		<meta name="feedback_product_url" content="https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789" />
+	
+		<meta name="feedback_system" content="Standard" />
+	
+		<meta name="permissioned-type" content="public" />
+	
+		<meta name="recommendations" content="true" />
+	
+		<meta name="recommendation_types" content="Training" />
+	
+		<meta name="recommendation_types" content="Certification" />
+	
+		<meta name="ms.suite" content="office" />
+	
+		<meta name="adobe-target" content="true" />
+	
+		<meta name="learn_banner_products" content="azure" />
+	
+		<meta name="manager" content="kumud" />
+	
+		<meta name="ms.reviewer" content="mbender" />
+	
+		<meta name="author" content="mbender-ms" />
+	
+		<meta name="ms.author" content="mbender" />
+	
+		<meta name="ms.service" content="azure-virtual-network" />
+	
+		<meta name="ms.topic" content="concept-article" />
+	
+		<meta name="ms.date" content="2026-08-05T00:00:00Z" />
+	
+		<meta name="document_id" content="e672fbc5-326c-98b4-8b0e-9a78e6bb6f77" />
+	
+		<meta name="document_version_independent_id" content="7e9eb1b0-3c23-9164-b0f1-a8111515d5b0" />
+	
+		<meta name="updated_at" content="2026-08-05T22:12:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/networking/cross-service-scenarios/design-secure-hub-spoke-network.md" />
+	
+		<meta name="gitcommit" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/feba763870b93f822e20d5588be6c04ca888bf53/articles/networking/cross-service-scenarios/design-secure-hub-spoke-network.md" />
+	
+		<meta name="git_commit_id" content="feba763870b93f822e20d5588be6c04ca888bf53" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="Azure.azure-documents" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="toc_rel" content="../toc.json" />
+	
+		<meta name="pdf_url_template" content="https://learn.microsoft.com/pdfstore/en-us/Azure.azure-documents/{branchName}{pdfName}" />
+	
+		<meta name="word_count" content="4904" />
+	
+		<meta name="asset_id" content="networking/cross-service-scenarios/design-secure-hub-spoke-network" />
+	
+		<meta name="moniker_range_name" content="" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="articles/networking/cross-service-scenarios/design-secure-hub-spoke-network.md" />
+	
+		<meta name="previous_tlsh_hash" content="810BC5E2C60DC710FB935E0F6AEB660060F8E086F9E42ECC113064D2904DFEBF5E6C79A6EB07A351227697D361E9B60663C2F725806E2A5165B8507E829C1AD173D433F5EB" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/networking/cross-service-scenarios/design-secure-hub-spoke-network.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/azure/networking/cross-service-scenarios/design-secure-hub-spoke-network?accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/20ed8455-bc18-4537-87a4-83784e7b2a39" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/d7c01134-b8f3-438c-822d-13471e513908" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/d4cf20b3-3e54-4ed9-8b09-370a52eee81b" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/9a7f703b-30bb-4d62-9eb4-97213f571849" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/82fff6b2-939d-4e9a-8f9c-d1c41a59749b" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/9ecc2643-be13-4271-a1f4-87114737d63a" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03595.8353-c1321031/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "azure",
+    "context": {},
+    "standardFeedback": true,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "get-help-at-qna",
+    "feedbackHelpLinkUrl": "https://learn.microsoft.com/answers/tags/143/azure-virtual-network",
+    "feedbackSystem": "Standard",
+    "feedbackGitHubRepo": "MicrosoftDocs/azure-docs",
+    "feedbackProductUrl": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": true,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03595.8353-c1321031/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div> 
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					aria-expanded="false"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			
+			href="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/networking/cross-service-scenarios/design-secure-hub-spoke-network.md"
+			data-original_content_git_url="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/networking/cross-service-scenarios/design-secure-hub-spoke-network.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/articles/networking/cross-service-scenarios/design-secure-hub-spoke-network.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="design-a-secure-hub-spoke-network-for-regional-web-applications-in-azure">Design a secure hub-spoke network for regional web applications in Azure</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	 <div class="content"><p>When you host a web application in Azure, the network design you choose determines how much of your infrastructure is exposed to attack. Without an intentional design, teams commonly leave default configurations in place, expose management ports to the internet, or skip application-layer inspection—all of which increase the attack surface.</p>
+<p>This article explains a repeatable architecture pattern that uses a minimal <a href="/en-us/azure/architecture/networking/architecture/hub-spoke" data-linktype="absolute-path">hub-spoke topology</a> to build a secure-by-default foundation for single-region web applications. A hub virtual network hosts shared services like Azure Bastion, while a spoke virtual network contains your workload—whether running on Azure App Service (PaaS) or virtual machines (IaaS). The pattern scales from a single web app to multiple workloads by adding spokes.</p>
+<p>The pattern follows a layered approach. The hub and spoke virtual networks form the base, virtual network (VNet) peering connects them, and NSGs add default-deny access control at every subnet boundary. Higher-level services—Application Gateway with Web Application Firewall (WAF) in the spoke, Azure Bastion in the hub, and DDoS Protection across both—layer on top. Each layer depends on the one below it. The <a href="#deployment-steps" data-linktype="self-bookmark">Deployment steps</a> section later in this article walks through the recommended order.</p>
+<p>This pattern is for network engineers and architects at small or midsize organizations who need to:</p>
+<ul>
+<li>Separate shared services from workloads using a hub-spoke topology that's ready to grow.</li>
+<li>Put an application-layer gateway with WAF in front of every web workload.</li>
+<li>Enforce default-deny traffic rules at the subnet level.</li>
+<li>Eliminate direct RDP/SSH exposure to backend VMs.</li>
+<li>Protect public IPs from volumetric DDoS attacks when the threat profile warrants it.</li>
+<li>Keep the design simple enough to deploy without specialized networking expertise.</li>
+</ul>
+<div class="NOTE">
+<p>Note</p>
+<p>This article provides an opinionated baseline, not a full landing zone guide. For production-ready, enterprise-scale implementations, see <a href="/en-us/azure/cloud-adoption-framework/ready/landing-zone/" data-linktype="absolute-path">Azure Landing Zones</a>.</p>
+</div>
+<h2 id="architecture">Architecture</h2>
+<p>The backend compute model—IaaS or PaaS—determines which shared services are needed in the hub. Both variants use the same hub-spoke foundation with VNet peering, NSGs on every subnet, and conditional DDoS Protection.</p>
+<h3 id="iaas-backend-virtual-machines">IaaS backend (Virtual Machines)</h3>
+<p>When the backend includes VMs, internet traffic flows through Application Gateway with WAF in the spoke to backend VMs in a private workload subnet. The hub hosts Azure Bastion for secure RDP/SSH management across peered spokes, and NAT Gateway provides explicit outbound connectivity for private workload subnets. Azure Firewall in the hub is optional and provides centralized egress control when FQDN-based filtering is needed.</p>
+<h3 id="paas-backend-app-service">PaaS backend (App Service)</h3>
+<p>When the backend is PaaS, internet traffic flows through Application Gateway with WAF in the spoke to App Service in the workload subnet. You don't need Bastion because there's no OS-level access to manage. The hub exists for optional shared services (Azure Firewall) and future growth. VNet peering is always provisioned; in this baseline it carries active traffic only when Azure Firewall handles centralized egress.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>Azure Firewall is optional in this baseline and is positioned for centralized egress control. Stricter Zero Trust designs place Azure Firewall inline between Application Gateway and App Service so that all application traffic is packet inspected. For that pattern, see <a href="../create-zero-trust-network-web-apps" data-linktype="relative-path">Deploy a zero trust network for web applications</a>.</p>
+</div>
+<p>The architecture uses two virtual networks connected by VNet peering:</p>
+<p><strong>Hub virtual network</strong> — Hosts shared services that workloads use. In this minimal pattern, the hub contains Azure Bastion for secure VM management. As the organization grows, the hub can also host Azure Firewall for centralized egress control, a VPN or ExpressRoute gateway for on-premises connectivity, or centralized DNS.</p>
+<p><strong>Spoke virtual network</strong> — Contains workload-specific resources. Internet traffic arrives at a public IP address associated with <a href="/en-us/azure/application-gateway/overview" data-linktype="absolute-path">Azure Application Gateway</a>, which operates as a Layer 7 reverse proxy in a dedicated spoke subnet. A WAF policy inspects every HTTP/HTTPS request against OWASP Core Rule Set rules before forwarding traffic to the backend pool. The backend pool contains either PaaS endpoints (such as App Service) or IaaS resources (VMs or Virtual Machine Scale Sets) in a dedicated workload subnet.</p>
+<p><strong>VNet peering</strong> connects the hub and spoke with low-latency, high-bandwidth connectivity over the Azure backbone. Peering is nontransitive—each spoke connects only to the hub, not to other spokes—which enforces workload isolation by default.</p>
+<p><a href="/en-us/azure/virtual-network/network-security-groups-overview" data-linktype="absolute-path">Network security groups</a> (NSGs) enforce default-deny rules on every subnet in both virtual networks. The Application Gateway subnet allows inbound HTTPS and the required <code>GatewayManager</code> health probe ports. The workload subnet accepts traffic only from the Application Gateway subnet. When the backend includes VMs, Azure Bastion in the hub provides secure RDP/SSH access across the peering connection. When there are internet-facing public IPs, Azure DDoS Protection defends against volumetric and protocol attacks at Layers 3 and 4.</p>
+<p>Each component in this pattern has a clear role:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>VNet</th>
+<th>Role</th>
+<th>Required?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hub virtual network</td>
+<td>Hub</td>
+<td>Hosts shared services (Bastion, optional Firewall)</td>
+<td>Always</td>
+</tr>
+<tr>
+<td>Spoke virtual network</td>
+<td>Spoke</td>
+<td>Hosts workload (App Gateway, backend compute)</td>
+<td>Always</td>
+</tr>
+<tr>
+<td>VNet peering</td>
+<td>Both</td>
+<td>Connects hub and spoke over Azure backbone</td>
+<td>Always</td>
+</tr>
+<tr>
+<td>Application Gateway WAF_v2</td>
+<td>Spoke</td>
+<td>Layer 7 reverse proxy with web attack inspection</td>
+<td>Always</td>
+</tr>
+<tr>
+<td>NSGs</td>
+<td>Both</td>
+<td>Default-deny subnet-level traffic control</td>
+<td>Always</td>
+</tr>
+<tr>
+<td>Azure DDoS Protection</td>
+<td>Both</td>
+<td>Layer 3/4 volumetric attack mitigation</td>
+<td>When public IPs face the internet</td>
+</tr>
+<tr>
+<td>Azure Bastion</td>
+<td>Hub</td>
+<td>Secure RDP/SSH without public IPs on VMs</td>
+<td>When backend is IaaS</td>
+</tr>
+<tr>
+<td>NAT Gateway</td>
+<td>Spoke</td>
+<td>Explicit outbound connectivity for private subnets</td>
+<td>When workload subnets need internet egress without Azure Firewall</td>
+</tr>
+<tr>
+<td>Azure Firewall Basic</td>
+<td>Hub</td>
+<td>Centralized egress filtering and logging</td>
+<td>Optional in this baseline — add when you need FQDN-based outbound control. Zero Trust designs place it inline for packet inspection instead.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="why-use-hub-spoke-instead-of-a-single-virtual-network">Why use hub-spoke instead of a single virtual network?</h3>
+<p>A single virtual network with all resources is simpler to set up initially, but it creates problems as the organization grows:</p>
+<ul>
+<li><strong>CIDR collisions block peering.</strong> If you start with a single virtual network and later need to peer it with a hub, the address spaces can't overlap. Retrofitting CIDR ranges on a live workload often requires redeployment.</li>
+<li><strong>Can't reuse shared services.</strong> You must duplicate bastion, DNS, and monitoring resources for each new workload when you deploy them in a workload virtual network.</li>
+<li><strong>No isolation boundary.</strong> All workloads share the same network boundary, so a compromise in one workload has a larger impact.</li>
+</ul>
+<p>The minimal hub-spoke pattern in this article adds only one extra virtual network and one peering connection. The incremental complexity is small - roughly equivalent to creating one more NSG - but the architecture is ready to scale without rework.</p>
+<h2 id="deployment-steps">Deployment steps</h2>
+<p>This foundation is built in layers. Each layer depends on the one before it, so deploy in this order:</p>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Layer</th>
+<th>What you deploy</th>
+<th>Why this order</th>
+<th>How to deploy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Resource organization</strong></td>
+<td>Resource group (or separate resource groups for hub and spoke)</td>
+<td>Establishes the Role-based access control (RBAC) and cost boundary. Everything else deploys into it. Separate resource groups let you assign different owners to hub infrastructure and workload resources.</td>
+<td><a href="/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal" data-linktype="absolute-path">Manage resource groups — Azure portal</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Hub network</strong></td>
+<td>Hub virtual network with <code>AzureBastionSubnet</code> (/26) and optional <code>AzureFirewallSubnet</code> (/26) + <code>AzureFirewallManagementSubnet</code> (/26)</td>
+<td>The hub is the shared services foundation. Creating it first establishes the address space that all spokes must avoid overlapping.</td>
+<td><a href="/en-us/azure/virtual-network/quickstart-create-virtual-network" data-linktype="absolute-path">Quickstart: Create a virtual network</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Spoke network</strong></td>
+<td>Spoke virtual network with Application Gateway subnet (/24) and workload subnet (private subnet)</td>
+<td>The spoke hosts all workload-specific resources. Plan CIDR ranges that don't overlap with the hub. Create workload subnets as private subnets (<code>defaultOutboundAccess = false</code>) to block implicit outbound IPs.</td>
+<td><a href="/en-us/azure/virtual-network/quickstart-create-virtual-network" data-linktype="absolute-path">Quickstart: Create a virtual network</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>VNet peering</strong></td>
+<td>Bidirectional peering between hub and spoke</td>
+<td>Peering connects the two VNets so that Bastion in the hub can reach VMs in the spoke and traffic can flow between shared services and workloads. Create peering before deploying resources that depend on cross-VNet connectivity.</td>
+<td><a href="/en-us/azure/virtual-network/tutorial-connect-virtual-networks" data-linktype="absolute-path">Tutorial: Connect virtual networks with peering</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Access control</strong></td>
+<td>NSGs with default-deny rules on every subnet in both VNets</td>
+<td>NSGs are the first security boundary. Associating them immediately after peering ensures no resource ever operates in an uncontrolled subnet - even briefly during deployment. Add the Application Gateway, Bastion, and workload NSG rules at this step so subnets are ready to receive services.</td>
+<td><a href="/en-us/azure/virtual-network/tutorial-filter-network-traffic" data-linktype="absolute-path">Tutorial: Filter network traffic with a network security group</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>DDoS protection</strong> (conditional)</td>
+<td>DDoS Protection plan linked to both VNets</td>
+<td>DDoS Protection enables at the VNet level and covers every public IP in that VNet. Enabling the plan before you create public IPs for Application Gateway or Bastion means those IPs are protected from the moment they come online. Skip this step if the architecture has no public IPs.</td>
+<td><a href="/en-us/azure/ddos-protection/manage-ddos-protection" data-linktype="absolute-path">Quickstart: Create and configure Azure DDoS Network Protection</a></td>
+</tr>
+<tr>
+<td>7a</td>
+<td><strong>Ingress security</strong></td>
+<td>Application Gateway WAF_v2 with public IP, WAF policy, and Key Vault TLS certificates (in spoke)</td>
+<td>With the network foundation, peering, NSG rules, and DDoS protection in place, the Application Gateway can deploy into a spoke subnet that's already locked down. The WAF policy inspects traffic before it reaches any backend.</td>
+<td><a href="/en-us/azure/application-gateway/quick-create-portal" data-linktype="absolute-path">Quickstart: Direct web traffic with Azure Application Gateway</a> and <a href="/en-us/azure/web-application-firewall/ag/create-waf-policy-ag" data-linktype="absolute-path">Create WAF policies for Application Gateway</a></td>
+</tr>
+<tr>
+<td>7b</td>
+<td><strong>Outbound connectivity</strong></td>
+<td>NAT Gateway on workload subnet (or Azure Firewall UDR if step 10 is used)</td>
+<td>Private subnets have no implicit outbound IP. Attach a NAT Gateway before deploying VMs so they have outbound connectivity (Windows Activation, updates, dependencies) from the start. Skip if Azure Firewall handles egress.</td>
+<td><a href="/en-us/azure/nat-gateway/quickstart-create-nat-gateway" data-linktype="absolute-path">Quickstart: Create a NAT gateway</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>Backend compute</strong></td>
+<td>App Service, VMs, or Virtual Machine Scale Sets in the spoke workload subnet</td>
+<td>Backend resources inherit the NSG rules that allow traffic only from the Application Gateway subnet. Workloads start in a secure state from the first request.</td>
+<td><a href="/en-us/azure/app-service/quickstart-dotnetcore" data-linktype="absolute-path">Quickstart: Deploy an ASP.NET web app</a> or <a href="/en-us/azure/virtual-machines/windows/quick-create-portal" data-linktype="absolute-path">Quickstart: Create a Windows VM</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>Management access</strong> (IaaS only)</td>
+<td>Azure Bastion in the hub <code>AzureBastionSubnet</code></td>
+<td>Deploy Bastion in the hub after VMs exist in the spoke so operators have targets to manage. Bastion reaches spoke VMs through the peering connection. The Basic SKU or higher supports VNet peering. Skip this step for PaaS-only backends.</td>
+<td><a href="/en-us/azure/bastion/quickstart-host-portal" data-linktype="absolute-path">Quickstart: Deploy Azure Bastion from the Azure portal</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Observability</strong></td>
+<td>Diagnostic logs on Application Gateway and WAF, VNet flow logs, Log Analytics workspace</td>
+<td>Enable monitoring after all resources are deployed so that every component feeds data to the same workspace from the start.</td>
+<td><a href="/en-us/azure/network-watcher/vnet-flow-logs-tutorial" data-linktype="absolute-path">Tutorial: Log network traffic with VNet flow logs</a> and <a href="/en-us/azure/azure-monitor/logs/quick-create-workspace" data-linktype="absolute-path">Quickstart: Create a Log Analytics workspace</a></td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<p>Note</p>
+<p>The <strong>How to deploy</strong> links are general quickstarts and tutorials for each service. Your specific deployment might require different configurations, SKUs, or settings based on your organization's requirements, compliance posture, and existing infrastructure.</p>
+</div>
+<div class="TIP">
+<p>Tip</p>
+<p>If you use infrastructure as code (Bicep, Terraform, or ARM templates), declare resources in this order so that dependency chains are explicit and deployments succeed on the first run.</p>
+</div>
+<h2 id="network-foundation-vnet-and-subnet-planning">Network foundation: VNet and subnet planning</h2>
+<p>Before deploying any security service, create both virtual networks and size all subnets. Every component in this pattern requires a specific subnet, and some have strict naming and sizing requirements.</p>
+<h3 id="hub-virtual-network">Hub virtual network</h3>
+<p>The hub is intentionally small. It hosts shared services that spokes consume.</p>
+<table>
+<thead>
+<tr>
+<th>Subnet</th>
+<th>Purpose</th>
+<th>Minimum size</th>
+<th>Naming requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AzureBastionSubnet</td>
+<td>Hosts Azure Bastion (IaaS management)</td>
+<td>/26 (59 usable IPs)</td>
+<td>Must be named exactly <code>AzureBastionSubnet</code></td>
+</tr>
+<tr>
+<td>AzureFirewallSubnet (optional)</td>
+<td>Hosts Azure Firewall for centralized egress control</td>
+<td>/26 (59 usable IPs)</td>
+<td>Must be named exactly <code>AzureFirewallSubnet</code></td>
+</tr>
+<tr>
+<td>AzureFirewallManagementSubnet (required for Basic SKU)</td>
+<td>Separates management traffic from customer traffic on Azure Firewall Basic</td>
+<td>/26 (59 usable IPs)</td>
+<td>Must be named exactly <code>AzureFirewallManagementSubnet</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="spoke-virtual-network">Spoke virtual network</h3>
+<p>The spoke contains workload-specific resources. Each new workload gets its own spoke.</p>
+<table>
+<thead>
+<tr>
+<th>Subnet</th>
+<th>Purpose</th>
+<th>Minimum size</th>
+<th>Naming requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application Gateway subnet</td>
+<td>Hosts Application Gateway WAF_v2 instances</td>
+<td>/24 (251 usable IPs)</td>
+<td>No naming requirement, but must be dedicated to Application Gateway</td>
+</tr>
+<tr>
+<td>Workload subnet</td>
+<td>Hosts App Service VNet integration or backend VMs</td>
+<td>Size based on workload</td>
+<td>None — create as a <strong>private subnet</strong> (<code>defaultOutboundAccess = false</code>) and attach NAT Gateway or another explicit egress method</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cidr-planning-for-hub-spoke">CIDR planning for hub-spoke</h3>
+<p><strong>Plan CIDR ranges for both VNets before the first deployment.</strong> Address spaces must not overlap. VNet peering fails if any CIDR ranges collide. Use the following approach for a minimal hub-spoke architecture:</p>
+<table>
+<thead>
+<tr>
+<th>VNet</th>
+<th>Example CIDR</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hub</td>
+<td>10.0.0.0/24</td>
+<td>Small address space is sufficient for Bastion and optional Firewall</td>
+</tr>
+<tr>
+<td>Spoke (workload 1)</td>
+<td>10.1.0.0/16</td>
+<td>Larger space for Application Gateway /24 and workload subnets</td>
+</tr>
+<tr>
+<td>Spoke (workload 2, future)</td>
+<td>10.2.0.0/16</td>
+<td>Reserve ranges now even if you only have one spoke today</td>
+</tr>
+</tbody>
+</table>
+<div class="TIP">
+<p>Tip</p>
+<p>Reserve address ranges for future spokes from day one. Adding a spoke later is straightforward, but changing address spaces after peering or gateway deployment is disruptive.</p>
+</div>
+<h3 id="vnet-peering">VNet peering</h3>
+<p><a href="/en-us/azure/virtual-network/virtual-network-peering-overview" data-linktype="absolute-path">Virtual network peering</a> connects the hub and spoke with low-latency connectivity over the Azure backbone. Configure peering as bidirectional so that traffic flows in both directions:</p>
+<ul>
+<li><strong>Hub → Spoke:</strong> Enables Bastion to reach VMs and (when present) Azure Firewall to inspect spoke traffic.</li>
+<li><strong>Spoke → Hub:</strong> Enables workloads to use shared hub services.</li>
+</ul>
+<p>Key peering settings:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Allow forwarded traffic</td>
+<td>Enabled on both sides</td>
+<td>Required when Azure Firewall or an NVA inspects traffic</td>
+</tr>
+<tr>
+<td>Allow gateway transit</td>
+<td>Enabled on hub (if hub has a VPN/ExpressRoute gateway)</td>
+<td>Lets spokes use the hub's gateway for on-premises connectivity</td>
+</tr>
+<tr>
+<td>Use remote gateways</td>
+<td>Enabled on spoke (if hub has a gateway)</td>
+<td>Spoke uses the hub's gateway instead of deploying its own</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<p>Note</p>
+<p>VNet peering is nontransitive. If you add a second spoke, it must be peered directly to the hub. Spoke-to-spoke traffic must route through the hub (via Azure Firewall or an NVA with UDRs) or use <a href="/en-us/azure/virtual-network-manager/overview" data-linktype="absolute-path">Azure Virtual Network Manager</a> for direct connectivity.</p>
+</div>
+<h2 id="network-segmentation-with-nsgs">Network segmentation with NSGs</h2>
+<div class="NOTE">
+<p>Note</p>
+<p><strong>Deployment step 5.</strong> Create NSGs and associate them with subnets immediately after creating the virtual networks and peering. See <a href="#deployment-steps" data-linktype="self-bookmark">Deployment steps</a>.</p>
+</div>
+<p>Both the hub and spoke virtual networks use NSGs to enforce default-deny rules at every subnet boundary. By using separate subnets for each role—Application Gateway, workload, Bastion, and optional Firewall—you can use NSGs to control traffic precisely.</p>
+<h3 id="essentials-when-deploying">Essentials when deploying</h3>
+<ul>
+<li><strong>Associate an NSG with every subnet in both VNets.</strong> Start with a deny-all inbound rule. Add explicit allow rules only for traffic the design requires.</li>
+<li><strong>Application Gateway subnet rules (spoke):</strong> Allow inbound HTTPS (443) from the internet. Allow inbound on ports 65200-65535 from the <code>GatewayManager</code> <a href="/en-us/azure/application-gateway/configuration-infrastructure#network-security-groups" data-linktype="absolute-path">service tag</a> (required for v2 health probes). Allow the <code>AzureLoadBalancer</code> service tag.</li>
+<li><strong>Workload subnet rules (spoke):</strong> Allow inbound only from the Application Gateway subnet on the application port. Deny all other inbound traffic.</li>
+<li><strong>Bastion subnet rules (hub):</strong> Follow the <a href="/en-us/azure/bastion/configuration-settings#nsg" data-linktype="absolute-path">Bastion NSG requirements</a> exactly. Bastion has specific inbound and outbound rules that you must apply for connectivity to work across peered VNets.</li>
+<li><strong>Restrict egress.</strong> Use NSG outbound rules to deny unwanted outbound traffic. For most regional web apps, limiting egress to known Azure service destinations is sufficient. If you need FQDN-based filtering, add <a href="/en-us/azure/firewall/overview" data-linktype="absolute-path">Azure Firewall</a> in the hub virtual network (see <a href="#centralized-egress-with-azure-firewall-optional" data-linktype="self-bookmark">Centralized egress with Azure Firewall</a>).</li>
+<li><strong>Enable flow logs.</strong> <a href="/en-us/azure/network-watcher/vnet-flow-logs-overview" data-linktype="absolute-path">Virtual network flow logs</a> capture traffic patterns for security analysis and troubleshooting. If you still use NSG flow logs, <a href="/en-us/azure/network-watcher/nsg-flow-logs-migrate" data-linktype="absolute-path">migrate to VNet flow logs</a> before the NSG flow logs retirement on September 30, 2027.</li>
+</ul>
+<h2 id="ddos-protection-do-you-need-it">DDoS Protection: Do you need it?</h2>
+<div class="NOTE">
+<p>Note</p>
+<p><strong>Deployment step 6.</strong> Enable DDoS Protection on both virtual networks before creating public IPs for Application Gateway or Bastion. See <a href="#deployment-steps" data-linktype="self-bookmark">Deployment steps</a>.</p>
+</div>
+<p>Azure DDoS infrastructure protection and Azure DDoS Protection are separate services. All Azure services with public IPv4 and IPv6 addresses receive <a href="/en-us/azure/ddos-protection/ddos-protection-overview" data-linktype="absolute-path">Azure DDoS infrastructure protection</a> at no extra cost. However, infrastructure protection defends the Azure platform as a whole—it operates at a higher threshold than most individual applications can handle and <strong>doesn't protect customer resources at the resource level</strong>. It provides no adaptive tuning to your specific traffic patterns, no diagnostics or alerting, and no response support. For workloads that accept traffic from the public internet, enable a DDoS Protection plan (Network Protection or IP Protection) to get resource-level adaptive tuning, attack diagnostics, rapid response support, and cost protection guarantees. Don't rely on infrastructure protection alone to protect your services.</p>
+<p>The decision is straightforward:</p>
+<ul>
+<li><strong>Public IP facing the internet → Enable DDoS Protection.</strong> Choose the tier based on how many public IPs you protect. Don't rely on infrastructure protection alone for customer-facing workloads.</li>
+<li><strong>Private only (no public IP), or behind Azure Front Door → A DDoS Protection plan is optional.</strong> Front Door includes its own integrated DDoS protection. Private-only resources have no public endpoint to attack, but infrastructure protection alone doesn't provide resource-level guarantees.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Best for</th>
+<th>Key extras over infrastructure protection</th>
+<th>Pricing model</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DDoS Network Protection</td>
+<td>15+ public IPs, need rapid response or WAF discounts</td>
+<td>Adaptive tuning, DDoS Rapid Response, cost protection, <a href="/en-us/azure/ddos-protection/ddos-protection-sku-comparison" data-linktype="absolute-path">WAF discount</a></td>
+<td>Fixed monthly per plan (up to 100 IPs)</td>
+</tr>
+<tr>
+<td>DDoS IP Protection</td>
+<td>Fewer than 15 public IPs</td>
+<td>Adaptive tuning, attack diagnostics</td>
+<td>Per public IP</td>
+</tr>
+</tbody>
+</table>
+<p>In a hub-spoke topology, link the DDoS Protection plan to both the hub and spoke VNets so that public IPs in either network are covered.</p>
+<div class="IMPORTANT">
+<p>Important</p>
+<p>Don't treat Azure DDoS infrastructure protection as a substitute for a DDoS Protection plan. Infrastructure protection safeguards the Azure ecosystem but has a higher mitigation threshold than most applications can handle. It provides no telemetry, no alerting, and no resource-level tuning. Enable a paid DDoS Protection tier for any customer-facing workload with public IPs.</p>
+</div>
+<p>For more information, see <a href="/en-us/azure/ddos-protection/ddos-protection-sku-comparison" data-linktype="absolute-path">Azure DDoS Protection tier comparison</a>.</p>
+<h2 id="application-gateway-with-waf">Application Gateway with WAF</h2>
+<div class="NOTE">
+<p>Note</p>
+<p><strong>Deployment step 7.</strong> Deploy Application Gateway in the spoke virtual network after peering, NSG rules, and DDoS protection are in place. See <a href="#deployment-steps" data-linktype="self-bookmark">Deployment steps</a>.</p>
+</div>
+<p>Application Gateway is a regional Layer 7 load balancer purpose-built for web traffic. The <a href="/en-us/azure/web-application-firewall/ag/ag-overview" data-linktype="absolute-path">WAF_v2 SKU</a> provides OWASP CRS-based protection against SQL injection, cross-site scripting, and other common web exploits. It supports autoscaling, zone redundancy, and a static VIP.</p>
+<p>You deploy Application Gateway into its dedicated subnet in the spoke virtual network—close to the workload it protects. This placement keeps ingress traffic in the spoke and avoids routing internet traffic through the hub unnecessarily.</p>
+<p><strong>When to choose something else:</strong> If you need global load balancing across multiple Azure regions, use <a href="/en-us/azure/frontdoor/web-application-firewall" data-linktype="absolute-path">Azure Front Door with WAF</a> instead. If traffic isn't HTTP/HTTPS (for example, raw TCP or UDP), use <a href="/en-us/azure/load-balancer/load-balancer-overview" data-linktype="absolute-path">Azure Load Balancer</a> at Layer 4.</p>
+<h3 id="essentials-when-deploying-1">Essentials when deploying</h3>
+<ul>
+<li><strong>Use WAF policies, not legacy WAF configuration.</strong> You can't create new WAF configuration deployments on WAF v2 starting March 15, 2025. <a href="/en-us/azure/web-application-firewall/ag/upgrade-ag-waf-policy" data-linktype="absolute-path">Migrate existing configurations to WAF policies before March 15, 2027</a>. WAF policies provide per-site and per-URI rule granularity, bot protection, and the next-generation WAF engine.</li>
+<li><strong>Start in Detection mode, switch to Prevention before production.</strong> Detection mode logs threats without blocking them, giving you time to tune rules and identify false positives. Use Prevention mode for all production workloads.</li>
+<li><strong>Size the subnet to /24.</strong> Application Gateway v2 supports up to 125 instances and requires a <a href="/en-us/azure/application-gateway/configuration-infrastructure#size-of-the-subnet" data-linktype="absolute-path">dedicated subnet</a>. A /24 provides 251 usable addresses for autoscaling and maintenance upgrades.</li>
+<li><strong>Store TLS certificates in Azure Key Vault.</strong> Use <a href="/en-us/azure/application-gateway/key-vault-certs" data-linktype="absolute-path">Key Vault integration</a> with managed identities for automated certificate rotation. This approach eliminates manual certificate management and prevents outages from expired certificates.</li>
+<li><strong>Enable diagnostic logging from day one.</strong> Send access logs, firewall logs, and performance metrics to a <a href="/en-us/azure/application-gateway/application-gateway-diagnostics" data-linktype="absolute-path">Log Analytics workspace</a>. Without logs, you can't investigate security incidents or tune WAF rules.</li>
+</ul>
+<div class="IMPORTANT">
+<p>Important</p>
+<p>Application Gateway v1 SKU <a href="/en-us/azure/application-gateway/v1-retirement" data-linktype="absolute-path">retires April 28, 2026</a>. Deploy all new workloads on v2.</p>
+</div>
+<p>For security hardening guidance, see <a href="/en-us/azure/application-gateway/secure-application-gateway" data-linktype="absolute-path">Secure your Azure Application Gateway</a>. For sizing and performance recommendations, see <a href="/en-us/azure/well-architected/service-guides/azure-application-gateway" data-linktype="absolute-path">Architecture best practices for Application Gateway v2</a>.</p>
+<h2 id="azure-bastion-in-the-hub-paas-versus-iaas-decision">Azure Bastion in the hub: PaaS versus IaaS decision</h2>
+<div class="NOTE">
+<p>Note</p>
+<p><strong>Deployment step 9 (IaaS only).</strong> Deploy Bastion in the hub virtual network after backend VMs are in place in the spoke. See <a href="#deployment-steps" data-linktype="self-bookmark">Deployment steps</a>.</p>
+</div>
+<p>Whether you need Azure Bastion depends entirely on your backend compute model:</p>
+<table>
+<thead>
+<tr>
+<th>Backend type</th>
+<th>Bastion needed?</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PaaS</strong> (App Service, Container Apps, AKS)</td>
+<td>No</td>
+<td>No OS-level access to expose. Manage through the portal, CLI, or CI/CD.</td>
+</tr>
+<tr>
+<td><strong>IaaS</strong> (VMs, Virtual Machine Scale Sets)</td>
+<td>Yes</td>
+<td>Eliminates public IPs on VMs and removes RDP/SSH exposure to the internet.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="why-bastion-lives-in-the-hub">Why Bastion lives in the hub</h3>
+<p>When you place Bastion in the hub virtual network, you can deploy it once and use it to manage VMs across all peered spokes. If you put Bastion in each spoke, every new workload needs its own Bastion instance, which adds cost and management overhead.</p>
+<p>The Basic SKU and higher support <a href="/en-us/azure/bastion/bastion-sku-comparison" data-linktype="absolute-path">virtual network peering</a>, so Bastion in the hub can connect to VMs in any peered spoke. For a full feature comparison across Developer, Basic, Standard, and Premium SKUs, see <a href="/en-us/azure/bastion/bastion-sku-comparison" data-linktype="absolute-path">Bastion SKU comparison</a>.</p>
+<h3 id="essentials-when-deploying-2">Essentials when deploying</h3>
+<ul>
+<li><strong>Deploy Bastion in a dedicated <code>AzureBastionSubnet</code> of /26 or larger.</strong> Azure requires this exact subnet name and you can't share it with other resources.</li>
+<li><strong>Use Premium SKU for production workloads.</strong> Premium supports private-only deployment (no public IP required), session recording for compliance, and host scaling (2–50 instances). The cost difference over Standard is marginal. For smaller deployments, Basic is an acceptable minimum - it provides dedicated instances and supports VNet peering. The Developer SKU uses shared infrastructure, doesn't support peering, and <a href="/en-us/azure/bastion/bastion-sku-comparison" data-linktype="absolute-path">isn't suitable for production</a>.</li>
+<li><strong>Follow the Bastion NSG requirements.</strong> The Bastion subnet has <a href="/en-us/azure/bastion/configuration-settings#nsg" data-linktype="absolute-path">specific inbound and outbound rules</a> that you must apply exactly. Missing rules cause connection failures. When Bastion is in the hub, ensure the spoke workload subnet NSG allows inbound RDP (3389) or SSH (22) from the hub VNet's address space.</li>
+<li><strong>Enable Microsoft Entra ID authentication for SSH/RDP.</strong> Entra ID authentication eliminates distributing SSH keys or local passwords and enables MFA and conditional access policies. SSH via Entra ID in the portal is generally available; RDP via Entra ID in the portal is in public preview. The Basic SKU supports Entra ID auth in the portal; the Standard SKU or higher is required for native client connections. For setup instructions, see <a href="/en-us/azure/bastion/bastion-entra-id-authentication" data-linktype="absolute-path">Entra ID authentication for Azure Bastion</a>.</li>
+</ul>
+<h2 id="centralized-egress-with-azure-firewall-optional">Centralized egress with Azure Firewall (optional)</h2>
+<p>For organizations that need FQDN-based outbound filtering, TLS inspection, or centralized logging of all egress traffic, add <a href="/en-us/azure/firewall/overview" data-linktype="absolute-path">Azure Firewall</a> to the hub virtual network. Azure Firewall is optional in this pattern - NSGs provide basic egress control, and many startups operate successfully without it.</p>
+<h3 id="when-to-add-azure-firewall">When to add Azure Firewall</h3>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Without Azure Firewall</th>
+<th>With Azure Firewall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Outbound traffic control</td>
+<td>NSG rules filter by IP/port only</td>
+<td>FQDN-based rules (for example, allow <code>*.microsoft.com</code>)</td>
+</tr>
+<tr>
+<td>Compliance requirements</td>
+<td>Limited egress logging</td>
+<td>Full egress logging with threat intelligence</td>
+</tr>
+<tr>
+<td>Spoke-to-spoke traffic</td>
+<td>Not applicable (single spoke)</td>
+<td>Centralized inspection through the hub</td>
+</tr>
+</tbody>
+</table>
+<h3 id="if-you-choose-to-add-it">If you choose to add it</h3>
+<ul>
+<li><strong>Use the Basic SKU for SMBs.</strong> Azure Firewall Basic supports up to 250 Mbps throughput and costs less than Standard or Premium SKUs. It's designed for small and midsize environments. For help choosing a SKU, see <a href="/en-us/azure/firewall/choose-firewall-sku" data-linktype="absolute-path">Choose the right Azure Firewall SKU</a>.</li>
+<li><strong>Deploy in <code>AzureFirewallSubnet</code> (/26) in the hub.</strong> Azure Firewall Basic also requires a dedicated <code>AzureFirewallManagementSubnet</code> (/26) to separate management traffic from customer traffic. Create both subnets before deploying the firewall.</li>
+<li><strong>Create UDRs on spoke subnets</strong> with a default route (<code>0.0.0.0/0</code>) pointing to the firewall's private IP. This route forces all outbound traffic through the hub for inspection.</li>
+<li><strong>Start simple.</strong> Begin with a small set of application and network rules. Add rules as you understand your workload's traffic patterns.</li>
+</ul>
+<div class="TIP">
+<p>Tip</p>
+<p>If you don't need Azure Firewall today, design your hub virtual network with a reserved <code>AzureFirewallSubnet</code> anyway. Adding Firewall later is straightforward when the subnet already exists. Adding a subnet to a hub that's already peered requires no downtime - just add the subnet and deploy.</p>
+</div>
+<h2 id="outbound-access-and-private-subnets">Outbound access and private subnets</h2>
+<p>Starting after March 31, 2026, new virtual networks in Azure default to <strong>private subnets</strong> (<code>defaultOutboundAccess</code> set to <code>false</code>). VMs in a private subnet receive no implicit outbound public IP from Azure - an explicit outbound method is required to reach public endpoints. This change aligns with Zero Trust principles: the previous default assigned a Microsoft-owned IP address that could change without notice, making outbound traffic unpredictable. For full details, see <a href="/en-us/azure/virtual-network/ip-services/default-outbound-access" data-linktype="absolute-path">Default outbound access for VMs in Azure</a>.</p>
+<h3 id="what-this-means-for-the-architecture">What this means for the architecture</h3>
+<p>Workload subnets in this pattern need an explicit egress path. Choose the method that fits your requirements:</p>
+<table>
+<thead>
+<tr>
+<th>Egress method</th>
+<th>Best for</th>
+<th>Consideration</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NAT Gateway</strong></td>
+<td>Simple, predictable outbound without FQDN filtering</td>
+<td>Recommended default for most workloads. Attach to workload subnets in the spoke.</td>
+</tr>
+<tr>
+<td><strong>Azure Firewall with UDR</strong></td>
+<td>FQDN-based filtering, TLS inspection, centralized logging</td>
+<td>Higher cost, but provides full egress control. See <a href="#centralized-egress-with-azure-firewall-optional" data-linktype="self-bookmark">Centralized egress with Azure Firewall</a>.</td>
+</tr>
+<tr>
+<td><strong>Standard Load Balancer</strong> with outbound rules</td>
+<td>Workloads already behind a load balancer</td>
+<td>Reuses existing infrastructure.</td>
+</tr>
+<tr>
+<td><strong>Instance-level public IP</strong></td>
+<td>Single VM that needs direct outbound</td>
+<td>Use only when other methods aren't practical.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nat-gateway-for-explicit-outbound">NAT Gateway for explicit outbound</h3>
+<p>When you don't need FQDN-based filtering, attach a <a href="/en-us/azure/nat-gateway/nat-overview" data-linktype="absolute-path">NAT Gateway</a> to the workload subnet for explicit, predictable outbound connectivity. NAT Gateway provides a static outbound IP, supports up to 50 Gbps throughput (Standard SKU), and requires no UDRs.</p>
+<p><strong>NAT Gateway V2 (StandardV2 SKU)</strong> offers zone-redundant operation across all availability zones, IPv6 support, and 100 Gbps throughput at the same price as the Standard SKU. When deploying a new NAT Gateway, prefer StandardV2 where available. Note current limitations: StandardV2 requires StandardV2-SKU public IPs (Standard public IPs aren't compatible), doesn't yet support Terraform, and isn't available in all regions. For a full comparison, see <a href="/en-us/azure/nat-gateway/nat-sku" data-linktype="absolute-path">NAT Gateway SKU comparison</a>.</p>
+<div class="IMPORTANT">
+<p>Important</p>
+<p>Azure DDoS Protection plans can't protect public IPs attached to NAT Gateway. If DDoS Protection is critical for your outbound IPs, use Azure Firewall with a DDoS-protected public IP instead.</p>
+</div>
+<div class="NOTE">
+<p>Note</p>
+<p>VMs in private subnets can't reach Windows Activation or Windows Update endpoints without an explicit egress path. Attach a NAT Gateway or configure another outbound method before deploying Windows VMs.</p>
+</div>
+<h2 id="identity-and-access-control">Identity and access control</h2>
+<p>Use <a href="/en-us/entra/fundamentals/whatis" data-linktype="absolute-path">Microsoft Entra ID</a> for role-based access control (RBAC) across all networking resources:</p>
+<ul>
+<li>Assign <a href="/en-us/azure/role-based-access-control/built-in-roles" data-linktype="absolute-path">built-in roles</a> like <strong>Network Contributor</strong> instead of custom roles where possible.</li>
+<li>Require at least <code>Microsoft.Network/virtualNetworks/subnets/join/action</code> and <code>subnets/read</code> for users and service principals operating Application Gateway.</li>
+<li>Use <a href="/en-us/entra/identity/managed-identities-azure-resources/overview" data-linktype="absolute-path">managed identities</a> for Application Gateway to access Key Vault—don't store credentials.</li>
+</ul>
+<h2 id="mistakes-to-avoid">Mistakes to avoid</h2>
+<table>
+<thead>
+<tr>
+<th>Anti-pattern</th>
+<th>Why it's dangerous</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Starting with a single VNet and planning to "add hub-spoke later"</td>
+<td>CIDR collisions, UDR retrofitting, and Bastion relocation make migration disruptive.</td>
+<td>Start with hub-spoke from day one—it's one extra VNet and one peering connection.</td>
+</tr>
+<tr>
+<td>Exposing RDP/SSH ports to the internet</td>
+<td>Persistent attack surface for brute-force and credential-stuffing attacks.</td>
+<td>Use Azure Bastion in the hub. Remove all public IPs from backend VMs.</td>
+</tr>
+<tr>
+<td>Relying on NSGs alone for web app security</td>
+<td>NSGs operate at Layers 3 and 4 and can't inspect HTTP request bodies. SQL injection and XSS pass through undetected.</td>
+<td>Always place a WAF in front of web-facing endpoints.</td>
+</tr>
+<tr>
+<td>Using WAF Detection mode in production</td>
+<td>Threats are logged but not blocked—applications remain vulnerable.</td>
+<td>Switch to Prevention mode before going to production.</td>
+</tr>
+<tr>
+<td>Blocking <code>GatewayManager</code> ports in App Gateway NSG</td>
+<td>Breaks v2 health probes. Backend health shows unknown and clients get 502 errors.</td>
+<td>Always allow ports 65200-65535 from <code>GatewayManager</code>.</td>
+</tr>
+<tr>
+<td>Sharing the Application Gateway subnet</td>
+<td>Causes deployment failures and unpredictable behavior.</td>
+<td>Keep the Application Gateway subnet <a href="/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-and-dedicated-subnet" data-linktype="absolute-path">dedicated</a>.</td>
+</tr>
+<tr>
+<td>Deploying without infrastructure as code</td>
+<td>Manual configurations drift and are impossible to audit or reproduce.</td>
+<td>Use Bicep, Terraform, or ARM templates for all production deployments.</td>
+</tr>
+<tr>
+<td>Enabling DDoS Network Protection for private-only workloads</td>
+<td>Adds fixed monthly cost with no benefit when no public IPs are exposed.</td>
+<td>Evaluate whether your architecture exposes public IPs before purchasing.</td>
+</tr>
+<tr>
+<td>Deploying resources before NSGs are in place</td>
+<td>Resources operate briefly in an uncontrolled subnet, creating a window of exposure.</td>
+<td>Always associate NSGs with subnets before deploying any resources into them.</td>
+</tr>
+<tr>
+<td>Deploying Bastion in every spoke</td>
+<td>Adds unnecessary cost and management overhead when the hub can serve all spokes.</td>
+<td>Deploy Bastion once in the hub. Use VNet peering to reach spoke VMs.</td>
+</tr>
+<tr>
+<td>Not planning CIDR ranges for future spokes</td>
+<td>New spokes can't peer if their address space overlaps with existing VNets.</td>
+<td>Reserve nonoverlapping address ranges for future spokes before deploying the first spoke.</td>
+</tr>
+<tr>
+<td>Relying on default outbound access for internet egress</td>
+<td>Default outbound uses an implicit, Microsoft-owned IP that can change without notice. After March 31, 2026, new VNets default to private subnets with no implicit outbound.</td>
+<td>Use private subnets with NAT Gateway or Azure Firewall for explicit, predictable outbound connectivity.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="when-things-go-wrong">When things go wrong</h2>
+<h3 id="502-bad-gateway-from-application-gateway">502 Bad Gateway from Application Gateway</h3>
+<p><strong>Check first:</strong> Verify the Application Gateway subnet NSG allows ports 65200-65535 from <code>GatewayManager</code>. Confirm backend health probe settings match the application's listening port and path, and that the backend returns HTTP 200-399 on the probe endpoint.</p>
+<p><strong>Common causes:</strong> Blocked <code>GatewayManager</code> health probes, misconfigured custom health probes, backend app crashes, or <a href="/en-us/troubleshoot/azure/application-gateway/application-gateway-troubleshooting-502" data-linktype="absolute-path">TLS certificate mismatch</a> when end-to-end TLS is enabled.</p>
+<h3 id="waf-blocks-legitimate-traffic-false-positives">WAF blocks legitimate traffic (false positives)</h3>
+<p><strong>Check first:</strong> Enable WAF diagnostic logs and filter by blocked actions. Identify the rule ID (for example, <code>942130</code> for SQL injection detection) and determine whether the match is on safe content like authentication tokens.</p>
+<p><strong>Fix:</strong> Use <a href="/en-us/azure/web-application-firewall/ag/application-gateway-waf-configuration" data-linktype="absolute-path">WAF exclusion lists</a> to omit specific request attributes, or use per-rule exclusions available in WAF policies.</p>
+<h3 id="cant-connect-to-vms-through-bastion">Can't connect to VMs through Bastion</h3>
+<p><strong>Check first:</strong> Verify the <code>AzureBastionSubnet</code> is /26 or larger. Check that the NSG on the Bastion subnet in the hub has the <a href="/en-us/azure/bastion/configuration-settings#nsg" data-linktype="absolute-path">required rules</a>. Confirm the target VM's NSG in the spoke allows inbound RDP (3389) or SSH (22) from the hub VNet's address space.</p>
+<p><strong>Common causes:</strong> Missing or incorrect NSG rules on the Bastion subnet, Bastion SKU doesn't support peering (Developer SKU), subnet too small, or the target VM's OS-level firewall blocking connections.</p>
+<h3 id="peering-shows-disconnected-status">Peering shows "Disconnected" status</h3>
+<p><strong>Check first:</strong> Verify that both sides of the peering exist (hub-to-spoke and spoke-to-hub). You must create peering in both directions. If you delete one side, the other side shows "Disconnected."</p>
+<p><strong>Fix:</strong> Delete the remaining peering and recreate both sides. Ensure CIDR address spaces don't overlap.</p>
+<h2 id="next-steps">Next steps</h2>
+<div class="nextstepaction">
+</div>
+<ul>
+<li><a href="/en-us/security/zero-trust/azure-infrastructure-networking" data-linktype="absolute-path">Apply Zero Trust principles to a hub virtual network in Azure</a></li>
+<li><a href="/en-us/security/zero-trust/azure-infrastructure-paas" data-linktype="absolute-path">Apply Zero Trust principles to a spoke virtual network with Azure PaaS Services</a></li>
+</ul>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2026-08-05T08:00:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2026-08-05
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

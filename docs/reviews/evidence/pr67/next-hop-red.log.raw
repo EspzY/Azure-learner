@@ -1,0 +1,40 @@
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ src/laboratory-firewall.test.ts (18 tests | 4 failed) 195ms
+   ❯ Firewall3.5 authoritative configuration and composed analysis (18)
+     × rejects ambiguous/wrong actual next-hop hub identity on source with overlapping 10.0.0.0/16 19ms
+     × rejects ambiguous/wrong actual next-hop hub identity on source with overlapping 10.0.0.0/24 5ms
+     × rejects ambiguous/wrong actual next-hop hub identity on return with overlapping 10.0.0.0/16 4ms
+     × rejects ambiguous/wrong actual next-hop hub identity on return with overlapping 10.0.0.0/24 4ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > rejects ambiguous/wrong actual next-hop hub identity on source with overlapping 10.0.0.0/16
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > rejects ambiguous/wrong actual next-hop hub identity on source with overlapping 10.0.0.0/24
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > rejects ambiguous/wrong actual next-hop hub identity on return with overlapping 10.0.0.0/16
+ FAIL  src/laboratory-firewall.test.ts > Firewall3.5 authoritative configuration and composed analysis > rejects ambiguous/wrong actual next-hop hub identity on return with overlapping 10.0.0.0/24
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/laboratory-firewall.test.ts:327:73
+    325|       });
+    326|       const a = analysePolicy(s.world, input);
+    327|       expect(a.ok && a.analysis.firewallPath.configurationPathAssessed…
+       |                                                                         ^
+    328|       expect(a.ok && a.analysis.reason).toBe(
+    329|         side === 'source' ? 'firewall-next-hop-not-direct' : 'return-f…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  4 failed | 14 passed (18)
+   Start at  10:06:30
+   Duration  1.00s (transform 55%, tests 32%, import 12%, worker 1%)
+

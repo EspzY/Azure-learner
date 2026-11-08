@@ -1130,3 +1130,7 @@ separat audit og faktisk ekstern Gate7. Leveransegater er ikke bestått av denne
 statusoppføringen alene. CC01/CC03, historiske rubrics/first/help/retry/abandon,
 Sandbox/receipts/XP og recommended sequence bevares. Ingen bred utrulling,
 merge/produksjon eller menneskelig validering.
+
+## Current PR67 candidate — Azure Firewall Part A
+
+Implementation adds explicit3.5 workspaces, Standard Firewall/Public IP configuration, Firewall Policy hierarchy, appliance routes, receiving peering forwarding and read-only hub/spoke policy inspection. Old3.0–3.4 engines, course/v2 records, assessment/XP and prior evidence are preserved. Local domain/PostgreSQL/UI verification is recorded in [implementation contract](LABORATORY_FIREWALL_PART_A.md); final CI, strict release and independent audit must be credited only against actual results. New-hub next-hop false-positive found during development was corrected with four failing-then-passing regressions. Architecture helper readiness race has causal evidence; VM status and older Compute/Axe uncertainty remain open. Public functional Firewall is intentionally unavailable without an approved database. No external infrastructure, migration, merge or production deploy.

@@ -36,7 +36,8 @@ type Props = {
     | PreviousWorld
     | RoutingWorld
     | import('@/laboratory/v33/contract').World
-    | import('@/laboratory/v34/contract').World;
+    | import('@/laboratory/v34/contract').World
+    | import('@/laboratory/v35/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -186,7 +187,9 @@ export function NetworkViews({
                   [n.interval, `${meta.first} – ${meta.last}`],
                   [n.reserved, meta.reserved.join(', ')],
                   [
-                    w.model === 'laboratory@3.3.0' || w.model === 'laboratory@3.4.0'
+                    w.model === 'laboratory@3.3.0' ||
+                    w.model === 'laboratory@3.4.0' ||
+                    w.model === 'laboratory@3.5.0'
                       ? e.usable
                       : n.usable,
                     meta.usableCount,
@@ -226,7 +229,9 @@ export function NetworkViews({
           <details className="lab-default-rules">
             <summary>{n.defaultRules}</summary>
             <p>
-              {w.model === 'laboratory@3.3.0' || w.model === 'laboratory@3.4.0'
+              {w.model === 'laboratory@3.3.0' ||
+              w.model === 'laboratory@3.4.0' ||
+              w.model === 'laboratory@3.5.0'
                 ? e.defaultNote
                 : n.defaultNote}
             </p>

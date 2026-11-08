@@ -1,0 +1,229 @@
+# PR67 independent Azure networking design review
+
+Review date: 8 November 2026. Base: `9252739eb1bdf7bf6aabc2696ae57000aa02a49f` (verified commit exists). Reviewed input: `/workspace/Azure-learner/docs/LABORATORY_FIREWALL_PART_A.md`, SHA-256 `0388955b901a0d7ad4a770fecccd7f5fbf73a88d5fbdf60997caea3621182591`.
+
+**Disposition: technically viable bounded design; no BLOCKER or MAJOR found in this contract.** Two MINOR specification clarifications appear below. This is a separate preimplementation technical design review, not the required post-stamp Independent Final Audit, implementation acceptance, operational Azure verification, or human SME approval.
+
+I read the applicable permanent, shared-Portal and PR64–66 instructions in `AGENTS.md`, the permanent Quality/Source/Release contracts, the shared Portal contract, the Laboratory platform/server contracts and Networking B/C and Compute A contracts. I inspected the frozen route and NSG code to assess the proposed reuse. I did not edit repository files, implement code, build, run servers, run tests, contact external services, merge or deploy. Only this review artifact was written outside the repository.
+
+## Evidence and provenance
+
+The supplied `/workspace/azurelab-pr67/sources/fetch.json` records 13 Microsoft Learn URLs, HTTP 200 results, final URLs, HTML byte counts, SHA-256 values and page `msDate` metadata. I independently recalculated every saved `*.html.raw` hash and byte count: all 13 match that manifest. The saved text and actual source passages were read, rather than accepting the contract's link titles or `relevant-extracts.txt` alone.
+
+The manifest has no retrieval-time field or HTTP Date/Last-Modified evidence (`lastModified` is null). Its page `msDate` values are publication metadata, not proof of the time fetched. Thus this review verifies the integrity and substance of the supplied source capture; it does not independently attest a fresh network fetch. The contract labels the check date 8 November 2026. This provenance limit is not a discovered technical contradiction.
+
+## Concrete findings
+
+### PR67-DESIGN-01 — MINOR: explicitly label the private-IP allocation algorithm as synthetic
+
+Contract line 12 says, “Private IP is deterministic first usable free address after Azure reserved addresses.” That is a reasonable deterministic simulator rule, but the sentence does not identify it as a simulator allocation policy as clearly as the neighboring policy-scope and priority-uniqueness restrictions do. None of the reviewed Microsoft pages guarantees that Azure Firewall's frontend private IP always equals the first available usable subnet address.
+
+Evidence: [Firewall ARM](https://learn.microsoft.com/en-us/azure/templates/microsoft.network/azurefirewalls), saved `arm-firewall.txt:895–896`, describes `privateIPAddress` as the private IP associated with Azure Firewall; it does not specify this allocator. [FAQ](https://learn.microsoft.com/en-us/azure/firewall/firewall-faq), saved `faq.txt:413–419`, explains that the /26 supplies addresses for additional platform VM instances. A single visible private next-hop IP does not model those platform allocations.
+
+Requested clarification: call it a **synthetic deterministic private next-hop address in this simulator**, and state that neither the first-free algorithm nor a single-address platform allocation is asserted for real Azure. Continue to distinguish the persisted Standard/Regional/Static Public IP configuration from an actual publicly allocated address. No algorithm change is requested merely to imitate unmodeled Azure allocation.
+
+### PR67-DESIGN-02 — MINOR: make selected-route and exact endpoint identity checks explicit on every leg
+
+Contract lines 21–27 correctly call for reuse of frozen LPM and source precedence, actual onward/return routes, same-Firewall return configuration and incomplete results for unsupported paths. Tighten line 23 so “return UDR” unambiguously means the **selected** destination-to-source route, not merely any matching stored UDR. Also state that each selected hub onward/return `VnetPeering` route must name the actual destination/source VNet identity.
+
+Evidence: [UDR](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview), saved `udr.txt` section “How Azure selects routes,” documents LPM before equal-prefix route-source precedence, and its routing example demonstrates a /24 overriding a /16. Frozen `src/laboratory/v32/analysis.ts:112–127` selects on prefix/source and rejects equal-prefix ambiguous routes. Existing Networking C already protects actual endpoint identity in `src/laboratory/v33/policy.ts` rather than equating any selected peering with arrival.
+
+Concrete counterexamples the implementation must reject: (a) a matching return UDR points at the expected Firewall, but a more-specific selected None/direct/other-Firewall route wins; (b) two individually hub-peered spokes overlap, and the hub's more-specific selected peering points at a VNet other than the selected NIC's VNet. Pairwise hub/spoke nonoverlap validation alone does not prove spoke/spoke disjointness. This is a specification hardening request, not evidence of an implemented bug: implementation has not yet been reviewed.
+
+## Validated Azure semantics and deliberate bounds
+
+| Area | Independent assessment and source evidence |
+| --- | --- |
+| Policy hierarchy and action | Correct: Policy → Rule Collection Group → Rule Collection → Rule. Collection action applies to all contained rules; rules have no numeric priority/action of their own. `policy.txt:177–201` ([Policy rule sets](https://learn.microsoft.com/en-us/azure/firewall/policy-rule-sets)). |
+| Group/collection ordering | Correct for a network-only policy with no inheritance: ascending group priority, ascending collection priority, terminating match. Both priority ranges are inclusive 100–65000. `processing.txt:177–190` and `295`; `arm-rcg.txt:579–602`. Do not flatten all collections globally by collection priority. Explicit per-parent uniqueness is an acceptable deterministic simulator restriction, not a claimed universal Azure constraint. |
+| Rule scope and default deny | TCP/UDP, literal IPv4/CIDR/* and a single destination port/* are narrower than authentic Network Rules. The collection action and no individual rule priority are authentic. Default deny is valid in this network-only, threat-intelligence-Off, no-application/no-inheritance profile; do not generalize it to all real Azure filtering stages. `processing.txt:177–186`, `345–393`; `policy.txt:193–220`; `arm-rcg.txt` NetworkRule schema. |
+| Dedicated subnet | Exact `AzureFirewallSubnet` and minimum /26 are supported by `design.txt:284–326` ([Design guide](https://learn.microsoft.com/en-us/azure/networking/design-guide/azure-firewall)). Ordinary NIC/VM exclusion follows the dedicated service-subnet boundary. The explicit NSG ban matches the service-specific FAQ, `faq.txt:225–227`. Reject invalid existing associations as well as new invalid operations. |
+| RG/subscription and Public IP | The specific FAQ explicitly requires Firewall and VNet in the same RG and all Firewall/VNet/Public IP resources in the same subscription; Public IP **may be in another RG**. `faq.txt:391–395`. The contract does not incorrectly impose universal same-RG PIP scope. The Standard/Regional/Static IPv4 combination is represented together in the official Firewall ARM example, `arm-firewall.txt:239–305`; Standard/Static also appears in the deployment example, `firewall-ip.txt:207–222`. One modeled PIP with no allocated public address is a simulator bound, not deployment. |
+| Receiving-side forwarding | Correct directions. On a stored local→remote peering, `allowForwardedTraffic` permits the **local VNet to receive** traffic forwarded from the remote VNet. App→Firewall→Data therefore needs Data→Hub true, and Firewall→App established response routing needs App→Hub true. Enabling Hub→Data/Hub→App cannot substitute. `peering.txt:332–335`, with CLI/PowerShell update examples at `452–478` ([Manage peering](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering)). Initial App→Hub traffic originated in App; this alone does not require Hub's receiving-forwarded flag. |
+| Return route versus new initiation | Correct conditional distinction. The official processing page explicitly says established TCP/UDP responses are permitted even with an explicit reverse-direction Deny, while that Deny still blocks reverse new connections. `processing.txt:359–375` ([Rule processing](https://learn.microsoft.com/en-us/azure/firewall/rule-processing)). A reverse Allow rule must not be required for the modeled established response. The simulator can inspect configuration needed for a same-Firewall return path; it cannot assert that a connection was established or state actually exists. |
+| Private spoke traffic and NAT | Limiting this analysis to RFC1918 endpoints/network rules makes preserving the original source IP consistent with Azure Firewall's default no-SNAT behavior for private destinations. `faq.txt:477–486`; `design.txt:373–375`. Avoid accidentally introducing application-rule SNAT or public-prefix semantics into this bounded path. |
+| Onward/return and nontransitivity | Symmetric per-spoke UDR configuration and hub system/peering onward routes are consistent with the official per-spoke routing pattern, `design.txt:284–314`, and FAQ hub/spoke guidance, `faq.txt:466–472`. Forwarding flags do not themselves create routes or transit, explicitly stated at `peering.txt:332–335`. Same-Firewall return checking is a conservative configuration prerequisite, not a sufficient connectivity test. |
+| Authentic Azure capabilities excluded | No Firewall-subnet UDRs is a simulator exclusion: authentic Azure may use UDRs there, explicitly described in `faq.txt:496–501`. Same-region/same-subscription Policy association is narrower than real Firewall Policy: the design source describes global cross-region/cross-subscription association at `design.txt:381–389`. Same-region inspected paths are also narrower than globally peered deployments, `faq.txt:182–183`. The contract labels these bounds appropriately. |
+
+## Source disagreements that must remain visible
+
+1. **Firewall naming:** FAQ says 50 characters (`faq.txt:409–411`), while the general resource-name table says 1–80 (`names.txt:1799–1804`). A documented ASCII ≤50 subset is defensible. Do not claim the general Microsoft table says 50 or claim longer names are universally invalid in Azure.
+2. **NSGs on “every subnet”:** the general secure hub/spoke source says every subnet (`hub-spoke.txt:438–443`), including surrounding discussion of optional Firewall. That blanket advice conflicts with the explicit Firewall FAQ NSG prohibition. Use the more specific Firewall service rule; the proposed contract correctly does so. This is a real source conflict, not permission to add an NSG to AzureFirewallSubnet.
+3. **Default groups:** `policy.txt:178–188` describes three built-in groups with fixed priorities 100/200/300. Custom groups only are a legitimate bounded editing profile, but absence from the modeled inventory must not become a teaching claim that Azure has no default groups. No silent empty groups/default collections are needed to make this simulator path operational. The contract's “no default collection is silently created” is acceptable if presented as simulator behavior.
+4. **Default routes and inspection:** `design.txt:291` broadly describes a default UDR as forcing spoke traffic through Firewall, but the same page's concrete table also includes explicit other-spoke prefixes. A 0.0.0.0/0 UDR does not outrank a more-specific direct peering route. The contract's frozen selector and direct-bypass result correctly preserve that distinction; avoid copying the broad prose as an unconditional guarantee.
+
+## Frozen-engine reuse review
+
+The proposed selection-only VirtualAppliance projection is structurally compatible with the frozen selector. In `v32/analysis.ts`, candidate construction, ambiguity detection and winner selection do not use a None next-hop as a special selection preference: prefix length/source/identity determine the winner. Replacing only the unsupported next-hop enum privately, preserving route ID/prefix/source/associated table, then restoring actual Firewall identity and private IP for **all returned candidates and the winner** can therefore reuse selection without inventing persisted None routes.
+
+Required implementation boundary: never feed that projected selected None route into frozen `v33/analysePolicy`, because its higher-level logic classifies None as a drop and rejects appliance transit. Compose the new path from the selected route plus exported `evaluateLayer`/`addressMatch`/`port`, as the design proposes. New wrappers must report model 3.5, never expose projected 3.2/3.3 identity, and fail closed if route restoration cannot identify the real source record.
+
+`v33/policy.ts:101–140` proves only local/direct-peer positive VirtualNetwork tag membership and otherwise returns unknown. `evaluateLayer` at `165–224` uses definite mismatch before unknown, first decisive priority match, and stops on an earlier potentially matching unknown. Reusing these functions avoids a second matcher. A spoke-to-spoke IP can remain unknown under default VirtualNetwork rules because the other spoke is not a direct peer; do not substitute “all RFC1918” or silently widen the tag to make the Firewall scenario green. Explicit literal rules can establish the bounded forward NSG decision. Preserve original source IP across these forward layers.
+
+The historical model dispatch, single PostgreSQL authority, additive SQL006, stable identities/receipts and no course/XP writes are compatible with the permanent Laboratory contracts as specified. This review does not verify their future implementation or migration execution.
+
+## Concrete implementation acceptance cases
+
+These are controls to verify in implementation, not claimed test results:
+
+- Group priority must outrank collection priority across groups; earlier network Deny/Allow terminates; unmatched network-only policy denies. A reverse new-initiation Deny must not be applied as an established-response policy failure.
+- Toggle only Data→Hub: the forward path becomes incomplete/allowed according to this flag. Toggle only Hub→Data: it cannot repair the receiving-side failure. Repeat independently for App→Hub on return.
+- Verify selected forward and selected return UDRs use the same real Firewall and exact current private next-hop IP. Missing route, another Firewall, more-specific None/direct route, stale IP and same-name different identity must not pass.
+- Verify selected hub onward/return peering routes identify the correct endpoint VNets; preserve ambiguous-route failure for equal prefixes and reject a wrong more-specific peer identity.
+- Preserve default-route LPM, direct-peering bypass, None drops, unresolved service-tag results, and all existing unsupported-route exceptions. No next-hop placeholder may leak into UI, snapshot, receipt or API success result as a real None route.
+- Enforce dedicated-subnet constraints through **existing** NIC/VM/NSG/route-table association commands, including adding a Firewall to a previously occupied or attached subnet. Check all new families against shared capacities and atomic rollback.
+- Preserve same command identity/replay, model-bound dispatch, reset/archive/through history, cold/upgrade/repeated SQL paths, concurrent scope isolation, analysis no-write behavior and stale-result invalidation.
+
+No implementation tests, browser/visual verification, final stamp, exact-head CI, anonymous deployed-SHA verification or human review passed as a consequence of this report. The public no-database 503 remains an honest unavailable state, not a functional Firewall Gate7.
+
+---
+
+## Append-only implementation follow-up — 8 November 2026
+
+This follow-up is the requested bounded independent technical review of the initial 3.5 implementation. It does not replace or rewrite the preceding preimplementation findings. **No BLOCKER or MAJOR found in the reviewed implementation. One reproducible MINOR trace issue is open below.** This remains before the separate fresh post-stamp final audit.
+
+### Reviewed snapshot and method
+
+I inspected `src/laboratory/v35/{contract,domain,projection,topology,analysis}.ts`, the real-command fixture, the 14 pure test bodies and four real-PostgreSQL integration test bodies. I also read the relevant frozen 3.2/3.3/3.4 helpers and the 3.5 dispatch branches in `engine.ts`/`v3/server.ts`. I did not run the author's Vitest or PostgreSQL suites and do not independently attest their reported passes. I ran bounded pure, in-memory command probes using the actual TypeScript modules, with a local TypeScript require hook; these loaded no server or database, wrote no source/probe files and made no external calls. Repository source files were not edited.
+
+Final observed implementation hashes for this review:
+
+| File | SHA-256 |
+| --- | --- |
+| `src/laboratory/v35/analysis.ts` | `de7f77844578aa89d43860b29e3ba1049f82c361ffeeaa4c278d63e4b66c2cca` |
+| `src/laboratory/v35/contract.ts` | `feba30e0371298fd855ed8a0eb8e668cd5924d68a3f645a261e01b610602f2fa` |
+| `src/laboratory/v35/domain.ts` | `aa1d03e41501ffe1f671f94b4d9f4d8a0f44091e87105a1dfa82ab7b4d407f43` |
+| `src/laboratory/v35/projection.ts` | `e32252175f4bfb559cb9132fc972de8a5b9c15248bf30c5a3eb575715fd752fb` |
+| `src/laboratory/v35/topology.ts` | `7fa39dc3e794dbb3c7e2f116759fa0e33244518aa15cde119276358762d7038c` |
+| `tests/fixtures/firewall-world.ts` | `059455fe05070aa8d46b56f76e536b73cd4dc2bfcd07870cce515eea2fecfd4d` |
+| `src/laboratory-firewall.test.ts` | `57f11e93980bbadcbbac34ff3de5a93e71b5c1a84655c7855e70234f089aab84` |
+| `src/laboratory-firewall.integration.test.ts` | `c0d23992e6d8b9887ff014292d3cc57dba96719c320bc992149d2250e305a8fe` |
+
+The author moved the unchanged `firewallFields` map from domain to contract during this review; I inspected the resulting import and destination map. `analysis.ts`, `projection.ts` and `topology.ts` hashes remained unchanged. The contract document now hashes to `c0968a5214e17a170bf3c302fd9741321fa45c61157157f468605fd0e7bef7ed`.
+
+### Earlier design findings
+
+- **PR67-DESIGN-01 closed:** the current document expressly calls private-IP allocation synthetic and disclaims the actual Azure algorithm.
+- **PR67-DESIGN-02 closed in implementation:** selected return-route Firewall identity/IP are checked at `analysis.ts:273–281`; selected hub onward and return peer identities are checked at `259–263` and `283–290`. The document now expressly names both exact endpoint VNet identities. The more-specific return and wrong-hub-peer probes below confirm these are behavioral guards rather than descriptive comments.
+
+### PR67-IMPL-01 — MINOR: later NSG layers explain an earlier policy stop as a routing failure
+
+At `analysis.ts:178–184`, every layer starts `not-evaluated` with `reason: 'routing'`. When `layers()` returns after a source NSG Deny or Unknown (`225–242`), subsequent layers retain that reason. The existing native layer presenter in `src/features/laboratory/endpoints.tsx:340–343` renders `routing` as “Rutegrunnlaget tillater ikke videre policyevaluering.” This incorrectly says the route prevents policy evaluation when the valid selected Firewall route was followed by a decisive/unknown earlier NSG.
+
+Actual pure reproduction: create the ordinary fixture, then add a source-subnet outbound TCP `* → *`, priority 100, Deny rule. The aggregate result is correctly `denied-by-modeled-network-policy` / `nsg-denied`; source-subnet layer is `deny` / `first-rule`; both destination layers are `not-evaluated` / **`routing`**. Their actual stop reason is the earlier NSG. The default-only source NSG Unknown probe has the same stale reason.
+
+Requested narrow correction: give unevaluated later layers `earlier-layer` or another accurate explicit cause after a policy stop. Preserve `routing` for actual routing/topology prerequisites that prevented evaluation. This is a technical explanation defect, not a false Allow/Deny or connectivity result.
+
+### Composition findings
+
+**No projected-None verdict leak found.** The use of frozen 3.4 `analysePolicy` as input validation/packet/layer skeleton is safe in the reviewed flow. Its projected route and `status`/`reason` are replaced, and its evaluated rule lists/decisive IDs/statuses are cleared at `analysis.ts:174–188`. The route attached to the public result and `firewallPath.forwardRoute` is independently restored from the original 3.5 route records. Only a restored real selected None takes the drop branch at `196–199`. For actual VirtualAppliance selection, the projected old `dropped-by-modeled-routing` verdict is discarded; policy decisions are recomposed. The baseline actual fixture returned restored `VirtualAppliance`, `allowed-via-firewall`, `configurationPathAssessed: true`, and `modeled-configuration-path-assessed`. The direct/bypass branch reuses the frozen verdict only after confirming the real selected next hop is not an appliance.
+
+Firewall rule ordering is group priority, then collection priority, then persisted creation order within the collection; collection action terminates. New-rule validation admits only the supported literal expressions and TCP/UDP destination-port profile, so converting shared addressMatch results to Boolean here does not erase a legal symbolic Firewall-tag Unknown. Shared NSG `evaluateLayer` still retains its three-valued tag behavior. Missing Policy stays undetermined. No reverse new-initiation rule is evaluated as an established-response requirement.
+
+The topology implementation checks source reachability to the specific hub, regional/subscription scope, exact destination identity on the selected hub route, receiving Data→Hub forwarding, the selected destination return route to the exact same Firewall/IP, exact source identity on the selected hub return route, and receiving App→Hub forwarding. No Hub→Spoke flag substitutes. This matches the Microsoft semantics recorded in the original review.
+
+**Delegated subtype and budget interaction is sound in the exercised cases.** The private projection strips the new peering fields and uses None only as a selection/validator placeholder. After a successful delegated operation, existing routes are restored by ID to their actual 3.5 subtype, and peering flags/origins are restored by ID. New peerings receive false/null. Shared resource counts include all new families; accepted projected proposals are checked against the original combined 96-resource budget before publication. Existing VM/NIC family caps continue through the frozen helpers. Dedicated AzureFirewallSubnet guards cover ordinary NIC/VM creation and subnet NSG/route-table association; attaching an appliance route table also validates its actual Firewall reachability. Reset owns all families and monotonic identity. No unsupported DeleteEmptyGroup command exists in this Laboratory command set, so a hypothetical v2 group-deletion path does not apply here.
+
+### Actual pure probes and observed results
+
+All topology changes below were made through the actual 3.5 commands, not positive World injection. These are independent targeted probe observations, not a claim that the complete required suites or final gates passed.
+
+| Probe | Observed result |
+| --- | --- |
+| Baseline source fixture | Actual restored selected `VirtualAppliance`; `allowed-via-firewall`; configuration path assessed true. |
+| App→Hub false while Hub→App true | `undetermined` / `source-forwarding-disabled`, incomplete, assessed false. |
+| More-specific destination return `/32` None shadows stored same-Firewall return `/16` | Selected return next hop is real None; `return-route-not-same-firewall`, incomplete, assessed false. |
+| Additional hub-peered VNet `10.20.1.0/24` shadows actual destination VNet `10.20.0.0/16` | Hub selected wrong actual peer `vnet-32`; `onward-endpoint-mismatch`, incomplete, assessed false; destination layers not evaluated. |
+| Additional hub peer with equal destination prefix | Frozen ambiguity survives; `onward-route-undetermined`, incomplete, assessed false. |
+| Replace source-subnet NSG with a new default-only NSG | `nsg-undetermined`, incomplete, assessed false; destination layers not evaluated. No invented RFC1918 tag Allow. |
+| Add higher-priority Firewall Deny for reverse new initiation (Data→App) | Original App→Data path remains `allowed-via-firewall`, assessed true; the reverse initiation rule does not block the conditional established response. |
+| Combined World at 95 resources; request VM (+3) | `capacity`, empty added IDs, exact unchanged World. |
+| Same 95-resource World; request Firewall/PIP (+2) in a prepared second hub subnet | `capacity`, empty added IDs, exact unchanged World. |
+| At 95, create ordinary NIC (+1) | `created`, actual total 96. |
+| At 96, create another ordinary group | `capacity`, exact unchanged World. |
+| At 96, explicitly apply existing source-subnet NSG | `updated`, actual total remains 96. Existing association is not incorrectly treated as another resource. |
+| Replay of the full budget probe, including failed VM/Firewall/group commands | Exact World replay equality; original appliance route subtype `VirtualAppliance` and true receiving forwarding flag retained. |
+| Source-subnet priority-100 explicit Deny | Correct denial aggregate; reproduced PR67-IMPL-01's inaccurate later-layer reason. |
+
+### Remaining verification limits and recommendations
+
+The present 14 pure test bodies cover the baseline, several core A–G cases, first-match/default denial, some unsupported inputs and replay. They do not yet permanently retain all of the independent probe cases above. Add focused regressions for source-return receiving direction, selected shadow return, exact wrong hub identity, NSG Unknown, reverse-initiation Deny and combined-budget/subtype preservation; these are substantive edge cases, not mirrored implementation assertions. Per-family capacity boundaries and priority endpoints also remain reviewable test gaps in the submitted file even though their validators are straightforward on inspection.
+
+No real PostgreSQL, schema migration, browser/keyboard/Axe/visual, complete regression, stamp, CI/strict, preview-SHA or human SME result was independently executed in this follow-up. The four integration test bodies were reviewed, not counted as reviewer passes. Future source changes require their own affected recheck and the planned fresh final post-stamp audit.
+
+---
+
+## Append-only next-hop identity review — 8 November 2026
+
+### PR67-IMPL-02 — MAJOR: stored Firewall identity bypasses ambiguous/wrong next-hop IP resolution
+
+The owner identified a possible next-hop ambiguity during subsequent UI work and requested this independent reproduction. I reproduced it with actual pure commands. This finding supersedes the earlier bounded snapshot's “no MAJOR found” disposition; that earlier record remains untouched. **Open pending implementation and independent corrected recheck.**
+
+Initial finding, preserved verbatim from the message sent immediately after reproduction:
+
+> Confirmed a real MAJOR false-positive path gap in the current code. With real commands I added source↔second-hub peering and a second Firewall at 10.0.0.4. Equal hub /16 prefixes make source→10.0.0.4 lookup ambiguous; making second hub /24 selects the wrong actual hub. In BOTH cases firewallReachable remains true and analysePolicy reports allowed-via-firewall / configurationPathAssessed=true for the first Firewall via its stored ID. The ID is resolving something the IP routing model cannot. A conservative next-hop-resolution guard is necessary before a positive path; I’m checking its limits against Microsoft’s direct-connectivity wording.
+
+Original source, exact successful all-command repro script and observed output are retained under `/workspace/azurelab-pr67/audit-original-next-hop/`. The directory contains `analysis.ts`, `topology.ts`, `domain.ts`, `contract.ts`, `projection.ts`, the real-command fixture, `reproduce.sh`, `result.json` and provenance README. Original analysis hash: `2520e5c06b9fa1a140ec9d491bfc6b3657e3aa7bc3736f3073433c9698643896`; original topology hash: `7fa39dc3e794dbb3c7e2f116759fa0e33244518aa15cde119276358762d7038c`. Copies were saved and acknowledged before the author was told to begin correction. The reproduction script reads repository modules at execution time, so a later rerun must be labeled a corrected run and must not replace `result.json`.
+
+Actual reproductions start from the existing command-built App→hub→Data fixture. They create another hub VNet, exact /26 AzureFirewallSubnet, a second Standard Firewall with the same private IP `10.0.0.4`, and reciprocal App↔second-hub peerings. The two hubs are not peered to one another. All commands were accepted by the current model; no World or positive analysis was injected.
+
+| Case | Frozen lookup from source subnet to next-hop `10.0.0.4` | Original analysis result |
+| --- | --- | --- |
+| Original hub `10.0.0.0/16`, second hub `10.0.0.0/16` | `ok: false`, `ambiguous-routes` | `allowed-via-firewall`, assessed true |
+| Original hub `10.0.0.0/16`, second hub `10.0.0.0/24` | Selected `VnetPeering` to second hub `vnet-32` at /24, while stored route names original Firewall `firewall-16` in `vnet-2` | `allowed-via-firewall`, assessed true |
+
+`firewallReachable` verifies a Connected relation with the requested hub but does not resolve the route's IP. The stored local Firewall ID provides identity that authentic VirtualAppliance route input cannot itself use to disambiguate a bare next-hop IP. The selected forward destination route, onward and return legs can all remain apparently correct while entry to the nominated Firewall is unproven. An analysis that asserts the full modeled configuration path in this situation is a material false positive.
+
+### Source-backed correction assessment and Azure limit
+
+The proposed correction is appropriate as a **conservative simulator prerequisite**: look up source-subnet→Firewall-private-IP and return-subnet→Firewall-private-IP with the frozen selector; require a selected direct `VnetPeering` route whose actual VNet identity is exactly that Firewall's hub. Ambiguous, None, wrong-peer, local/Internet or appliance/recursive results must leave the path incomplete. Preserve the two lookup results (`routeToFirewall`, `returnRouteToFirewall`) for explanation. Apply this before returning a positive configuration-path result; storing the Firewall ID must not bypass it.
+
+Microsoft's [UDR page](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview), saved `udr.txt:312–338`, defines a VirtualAppliance next hop by its private IP and explicitly requires direct connectivity (`332`); it does not document resource-ID-based next-hop selection. The same page's optional system-route discussion (`250–273`) explains the direct peering routes, and its LPM/source-priority section (`494–504`) explains the selector's result for the additional lookup. A normal 0.0.0.0/0 appliance UDR remains less specific than a direct hub /16.
+
+However, **do not teach that authentic Azure recursively reapplies the complete destination UDR table to a next-hop IP**. The supplied source does not establish that rule. Its own valid routing example has an active `10.0.0.0/16 → VirtualAppliance 10.0.100.4` UDR (`udr.txt:594–605`, explained at `686–693`) whose destination prefix includes its appliance next hop. A naive same-table lookup of that address would select the appliance UDR itself; declaring all such configurations universally invalid would overclaim. That official example is same-VNet NVA routing, already outside this two-spoke Firewall profile, but it is enough to prevent a universal recursion assertion.
+
+Likewise, the supplied peering constraints say the two VNets being peered must not overlap (`peering.txt:568`); these pages do not expressly define every multi-peer overlapping-address outcome. The reproduced histories are accepted by this simulator. No live Azure provisioning or platform test was performed to attest acceptance of the complete multi-hub topology in Azure. The bounded engine nevertheless must withhold its own positive path when its IP route model cannot identify the named Firewall's hub.
+
+No extra probes were run after the author requested preservation and announced the guard implementation. Corrected source, both source and return ambiguity cases, normal direct-hub/default-UDR behavior, output traces and affected regression results still need independent recheck. No final audit, stamp or human SME sign-off is inferred.
+
+---
+
+## Append-only corrected next-hop recheck — 8 November 2026
+
+**PR67-IMPL-02 MAJOR is closed for the independently rechecked correction below. PR67-IMPL-01 MINOR is also closed. No new BLOCKER or MAJOR found in this bounded recheck.** The original MAJOR, verbatim notification, source copies and failing output remain intact above and in `audit-original-next-hop/`. This is a correction recheck before the separate fresh post-stamp audit, not final delivery acceptance or human SME approval.
+
+Reviewed corrected source hashes:
+
+| File | SHA-256 |
+| --- | --- |
+| `src/laboratory/v35/analysis.ts` | `71b4c1481b9e7ea4cf7ce93db2923b8ebe057e6c7b8e390b9a0d81bdd82af113` |
+| `src/laboratory/v35/topology.ts` (unchanged) | `7fa39dc3e794dbb3c7e2f116759fa0e33244518aa15cde119276358762d7038c` |
+| `src/laboratory-firewall.test.ts` | `e889f957366c65946fd516607cbd340cf3d098de74979fe74ec4b33364d35bd5` |
+| `docs/LABORATORY_FIREWALL_PART_A.md` | `ed0e1e767331b5b7a58d0021b901abc54f321b65d4817cd59812c0786a7c25e1` |
+
+### Actual independent execution and retained outputs
+
+I ran the preserved `/workspace/azurelab-pr67/audit-original-next-hop/reproduce.sh` against the corrected repository modules. Its new stdout is separately retained in `/workspace/azurelab-pr67/next-hop-independent-corrected.json` (SHA-256 `d6b5c601724f11c5a22c25b9766451a4c061dab867a6f43d30287a0f36d82416`). Both original source cases now return `undetermined`, `incomplete`, assessed false and `firewall-next-hop-not-direct`; the equal-prefix lookup remains honestly ambiguous and the more-specific lookup honestly names the wrong hub. The original successful-output artifact was not replaced.
+
+I also wrote and executed `/workspace/azurelab-pr67/next-hop-independent-recheck.cjs` (SHA-256 `b68f9c72617c22874e0cc9bbeaafb9ae599acf4d979ffebcbf7f355a590c1f6f`). All assertions across its 13 focused command-built scenarios passed. Detailed output is `/workspace/azurelab-pr67/next-hop-independent-recheck.json`, SHA-256 `d04c7aaba2e45287fed7e95435ac1049a1869b373eab3ff4998e1dd9568017a1`. Every scenario compares canonical World and entries before/after analysis and confirmed no changes.
+
+| Independent scenario | Corrected observed behavior |
+| --- | --- |
+| Normal two-spoke baseline | Positive modeled configuration path; both next-hop lookups select direct peering to actual original hub `vnet-2`. |
+| Add 0.0.0.0/0 appliance UDR to both spokes, retaining the existing specific workload routes | Positive path retained; both private next-hop lookups select the more-specific direct hub /16. This does not assert that a default route alone overrides all inherited private-space defaults. |
+| Source and return, each with a second equal-prefix /16 hub (2 scenarios) | Relevant next-hop route is null with `ambiguous-routes`; specific source/return next-hop-not-direct reason; incomplete and assessed false. |
+| Source and return, each with a second more-specific /24 hub (2 scenarios) | Relevant next-hop route names actual wrong hub `vnet-32`; specific source/return next-hop-not-direct reason; incomplete and assessed false. |
+| Source and return, each with `/32` None for the Firewall private IP (2 scenarios) | Relevant next-hop output retains actual None; path incomplete and assessed false. No fabricated appliance-placeholder routing drop or positive path. |
+| Source and return, each with hub-prefix appliance UDR (2 scenarios) | Relevant output retains actual VirtualAppliance; conservative direct-next-hop prerequisite withholds success. |
+| Source NSG Deny; source NSG default-tag Unknown (2 scenarios) | Correct aggregate Deny/Unknown, later destination layers remain not evaluated with accurate `earlier-layer` reason. |
+| Firewall explicit Deny | Correct Firewall denial, destination NSG layers remain not evaluated with `earlier-layer`. |
+
+### Code and source assessment
+
+The correction independently resolves `sourceSubnet → actual Firewall.privateIpAddress` and `destinationSubnet → same Firewall.privateIpAddress` through the same restored frozen selector. It requires `VnetPeering` and exact hub `resourceId` on both. Lookup routes/errors are retained as `nextHopRoute`/`nextHopError` and `returnNextHopRoute`/`returnNextHopError`. The source guard executes before forward NSG/Firewall decisions; the return guard executes after selecting the same-Firewall return UDR and before completing the path. No inventory ID bypass remains on a positive branch. Missing/ambiguous/wrong-peer/None/appliance results cannot reach `configurationPathAssessed = true`.
+
+The document's new “Conservative IP next-hop prerequisite” explicitly distinguishes this simulator restriction from a universal recursive Azure UDR rule and preserves the Microsoft broader-prefix NVA counterexample. This correctly addresses the direct-connectivity source requirement without overstating the supplied documentation. The code comment makes the same limitation explicit.
+
+I read the four new permanent all-command regressions: source/return × equal-/more-specific hub. They assert assessed false, the specific failing-leg reason and exact replay. I also inspected the retained red log (four expected failures with the original code) and corrected author log (22/22: 18 pure plus four PostgreSQL). Those are author-run suite records reviewed as evidence; I did not rerun their Vitest/PostgreSQL suites or treat the log as my own execution.
+
+The original copied analysis/topology hashes still match `2520e5c06b9fa1a140ec9d491bfc6b3657e3aa7bc3736f3073433c9698643896` / `7fa39dc3e794dbb3c7e2f116759fa0e33244518aa15cde119276358762d7038c`, preserving the initial defect. No UI server, build, external service, stamp or final audit was run in this correction recheck. Future implementation changes remain subject to their affected checks and the required fresh post-stamp audit.

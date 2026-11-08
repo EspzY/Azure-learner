@@ -1,0 +1,9 @@
+# PR67 inherited QA investigation —8 November2026
+
+Before product UI changes, instrumented read-only copies retained the two exact original test bodies. Fifteen repetitions each, retries0 and real production navigation:29 passed and one architecture failure. Original source copies, DOM observations, failed trace/video/error context and logs are retained under the PR67 evidence directory. No positive storage or resources were injected.
+
+The architecture failure at the compact-menu decision was reproduced. A streamed hidden `div#S:0` existed before the visible course layout; `link.isVisible()` immediately returned false and the helper inferred a closed compact menu on desktop. It waited for the intentionally hidden compact toggle. The bounded helper correction first waits for the visible course layout and only opens a visible toggle. Every original content/destination/assertion remains. The unchanged original case after this correction passed15/15 with0 retries. This is a test readiness correction, not a course state/navigation rewrite.
+
+The VM status case passed15/15 but observed both hidden streamed status copies and legitimate distinct recovery surfaces during later Journal/dialog activity. The original CI106 first-navigation trace was not uploaded because the successful job's artifact step runs only on failure. Therefore the cause of the original duplicate `.course-storage-status` locator remains **OPEN**. No `.first()`, hidden status, extra timeout or retry change is used. Earlier Compute help/Back and Axe/document-title causes likewise remain open; later green runs do not close them.
+
+The original PR66 CI106 raw job log SHA256 is `628fc284e03bbd06f3f7890acb47b54455d0ba1f2d2b64fa0387a1053f78a09e`. New development failures are recorded separately; none is relabelled as a historic failure or silently removed.

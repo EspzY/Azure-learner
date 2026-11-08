@@ -1,7 +1,7 @@
 import golden from '../docs/reviews/evidence/pr66/frozen33-golden.json';
 import { replay } from './laboratory/engine';
 import { it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readPR67 as readFileSync } from '../tests/pr67-preservation';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { pr66Base, original66, hash66 } from '../tests/pr66-preservation';

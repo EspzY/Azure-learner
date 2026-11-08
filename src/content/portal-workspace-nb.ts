@@ -14,6 +14,12 @@ export const portalWorkspaceNb = {
   localScope: 'Lokalt simulator-scope',
   menuNote: 'Støttede tjenester i dette arbeidsområdet',
   resourceKinds: {
+    firewall: 'Azure Firewall',
+    firewallPolicy: 'Firewall Policy',
+    firewallGroup: 'Rule Collection Group',
+    firewallCollection: 'Network Rule Collection',
+    firewallRule: 'Network Rule',
+    publicIp: 'Public IP configuration',
     vm: 'Virtual machine',
     disk: 'Managed disk',
     nic: 'Network interface',

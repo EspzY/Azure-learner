@@ -352,3 +352,7 @@ P11 keeps RBAC scope authorization separate from CA requirements. Two frozen pol
 ## PR46 — isolated successors, frozen historical assessment semantics
 
 Keep original Benefits/Services expansion contracts and Cloud Transfer byte-identical. Two bounded successor assessment stores use stable IDs and pinned static presentation; separate assessment=legacy/updated preserves teaching version1/2. New contexts join existing preflight/resume/guidance rather than creating another engine. No silent migration, new XP or technical mutation. [Contract](ASSESSMENT_REFINEMENT.md).
+
+## 8 November2026 — PR67 bounded Firewall inspection
+
+Choose a separate laboratory@3.5.0 workspace instead of changing historical route/peering semantics. Model Standard VNet Firewall and Standard Public IP configuration in one atomic operation; no concrete public address is assigned. Collection-level action and group/collection priorities mirror the supported Policy hierarchy. Preserve receiving-side forwarded-traffic direction and require explicit spoke return routing. A stored Firewall ID cannot resolve an ambiguous next-hop IP: use a conservative direct selected hub lookup on both sides, returning incomplete for unsupported resolution. This is narrower than Azure NVA resolution, never a claim of complete recursive routing. Reuse the shared Portal and original route/NSG engines; no packet/flow-state/NAT simulator or parallel inventory. Keep the original independently reproduced ambiguous-hub defect and its correction evidence.
