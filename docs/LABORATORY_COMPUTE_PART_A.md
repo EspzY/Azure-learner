@@ -43,3 +43,5 @@ These sources justify representative configuration, not Azure runtime parity. Lo
 ## Prior navigation-flake follow-up
 
 The owner-required investigation captured one visible sidebar and a hidden React streamed copy with duplicate IDs. A scoped CourseSidebar change attaches disclosure IDs/controls only after hydration; links, order, teaching callbacks and original test assertions are preserved. Original15-run baseline (14pass/1fail), failed trace, raw DOM evidence, post-fix15/15 run and20-run zero-duplicate observer remain in [the investigation](reviews/evidence/pr66/NAVIGATION_INVESTIGATION.md). This does not close the older independent Compute/Axe causes.
+
+Properties reference links added by Compute are scoped to3.4 VM and OS-disk resources only. Other resources and older models retain original value/receipt rendering; their Overview parent links remain. The first complete CI caught and motivated this exact boundary; [original result and correction](quality/PR66_CI_CORRECTION.md).

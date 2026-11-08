@@ -1807,7 +1807,9 @@ export function Laboratory() {
                               key,
                             ) ? (
                             receiptLink(String(value))
-                          ) : [
+                          ) : compute &&
+                            ['vm', 'disk'].includes(resource.view) &&
+                            [
                               'nicId',
                               'osDiskId',
                               'subnetId',
@@ -1815,7 +1817,8 @@ export function Laboratory() {
                               'groupId',
                               'nsgId',
                               'routeTableId',
-                            ].includes(key) && records.some((r) => r.id === value) ? (
+                            ].includes(key) &&
+                            records.some((r) => r.id === value) ? (
                             <Link
                               href={href(records.find((r) => r.id === value)!.view, String(value))}
                             >

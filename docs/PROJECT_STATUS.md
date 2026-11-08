@@ -1,5 +1,7 @@
 # PR66 — Compute Part A candidate
 
+First complete CI105 finished425pass1fail: overbroad clickable subnet Properties parent reference, not a domain/history failure. The new reference links are now scoped to3.4 VM/disk only; all original shared Portal assertions are unchanged and8 affected native controls pass. Renewed independent review and complete exact-head CI/strict remain pending for this correction. [Original result/correction](quality/PR66_CI_CORRECTION.md).
+
 Atomic VM/primary NIC/managed OS disk configuration operates in explicit new3.4 workspaces through the shared Portal and original PostgreSQL authority. Full check passed933Vitest/77files,24Node,503curriculum,57objectives/126facets and production build; final6/6 native desktop/compact controls passed without retry, including real concurrent writes/lost-response recovery and measured short-window controls. SQL005 and cold/populated/repeated migration paths preserve old raw events. Original PR65 navigation failure was reproduced and captured; hydration-bound disclosure IDs passed the unchanged test15/15 plus20 zero-duplicate observed journeys. Older Compute/Axe causes remain unresolved. All420 prior browser controls remain in the426 candidate profile. Independent stamped audit, exact-head completeCI/strict and anonymous deployed-SHA are still pending until actual execution. Public functional Compute remains deliberately unavailable without an approved database; expected503 is not functional Gate7. [Contract](LABORATORY_COMPUTE_PART_A.md).
 
 ## PR61 — ny produktinngang, kandidat6.november2026
