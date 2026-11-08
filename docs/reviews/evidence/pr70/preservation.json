@@ -2,6 +2,10 @@
   "base": "41a187a4437eeea76749c61c94219a2577848645",
   "purpose": "Finite reviewed adaptations only; actual direct filesystem checked independently",
   "files": {
+    ".gitattributes": {
+      "before": "5f0792510b11601eca1025d11000597bebf581b38773b632e37d54258e48a82a",
+      "after": "5599d9e75216a91ec847701acbf3f8193d91599f238af7a02c365caec0df2094"
+    },
     "AGENTS.md": {
       "before": "88a20eb7f0c34af2048c8b7657ee2a86335e251a74e8259a8643b31898267327",
       "after": "057b5d6cf5a6c68dc4597a18ab3cb428695ba62822f16a72e36aa88ca2163d4c"
@@ -94,6 +98,10 @@
       "before": "1356be4e63be02863fca8901fc448eac5b0a21fcfd6b9407fb198c6529d0ef90",
       "after": "2c9759c284ea4cd536e286988cf895ce39dbdaf726960c7cd9b0b4cc1e2b460d"
     },
+    "src/laboratory-remediation.test.ts": {
+      "before": "61420ea816138e6e0dcf3685f578a8689ec6b667c6be377a585e8ddcb1db63ee",
+      "after": "06983b430bdd79c9170e99286d9a579dfbe3817059d90f918ca846e535711097"
+    },
     "src/laboratory/engine.ts": {
       "before": "7efd298dd98e9b478eea10a12d1390bfe30ac6a279b17fd4dace1caab7af388a",
       "after": "ecb16434e62eda278e7496e2408fc2bc734211ed295661c5df9ffea805247f9f"
@@ -109,10 +117,6 @@
     "tests/pr69-preservation.ts": {
       "before": "c48f5e6b529da8ac8232dd26e2e097d4c891797b48cd384cac11bccba19239a9",
       "after": "ee623b6cc8a95664d2a7be4012acd8380952cb164d508d8a73ff17a7bdcaf4ce"
-    },
-    "src/laboratory-remediation.test.ts": {
-      "before": "61420ea816138e6e0dcf3685f578a8689ec6b667c6be377a585e8ddcb1db63ee",
-      "after": "06983b430bdd79c9170e99286d9a579dfbe3817059d90f918ca846e535711097"
     }
   }
 }

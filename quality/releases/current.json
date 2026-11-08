@@ -337,6 +337,7 @@
   ],
   "snapshot": {
     "files": {
+      ".gitattributes": "5599d9e75216a91ec847701acbf3f8193d91599f238af7a02c365caec0df2094",
       "AGENTS.md": "057b5d6cf5a6c68dc4597a18ab3cb428695ba62822f16a72e36aa88ca2163d4c",
       "database/laboratory-v3/008-topology-remediation.sql": "5d90b5f32009b7d1a480256dd81ef0afc96e2eb3fc85a7f414ede9e32c179bc7",
       "docs/ARCHITECTURE.md": "3549adf15ccab7f050f5040254204ed5ef2f4287ae7db8d6dbfa8fdca1cb21b3",
@@ -345,8 +346,8 @@
       "docs/LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md": "7bdb7ed31abf7f4d58c66d4b5d1e36d09b05d704c3133138ab88136a79811903",
       "docs/LABORATORY_V3_SERVER.md": "1ea8785d4f70888db66ad54e36147faa7760960a4fd0daf129da88ef5c0d748d",
       "docs/PORTAL_CAPABILITY_MATRIX.md": "4bc49e81e2526395879bc183db4be0972c6bea5b67a4df5b0d41283ffd590c4b",
-      "docs/reviews/evidence/pr70/manifest.json": "7e9afd0c88bc6bfd2beccac94bf36c427abdbc27a4e3e591955cbf026067e9ac",
-      "docs/reviews/evidence/pr70/preservation.json": "4c68d70ff5a6324b18a8ca32e8dd0be4a757305a8cba4a57325df2f6cdb0bb5d",
+      "docs/reviews/evidence/pr70/manifest.json": "8f98f5a7fc49dd8dc83d4299273683008b3e703b357c66ae505562f681a40695",
+      "docs/reviews/evidence/pr70/preservation.json": "c55083cadfd1f61d688d2109a720662ff7245c132b443469cc25f5fc8d887094",
       "docs/reviews/evidence/pr70/qa/browser-corrected.log.raw": "93d3719518abdd39d006ecdaddce2587f7bee1ceba5de902cd98f735192ee994",
       "docs/reviews/evidence/pr70/qa/browser-final.log.raw": "ff18b498ac7cc5de1b2f4a2d2332bfc49e3839a3e3d61a7b30c41485a71456cd",
       "docs/reviews/evidence/pr70/qa/browser-initial.log.raw": "a21ea43185f9d3c6e0ef3a7a50ff87ab0ee723e0031beaf7093e648ec7755ea4",
@@ -441,7 +442,7 @@
       "src/laboratory-compute.test.ts": "5ad0d14dbd272588254ab34fb6221778e2b011937a98e70a40b461a738c46037",
       "src/laboratory-remediation-preservation.test.ts": "2c9759c284ea4cd536e286988cf895ce39dbdaf726960c7cd9b0b4cc1e2b460d",
       "src/laboratory-remediation.test.ts": "06983b430bdd79c9170e99286d9a579dfbe3817059d90f918ca846e535711097",
-      "src/laboratory-topology-preservation.test.ts": "fceca02da5fee6364ea248728cf6e34ca9d52dc5a95c9c6196cec1d51c0a5873",
+      "src/laboratory-topology-preservation.test.ts": "ac636edc7e626c3950254b8edbd17bcebc563209c06c4a232fc8087d186d55f8",
       "src/laboratory-topology.integration.test.ts": "93097c268d53516ce2d460d449e2cd097e64bb7f82fac4375a30b5c215e1e2ce",
       "src/laboratory-topology.test.ts": "6dee5bb6491f6dc9e39d7f82bad75be4bf424b18f01def6ca560ef3862ec1a8d",
       "src/laboratory/engine.ts": "ecb16434e62eda278e7496e2408fc2bc734211ed295661c5df9ffea805247f9f",
@@ -457,24 +458,25 @@
       "tests/pr70-preservation.ts": "bc96f47121d3b011edcc329ca557c1c5713256ac3d96f18f18570d505c28fb84"
     }
   },
-  "implementationFinished": "2026-11-08T21:52:28.147Z",
+  "implementationFinished": "2026-11-08T22:00:45.133Z",
   "review": {
     "status": "complete",
-    "fingerprint": "341f0752cd1dbb83a36e4fd8eb81c275981d6a6913d92f6a70f62979d745a505",
+    "fingerprint": "ce4eb3088e126bb55cc77a12cdfe593a79163024c05952acc2ccebf322ae842c",
     "reviewer": { "id": "pr70-independent-final-auditor", "kind": "agent" },
-    "started": "2026-11-08T21:53:23Z",
+    "started": "2026-11-08T22:01:02Z",
     "domains": {
       "content": {
-        "finding": "Scoped claims supported by independent live refetch of all seven official Markdown bodies, byte-identical retained hashes and actual source-image inspection. Directional access, receiving forwarding and Connected remain separate; Portal versus directional Delete side effects are not uniquely established, so deferral is justified. No full Azure runtime or human SME claim.",
+        "finding": "Scoped claims supported by independent live refetch of all seven official Markdown bodies, byte-identical retained hashes and actual source-image inspection. Directional access, receiving forwarding and Connected remain separate; Portal versus directional Delete side effects are not uniquely established, so deferral is justified. No full Azure runtime or human SME claim. Packaging renewal independently confirms all75 evidence manifest files and staged raw blobs match original recorded bytes; seven source bodies retain original reviewed hashes.",
         "evidence": [
           { "path": "docs/LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md" },
           { "path": "docs/reviews/evidence/pr70/sources/fetch.json" },
           { "path": "src/content/laboratory-topology-nb.ts" },
-          { "path": "docs/quality/PR70_FINAL_AUDIT.md" }
+          { "path": "docs/quality/PR70_FINAL_AUDIT.md" },
+          { "path": "docs/reviews/evidence/pr70/manifest.json" }
         ]
       },
       "technical": {
-        "finding": "Independent40 real-PG/domain/preservation tests and21 command-created challenges pass. Atomic full-validator/all-subnet route replacement preserves exact ID/name/parent/Create-origin/count/nextId; detach retains NSGs/rules; owned access is separate from forwarding. Default-tag dependencies and selected/return access produce conservative unknown. Original repository locking/revision/rollback/idempotency and canonical JSONB replay remain authoritative.",
+        "finding": "Independent40 real-PG/domain/preservation tests and21 command-created challenges pass. Atomic full-validator/all-subnet route replacement preserves exact ID/name/parent/Create-origin/count/nextId; detach retains NSGs/rules; owned access is separate from forwarding. Default-tag dependencies and selected/return access produce conservative unknown. Original repository locking/revision/rollback/idempotency and canonical JSONB replay remain authoritative. Renewed119-file snapshot differs only in attributes, finite preservation guard/proof and its manifest row; all runtime/domain payload hashes are unchanged.",
         "evidence": [
           { "path": "src/laboratory/v37/domain.ts" },
           { "path": "src/laboratory/v37/analysis.ts" },
@@ -484,7 +486,7 @@
         ]
       },
       "visual": {
-        "finding": "Inspected actual author source/UI images plus fresh independent production captures at1920x1080/1440x900/1366x768/1024x500. Zero Axe violations, no horizontal overflow and Save visible; internal short-window scrolling is necessary. Exact scope and Before/After remain legible. Ineffective grid declaration has no credited density effect and author prose now matches actual rows. No human UX/screen-reader or new browser-zoom approval.",
+        "finding": "Inspected actual author source/UI images plus fresh independent production captures at1920x1080/1440x900/1366x768/1024x500. Zero Axe violations, no horizontal overflow and Save visible; internal short-window scrolling is necessary. Exact scope and Before/After remain legible. Ineffective grid declaration has no credited density effect and author prose now matches actual rows. No human UX/screen-reader or new browser-zoom approval. Packaging renewal preserves every UI/CSS/image/browser-test hash; no new visual change or review credit is inferred.",
         "evidence": [
           { "path": "src/features/laboratory/rule-lifecycle.tsx" },
           { "path": "src/features/laboratory/rule-lifecycle.css" },
@@ -495,7 +497,7 @@
         ]
       },
       "assessment": {
-        "finding": "No assessment bank/rubric/learning-evidence/XP change. Actual full2498-file-base guard with finite hash-pinned deltas independently preserves course/domain/locale/assessment/mascot authorities and original assertions. Native independent Lab actions leave course localStorage unchanged; technical receipts do not grant learning credit.",
+        "finding": "No assessment bank/rubric/learning-evidence/XP change. Actual full2498-file-base guard with finite hash-pinned deltas independently preserves course/domain/locale/assessment/mascot authorities and original assertions. Native independent Lab actions leave course localStorage unchanged; technical receipts do not grant learning credit. Packaging renewal preserves all original assessment/course/learning authorities; six direct preservation checks pass independently.",
         "evidence": [
           { "path": "src/laboratory-topology-preservation.test.ts" },
           { "path": "tests/pr70-preservation.ts" },
@@ -504,7 +506,7 @@
         ]
       },
       "guidance": {
-        "finding": "Shared Portal editor pins exact workspace/model/revision/identity/parent and uses original server Review/Save path; detach requires explicit target confirmation. Read-only Studio consumes original analyses and opens same resource flow. Seven independent assertions verify workspace/model/revision rejection and stale-observation suppression; retained native evidence reaches stale409/idempotency/replacement-session rejection. Frozen SavvyShark/assistance authorities preserved.",
+        "finding": "Shared Portal editor pins exact workspace/model/revision/identity/parent and uses original server Review/Save path; detach requires explicit target confirmation. Read-only Studio consumes original analyses and opens same resource flow. Seven independent assertions verify workspace/model/revision rejection and stale-observation suppression; retained native evidence reaches stale409/idempotency/replacement-session rejection. Frozen SavvyShark/assistance authorities preserved. Packaging renewal preserves exact Portal/Studio/guidance payload hashes and original limitations.",
         "evidence": [
           { "path": "src/features/laboratory/rule-lifecycle.tsx" },
           { "path": "src/features/laboratory/topology-target.ts" },
@@ -514,7 +516,7 @@
         ]
       },
       "regression": {
-        "finding": "Frozen3.0–3.6 engines/receipts, SQL001–007, repository/course/v2 and locked PR69 evidence remain byte-preserved. Independently reran40 tests and455-plan; retains448 browser controls/settings. Inspected actual author full-check1082Vitest/24Node/build and targeted new7/7 plus historical3.6-native7/7 logs, including initial6fail/1pass and corrected Axe/test-assumption evidence. Full exact-head455CI/strict and anonymous deployedSHA/503 remain pending; inherited causes remain open.",
+        "finding": "Frozen3.0–3.6 engines/receipts, SQL001–007, repository/course/v2 and locked PR69 evidence remain byte-preserved. Independently reran40 tests and455-plan; retains448 browser controls/settings. Inspected actual author full-check1082Vitest/24Node/build and targeted new7/7 plus historical3.6-native7/7 logs, including initial6fail/1pass and corrected Axe/test-assumption evidence. Full exact-head455CI/strict and anonymous deployedSHA/503 remain pending; inherited causes remain open. Packaging-only renewal independently validates staged/worktree bytes for75manifest files including53raw; exactly8normalized blobs restored to original341… hashes. Scoped -text rule, one-line finite guard extension and proof/manifest hashes verified;6/6 preservation tests pass. Other115original snapshot rows unchanged; full CI remains pending.",
         "evidence": [
           { "path": "src/laboratory-topology-preservation.test.ts" },
           { "path": "playwright.desktop.config.ts" },
@@ -522,7 +524,9 @@
           { "path": "docs/reviews/evidence/pr70/qa/browser-initial.log.raw" },
           { "path": "docs/reviews/evidence/pr70/qa/browser-final.log.raw" },
           { "path": "docs/reviews/evidence/pr70/qa/trace-provenance.json" },
-          { "path": "docs/quality/PR70_FINAL_AUDIT.md" }
+          { "path": "docs/quality/PR70_FINAL_AUDIT.md" },
+          { "path": ".gitattributes" },
+          { "path": "docs/reviews/evidence/pr70/manifest.json" }
         ]
       }
     },
@@ -555,6 +559,17 @@
         "severity": "note",
         "status": "open",
         "description": "Complete exact-head455-case CI, candidate-bound full-browser receipt/strict release and actual anonymous deployed full-SHA root/expected Laboratory503 remain pending. Targeted runs and plan collection do not close delivery. Human reviews, actualAzuretraffic, historical3.5 recovery and inherited Compute/Back/Axe/landing/PG/budget causes remain unperformed or open."
+      },
+      {
+        "id": "PR70-P01",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Root text=auto/eol=lf normalized eight first-commit raw evidence blobs away from their recorded exact-byte source/output hashes; reviewed working bytes and runtime content were intact.",
+        "fix": "Scoped docs/reviews/evidence/pr70/**/*.raw -text preserves original bytes, restored staged blobs match original reviewed stamp, and finite direct guard/proof/manifest extend only to this exact attribute change.",
+        "retests": [
+          "Independent comparison of75manifest files including53raw: working/staged bytes, SHA256 and byte lengths match; exactly8restored blobs are EOL-only changes and match original341… stamped hashes.",
+          "Independent6/6 direct preservation checks pass;119-file renewed fingerprint verified, onlyattributes/guard/proof/manifest delta and other115original rows unchanged."
+        ]
       }
     ],
     "report": { "path": "docs/quality/PR70_FINAL_AUDIT.md" }

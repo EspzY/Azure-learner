@@ -6,6 +6,7 @@ import { pr70Base, hash70, original70 } from '../tests/pr70-preservation';
 import proof from '../docs/reviews/evidence/pr70/preservation.json';
 it('checks actual frozen3.0–3.6 engines SQL001–007 repository course authorities assertions fixtures and locked PR69 evidence; finite declared UI/dispatch deltas only', () => {
   const allowed = [
+    '.gitattributes',
     'AGENTS.md',
     'scripts/laboratory-db.mjs',
     'src/features/laboratory/capabilities.ts',
