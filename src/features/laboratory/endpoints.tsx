@@ -1,4 +1,5 @@
 'use client';
+import { isFirewallWorld } from './capabilities';
 import { FirewallPathDetails } from './firewall';
 import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
@@ -38,7 +39,10 @@ export function EndpointViews({
   receipt,
 }: {
   world:
-    World | import('@/laboratory/v34/contract').World | import('@/laboratory/v35/contract').World;
+    | World
+    | import('@/laboratory/v34/contract').World
+    | import('@/laboratory/v35/contract').World
+    | import('@/laboratory/v36/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -54,7 +58,7 @@ export function EndpointViews({
       {view === 'nics' && (
         <>
           <p className="lab-network-boundary">
-            {world.model === 'laboratory@3.4.0' || world.model === 'laboratory@3.5.0'
+            {world.model === 'laboratory@3.4.0' || isFirewallWorld(world)
               ? m.nicBoundary
               : e.boundary}
           </p>
@@ -67,7 +71,7 @@ export function EndpointViews({
       {view === 'nic' && nic && (
         <div className="lab-endpoint-detail">
           <p className="lab-network-boundary">
-            {world.model === 'laboratory@3.4.0' || world.model === 'laboratory@3.5.0'
+            {world.model === 'laboratory@3.4.0' || isFirewallWorld(world)
               ? m.nicBoundary
               : e.boundary}
           </p>
@@ -136,6 +140,7 @@ export type LaboratoryPolicyResult = (
   | PolicyAnalysis
   | import('@/laboratory/v34/analysis').PolicyAnalysis
   | import('@/laboratory/v35/analysis').PolicyAnalysis
+  | import('@/laboratory/v36/analysis').PolicyAnalysis
 ) & { workspace: string };
 export function PolicyAnalysisView({
   snapshot,
@@ -193,7 +198,7 @@ export function PolicyAnalysisView({
   if (
     snapshot.world.model !== 'laboratory@3.3.0' &&
     snapshot.world.model !== 'laboratory@3.4.0' &&
-    snapshot.world.model !== 'laboratory@3.5.0'
+    !isFirewallWorld(snapshot.world)
   )
     return null;
   const world = snapshot.world,
@@ -246,8 +251,7 @@ export function PolicyAnalysisView({
       vnet = world.vnets.find((x) => x.id === subnet?.vnetId),
       group = world.groups.find((x) => x.id === nic?.groupId);
     if (!nic) return id;
-    const vm =
-      world.model === 'laboratory@3.5.0' ? world.vms.find((v) => v.nicId === nic.id) : undefined;
+    const vm = isFirewallWorld(world) ? world.vms.find((v) => v.nicId === nic.id) : undefined;
     return `${vm ? vm.name + ' / ' : ''}${nic.name} · ${nic.privateIpAddress} · ${group?.name ?? nic.groupId} / ${group?.subscriptionId ?? '—'} · ${vnet?.name ?? '—'} / ${subnet?.name ?? nic.subnetId} · ${nic.region} · ${nic.id}`;
   };
   const set = (key: keyof typeof input, value: string) => {
@@ -311,7 +315,7 @@ export function PolicyAnalysisView({
           <h2 tabIndex={-1} ref={heading}>
             {e.result}
           </h2>
-          {'firewallPath' in result && world.model === 'laboratory@3.5.0' ? (
+          {'firewallPath' in result && isFirewallWorld(world) ? (
             <FirewallPathDetails world={world} analysis={result} />
           ) : (
             <>

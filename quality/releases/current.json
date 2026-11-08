@@ -1,162 +1,174 @@
 {
   "schema": 1,
-  "id": "PR68-architecture-studio-A",
-  "baseCommit": "36f355c0a8262a1ed556d1bb473de54999094998",
-  "author": "pr68-studio-author",
+  "id": "PR69-security-remediation-A",
+  "baseCommit": "37f6083f09dda8fceae0ba78b80b2ac91874a9fd",
+  "author": "pr69-remediation-author",
   "scope": {
-    "kind": "read-only-laboratory-studio",
-    "description": "Live topology, scope/type filtering, resource inspection and existing server diagnostics in shared Portal; pure graph renderer reuse, zero new technical model/command/storage semantics.",
-    "objectives": ["LAB-STUDIO-A"]
+    "kind": "versioned-security-rule-lifecycle",
+    "description": "Four server-authoritative custom NSG/nested Firewall network rule Update/Delete operations in explicit3.6 workspaces; pinned shared Portal Review/Save/Delete, original before/after evidence and read-only Studio verification. No course or older-engine semantics. Existing explicit new-workspace entry opens empty3.6 for older sessions; deterministic new-epoch JSONB rejection diagnostics and strict empty-key rejection.",
+    "objectives": ["LAB-REMEDIATION-A"]
   },
   "sources": [
     {
-      "id": "hub-spoke",
-      "url": "https://learn.microsoft.com/en-us/azure/architecture/networking/architecture/hub-spoke",
-      "title": "hub-spoke \u2014 official Microsoft architecture guidance",
-      "reviewed": "2026-11-08T13:32:55.126659+00:00",
-      "version": "HTML SHA256 fcad68ea7d949db97fbe70938d088cdbd85c0705f6d80a79fdc18bf5ba8fab09; ms.date 2026-04-10T00:00:00Z",
+      "id": "nsg-manage",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group",
+      "title": "Create, Change, or Delete Azure Network Security Groups | Microsoft Learn",
+      "reviewed": "2026-11-08T17:41:22.091022+00:00",
+      "version": "HTML SHA256 c2bea3f66c244b52c12527fc13de39e13851225be60c1e999b827a085a236da0; ms.date 2025-07-26T00:00:00Z",
       "kind": "official-public-Microsoft-Learn",
-      "objectives": ["LAB-STUDIO-A"],
-      "claims": ["studio.topology", "studio.diagnostics"],
+      "objectives": ["LAB-REMEDIATION-A"],
+      "claims": ["rule.lifecycle", "rule.evidence"],
       "availability": "AVAILABLE",
-      "limits": "Read-only Studio over unchanged verified Laboratory3.0\u20133.5 and existing route/NSG/Firewall analyses; no World/SQL/command/course/XP semantics. Structural references are not traffic or universal architecture/security/compliance approval. URL-only display state is not ownership. Local PostgreSQL/CI only; public functional Lab owner-deferred503. Human SME/UX/screen-reader/learning/security validation unperformed. No external resources, secrets, migration, merge or production.",
+      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/architecture/networking/architecture/hub-spoke",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group",
           "disposition": "reviewed-scope",
-          "reason": "Actual public reference body retained/read with retrieval timestamps/selected response headers. Architecture context, not a new simulator evaluator."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
-          "disposition": "preserved-versioned-rule-contract",
-          "reason": "Existing3.2\u20133.5 route/NSG/Firewall engines and prior source evidence remain unchanged; no new Azure routing semantics or whole-library rediscovery."
+          "reason": "Actual dated response body/headers/hash retained. NSG custom/default identity and priority semantics; Firewall nested hierarchy and collection action/priority; existing supported expression subset retained."
         }
       ]
     },
     {
-      "id": "design-areas",
-      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-areas",
-      "title": "design-areas \u2014 official Microsoft architecture guidance",
-      "reviewed": "2026-11-08T13:32:55.386131+00:00",
-      "version": "HTML SHA256 44782bf3cde15637a2d1c05bac3aaf009d3bf9d253598ecec74e71a620811582; ms.date 2025-09-03T00:00:00Z",
+      "id": "nsg-overview",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview",
+      "title": "Azure network security groups overview | Microsoft Learn",
+      "reviewed": "2026-11-08T17:41:22.131351+00:00",
+      "version": "HTML SHA256 bc347ceb6bf037a4843546842ea366a982d01a703249ada01ae89144521a6753; ms.date 2025-07-15T00:00:00Z",
       "kind": "official-public-Microsoft-Learn",
-      "objectives": ["LAB-STUDIO-A"],
-      "claims": ["studio.topology", "studio.diagnostics"],
+      "objectives": ["LAB-REMEDIATION-A"],
+      "claims": ["rule.lifecycle", "rule.evidence"],
       "availability": "AVAILABLE",
-      "limits": "Read-only Studio over unchanged verified Laboratory3.0\u20133.5 and existing route/NSG/Firewall analyses; no World/SQL/command/course/XP semantics. Structural references are not traffic or universal architecture/security/compliance approval. URL-only display state is not ownership. Local PostgreSQL/CI only; public functional Lab owner-deferred503. Human SME/UX/screen-reader/learning/security validation unperformed. No external resources, secrets, migration, merge or production.",
+      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-areas",
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview",
           "disposition": "reviewed-scope",
-          "reason": "Actual public reference body retained/read with retrieval timestamps/selected response headers. Architecture context, not a new simulator evaluator."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
-          "disposition": "preserved-versioned-rule-contract",
-          "reason": "Existing3.2\u20133.5 route/NSG/Firewall engines and prior source evidence remain unchanged; no new Azure routing semantics or whole-library rediscovery."
+          "reason": "Actual dated response body/headers/hash retained. NSG custom/default identity and priority semantics; Firewall nested hierarchy and collection action/priority; existing supported expression subset retained."
         }
       ]
     },
     {
-      "id": "connectivity",
-      "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity",
-      "title": "connectivity \u2014 official Microsoft architecture guidance",
-      "reviewed": "2026-11-08T13:32:55.633900+00:00",
-      "version": "HTML SHA256 27a4e67be7f8b6a1c95fb58db0217b03b7ab6544c361164eb8ec7fa3f02fbd38; ms.date 2025-12-19T00:00:00Z",
+      "id": "firewall-policy",
+      "url": "https://learn.microsoft.com/en-us/azure/firewall/policy-rule-sets",
+      "title": "Azure Firewall policy rule sets | Microsoft Learn",
+      "reviewed": "2026-11-08T17:41:22.108139+00:00",
+      "version": "HTML SHA256 25f0a1b43174ef201f9a2ec7725370896615f1325046c31b67c5190345ed86f9; ms.date 2026-03-28T00:00:00Z",
       "kind": "official-public-Microsoft-Learn",
-      "objectives": ["LAB-STUDIO-A"],
-      "claims": ["studio.topology", "studio.diagnostics"],
+      "objectives": ["LAB-REMEDIATION-A"],
+      "claims": ["rule.lifecycle", "rule.evidence"],
       "availability": "AVAILABLE",
-      "limits": "Read-only Studio over unchanged verified Laboratory3.0\u20133.5 and existing route/NSG/Firewall analyses; no World/SQL/command/course/XP semantics. Structural references are not traffic or universal architecture/security/compliance approval. URL-only display state is not ownership. Local PostgreSQL/CI only; public functional Lab owner-deferred503. Human SME/UX/screen-reader/learning/security validation unperformed. No external resources, secrets, migration, merge or production.",
+      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/network-topology-and-connectivity",
+          "url": "https://learn.microsoft.com/en-us/azure/firewall/policy-rule-sets",
           "disposition": "reviewed-scope",
-          "reason": "Actual public reference body retained/read with retrieval timestamps/selected response headers. Architecture context, not a new simulator evaluator."
-        },
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
-          "disposition": "preserved-versioned-rule-contract",
-          "reason": "Existing3.2\u20133.5 route/NSG/Firewall engines and prior source evidence remain unchanged; no new Azure routing semantics or whole-library rediscovery."
+          "reason": "Actual dated response body/headers/hash retained. NSG custom/default identity and priority semantics; Firewall nested hierarchy and collection action/priority; existing supported expression subset retained."
         }
       ]
     },
     {
-      "id": "well-architected",
-      "url": "https://learn.microsoft.com/en-us/azure/well-architected/",
-      "title": "well-architected \u2014 official Microsoft architecture guidance",
-      "reviewed": "2026-11-08T13:32:55.943543+00:00",
-      "version": "HTML SHA256 52a797a0cca81de86fb2d3aa0d9b8f0541cabd831294272caed92c43454eb63e; ms.date 2026-09-11T00:00:00Z",
+      "id": "firewall-processing",
+      "url": "https://learn.microsoft.com/en-us/azure/firewall/rule-processing",
+      "title": "Azure Firewall rule processing logic | Microsoft Learn",
+      "reviewed": "2026-11-08T17:41:22.173904+00:00",
+      "version": "HTML SHA256 0ac86d6d10fdaeb60dd55acd0889ac3668a7377848751fe3f346f20273ae82b1; ms.date 2026-03-23T00:00:00Z",
       "kind": "official-public-Microsoft-Learn",
-      "objectives": ["LAB-STUDIO-A"],
-      "claims": ["studio.topology", "studio.diagnostics"],
+      "objectives": ["LAB-REMEDIATION-A"],
+      "claims": ["rule.lifecycle", "rule.evidence"],
       "availability": "AVAILABLE",
-      "limits": "Read-only Studio over unchanged verified Laboratory3.0\u20133.5 and existing route/NSG/Firewall analyses; no World/SQL/command/course/XP semantics. Structural references are not traffic or universal architecture/security/compliance approval. URL-only display state is not ownership. Local PostgreSQL/CI only; public functional Lab owner-deferred503. Human SME/UX/screen-reader/learning/security validation unperformed. No external resources, secrets, migration, merge or production.",
+      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/well-architected/",
+          "url": "https://learn.microsoft.com/en-us/azure/firewall/rule-processing",
           "disposition": "reviewed-scope",
-          "reason": "Actual public reference body retained/read with retrieval timestamps/selected response headers. Architecture context, not a new simulator evaluator."
-        },
+          "reason": "Actual dated response body/headers/hash retained. NSG custom/default identity and priority semantics; Firewall nested hierarchy and collection action/priority; existing supported expression subset retained."
+        }
+      ]
+    },
+    {
+      "id": "firewall-arm",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/firewallpolicies/rulecollectiongroups",
+      "title": "Microsoft.Network/firewallPolicies/ruleCollectionGroups - Bicep, ARM template & Terraform AzAPI reference | Microsoft Learn",
+      "reviewed": "2026-11-08T17:41:22.114587+00:00",
+      "version": "HTML SHA256 527dd817792ae17707ab1633acde700928f7bc1379d00df4e440facfc74883e1; ms.date 2024-12-09T00:00:00Z",
+      "kind": "official-public-Microsoft-Learn",
+      "objectives": ["LAB-REMEDIATION-A"],
+      "claims": ["rule.lifecycle", "rule.evidence"],
+      "availability": "AVAILABLE",
+      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production.",
+      "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
-          "disposition": "preserved-versioned-rule-contract",
-          "reason": "Existing3.2\u20133.5 route/NSG/Firewall engines and prior source evidence remain unchanged; no new Azure routing semantics or whole-library rediscovery."
+          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/firewallpolicies/rulecollectiongroups",
+          "disposition": "reviewed-scope",
+          "reason": "Actual dated response body/headers/hash retained. NSG custom/default identity and priority semantics; Firewall nested hierarchy and collection action/priority; existing supported expression subset retained."
+        }
+      ]
+    },
+    {
+      "id": "nsg-arm",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/networksecuritygroups/securityrules",
+      "title": "Microsoft.Network/networkSecurityGroups/securityRules - Bicep, ARM template & Terraform AzAPI reference | Microsoft Learn",
+      "reviewed": "2026-11-08T17:41:22.278598+00:00",
+      "version": "HTML SHA256 0aa553afc25939a956aa6b9446bda072f49ede72adbd29a279e848a4a55e2655; ms.date 2024-12-09T00:00:00Z",
+      "kind": "official-public-Microsoft-Learn",
+      "objectives": ["LAB-REMEDIATION-A"],
+      "claims": ["rule.lifecycle", "rule.evidence"],
+      "availability": "AVAILABLE",
+      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.network/networksecuritygroups/securityrules",
+          "disposition": "reviewed-scope",
+          "reason": "Actual dated response body/headers/hash retained. NSG custom/default identity and priority semantics; Firewall nested hierarchy and collection action/priority; existing supported expression subset retained."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "PR68-studio-A",
-      "objectives": ["LAB-STUDIO-A"],
-      "claims": ["studio.topology", "studio.diagnostics"],
+      "id": "PR69-security-remediation-A",
+      "objectives": ["LAB-REMEDIATION-A"],
+      "claims": ["rule.lifecycle", "rule.evidence"],
       "assessmentStatus": "unchanged-existing",
-      "limits": "Read-only Studio over unchanged verified Laboratory3.0\u20133.5 and existing route/NSG/Firewall analyses; no World/SQL/command/course/XP semantics. Structural references are not traffic or universal architecture/security/compliance approval. URL-only display state is not ownership. Local PostgreSQL/CI only; public functional Lab owner-deferred503. Human SME/UX/screen-reader/learning/security validation unperformed. No external resources, secrets, migration, merge or production.",
+      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production.",
       "theory": [
         {
-          "path": "docs/ARCHITECTURE_STUDIO_PART_A.md"
+          "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
         }
       ],
       "mechanism": [
         {
-          "path": "src/features/laboratory/studio-model.ts"
-        },
-        {
-          "path": "src/features/portal/architecture-graph.tsx"
+          "path": "src/laboratory/v36/domain.ts"
         }
       ],
       "practice": [
         {
-          "path": "tests/e2e/laboratory-studio.spec.ts"
+          "path": "tests/e2e/laboratory-remediation.spec.ts"
         }
       ],
       "feedback": [
         {
-          "path": "src/features/laboratory/endpoints.tsx"
-        },
-        {
-          "path": "src/features/laboratory/studio.tsx"
+          "path": "src/features/laboratory/rule-lifecycle.tsx"
         }
       ],
       "visual": [
         {
-          "path": "src/features/laboratory/studio.css"
+          "path": "src/features/laboratory/rule-lifecycle.css"
         }
       ],
       "accessible": [
         {
-          "path": "tests/e2e/laboratory-studio.spec.ts"
+          "path": "tests/e2e/laboratory-remediation.spec.ts"
         }
       ],
       "assessment": [
         {
-          "path": "src/laboratory-studio-preservation.test.ts"
+          "path": "src/laboratory-remediation-preservation.test.ts"
         }
       ],
       "savvyshark": [
         {
-          "path": "src/laboratory-studio-preservation.test.ts"
+          "path": "src/laboratory-remediation-preservation.test.ts"
         }
       ]
     }
@@ -164,8 +176,14 @@
   "modules": [],
   "preservedPaths": [
     "src/domain/",
-    "src/laboratory/",
-    "database/",
+    "src/laboratory/v3/domain.ts",
+    "src/laboratory/v3/contract.ts",
+    "src/laboratory/v3/repository.ts",
+    "src/laboratory/v31/",
+    "src/laboratory/v32/",
+    "src/laboratory/v33/",
+    "src/laboratory/v34/",
+    "src/laboratory/v35/",
     "public/",
     "package.json",
     "package-lock.json",
@@ -173,12 +191,9 @@
     "src/features/course/",
     "src/features/learning/",
     "src/features/landing/",
-    "src/features/portal/portal.tsx",
-    "src/features/portal/presentation.tsx",
-    "src/features/portal/portal.css",
-    "docs/reviews/evidence/pr67/",
-    "docs/quality/PR67",
-    "tests/e2e/premium-landing.spec.ts",
+    "src/features/portal/",
+    "docs/reviews/evidence/pr68/",
+    "docs/quality/PR68",
     ".github/",
     "playwright.config.ts"
   ],
@@ -186,79 +201,76 @@
     "source": {
       "checks": [
         {
-          "path": "docs/ARCHITECTURE_STUDIO_PART_A.md"
+          "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
         },
         {
-          "path": "docs/reviews/evidence/pr68/verification.json"
-        },
-        {
-          "path": "docs/reviews/evidence/pr68/sources/fetch.json"
+          "path": "docs/reviews/evidence/pr69/verification.json"
         }
       ],
-      "limits": "Read-only Studio over unchanged verified Laboratory3.0\u20133.5 and existing route/NSG/Firewall analyses; no World/SQL/command/course/XP semantics. Structural references are not traffic or universal architecture/security/compliance approval. URL-only display state is not ownership. Local PostgreSQL/CI only; public functional Lab owner-deferred503. Human SME/UX/screen-reader/learning/security validation unperformed. No external resources, secrets, migration, merge or production."
+      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production."
     },
     "curriculum": {
       "checks": [
         {
-          "path": "docs/ARCHITECTURE_STUDIO_PART_A.md"
+          "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
         },
         {
-          "path": "docs/reviews/evidence/pr68/verification.json"
+          "path": "docs/reviews/evidence/pr69/verification.json"
         }
       ],
-      "limits": "Read-only Studio over unchanged verified Laboratory3.0\u20133.5 and existing route/NSG/Firewall analyses; no World/SQL/command/course/XP semantics. Structural references are not traffic or universal architecture/security/compliance approval. URL-only display state is not ownership. Local PostgreSQL/CI only; public functional Lab owner-deferred503. Human SME/UX/screen-reader/learning/security validation unperformed. No external resources, secrets, migration, merge or production."
+      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production."
     },
     "simulation": {
       "checks": [
         {
-          "path": "docs/ARCHITECTURE_STUDIO_PART_A.md"
+          "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
         },
         {
-          "path": "docs/reviews/evidence/pr68/verification.json"
+          "path": "docs/reviews/evidence/pr69/verification.json"
         }
       ],
-      "limits": "Read-only Studio over unchanged verified Laboratory3.0\u20133.5 and existing route/NSG/Firewall analyses; no World/SQL/command/course/XP semantics. Structural references are not traffic or universal architecture/security/compliance approval. URL-only display state is not ownership. Local PostgreSQL/CI only; public functional Lab owner-deferred503. Human SME/UX/screen-reader/learning/security validation unperformed. No external resources, secrets, migration, merge or production."
+      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production."
     },
     "savvyshark": {
       "checks": [
         {
-          "path": "docs/ARCHITECTURE_STUDIO_PART_A.md"
+          "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
         },
         {
-          "path": "docs/reviews/evidence/pr68/verification.json"
+          "path": "docs/reviews/evidence/pr69/verification.json"
         }
       ],
-      "limits": "Read-only Studio over unchanged verified Laboratory3.0\u20133.5 and existing route/NSG/Firewall analyses; no World/SQL/command/course/XP semantics. Structural references are not traffic or universal architecture/security/compliance approval. URL-only display state is not ownership. Local PostgreSQL/CI only; public functional Lab owner-deferred503. Human SME/UX/screen-reader/learning/security validation unperformed. No external resources, secrets, migration, merge or production."
+      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production."
     },
     "visual-accessibility": {
       "checks": [
         {
-          "path": "docs/ARCHITECTURE_STUDIO_PART_A.md"
+          "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
         },
         {
-          "path": "docs/reviews/evidence/pr68/verification.json"
+          "path": "docs/reviews/evidence/pr69/verification.json"
         }
       ],
-      "limits": "Read-only Studio over unchanged verified Laboratory3.0\u20133.5 and existing route/NSG/Firewall analyses; no World/SQL/command/course/XP semantics. Structural references are not traffic or universal architecture/security/compliance approval. URL-only display state is not ownership. Local PostgreSQL/CI only; public functional Lab owner-deferred503. Human SME/UX/screen-reader/learning/security validation unperformed. No external resources, secrets, migration, merge or production."
+      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production."
     },
     "independent-final-audit": {
       "checks": [
         {
-          "path": "docs/quality/PR68_FINAL_AUDIT.md"
+          "path": "docs/quality/PR69_FINAL_AUDIT.md"
         }
       ],
-      "limits": "Read-only Studio over unchanged verified Laboratory3.0\u20133.5 and existing route/NSG/Firewall analyses; no World/SQL/command/course/XP semantics. Structural references are not traffic or universal architecture/security/compliance approval. URL-only display state is not ownership. Local PostgreSQL/CI only; public functional Lab owner-deferred503. Human SME/UX/screen-reader/learning/security validation unperformed. No external resources, secrets, migration, merge or production."
+      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production."
     },
     "delivery": {
       "checks": [
         {
-          "path": "docs/ARCHITECTURE_STUDIO_PART_A.md"
+          "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
         },
         {
-          "path": "docs/reviews/evidence/pr68/verification.json"
+          "path": "docs/reviews/evidence/pr69/verification.json"
         }
       ],
-      "limits": "Read-only Studio over unchanged verified Laboratory3.0\u20133.5 and existing route/NSG/Firewall analyses; no World/SQL/command/course/XP semantics. Structural references are not traffic or universal architecture/security/compliance approval. URL-only display state is not ownership. Local PostgreSQL/CI only; public functional Lab owner-deferred503. Human SME/UX/screen-reader/learning/security validation unperformed. No external resources, secrets, migration, merge or production."
+      "limits": "Explicit new laboratory3.6 only; old3.0–3.5 engines/events/receipts and AZ-900/v2 authorities preserved. Four custom-rule lifecycle commands; immutable name/parent/Create-origin, full original validators, no collection action/priority editing. Existing limited literal rule and three-valued service-tag analyses only; no real traffic/VM runtime/security/compliance or human approval. Local PostgreSQL/isolatedCI; public functional Lab remains owner-deferred503. No external infrastructure, credentials, migration, merge or production."
     }
   },
   "humanReview": {
@@ -270,303 +282,379 @@
   },
   "visualEvidence": [
     {
-      "path": "docs/reviews/evidence/pr68/screens/studio-hub-topology.png",
+      "path": "docs/reviews/evidence/pr69/screens/remediation-review-1440-900.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual hub graph and selected VM scope/relationships/Properties/receipt in shared Portal. Overview requires focus/zoom for labels."
+      "observation": "Actual shared Portal modal with pinned identity/scope/model/revision, server Before/After, only supported fields and explicit Save; no duplicated editor in accepted Review."
     },
     {
-      "path": "docs/reviews/evidence/pr68/screens/studio-capacity-1440-900.png",
-      "viewport": "1440x900",
-      "inspected": true,
-      "observation": "96 actual resources + used subscription; selected VM focused at readable scale, full semantic list,97 nonzero nonoverlapping node boxes."
-    },
-    {
-      "path": "docs/reviews/evidence/pr68/screens/studio-capacity-1024-768.png",
+      "path": "docs/reviews/evidence/pr69/screens/remediation-review-1024-768.png",
       "viewport": "1024x768",
       "inspected": true,
-      "observation": "Compact shared shell; graph pan/zoom/focus readable VM, details via normal vertical scroll; no horizontal page overflow."
+      "observation": "Same actual Review; normal vertical inner scroll retains all rows and pinned Save/Cancel, no horizontal page overflow."
     },
     {
-      "path": "docs/reviews/evidence/pr68/screens/studio-capacity-1024-500.png",
+      "path": "docs/reviews/evidence/pr69/screens/remediation-review-1024-500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Short-window graph begins at310px; selected resource visible without manual placement; details below via vertical scroll. Full overview is dense, not all labels simultaneously readable."
+      "observation": "Short-window identity and Review use vertical modal scroll; Save remains in viewport. No claim that all scope and comparison rows fit simultaneously."
     },
     {
-      "path": "docs/reviews/evidence/pr68/screens/studio-missing-forwarding.png",
-      "viewport": "1440x900 full page",
+      "path": "docs/reviews/evidence/pr69/screens/remediation-delete-confirmation-1024-500.png",
+      "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual server reason identifies destination receiving peering missing forwarded traffic despite Firewall Allow."
+      "observation": "Native checked confirmation explicitly names target ID/name; removal comparison and Delete/Cancel remain reachable."
     },
     {
-      "path": "docs/reviews/evidence/pr68/screens/studio-nsg-conflict.png",
-      "viewport": "1440x900 full page",
+      "path": "docs/reviews/evidence/pr69/screens/nsg-before-broad-studio.png",
+      "viewport": "1440x960",
       "inspected": true,
-      "observation": "Actual Firewall app-sql Allow and actual deny-sql NSG priority100 Deny shown distinctly; no VM/runtime/traffic success claim."
+      "observation": "Actual modeled broad3389 policy result before narrowing; resource/observation references come from server-verified World."
+    },
+    {
+      "path": "docs/reviews/evidence/pr69/screens/nsg-review-diff.png",
+      "viewport": "1440x960",
+      "inspected": true,
+      "observation": "Actual server-validated wildcard to specific source/destination/TCP1433 difference, pinned same rule ID/parent."
+    },
+    {
+      "path": "docs/reviews/evidence/pr69/screens/firewall-before-broad-analysis.png",
+      "viewport": "1440x960",
+      "inspected": true,
+      "observation": "Actual broad3389 network policy Allow names app-sql/allow-data and explicitly disclaims real packets/VM runtime."
+    },
+    {
+      "path": "docs/reviews/evidence/pr69/screens/firewall-after-delete-analysis.png",
+      "viewport": "1440x960",
+      "inspected": true,
+      "observation": "Original rule removed, remaining SQL rule/default deny evaluated by frozen engine; actual revision shown, no connection-success claim."
     }
   ],
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "989 Vitest/83files incl actual local PostgreSQL,24Node,503curriculum,57objectives126facets; all checks/build exit0. docs/reviews/evidence/pr68/checks/full-check-studio-final.log.raw; separate original PG5000ms timeout retained/open."
-    },
-    {
-      "command": "targeted native Studio production-browser tests",
-      "result": "passed",
-      "details": "6/6 (5desktop+1compact), no retry/skip, actual localPG,97nodes/keyboard/Axe/reducedmotion/threeviewports, inspectionzeroWrite/snapshotcorruption/old3.0/reset; native-final.log.raw. Extra originalv2UI practical-labs journey passed in earlier7/7 mixed batch, renderer unchanged since."
+      "details": "Corrected candidate actual exit0:1042Vitest/86files,24Node,503curriculum,57objectives/126facets; all checks and production build. qa/check-renewal-final.log.raw"
     },
     {
       "command": "npm run test:e2e:plan",
       "result": "passed",
-      "details": "441planned=396desktop45compact;435inherited/assertions/settings unchanged. Collection is not full candidate execution."
+      "details": "402desktop+46compact=448; retains441 inherited witnesses/assertions/settings. Collection is not a full-profile execution claim. qa/plan-renewed.log.raw"
+    },
+    {
+      "command": "npx vitest run src/laboratory-remediation.test.ts src/laboratory-remediation.integration.test.ts src/laboratory-remediation-preservation.test.ts",
+      "result": "passed",
+      "details": "53/53 actual:34pure+16realPG+3directguard. Multiple unsupported fields/permutations and empty keys on all4 operations, canonical inherited malformed command, unchanged World/read/replay/idempotency. qa/strict-input-targeted.log.raw"
+    },
+    {
+      "command": "npx playwright test --config playwright.desktop.config.ts tests/e2e/laboratory-remediation.spec.ts",
+      "result": "passed",
+      "details": "Corrected production build + real localPG:6desktop+1compact=7/7,41.0s,zero retry. Actual NSG/FW Edit/Delete, Studio before/after, stale native Save409, histories/reset/error, explicit3.5→empty3.6/no migration, keyboard/focus/Axe/reduced motion/3sizes. Targeted, not full448-case CI. qa/browser-renewal.log.raw"
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "a6c9d48a0bc324a2adde408fde317dae782ae813a97468d9296ea7e051fdd3cf",
+    "fingerprint": "11489ef1e18a8fbcd8338c20e31cd0c0c76023ab8eda38d6af9f4adeb38a1ced",
     "reviewer": {
-      "id": "pr68-final-independent-auditor",
+      "id": "pr69-independent-final-auditor",
       "kind": "agent"
     },
-    "started": "2026-11-08T14:23:29.141Z",
+    "started": "2026-11-08T19:10:06.348Z",
     "domains": {
       "content": {
-        "finding": "Accepted read-only content scope after reading actual Studio copy, remediation/scenario boundaries and retained Microsoft bodies. No universal Firewall, traffic, compliance, score or new curriculum claim; no fresh external retrieval by reviewer.",
+        "finding": "Accepted within the documented literal-rule subset: independently read six official retained bodies/provenance and checked source/image/manifest hashes; hierarchy, custom/default identity, priorities and runtime limits agree. No live-tenant parity claim.",
         "evidence": [
           {
-            "path": "docs/ARCHITECTURE_STUDIO_PART_A.md"
+            "path": "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md"
           },
           {
-            "path": "docs/LABORATORY_REMEDIATION_CAPABILITIES.md"
+            "path": "docs/reviews/evidence/pr69/sources/fetch.json"
           },
           {
-            "path": "docs/LABORATORY_SCENARIO_CONTRACT_PROPOSAL.md"
-          },
-          {
-            "path": "docs/reviews/evidence/pr68/sources/fetch.json"
-          },
-          {
-            "path": "src/content/architecture-studio-nb.ts"
+            "path": "docs/quality/PR69_FINAL_AUDIT.md"
           }
         ]
       },
       "technical": {
-        "finding": "Accepted. Actual IDs and workspace/model/revision bind derived topology; cross-RG NIC membership and subnet relation independently exercised with real PostgreSQL. Existing GET policy analysis reused; references are not packet hops. Foreign-session409, all six historical models/through/reset, corrupt-history503, revision invalidation and no inspection writes passed.",
+        "finding": "Accepted after deterministic JSONB and empty-key corrections, independently reproduced then retested. Stable identity/origin, full frozen-validator reuse, immutable receipts, verified history, exact parents and original repository semantics verified by actual PG and adversarial cases. Frozen historical limitation disclosed separately.",
         "evidence": [
           {
-            "path": "src/features/laboratory/studio-model.ts"
+            "path": "src/laboratory/v36/domain.ts"
           },
           {
-            "path": "src/features/laboratory/studio.tsx"
+            "path": "src/laboratory/v36/analysis.ts"
           },
           {
-            "path": "src/features/laboratory/endpoints.tsx"
+            "path": "src/laboratory-remediation.integration.test.ts"
           },
           {
-            "path": "src/laboratory-studio.integration.test.ts"
-          },
-          {
-            "path": "tests/e2e/laboratory-studio.spec.ts"
-          },
-          {
-            "path": "docs/quality/PR68_FINAL_AUDIT.md"
+            "path": "docs/quality/PR69_FINAL_AUDIT.md"
           }
         ]
       },
       "visual": {
-        "finding": "Accepted with disclosed full-overview density. Personally inspected final author PNGs and fresh production captures;97 actual nonzero node boxes have zero overlaps in retained and fresh measurements. Focus/filter/list/keyboard/Axe/reduced-motion/short-window controls passed; own1920/1366 captures inspected. No human UX or screen-reader approval.",
+        "finding": "Inspected actual author PNGs and fresh reviewer production captures at1366x768/1024x500. Review replaces fields, Back restores draft/focus, sticky actions and actual Delete checkbox remain usable with normal vertical scroll; Axe/keyboard/reduced-motion/overflow probes pass. No human UX/screen-reader approval.",
         "evidence": [
           {
-            "path": "docs/reviews/evidence/pr68/screens/studio-capacity-1440-900.png"
+            "path": "src/features/laboratory/rule-lifecycle.tsx"
           },
           {
-            "path": "docs/reviews/evidence/pr68/screens/studio-capacity-1024-768.png"
+            "path": "src/features/laboratory/rule-lifecycle.css"
           },
           {
-            "path": "docs/reviews/evidence/pr68/screens/studio-capacity-1024-500.png"
+            "path": "docs/quality/PR69_VISUAL_REVIEW.md"
           },
           {
-            "path": "docs/reviews/evidence/pr68/screens/studio-node-bounds.json"
+            "path": "docs/reviews/evidence/pr69/screens/remediation-delete-confirmation-1024-500.png"
           },
           {
-            "path": "tests/e2e/laboratory-studio.spec.ts"
-          },
-          {
-            "path": "docs/quality/PR68_FINAL_AUDIT.md"
+            "path": "docs/quality/PR69_FINAL_AUDIT.md"
           }
         ]
       },
       "assessment": {
-        "finding": "Unchanged assessment accepted through direct byte preservation and actual no-write inspection. No new bank/rubric/attempt/score/completion/XP. Bounded observations remain contextual; future scenarios explicitly unimplemented. New blind bank review is not applicable; human measurement unperformed.",
+        "finding": "No course assessment/rubric/assistance/Journal/XP/SavvyShark authority change. Actual2400-file base guard and finite proof preserve bytes; technical remediation evidence grants no learning credit and introduces no answer bank.",
         "evidence": [
           {
-            "path": "src/features/laboratory/studio-model.ts"
+            "path": "src/laboratory-remediation-preservation.test.ts"
           },
           {
-            "path": "src/content/architecture-studio-nb.ts"
+            "path": "tests/pr69-preservation.ts"
           },
           {
-            "path": "src/laboratory-studio-preservation.test.ts"
+            "path": "docs/reviews/evidence/pr69/preservation.json"
           },
           {
-            "path": "docs/LABORATORY_SCENARIO_CONTRACT_PROPOSAL.md"
-          },
-          {
-            "path": "docs/quality/PR68_FINAL_AUDIT.md"
+            "path": "docs/quality/PR69_FINAL_AUDIT.md"
           }
         ]
       },
       "guidance": {
-        "finding": "Accepted unchanged course guidance and neutral free-Lab inspection. Pure shared renderer has no providers/persistence/commands; entire original ArchitectureExplorer controller preserved outside rendering. Independent original VM/app/SaaS/debrief/resume production journey passed.",
+        "finding": "Read-only Studio observation to exact resource/shared Portal Edit and return remains explicit; revisions invalidate analysis and deletes remove active nodes. Independent native old3.5 confirmation/cancel/new-empty3.6 proves no migration, original-history and course-storage preservation. Existing older workspaces stay create-only.",
         "evidence": [
           {
-            "path": "src/features/portal/architecture-graph.tsx"
+            "path": "src/features/laboratory/laboratory.tsx"
           },
           {
-            "path": "src/features/portal/architecture.tsx"
+            "path": "src/features/laboratory/studio-model.ts"
           },
           {
-            "path": "src/laboratory-studio-preservation.test.ts"
+            "path": "src/content/laboratory-remediation-nb.ts"
           },
           {
-            "path": "tests/e2e/practical-labs.spec.ts"
+            "path": "tests/e2e/laboratory-remediation.spec.ts"
           },
           {
-            "path": "docs/quality/PR68_FINAL_AUDIT.md"
+            "path": "docs/quality/PR69_FINAL_AUDIT.md"
           }
         ]
       },
       "regression": {
-        "finding": "Accepted scoped implementation only; full candidate CI pending. Independent direct filesystem comparison found2327 preserved base files and zero unexpected deltas outside12 reviewed existing paths; finite historical-reader imports and exact original bodies inspected. Reviewer21 units/PG,6 native Studio,1 original-course journey and independent cross-RG/receipt probe pass. Plan441 retains435 and all settings/assertions. Original QA causes remain open.",
+        "finding": "Read actual diff and finite historical reader plus actual filesystem guard. Frozen engines/SQL001–006/course/PR68 bytes and441 original browser assertions/settings preserved. Own53 domain/PG/guard,8 adversarial,3 native and448-plan checks pass; author full check inspected. Full448 candidate CI/strict and deployed SHA/503 remain pending; inherited QA/timing issues remain open.",
         "evidence": [
           {
-            "path": "src/laboratory-studio-preservation.test.ts"
+            "path": "src/laboratory-remediation-preservation.test.ts"
           },
           {
-            "path": "tests/pr68-preservation.ts"
+            "path": "tests/pr69-preservation.ts"
           },
           {
-            "path": "docs/reviews/evidence/pr68/preservation.json"
+            "path": "docs/reviews/evidence/pr69/preservation.json"
           },
           {
             "path": "playwright.desktop.config.ts"
           },
           {
-            "path": "docs/reviews/evidence/pr68/qa/original-pr67-ci108-attempt2.log.raw"
+            "path": "docs/reviews/evidence/pr69/qa/check-renewal-final.log.raw"
           },
           {
-            "path": "docs/reviews/evidence/pr68/qa/full-check-final.log.raw"
-          },
-          {
-            "path": "docs/quality/PR68_FINAL_AUDIT.md"
+            "path": "docs/quality/PR69_FINAL_AUDIT.md"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR68-N01",
-        "severity": "note",
-        "status": "open",
-        "description": "Complete exact-head441-case CI, candidate-bound browser receipt and strict release remain required pending delivery gates; local targeted/collection results do not replace them."
+        "id": "PR69-AUDIT-01",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Incoming unsupported-key order differed from PostgreSQL JSONB replay, making a rejected new3.6 command corrupt verified history.",
+        "fix": "New v36 sorts unsupported keys and privately canonicalizes inherited command evaluation in new3.6 without mutating the original Request or frozen older executors/receipts.",
+        "retests": [
+          "Original reviewer actual-PG reproducer now passes; reviewer8/8 adversarial and actual HTTP negative preserve World/readability.",
+          "53/53 domain/PG/preservation cases include both key orders on all four new operations and inherited CreateGroup; valid inherited fixture parity and original Request nonmutation independently pass."
+        ]
       },
       {
-        "id": "PR68-N02",
-        "severity": "note",
-        "status": "open",
-        "description": "Anonymous deployed full-SHA/root journey not verified here. Public functional Laboratory remains owner-approved database-unavailable503. All human SME/UX/screen-reader/learning/psychometric reviews remain unperformed."
+        "id": "PR69-AUDIT-02",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Existing new-workspace dialog promised3.5 while server created3.6;3.5 lacked the existing entry.",
+        "fix": "Accurate remediation-local new-empty3.6 copy and existing explicit newWorkspace path at existing groups/services location for all older models; frozen content untouched.",
+        "retests": [
+          "Independent renewed native3/3 includes old3.5 read-only rule, cancel/no mutation, explicit empty3.6 creation, byte-equivalent original owned3.5 history and unchanged course local storage."
+        ]
       },
       {
-        "id": "PR68-N03",
-        "severity": "note",
-        "status": "open",
-        "description": "Original landing/resume duplicate-shell failure is real but not reproduced/causally diagnosed by12 local probes. Older VM/Compute-help-Back/Axe-title/new-tab/35-minute CI-budget uncertainties remain open. Unchanged5000ms PG migration timeout recovered in targeted/full runs; zero sampled lock waits do not establish cause. No suppression by settings/assertion changes."
+        "id": "PR69-AUDIT-03",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Unsupported empty property name was parser-admitted and skipped by a truthiness guard, accepting Delete.",
+        "fix": "New v36 uses !== undefined for unsupported-key guard and explicit field metadata; frozen parser unchanged.",
+        "retests": [
+          "Independent original actual-PG and HTTP empty-key Delete now reject with unchanged configuration/readable history.",
+          "53/53 domain/PG/preservation cases include complete parser-admitted shapes for all four operations with rejection/unchanged World/replay/idempotency."
+        ]
       },
       {
-        "id": "PR68-N04",
+        "id": "PR69-N01",
+        "severity": "note",
+        "status": "open",
+        "description": "Exact-head full448-case candidate CI and candidate-bound browser receipt/strict release remain pending. Local targeted runs and collection plan are not full-profile execution."
+      },
+      {
+        "id": "PR69-N02",
+        "severity": "note",
+        "status": "open",
+        "description": "Anonymous deployed full-SHA root and deliberate Laboratory503 remain pending delivery; public functional Laboratory is unconfigured. Human SME/security/learning/UX/screen-reader reviews remain unperformed."
+      },
+      {
+        "id": "PR69-N03",
+        "severity": "note",
+        "status": "open",
+        "description": "Inherited landing/resume duplicate-shell, Compute/Axe/PG, near-capacity timing and35-minute CI-budget uncertainties remain open. Isolated base/current passes do not establish cause or repair."
+      },
+      {
+        "id": "PR69-N04",
         "severity": "note",
         "status": "accepted-limitation",
-        "description": "Full topology overview is dense with small labels/crossing edges. Actual focus, filters and complete semantic lists provide usable inspection without moving nodes; simultaneous full-graph label readability and human usability are not claimed."
+        "description": "Actual owned frozen3.5 malformed CreateGroup priority/action rejection still makes current/through0 reads unverifiable-history503. Older executors/receipts are explicitly frozen; the new3.6 correction is not retrospective recovery. Ordinary3.5 history preservation is separately verified."
       }
     ],
     "report": {
-      "path": "docs/quality/PR68_FINAL_AUDIT.md"
+      "path": "docs/quality/PR69_FINAL_AUDIT.md"
     }
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "62be364f3ab59fd6cfc43394d8a83acc555c7ff71fb8e73d2377e8528fb6dd32",
-      "docs/ARCHITECTURE.md": "33d3a5f2faf963d7761b00c44823b1a583f6e6b4678a6455b8d73c123faacb25",
-      "docs/ARCHITECTURE_STUDIO_PART_A.md": "77359a9b8065f43ecec7328cbaffb12f9a18b0777eb79d8cb382231d259c1a88",
-      "docs/DECISIONS.md": "7de9edaab7fc26aed3def154623bc7cbdfee9c4860df236646edd4a31a515411",
-      "docs/LABORATORY_REMEDIATION_CAPABILITIES.md": "af02e8947909f05f5ea8d1e25aad39fd79eff3ae8b440f718110dfdcb66160f8",
-      "docs/LABORATORY_SCENARIO_CONTRACT_PROPOSAL.md": "791bb61ff8fdd430ea2978e84b386d874335362b43eefceba1ed4f52956451f8",
-      "docs/PORTAL_CAPABILITY_MATRIX.md": "4ac5df12ab837e1ebd964c83d9333acca6176ac1efd81bc36674fadfc594ac0c",
-      "docs/reviews/evidence/pr68/.gitattributes": "790f5f7d9cddfcf9839093868d537bef7e7734e7b65213ed2db612c4d0da2f8d",
-      "docs/reviews/evidence/pr68/artifact-manifest.json": "a30367ef326ff6f9f471bb2691a4578a9df123ec736047c4b81779d83a2c8dda",
-      "docs/reviews/evidence/pr68/baseline-release-pr67.json.raw": "d823c70a461823cf68417723c154c5b77cf5e3cf73b3b7095f07ae0c07040499",
-      "docs/reviews/evidence/pr68/checks/full-check-studio-final.log.raw": "1d9ebc81b0c2daab3d0daa5847595067bc32601d8a987c1f3909def878e5f9ca",
-      "docs/reviews/evidence/pr68/checks/native-final.log.raw": "d083a3f73e7539131e231b1996b2e6eca90f7a94a4b557840cd2a5b06efe51ff",
-      "docs/reviews/evidence/pr68/checks/native-layout-fixed.log.raw": "6368fb80f54f3039964b4980d8b427cd41d79a27b71d00641dfe28858bc49b0b",
-      "docs/reviews/evidence/pr68/checks/pg-timeout-targeted.log.raw": "247c87f14cb847518968c1306a48b9bcb9583823a7833b3c20a2e17745993435",
-      "docs/reviews/evidence/pr68/checks/plan.log.raw": "faed5267f830efccc755a37cfeea226e5e5c6ab33c182ce546a678181d60884b",
-      "docs/reviews/evidence/pr68/checks/targeted-layout.log.raw": "ae81e5c12ff5deb91b9b47ede1d369afaee90f3de00a56b7ebe68399c178ff4e",
-      "docs/reviews/evidence/pr68/checks/unit-observed.log.raw": "12792671e38b323162edf38d5ab12ebefce214fb8c4bfa79bbd634966f26386a",
-      "docs/reviews/evidence/pr68/preservation.json": "c7cad11df9bc6dc6d601c8dc8036d088149b0c4091511f627afef1b6232677d1",
-      "docs/reviews/evidence/pr68/qa/all-unit-first.log.raw": "ca6b8f152ef0285a24e038ff3f01b511e07a2aa0b6beacf49654527a5fdc0b6a",
-      "docs/reviews/evidence/pr68/qa/full-check-final.log.raw": "69b4e842b8f123a3ebda791392c134f945a50c074b5bcab8bfdd9c1fc34af0f8",
-      "docs/reviews/evidence/pr68/qa/native-final-candidate.log.raw": "1c142cd4d44ec5178cf8ccd05893c6d70e84c55b4c329bce8d70fcff24cf4b78",
-      "docs/reviews/evidence/pr68/qa/native-first.log.raw": "47b76ece6c331e1678936b7d5e4fcae5f58f77bc1a0777635b9eeb69b1ec84e8",
-      "docs/reviews/evidence/pr68/qa/native-second.log.raw": "2471feaa30853218e9c0ce2e4acf2c214ab4140146778daf287b9495b86c0ce4",
-      "docs/reviews/evidence/pr68/qa/original-pr67-ci108-attempt2.log.raw": "329c9311d91c269a18a431658ebcbc597cc79d4eb8da2c7121f893459ab38d4e",
-      "docs/reviews/evidence/pr68/qa/pg-waits.json.raw": "4ec50633d12e855018faf6663a0f715c2aa899a3c3bd06236edbdfead22e5d39",
-      "docs/reviews/evidence/pr68/qa/pr68-landing-probe.spec.ts.raw": "9f7562136a3711f55a5579284ae1b3eb749208d56aa3bd1eacf773ad5b230539",
-      "docs/reviews/evidence/pr68/qa/premium-landing-original.spec.ts.raw": "7dd4577408b9364cbf9b727a68515b1509983c259575153e398be50f641f3107",
-      "docs/reviews/evidence/pr68/qa/qa-DOM-summary.json": "402111d92d613fee1c218c1bd0925f00835dc8aaaead3e0369febe450eb54dd9",
-      "docs/reviews/evidence/pr68/qa/qa-original-rerun.log.raw": "11b174a9117752e53987eecb294a7effc435779379facdac3e9a0b763751302a",
-      "docs/reviews/evidence/pr68/qa/qa-original.log.raw": "7d591176b3ae3c45c35af806a71afab40e8a717f5c6cd1bd5fde403a4abcdb5d",
-      "docs/reviews/evidence/pr68/qa/studio-before-history-fix.tsx.raw": "d3929121d329be523f61062c36b607cf1eefebf4f1759e668c3bb2d6fbcdec5c",
-      "docs/reviews/evidence/pr68/qa/studio-model-before-bounds-fix.ts.raw": "c695af64e70440fbcebbcfa9fb916d252e89c03325e64feb5c1df2a28090b3a9",
-      "docs/reviews/evidence/pr68/screens/preserved-course-renderer.png": "ba2e49bfc55483e5e8ccfd1f5d070a6cca05561b18aabd07aa91a5787df2e953",
-      "docs/reviews/evidence/pr68/screens/studio-capacity-1024-500.png": "1a3f88351ac949c848ffac41e8d343330f2e17d3a6e4c84a31750defcdc8797a",
-      "docs/reviews/evidence/pr68/screens/studio-capacity-1024-768.png": "216be291d77e45c9c01aa6e1b356edcbafd59352d8ad3fbc079178a82e6059ad",
-      "docs/reviews/evidence/pr68/screens/studio-capacity-1440-900.png": "11a58fb6c49db7c80c78ce4cb7c0453b47718a424891ba384aa75a25d59cc473",
-      "docs/reviews/evidence/pr68/screens/studio-first-iteration.png": "95bc88db5447e76934421d2e717a52984e3e9d8a0cada822dbda3ee48563151b",
-      "docs/reviews/evidence/pr68/screens/studio-hub-topology.png": "4977d052d09aa7ed231a86e5c04468e85a407f21c86b579879398280692c6009",
-      "docs/reviews/evidence/pr68/screens/studio-missing-forwarding.png": "36fd748003f161fcfa8a439d0e562caf2f043ecfcf90c7462bee26249d6a2099",
-      "docs/reviews/evidence/pr68/screens/studio-node-bounds.json": "7b896202517eabf7740ef6c54509b953cd6d67d97518951b09d479fcc999598c",
-      "docs/reviews/evidence/pr68/screens/studio-nsg-conflict.png": "ce960485e736858e1cfcd4333346daea4a90ade085699e20e5c2e32cc27386e5",
-      "docs/reviews/evidence/pr68/sources/connectivity.html.raw": "27a4e67be7f8b6a1c95fb58db0217b03b7ab6544c361164eb8ec7fa3f02fbd38",
-      "docs/reviews/evidence/pr68/sources/connectivity.txt": "bbda85e9568a498bff968729260cc90b61c00dfed173335651eff046201afd7e",
-      "docs/reviews/evidence/pr68/sources/design-areas.html.raw": "44782bf3cde15637a2d1c05bac3aaf009d3bf9d253598ecec74e71a620811582",
-      "docs/reviews/evidence/pr68/sources/design-areas.txt": "09724ba2e4ece5ce44484e0cfda1ad6cfb1e2c93d088bec2553598b5cb6315c6",
-      "docs/reviews/evidence/pr68/sources/fetch.json": "6c2bbbef3f1ca4323ce9806fef1a43a7961a92156e6ce27f3884fd004dcdc1e2",
-      "docs/reviews/evidence/pr68/sources/hub-spoke.html.raw": "fcad68ea7d949db97fbe70938d088cdbd85c0705f6d80a79fdc18bf5ba8fab09",
-      "docs/reviews/evidence/pr68/sources/hub-spoke.txt": "791b931dd2dfbebea5653c370afabf29471e683c583f354c9bc4a42fee3f3967",
-      "docs/reviews/evidence/pr68/sources/well-architected.html.raw": "52a797a0cca81de86fb2d3aa0d9b8f0541cabd831294272caed92c43454eb63e",
-      "docs/reviews/evidence/pr68/sources/well-architected.txt": "5abc194f8a913bb138bb81c40846a43fa5841556c528d5fbdd614e31aef16b5f",
-      "docs/reviews/evidence/pr68/verification.json": "d635f9682709173aabf598e3d97fc04dd0640f6b3868dbfd8e08e799eb2f7d0a",
-      "playwright.desktop.config.ts": "8fb9a1c24a15a241006afc642edf86fda91ff1630ec0f88ca00128e1fad608d7",
-      "src/content/architecture-studio-nb.ts": "695ca584c003146810ac9317213cf4ce72a4db4c22ef88898af7748175034cc3",
-      "src/features/laboratory/endpoints.tsx": "09e0251915b54c1af4db2ec43b1baf7aebfad36aa1f0cb3460c8c5974b9cd10e",
-      "src/features/laboratory/laboratory.tsx": "51bdf4c2d6113c79a68b03655ce357c070c677b786249afb6f084cc059709ab1",
-      "src/features/laboratory/studio-location.ts": "80cd48a849c1f7e880fd3f690295a753e2989922129e5fa1f4cdeb8f77d937ad",
-      "src/features/laboratory/studio-model.ts": "eaa385b6dc3c06f62742f792874ead5fa260441d4d41a431b3c2831e93722550",
-      "src/features/laboratory/studio.css": "6b04c460041476f7010ecb6c095d30d2b386b6740bf73ca1afa923b5d0a4af4a",
-      "src/features/laboratory/studio.tsx": "1610815824346cf2ef153511380167f8d4094f96646057d04226d17b7c78931a",
-      "src/features/portal/architecture-graph.tsx": "77b7b466ad5ff646c369c1a792fc75c7fe9fe64273c286166fca4ca91604711d",
-      "src/features/portal/architecture.tsx": "f0675c8d2a11181fc1a762f93fc33f5a20e454ad1dfc70bab87f25028a25271b",
-      "src/laboratory-firewall-preservation.test.ts": "2d785db5e72bd8517b0eb3f6861474baa72fa56295b9c1f57bfd1cb09e027e05",
-      "src/laboratory-studio-preservation.test.ts": "9b824d25c434dc56f06343870fb8fe36ac83c50a77f79c3048388965a65680f3",
-      "src/laboratory-studio.integration.test.ts": "d96f4e6bd5b07766325ba198529eff4410119ba6a2b665aba72068aa0c04d817",
-      "src/laboratory-studio.test.ts": "1a367ae0cc259c50ccdfac9b03c682439b0a4011c1085fa0920717be6a55885b",
-      "tests/e2e/laboratory-studio.spec.ts": "d18285bdb3fa32d7eee3a1c4f452f7ac9eaeec08a8791264c3383efcbc4d42d5",
-      "tests/fixtures/studio-world.ts": "e08cc184da8725881893d8eaf5ed61e01c41f073d6a26aa014d1d8049c5088a0",
-      "tests/pr67-preservation.ts": "4396da212ac32717259fda1570d3969021da6a46208a02ef68d77fbac9aded4c",
-      "tests/pr68-preservation.ts": "cb526df1c55a54974ae424064c40465563508ab400b5e08c148b5dc9fb7075cc"
+      "AGENTS.md": "88a20eb7f0c34af2048c8b7657ee2a86335e251a74e8259a8643b31898267327",
+      "database/laboratory-v3/007-security-rules.sql": "5f855a34c684b07467af58bd73619d444d345bda1557062fe146d6634610bdc5",
+      "docs/ARCHITECTURE.md": "4b9c6f4b7dbf3dca4fab6b9b6bb74a5a0aabb9d597b63b6735eb5bd91d19f7b1",
+      "docs/DECISIONS.md": "95d54fcb107ee49f8c293a5329f5232bbae6387fad34bf0813d6d140c5725e16",
+      "docs/LABORATORY_REMEDIATION_CAPABILITIES.md": "6c5baf349fe96b9b11c898da273af0f8fb30526016bef1d6ad95ae2d208ca5de",
+      "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md": "4b05e4352d1ff13f09ce427d6f7915ccc3011e8e58ac66624706783d1d791637",
+      "docs/LABORATORY_V3_SERVER.md": "401bf07a47e05e6c1e6bf2f23ff97f6f710b90b6a46bc5fcb41a66bfe9ecae85",
+      "docs/PORTAL_CAPABILITY_MATRIX.md": "baa6d09d629471e3dbd1e3765b7b2ae3ea81255a8c5df448ea8f5178a7c58764",
+      "docs/reviews/evidence/pr69/.gitattributes": "790f5f7d9cddfcf9839093868d537bef7e7734e7b65213ed2db612c4d0da2f8d",
+      "docs/reviews/evidence/pr69/artifact-manifest.json": "ae720415914b95667eac2719a67a6f1a1f7793d3c521e78388e7d1edcbd4f4fb",
+      "docs/reviews/evidence/pr69/baseline-release-pr68.json.raw": "f78d615d6fae2c4fb3966f5367ba28c836633f8d6c9ab9056924aee95f4b05d4",
+      "docs/reviews/evidence/pr69/preservation.json": "b3af4fad3917359a8b5303270e38221763c8860815a8acec367dc4afdc718031",
+      "docs/reviews/evidence/pr69/qa/baseline68-native-near.log.raw": "7fa32cd55854b17273a0d3b03802a38a503e63f091e8e4b7b771f4532b1406cc",
+      "docs/reviews/evidence/pr69/qa/browser-final-with-inherited-timing.log.raw": "a0e92dae573eaae190060e8b482f9bd462ef0ae0e21ca6d133d3c4076b612112",
+      "docs/reviews/evidence/pr69/qa/browser-first.log.raw": "efd6e5b792a4ddec80e7e521a28dfddc23c9856d5866180a41ddebcd7e9dce83",
+      "docs/reviews/evidence/pr69/qa/browser-new-final.log.raw": "0af91beabff85b3f734154734a902df72983a169ffd023166d0ce265fc32c5c3",
+      "docs/reviews/evidence/pr69/qa/browser-renewal.log.raw": "5ae5b40402ef2a771f455007042c689f815a56b831d0cd8c88a49ab53a046e95",
+      "docs/reviews/evidence/pr69/qa/browser-review-final.log.raw": "9be4f72e8a64bdaafb924348850247b19ca7b2e2c6a4b1ac3385a97580b86715",
+      "docs/reviews/evidence/pr69/qa/browser-signed-candidate.log.raw": "8bd47cadc8396fafae5b86adb560cd0883cfab620cfa558aee715fc6c73b8a23",
+      "docs/reviews/evidence/pr69/qa/browser-third.log.raw": "645feeec7ffa0c7f3d96570047fd3721c8e124dd8335ab88965e367d1ce1843b",
+      "docs/reviews/evidence/pr69/qa/check-audit-metadata-failure.log.raw": "d3b64e484cd903d0494c2ccf3bfa4ff17abb576f62cf752a18152e85869b9494",
+      "docs/reviews/evidence/pr69/qa/check-candidate.log.raw": "4f42e1841d6db7571590a4da545cf118ca62326901f09d6d39c7f7b5ddde93b1",
+      "docs/reviews/evidence/pr69/qa/check-finished.log.raw": "0ba73bacff01bf6597e6342a6b2606a18c52ba011049b0f12cecd4b76eb8c01a",
+      "docs/reviews/evidence/pr69/qa/check-first.log.raw": "84cd9a57f82d81553d8ac0a9a86c0a77fd8071e439c1f7a7c92dbe4fe20b79d1",
+      "docs/reviews/evidence/pr69/qa/check-renewal-final.log.raw": "8e3a9d27da9ba73d6eee2cc1f37c171a876f924f1320159e9eb9019b03c4205f",
+      "docs/reviews/evidence/pr69/qa/check-renewal-negative-type-failure.log.raw": "9989258b26a1a6cc94f57a01259d739bfbef83f595d4f4e3e61b93402b22e8bb",
+      "docs/reviews/evidence/pr69/qa/check-second-format-failure.log.raw": "9b996a65412dcaa4b616f3c90cc77d823cc36a26d5359140149d40ead76f360d",
+      "docs/reviews/evidence/pr69/qa/combined-migration-test-before-split.ts.raw": "5b523a50d5f7188643e74f7a86dc9c4e43c0783fb93acecdc6802984c1bb0185",
+      "docs/reviews/evidence/pr69/qa/current-isolated-near.log.raw": "1165c9d6aacc2dda79b9f1f59954c0a6e3438fe17102d737ca3da8acb0ae2a25",
+      "docs/reviews/evidence/pr69/qa/db-setup.log.raw": "0a39b1b7fc62f6beb8af885b4eb7d7b8a64630d9ccfbcfc6118b45bdfbbb0b54",
+      "docs/reviews/evidence/pr69/qa/domain-pg-expanded.log.raw": "594ba53d98fb810bcd2c3ca8e12a32fd521bce09c3e0a744c5b7d6a3b685408c",
+      "docs/reviews/evidence/pr69/qa/domain-pg-first.log.raw": "5cc4ae5cdff416976b43fa24e6313c62ada5d29b69c596f76d84ba790957ac2f",
+      "docs/reviews/evidence/pr69/qa/evidence-scan.json": "51fc6b5989690580b5d2cff3c5b62852cb67cbc1e670dfc0957fdff9b50b71ea",
+      "docs/reviews/evidence/pr69/qa/final-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium-bounds.json.raw": "c56cf9d99b66435edfb81332d19e97cc84ad5f7ff43e9a97a306c70fa789b29c",
+      "docs/reviews/evidence/pr69/qa/final-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium.context.raw": "d1dc1c60e6aa73b91408571d9ee4696e10b457847ed8bf7315a6198df950f3c1",
+      "docs/reviews/evidence/pr69/qa/final-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-compact-chromium.redacted.zip": "32d94c7ddb36750ecc1d2defae8eb072bcd86dde0ab325748462cb1a206c32d6",
+      "docs/reviews/evidence/pr69/qa/final-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium-bounds.json.raw": "0ca726e03880d49bb27307043fdf8d6d5a38f1694483cb258eebc2aeb9fabd40",
+      "docs/reviews/evidence/pr69/qa/final-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium.context.raw": "e932f2172361f45f4162c82c9ebfba9f66eb8da38b5c5fc54eda4a0ca23e50ea",
+      "docs/reviews/evidence/pr69/qa/final-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium.redacted.zip": "1ff7937663c33fdd1181afcdc09fd42f4998a3b2fe76076929ee5f64491d71d1",
+      "docs/reviews/evidence/pr69/qa/first-laboratory-remediation-rem-e966a--identity-or-course-storage-desktop-chromium.context.raw": "4c4a840848187debccaf5023739a383dd635f05462e3cd4b5dfd5571636d5588",
+      "docs/reviews/evidence/pr69/qa/first-laboratory-remediation-rem-e966a--identity-or-course-storage-desktop-chromium.redacted.zip": "b29f95dfb38fac33b3c4303a712806b3dcd2f4694837ff6da97c77dbe559350d",
+      "docs/reviews/evidence/pr69/qa/first-laboratory-remediation-rem-fd0c9-nd-IDs-without-lost-updates-desktop-chromium.context.raw": "596fe5a2130f40942307b6613ad9b9e40008783ae779e34d916b27c90c5f40bf",
+      "docs/reviews/evidence/pr69/qa/first-laboratory-remediation-rem-fd0c9-nd-IDs-without-lost-updates-desktop-chromium.redacted.zip": "524cd9e2a828818e402989276949d0c8c7b526f1f907e97a319ce05fdb8d7b06",
+      "docs/reviews/evidence/pr69/qa/independent-adversarial-expanded.log.raw": "218888dcf6bd47e24d09d643e9b7f68b4026ccc9ae996e66c72ed6d3e802dbac",
+      "docs/reviews/evidence/pr69/qa/independent-empty-key-first.log.raw": "20e79118ea738bbd83e56de7f9b29f3c441b023866b67da7ec3292fff6619915",
+      "docs/reviews/evidence/pr69/qa/independent-red-provenance.json": "f8b7483683c7964ed3d95ef64a4d0bdf31075d289a7338af933dd04968533169",
+      "docs/reviews/evidence/pr69/qa/plan-first.log.raw": "dda3305ee2a76724f42eb9e861f2977224896a0ebb31bdcaef476df40c89920e",
+      "docs/reviews/evidence/pr69/qa/plan-renewed.log.raw": "fc8c7908278da3981726e6065d7390a68175562502a391e11d00c4c7a35c193b",
+      "docs/reviews/evidence/pr69/qa/pre-renewal-independent-review.md.raw": "590511ca413f07e66c6637623f6c28a8c796cb9b4aee4b016fb8f82d0dc7ee5b",
+      "docs/reviews/evidence/pr69/qa/preservation-first.log.raw": "fd3bc7dbe526707bfd756dd07b5562a59e4b8ab7901de0824d766ef9557b9c58",
+      "docs/reviews/evidence/pr69/qa/preservation-second.log.raw": "cbd18660986ace149dbf39da5719be0adfacd42885b4c01ccb86c27d17eb07f6",
+      "docs/reviews/evidence/pr69/qa/strict-input-targeted.log.raw": "ab33fe16beefe8c4e662d9cb6bb2c99a914b6972a463c82f398303c26724d64f",
+      "docs/reviews/evidence/pr69/qa/third-laboratory-remediation-rem-7035a-erve-readable-rule-evidence-desktop-chromium.context.raw": "2fc369ca49af817130d27bb5c776353e30243cd03a476948599003fee2b46ccb",
+      "docs/reviews/evidence/pr69/qa/third-laboratory-remediation-rem-7035a-erve-readable-rule-evidence-desktop-chromium.redacted.zip": "fd6c92397ed1a11570ac951b91d61d875f95bb496a9c2653f8f3ab6efcfb8128",
+      "docs/reviews/evidence/pr69/qa/third-laboratory-remediation-rem-fd0c9-nd-IDs-without-lost-updates-desktop-chromium.context.raw": "86db742fd0ef01bfc0773e24e95576c38f5377d57648bf9bd0388b9a6f986895",
+      "docs/reviews/evidence/pr69/qa/third-laboratory-remediation-rem-fd0c9-nd-IDs-without-lost-updates-desktop-chromium.redacted.zip": "2b415b3554f6c2c6690b385edfce3fd12d3a695cefc1a0726b9a8a7c4d59935a",
+      "docs/reviews/evidence/pr69/qa/third-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium.context.raw": "b19df6ab0aaeb7a17ad3fbf23c9de50eaef56a1944a0eb9aa0e1125d44621f82",
+      "docs/reviews/evidence/pr69/qa/third-laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium.redacted.zip": "994bfbfea638caff732c6097fc76261cd43fc5a8e2ebeabda11e3320fa291cae",
+      "docs/reviews/evidence/pr69/qa/trace-provenance.json": "351e205daa422a974d4dbc2c357bab9fcb5f73528bc293c8d5170887432abf1a",
+      "docs/reviews/evidence/pr69/screens/deleted-nsg-historical-replay-after-reset.png": "88e8141419f422b6093b473d9b53e6bdb7641087ba49d903edb1b5b8a66c1676",
+      "docs/reviews/evidence/pr69/screens/firewall-after-delete-analysis.png": "6d38fdde517accda1e5ef1bd547ad2e8b7d197aed0fbc2e6e272dc0ebf80ceff",
+      "docs/reviews/evidence/pr69/screens/firewall-before-broad-analysis.png": "874da08a8ba3d98b28e25c106fabfd56cc361432787c707117de7429031275cd",
+      "docs/reviews/evidence/pr69/screens/nsg-after-narrow-studio.png": "7fa6f82c119e6552ff73961788664e11a76d2416b0772988e477d413c27480ea",
+      "docs/reviews/evidence/pr69/screens/nsg-before-broad-studio.png": "bb179366a19283db473b33a0816a24d14bbfc875758aeb3329dcbe2221461ccb",
+      "docs/reviews/evidence/pr69/screens/nsg-review-diff.png": "9a02865da87cb09b4568625d84c575d69156bb4835f297e697bf070f8cc57632",
+      "docs/reviews/evidence/pr69/screens/remediation-delete-confirmation-1024-500.png": "c6f31462043d905cb77f5efd980daafcb42a161b64270309d86eb3485f0dc307",
+      "docs/reviews/evidence/pr69/screens/remediation-review-1024-500.png": "3c4a2629b33e574b6c8d8976905ae85bf2b53d945cee2c076b5fb356da7f9c2f",
+      "docs/reviews/evidence/pr69/screens/remediation-review-1024-768.png": "a89202bce6086cda9e780b0af1a7926fc5d16f05e7caf485998e211e4f0a4c30",
+      "docs/reviews/evidence/pr69/screens/remediation-review-1440-900.png": "34be766fc63deed763c52beffa853a83b7ddbc8918497508cf9c47d874c9cc79",
+      "docs/reviews/evidence/pr69/sources/fetch.json": "9ed75a5dec88e6d2c5565f676e4269087bc5dd90b0d7600ae5b5806f6e16a8d0",
+      "docs/reviews/evidence/pr69/sources/firewall-arm.html.raw": "527dd817792ae17707ab1633acde700928f7bc1379d00df4e440facfc74883e1",
+      "docs/reviews/evidence/pr69/sources/firewall-arm.txt": "70e54d7b6edf15699c57b1a8929287a0a0bd550d6d793d19fa3f45b5c143fd9a",
+      "docs/reviews/evidence/pr69/sources/firewall-policy.html.raw": "25f0a1b43174ef201f9a2ec7725370896615f1325046c31b67c5190345ed86f9",
+      "docs/reviews/evidence/pr69/sources/firewall-policy.txt": "f2309427fc067b245880d1bdb9d4fcb65f94080b4cd923e9e2f29174cc9d0397",
+      "docs/reviews/evidence/pr69/sources/firewall-processing.html.raw": "0ac86d6d10fdaeb60dd55acd0889ac3668a7377848751fe3f346f20273ae82b1",
+      "docs/reviews/evidence/pr69/sources/firewall-processing.txt": "d3c343eb7f3b57229878abcac472d7931bf22e31092f247a431b423e812336db",
+      "docs/reviews/evidence/pr69/sources/image-fetch.json": "3863ea5da4151fda6fdabb6ed5f790c6514d9b1276908fc686f97b7720c179e0",
+      "docs/reviews/evidence/pr69/sources/nsg-arm.html.raw": "0aa553afc25939a956aa6b9446bda072f49ede72adbd29a279e848a4a55e2655",
+      "docs/reviews/evidence/pr69/sources/nsg-arm.txt": "13142b1aae854f47c4d022b375921b280bd25746e005f62c72d3a91ebfa850fa",
+      "docs/reviews/evidence/pr69/sources/nsg-manage.html.raw": "c2bea3f66c244b52c12527fc13de39e13851225be60c1e999b827a085a236da0",
+      "docs/reviews/evidence/pr69/sources/nsg-manage.txt": "af94fc42d86f44eba24b8cb85ee8754a856bdb08d7c944d4549b8e1fae2aa179",
+      "docs/reviews/evidence/pr69/sources/nsg-overview.html.raw": "bc347ceb6bf037a4843546842ea366a982d01a703249ada01ae89144521a6753",
+      "docs/reviews/evidence/pr69/sources/nsg-overview.txt": "2dc8bb8da17669dfe4773edc22536f40ff7079d99eda63ec70719fb3680a421a",
+      "docs/reviews/evidence/pr69/sources/view-security-rule-details.png": "b0acd9f805226ff1bbe5718acdfb6296ae7f35f6a8c82708ace129d778095e9e",
+      "docs/reviews/evidence/pr69/sources/view-security-rules.png": "ac399a75b06721ec1cfe2af4df008e06d547f384d7f7673faa6f3bef1800fa89",
+      "docs/reviews/evidence/pr69/verification.json": "e92e8d8ec0c5879ca04dac3bb0a79256cae44de6a36062cfc28a0ec29fec1b9a",
+      "playwright.desktop.config.ts": "5cd1be1b227527b0c0d5335b87a80e987c93334274ef9a751ce49ce00910589e",
+      "scripts/laboratory-db.mjs": "6ac73eceb18be1886cf9fcb946c96ac0afece844a233b23270eb9795562d4ea2",
+      "src/content/laboratory-remediation-nb.ts": "fc327b97c87e29384d2f069874394d462f2cb7f950824395a080851d611e5664",
+      "src/features/laboratory/capabilities.ts": "3364a91249cf6792e3aba609da8656348ce344889ef2b6ab5af8f32a0f8a6a01",
+      "src/features/laboratory/compute.tsx": "c5cdc543daa27d73daf25b052098ddcf223a3cde92ae17d2e99f8d7a5fbe71f9",
+      "src/features/laboratory/endpoints.tsx": "aedfffb85a922c50dfb44d210fc9a0c5a32d6aeb6550653f7f2f3abcfd0bb870",
+      "src/features/laboratory/firewall.tsx": "a37ee4250e4bba61c21e6974bcde176e6374cfa2393fde47c2deb5fcc84ae981",
+      "src/features/laboratory/laboratory.tsx": "ab89f635809a654dac2e82a08b12dbe0d8f8a388d537b648d917a83c9dd4605d",
+      "src/features/laboratory/networking.tsx": "81691705d6933cf07631ad9193de231ef3ffa245818d2cfeb9f80f1d4f6efe88",
+      "src/features/laboratory/portal-adapter.tsx": "f2f113e74f0c018935158742dfbc90bcd51617a0214d3a306529cc21d4e22a7d",
+      "src/features/laboratory/routing.tsx": "e6b620909a84f5e3b5302092e6aaa3004e98ab1ea1f812f50c1c9fecf6546b61",
+      "src/features/laboratory/rule-lifecycle.css": "442775325c619a4e322575a17d73d44812461f9a97e93b7dcd810d7c687fc859",
+      "src/features/laboratory/rule-lifecycle.tsx": "e54dae4ec55f32c385b0bcfd84ac1e1191f0543694e185662be415448d2b65b2",
+      "src/features/laboratory/studio-model.ts": "37de3a000fa34008061984c6b5d900dbda6ef26366cced84ab33be78e9c6e0a5",
+      "src/laboratory-compute.test.ts": "a3dc6b07ce3ae0dbc50066c373a3b5881422cda628d51646205dd5c39872b152",
+      "src/laboratory-remediation-preservation.test.ts": "1356be4e63be02863fca8901fc448eac5b0a21fcfd6b9407fb198c6529d0ef90",
+      "src/laboratory-remediation.integration.test.ts": "50291383c973d92c9ae35ef34e537c3642fc2805f2f67ff66ab48ad0401e9dc0",
+      "src/laboratory-remediation.test.ts": "61420ea816138e6e0dcf3685f578a8689ec6b667c6be377a585e8ddcb1db63ee",
+      "src/laboratory-studio-preservation.test.ts": "11279807265af6a3dc3f3faf6a2102f0545df354a0993bb748e0f8c6d404e69c",
+      "src/laboratory/engine.ts": "7efd298dd98e9b478eea10a12d1390bfe30ac6a279b17fd4dace1caab7af388a",
+      "src/laboratory/v3/server.ts": "3315ef1cfee6a2467cfe2d1136efcc7978fbacae2d0edac0d22664f85e73f34e",
+      "src/laboratory/v36/analysis.ts": "4cf81e5af7086b2decc1ef35e57b75ec43d32592990a0c3104566d1af2a164c2",
+      "src/laboratory/v36/contract.ts": "70fa1b2ac5b4e8e23cbc80a6ae2547121356bf5b729496f583b39ac4f818d99f",
+      "src/laboratory/v36/domain.ts": "c5ae6edf05a137f41fc7818e3ffcc1368df45701d4596155d8bc09883a09d786",
+      "src/laboratory/v36/projection.ts": "f48cbf68f978629717edcc377ba4469324860e2874fa51912c69f23dbecbfb0b",
+      "tests/e2e/laboratory-firewall.spec.ts": "f8f9472a702aa0340dee9a240e8d844bd975f9cca9adc39f6a65908b1e6291f8",
+      "tests/e2e/laboratory-remediation.spec.ts": "95dd417c31764aec2ff7be4f70635062ca9e57e529849f761f804f36cfd053ed",
+      "tests/e2e/laboratory-studio.spec.ts": "abe4d54015af2a70bef395f927b9887626a7a1c8cfb7c6728ede07c5d2078393",
+      "tests/fixtures/remediation-world.ts": "eae8aa18b5d10d0a734770784deedde5d60dc0278aaa5b0d30754cd5d367ec19",
+      "tests/pr68-preservation.ts": "6a9a9bac9ac354cc38651e00c853fdb8281e50cb7317a64482b01627f337ac86",
+      "tests/pr69-preservation.ts": "c48f5e6b529da8ac8232dd26e2e097d4c891797b48cd384cac11bccba19239a9"
     }
   },
-  "implementationFinished": "2026-11-08T14:22:28.968Z"
+  "implementationFinished": "2026-11-08T19:09:47.617Z"
 }

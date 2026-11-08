@@ -360,3 +360,7 @@ Choose a separate laboratory@3.5.0 workspace instead of changing historical rout
 ## PR68 — topology is a projection, diagnostics are existing server evidence
 
 Architecture Studio shares Portal presentation and the original server analyses. It stores neither a graph nor a new World, adds no model/SQL/command, and grants no learning credit. Typed relations and explicit review/unknown findings never become universal architecture scores. Future scenario provisioning/evidence requires a separately approved versioned contract and must respect the documented create/update/delete gaps.
+
+## PR69 — Versioned rule remediation
+
+Use3.6 only for new workspaces;007 is additive. Preserve stable rule ID and Create-origin; append complete before/after change evidence on each accepted mutation. Do not add a mutable result store or per-rule Firewall action/priority. Old evaluators, SQL001–006 and course semantics remain untouched. See [contract](LABORATORY_SECURITY_REMEDIATION_PART_A.md).

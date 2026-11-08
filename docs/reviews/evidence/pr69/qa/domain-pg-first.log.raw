@@ -1,0 +1,27 @@
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ src/laboratory-remediation.integration.test.ts (3 tests | 1 failed) 7120ms
+   × 007 supports cold install and each historical populated upgrade, repeat setup and append-only permissions without upgrading snapshots 5333ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/laboratory-remediation.integration.test.ts > 007 supports cold install and each historical populated upgrade, repeat setup and append-only permissions without upgrading snapshots
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/laboratory-remediation.integration.test.ts:231:1
+    229|   expect((await analysis()).status).toBe(503);
+    230| });
+    231| it('007 supports cold install and each historical populated upgrade, r…
+       | ^
+    232|   const admin = new Client({ connectionString: adminUrl });
+    233|   await admin.connect();
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 19 passed (20)
+   Start at  17:53:58
+   Duration  7.74s (tests 92%, transform 5%, import 2%)
+

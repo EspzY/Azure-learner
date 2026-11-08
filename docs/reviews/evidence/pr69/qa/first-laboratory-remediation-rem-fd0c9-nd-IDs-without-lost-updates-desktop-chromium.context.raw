@@ -1,0 +1,147 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: laboratory-remediation.spec.ts >> remediation two native editors preserve pinned revisions reject stale saves and replay identical command IDs without lost updates
+- Location: tests/e2e/laboratory-remediation.spec.ts:300:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f1e1]:
+  - alert [ref=f1e2]
+  - generic [ref=f1e3]:
+    - link "Hopp til innhold" [ref=f1e4] [cursor=pointer]:
+      - /url: "#lab-main"
+    - banner [ref=f1e5]:
+      - button "Åpne eller lukk portalmenyen" [expanded] [ref=f1e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=f1e8] [cursor=pointer]:
+        - /url: /labs/laboratory
+      - searchbox "Search resources and services" [ref=f1e10]
+      - generic [ref=f1e11]: Fri Laboratory
+      - button "Originale kvitteringer" [ref=f1e12] [cursor=pointer]
+      - button "Modellgrenser" [ref=f1e14] [cursor=pointer]
+      - link "Kursarbeidsområde" [ref=f1e16] [cursor=pointer]:
+        - /url: /portal
+      - link "Til kurset" [ref=f1e17] [cursor=pointer]:
+        - /url: /learn
+    - generic [ref=f1e18]:
+      - complementary "Laboratory v3 navigasjon" [ref=f1e19]:
+        - navigation "Laboratory v3 navigasjon" [ref=f1e20]:
+          - link "Create a resource" [ref=f1e21] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - link "All services" [ref=f1e23] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - generic [ref=f1e25]: FAVORITES
+          - link "All resources" [ref=f1e27] [cursor=pointer]:
+            - /url: /labs/laboratory?view=resources
+          - link "Architecture Studio" [ref=f1e29] [cursor=pointer]:
+            - /url: /labs/laboratory?view=studio
+          - link "Azure Firewalls" [ref=f1e31] [cursor=pointer]:
+            - /url: /labs/laboratory?view=firewalls
+          - link "Firewall Policies" [ref=f1e33] [cursor=pointer]:
+            - /url: /labs/laboratory?view=firewallPolicies
+          - link "Public IP addresses" [ref=f1e35] [cursor=pointer]:
+            - /url: /labs/laboratory?view=publicIps
+          - link "Virtual machines" [ref=f1e37] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vms
+          - link "Managed disks" [ref=f1e39] [cursor=pointer]:
+            - /url: /labs/laboratory?view=disks
+          - link "Network interfaces" [ref=f1e41] [cursor=pointer]:
+            - /url: /labs/laboratory?view=nics
+          - link "Network Policy Analysis" [ref=f1e43] [cursor=pointer]:
+            - /url: /labs/laboratory?view=policy
+          - link "Resource groups" [ref=f1e45] [cursor=pointer]:
+            - /url: /labs/laboratory?view=groups
+          - link "Storage accounts" [ref=f1e47] [cursor=pointer]:
+            - /url: /labs/laboratory?view=accounts
+          - link "Virtual networks" [ref=f1e49] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vnets
+          - link "Network security groups" [ref=f1e51] [cursor=pointer]:
+            - /url: /labs/laboratory?view=nsgs
+          - link "Route tables" [ref=f1e53] [cursor=pointer]:
+            - /url: /labs/laboratory?view=routeTables
+          - link "Ruteanalyse" [ref=f1e55] [cursor=pointer]:
+            - /url: /labs/laboratory?view=analysis
+          - link "Originale kvitteringer" [ref=f1e57] [cursor=pointer]:
+            - /url: /labs/laboratory?view=history
+        - generic [ref=f1e59]: Støttede tjenester i dette arbeidsområdet
+      - main [ref=f1e60]:
+        - generic [ref=f1e61]:
+          - button "Fri Laboratory" [ref=f1e62] [cursor=pointer]
+          - button "Network security groups" [ref=f1e64] [cursor=pointer]
+          - button "nsg-data" [ref=f1e66] [cursor=pointer]
+          - generic [ref=f1e68]: receive-sql
+        - generic [ref=f1e72]:
+          - heading "receive-sql" [level=1] [ref=f1e73]
+          - generic [ref=f1e74]: Security rule · Lokal AzureLab-simulator · eget serverlagret arbeidsområde · ingen kursresultater eller XP
+        - generic [ref=f1e77]:
+          - navigation "receive-sql · Overview" [ref=f1e78]:
+            - strong [ref=f1e79]: receive-sql
+            - generic [ref=f1e81]:
+              - generic [ref=f1e82]: Search this resource
+              - searchbox "Search this resource" [ref=f1e83]
+            - button "Overview" [ref=f1e84] [cursor=pointer]
+            - button "Activity log" [ref=f1e86] [cursor=pointer]
+            - group [ref=f1e88]:
+              - generic "Settings" [ref=f1e89] [cursor=pointer]
+              - button "Properties" [ref=f1e90] [cursor=pointer]
+            - generic [ref=f1e92]: Lokalt simulator-scope
+          - generic [ref=f1e93]:
+            - region "Edit" [ref=f1e94]:
+              - generic [ref=f1e95]:
+                - button "Edit" [active] [ref=f1e96] [cursor=pointer]
+                - button "Delete" [ref=f1e97] [cursor=pointer]
+                - link "Siste endringskvittering" [ref=f1e98] [cursor=pointer]:
+                  - /url: /labs/laboratory?view=history&receipt=9d63349b-695b-4723-b10a-1d96683f8f6a
+            - generic [ref=f1e99]:
+              - generic [ref=f1e100]:
+                - term [ref=f1e101]: Lokal ID
+                - definition [ref=f1e102]: rule-31
+              - generic [ref=f1e103]:
+                - term [ref=f1e104]: Network security group
+                - definition [ref=f1e105]:
+                  - link "nsg-data" [ref=f1e106] [cursor=pointer]:
+                    - /url: /labs/laboratory?view=nsg&id=nsg-29
+              - generic [ref=f1e107]:
+                - term [ref=f1e108]: Direction
+                - definition [ref=f1e109]: Inbound
+              - generic [ref=f1e110]:
+                - term [ref=f1e111]: Priority
+                - definition [ref=f1e112]: "200"
+              - generic [ref=f1e113]:
+                - term [ref=f1e114]: Protocol
+                - definition [ref=f1e115]: Tcp
+              - generic [ref=f1e116]:
+                - term [ref=f1e117]: Source IPv4/CIDR
+                - definition [ref=f1e118]: 10.10.1.0/24
+              - generic [ref=f1e119]:
+                - term [ref=f1e120]: Source port
+                - definition [ref=f1e121]: "*"
+              - generic [ref=f1e122]:
+                - term [ref=f1e123]: Destination IPv4/CIDR
+                - definition [ref=f1e124]: 10.20.1.0/24
+              - generic [ref=f1e125]:
+                - term [ref=f1e126]: Destination port
+                - definition [ref=f1e127]: "1444"
+              - generic [ref=f1e128]:
+                - term [ref=f1e129]: Access
+                - definition [ref=f1e130]: Allow
+            - link "Åpne original kvittering" [ref=f1e131] [cursor=pointer]:
+              - /url: /labs/laboratory?view=history&receipt=remediation-32
+        - generic [ref=f1e132]:
+          - generic [ref=f1e133]: Fri Laboratory
+          - button "Oppdater fra serveren" [ref=f1e134] [cursor=pointer]
+          - generic [ref=f1e136]: "World-revisjon: 33 · Arbeidsforsøk: 1 · Arbeidsområdets modell: laboratory@3.6.0"
+          - button "Nullstill eget arbeidsområde" [ref=f1e137] [cursor=pointer]
+```

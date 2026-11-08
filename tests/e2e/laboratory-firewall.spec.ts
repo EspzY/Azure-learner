@@ -31,6 +31,10 @@ async function start(page: Page) {
   const response = page.waitForResponse(
     (x) => x.url().endsWith('/api/laboratory/session') && x.request().method() === 'POST',
   );
+  await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();
+  await page
+    .getByRole('combobox', { name: 'Arbeidsområdemodell', exact: true })
+    .selectOption('laboratory@3.5.0');
   await page.getByRole('button', { name: c.start, exact: true }).click();
   const s: Snapshot = await (await response).json();
   expect(s.world.model).toBe('laboratory@3.5.0');

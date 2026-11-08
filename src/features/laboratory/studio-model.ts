@@ -1,4 +1,5 @@
 /** Read-only display projection. Inputs are the existing verified snapshot and canonical inventory. */
+import { isFirewallWorld } from './capabilities';
 import type { Snapshot } from '@/laboratory/engine';
 import type { LaboratoryResource } from './portal-adapter';
 import type { LaboratoryPolicyResult } from './endpoints';
@@ -94,7 +95,7 @@ export function projectTopology(snapshot: Snapshot, rows: readonly LaboratoryRes
       add(v.id, v.nicId, 'vm-nic');
       add(v.id, v.osDiskId, 'vm-disk');
     }
-  if (world.model === 'laboratory@3.5.0') {
+  if (isFirewallWorld(world)) {
     for (const f of world.firewalls) {
       add(f.id, f.subnetId, 'firewall-subnet');
       add(f.id, f.policyId, 'firewall-policy');
@@ -215,7 +216,7 @@ export function architectureObservations(
         r.destinationPort === '*'
       )
         add('broad-allow', 'review', r.id, t.reasons.broad);
-  if (w.model === 'laboratory@3.5.0')
+  if (isFirewallWorld(w))
     for (const r of w.firewallRules)
       if (
         r.source === '*' &&

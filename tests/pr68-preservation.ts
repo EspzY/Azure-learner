@@ -1,6 +1,6 @@
 /** Test-only historical reader. Actual reviewed presentation deltas are hash-checked,
  * then frozen earlier tests read their original PR67 bytes. No runtime uses this. */
-import { readFileSync } from 'node:fs';
+import { readPR69 as readFileSync } from './pr69-preservation';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { strict as assert } from 'node:assert';

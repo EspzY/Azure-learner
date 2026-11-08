@@ -1,0 +1,127 @@
+[WebServer] (node:52742) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 18 tests using 1 worker
+
+(node:52758) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:254:1 › firewall native hub spoke inspection uses actual VM NICs, collection policy, original Firewall Public IP receipt and reload (24.2s)
+  ✓   2 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:303:1 › firewall native source UDR forwarding and return mutations expose the actual incomplete or dropped leg without starting traffic (18.2s)
+  ✓   3 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:356:1 › firewall native hierarchy priority default deny and NSG conflict retain concrete decisive rules and invalidate older analyses (24.2s)
+  ✓   4 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:415:1 › firewall native rejected Review validates subnet name profile scope next hop rule expressions and priority without persisting phantom resources (12.5s)
+  ✓   5 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:460:1 › firewall native same IP in overlapping hubs cannot be resolved by inventory identity or falsely reported as inspected success (22.9s)
+  ✓   6 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:513:1 › firewall compact native Policy Properties Review keyboard focus reduced motion Axe and short desktop keep real controls and evidence readable (14.6s)
+  ✓   7 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:554:1 › firewall native untouched dedicated subnet default matches posted Review and owning scope after an ordinary subnet in another group and region (6.7s)
+  ✓   8 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:625:1 › firewall shared Portal menu uses actual viewport during pending media delivery and Escape closes the drawer without technical writes (2.3s)
+  ✓   9 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:108:1 › remediation Studio observation opens the actual NSG rule and native Review Save narrows policy without changing original identity or course storage (10.3s)
+  ✓  10 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:182:1 › remediation Firewall native edit and delete preserve nested collection action priority and original Create receipt with default deny and remaining rule matching (6.3s)
+  ✓  11 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:246:1 › remediation NSG Delete confirmation exact identity read-only Review historical through reset and original receipt remain verifiable (3.5s)
+  ✘  12 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:299:1 › remediation two native editors preserve pinned revisions reject stale saves and replay identical command IDs without lost updates (5.8s)
+(node:53393) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  13 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:378:1 › remediation compact native Review keyboard focus reduced motion Axe pinned delete and short desktop preserve readable rule evidence (8.1s)
+(node:53525) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  14 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:68:1 › Studio live hub topology reuses server Firewall NSG routes and original resource Properties with URL-only return and no inspection writes (8.1s)
+  ✓  15 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:130:1 › Studio refresh invalidates a real changed forwarding path and shows the concrete NSG conflict without manufacturing policy success (10.3s)
+  ✓  16 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:226:1 › Studio duplicate names filters peering status and broad Allow observations retain actual scope and identity (7.1s)
+  ✘  17 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:302:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes (35.2s)
+(node:53795) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  18 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:390:1 › Studio unavailable backend remains empty and historical Storage workspace is inspected without upgrade or new analysis commands (4.5s)
+
+
+  1) [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:299:1 › remediation two native editors preserve pinned revisions reject stale saves and replay identical command IDs without lost updates 
+
+    Error: route.continue: Route is already handled!
+
+      353 |   await second.route('**/api/laboratory/state', async (route) => {
+      354 |     await gate;
+    > 355 |     await route.continue();
+          |                         ^
+      356 |   });
+      357 |   try {
+      358 |     await save(page);
+        at /workspace/Azure-learner/tests/e2e/laboratory-remediation.spec.ts:355:25
+
+    Error Context: test-results/laboratory-remediation-rem-fd0c9-nd-IDs-without-lost-updates-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/laboratory-remediation-rem-fd0c9-nd-IDs-without-lost-updates-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/laboratory-remediation-rem-fd0c9-nd-IDs-without-lost-updates-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:378:1 › remediation compact native Review keyboard focus reduced motion Axe pinned delete and short desktop preserve readable rule evidence 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('dialog', { name: 'Edit security rule', exact: true })
+    Expected substring: "Prioritet må være et helt tall100–4096, uten innledende nuller."
+    Received string:    "Edit security ruleNavn, parent og original Create-origin beholdes. Endringen gjelder bare dette arbeidsområdet.Regelnavnreceive-sqlRegel-IDrule-31Parent-scopensg-29Arbeidsområde8d1ed55e-c576-4072-9fe5-6bdcaea8c544Modelllaboratory@3.6.0Gjennomgått revisjon32Edit security ruleDirectionInboundOutboundPriorityProtocolTcpUdp*Source IPv4/CIDRSource portDestination IPv4/CIDRDestination portAccessAllowDenyReview er skrivebeskyttet. Først Save bekrefter en atomisk endring på serveren.Review changesReview changesReview ble avvist. Korriger feltet før en ny gjennomgang. PrioritySave changesAvbryt"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('dialog', { name: 'Edit security rule', exact: true }) with timeout 5000ms
+      - waiting for getByRole('dialog', { name: 'Edit security rule', exact: true })
+        13 × locator resolved to <dialog open="" class="portal-dialog " aria-labelledby="_r_0_">…</dialog>
+           - unexpected value "Edit security ruleNavn, parent og original Create-origin beholdes. Endringen gjelder bare dette arbeidsområdet.Regelnavnreceive-sqlRegel-IDrule-31Parent-scopensg-29Arbeidsområde8d1ed55e-c576-4072-9fe5-6bdcaea8c544Modelllaboratory@3.6.0Gjennomgått revisjon32Edit security ruleDirectionInboundOutboundPriorityProtocolTcpUdp*Source IPv4/CIDRSource portDestination IPv4/CIDRDestination portAccessAllowDenyReview er skrivebeskyttet. Først Save bekrefter en atomisk endring på serveren.Review changesReview changesReview ble avvist. Korriger feltet før en ny gjennomgang. PrioritySave changesAvbryt"
+
+
+      393 |   await validation.getByRole('textbox', { name: n.fields.priority, exact: true }).fill('99');
+      394 |   await validation.getByRole('button', { name: t.review, exact: true }).click();
+    > 395 |   await expect(validation).toContainText(n.codes['invalid-priority']);
+          |                            ^
+      396 |   await expect(validation.getByRole('button', { name: t.save, exact: true })).toBeDisabled();
+      397 |   expect(await state(page)).toEqual(initial);
+      398 |   await validation.getByRole('button', { name: t.cancel, exact: true }).click();
+        at /workspace/Azure-learner/tests/e2e/laboratory-remediation.spec.ts:395:28
+
+    Error Context: test-results/laboratory-remediation-rem-7035a-erve-readable-rule-evidence-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/laboratory-remediation-rem-7035a-erve-readable-rule-evidence-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/laboratory-remediation-rem-7035a-erve-readable-rule-evidence-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:302:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.evaluate: Test timeout of 30000ms exceeded.
+     Please check out https://github.com/dequelabs/axe-core-npm/blob/develop/packages/playwright/error-handling.md
+
+      377 |     expect(focused!.y).toBeGreaterThanOrEqual(graphBox!.y);
+      378 |     expect(focused!.y + focused!.height).toBeLessThanOrEqual(graphBox!.y + graphBox!.height);
+    > 379 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+          |             ^
+      380 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      381 |       true,
+      382 |     );
+        at AxeBuilder.analyze (/workspace/Azure-learner/node_modules/@axe-core/playwright/dist/index.mjs:219:13)
+        at /workspace/Azure-learner/tests/e2e/laboratory-studio.spec.ts:379:13
+    [cause]: Error: page.evaluate: Test timeout of 30000ms exceeded.
+        at AxeBuilder.finishRun (/workspace/Azure-learner/node_modules/@axe-core/playwright/dist/index.mjs:321:21)
+        at AxeBuilder.analyze (/workspace/Azure-learner/node_modules/@axe-core/playwright/dist/index.mjs:217:14)
+        at /workspace/Azure-learner/tests/e2e/laboratory-studio.spec.ts:379:13
+
+    Error Context: test-results/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/laboratory-studio-Studio-n-11598-thout-moving-resource-nodes-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:299:1 › remediation two native editors preserve pinned revisions reject stale saves and replay identical command IDs without lost updates 
+    [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:378:1 › remediation compact native Review keyboard focus reduced motion Axe pinned delete and short desktop preserve readable rule evidence 
+    [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:302:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes 
+  15 passed (3.9m)

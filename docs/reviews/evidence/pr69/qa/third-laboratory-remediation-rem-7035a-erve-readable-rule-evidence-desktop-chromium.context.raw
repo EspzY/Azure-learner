@@ -1,0 +1,223 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: laboratory-remediation.spec.ts >> remediation compact native Review keyboard focus reduced motion Axe pinned delete and short desktop preserve readable rule evidence
+- Location: tests/e2e/laboratory-remediation.spec.ts:378:1
+
+# Error details
+
+```
+Error: expect(locator).toContainText(expected) failed
+
+Locator: getByRole('dialog', { name: 'Edit security rule', exact: true })
+Expected substring: "Prioritet må være et helt tall100–4096, uten innledende nuller."
+Received string:    "Edit security ruleNavn, parent og original Create-origin beholdes. Endringen gjelder bare dette arbeidsområdet.Regelnavnreceive-sqlRegel-IDrule-31Parent-scopensg-29Arbeidsområde8d1ed55e-c576-4072-9fe5-6bdcaea8c544Modelllaboratory@3.6.0Gjennomgått revisjon32Edit security ruleDirectionInboundOutboundPriorityProtocolTcpUdp*Source IPv4/CIDRSource portDestination IPv4/CIDRDestination portAccessAllowDenyReview er skrivebeskyttet. Først Save bekrefter en atomisk endring på serveren.Review changesReview changesReview ble avvist. Korriger feltet før en ny gjennomgang. PrioritySave changesAvbryt"
+Timeout: 5000ms
+
+Call log:
+  - Expect "toContainText" getByRole('dialog', { name: 'Edit security rule', exact: true }) with timeout 5000ms
+  - waiting for getByRole('dialog', { name: 'Edit security rule', exact: true })
+    13 × locator resolved to <dialog open="" class="portal-dialog " aria-labelledby="_r_0_">…</dialog>
+       - unexpected value "Edit security ruleNavn, parent og original Create-origin beholdes. Endringen gjelder bare dette arbeidsområdet.Regelnavnreceive-sqlRegel-IDrule-31Parent-scopensg-29Arbeidsområde8d1ed55e-c576-4072-9fe5-6bdcaea8c544Modelllaboratory@3.6.0Gjennomgått revisjon32Edit security ruleDirectionInboundOutboundPriorityProtocolTcpUdp*Source IPv4/CIDRSource portDestination IPv4/CIDRDestination portAccessAllowDenyReview er skrivebeskyttet. Først Save bekrefter en atomisk endring på serveren.Review changesReview changesReview ble avvist. Korriger feltet før en ny gjennomgang. PrioritySave changesAvbryt"
+
+```
+
+```yaml
+- dialog "Edit security rule":
+  - heading "Edit security rule" [level=2]
+  - button "Close"
+  - paragraph: Navn, parent og original Create-origin beholdes. Endringen gjelder bare dette arbeidsområdet.
+  - term: Regelnavn
+  - definition: receive-sql
+  - term: Regel-ID
+  - definition: rule-31
+  - term: Parent-scope
+  - definition: nsg-29
+  - term: Arbeidsområde
+  - definition: 8d1ed55e-c576-4072-9fe5-6bdcaea8c544
+  - term: Modell
+  - definition: laboratory@3.6.0
+  - term: Gjennomgått revisjon
+  - definition: "32"
+  - group "Edit security rule":
+    - text: Edit security rule Direction
+    - combobox "Direction":
+      - option "Inbound" [selected]
+      - option "Outbound"
+    - text: Priority
+    - textbox "Priority": "99"
+    - text: Protocol
+    - combobox "Protocol":
+      - option "Tcp" [selected]
+      - option "Udp"
+      - option "*"
+    - text: Source IPv4/CIDR
+    - textbox "Source IPv4/CIDR": 10.10.1.0/24
+    - text: Source port
+    - textbox "Source port": "*"
+    - text: Destination IPv4/CIDR
+    - textbox "Destination IPv4/CIDR": 10.20.1.0/24
+    - text: Destination port
+    - textbox "Destination port": "1433"
+    - text: Access
+    - combobox "Access":
+      - option "Allow" [selected]
+      - option "Deny"
+  - paragraph: Review er skrivebeskyttet. Først Save bekrefter en atomisk endring på serveren.
+  - button "Review changes"
+  - heading "Review changes" [level=3]
+  - alert: Review ble avvist. Korriger feltet før en ny gjennomgang. Priority
+  - button "Save changes" [disabled]
+  - button "Avbryt"
+```
+
+# Test source
+
+```ts
+  295 |     path: test.info().outputPath('deleted-nsg-historical-replay-after-reset.png'),
+  296 |   });
+  297 | });
+  298 | 
+  299 | test('remediation two native editors preserve pinned revisions reject stale saves and replay identical command IDs without lost updates', async ({
+  300 |   page,
+  301 |   context,
+  302 | }) => {
+  303 |   const a = await seed(page),
+  304 |     second = await context.newPage();
+  305 |   await open(page, 'rule', a.dataRule);
+  306 |   await open(second, 'rule', a.dataRule);
+  307 |   const d1 = await edit(page, { destinationPort: '1444' });
+  308 |   const d2 = await edit(second, { destinationPort: '1555' });
+  309 |   await expect(d1).toContainText(a.workspace);
+  310 |   const sent = page.waitForRequest(
+  311 |     (r) => r.url().endsWith('/api/laboratory/command') && r.method() === 'POST',
+  312 |   );
+  313 |   await save(page);
+  314 |   const command = (await sent).postDataJSON(),
+  315 |     winner = await state(page);
+  316 |   await second.bringToFront();
+  317 |   await expect(d2).toContainText(t.stale);
+  318 |   await expect(d2.getByRole('button', { name: t.save, exact: true })).toBeDisabled();
+  319 |   await expect(
+  320 |     d2.getByRole('textbox', { name: n.fields.destinationPort, exact: true }),
+  321 |   ).toHaveValue('1555');
+  322 |   expect(await state(second)).toEqual(winner);
+  323 |   const headers = { Origin: 'http://127.0.0.1:3000', 'If-Laboratory-Workspace': a.workspace };
+  324 |   const redelivery = await page.request.post('/api/laboratory/command', { headers, data: command });
+  325 |   expect((await redelivery.json()).redelivered).toBe(true);
+  326 |   const conflict = await page.request.post('/api/laboratory/command', {
+  327 |     headers,
+  328 |     data: { ...command, command: { ...command.command, destinationPort: '1666' } },
+  329 |   });
+  330 |   expect(conflict.status()).toBe(409);
+  331 |   const stale = await page.request.post('/api/laboratory/command', {
+  332 |     headers,
+  333 |     data: {
+  334 |       ...command,
+  335 |       commandId: crypto.randomUUID(),
+  336 |       command: { ...command.command, destinationPort: '1555' },
+  337 |     },
+  338 |   });
+  339 |   expect(stale.status()).toBe(409);
+  340 |   expect((await stale.json()).receipt.code).toBe('stale-revision');
+  341 |   expect((await state(page)).world).toEqual(winner.world);
+  342 |   await d2.getByRole('button', { name: t.cancel, exact: true }).click();
+  343 |   await open(page, 'rule', a.dataRule);
+  344 |   await open(second, 'rule', a.dataRule);
+  345 |   await edit(page, { destinationPort: '1777' });
+  346 |   const oldReview = await edit(second, { destinationPort: '1888' });
+  347 |   // Delay only invalidation reads, not the command or server authority. This
+  348 |   // exercises Save before the other tab learns about the real competing commit.
+  349 |   let release!: () => void;
+  350 |   const gate = new Promise<void>((resolve) => {
+  351 |     release = resolve;
+  352 |   });
+  353 |   await second.route('**/api/laboratory/state', async (route) => {
+  354 |     await gate;
+  355 |     await route.continue();
+  356 |   });
+  357 |   try {
+  358 |     await save(page);
+  359 |     const committed = await state(page);
+  360 |     const rejected = second.waitForResponse(
+  361 |       (r) => r.url().endsWith('/api/laboratory/command') && r.request().method() === 'POST',
+  362 |     );
+  363 |     await oldReview.getByRole('button', { name: t.save, exact: true }).click();
+  364 |     const result = await rejected;
+  365 |     expect(result.status()).toBe(409);
+  366 |     const body = await result.json();
+  367 |     expect(body.receipt.code).toBe('stale-revision');
+  368 |     expect(body.world).toEqual(committed.world);
+  369 |     await expect(second.locator('.lab-result')).toContainText(c.codes['stale-revision']);
+  370 |     expect((await state(page)).world).toEqual(committed.world);
+  371 |   } finally {
+  372 |     release();
+  373 |     await second.unroute('**/api/laboratory/state');
+  374 |   }
+  375 |   await second.close();
+  376 | });
+  377 | 
+  378 | test('remediation compact native Review keyboard focus reduced motion Axe pinned delete and short desktop preserve readable rule evidence', async ({
+  379 |   page,
+  380 | }) => {
+  381 |   await page.emulateMedia({ reducedMotion: 'reduce' });
+  382 |   const a = await seed(page);
+  383 |   await open(page, 'rule', a.dataRule);
+  384 |   const initial = await state(page);
+  385 |   await page
+  386 |     .locator('.lab-rule-lifecycle')
+  387 |     .getByRole('button', { name: t.edit, exact: true })
+  388 |     .click();
+  389 |   const validation = page.getByRole('dialog', { name: t.editing, exact: true });
+  390 |   await validation.getByRole('button', { name: t.review, exact: true }).click();
+  391 |   await expect(validation).toContainText(t.noChange);
+  392 |   await expect(validation.getByRole('button', { name: t.save, exact: true })).toBeDisabled();
+  393 |   await validation.getByRole('textbox', { name: n.fields.priority, exact: true }).fill('99');
+  394 |   await validation.getByRole('button', { name: t.review, exact: true }).click();
+> 395 |   await expect(validation).toContainText(n.codes['invalid-priority']);
+      |                            ^ Error: expect(locator).toContainText(expected) failed
+  396 |   await expect(validation.getByRole('button', { name: t.save, exact: true })).toBeDisabled();
+  397 |   expect(await state(page)).toEqual(initial);
+  398 |   await validation.getByRole('button', { name: t.cancel, exact: true }).click();
+  399 |   const dialog = await edit(page, { destinationPort: '1444' });
+  400 |   for (const viewport of [
+  401 |     { width: 1440, height: 900 },
+  402 |     { width: 1024, height: 768 },
+  403 |     { width: 1024, height: 500 },
+  404 |   ]) {
+  405 |     await page.setViewportSize(viewport);
+  406 |     const button = dialog.getByRole('button', { name: t.save, exact: true });
+  407 |     await button.focus();
+  408 |     await expect(button).toBeFocused();
+  409 |     const box = await button.boundingBox();
+  410 |     expect(box!.y).toBeGreaterThanOrEqual(0);
+  411 |     expect(box!.y + box!.height).toBeLessThanOrEqual(viewport.height);
+  412 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  413 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+  414 |       true,
+  415 |     );
+  416 |     await page.screenshot({
+  417 |       path: test.info().outputPath(`remediation-review-${viewport.width}-${viewport.height}.png`),
+  418 |     });
+  419 |   }
+  420 |   await dialog.getByRole('button', { name: t.cancel, exact: true }).click();
+  421 |   await page
+  422 |     .locator('.lab-rule-lifecycle')
+  423 |     .getByRole('button', { name: t.remove, exact: true })
+  424 |     .focus();
+  425 |   await page.keyboard.press('Enter');
+  426 |   const remove = page.getByRole('dialog', { name: t.deleting, exact: true });
+  427 |   await remove.getByRole('button', { name: t.review, exact: true }).click();
+  428 |   await remove.getByRole('checkbox').focus();
+  429 |   await page.keyboard.press('Space');
+  430 |   await expect(remove.getByRole('checkbox')).toBeChecked();
+  431 |   await page.keyboard.press('Escape');
+  432 |   expect(await state(page)).toEqual(initial);
+  433 | });
+  434 | 
+```

@@ -21,6 +21,8 @@ import Link from 'next/link';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { laboratoryV3Nb as c } from '@/content/nb';
 import type { Snapshot, Request as LabRequest, Command, Receipt, Model } from '@/laboratory/engine';
+import { isFirewallWorld } from './capabilities';
+import { laboratoryModel as remediationModel } from '@/laboratory/v36/contract';
 import { laboratoryModel } from '@/laboratory/v35/contract';
 import { firewallFields } from '@/laboratory/v35/contract';
 import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
@@ -41,34 +43,38 @@ import './laboratory.css';
 import { ArchitectureStudio } from './studio';
 import { architectureStudioNb as studioCopy } from '@/content/architecture-studio-nb';
 import { studioContext, studioReturn } from './studio-location';
+import { RuleLifecycle, RuleHistory, lifecycleMessage } from './rule-lifecycle';
+import { laboratoryRemediationNb as remediationCopy } from '@/content/laboratory-remediation-nb';
 const base = '/labs/laboratory';
 const baseHref = (view: string, id?: string, receipt?: string) =>
   base +
   '?' +
   new URLSearchParams({ view, ...(id ? { id } : {}), ...(receipt ? { receipt } : {}) });
 const message = (code: string, operation?: string) =>
-  Object.hasOwn(f.codes, code) &&
-  (!['incompatible-association', 'invalid-priority', 'priority-conflict'].includes(code) ||
-    Object.hasOwn(f.operations, operation ?? ''))
-    ? f.codes[code as keyof typeof f.codes]
-    : code === 'incompatible-association' &&
-        ['CreateNetworkInterface', 'AssociateNicNsg', 'CreateVirtualMachine'].includes(
-          operation ?? '',
-        )
-      ? e.associationError
-      : code === 'not-associated' && operation === 'DisassociateNicNsg'
-        ? e.noAssociation
-        : Object.hasOwn(e.codes, code)
-          ? e.codes[code as keyof typeof e.codes]
-          : code === 'incompatible-association' && operation === 'AssociateSubnetRouteTable'
-            ? r.associationError
-            : Object.hasOwn(r.codes, code)
-              ? r.codes[code as keyof typeof r.codes]
-              : Object.hasOwn(n.codes, code)
-                ? n.codes[code as keyof typeof n.codes]
-                : Object.hasOwn(c.codes, code)
-                  ? c.codes[code as keyof typeof c.codes]
-                  : c.unavailable;
+  ['read-only-rule', 'no-change'].includes(code)
+    ? lifecycleMessage(code)
+    : Object.hasOwn(f.codes, code) &&
+        (!['incompatible-association', 'invalid-priority', 'priority-conflict'].includes(code) ||
+          Object.hasOwn(f.operations, operation ?? ''))
+      ? f.codes[code as keyof typeof f.codes]
+      : code === 'incompatible-association' &&
+          ['CreateNetworkInterface', 'AssociateNicNsg', 'CreateVirtualMachine'].includes(
+            operation ?? '',
+          )
+        ? e.associationError
+        : code === 'not-associated' && operation === 'DisassociateNicNsg'
+          ? e.noAssociation
+          : Object.hasOwn(e.codes, code)
+            ? e.codes[code as keyof typeof e.codes]
+            : code === 'incompatible-association' && operation === 'AssociateSubnetRouteTable'
+              ? r.associationError
+              : Object.hasOwn(r.codes, code)
+                ? r.codes[code as keyof typeof r.codes]
+                : Object.hasOwn(n.codes, code)
+                  ? n.codes[code as keyof typeof n.codes]
+                  : Object.hasOwn(c.codes, code)
+                    ? c.codes[code as keyof typeof c.codes]
+                    : c.unavailable;
 const label = (key: string) =>
   Object.hasOwn(f.fields, key)
     ? f.fields[key as keyof typeof f.fields]
@@ -84,19 +90,21 @@ const label = (key: string) =>
               ? c.fields[key as keyof typeof c.fields]
               : key;
 const operation = (key: string) =>
-  Object.hasOwn(f.operations, key)
-    ? f.operations[key as keyof typeof f.operations]
-    : key === 'CreateVirtualMachine'
-      ? m.create
-      : Object.hasOwn(e.operations, key)
-        ? e.operations[key as keyof typeof e.operations]
-        : Object.hasOwn(r.operations, key)
-          ? r.operations[key as keyof typeof r.operations]
-          : Object.hasOwn(n.operations, key)
-            ? n.operations[key as keyof typeof n.operations]
-            : Object.hasOwn(c.operations, key)
-              ? c.operations[key as keyof typeof c.operations]
-              : key;
+  Object.hasOwn(remediationCopy.operations, key)
+    ? remediationCopy.operations[key as keyof typeof remediationCopy.operations]
+    : Object.hasOwn(f.operations, key)
+      ? f.operations[key as keyof typeof f.operations]
+      : key === 'CreateVirtualMachine'
+        ? m.create
+        : Object.hasOwn(e.operations, key)
+          ? e.operations[key as keyof typeof e.operations]
+          : Object.hasOwn(r.operations, key)
+            ? r.operations[key as keyof typeof r.operations]
+            : Object.hasOwn(n.operations, key)
+              ? n.operations[key as keyof typeof n.operations]
+              : Object.hasOwn(c.operations, key)
+                ? c.operations[key as keyof typeof c.operations]
+                : key;
 async function api(action: string, request?: unknown, workspace?: string) {
   let response: Response, value;
   try {
@@ -133,7 +141,7 @@ export function Laboratory() {
     query.get('receipt'),
   ].join('|');
   const [snapshot, setSnapshot] = useState<Snapshot | null>(null),
-    [startModel, setStartModel] = useState<Model>(laboratoryModel),
+    [startModel, setStartModel] = useState<Model>(remediationModel),
     [newWorkspace, setNewWorkspace] = useState(false),
     [loading, setLoading] = useState(true),
     [error, setError] = useState(''),
@@ -296,33 +304,40 @@ export function Laboratory() {
                 ? 'container'
                 : 'blob');
         router.push(
-          request.command.type === 'SetPeeringForwardedTraffic' &&
+          (request.command.type === 'UpdateSecurityRule' ||
+            request.command.type === 'UpdateFirewallNetworkRule') &&
             result.receipt.outcome === 'accepted'
-            ? href('peering', request.command.peeringId)
-            : request.command.type === 'DeleteRoute' && result.receipt.outcome === 'accepted'
-              ? href(
-                  'routeTable',
-                  snapshotRef.current?.world.model === laboratoryModel
-                    ? snapshotRef.current.world.routes.find(
-                        (r) => r.id === (request.command as { routeId: string }).routeId,
-                      )?.routeTableId
-                    : undefined,
-                )
-              : ['AssociateNicNsg', 'DisassociateNicNsg'].includes(request.command.type) &&
-                  'nicId' in request.command &&
-                  result.receipt.outcome === 'accepted'
-                ? href('nic', request.command.nicId)
-                : [
-                      'AssociateSubnetNsg',
-                      'AssociateSubnetRouteTable',
-                      'DisassociateSubnetRouteTable',
-                    ].includes(request.command.type) &&
-                    'subnetId' in request.command &&
+            ? href(
+                request.command.type === 'UpdateSecurityRule' ? 'rule' : 'firewallRule',
+                request.command.ruleId,
+              )
+            : request.command.type === 'SetPeeringForwardedTraffic' &&
+                result.receipt.outcome === 'accepted'
+              ? href('peering', request.command.peeringId)
+              : request.command.type === 'DeleteRoute' && result.receipt.outcome === 'accepted'
+                ? href(
+                    'routeTable',
+                    isFirewallWorld(snapshotRef.current?.world)
+                      ? snapshotRef.current.world.routes.find(
+                          (r) => r.id === (request.command as { routeId: string }).routeId,
+                        )?.routeTableId
+                      : undefined,
+                  )
+                : ['AssociateNicNsg', 'DisassociateNicNsg'].includes(request.command.type) &&
+                    'nicId' in request.command &&
                     result.receipt.outcome === 'accepted'
-                  ? href('subnet', request.command.subnetId)
-                  : target && result.receipt.outcome === 'accepted'
-                    ? href(kind, target)
-                    : href('history', undefined, result.receipt.commandId),
+                  ? href('nic', request.command.nicId)
+                  : [
+                        'AssociateSubnetNsg',
+                        'AssociateSubnetRouteTable',
+                        'DisassociateSubnetRouteTable',
+                      ].includes(request.command.type) &&
+                      'subnetId' in request.command &&
+                      result.receipt.outcome === 'accepted'
+                    ? href('subnet', request.command.subnetId)
+                    : target && result.receipt.outcome === 'accepted'
+                      ? href(kind, target)
+                      : href('history', undefined, result.receipt.commandId),
         );
         channel.current?.postMessage('changed');
       } else {
@@ -357,7 +372,7 @@ export function Laboratory() {
       if (!navigator.locks) throw Error('backend-unavailable');
       await navigator.locks.request('azurelab.laboratory.v3.session', async () => {
         const incoming = await api('session', {
-          model: replace ? laboratoryModel : startModel,
+          model: replace ? remediationModel : startModel,
           ...(replace ? { newWorkspace: true } : {}),
         });
         updatePending(null);
@@ -383,18 +398,17 @@ export function Laboratory() {
       world?.model === 'laboratory@3.2.0' ||
       world?.model === 'laboratory@3.3.0' ||
       world?.model === 'laboratory@3.4.0' ||
-      world?.model === laboratoryModel
+      isFirewallWorld(world)
         ? world
         : undefined,
     endpoints =
-      world?.model === laboratoryModel ||
+      isFirewallWorld(world) ||
       world?.model === 'laboratory@3.4.0' ||
       world?.model === 'laboratory@3.3.0'
         ? world
         : undefined,
-    compute =
-      world?.model === laboratoryModel || world?.model === 'laboratory@3.4.0' ? world : undefined,
-    firewall = world?.model === laboratoryModel ? world : undefined,
+    compute = isFirewallWorld(world) || world?.model === 'laboratory@3.4.0' ? world : undefined,
+    firewall = isFirewallWorld(world) ? world : undefined,
     view = query.get('view') ?? 'groups',
     id = query.get('id'),
     selectedReceipt = snapshot?.entries.find((e) => e.receipt.commandId === query.get('receipt'));
@@ -810,6 +824,18 @@ export function Laboratory() {
                     : [];
   const body = snapshot && world && (
     <>
+      {world.model === remediationModel && id && ['rule', 'firewallRule'].includes(view) && (
+        <RuleLifecycle
+          key={`${snapshot.workspace}:${world.model}:${view}:${id}`}
+          snapshot={snapshot}
+          view={view}
+          id={id}
+          href={href}
+          disabled={busy || !!error}
+          review={(request, workspace) => api('review', request, workspace)}
+          commit={run}
+        />
+      )}
       {view === 'studio' &&
         (error ? (
           <p role="status">{c.unavailable}</p>
@@ -1068,6 +1094,15 @@ export function Laboratory() {
                   ),
                 ]}
               />
+              {selectedReceipt.receipt.change && (
+                <RuleHistory
+                  key={`${snapshot.workspace}:${selectedReceipt.receipt.commandId}`}
+                  entry={selectedReceipt}
+                  snapshot={snapshot}
+                  href={href}
+                  read={(through) => api('state?through=' + through)}
+                />
+              )}
               <details>
                 <summary>{c.details}</summary>
                 <pre>{JSON.stringify(selectedReceipt, null, 2)}</pre>
@@ -1090,6 +1125,7 @@ export function Laboratory() {
       )}
       {(![
         'services',
+        'studio',
         'resources',
         'groups',
         'group',
@@ -1121,7 +1157,11 @@ export function Laboratory() {
         (view === 'group' && !group) ||
         (view === 'account' && !account) ||
         (view === 'container' && !container) ||
-        (view === 'blob' && !blob)) && <p role="status">{c.missing}</p>}
+        (view === 'blob' && !blob) ||
+        (view === 'rule' && !network?.securityRules.some((r) => r.id === id)) ||
+        (view === 'firewallRule' && !firewall?.firewallRules.some((r) => r.id === id))) && (
+        <p role="status">{c.missing}</p>
+      )}
     </>
   );
   return (
@@ -1298,8 +1338,11 @@ export function Laboratory() {
             </PortalDialog>
           )}
           {newWorkspace && (
-            <PortalDialog title={m.newWorkspace} onClose={() => setNewWorkspace(false)}>
-              <p>{f.newWorkspaceNote}</p>
+            <PortalDialog
+              title={remediationCopy.newWorkspace}
+              onClose={() => setNewWorkspace(false)}
+            >
+              <p>{remediationCopy.newWorkspaceNote}</p>
               <button
                 className="primary"
                 disabled={busy}
@@ -1307,7 +1350,7 @@ export function Laboratory() {
                   void start(true);
                 }}
               >
-                {m.newWorkspace}
+                {remediationCopy.newWorkspace}
               </button>
               <button onClick={() => setNewWorkspace(false)}>{c.cancel}</button>
             </PortalDialog>
@@ -1393,6 +1436,7 @@ export function Laboratory() {
                     value={startModel}
                     onChange={(e) => setStartModel(e.target.value as Model)}
                   >
+                    <option value={remediationModel}>3.6 · Security Rule Lifecycle</option>
                     <option value={laboratoryModel}>
                       3.5 · Storage, Networking, Compute og Firewall A
                     </option>
@@ -1422,14 +1466,14 @@ export function Laboratory() {
           {snapshot && world && (
             <>
               {!network && <p className="lab-network-boundary">{n.legacy}</p>}
-              {!firewall && ['groups', 'services'].includes(view) && (
+              {world.model !== remediationModel && ['groups', 'services'].includes(view) && (
                 <div className="lab-network-boundary">
-                  <p>{compute ? f.legacy : m.legacy}</p>
+                  <p>{remediationCopy.legacy}</p>
                   <button
                     disabled={busy || !!pendingView || !!error}
                     onClick={() => setNewWorkspace(true)}
                   >
-                    {m.newWorkspace}
+                    {remediationCopy.newWorkspace}
                   </button>
                 </div>
               )}
