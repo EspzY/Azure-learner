@@ -35,46 +35,14 @@
       "objectives": ["PORTAL-PRESERVATION"],
       "claims": ["portal.entry-and-scope"],
       "limits": "Technical visual QA evidence binding, not a new learner activity. Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution.",
-      "theory": [
-        {
-          "path": "docs/design/bifrost-course.md"
-        }
-      ],
-      "mechanism": [
-        {
-          "path": "src/features/course/bifrost-course.css"
-        }
-      ],
-      "practice": [
-        {
-          "path": "tests/e2e/bifrost-course.spec.ts"
-        }
-      ],
-      "feedback": [
-        {
-          "path": "src/features/learning/foundations-v2.tsx"
-        }
-      ],
-      "visual": [
-        {
-          "path": "src/features/course/course.tsx"
-        }
-      ],
-      "accessible": [
-        {
-          "path": "tests/e2e/bifrost-course.spec.ts"
-        }
-      ],
-      "assessment": [
-        {
-          "path": "src/features/course/bifrost-course-preservation.test.ts"
-        }
-      ],
-      "savvyshark": [
-        {
-          "path": "src/features/course/guided-coach.tsx"
-        }
-      ],
+      "theory": [{ "path": "docs/design/bifrost-course.md" }],
+      "mechanism": [{ "path": "src/features/course/bifrost-course.css" }],
+      "practice": [{ "path": "tests/e2e/bifrost-course.spec.ts" }],
+      "feedback": [{ "path": "src/features/learning/foundations-v2.tsx" }],
+      "visual": [{ "path": "src/features/course/course.tsx" }],
+      "accessible": [{ "path": "tests/e2e/bifrost-course.spec.ts" }],
+      "assessment": [{ "path": "src/features/course/bifrost-course-preservation.test.ts" }],
+      "savvyshark": [{ "path": "src/features/course/guided-coach.tsx" }],
       "assessmentStatus": "unchanged-existing"
     }
   ],
@@ -2901,66 +2869,35 @@
   ],
   "gates": {
     "source": {
-      "checks": [
-        {
-          "path": "docs/design/bifrost-source-provenance.json"
-        }
-      ],
+      "checks": [{ "path": "docs/design/bifrost-source-provenance.json" }],
       "limits": "Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution."
     },
     "curriculum": {
-      "checks": [
-        {
-          "path": "src/features/course/bifrost-course-preservation.test.ts"
-        }
-      ],
+      "checks": [{ "path": "src/features/course/bifrost-course-preservation.test.ts" }],
       "limits": "Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution."
     },
     "simulation": {
-      "checks": [
-        {
-          "path": "src/features/course/bifrost-course-preservation.test.ts"
-        }
-      ],
+      "checks": [{ "path": "src/features/course/bifrost-course-preservation.test.ts" }],
       "limits": "Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution."
     },
     "savvyshark": {
-      "checks": [
-        {
-          "path": "tests/e2e/bifrost-course.spec.ts"
-        }
-      ],
+      "checks": [{ "path": "tests/e2e/bifrost-course.spec.ts" }],
       "limits": "Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution."
     },
     "visual-accessibility": {
-      "checks": [
-        {
-          "path": "tests/e2e/bifrost-course.spec.ts"
-        }
-      ],
+      "checks": [{ "path": "tests/e2e/bifrost-course.spec.ts" }],
       "limits": "Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution."
     },
     "independent-final-audit": {
-      "checks": [
-        {
-          "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md"
-        }
-      ],
+      "checks": [{ "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md" }],
       "limits": "Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution."
     },
     "delivery": {
-      "checks": [
-        {
-          "path": "docs/quality/BIFROST_COURSE_QA_REVIEW.md"
-        }
-      ],
+      "checks": [{ "path": "docs/quality/BIFROST_COURSE_QA_REVIEW.md" }],
       "limits": "Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution."
     }
   },
-  "humanReview": {
-    "sme": "unperformed",
-    "learning": "unperformed"
-  },
+  "humanReview": { "sme": "unperformed", "learning": "unperformed" },
   "visualEvidence": [
     {
       "path": "docs/screenshots/bifrost-course/light-question-wrong.png",
@@ -3002,112 +2939,90 @@
     {
       "command": "true B-base preservation and inherited assertions",
       "result": "passed",
-      "details": "Final frozen payload: fifteen finite inherited presentation/import changes,86 additions including62 actual PNGs,102 snapshot files including proof. Full-base raw guards26/26 with exact metadata exceptions; original assessment/controllers/mascot and substantive historical assertions preserved."
+      "details": "Current frozenpayload:15finiteinheritedpresentation/importchanges,87additionsincluding62actualPNGs,103snapshotfilesincludingproof. WholeBbase2834paths andexactmetadataexceptions protected. CItest-onlydecompositionretainsalloriginalassertions/runtime; original17-casefullproofpassed underunchangedlimits."
+    },
+    {
+      "command": "previous-source npm run check",
+      "result": "passed",
+      "details": "Final warning-fix source a63a48f5f35e8e810d14e8f86f43116be1e80403; explicit exit0 in /tmp/bifrost-course-post-warning-fullcheck.exit.1171Vitest/100files,35Node,503curriculum/30files,real isolated PostgreSQL,mandatory contracts and normalproductionbuild. LogSHA256 ce24e5f75fc6005d12c684c464951a1bc9f9d672677aafcc63e3abc5584bb06c. Prior failures retained; completecandidateCI/strict/public remain separate."
+    },
+    {
+      "command": "Quality128 original candidate CI",
+      "result": "failed",
+      "details": "Exactd17c48ea1d495a8a4e3a68aba221c62efebc99db, run42707415623 attempt1:1170/1171Vitest, oneNEWcombinedpreservationcase9111ms>unchanged5000ms; Node/build/browser/aggregate/strictnotreached. OriginalrawlogSHA256f4135629f6d77479664c037847213d5a0aa608b609b6ff835361f3f5c72b74f7; retainedoutsidepr77-ci and boundexcerpt/profileprovenance in ci-preservation.json. Localunchangedprofile196mscase14/14; CIcauseUNRESOLVED."
+    },
+    {
+      "command": "new preservation case isolation and exact statement retention",
+      "result": "passed",
+      "details": "Onlynewcombinedcase decomposed into3naturalrisks, everyoriginalstatement retainedbyte-for-byte and separatelycomparedagainstnativeGitd17source. No helpers/adapter/runtime/CSS/controller/config or oldtest changes.17guardcases passed4.51s; per-caseGitspawns2/6/4, protectedreads102/204/0 withfreshactualadmission. No cachedcurrentbytes/timeout/worker/retrychange. AddedoneboundCI/profileartifact; finalsource103files=15finite+87added+self,62PNGs. Full1174-test check currentlyrunning; no credituntilterminal."
     },
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Final warning-fix source a63a48f5f35e8e810d14e8f86f43116be1e80403; explicit exit0 in /tmp/bifrost-course-post-warning-fullcheck.exit.1171Vitest/100files,35Node,503curriculum/30files,real isolated PostgreSQL,mandatory contracts and normalproductionbuild. LogSHA256 ce24e5f75fc6005d12c684c464951a1bc9f9d672677aafcc63e3abc5584bb06c. Prior failures retained; completecandidateCI/strict/public remain separate."
+      "details": "Currenttest-onlysource38453e1dbb3a62d9382ba8bb0b95a89f8bbca88c,103-file5d3706cdedba209212f6b9afe793b93db2943b1c7a492450a05bad05f6c9b0ba. Actualterminal0 /tmp/bifrost-course-preservation-fullcheck.exit:1174/1174Vitest100files,35Node,503curriculum30files,realPG,allmandatorycontracts andnormalproductionbuild. LogSHA25633add0340691180c1e94e7fb43f7f207ecb8559e38c26fd3437bb13ef695a558. No runtime/helper/config changes. OriginalCI128delayunreproduced/causeOPEN; freshcompleteCI/strict/newexactSHApublicremainrequired."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "8e15c4d40096a755a10c470959ed9d9f4f9ea1ac2f776622c95318e10ecea74c",
-    "reviewer": {
-      "id": "/root/bifrost_course_final_audit",
-      "kind": "agent"
-    },
-    "started": "2026-11-09T21:51:26.290Z",
-    "completed": "2026-11-09T21:56:54.141Z",
+    "fingerprint": "5d3706cdedba209212f6b9afe793b93db2943b1c7a492450a05bad05f6c9b0ba",
+    "reviewer": { "id": "/root/bifrost_course_final_audit", "kind": "agent" },
+    "started": "2026-11-09T22:18:59.328Z",
+    "completed": "2026-11-09T22:27:32.750Z",
     "domains": {
       "content": {
-        "finding": "No new content, objective, source claim, scenario, mission or completion authority. Every original locale/content/model authority is raw-byte preserved; actual existing explanations and submitted wrong/correct rationale were inspected. Prior content PARTIAL findings remain unchanged.",
+        "finding": "The correction adds no teaching, objective, question, assessment rule or learning claim. Every content/model authority and all protected runtime bytes match the published presentation candidate. Earlier content PARTIAL and human learning/SME limitations remain unchanged.",
         "evidence": [
-          {
-            "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md",
-            "marker": "## Content"
-          },
-          {
-            "path": "src/content/nb.ts"
-          },
-          {
-            "path": "docs/design/bifrost-course.md"
-          }
+          { "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md", "marker": "## Content" },
+          { "path": "src/content/nb.ts" },
+          { "path": "docs/design/bifrost-course.md" }
         ]
       },
       "technical": {
-        "finding": "Independently rehashed all2834 B-base blobs and actual inherited files:2818 identical,15 exact before/after changes, one current-record exception. Exact86 additions/62 decoded PNGs and102 snapshot paths match. Six negative mutations fail; historical bodies remain imports-only, resident controllers class/import-only, unrelated Git commands native. True Portal remains blue/light/Segoe in both visual preferences.",
+        "finding": "Fresh independent proof matches all 103 snapshot hashes and exact paths, all 2,834 B blobs/current bindings, 87 additions and 62 decoded PNGs. Six negative mutations still reject. All 768 protected runtime/configuration/asset/old-test paths and the native admission adapter are byte-identical to d17. No new cache, native-read omission, wildcard exemption, runtime or limit change.",
         "evidence": [
-          {
-            "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md",
-            "marker": "## Technical"
-          },
-          {
-            "path": "src/features/course/bifrost-course-preservation.test.ts"
-          },
-          {
-            "path": "docs/reviews/evidence/bifrost-course/preservation.json"
-          }
+          { "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md", "marker": "## Technical" },
+          { "path": "src/features/course/bifrost-course-preservation.test.ts" },
+          { "path": "tests/bifrost-course-preservation.ts" },
+          { "path": "docs/reviews/evidence/bifrost-course/preservation.json" }
         ]
       },
       "visual": {
-        "finding": "Both MAJOR contrast/reflow findings are corrected and independently retested after the final stamp on actual served production buildjcZRvrbRf9_Wmxr3tZSzK. Warning contrast4.661:1 light/8.815:1 dark; actual320 document320 with unclipped note. Zero Axe in affected warning/Journal and six-viewport normal-header checks in both themes. Satoshi fidelity and human visual acceptance remain open.",
+        "finding": "Runtime CSS, theme/provider, assets and controllers are unchanged. The prior presentation review and two corrected warning findings remain supported by exact byte identity; its 4.661:1/8.815:1 warning contrast, 320px reflow and native Portal boundary captures are historical actual runtime evidence, not new executions. Satoshi fidelity and the additional unproven public theme stability observation remain open. No new native run was warranted for this test-only correction.",
         "evidence": [
-          {
-            "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md",
-            "marker": "## Visual"
-          },
-          {
-            "path": "docs/screenshots/bifrost-course/after-dark-appearance-320.png"
-          },
-          {
-            "path": "docs/screenshots/bifrost-course/after-dark-denied-journal.png"
-          }
+          { "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md", "marker": "## Visual" },
+          { "path": "docs/screenshots/bifrost-course/after-dark-appearance-320.png" },
+          { "path": "docs/screenshots/bifrost-course/after-dark-denied-journal.png" }
         ]
       },
       "assessment": {
-        "finding": "Original controls, ordering, required rules, handlers and submitted-last.answer comparison remain. Result attributes/icons exist only inside the original permitted last.kind check branch. Actual selected-before-Submit, wrong/correct submissions and previous-feedback stability passed initial native probes. Renewed actual Start/unanswered fields/denied-assistance flow retains exact saved assessment bytes and exposes no feedback or withheld teaching.",
+        "finding": "All original assessment controls, handlers, permitted submitted-check branch, feedback and learner stores remain exact. The twelve original guard statements and eight expect expressions are retained in order across three cases, including both unknown-path iterations. This is test allocation, not a learner assessment or lifecycle change. Prior real selected/wrong/correct/Start/denied-assistance evidence remains explicitly tied to the unchanged presentation runtime.",
         "evidence": [
+          { "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md", "marker": "## Assessment" },
           {
             "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md",
-            "marker": "## Assessment"
+            "marker": "## Affected test-cost review"
           },
-          {
-            "path": "src/features/learning/foundations-v2.tsx"
-          },
-          {
-            "path": "tests/e2e/bifrost-course.spec.ts"
-          }
+          { "path": "src/features/learning/foundations-v2.tsx" },
+          { "path": "docs/reviews/evidence/bifrost-course/ci-preservation.json" }
         ]
       },
       "guidance": {
-        "finding": "Existing VM guide was started and restored through actual Portal navigation/reload; native Create/Review remained independent with no Create commit or technical/XP change. Current denied-Journal recovery is readable, focusable and fail-closed in both themes; forged Portal guide query exposes no solution highlight. Original controllers, canonical mascot, independent semantics and free-Laboratory guide absence remain.",
+        "finding": "No guidance, mascot, independent-mode or Journal authorization code changed. The actual prior guide/native Create/Review and denied-Journal evidence remains preserved through byte identity. No new mission, assistance, command, receipt, XP or positive learner evidence is introduced; no new guidance-quality or human approval is claimed.",
         "evidence": [
-          {
-            "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md",
-            "marker": "## Guidance"
-          },
-          {
-            "path": "src/features/learning/compute-vm.tsx"
-          },
-          {
-            "path": "src/features/course/guided-coach.tsx"
-          }
+          { "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md", "marker": "## Guidance" },
+          { "path": "src/features/learning/compute-vm.tsx" },
+          { "path": "src/features/course/guided-coach.tsx" }
         ]
       },
       "regression": {
-        "finding": "Corrected-source fullcheck explicit0:1171 Vitest/100files,35 Node,503curriculum, realPG/contracts/build. Updated preservation26/26 and two distinct new fault cases15.0s passed; post-stamp independent raw/appearance/guard/normal-scope batch exit0.485=436desktop+49compact is plan collection only. Earlier timing/PG causes and candidate CI/strict/public verification remain open; no assertion, retry, worker or deadline weakened.",
+        "finding": "Current fullcheck explicitly passed 1,174 Vitest / 100 files, 35 Node and 503 curriculum tests with real PostgreSQL/contracts/build. Independent changed-file execution passed 17/17 under default limits; all original statements, unrelated tests and fresh admissions remain. Quality128 failed the previous candidate at 9,111ms against 5,000ms and ran no browsers/strict. That delay was not reproduced locally; causal timing and new-head complete CI/strict/public gates remain open. Browser plan remains 485 cases.",
         "evidence": [
           {
             "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md",
             "marker": "## Regression and delivery boundary"
           },
-          {
-            "path": "docs/reviews/evidence/bifrost-course/qa/final-warning-two-cases.txt"
-          },
-          {
-            "path": "docs/reviews/evidence/bifrost-course/qa/final-case-plan.txt"
-          }
+          { "path": "docs/reviews/evidence/bifrost-course/ci-preservation.json" },
+          { "path": "docs/reviews/evidence/bifrost-course/qa/final-case-plan.txt" }
         ]
       }
     },
@@ -3116,48 +3031,53 @@
         "id": "C-FA-01",
         "severity": "major",
         "status": "fixed",
-        "description": "Blocked visual preference warning had1.5866:1 light/1.9880:1 dark contrast and caused457px document width at320px.",
-        "fix": "Scoped Course header warning uses shared warning foreground/background pair; theme-control min/max width and wrapping retain the visible note within viewport. Theme provider and storage behavior are unchanged.",
+        "description": "The earlier blocked visual-preference warning had 1.5866:1 light / 1.9880:1 dark contrast and a 457px document at a 320px viewport.",
+        "fix": "The prior scoped warning-pair and header-wrapping correction remains byte-identical. No runtime styling changed in this test-cost correction.",
         "retests": [
-          "Renewed actual production appearance probe after21:51:09 stamp:4.661:1 light and8.815:1 dark; full Axe0 at1440 and320 in both themes.",
-          "320px document320; note bounds16..240, no text clipping. Normal six-viewport header/keyboard/reduced-motion/Journal probes pass both themes."
+          "Actual prior presentation production checks measured 4.661:1 light / 8.815:1 dark, document width 320px, visible unclipped note and zero Axe at 1440/320 in both themes.",
+          "Current independent comparison proves all 768 protected runtime/configuration/asset/old-test files match the published candidate; corrected CSS remains exact."
         ]
       },
       {
         "id": "C-FA-02",
         "severity": "major",
         "status": "fixed",
-        "description": "Dark denied-assistance Journal had near-white headings/paragraphs on legacy pale yellow; first correction retained an unreadable2.05:1 recovery button.",
-        "fix": "Scoped Journal management-warning text, surfaces, links, recovery button border and focus use the shared warning pair. Original boundary, copy, event handlers and saved assessment semantics are unchanged.",
+        "description": "The earlier dark denied-assistance Journal had unreadable pale-surface text; the intermediate recovery button retained 2.05:1 contrast.",
+        "fix": "The prior scoped warning text/surface/button border/focus correction remains byte-identical. Original assistance and saved-assessment semantics are unchanged.",
         "retests": [
-          "Renewed actual original Benefits Start/confirmation, twelve unanswered selects, exact assessment-key write denial and Journal: teaching remains withheld, saved assessment/technical bytes unchanged, zero Axe in both themes.",
-          "Actual recovery-control keyboard focus and visible matching warning outline pass; forged Portal query exposes no solution instruction/highlight in either mode."
+          "Actual prior presentation Start/confirmation, unanswered fields and exact-key write denial kept teaching withheld and saved bytes unchanged, with zero Axe and keyboard-visible recovery in both themes.",
+          "Current source/body/raw checks prove the Journal, guidance, theme and assessment runtime and their original authorization controllers are unchanged."
         ]
       },
       {
         "id": "C-FA-03",
         "severity": "note",
         "status": "open",
-        "description": "Exact Satoshi fidelity remains unavailable under the repository redistribution restriction. The actual licensed local Open Sans fallback and optional installed-Satoshi stack are disclosed; no human typography acceptance is claimed."
+        "description": "Exact Satoshi fidelity remains unavailable under the repository redistribution restriction. Actual licensed local Open Sans and optional installed-Satoshi stack remain disclosed; no human typography acceptance is claimed."
       },
       {
         "id": "C-FA-04",
         "severity": "note",
         "status": "open",
-        "description": "Historical CI timing, Compute/Back/Axe/landing and PostgreSQL uncertainties remain open where not causally diagnosed. Four retained local timing observations and the new combined-case deadline failure remain separate from fixed contrast defects. Complete candidate CI/strict and anonymous exact-SHA public verification remain delivery gates."
+        "description": "Quality128 failed the prior exact candidate with one new combined guard at 9,111ms against its unchanged 5,000ms deadline; no browsers or strict release ran. Local profiling did not reproduce it. The new case allocation preserves all work and passes locally but does not establish a CI/infrastructure cause or fix. Earlier local/browser/Compute/Axe/landing/PostgreSQL uncertainties and actual new-head complete CI/strict/public delivery gates remain open."
+      },
+      {
+        "id": "C-FA-05",
+        "severity": "note",
+        "status": "open",
+        "description": "A separate unchanged-d17 public diagnostic passed three post-Submit visibility checks but stopped before Course actions in the fourth fresh context: selecting dark left html light within the original 5s check. No hydration/event/storage cause or persistent control defect is established. The main public 8/8 journey is separate; no theme-provider source fix or widened limit is claimed."
       }
     ],
-    "report": {
-      "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md"
-    }
+    "report": { "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md" }
   },
   "snapshot": {
     "files": {
-      "docs/design/bifrost-course.md": "10bdd0ba29900089a627e86fa08ca472a0328f6633c3e1c903e7735d9ae407b9",
+      "docs/design/bifrost-course.md": "5468d93565b9fab7efb34efec7b130bd2bc15873c2dc644a7e1675d676464497",
       "docs/reviews/evidence/bifrost-course/before-appearance-result.json": "08b64c608daf9b9fa2400da17f2a74a066a9f516eb0cdce0846fc1d964434f78",
       "docs/reviews/evidence/bifrost-course/before-denial-result.json": "c7715b462a6a09766cd3b9367a3c4031592c62731d5628880b685ba6d9971638",
+      "docs/reviews/evidence/bifrost-course/ci-preservation.json": "19486ec5606b1ed23658bd6bc204089c5f291a852cb32edc019a103d87286def",
       "docs/reviews/evidence/bifrost-course/intermediate-warning-failure.json": "81e9d1dd5f90eb717f7858779d9948b86eadd323801803d6df534149e03e28a7",
-      "docs/reviews/evidence/bifrost-course/preservation.json": "e55463af41e061f810bc1d8ac79cc3cc8ce18c76ca86fd9b168f49e229a55159",
+      "docs/reviews/evidence/bifrost-course/preservation.json": "9d0cc4e9a4c9adb6ab2db4da013fe7efc7af89882abc9e111d81d6bb8ee38ad0",
       "docs/reviews/evidence/bifrost-course/qa/before-appearance-result.json.raw": "48a3bfeedf568fb76ea2c283dd558a2f11974c25c2785655d16f6e7c4d54b580",
       "docs/reviews/evidence/bifrost-course/qa/combined-warning-deadline-1.png": "f129b0996cfb8b1e824a897d2ca2fdb63b0a346b8917180668a9b8c05f62ad61",
       "docs/reviews/evidence/bifrost-course/qa/combined-warning-deadline-2.png": "917eae44c580dbe40834d130664186109e91a691097d027c7cc1f00bf7ce82fb",
@@ -3235,7 +3155,7 @@
       "docs/screenshots/bifrost-course/light-savvy.png": "721965420ab592a51e8e803b503d09963dd30d7f9ad2c94be58174e9dc4d475c",
       "docs/screenshots/bifrost-course/light-teaching-info.png": "e6c68cf04662171b452aa3afaf4ccf0bcbb4a5c9420bc84b0b2b48b9f6ef3a7d",
       "docs/screenshots/bifrost-course/light-warning.png": "a26e969db5a0d200a42d93bdff30f3eb95846e14071ce5758ef2367d45bdf33e",
-      "src/features/course/bifrost-course-preservation.test.ts": "24ceef3b9771294695133c7d6deda13d2f7c96f91eca918471d4d574a2ffe02d",
+      "src/features/course/bifrost-course-preservation.test.ts": "471ed31ee1c18214b3ba4651df870b55f1e9f505b36634e36b012124d465d579",
       "src/features/course/bifrost-course.css": "25261a3f531539aa058b92f64eef7e4d25ae34ce92d4be8abb57c7774c8ab57b",
       "src/features/course/bifrost-guidance.css": "ac0783aa19deff2627e471356adaff25c4a840b0ff4940b3a89969af25dfa55c",
       "src/features/course/course.css": "9ad839664d2395d20ab5193640579995235bab6713f49fb12632ca4348987d0a",
@@ -3257,5 +3177,5 @@
       "tests/e2e/hybrid-experience.spec.ts": "226f82f442c59c11f3b6031fa3a9052e6b357e04cd3f3f6223061a5e3d108461"
     }
   },
-  "implementationFinished": "2026-11-09T21:51:09.075Z"
+  "implementationFinished": "2026-11-09T22:18:45.551Z"
 }
