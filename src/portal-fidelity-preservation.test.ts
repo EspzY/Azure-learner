@@ -1,11 +1,17 @@
 import { expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
+import { join, resolve } from 'node:path';
+import { tmpdir } from 'node:os';
 import ts from 'typescript';
 import proof from '../docs/reviews/evidence/portal-resource-fidelity/preservation.json';
 import { memoryResponse } from '../tests/e2e/ephemeral-actions';
-import { validateFidelityProjection } from '../tests/portal-fidelity-preservation';
+import {
+  readFidelityHistory,
+  validateFidelityProjection,
+  validateFidelityRead,
+} from '../tests/portal-fidelity-preservation';
 
 const base = 'c4119f3f770d6767881dc5ee455686cbae0150d7';
 const hash = (bytes: Buffer) =>
@@ -29,6 +35,7 @@ const approved = [
   'src/features/portal/home.tsx',
   'src/features/portal/presentation.tsx',
   'src/integrated-platform-preservation.test.ts',
+  'src/laboratory-integrated.test.ts',
   'tests/integrated-platform-preservation.ts',
   'tests/e2e/ephemeral-actions.ts',
   'tests/e2e/integrated-actions.ts',
@@ -49,6 +56,40 @@ const rows = execFileSync('git', ['ls-tree', '-r', base], {
   });
 const original = (path: string) =>
   execFileSync('git', ['show', base + ':' + path], { maxBuffer: 16 * 1024 * 1024 });
+it('preserves native temporary publisher output and absolute repository byte boundaries', () => {
+  const directory = mkdtempSync(join(tmpdir(), 'azurelab-fidelity-reader-'));
+  try {
+    const output = join(directory, 'output');
+    const bytes = Buffer.from('candidate_revision=actual-test-output\n');
+    writeFileSync(output, bytes);
+    expect(readFidelityHistory(output)).toEqual(bytes);
+    expect(readFidelityHistory(output, 'utf8')).toBe(bytes.toString());
+    const protectedPath = resolve('src/features/portal/home.tsx');
+    expect(readFidelityHistory(protectedPath)).toEqual(original('src/features/portal/home.tsx'));
+    expect(() => validateFidelityRead(protectedPath, Buffer.from('changed'))).toThrow(
+      'unapproved read',
+    );
+    const unlisted = resolve('node_modules/typescript/package.json');
+    expect(() => validateFidelityRead(unlisted, readFileSync(unlisted))).toThrow('unapproved read');
+    const link = join(directory, 'protected-link');
+    symlinkSync(protectedPath, link);
+    expect(() => validateFidelityRead(link, Buffer.from('changed'))).toThrow('unapproved read');
+    expect(readFidelityHistory(link)).toEqual(original('src/features/portal/home.tsx'));
+    expect(() =>
+      validateFidelityRead(resolve('__unlisted_portal_fidelity__.txt'), bytes),
+    ).toThrow();
+  } finally {
+    rmSync(directory, { recursive: true, force: true });
+  }
+});
+it('updates only the explicit PostgreSQL presentation classification while retaining every original integration assertion', () => {
+  const path = 'src/laboratory-integrated.test.ts';
+  const before = original(path).toString();
+  const old = "parentId: database.serverId,\n      category: 'resource',";
+  const after = "parentId: database.serverId,\n      category: 'subresource',";
+  expect(before.split(old)).toHaveLength(2);
+  expect(readFileSync(path, 'utf8')).toBe(before.replace(old, after));
+});
 it('retains the original default memory transport and rejects persistent command responses at that boundary', () => {
   let predicate:
     | ((response: {

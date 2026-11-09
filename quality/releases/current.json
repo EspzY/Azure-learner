@@ -757,14 +757,46 @@
       "objectives": ["PORTAL-FIDELITY"],
       "claims": ["portal.fidelity-subset"],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
-      "theory": [{ "path": "docs/PORTAL_RESOURCE_FIDELITY.md" }],
-      "mechanism": [{ "path": "src/features/portal/resource-context.ts" }],
-      "practice": [{ "path": "tests/e2e/portal-resource-fidelity.spec.ts" }],
-      "feedback": [{ "path": "src/features/portal/resource-details.tsx" }],
-      "visual": [{ "path": "src/features/laboratory/integrated-resource.tsx" }],
-      "accessible": [{ "path": "tests/e2e/portal-resource-fidelity.spec.ts" }],
-      "assessment": [{ "path": "src/portal-fidelity-preservation.test.ts" }],
-      "savvyshark": [{ "path": "src/features/course/guided-coach.tsx" }],
+      "theory": [
+        {
+          "path": "docs/PORTAL_RESOURCE_FIDELITY.md"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/features/portal/resource-context.ts"
+        }
+      ],
+      "practice": [
+        {
+          "path": "tests/e2e/portal-resource-fidelity.spec.ts"
+        }
+      ],
+      "feedback": [
+        {
+          "path": "src/features/portal/resource-details.tsx"
+        }
+      ],
+      "visual": [
+        {
+          "path": "src/features/laboratory/integrated-resource.tsx"
+        }
+      ],
+      "accessible": [
+        {
+          "path": "tests/e2e/portal-resource-fidelity.spec.ts"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/portal-fidelity-preservation.test.ts"
+        }
+      ],
+      "savvyshark": [
+        {
+          "path": "src/features/course/guided-coach.tsx"
+        }
+      ],
       "assessmentStatus": "unchanged-existing"
     }
   ],
@@ -3531,7 +3563,6 @@
     "src/laboratory-firewall.test.ts",
     "src/laboratory-integrated-api.test.ts",
     "src/laboratory-integrated.integration.test.ts",
-    "src/laboratory-integrated.test.ts",
     "src/laboratory-networking-preservation.test.ts",
     "src/laboratory-networking.integration.test.ts",
     "src/laboratory-networking.test.ts",
@@ -3718,35 +3749,66 @@
   ],
   "gates": {
     "source": {
-      "checks": [{ "path": "docs/reviews/evidence/portal-resource-fidelity/public-sources.json" }],
+      "checks": [
+        {
+          "path": "docs/reviews/evidence/portal-resource-fidelity/public-sources.json"
+        }
+      ],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "curriculum": {
-      "checks": [{ "path": "src/portal-fidelity-preservation.test.ts" }],
+      "checks": [
+        {
+          "path": "src/portal-fidelity-preservation.test.ts"
+        }
+      ],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "simulation": {
-      "checks": [{ "path": "src/portal-fidelity-preservation.test.ts" }],
+      "checks": [
+        {
+          "path": "src/portal-fidelity-preservation.test.ts"
+        }
+      ],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "savvyshark": {
-      "checks": [{ "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md" }],
+      "checks": [
+        {
+          "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md"
+        }
+      ],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "visual-accessibility": {
-      "checks": [{ "path": "tests/e2e/portal-resource-fidelity.spec.ts" }],
+      "checks": [
+        {
+          "path": "tests/e2e/portal-resource-fidelity.spec.ts"
+        }
+      ],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "independent-final-audit": {
-      "checks": [{ "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md" }],
+      "checks": [
+        {
+          "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md"
+        }
+      ],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "delivery": {
-      "checks": [{ "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_RELEASE_REVIEW.md" }],
+      "checks": [
+        {
+          "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_RELEASE_REVIEW.md"
+        }
+      ],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     }
   },
-  "humanReview": { "sme": "unperformed", "learning": "unperformed" },
+  "humanReview": {
+    "sme": "unperformed",
+    "learning": "unperformed"
+  },
   "visualEvidence": [
     {
       "path": "docs/reviews/evidence/portal-resource-fidelity/after/function-app-overview.png",
@@ -3800,11 +3862,21 @@
       "command": "bounded native desktop and compact regression",
       "result": "passed",
       "details": "Actual final six cases passed in1.9minutes without retry: original integrated Review viewports, original Firewall Properties/original receipt keyboard+Axe, new Resource Group/PG Review/breadcrumb/readable Overview/reduced-motion/Axe. Earlier diagnostic10/14 contains three inherited cumulative deadlines plus corrected NEW hidden-Home harness; all failures retained, no root-cause closure inferred."
+    },
+    {
+      "command": "npm run check",
+      "result": "failed",
+      "details": "Actual completed04fc local check:1390/1393Vitest, three failures retained in qa/fullcheck-first-three-failures.log.raw. Two presentation/test-reader defects corrected with new finite source110/stampaf331; no complete corrected-source local pass is inferred. The older unchanged5000ms preservation timeout remains OPEN. Complete authoritative same-head CI check/aggregate/strict is required."
+    },
+    {
+      "command": "targeted fullcheck corrections",
+      "result": "failed",
+      "details": "Actual corrected-source affected five files36/37passed; PostgreSQL classification and native temporary-output/absolute-path controls passed, unchanged older preservation case took6010ms against5000ms. Forwarding-instrumentation diagnostic later3/3passed but does not prove timing cause or replace full CI; no new caching/performance abstraction implemented."
     }
   ],
   "review": {
     "status": "pending",
-    "fingerprint": "9571cec53dae97f70029db25a03326eda99419fa638f9fc129c26a34d9e62e6f",
+    "fingerprint": "af331a7e0afe4e2c170fe83cf4ec9fea29f4da13e0f52989e53305a003afa387",
     "reviewer": null,
     "started": null,
     "domains": {},
@@ -3813,7 +3885,7 @@
   },
   "snapshot": {
     "files": {
-      ".gitattributes": "06b3e6b614af6ff336694e69485bfc8e645684a0158dcd88834b534fc1d0afce",
+      ".gitattributes": "85e5eaa15078a9f60c21b31373b75e04fcdeedfb4648f0cd5bccd069508aa2d7",
       "docs/PORTAL_ICONOGRAPHY.md": "1e50aab452a278891a50ecd58a4fb762d5cad5c56077b45a2eced4e866236f97",
       "docs/PORTAL_REFERENCE_FIDELITY.md": "59dfda495fa1080fbd4234a090e8b1bbde836b3e288f86e3854468049ddaf285",
       "docs/PORTAL_RESOURCE_FAMILY_MATRIX.md": "55d9e07ab53947fba82fee858ccdbaf008d60482cc9da5898669b1075fe34abd",
@@ -3855,7 +3927,7 @@
       "docs/reviews/evidence/portal-resource-fidelity/before/resource-group-basics.png": "a57fb17a8eaa393be03fb2ab4240f69c67c0ffefa2c317fe0a6baaed08e57d20",
       "docs/reviews/evidence/portal-resource-fidelity/before/resource-group-review.png": "3e271b04917bed6d0cb19133d38682e00ac1af95e9d97d3ec65c96f6f1ab58b6",
       "docs/reviews/evidence/portal-resource-fidelity/family-matrix.json": "3cdbdff3aec9dd5b68aedc3ef08809896a9b4d9adf80dcff3fc0f705cccca907",
-      "docs/reviews/evidence/portal-resource-fidelity/preservation.json": "f67e6fbe8aa178505fdfe80c33063809796418d0988ff74826389688a41a9c86",
+      "docs/reviews/evidence/portal-resource-fidelity/preservation.json": "b3dd2575cdb240962ff9fcfd0944d04953fb085cc2958189276db3b3f3e83eef",
       "docs/reviews/evidence/portal-resource-fidelity/public-reference-images.json": "1f33f269d2e30a0e7a0e7be27d227e55e2b98d6b1d250e00663fffc31c41f0ee",
       "docs/reviews/evidence/portal-resource-fidelity/public-sources.json": "e632049a4cdf33134227565109280a693736ca3b14763b3108c2450c3e90a938",
       "docs/reviews/evidence/portal-resource-fidelity/qa/baseline-group-guided-two-passed.log.raw": "35e93efc295e5ce7f2830650fd525af54187bbe289c5f016219c3e24c2138438",
@@ -3873,6 +3945,7 @@
       "docs/reviews/evidence/portal-resource-fidelity/qa/current-baseline-four-passed.log.raw": "6ffd5c5c5aa81f6fa0cb199bad6575ecc3e5fda51a320a8337b913eb504224a3",
       "docs/reviews/evidence/portal-resource-fidelity/qa/final-visual-first-17-pass-1-cap.log.raw": "340ba790847225ae69ba403a4de91de49897f5e38475257ccef29d7ab1efddf8",
       "docs/reviews/evidence/portal-resource-fidelity/qa/final-visual-first-chain.context.md.raw": "2d14f92dd9793d224515c04fec0c98b7f345224c73ae9fa7185ca9b1eab0dc78",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/fullcheck-first-three-failures.log.raw": "4e3f9d8ee733586e98865a01861ad4896098593affba48783b72787961115264",
       "docs/reviews/evidence/portal-resource-fidelity/qa/initial-production-build.log.raw": "715c91eb78c88929afc05107cd2240148fe1a2afa1518a72fe00b9c2daf3f1dc",
       "docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-chain.context.md.raw": "cac1d73e4219ceef84e8898d9e4d8c5e990f66a1f66fa49f7ae62a55a31a3a3b",
       "docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-chain.trace-actions.json": "43c9efd3bf082a9318bb8e21b57eca8dcbd2e348b35a1fdbeb43c2caeab909c0",
@@ -3910,7 +3983,8 @@
       "src/features/portal/resource-context.ts": "cc7aafd342d8e533ce4e4f52b8e1c8d66d71a576bc4c0540fe243427b3bca3dc",
       "src/features/portal/resource-details.tsx": "ea09a748ee84c8af9065ecffad77b05f0e8c71d022fb0027a262c66e4e25e4d6",
       "src/integrated-platform-preservation.test.ts": "374edc8816531a93ce05852f6cbbcbf88294ade8f025845c9ac8130b8dd48809",
-      "src/portal-fidelity-preservation.test.ts": "6a06b592c782a1ff2ef2b68b61ead74cdde221a00eed2f0024ff6c682e159bf6",
+      "src/laboratory-integrated.test.ts": "8f7465b51d82c780790e355d249765b9e7c266c54b1ce9f39e9059a8bd50a262",
+      "src/portal-fidelity-preservation.test.ts": "b768bd20459186d3839e8c5682973cc620c7f9fe12a5652497b98f5f3f534187",
       "tests/e2e/ephemeral-actions.ts": "093908486565e0aacb41f03eb564522ad9f1151d14c61a68c938ff7e43ad824e",
       "tests/e2e/integrated-actions.ts": "7bf6f73edaa51a14b20ed689df1de8891a80a80edc88f076238b79a937e9a683",
       "tests/e2e/integrated-chain.spec.ts": "2ffa7fccb569e6689005a2a2916c63a943fb1ad4d9824b6fb576b6b7b85d1e24",
@@ -3920,8 +3994,8 @@
       "tests/e2e/portal-navigation-pending.spec.ts": "f81243bea874f36264cc548aa19717fd5bff9cc36a1887c820a50469ac126a29",
       "tests/e2e/portal-resource-fidelity.spec.ts": "81facba913ea76b62be5b529c1b63aa215544a49b21f89df582e2618c9f6b2b5",
       "tests/integrated-platform-preservation.ts": "e79d8a18b2e3b168e7a20ebe4f89eff30af4fe191332665653a76266108368e7",
-      "tests/portal-fidelity-preservation.ts": "9c792b596b3594c373560fd8418c5d8b1fa21fabe9d7609f143d9cba4bf44a19"
+      "tests/portal-fidelity-preservation.ts": "99c9ab359de30b4f7ea100078a7d8aa2d19544059c79218288a43b49669424d5"
     }
   },
-  "implementationFinished": "2026-11-09T23:35:53.867Z"
+  "implementationFinished": "2026-11-09T23:49:58.693Z"
 }

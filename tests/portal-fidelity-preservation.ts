@@ -1,9 +1,12 @@
 /** Test-only view of the verified pre-fidelity presentation. Current runtime,
  * browser tests and the independent raw-filesystem guard never use this view. */
-import { readFileSync } from 'node:fs';
+import { readFileSync, realpathSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { strict as assert } from 'node:assert';
+import { isAbsolute, relative, sep } from 'node:path';
+import { tmpdir } from 'node:os';
+import { fileURLToPath } from 'node:url';
 import proof from '../docs/reviews/evidence/portal-resource-fidelity/preservation.json';
 
 type Binding = { before: string; after: string };
@@ -33,6 +36,30 @@ const baseRows = new Map(
 );
 const original = (path: string) =>
   execFileSync('git', ['show', fidelityBase + ':' + path], { maxBuffer: 16 * 1024 * 1024 });
+const repositoryRoot = realpathSync(fileURLToPath(new URL('..', import.meta.url)));
+const temporaryRoot = realpathSync(tmpdir());
+const within = (root: string, path: string) => {
+  const local = relative(root, path);
+  return local !== '..' && !local.startsWith('..' + sep) && !isAbsolute(local);
+};
+/** Actual temporary publisher outputs are not repository history. Absolute
+ * repository paths still use the same finite byte pins and substitutions. */
+export function validateFidelityRead(path: string, bytes: Buffer): string | null {
+  const actualPath = realpathSync(path);
+  if (!within(repositoryRoot, actualPath)) {
+    assert(within(temporaryRoot, actualPath), 'unapproved external read: ' + path);
+    return null;
+  }
+  const key = relative(repositoryRoot, actualPath).split(sep).join('/');
+  const binding = Object.hasOwn(bindings, key) ? bindings[key] : undefined;
+  if (!fidelityMutable.has(key))
+    assert.equal(
+      fidelityBlobHash(bytes),
+      binding?.after ?? added[key] ?? baseRows.get(key),
+      'unapproved read: ' + key,
+    );
+  return key;
+}
 export function validateFidelityProjection(actual: ReadonlyMap<string, string>) {
   assert.equal(proof.base, fidelityBase, 'wrong fidelity base');
   for (const [path, before] of baseRows) {
@@ -74,14 +101,9 @@ export function readFidelityHistory(path: string, encoding: 'utf8'): string;
 export function readFidelityHistory(path: string, encoding?: 'utf8'): Buffer | string {
   validateCurrent();
   const actual = readFileSync(path),
-    binding = Object.hasOwn(bindings, path) ? bindings[path] : undefined;
-  if (!fidelityMutable.has(path))
-    assert.equal(
-      fidelityBlobHash(actual),
-      binding?.after ?? added[path] ?? baseRows.get(path),
-      'unapproved read: ' + path,
-    );
-  const bytes = binding ? original(path) : actual;
+    key = validateFidelityRead(path, actual),
+    binding = key !== null && Object.hasOwn(bindings, key) ? bindings[key] : undefined;
+  const bytes = binding && key !== null ? original(key) : actual;
   return encoding ? bytes.toString(encoding) : bytes;
 }
 export function execFidelityHistory(

@@ -214,7 +214,7 @@ describe('explicit staged integrated Laboratory3.9 host', () => {
     expect(rows.find((r) => r.id === app.id)?.parentId).toBe(app.groupId);
     expect(rows.find((r) => r.id === database.id)).toMatchObject({
       parentId: database.serverId,
-      category: 'resource',
+      category: 'subresource',
     });
     expect(rows.find((r) => r.id === origin.id)?.parentId).toBe(origin.originGroupId);
     const topology = projectTopology(
