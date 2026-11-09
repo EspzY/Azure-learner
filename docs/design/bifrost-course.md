@@ -22,12 +22,14 @@ The author uses a native production server on port 3005, a dedicated local Postg
 
 The first production browser pair found real contrast defects: the theme label on the purple header, inherited white activity disclosures in dark mode and old dark footer text. A subsequent diagnostic CSS-overlay scan over actual course routes exposed additional inherited small text, source summaries, guidance status and panel backgrounds. Those diagnostic frames are not final production evidence. The source fixes were rebuilt and the six production checks passed without an overlay or retries. Final polish then made the prerequisite Submit action primary, improved Journal reading width/close-icon contrast and removed unnecessary nested boxes inside SavvyShark.
 
+The extended before-Submit checks initially exposed two harness mistakes: a noncanonical Compute query parameter and pointer-driven focus being treated as keyboard focus. They were corrected without a product change. A separate completed production probe then passed light mode and found a real dark-mode Start-dialog defect: the refined assessment title used `#f3f3f6` against the legacy white header, measuring 1.1:1. The [original defect frame](../screenshots/bifrost-course/before-dark-refined-start-dialog.png) is retained separately. The correction skins only dialogs identified by existing pedagogical brief content or the refined assessment parent; the ordinary native Portal dialog skin is excluded. Mission step-number text uses the shared theme contrast token.
+
 The final scoped production batch is pending. Its eight cases cover:
 
 - Both themes: the real Hub, original request action, selected-but-unsubmitted question, actual wrong and correct submissions, unchanged technical/XP bytes and Journal focus return.
 - Both themes: all 17 existing module routes and the actual SavvyShark and model-limit warning panels.
 - Both themes: original explicit Start actions for numeric, refined select and Compute two-field assessment forms at 1024×500, 1024×768 and 800×700, with no answers or submissions.
-- Both themes: keyboard focus, Axe, reduced motion and reflow at 1440×900, 1024×768, 1024×500 and 800×700, plus the actual Portal/Laboratory theme boundary.
+- Both themes: keyboard focus, Axe, reduced motion and reflow at 1440×900, 1024×768, 1024×500 and 800×700, plus the actual Portal/Laboratory theme boundary. The native Resource group Create blade and Review tab are inspected through the original controls and closed without Create; technical/XP bytes remain unchanged.
 
 The only changed inherited browser expectation replaces the historical sidebar hover literal `rgb(41,73,94)` with a strict equality against the resolved shared `--bfc-neutral-fade` token. The foundation separately pins the exact supplied light/dark token values. The real hover interaction and all behavioral assertions remain. No existing case, assertion, worker, retry, timeout or skip is removed.
 

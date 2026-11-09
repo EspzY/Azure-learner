@@ -5,6 +5,7 @@ import { themeCopy } from '../../src/features/design/theme-copy';
 import { sandboxKey } from '../../src/domain/sandbox/store';
 import { storageKey } from '../../src/domain/progression';
 import { foundationsV2Key, restoreV2, v2Facts } from '../../src/domain/curriculum/foundations-v2';
+import { revealPortalLink } from './portal-actions';
 
 const technical = (page: Page) =>
   page.evaluate(({ world, xp }) => [localStorage.getItem(world), localStorage.getItem(xp)], {
@@ -173,12 +174,16 @@ for (const mode of ['light', 'dark'] as const) {
           await page
             .getByRole('button', { name: refinedAssessmentNb.ui.start, exact: true })
             .click();
+          await page.screenshot({ path: info.outputPath(`${mode}-${family}-start-dialog.png`) });
+          await accessible(page);
           await page
             .getByRole('dialog')
             .getByRole('button', { name: refinedAssessmentNb.ui.confirm, exact: true })
             .click();
         } else {
           await page.getByRole('button', { name: computeNb.assessment.start, exact: true }).click();
+          await page.screenshot({ path: info.outputPath(`${mode}-${family}-start-dialog.png`) });
+          await accessible(page);
           await page
             .getByRole('dialog')
             .getByRole('button', { name: computeNb.assessment.start, exact: true })
@@ -257,6 +262,55 @@ for (const mode of ['light', 'dark'] as const) {
         await page.locator('.portal-header').evaluate((el) => getComputedStyle(el).backgroundColor),
       ).toBe('rgb(0, 120, 212)');
       await expect(page.locator('.bifrost-theme-control')).toHaveCount(0);
+      if (path === '/portal') {
+        const navigation = page.getByRole('navigation', { name: nb.portal.navLabel, exact: true });
+        const groups = navigation.getByRole('link', { name: nb.portal.areas.groups, exact: true });
+        await revealPortalLink(page, groups);
+        await groups.click();
+        await page
+          .locator('.portal-commandbar')
+          .getByRole('button', { name: nb.portal.create, exact: true })
+          .click();
+        const create = page.locator('.portal-create');
+        await expect(create).toBeVisible();
+        const before = await technical(page);
+        const name = page.getByLabel(nb.portal.groupName, { exact: true });
+        expect(await name.evaluate((el) => getComputedStyle(el).fontFamily)).toMatch(/Segoe UI/);
+        expect(await name.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe(
+          'rgb(255, 255, 255)',
+        );
+        expect(
+          await page
+            .locator('.portal:not(.course-shell)')
+            .evaluate((el) => getComputedStyle(el).colorScheme),
+        ).toBe('light');
+        await name.fill('rg-bifrost-visual-check');
+        await page
+          .getByRole('combobox', { name: nb.portal.subscription, exact: true })
+          .selectOption('sub-app');
+        await page
+          .getByRole('combobox', { name: nb.portal.region, exact: true })
+          .selectOption('norwayeast');
+        await page.screenshot({ path: info.outputPath(`${mode}-native-create.png`) });
+        await create
+          .locator('.portal-create-tabs')
+          .getByRole('button', { name: nb.portal.review, exact: true })
+          .click();
+        await expect(create.locator('.portal-review')).toContainText(nb.portal.valid);
+        expect(
+          await create
+            .locator('.portal-create-footer')
+            .evaluate((el) => getComputedStyle(el).backgroundColor),
+        ).toBe('rgb(255, 255, 255)');
+        await accessible(page);
+        await page.screenshot({ path: info.outputPath(`${mode}-native-review.png`) });
+        await create
+          .locator('.portal-create-footer')
+          .getByRole('button', { name: nb.portal.close, exact: true })
+          .click();
+        await expect(create).toHaveCount(0);
+        expect(await technical(page)).toEqual(before);
+      }
     }
   });
 }

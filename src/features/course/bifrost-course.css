@@ -580,19 +580,34 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
 .bifrost-learning.course-shell .course-navigation :is(a, button):focus-visible {
   outline-color: var(--bf-focus-ring, var(--bfc-theme));
 }
-.bifrost-learning.course-shell .portal-dialog:has(.bifrost-course-journal) {
+.bifrost-learning.course-shell
+  :is(
+    .portal-dialog:has(.bifrost-course-journal, .compute-brief, .cost-brief, .transfer-brief),
+    .expanded-assessment > .portal-dialog
+  ) {
   color: var(--bfc-base-c);
   background: var(--bfc-base-3);
   border: 1px solid var(--bfc-base-dimmed);
   border-radius: var(--bf-radius-lg);
   font-family: var(--bf-font-open-sans), sans-serif;
 }
-.bifrost-learning.course-shell .portal-dialog:has(.bifrost-course-journal) > header {
+.bifrost-learning.course-shell
+  :is(
+    .portal-dialog:has(.bifrost-course-journal, .compute-brief, .cost-brief, .transfer-brief),
+    .expanded-assessment > .portal-dialog
+  )
+  > header {
   color: var(--bfc-base-c);
   background: var(--bfc-base-2);
   border-color: var(--bfc-base-dimmed);
 }
-.bifrost-learning.course-shell .portal-dialog:has(.bifrost-course-journal) > header h2 {
+.bifrost-learning.course-shell
+  :is(
+    .portal-dialog:has(.bifrost-course-journal, .compute-brief, .cost-brief, .transfer-brief),
+    .expanded-assessment > .portal-dialog
+  )
+  > header
+  h2 {
   color: var(--bfc-base-c);
   font-family: var(--bf-font-satoshi), sans-serif;
 }
@@ -708,7 +723,13 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
   grid-template-columns: 1fr;
   gap: 24px;
 }
-.bifrost-learning.course-shell .portal-dialog:has(.bifrost-course-journal) > header > button {
+.bifrost-learning.course-shell
+  :is(
+    .portal-dialog:has(.bifrost-course-journal, .compute-brief, .cost-brief, .transfer-brief),
+    .expanded-assessment > .portal-dialog
+  )
+  > header
+  > button {
   color: var(--bfc-base-c);
   background: transparent;
 }
