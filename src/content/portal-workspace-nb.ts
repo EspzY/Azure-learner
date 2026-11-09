@@ -14,6 +14,10 @@ export const portalWorkspaceNb = {
   localScope: 'Lokalt simulator-scope',
   menuNote: 'Støttede tjenester i dette arbeidsområdet',
   resourceKinds: {
+    appPlan: 'App Service Plan',
+    webApp: 'Web App',
+    appDeployment: 'Synthetic application deployment',
+    appSetting: 'Application setting',
     firewall: 'Azure Firewall',
     firewallPolicy: 'Firewall Policy',
     firewallGroup: 'Rule Collection Group',

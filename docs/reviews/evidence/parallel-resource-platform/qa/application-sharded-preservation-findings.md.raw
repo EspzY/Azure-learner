@@ -1,0 +1,48 @@
+# Preservation timeout: read-only findings
+
+2026-11-09. Investigation stopped after one actual original-module strace run. No repository files, assertions, test settings, workers, retries, or timeouts were changed. No adapter implementation is proposed for this candidate.
+
+## Original evidence
+
+The unchanged first test in `src/laboratory-topology-preservation.test.ts` exceeded the existing 5000 ms limit in the full check (6114 ms) and an isolated original three-case rerun (6628 ms). These failures remain valid evidence; their full cause is OPEN.
+
+The actual read chain is original topology preservation test → `tests/pr71-preservation.ts` → `tests/pr72-preservation.ts` → `tests/resource-platform-preservation.ts`. The new final reader performs the raw current-file read and both current/original Git-blob hash checks on every bound read. Original blobs are cached lazily by path. Its manifest has 34 finite paths; this older test's actual Git tree visits 24 of those paths. The older readers have additional separate historic caches and Git calls.
+
+## Outside exact-callback profiler
+
+`profile.cjs` transpiles the actual original first test and readers outside the repository. Its Node strict assertion adapter executes the used original assertions, but this is diagnostic instrumentation, not a replacement Vitest pass.
+
+- Current mode: 2529 assertions, 2497 filesystem reads / 282673114 bytes, 5206 hash updates / 287347807 hash-input bytes. Total 2193.044 ms; filesystem 613.807 ms; hashes 346.964 ms; 83 Git commands / 1075.377 ms.
+- Git command breakdown: one ls-tree; 18 shows at PR71 base, 29 shows at PR70 base, 24 shows at the new platform base, 11 shows at PR72 base.
+- Outside-only bulk transport experiment: the new platform's 24 shows replaced by one `git cat-file --batch` reading all 34 finite original blobs. Batch headers/type/size/hash/boundaries were checked; current-reader byte/hash checks and original assertions were retained. Total 1651.430 ms; 60 Git commands / 671.562 ms. Scoped gain 541.614 ms.
+- This roughly 0.54 s gain does not establish the cause of the original approximately four-second variation. No bulk reader was added to the repository.
+
+Artifacts: `profile.cjs`, `current.json`, `current.log`, `bulk.json`, `bulk.log`.
+
+## Preload diagnostic limitation
+
+An original three-case Vitest run under a Node preload passed (3/3, 2.66 s), but the intended per-worker instrumentation did not attach. No worker metrics file was produced. This result does not close the original cause or support a claimed fix. See `preload.cjs` and `vitest-current.log`.
+
+## One actual strace run
+
+Command (no preload or test/config changes):
+
+    strace -f -T -tt -e trace=execve,wait4 -o actual-vitest.strace node node_modules/vitest/vitest.mjs run src/laboratory-topology-preservation.test.ts
+
+Result: exit 1; 1 failed + 2 passed. The original first case took 5667 ms and exceeded the unchanged 5000 ms limit; total run duration 6.30 s.
+
+Trace process accounting:
+
+- 83 successful Git launches; every Git process exited 0.
+- 664 Git execve rows consist of those 83 launches plus 581 unsuccessful executable PATH lookups.
+- Executable `/usr/local/bin/git` is a 64-bit dynamically linked ELF binary, not a shell wrapper.
+- Sum of observed first-PATH-attempt-to-exit lifetimes: 3205.533 ms.
+- Sum of successful-exec-to-exit lifetimes: 3108.866 ms.
+- Median observed lifetime: 35.991 ms; minimum 24.761 ms; maximum 112.855 ms.
+- The trace records exec/wait timing only. Strace adds observer overhead. These observed durations are not uninstrumented baseline measurements and do not isolate the full original timeout cause.
+
+Artifacts: `actual-vitest.log`, `actual-vitest.strace`, `actual-vitest-git-processes.json`.
+
+## Decision
+
+Many synchronous Git subprocesses are directly evidenced, but the complete timeout variation is not causally explained. Keep the original failures and the cause OPEN. Root will run one complete unchanged full check to execute remaining mandatory checks. No adapter change, threshold relaxation, skips, assertion changes, or repeated diagnostic loops are part of this investigation. All profiling processes have finished.

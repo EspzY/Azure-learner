@@ -5,7 +5,11 @@ import type { Snapshot } from '@/laboratory/engine';
 import type { LaboratoryResource } from './portal-adapter';
 import type { LaboratoryPolicyResult } from './endpoints';
 import { architectureStudioNb as t } from '@/content/architecture-studio-nb';
-export type RelationKind = keyof typeof t.edge;
+import { laboratoryApplicationNb as applicationCopy } from '@/content/laboratory-application-nb';
+export type RelationKind = keyof typeof t.edge | 'app-plan-hosting';
+/** Resource hosting is a dependency, never an ARM parent/child relationship. */
+export const relationLabel = (kind: RelationKind) =>
+  kind === 'app-plan-hosting' ? applicationCopy.hosting : t.edge[kind];
 export type StudioNode = {
   id: string;
   name: string;
@@ -80,6 +84,8 @@ export function projectTopology(snapshot: Snapshot, rows: readonly LaboratoryRes
         );
     }
   }
+  if (world.model === 'laboratory@3.8.0')
+    for (const app of world.webApps) add(app.id, app.planId, 'app-plan-hosting');
   if (world.model !== 'laboratory@3.0.0')
     for (const s of world.subnets) {
       if (s.nsgId) add(s.id, s.nsgId, 'subnet-nsg');

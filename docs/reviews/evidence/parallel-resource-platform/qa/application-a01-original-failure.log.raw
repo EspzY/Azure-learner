@@ -1,0 +1,41 @@
+
+ RUN  v5.0.5 /workspace/azurelab-parallel/application
+
+ ❯ src/laboratory-application.test.ts (20 tests | 1 failed | 19 skipped) 90ms
+   × distinguishes actual cross-RG Web App scope from its App Service Plan hosting dependency 87ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/laboratory-application.test.ts > distinguishes actual cross-RG Web App scope from its App Service Plan hosting dependency
+AssertionError: expected { id: 'web-app-4', …(5) } to match object { id: 'web-app-4', …(4) }
+(1 matching property omitted from actual)
+
+- Expected
++ Received
+
+@@ -9,7 +9,7 @@
+      "groupId": "group-2",
+      "planId": "app-plan-3",
+    },
+    "createOrigin": "application-3",
+    "id": "web-app-4",
+-   "parentId": "group-2",
++   "parentId": "app-plan-3",
+  }
+
+ ❯ src/laboratory-application.test.ts:592:36
+    590|     enabled: 'false',
+    591|   });
+    592|   expect(update.applicationChange).toMatchObject({
+       |                                    ^
+    593|     id: app.id,
+    594|     parentId: appGroup,
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 19 skipped (20)
+   Start at  15:58:21
+   Duration  2.45s (transform 54%, import 39%, tests 5%, worker 1%)
+

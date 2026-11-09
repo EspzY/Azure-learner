@@ -1,0 +1,27 @@
+
+ RUN  v5.0.5 /workspace/azurelab-parallel/application
+
+ ❯ src/laboratory-topology-preservation.test.ts (3 tests | 1 failed) 5674ms
+   × checks actual frozen3.0–3.6 engines SQL001–007 repository course authorities assertions fixtures and locked PR69 evidence; finite declared UI/dispatch deltas only 5667ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/laboratory-topology-preservation.test.ts > checks actual frozen3.0–3.6 engines SQL001–007 repository course authorities assertions fixtures and locked PR69 evidence; finite declared UI/dispatch deltas only
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/laboratory-topology-preservation.test.ts:7:1
+      5| import { pr70Base, hash70, original70 } from '../tests/pr70-preservati…
+      6| import proof from '../docs/reviews/evidence/pr70/preservation.json';
+      7| it('checks actual frozen3.0–3.6 engines SQL001–007 repository course a…
+       | ^
+      8|   const allowed = [
+      9|     '.gitattributes',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 2 passed (3)
+   Start at  17:53:47
+   Duration  6.30s (tests 97%, transform 1%, import 1%)
+

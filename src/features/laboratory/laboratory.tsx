@@ -25,6 +25,9 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { laboratoryV3Nb as c } from '@/content/nb';
 import type { Snapshot, Request as LabRequest, Command, Receipt, Model } from '@/laboratory/engine';
 import { isFirewallWorld } from './capabilities';
+import { ApplicationViews, ApplicationChangeDetails } from './application';
+import { laboratoryModel as applicationModel } from '@/laboratory/v38/contract';
+import { laboratoryApplicationNb as applicationCopy } from '@/content/laboratory-application-nb';
 import { laboratoryModel as remediationModel } from '@/laboratory/v36/contract';
 import { laboratoryModel as topologyModel } from '@/laboratory/v37/contract';
 import { laboratoryTopologyNb as topologyCopy } from '@/content/laboratory-topology-nb';
@@ -65,30 +68,32 @@ const baseHref = (view: string, id?: string, receipt?: string) =>
   '?' +
   new URLSearchParams({ view, ...(id ? { id } : {}), ...(receipt ? { receipt } : {}) });
 const message = (code: string, operation?: string) =>
-  ['read-only-rule', 'no-change'].includes(code)
-    ? lifecycleMessage(code)
-    : Object.hasOwn(f.codes, code) &&
-        (!['incompatible-association', 'invalid-priority', 'priority-conflict'].includes(code) ||
-          Object.hasOwn(f.operations, operation ?? ''))
-      ? f.codes[code as keyof typeof f.codes]
-      : code === 'incompatible-association' &&
-          ['CreateNetworkInterface', 'AssociateNicNsg', 'CreateVirtualMachine'].includes(
-            operation ?? '',
-          )
-        ? e.associationError
-        : code === 'not-associated' && operation === 'DisassociateNicNsg'
-          ? e.noAssociation
-          : Object.hasOwn(e.codes, code)
-            ? e.codes[code as keyof typeof e.codes]
-            : code === 'incompatible-association' && operation === 'AssociateSubnetRouteTable'
-              ? r.associationError
-              : Object.hasOwn(r.codes, code)
-                ? r.codes[code as keyof typeof r.codes]
-                : Object.hasOwn(n.codes, code)
-                  ? n.codes[code as keyof typeof n.codes]
-                  : Object.hasOwn(c.codes, code)
-                    ? c.codes[code as keyof typeof c.codes]
-                    : c.unavailable;
+  code === 'resource-in-use'
+    ? applicationCopy.resourceInUse
+    : ['read-only-rule', 'no-change'].includes(code)
+      ? lifecycleMessage(code)
+      : Object.hasOwn(f.codes, code) &&
+          (!['incompatible-association', 'invalid-priority', 'priority-conflict'].includes(code) ||
+            Object.hasOwn(f.operations, operation ?? ''))
+        ? f.codes[code as keyof typeof f.codes]
+        : code === 'incompatible-association' &&
+            ['CreateNetworkInterface', 'AssociateNicNsg', 'CreateVirtualMachine'].includes(
+              operation ?? '',
+            )
+          ? e.associationError
+          : code === 'not-associated' && operation === 'DisassociateNicNsg'
+            ? e.noAssociation
+            : Object.hasOwn(e.codes, code)
+              ? e.codes[code as keyof typeof e.codes]
+              : code === 'incompatible-association' && operation === 'AssociateSubnetRouteTable'
+                ? r.associationError
+                : Object.hasOwn(r.codes, code)
+                  ? r.codes[code as keyof typeof r.codes]
+                  : Object.hasOwn(n.codes, code)
+                    ? n.codes[code as keyof typeof n.codes]
+                    : Object.hasOwn(c.codes, code)
+                      ? c.codes[code as keyof typeof c.codes]
+                      : c.unavailable;
 const label = (key: string) =>
   Object.hasOwn(f.fields, key)
     ? f.fields[key as keyof typeof f.fields]
@@ -104,23 +109,25 @@ const label = (key: string) =>
               ? c.fields[key as keyof typeof c.fields]
               : key;
 const operation = (key: string) =>
-  Object.hasOwn(topologyCopy.operations, key)
-    ? topologyCopy.operations[key as keyof typeof topologyCopy.operations]
-    : Object.hasOwn(remediationCopy.operations, key)
-      ? remediationCopy.operations[key as keyof typeof remediationCopy.operations]
-      : Object.hasOwn(f.operations, key)
-        ? f.operations[key as keyof typeof f.operations]
-        : key === 'CreateVirtualMachine'
-          ? m.create
-          : Object.hasOwn(e.operations, key)
-            ? e.operations[key as keyof typeof e.operations]
-            : Object.hasOwn(r.operations, key)
-              ? r.operations[key as keyof typeof r.operations]
-              : Object.hasOwn(n.operations, key)
-                ? n.operations[key as keyof typeof n.operations]
-                : Object.hasOwn(c.operations, key)
-                  ? c.operations[key as keyof typeof c.operations]
-                  : key;
+  Object.hasOwn(applicationCopy.operations, key)
+    ? applicationCopy.operations[key as keyof typeof applicationCopy.operations]
+    : Object.hasOwn(topologyCopy.operations, key)
+      ? topologyCopy.operations[key as keyof typeof topologyCopy.operations]
+      : Object.hasOwn(remediationCopy.operations, key)
+        ? remediationCopy.operations[key as keyof typeof remediationCopy.operations]
+        : Object.hasOwn(f.operations, key)
+          ? f.operations[key as keyof typeof f.operations]
+          : key === 'CreateVirtualMachine'
+            ? m.create
+            : Object.hasOwn(e.operations, key)
+              ? e.operations[key as keyof typeof e.operations]
+              : Object.hasOwn(r.operations, key)
+                ? r.operations[key as keyof typeof r.operations]
+                : Object.hasOwn(n.operations, key)
+                  ? n.operations[key as keyof typeof n.operations]
+                  : Object.hasOwn(c.operations, key)
+                    ? c.operations[key as keyof typeof c.operations]
+                    : key;
 async function api(action: string, request?: unknown, workspace?: string) {
   if (ephemeralActive()) return ephemeralApi(action, request, workspace);
   let response: Response, value;
@@ -158,8 +165,9 @@ export function Laboratory() {
     query.get('receipt'),
   ].join('|');
   const [snapshot, setSnapshot] = useState<Snapshot | null>(null),
-    [startModel, setStartModel] = useState<Model>(topologyModel),
+    [startModel, setStartModel] = useState<Model>(applicationModel),
     [newWorkspace, setNewWorkspace] = useState(false),
+    [newApplicationWorkspace, setNewApplicationWorkspace] = useState(false),
     [loading, setLoading] = useState(true),
     [error, setError] = useState(''),
     [busy, setBusy] = useState(false),
@@ -276,14 +284,15 @@ export function Laboratory() {
       channel.current?.close();
     };
   }, [load]);
-  const run = async (request: LabRequest, workspace: string) => {
+  const run = async (request: LabRequest, workspace: string): Promise<boolean> => {
+    let committed = false;
     if (snapshotRef.current?.workspace !== workspace) {
       setError('workspace-changed');
       setForm(null);
       setPreview(null);
       setReset(null);
       updatePending(null);
-      return;
+      return false;
     }
     setBusy(true);
     updatePending({ request, workspace });
@@ -291,15 +300,22 @@ export function Laboratory() {
       const result = await api('command', request, workspace);
       if (snapshotRef.current?.workspace === workspace && result.workspace === workspace) {
         accept(result);
+        committed = result.receipt.outcome === 'accepted';
         updatePending(null);
         setError('');
         setForm(null);
         setPreview(null);
         setReset(null);
-        const target = result.receipt.addedIds[0];
+        const target =
+          result.receipt.addedIds[0] ??
+          (result.receipt.applicationChange ? result.receipt.updatedIds?.[0] : undefined);
         const kind =
           (
             {
+              CreateAppServicePlan: 'appPlan',
+              CreateWebApp: 'webApp',
+              DeploySyntheticApplication: 'appDeployment',
+              SetWebAppSetting: 'appSetting',
               CreateAzureFirewall: 'firewall',
               CreateFirewallPolicy: 'firewallPolicy',
               CreateFirewallRuleCollectionGroup: 'firewallGroup',
@@ -324,45 +340,57 @@ export function Laboratory() {
               : request.command.type === 'CreateBlobContainer'
                 ? 'container'
                 : 'blob');
+        const appKind =
+          target && result.world.model === applicationModel
+            ? result.world.plans.some((p: { id: string }) => p.id === target)
+              ? 'appPlan'
+              : result.world.webApps.some((p: { id: string }) => p.id === target)
+                ? 'webApp'
+                : result.world.settings.some((p: { id: string }) => p.id === target)
+                  ? 'appSetting'
+                  : null
+            : null;
         router.push(
-          (request.command.type === 'UpdateSecurityRule' ||
-            request.command.type === 'UpdateFirewallNetworkRule') &&
-            result.receipt.outcome === 'accepted'
-            ? href(
-                request.command.type === 'UpdateSecurityRule' ? 'rule' : 'firewallRule',
-                request.command.ruleId,
-              )
-            : request.command.type === 'UpdateRoute' && result.receipt.outcome === 'accepted'
-              ? href('route', request.command.routeId)
-              : (request.command.type === 'SetPeeringForwardedTraffic' ||
-                    request.command.type === 'SetPeeringVirtualNetworkAccess') &&
-                  result.receipt.outcome === 'accepted'
-                ? href('peering', request.command.peeringId)
-                : request.command.type === 'DeleteRoute' && result.receipt.outcome === 'accepted'
-                  ? href(
-                      'routeTable',
-                      isFirewallWorld(snapshotRef.current?.world)
-                        ? snapshotRef.current.world.routes.find(
-                            (r) => r.id === (request.command as { routeId: string }).routeId,
-                          )?.routeTableId
-                        : undefined,
-                    )
-                  : ['AssociateNicNsg', 'DisassociateNicNsg'].includes(request.command.type) &&
-                      'nicId' in request.command &&
-                      result.receipt.outcome === 'accepted'
-                    ? href('nic', request.command.nicId)
-                    : [
-                          'AssociateSubnetNsg',
-                          'DisassociateSubnetNsg',
-                          'AssociateSubnetRouteTable',
-                          'DisassociateSubnetRouteTable',
-                        ].includes(request.command.type) &&
-                        'subnetId' in request.command &&
+          appKind && result.receipt.outcome === 'accepted'
+            ? href(appKind, target)
+            : (request.command.type === 'UpdateSecurityRule' ||
+                  request.command.type === 'UpdateFirewallNetworkRule') &&
+                result.receipt.outcome === 'accepted'
+              ? href(
+                  request.command.type === 'UpdateSecurityRule' ? 'rule' : 'firewallRule',
+                  request.command.ruleId,
+                )
+              : request.command.type === 'UpdateRoute' && result.receipt.outcome === 'accepted'
+                ? href('route', request.command.routeId)
+                : (request.command.type === 'SetPeeringForwardedTraffic' ||
+                      request.command.type === 'SetPeeringVirtualNetworkAccess') &&
+                    result.receipt.outcome === 'accepted'
+                  ? href('peering', request.command.peeringId)
+                  : request.command.type === 'DeleteRoute' && result.receipt.outcome === 'accepted'
+                    ? href(
+                        'routeTable',
+                        isFirewallWorld(snapshotRef.current?.world)
+                          ? snapshotRef.current.world.routes.find(
+                              (r) => r.id === (request.command as { routeId: string }).routeId,
+                            )?.routeTableId
+                          : undefined,
+                      )
+                    : ['AssociateNicNsg', 'DisassociateNicNsg'].includes(request.command.type) &&
+                        'nicId' in request.command &&
                         result.receipt.outcome === 'accepted'
-                      ? href('subnet', request.command.subnetId)
-                      : target && result.receipt.outcome === 'accepted'
-                        ? href(kind, target)
-                        : href('history', undefined, result.receipt.commandId),
+                      ? href('nic', request.command.nicId)
+                      : [
+                            'AssociateSubnetNsg',
+                            'DisassociateSubnetNsg',
+                            'AssociateSubnetRouteTable',
+                            'DisassociateSubnetRouteTable',
+                          ].includes(request.command.type) &&
+                          'subnetId' in request.command &&
+                          result.receipt.outcome === 'accepted'
+                        ? href('subnet', request.command.subnetId)
+                        : target && result.receipt.outcome === 'accepted'
+                          ? href(kind, target)
+                          : href('history', undefined, result.receipt.commandId),
         );
         if (!ephemeralActive()) channel.current?.postMessage('changed');
       } else {
@@ -390,14 +418,15 @@ export function Laboratory() {
     } finally {
       setBusy(false);
     }
+    return committed;
   };
-  const start = async (replace = false) => {
+  const start = async (replace = false, replacementModel: Model = topologyModel) => {
     setBusy(true);
     try {
       if (!navigator.locks) throw Error('backend-unavailable');
       await navigator.locks.request('azurelab.laboratory.v3.session', async () => {
         const incoming = await api('session', {
-          model: replace ? topologyModel : startModel,
+          model: replace ? replacementModel : startModel,
           ...(replace ? { newWorkspace: true } : {}),
         });
         updatePending(null);
@@ -405,6 +434,7 @@ export function Laboratory() {
         setPreview(null);
         setReset(null);
         setNewWorkspace(false);
+        setNewApplicationWorkspace(false);
         ++version.current;
         accept(incoming);
         setError('');
@@ -420,7 +450,7 @@ export function Laboratory() {
   const startTemporary = async () => {
     setBusy(true);
     try {
-      const incoming = await startEphemeral(topologyModel);
+      const incoming = await startEphemeral(startModel);
       ++version.current;
       setSnapshot(incoming);
       updatePending(null);
@@ -731,6 +761,10 @@ export function Laboratory() {
   const serviceView = resource
     ? (
         {
+          appPlan: 'plans',
+          webApp: 'apps',
+          appDeployment: 'apps',
+          appSetting: 'apps',
           firewall: 'firewalls',
           firewallPolicy: 'firewallPolicies',
           firewallGroup: 'firewallPolicies',
@@ -876,7 +910,22 @@ export function Laboratory() {
                     : [];
   const body = snapshot && world && (
     <>
-      {(world.model === remediationModel || world.model === topologyModel) &&
+      {world.model === applicationModel && (
+        <ApplicationViews
+          snapshot={snapshot}
+          view={view}
+          id={id}
+          disabled={busy || !!error}
+          list={links}
+          receipt={receiptLink}
+          href={href}
+          review={(request, workspace) => api('review', request, workspace)}
+          commit={run}
+        />
+      )}
+      {(world.model === remediationModel ||
+        world.model === topologyModel ||
+        world.model === applicationModel) &&
         id &&
         ['rule', 'firewallRule', 'route', 'subnet', 'peering'].includes(view) && (
           <RuleLifecycle
@@ -887,7 +936,7 @@ export function Laboratory() {
             href={href}
             disabled={busy || !!error}
             review={(request, workspace) => api('review', request, workspace)}
-            commit={run}
+            commit={(request, workspace) => run(request, workspace).then(() => {})}
           />
         )}
       {view === 'studio' &&
@@ -947,7 +996,9 @@ export function Laboratory() {
             services={catalog}
             destination={(view) => ({ href: href(view), onSelect: () => visit(view) })}
           />
-          <p className="portal-inline-info">{sharedCopy.pendingWeb}</p>
+          {world.model !== applicationModel && (
+            <p className="portal-inline-info">{sharedCopy.pendingWeb}</p>
+          )}
         </>
       )}
       {view === 'resources' && (
@@ -1212,6 +1263,9 @@ export function Laboratory() {
                   ),
                 ]}
               />
+              {selectedReceipt.receipt.applicationChange && (
+                <ApplicationChangeDetails change={selectedReceipt.receipt.applicationChange} />
+              )}
               {(selectedReceipt.receipt.change || selectedReceipt.receipt.topologyChange) && (
                 <RuleHistory
                   key={`${snapshot.workspace}:${selectedReceipt.receipt.commandId}`}
@@ -1255,6 +1309,9 @@ export function Laboratory() {
         'container',
         'blob',
         'history',
+        ...(world.model === applicationModel
+          ? ['plans', 'apps', 'appPlan', 'webApp', 'appDeployment', 'appSetting']
+          : []),
         ...(compute ? ['vms', 'vm', 'disks', 'disk'] : []),
         ...(endpoints ? ['nics', 'nic', 'policy'] : []),
         ...(network ? ['vnets', 'vnet', 'subnet', 'nsgs', 'nsg', 'rule'] : []),
@@ -1422,6 +1479,25 @@ export function Laboratory() {
               <button onClick={() => setReset(null)}>{c.cancel}</button>
             </PortalDialog>
           )}
+          {newApplicationWorkspace && (
+            <PortalDialog
+              title="New Application Platform workspace"
+              onClose={() => setNewApplicationWorkspace(false)}
+            >
+              <p>
+                Opprett et separat3.8-arbeidsområde. Eksisterende arbeidsområde og original
+                historikk oppgraderes ikke.
+              </p>
+              <button
+                className="primary"
+                disabled={busy}
+                onClick={() => void start(true, applicationModel)}
+              >
+                Create separate3.8 workspace
+              </button>
+              <button onClick={() => setNewApplicationWorkspace(false)}>{c.cancel}</button>
+            </PortalDialog>
+          )}
           {newWorkspace && (
             <PortalDialog title={topologyCopy.newWorkspace} onClose={() => setNewWorkspace(false)}>
               <p>{topologyCopy.newWorkspaceNote}</p>
@@ -1532,6 +1608,7 @@ export function Laboratory() {
                     value={startModel}
                     onChange={(e) => setStartModel(e.target.value as Model)}
                   >
+                    <option value={applicationModel}>3.8 · Application Platform</option>
                     <option value={remediationModel}>3.6 · Security Rule Lifecycle</option>
                     <option value={topologyModel}>3.7 · Topology Remediation</option>
                     <option value={laboratoryModel}>
@@ -1563,17 +1640,29 @@ export function Laboratory() {
           {snapshot && world && (
             <>
               {!network && <p className="lab-network-boundary">{n.legacy}</p>}
-              {world.model !== topologyModel && ['groups', 'services'].includes(view) && (
-                <div className="lab-network-boundary">
-                  <p>{topologyCopy.legacy}</p>
+              {world.model !== applicationModel && ['groups', 'services'].includes(view) && (
+                <p className="lab-network-boundary">
                   <button
                     disabled={busy || !!pendingView || !!error}
-                    onClick={() => setNewWorkspace(true)}
+                    onClick={() => setNewApplicationWorkspace(true)}
                   >
-                    {topologyCopy.newWorkspace}
+                    New Application Platform workspace
                   </button>
-                </div>
+                </p>
               )}
+              {world.model !== topologyModel &&
+                world.model !== applicationModel &&
+                ['groups', 'services'].includes(view) && (
+                  <div className="lab-network-boundary">
+                    <p>{topologyCopy.legacy}</p>
+                    <button
+                      disabled={busy || !!pendingView || !!error}
+                      onClick={() => setNewWorkspace(true)}
+                    >
+                      {topologyCopy.newWorkspace}
+                    </button>
+                  </div>
+                )}
               {form ? (
                 <PortalCreateLayout
                   className="lab-form"
@@ -2139,7 +2228,11 @@ export function Laboratory() {
                               'forwardingOrigin',
                             ].includes(key) ? (
                             receiptLink(String(value))
-                          ) : ((compute && ['vm', 'disk'].includes(resource.view)) ||
+                          ) : ((world.model === applicationModel &&
+                              ['appPlan', 'webApp', 'appDeployment', 'appSetting'].includes(
+                                resource.view,
+                              )) ||
+                              (compute && ['vm', 'disk'].includes(resource.view)) ||
                               (firewall &&
                                 [
                                   'firewall',
@@ -2150,6 +2243,8 @@ export function Laboratory() {
                                   'publicIp',
                                 ].includes(resource.view))) &&
                             [
+                              'planId',
+                              'webAppId',
                               'policyId',
                               'collectionGroupId',
                               'collectionId',

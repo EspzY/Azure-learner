@@ -11,6 +11,7 @@ import { laboratoryEndpointsNb as endpointCopy } from '@/content/laboratory-endp
 import { laboratoryInventory } from './portal-adapter';
 import {
   projectTopology,
+  relationLabel,
   validStudioFilters,
   filterTopology,
   currentAnalysis,
@@ -113,11 +114,11 @@ export function ArchitectureStudio({
     target: e.to,
     label:
       e.id === state.selected
-        ? t.edge[e.kind] + (e.status ? ' · ' + e.status : '')
+        ? relationLabel(e.kind) + (e.status ? ' · ' + e.status : '')
         : e.status === 'Initiated'
           ? 'Initiated'
           : undefined,
-    ariaLabel: t.edge[e.kind] + (e.status ? ' · ' + e.status : ''),
+    ariaLabel: relationLabel(e.kind) + (e.status ? ' · ' + e.status : ''),
     animated: false,
     style: {
       stroke:
@@ -274,7 +275,8 @@ export function ArchitectureStudio({
                 <li key={e.id}>
                   <button type="button" onClick={() => select(e.id)}>
                     {topology.nodes.find((n) => n.id === e.from)?.name} [{e.from}] →{' '}
-                    {topology.nodes.find((n) => n.id === e.to)?.name} [{e.to}] · {t.edge[e.kind]}
+                    {topology.nodes.find((n) => n.id === e.to)?.name} [{e.to}] ·{' '}
+                    {relationLabel(e.kind)}
                     {e.status ? ' · ' + e.status : ''}
                   </button>
                 </li>
@@ -284,7 +286,7 @@ export function ArchitectureStudio({
         </div>
         <aside className="studio-inspector" aria-label={t.inspect}>
           <h2 ref={inspector} tabIndex={-1}>
-            {node?.name ?? (relation ? t.edge[relation.kind] : t.selected)}
+            {node?.name ?? (relation ? relationLabel(relation.kind) : t.selected)}
           </h2>
           {node ? (
             <>
@@ -330,7 +332,7 @@ export function ArchitectureStudio({
                           {other.name} · {other.id}
                         </button>
                         <small>
-                          {t.edge[e.kind]}
+                          {relationLabel(e.kind)}
                           {e.status ? ' · ' + e.status : ''}
                         </small>
                       </li>

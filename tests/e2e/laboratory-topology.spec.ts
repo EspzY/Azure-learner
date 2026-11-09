@@ -25,6 +25,11 @@ async function apply(page: Page, command: Command) {
 }
 async function seed(page: Page) {
   await page.goto('/labs/laboratory');
+  // This inherited fixture remains explicitly bound to its original3.7 evaluator.
+  await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();
+  await page
+    .getByRole('combobox', { name: 'Arbeidsområdemodell', exact: true })
+    .selectOption('laboratory@3.7.0');
   await page.getByRole('button', { name: c.start, exact: true }).click();
   await expect(page.locator('.laboratory-workspace-status')).toContainText('laboratory@3.7.0');
   const a = topologyWorld(),

@@ -1,3 +1,7 @@
+# Complete sharded browser evidence — Resource Platform
+
+The Application candidate adds one explicit complete-evidence variant: `node scripts/e2e-shard-aggregate.mjs`. A successful shard or collection never qualifies. Only the always-running aggregate may issue `candidate-full-profile` after verifying all four exact executed shards, current SHA/base/fingerprint/run/attempt/configuration/fixture identities and the independently collected complete test union. Strict release synchronously revalidates the retained aggregate and report artifacts against actual HEAD; a syntactically valid hash or count is insufficient. The existing legacy and fixed serial full-command acceptance paths and their negative tests remain unchanged. The original serial CI allocation described below is preserved historical context. [CI_SHARDED_VERIFICATION](CI_SHARDED_VERIFICATION.md) defines the current bounded execution protocol.
+
 # Release acceptance og Independent Final Audit
 
 Aktiv prosess for [QUALITY_CONTRACT G](QUALITY_CONTRACT.md). «Release» betyr her en verifisert Draft PR klar for eiergjennomgang; det autoriserer aldri merge eller produksjonsdeploy.

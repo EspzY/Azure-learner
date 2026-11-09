@@ -1,0 +1,47 @@
+✔ planner requires exact disjoint identities, expected status, projects and unchanged settings (78.742615ms)
+✔ actual four bundles create an explicit candidate receipt; strict revalidation is read-only and rejects stale/forged receipt fields (842.796116ms)
+✔ each execution identity field and prerequisite result/attempt fail closed (940.975349ms)
+✔ missing, duplicate, extra, failed, signalled, tampered and truncated artifact reports cannot aggregate (834.916481ms)
+✔ retry recovery remains valid only with all actual trace attachments present and hashed (360.024529ms)
+✔ symlink bundle root, evidence ancestor and nested file ancestors are rejected (137.320142ms)
+✔ production identity requires CI/event/base/run/attempt and detects raw source or untracked edits (293.512905ms)
+✖ a successful runner validates reports and diagnostics while leaving release verification untouched (75.713261ms)
+✔ production CLIs reject selectors before any CI execution (1065.359398ms)
+✔ runner owns fixed selectors and writes diagnostic failure only; it cannot mint any full-profile receipt (178.685658ms)
+✔ seven gates bind real source, manuscript, model, assessment and test files (125.766958ms)
+✔ official public Azure calculator sources are allowed by exact HTTPS host, not lookalike hosts (140.374092ms)
+✔ a missing manuscript layer, hidden missing file or blocked-only source cannot pass (49.762259ms)
+✔ malformed collections fail closed rather than masquerading as structured coverage (111.648472ms)
+✔ stale, wrong-base or unreviewed changed files cannot reuse final approval (1.32328ms)
+✔ root configuration and unknown executable-only PRs cannot bypass snapshot/base checks (4.791689ms)
+✔ self-review, pre-implementation audit, unresolved blockers and fake human approval fail closed (39.8665ms)
+✔ approved full desktop evidence is candidate-bound; plans, selectors, pending and historical results cannot replace execution (470.065786ms)
+✔ CI receipt owns the fixed full command, preserves child failure/signal and writes only a newly executed candidate success (9.329192ms)
+✔ a selected shard, invented aggregate or unverified artifact cannot replace complete browser execution (328.668377ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 19
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 5311.676062
+
+✖ failing tests:
+
+test at scripts/e2e-shard.test.mjs:535:1
+✖ a successful runner validates reports and diagnostics while leaving release verification untouched (75.713261ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1 !== 0
+  
+      at TestContext.<anonymous> (file:///workspace/azurelab-parallel/application/scripts/e2e-shard.test.mjs:559:12)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1,
+    expected: 0,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

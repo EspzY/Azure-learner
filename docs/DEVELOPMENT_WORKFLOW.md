@@ -1,3 +1,13 @@
+# Resource Platform — complete sharded candidate verification
+
+The owner-requested sharding study is now being implemented because two measured Application browser jobs exhausted the existing35-minute cap: Quality123 completed450/475 cases; final Quality125 completed474/475 with no observed failures/retries and fast dependency installation. Both remain incomplete failures, with original logs retained. A green collection or partial profile is never acceptance.
+
+The active bounded graph is `check → browser[1..4] → verify`. `check` retains the full mandatory check, real isolated PostgreSQL integrations, normal production build and high-level dependency audit. Four independent35-minute browser jobs each retain one Playwright worker, the original retries/timeouts/assertions, their own isolated PostgreSQL/Next/build/browser/artifacts and the same-revision historical fixture. This increases simultaneous job environments and compute; it is an explicit change from PR72's serial allocation. The original serial full-profile command remains available unchanged.
+
+Always-running `verify` requires successful check and every browser job in the same run attempt, actual immutable checkout SHA and four exact artifact identities. It independently recollects the complete candidate and every native shard, verifies their exact disjoint union, revalidates reports and provenance, rejects missing/skipped/extra/duplicate executions and only then writes an explicit aggregate full-profile receipt. The unchanged strict-release command follows immediately against the actual base. A rerun of only failed jobs cannot combine artifacts from different attempts; rerun the entire workflow. See [the active protocol and negative gates](CI_SHARDED_VERIFICATION.md).
+
+The prior serial workflow section below is preserved historical evidence, not a second active pipeline. No source rule, course result, replay model, substantive browser assertion, worker, retry, test-timeout or35-minute cap is relaxed. Sharding does not establish a cause or repair for known Compute/Axe/hydration/runner slowdowns. Actual new-head execution and independent post-stamp audit are still required before declaring this allocation verified.
+
 # Development workflow — owner direction, 29 October 2026
 
 ## PR72 — serial mandatory checks and complete browser verification

@@ -225,3 +225,40 @@ test('CI receipt owns the fixed full command, preserves child failure/signal and
     /Cannot bind/,
   );
 });
+
+test('a selected shard, invented aggregate or unverified artifact cannot replace complete browser execution', () => {
+  const record = read();
+  record.review = { ...record.review, fingerprint: '1'.repeat(64) };
+  const aggregate = {
+    command: 'node scripts/e2e-shard-aggregate.mjs',
+    result: 'passed',
+    details: 'Claimed complete execution without valid aggregate evidence',
+    scope: 'candidate-full-profile',
+    commit: '2'.repeat(40),
+    fingerprint: record.review.fingerprint,
+  };
+  for (const entry of [
+    aggregate,
+    { ...aggregate, command: 'node scripts/e2e-shard-runner.mjs' },
+    { ...aggregate, scope: 'candidate-shard' },
+    { ...aggregate, result: 'pending' },
+    { ...aggregate, result: 'failed' },
+    { ...aggregate, fingerprint: '3'.repeat(64) },
+    { ...aggregate, evidence: { path: '../../foreign.json', sha256: '4'.repeat(64) } },
+    {
+      ...aggregate,
+      evidence: { path: '.artifacts/ci-shards/aggregate.json', sha256: '4'.repeat(64) },
+    },
+  ]) {
+    record.verification = [
+      { command: 'npm run check', result: 'passed', details: 'Executed' },
+      entry,
+    ];
+    assert.ok(
+      validateQuality(record, undefined, true).some((error) =>
+        error.includes('full browser profile'),
+      ),
+      JSON.stringify(entry),
+    );
+  }
+});

@@ -1,0 +1,297 @@
+{
+  "total_count": 2,
+  "jobs": [
+    {
+      "id": 129303895224,
+      "run_id": 42658647646,
+      "workflow_name": "Quality",
+      "head_branch": "codex/laboratory-application-platform",
+      "run_url": "https://api.github.com/repos/EspzY/Azure-learner/actions/runs/42658647646",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVT6y6c8AAAAeGxzcuA",
+      "head_sha": "8f734b69561c4de711c2ccee23345e63778943a3",
+      "url": "https://api.github.com/repos/EspzY/Azure-learner/actions/jobs/129303895224",
+      "html_url": "https://github.com/EspzY/Azure-learner/actions/runs/42658647646/job/129303895224",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-09T16:49:36Z",
+      "started_at": "2026-11-09T16:49:38Z",
+      "completed_at": "2026-11-09T16:52:19Z",
+      "name": "check",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-09T16:49:39Z",
+          "completed_at": "2026-11-09T16:49:39Z"
+        },
+        {
+          "name": "Initialize containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-09T16:49:39Z",
+          "completed_at": "2026-11-09T16:49:54Z"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-09T16:49:54Z",
+          "completed_at": "2026-11-09T16:50:00Z"
+        },
+        {
+          "name": "Bind checked revision",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-09T16:50:00Z",
+          "completed_at": "2026-11-09T16:50:00Z"
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-09T16:50:00Z",
+          "completed_at": "2026-11-09T16:50:03Z"
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-09T16:50:03Z",
+          "completed_at": "2026-11-09T16:50:14Z"
+        },
+        {
+          "name": "Run npm run lab:db:setup",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-09T16:50:14Z",
+          "completed_at": "2026-11-09T16:50:15Z"
+        },
+        {
+          "name": "Run npm run check",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-09T16:50:15Z",
+          "completed_at": "2026-11-09T16:52:13Z"
+        },
+        {
+          "name": "Run npm audit --audit-level=high",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-09T16:52:13Z",
+          "completed_at": "2026-11-09T16:52:17Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 16,
+          "started_at": "2026-11-09T16:52:17Z",
+          "completed_at": "2026-11-09T16:52:17Z"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 17,
+          "started_at": "2026-11-09T16:52:17Z",
+          "completed_at": "2026-11-09T16:52:17Z"
+        },
+        {
+          "name": "Stop containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 18,
+          "started_at": "2026-11-09T16:52:17Z",
+          "completed_at": "2026-11-09T16:52:17Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 19,
+          "started_at": "2026-11-09T16:52:17Z",
+          "completed_at": "2026-11-09T16:52:17Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/EspzY/Azure-learner/check-runs/129303895224",
+      "labels": ["ubuntu-latest"],
+      "runner_id": 1000000281,
+      "runner_name": "GitHub Actions 1000000281",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 129305439723,
+      "run_id": 42658647646,
+      "workflow_name": "Quality",
+      "head_branch": "codex/laboratory-application-platform",
+      "run_url": "https://api.github.com/repos/EspzY/Azure-learner/actions/runs/42658647646",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOVT6y6c8AAAAeGzRt6w",
+      "head_sha": "8f734b69561c4de711c2ccee23345e63778943a3",
+      "url": "https://api.github.com/repos/EspzY/Azure-learner/actions/jobs/129305439723",
+      "html_url": "https://github.com/EspzY/Azure-learner/actions/runs/42658647646/job/129305439723",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "created_at": "2026-11-09T16:52:19Z",
+      "started_at": "2026-11-09T16:52:21Z",
+      "completed_at": "2026-11-09T17:27:38Z",
+      "name": "verify",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-09T16:52:22Z",
+          "completed_at": "2026-11-09T16:52:23Z"
+        },
+        {
+          "name": "Initialize containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-09T16:52:23Z",
+          "completed_at": "2026-11-09T16:52:36Z"
+        },
+        {
+          "name": "Require successful checked revision",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-09T16:52:36Z",
+          "completed_at": "2026-11-09T16:52:36Z"
+        },
+        {
+          "name": "Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-09T16:52:36Z",
+          "completed_at": "2026-11-09T16:52:43Z"
+        },
+        {
+          "name": "Verify same checkout",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-09T16:52:43Z",
+          "completed_at": "2026-11-09T16:52:43Z"
+        },
+        {
+          "name": "Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-09T16:52:43Z",
+          "completed_at": "2026-11-09T16:52:48Z"
+        },
+        {
+          "name": "Run npm ci",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-09T16:52:48Z",
+          "completed_at": "2026-11-09T16:52:59Z"
+        },
+        {
+          "name": "Run npm run lab:db:setup",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-09T16:52:59Z",
+          "completed_at": "2026-11-09T16:52:59Z"
+        },
+        {
+          "name": "Run npm run build:e2e:review",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-09T16:52:59Z",
+          "completed_at": "2026-11-09T16:53:36Z"
+        },
+        {
+          "name": "Run npx playwright install --with-deps chromium",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-09T16:53:36Z",
+          "completed_at": "2026-11-09T16:53:55Z"
+        },
+        {
+          "name": "Run node scripts/verify-desktop-ci.mjs",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "number": 11,
+          "started_at": "2026-11-09T16:53:55Z",
+          "completed_at": "2026-11-09T17:27:34Z"
+        },
+        {
+          "name": "Run npm run quality:release -- --base \"249833f7cb7ea41d3e411444ec3c4f83805d3a5f\"",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-11-09T17:27:34Z",
+          "completed_at": "2026-11-09T17:27:34Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-11-09T17:27:34Z",
+          "completed_at": "2026-11-09T17:27:34Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 24,
+          "started_at": "2026-11-09T17:27:34Z",
+          "completed_at": "2026-11-09T17:27:34Z"
+        },
+        {
+          "name": "Post Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2026-11-09T17:27:34Z",
+          "completed_at": "2026-11-09T17:27:35Z"
+        },
+        {
+          "name": "Stop containers",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 26,
+          "started_at": "2026-11-09T17:27:35Z",
+          "completed_at": "2026-11-09T17:27:35Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2026-11-09T17:27:35Z",
+          "completed_at": "2026-11-09T17:27:35Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/EspzY/Azure-learner/check-runs/129305439723",
+      "labels": ["ubuntu-latest"],
+      "runner_id": 1000000282,
+      "runner_name": "GitHub Actions 1000000282",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

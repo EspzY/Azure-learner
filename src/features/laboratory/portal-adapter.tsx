@@ -47,7 +47,18 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
       id: source.id,
       name: source.name,
       view,
-      kind: view === 'group' ? 'groups' : ['rule', 'route'].includes(view) ? 'properties' : view,
+      kind:
+        view === 'appPlan'
+          ? 'plans'
+          : view === 'webApp'
+            ? 'apps'
+            : ['appDeployment', 'appSetting'].includes(view)
+              ? 'settings'
+              : view === 'group'
+                ? 'groups'
+                : ['rule', 'route'].includes(view)
+                  ? 'properties'
+                  : view,
       typeName: copy.resourceKinds[view],
       category:
         view === 'group'
@@ -63,6 +74,8 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
                 'firewall',
                 'firewallPolicy',
                 'publicIp',
+                'appPlan',
+                'webApp',
               ].includes(view)
             ? 'resource'
             : ['container', 'blob'].includes(view)
@@ -158,6 +171,18 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
         g = world.firewallGroups.find((g) => g.id === c?.collectionGroupId),
         p = world.firewallPolicies.find((p) => p.id === g?.policyId);
       if (c && p) add('firewallRule', x, p.groupId, p.region, c.id);
+    }
+  }
+  if (world.model === 'laboratory@3.8.0') {
+    for (const p of world.plans) add('appPlan', p, p.groupId, p.region, p.groupId);
+    for (const a of world.webApps) add('webApp', a, a.groupId, a.region, a.groupId);
+    for (const d of world.deployments) {
+      const a = world.webApps.find((a) => a.id === d.webAppId);
+      if (a) add('appDeployment', d, a.groupId, a.region, a.id);
+    }
+    for (const s of world.settings) {
+      const a = world.webApps.find((a) => a.id === s.webAppId);
+      if (a) add('appSetting', s, a.groupId, a.region, a.id);
     }
   }
   return rows;

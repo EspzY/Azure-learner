@@ -1,0 +1,160 @@
+
+> azurelab@0.1.0 check
+> npm run typecheck && npm run lint && npm run format:check && npm run docs:check && npm run quality:check && npm run az900:audit:check && npm run curriculum:check && npm run assets:check && npm run legacy:check && npm test && npm run build
+
+
+> azurelab@0.1.0 typecheck
+> node scripts/next.mjs typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+
+> azurelab@0.1.0 lint
+> eslint . --max-warnings 0
+
+
+> azurelab@0.1.0 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> azurelab@0.1.0 docs:check
+> node scripts/docs-check.mjs
+
+Documentation OK: 221 Markdown files; required files and local links verified.
+
+> azurelab@0.1.0 quality:check
+> node scripts/quality-check.mjs
+
+Seven-gate quality contracts/source/activity references valid; no final or human approval inferred.
+
+> azurelab@0.1.0 az900:audit:check
+> node scripts/az900-audit-check.mjs
+
+AZ-900 audit: 57 objectives / 126 facets, evidence references and generated matrix valid; no educational approval inferred.
+
+> azurelab@0.1.0 curriculum:check
+> vitest run src/domain/curriculum/integrity.test.ts src/domain/curriculum/official.test.ts src/domain/curriculum/responsibility.test.ts src/domain/portal/portal.test.ts src/domain/course/course.test.ts src/domain/curriculum/foundations-v2.test.ts src/domain/curriculum/expansion.test.ts src/domain/sandbox/practical.test.ts src/domain/guidance/milestones.test.ts src/domain/curriculum/serverless.test.ts src/domain/curriculum/architecture-physical.test.ts src/domain/curriculum/architecture-management.test.ts src/domain/curriculum/teaching-access.test.ts src/domain/sandbox/missions.test.ts src/domain/curriculum/transfer.test.ts src/domain/curriculum/cost.test.ts src/domain/curriculum/compute.test.ts src/domain/curriculum/networking.test.ts src/domain/curriculum/connectivity.test.ts src/domain/curriculum/storage.test.ts src/domain/curriculum/storage-resilience.test.ts src/domain/curriculum/identity-foundations.test.ts src/domain/curriculum/access-control.test.ts src/domain/curriculum/governance.test.ts src/domain/curriculum/management-tools.test.ts src/domain/curriculum/monitoring.test.ts src/domain/curriculum/security.test.ts src/domain/curriculum/migration.test.ts src/domain/curriculum/refined-assessment.test.ts src/domain/curriculum/application-transfer.test.ts
+
+
+ RUN  v5.0.5 /workspace/azurelab-parallel/application
+
+
+ Test Files  30 passed (30)
+      Tests  503 passed (503)
+   Start at  16:02:55
+   Duration  9.96s (tests 53%, import 37%, transform 9%, worker 2%)
+
+    Isolate  30 workers spawned · ~281ms startup each (spawn + environment, per file)
+             at least ~2.53s faster with isolate: false — reuses workers across files instead of one per file
+
+
+> azurelab@0.1.0 assets:check
+> node scripts/assets-check.mjs && node scripts/design-assets-check.mjs
+
+Assets: owner-authorized local SavvyShark PNG, 76509 bytes; signature, hash, size and registration valid. Retired game assets are not shipped.
+Portal icons: 44 explicit identities, 42 source SVGs / 43989 bytes, original hashes, local paths, safe SVG and provenance validated. No generic fallback.
+{"produced":3,"approved":0,"planned":19,"fontBytes":146892}
+
+> azurelab@0.1.0 legacy:check
+> node scripts/legacy-check.mjs
+
+Legacy boundary: 557 current source/style files; no retired imports, renderer dependencies or game assets.
+
+> azurelab@0.1.0 test
+> vitest run && node --test scripts/docs-check.test.mjs scripts/az900-audit-check.test.mjs scripts/quality-check.test.mjs scripts/design-assets-check.test.mjs scripts/e2e-preview-build.test.mjs
+
+
+ RUN  v5.0.5 /workspace/azurelab-parallel/application
+
+
+ Test Files  99 passed (99)
+      Tests  1163 passed (1163)
+   Start at  16:03:06
+   Duration  39.04s (tests 80%, import 15%, transform 4%, worker 1%)
+
+    Isolate  99 workers spawned · ~219ms startup each (spawn + environment, per file)
+             at least ~7.01s faster with isolate: false — reuses workers across files instead of one per file
+
+✔ all 57 pinned official slots and code/evidence/source references resolve (330.662302ms)
+✔ rejects omitted/duplicated official skills and stable IDs rather than increasing apparent coverage (774.502496ms)
+✔ a title, test pointer or invented human approval cannot promote missing evidence to COMPLETE (606.023017ms)
+✔ rejects missing files/symbols, nonofficial sources and unmapped next PRs (321.313567ms)
+✔ public calculator is an exact official HTTPS source, not a lookalike or insecure URL (1339.166181ms)
+✔ generated sources distinguish individual review date, baseline fallback and product update date (11.693183ms)
+✔ actual pose and licensed-font registrations are complete and explicitly not approved (23.52425ms)
+✔ altered metadata, unregistered files and accidental production approval fail closed (23.074058ms)
+✔ validates relative, encoded, image, reference and heading links without fetching external URLs (16.652889ms)
+✔ reports missing files, heading targets and paths outside the repository (12.065607ms)
+✔ requires substantive continuity files and Phase 1A blueprints (37.039254ms)
+✔ historical fixture clones parent metadata and preserves real Git SHA while selecting only the frozen review label (3.419554ms)
+✔ every hosted Vercel marker including empty values is rejected before a child or Git lookup (2.845293ms)
+✔ child failure signal and spawn failure cannot produce successful fixture provenance (2.18367ms)
+✔ unverifiable candidate revision cannot start a fixture build (0.290444ms)
+✔ seven gates bind real source, manuscript, model, assessment and test files (30.597457ms)
+✔ official public Azure calculator sources are allowed by exact HTTPS host, not lookalike hosts (61.412041ms)
+✔ a missing manuscript layer, hidden missing file or blocked-only source cannot pass (24.386858ms)
+✔ malformed collections fail closed rather than masquerading as structured coverage (30.332402ms)
+✔ stale, wrong-base or unreviewed changed files cannot reuse final approval (1.208088ms)
+✔ root configuration and unknown executable-only PRs cannot bypass snapshot/base checks (0.454099ms)
+✔ self-review, pre-implementation audit, unresolved blockers and fake human approval fail closed (16.023286ms)
+✔ approved full desktop evidence is candidate-bound; plans, selectors, pending and historical results cannot replace execution (215.894175ms)
+✔ CI receipt owns the fixed full command, preserves child failure/signal and writes only a newly executed candidate success (1.5245ms)
+ℹ tests 24
+ℹ suites 0
+ℹ pass 24
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3612.045157
+
+> azurelab@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.2 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 68ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 3.6s
+  Running TypeScript ...
+  Finished TypeScript in 18.7s ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/16) ...
+  Generating static pages using 4 workers (4/16) 
+  Generating static pages using 4 workers (8/16) 
+  Generating static pages using 4 workers (12/16) 
+✓ Generating static pages using 4 workers (16/16) in 1191ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/laboratory/analysis
+├ ƒ /api/laboratory/command
+├ ƒ /api/laboratory/ephemeral
+├ ƒ /api/laboratory/policy-analysis
+├ ƒ /api/laboratory/review
+├ ƒ /api/laboratory/session
+├ ƒ /api/laboratory/state
+├ ○ /design/foundations-31a
+├ ○ /expedition-3d
+├ ○ /explore
+├ ○ /icon.svg
+├ ○ /labs/laboratory
+├ ○ /labs/saas
+├ ○ /learn
+├ ƒ /learn/[module]
+├ ○ /learn/design-review
+├ ○ /legacy-expedition
+├ ○ /legacy/rpg
+├ ○ /missions
+├ ○ /portal
+└ ○ /progress
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

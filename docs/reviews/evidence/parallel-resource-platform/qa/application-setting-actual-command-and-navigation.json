@@ -1,0 +1,83 @@
+[
+  {
+    "kind": "review",
+    "startTime": 14510.498,
+    "duration": 134.80200000000002,
+    "status": 200,
+    "request": {
+      "commandId": "022fb89c-19e5-4c4a-af09-8a1c40c290b5",
+      "expectedRevision": 4,
+      "command": {
+        "type": "SetWebAppSetting",
+        "webAppId": "web-app-3",
+        "name": "APP_MODE",
+        "value": "synthetic"
+      }
+    },
+    "receipt": null,
+    "preview": {
+      "commandId": "022fb89c-19e5-4c4a-af09-8a1c40c290b5",
+      "sequence": 5,
+      "beforeRevision": 4,
+      "afterRevision": 5,
+      "operation": "SetWebAppSetting",
+      "targetType": "Microsoft.Web/sites/config",
+      "scopeId": "web-app-3",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-application@3.8",
+      "addedIds": ["app-setting-5"],
+      "removedIds": [],
+      "updatedIds": [],
+      "beforeCount": 4,
+      "afterCount": 5
+    },
+    "workspace": "54fc0155-5089-4639-8af6-035e9cc8a8af"
+  },
+  {
+    "kind": "command",
+    "startTime": 14734.894,
+    "duration": 151.41799999999998,
+    "status": 200,
+    "request": {
+      "commandId": "022fb89c-19e5-4c4a-af09-8a1c40c290b5",
+      "expectedRevision": 4,
+      "command": {
+        "type": "SetWebAppSetting",
+        "webAppId": "web-app-3",
+        "name": "APP_MODE",
+        "value": "synthetic"
+      }
+    },
+    "receipt": {
+      "commandId": "022fb89c-19e5-4c4a-af09-8a1c40c290b5",
+      "sequence": 5,
+      "beforeRevision": 4,
+      "afterRevision": 5,
+      "operation": "SetWebAppSetting",
+      "targetType": "Microsoft.Web/sites/config",
+      "scopeId": "web-app-3",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-application@3.8",
+      "addedIds": ["app-setting-5"],
+      "removedIds": [],
+      "updatedIds": [],
+      "beforeCount": 4,
+      "afterCount": 5
+    },
+    "preview": null,
+    "workspace": "54fc0155-5089-4639-8af6-035e9cc8a8af"
+  },
+  {
+    "kind": "target-rsc-navigation",
+    "url": "https://azure-learner-git-codex-laboratory-appli-75cac1-espzys-projects.vercel.app/labs/laboratory?view=appSetting&id=app-setting-5&_rsc=zF-0TehtIOtZj2F8",
+    "startTime": 14888.457,
+    "duration": 66.078,
+    "endTime": 14954.535,
+    "status": 200,
+    "mime": "text/x-component"
+  }
+]

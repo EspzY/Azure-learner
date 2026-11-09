@@ -22,9 +22,17 @@ describe('shared Portal catalogue reflects actual versioned capabilities without
           'activity',
         ]),
       );
-      expect(rows.some((r) => r.id === 'apps' || r.id === 'plans' || r.id === 'azurePolicy')).toBe(
-        false,
-      );
+      if (model === 'laboratory@3.8.0') {
+        expect(rows.filter((r) => r.id === 'apps' || r.id === 'plans').map((r) => r.id)).toEqual([
+          'apps',
+          'plans',
+        ]);
+        expect(rows.some((r) => r.id === 'azurePolicy')).toBe(false);
+      } else {
+        expect(
+          rows.some((r) => r.id === 'apps' || r.id === 'plans' || r.id === 'azurePolicy'),
+        ).toBe(false);
+      }
       expect(rows.some((r) => r.id === 'vms')).toBe(models.indexOf(model) >= 4);
       expect(rows.some((r) => r.id === 'policyAnalysis')).toBe(models.indexOf(model) >= 3);
       for (const row of rows) expect(resolvePortalIcon(row.icon), row.id).toBeDefined();
