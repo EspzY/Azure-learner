@@ -1,6 +1,6 @@
 import { it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { readBifrostFoundation as readFileSync } from '../tests/bifrost-foundation-preservation';
+import { execBifrostFoundation as execFileSync } from '../tests/bifrost-foundation-preservation';
 import { pr72Base, original72 } from '../tests/pr72-preservation';
 import proof from '../docs/reviews/evidence/pr72/preservation.json';
 const approved = [

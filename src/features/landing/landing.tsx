@@ -1,25 +1,25 @@
 'use client';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useEffect, useRef, useState, type MouseEvent } from 'react';
-import { ArrowRight, BookOpen, Layers3, Network, FlaskConical, LockKeyhole } from 'lucide-react';
+import { useEffect, useState, type MouseEvent } from 'react';
+import { ArrowRight, Cloud, Server, Network, FlaskConical, Clock3 } from 'lucide-react';
 import { landingNb as t } from '@/content/nb';
 import { useCourse } from '@/features/course/provider';
 import { currentAz900Status } from './course-status';
 import { CourseStatusBadge } from './course-status-badge';
+import { BifrostBrandMark } from '@/features/design/brand-mark';
+import { ThemeToggle } from '@/features/design/theme';
 import './landing.css';
 
-const icons = [BookOpen, Layers3, Network];
+const icons = [Cloud, Server, Network];
 export function Landing({ commit }: { commit: string | null }) {
   const course = useCourse();
   const status = currentAz900Status(course);
   const router = useRouter();
   const [opening, setOpening] = useState<'course' | 'laboratory' | null>(null);
-  const timer = useRef<number | undefined>(undefined);
   useEffect(() => {
     // Also reset a restored App Router / back-forward view. No learner state.
     queueMicrotask(() => setOpening(null));
-    return () => window.clearTimeout(timer.current);
   }, []);
   const open = (
     event: MouseEvent<HTMLAnchorElement>,
@@ -37,21 +37,21 @@ export function Landing({ commit }: { commit: string | null }) {
     )
       return;
     event.preventDefault();
-    window.clearTimeout(timer.current);
     setOpening(kind);
-    timer.current = window.setTimeout(() => router.push(url), 140);
+    router.push(url);
   };
   return (
-    <div className="azurelab-landing" data-opening={opening ?? undefined}>
+    <div className="azurelab-landing bifrost-learning" data-opening={opening ?? undefined}>
       <a className="landing-skip" href="#landing-main">
         {t.skip}
       </a>
+      <header className="landing-theme-bar">
+        <ThemeToggle />
+      </header>
       <main id="landing-main" tabIndex={-1}>
         <section className="landing-hero" aria-labelledby="landing-title">
           <div className="landing-wordmark">
-            <svg viewBox="0 0 32 32" aria-hidden="true">
-              <path d="M5 25L16 5l11 20M9 19h14M5 28h22" />
-            </svg>
+            <BifrostBrandMark className="landing-brand-mark" />
             <h1 id="landing-title">{t.brand}</h1>
           </div>
           <p className="landing-description">{t.description}</p>
@@ -67,12 +67,12 @@ export function Landing({ commit }: { commit: string | null }) {
               const content = (
                 <>
                   <div className="landing-course-top" id={`course-status-${item.code}`}>
-                    <Icon size={24} strokeWidth={1.4} aria-hidden="true" />
+                    <Icon size={20} strokeWidth={1.8} aria-hidden="true" />
                     {available ? (
                       <CourseStatusBadge status={status} />
                     ) : (
                       <span className="landing-planned">
-                        <LockKeyhole size={13} aria-hidden="true" />
+                        <Clock3 size={12} aria-hidden="true" />
                         {t.planned}
                       </span>
                     )}
@@ -117,7 +117,7 @@ export function Landing({ commit }: { commit: string | null }) {
               onClick={(event) => open(event, 'laboratory', '/labs/laboratory')}
             />
             <div className="landing-lab-icon">
-              <FlaskConical size={32} strokeWidth={1.3} aria-hidden="true" />
+              <FlaskConical size={21} strokeWidth={1.8} aria-hidden="true" />
             </div>
             <div className="landing-lab-copy">
               <h2 id="landing-lab-title">{t.labTitle}</h2>

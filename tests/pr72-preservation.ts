@@ -1,6 +1,6 @@
 /** Test-only bounded view of PR71 bytes. Actual modified bytes must first match
  * the independently checked finite PR72 manifest. Never imported by runtime. */
-import { readFileSync } from 'node:fs';
+import { readBifrostFoundation as readFileSync } from './bifrost-foundation-preservation';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { strict as assert } from 'node:assert';

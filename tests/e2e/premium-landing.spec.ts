@@ -250,7 +250,7 @@ test('landing responsive keyboard short desktop status semantics reduced motion 
   await page.route('**/__qa/landing-status', (route) =>
     route.fulfill({
       contentType: 'text/html; charset=utf-8',
-      body: `<!doctype html><html lang="nb"><head><meta charset="utf-8"><title>Test av statuspresentasjon</title>${css}</head><body><main class="azurelab-landing"><h1>Isolert UI-test – ingen kursfullføring registrert</h1>${badges}</main></body></html>`,
+      body: `<!doctype html><html lang="nb"><head><meta charset="utf-8"><title>Test av statuspresentasjon</title>${css}</head><body><main class="azurelab-landing bifrost-learning"><h1>Isolert UI-test – ingen kursfullføring registrert</h1>${badges}</main></body></html>`,
     }),
   );
   await page.goto('/__qa/landing-status');

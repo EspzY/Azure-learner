@@ -11,7 +11,7 @@
     "lint": "eslint . --max-warnings 0",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "vitest run && node --test scripts/docs-check.test.mjs scripts/az900-audit-check.test.mjs scripts/quality-check.test.mjs scripts/design-assets-check.test.mjs scripts/e2e-preview-build.test.mjs",
+    "test": "vitest run && node --test scripts/docs-check.test.mjs scripts/az900-audit-check.test.mjs scripts/quality-check.test.mjs scripts/design-assets-check.test.mjs scripts/e2e-preview-build.test.mjs scripts/e2e-shard.test.mjs",
     "test:watch": "vitest",
     "test:e2e": "playwright test",
     "docs:check": "node scripts/docs-check.mjs",
