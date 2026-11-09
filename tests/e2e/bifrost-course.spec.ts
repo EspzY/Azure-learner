@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { nb } from '../../src/content/nb';
+import { nb, computeNb, refinedAssessmentNb } from '../../src/content/nb';
 import { themeCopy } from '../../src/features/design/theme-copy';
 import { sandboxKey } from '../../src/domain/sandbox/store';
 import { storageKey } from '../../src/domain/progression';
@@ -137,6 +137,80 @@ for (const mode of ['light', 'dark'] as const) {
     await accessible(page);
     await page.screenshot({ path: info.outputPath(`${mode}-savvy.png`) });
     expect(await technical(page)).toEqual(before);
+  });
+
+  test(`Bifrost ${mode} original numeric refined select and Compute assessment fields remain neutral and readable before Submit`, async ({
+    browser,
+  }, info) => {
+    for (const family of ['foundations', 'refined', 'compute'] as const) {
+      const viewport =
+        family === 'foundations'
+          ? { width: 1024, height: 500 }
+          : family === 'refined'
+            ? { width: 1024, height: 768 }
+            : { width: 800, height: 700 };
+      const context = await browser.newContext({ viewport });
+      try {
+        const page = await context.newPage();
+        await page.goto(`${info.project.use.baseURL}/learn`);
+        await theme(page, mode);
+        const before = await technical(page);
+        const route =
+          family === 'foundations'
+            ? '/learn/computing?topic=v2-assessment'
+            : family === 'refined'
+              ? '/learn/benefits?topic=assessment&assessment=updated'
+              : '/learn/compute?topic=assessment&item=cp01';
+        await page.goto(`${info.project.use.baseURL}${route}`);
+        if (family === 'foundations') {
+          await page
+            .getByRole('button', { name: nb.foundationsV2.beginAssessment, exact: true })
+            .click();
+        } else if (family === 'refined') {
+          await page
+            .getByRole('button', { name: refinedAssessmentNb.ui.start, exact: true })
+            .click();
+          await page
+            .getByRole('dialog')
+            .getByRole('button', { name: refinedAssessmentNb.ui.confirm, exact: true })
+            .click();
+        } else {
+          await page.getByRole('button', { name: computeNb.assessment.start, exact: true }).click();
+          await page
+            .getByRole('dialog')
+            .getByRole('button', { name: computeNb.assessment.start, exact: true })
+            .click();
+        }
+        const form = page.locator(
+          family === 'foundations'
+            ? '.v2-assessment form'
+            : family === 'refined'
+              ? '.expanded-assessment form'
+              : '.compute-assessment form',
+        );
+        await expect(form).toBeVisible();
+        if (family === 'foundations')
+          await expect(form.locator('input[type="number"]')).toHaveCount(1);
+        if (family === 'refined') await expect(form.locator('select')).toHaveCount(12);
+        if (family === 'compute') await expect(form.locator('fieldset')).toHaveCount(2);
+        await expect(page.locator('[data-bf-result], .v2-feedback, .compute-feedback')).toHaveCount(
+          0,
+        );
+        const control = form.locator('input, select').nth(0);
+        await control.focus();
+        await expect(control).toBeFocused();
+        expect(await control.evaluate((el) => getComputedStyle(el).outlineStyle)).toBe('solid');
+        await accessible(page);
+        await form
+          .locator('fieldset')
+          .nth(0)
+          .evaluate((el) => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
+        await page.screenshot({ path: info.outputPath(`${mode}-${family}-before-submit.png`) });
+        expect(await technical(page)).toEqual(before);
+      } finally {
+        await context.close();
+      }
+    }
   });
 
   test(`Bifrost ${mode} compact keyboard reduced motion and native Portal Laboratory theme boundary remain usable`, async ({
