@@ -1,0 +1,40 @@
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ src/shared-portal-preservation.test.ts (3 tests | 1 failed) 60ms
+   × compares every actual PR71 blob and every locked old proof, with only finite approved presentation/docs/import bindings 16ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/shared-portal-preservation.test.ts > compares every actual PR71 blob and every locked old proof, with only finite approved presentation/docs/import bindings
+AssertionError: expected [ 'AGENTS.md', …(11) ] to deeply equal [ 'AGENTS.md', …(10) ]
+
+- Expected
++ Received
+
+@@ -7,7 +7,8 @@
+    "playwright.desktop.config.ts",
+    "src/features/laboratory/laboratory.tsx",
+    "src/features/portal/portal.tsx",
+    "src/features/portal/presentation.css",
+    "src/laboratory-pr71-preservation.test.ts",
++   "src/shared-portal-preservation.test.ts",
+    "tests/pr71-preservation.ts",
+  ]
+
+ ❯ src/shared-portal-preservation.test.ts:21:43
+     19| it('compares every actual PR71 blob and every locked old proof, with o…
+     20|   expect(proof.base).toBe(pr72Base);
+     21|   expect(Object.keys(proof.files).sort()).toEqual(approved.sort());
+       |                                           ^
+     22|   const entries = execFileSync('git', ['ls-tree', '-r', pr72Base], { e…
+     23|     .trim()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  1 failed | 16 passed (17)
+   Start at  10:53:58
+   Duration  3.83s (tests 74%, transform 13%, import 11%, worker 1%)
+

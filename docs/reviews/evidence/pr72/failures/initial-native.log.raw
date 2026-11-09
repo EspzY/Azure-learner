@@ -1,0 +1,83 @@
+
+Running 5 tests using 1 worker
+
+(node:26591) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/e2e/portal-consolidation.spec.ts:28:1 › free shared Home subscriptions scoped creation Properties resources Studio and recent navigation use real temporary evidence without inspection writes (5.4s)
+  ✘  2 [desktop-chromium] › tests/e2e/portal-consolidation.spec.ts:90:1 › guided course uses the same Home catalogue and subscriptions while actual v2 task and exact return retain original authority (8.7s)
+(node:26836) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [desktop-chromium] › tests/e2e/portal-consolidation.spec.ts:113:1 › persistent shared Home subscriptions reload and isolated sessions read the same committed World without new history (2.8s)
+  ✘  4 [desktop-chromium] › tests/e2e/portal-consolidation.spec.ts:143:1 › historical free 3.0 has common Home and subscription discovery without advertising newer model operations (30.2s)
+(node:26973) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [desktop-chromium] › tests/e2e/portal-consolidation.spec.ts:161:1 › shared Home subscriptions compact keyboard focus reduced motion Axe and short desktop stay readable in both modes (15.9s)
+
+
+  1) [desktop-chromium] › tests/e2e/portal-consolidation.spec.ts:90:1 › guided course uses the same Home catalogue and subscriptions while actual v2 task and exact return retain original authority 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('.portal-home-training')
+    Expected: 1
+    Received: 0
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('.portal-home-training') with timeout 5000ms
+      - waiting for locator('.portal-home-training')
+        13 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      93 |   await missionStart(page, 'infrastructure');
+      94 |   await home(page, 'course');
+    > 95 |   await expect(page.locator('.portal-home-training')).toHaveCount(1);
+         |                                                       ^
+      96 |   const nav = page.getByRole('navigation', { name: p.navLabel, exact: true });
+      97 |   await nav.getByRole('link', { name: p.areas.subscriptions, exact: true }).click();
+      98 |   await page
+        at /workspace/Azure-learner/tests/e2e/portal-consolidation.spec.ts:95:55
+
+    Error Context: ../azurelab-pr72/native-results/portal-consolidation-guide-bd4f5-n-retain-original-authority-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/portal-consolidation-guide-bd4f5-n-retain-original-authority-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr72/native-results/portal-consolidation-guide-bd4f5-n-retain-original-authority-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/portal-consolidation.spec.ts:143:1 › historical free 3.0 has common Home and subscription discovery without advertising newer model operations 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.selectOption: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByLabel('Arbeidsområdemodell', { exact: true })
+
+
+      146 |   await page.goto('/labs/laboratory');
+      147 |   await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();
+    > 148 |   await page.getByLabel('Arbeidsområdemodell', { exact: true }).selectOption('laboratory@3.0.0');
+          |                                                                 ^
+      149 |   await page.getByRole('button', { name: c.start, exact: true }).click();
+      150 |   await expect(page.locator('[data-portal-component="home"]')).toBeVisible();
+      151 |   await service(page, p.areas.services);
+        at /workspace/Azure-learner/tests/e2e/portal-consolidation.spec.ts:148:65
+
+    Error Context: ../azurelab-pr72/native-results/portal-consolidation-histo-23882-sing-newer-model-operations-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/portal-consolidation-histo-23882-sing-newer-model-operations-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr72/native-results/portal-consolidation-histo-23882-sing-newer-model-operations-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop-chromium] › tests/e2e/portal-consolidation.spec.ts:90:1 › guided course uses the same Home catalogue and subscriptions while actual v2 task and exact return retain original authority 
+    [desktop-chromium] › tests/e2e/portal-consolidation.spec.ts:143:1 › historical free 3.0 has common Home and subscription discovery without advertising newer model operations 
+  3 passed (1.2m)

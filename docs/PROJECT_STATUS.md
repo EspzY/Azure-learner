@@ -1,3 +1,7 @@
+## Current candidate — shared Portal entry consolidation,9 November2026
+
+Verified base is completed Draft71 head0538b40cc51af634e71182014e65bdb932936c70 / Quality117:1097Vitest,24Node,462browser with zero retries. New isolated branch unifies Portal Home, subscriptions and catalogue/navigation; historical authorities are preserved. [Architecture/capability gap and bounded roadmap](SHARED_PORTAL_CONSOLIDATION.md). Candidate checks, independent audit, exact-head CI/strict and public gate are reported only when actually completed. No merge, production deploy or external infrastructure.
+
 # PR71 — explicit temporary Sandbox and product navigation candidate
 
 New free Sandbox runs frozen3.7 commands/replay/diagnostics without a database through the existing shared Portal. State and original technical history are memory-only until refresh; no course credit or durable attestation. Whole landing cards replace inner CTAs; shared Home returns to root while course-v2 routes remain unchanged. The temporary formatting workflow is removed. [Runtime contract](LABORATORY_EPHEMERAL_LANDING.md) and [proposed controlled course integration](LABORATORY_COURSE_INTEGRATION_PLAN.md). Actual local/CI/audit/public gates and any original failures are recorded on the same Draft PR71 only when executed. This header is not an advance release approval. Historical PR70 evidence, all engines/SQL/assessments/course data remain preserved. No merge or production deployment.

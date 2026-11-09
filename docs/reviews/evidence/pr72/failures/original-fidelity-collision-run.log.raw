@@ -1,0 +1,247 @@
+
+Running 14 tests using 1 worker
+
+(node:31045) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   1 [desktop-chromium] › tests/e2e/portal-fidelity.spec.ts:96:3 › Portal fidelity 1920: shared shell, real lists, resource menu, forms, settings and notification inspection (6.5s)
+(node:31259) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   2 [desktop-chromium] › tests/e2e/portal-fidelity.spec.ts:96:3 › Portal fidelity 1440: shared shell, real lists, resource menu, forms, settings and notification inspection (4.5s)
+(node:31439) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   3 [desktop-chromium] › tests/e2e/portal-fidelity.spec.ts:96:3 › Portal fidelity 1366: shared shell, real lists, resource menu, forms, settings and notification inspection (5.6s)
+(node:31586) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   4 [desktop-chromium] › tests/e2e/portal-fidelity.spec.ts:96:3 › Portal fidelity 1024: shared shell, real lists, resource menu, forms, settings and notification inspection (5.6s)
+(node:31700) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [desktop-chromium] › tests/e2e/portal.spec.ts:107:1 › source-backed learning, real Portal creation, policy recovery, live graph and changed independent build (43.2s)
+(node:32181) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 [desktop-chromium] › tests/e2e/portal-inspection-bridge.spec.ts:53:1 › VM course bridge follows actual dependencies receipt views native guidance and exact return without inspection credit (4.4s)
+  ✓   7 [desktop-chromium] › tests/e2e/portal-inspection-bridge.spec.ts:245:1 › Independent raw Portal inspection stays neutral while denied durable assistance withholds course bridge instructions and exact resume (3.5s)
+  ✘   8 [desktop-chromium] › tests/e2e/shared-portal.spec.ts:53:1 › shared Portal actual course and free RG create list properties receipts and reset use common presentation with isolated original authorities (9.4s)
+(node:32308) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [desktop-chromium] › tests/e2e/shared-portal.spec.ts:149:1 › shared Portal free search filters parent properties Back Forward and reload inspect one World without commands or course credit (5.2s)
+  ✘  10 [desktop-chromium] › tests/e2e/shared-portal.spec.ts:209:1 › shared Portal free mode cannot mount course learning or alter an actual active independent draft and assistance boundary (6.5s)
+
+
+  1) [desktop-chromium] › tests/e2e/portal-fidelity.spec.ts:96:3 › Portal fidelity 1920: shared shell, real lists, resource menu, forms, settings and notification inspection 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      152 |         .locator('.portal-services-index [data-icon]')
+      153 |         .evaluateAll((icons) => icons.every((icon) => icon.getBoundingClientRect().width <= 22)),
+    > 154 |     ).toBe(true);
+          |       ^
+      155 |     await page.screenshot({
+      156 |       path: info.outputPath(`fidelity-${width}-services.png`),
+      157 |       scale: 'css',
+        at /workspace/Azure-learner/tests/e2e/portal-fidelity.spec.ts:154:7
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-f6028-and-notification-inspection-desktop-chromium/video-1.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-f6028-and-notification-inspection-desktop-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-f6028-and-notification-inspection-desktop-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-f6028-and-notification-inspection-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-f6028-and-notification-inspection-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/portal-fidelity.spec.ts:96:3 › Portal fidelity 1440: shared shell, real lists, resource menu, forms, settings and notification inspection 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      152 |         .locator('.portal-services-index [data-icon]')
+      153 |         .evaluateAll((icons) => icons.every((icon) => icon.getBoundingClientRect().width <= 22)),
+    > 154 |     ).toBe(true);
+          |       ^
+      155 |     await page.screenshot({
+      156 |       path: info.outputPath(`fidelity-${width}-services.png`),
+      157 |       scale: 'css',
+        at /workspace/Azure-learner/tests/e2e/portal-fidelity.spec.ts:154:7
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-c8738-and-notification-inspection-desktop-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-c8738-and-notification-inspection-desktop-chromium/video-1.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-c8738-and-notification-inspection-desktop-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-c8738-and-notification-inspection-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-c8738-and-notification-inspection-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop-chromium] › tests/e2e/portal-fidelity.spec.ts:96:3 › Portal fidelity 1366: shared shell, real lists, resource menu, forms, settings and notification inspection 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      152 |         .locator('.portal-services-index [data-icon]')
+      153 |         .evaluateAll((icons) => icons.every((icon) => icon.getBoundingClientRect().width <= 22)),
+    > 154 |     ).toBe(true);
+          |       ^
+      155 |     await page.screenshot({
+      156 |       path: info.outputPath(`fidelity-${width}-services.png`),
+      157 |       scale: 'css',
+        at /workspace/Azure-learner/tests/e2e/portal-fidelity.spec.ts:154:7
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-accb0-and-notification-inspection-desktop-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-accb0-and-notification-inspection-desktop-chromium/video-1.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-accb0-and-notification-inspection-desktop-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-accb0-and-notification-inspection-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-accb0-and-notification-inspection-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [desktop-chromium] › tests/e2e/portal-fidelity.spec.ts:96:3 › Portal fidelity 1024: shared shell, real lists, resource menu, forms, settings and notification inspection 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      152 |         .locator('.portal-services-index [data-icon]')
+      153 |         .evaluateAll((icons) => icons.every((icon) => icon.getBoundingClientRect().width <= 22)),
+    > 154 |     ).toBe(true);
+          |       ^
+      155 |     await page.screenshot({
+      156 |       path: info.outputPath(`fidelity-${width}-services.png`),
+      157 |       scale: 'css',
+        at /workspace/Azure-learner/tests/e2e/portal-fidelity.spec.ts:154:7
+
+    attachment #1: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-90c49-and-notification-inspection-desktop-chromium/video-1.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-90c49-and-notification-inspection-desktop-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-90c49-and-notification-inspection-desktop-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-90c49-and-notification-inspection-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr72/native-results/portal-fidelity-Portal-fid-90c49-and-notification-inspection-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [desktop-chromium] › tests/e2e/shared-portal.spec.ts:53:1 › shared Portal actual course and free RG create list properties receipts and reset use common presentation with isolated original authorities 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('[data-guide]')
+    Expected: 0
+    Received: 1
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('[data-guide]') with timeout 5000ms
+      - waiting for locator('[data-guide]')
+        14 × locator resolved to 1 element
+           - unexpected value "1"
+
+
+      110 |     await expect(page.locator(`[data-portal-component="${component}"]`)).toBeVisible();
+      111 |   await expect(page.locator('.portal-guidance-control')).toHaveCount(0);
+    > 112 |   await expect(page.locator('[data-guide]')).toHaveCount(0);
+          |                                              ^
+      113 |   const original = await state(page);
+      114 |   await page
+      115 |     .locator('.portal-resource-menu')
+        at /workspace/Azure-learner/tests/e2e/shared-portal.spec.ts:112:46
+
+    Error Context: ../azurelab-pr72/native-results/shared-portal-shared-Porta-87329-olated-original-authorities-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/shared-portal-shared-Porta-87329-olated-original-authorities-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr72/native-results/shared-portal-shared-Porta-87329-olated-original-authorities-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  6) [desktop-chromium] › tests/e2e/shared-portal.spec.ts:209:1 › shared Portal free mode cannot mount course learning or alter an actual active independent draft and assistance boundary 
+
+    Test was interrupted.
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('.portal-challenge-updated,.portal-training-strip,.portal-guidance-control,.portal-guidance-menu,[data-guide]')
+    Expected: 0
+    Received: 1
+
+    Call log:
+      - Expect "toHaveCount" locator('.portal-challenge-updated,.portal-training-strip,.portal-guidance-control,.portal-guidance-menu,[data-guide]') with timeout 5000ms
+      - waiting for locator('.portal-challenge-updated,.portal-training-strip,.portal-guidance-control,.portal-guidance-menu,[data-guide]')
+        11 × locator resolved to 1 element
+           - unexpected value "1"
+      - Test ended.
+
+
+      225 |       '.portal-challenge-updated,.portal-training-strip,.portal-guidance-control,.portal-guidance-menu,[data-guide]',
+      226 |     ),
+    > 227 |   ).toHaveCount(0);
+          |     ^
+      228 |   expect(await bytes(free)).toBe(before);
+      229 |   await page.reload();
+      230 |   await expect(page.locator('.portal-challenge-updated')).toContainText(challenge2Nb.ui.active);
+        at /workspace/Azure-learner/tests/e2e/shared-portal.spec.ts:227:5
+
+    Error Context: ../azurelab-pr72/native-results/shared-portal-shared-Porta-7cbca-aft-and-assistance-boundary-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr72/native-results/shared-portal-shared-Porta-7cbca-aft-and-assistance-boundary-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr72/native-results/shared-portal-shared-Porta-7cbca-aft-and-assistance-boundary-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5 failed
+    [desktop-chromium] › tests/e2e/portal-fidelity.spec.ts:96:3 › Portal fidelity 1920: shared shell, real lists, resource menu, forms, settings and notification inspection 
+    [desktop-chromium] › tests/e2e/portal-fidelity.spec.ts:96:3 › Portal fidelity 1440: shared shell, real lists, resource menu, forms, settings and notification inspection 
+    [desktop-chromium] › tests/e2e/portal-fidelity.spec.ts:96:3 › Portal fidelity 1366: shared shell, real lists, resource menu, forms, settings and notification inspection 
+    [desktop-chromium] › tests/e2e/portal-fidelity.spec.ts:96:3 › Portal fidelity 1024: shared shell, real lists, resource menu, forms, settings and notification inspection 
+    [desktop-chromium] › tests/e2e/shared-portal.spec.ts:53:1 › shared Portal actual course and free RG create list properties receipts and reset use common presentation with isolated original authorities 
+  1 interrupted
+    [desktop-chromium] › tests/e2e/shared-portal.spec.ts:209:1 › shared Portal free mode cannot mount course learning or alter an actual active independent draft and assistance boundary 
+  4 did not run
+  4 passed (1.9m)

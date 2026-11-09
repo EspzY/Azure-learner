@@ -1,3 +1,7 @@
+## 9 November2026 — one Portal entry experience, controlled engine convergence
+
+Adopt [shared Portal consolidation](SHARED_PORTAL_CONSOLIDATION.md). Reuse the actual course Home structure in one common component; derive scope/resource membership from authoritative adapter state; use one version-aware service catalogue. Preserve old evaluators and learning history. Next implement a new versioned Web/plan vertical, then a course-owned workspace/evidence pilot; do not claim that a shared header unifies the engines.
+
 # Decisions
 
 ## PR66 — Compute Part A

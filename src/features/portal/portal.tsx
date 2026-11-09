@@ -65,7 +65,7 @@ import { useFoundationsV2 } from '@/features/learning/v2-provider';
 import { practicalReturn } from '@/domain/sandbox/practical';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { labsNb, nb, regionLabels, learningPolishNb as polish } from '@/content/nb';
+import { labsNb, nb, regionLabels } from '@/content/nb';
 import { useSandbox as useChapter } from '@/features/portal/sandbox-provider';
 import { useLearning } from '@/features/learning/provider';
 import { ReceiptPanel } from './receipt-panel';
@@ -104,16 +104,16 @@ import { GuidedCoach } from '@/features/course/guided-coach';
 import Link from 'next/link';
 import { AzureLabHomeLink } from '@/features/portal/azurelab-home-link';
 import { useExpansion, ExpansionAssistance } from '@/features/learning/expansion-provider';
+import type { Area } from '@/domain/portal/model';
+import { PortalHome, PortalServiceNavigation, PortalServiceDirectory } from './home';
+import { portalServices } from './service-catalog';
+import { courseResourceLink, courseSubscriptions } from './scope-projection';
+import { PortalSubscriptions, PortalSubscriptionDetails } from './subscriptions';
 const p = nb.portal;
-const services = [
-  'subscriptions',
-  'groups',
-  'resources',
-  'apps',
-  'plans',
-  'vms',
-  'activity',
-] as const;
+const courseServices = portalServices('course');
+const services = courseServices
+  .filter((s) => !['architecture', 'azurePolicy'].includes(s.id))
+  .map((s) => s.view as Area);
 const educational = ['learn', 'responsibility', 'hierarchy', 'architecture', 'challenge'] as const;
 export interface PortalPresentationNavigation {
   href: (native: string) => string;
@@ -749,59 +749,19 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
       }
       navigation={
         <PortalNavigation open={menu} footer={p.environment}>
-          <a
-            href={portalLink(portalHref(location, 'services'))}
-            onClick={(e) => {
-              e.preventDefault();
-              navigate('services');
-            }}
-          >
-            <ServiceIcon kind="create" size={17} />
-            {nb.portalUi.create}
-          </a>
-          {(['home', 'services'] as const).map((area) => {
-            return (
-              <a
-                key={area}
-                href={portalLink(portalHref(location, area))}
-                aria-current={location.area === area ? 'page' : undefined}
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate(area);
-                }}
-              >
-                <ServiceIcon kind={area} size={17} />
-                {p.areas[area]}
-              </a>
-            );
-          })}
-          <span className="portal-nav-category">
-            <ServiceIcon kind="favorite" size={12} />
-            {nb.portalUi.favorites}
-          </span>
-          {services.map((area) => {
-            return (
-              <a
-                key={area}
-                data-guide={area === 'groups' ? 'groups' : undefined}
-                href={portalLink(portalHref(location, area))}
-                aria-current={
-                  location.area === area ||
-                  ((location.area === 'resource' || location.area === 'settings') &&
-                    resourceArea === area)
-                    ? 'page'
-                    : undefined
-                }
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate(area);
-                }}
-              >
-                <ServiceIcon kind={area} size={17} />
-                {p.areas[area]}
-              </a>
-            );
-          })}
+          <PortalServiceNavigation
+            guideTargets={{ groups: 'groups' }}
+            services={courseServices.filter((s) => !['architecture', 'azurePolicy'].includes(s.id))}
+            current={
+              location.area === 'resource' || location.area === 'settings'
+                ? resourceArea
+                : location.area
+            }
+            destination={(area) => ({
+              href: portalLink(portalHref(location, area as Area)),
+              onSelect: () => navigate(area as Area),
+            })}
+          />
           <details
             className="portal-learning-tools"
             open={
@@ -1218,119 +1178,91 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
         >
           <div className="portal-view">
             {location.area === 'home' ? (
-              <>
-                <h2>{p.services}</h2>
-                <div className="portal-home-services">
-                  <button type="button" onClick={() => navigate('services')}>
-                    <ServiceIcon kind="create" size={30} />
-                    <span>{nb.portalUi.create}</span>
+              <PortalHome
+                createGroup={
+                  <button type="button" onClick={() => navigate('create', { kind: 'group' })}>
+                    {nb.portal.createTitles.group}
                   </button>
-                  {services.map((area) => {
-                    return (
-                      <button key={area} type="button" onClick={() => navigate(area)}>
-                        <ServiceIcon kind={area} size={30} />
-                        <span>{p.areas[area]}</span>
-                      </button>
-                    );
-                  })}
-                  <button type="button" onClick={() => navigate('services')}>
-                    <ServiceIcon kind="next" size={28} />
-                    <span>{nb.portalUi.moreServices}</span>
-                  </button>
-                </div>
-                {(practicalMission || guidedLab || location.bridge) && (
-                  <details className="portal-home-training">
-                    <summary>
-                      {nb.portalUi.learningLayer} ·{' '}
-                      {managementLab
-                        ? architectureNb.title
-                        : (practicalMission?.title ?? nb.official.services)}
-                    </summary>
-                    <ServiceIcon kind="learn" size={25} />
-                    <div>
-                      <h2>
-                        {managementLab
-                          ? architectureNb.title
-                          : (practicalMission?.title ??
-                            (location.bridge ? nb.official.benefits : nb.official.services))}
-                      </h2>
-                      <p>
-                        {managementLab
-                          ? managementNb.portalWhy
-                          : (practicalMission?.purpose ??
-                            (location.bridge ? labsNb.bridge[location.bridge] : p.homeIntro))}
-                      </p>
-                      <small>
-                        {nb.official.certification} ·{' '}
-                        {managementLab ? architectureNb.path : nb.official.path}
-                      </small>
-                    </div>
-                    <button
-                      type="button"
-                      className="primary"
-                      onClick={() =>
-                        managementLab || practicalMission || location.bridge
-                          ? returnLearning()
-                          : navigate(
-                              module.facts.active || portalUpdated.facts.active
-                                ? 'challenge'
-                                : 'learn',
-                            )
-                      }
-                    >
-                      {managementLab || practicalMission || location.bridge
-                        ? nb.course.returnCourse
-                        : module.facts.active || portalUpdated.facts.active
-                          ? p.continueChallenge
-                          : p.startLearning}
-                    </button>
-                  </details>
+                }
+                services={courseServices.filter(
+                  (s) => !['architecture', 'azurePolicy'].includes(s.id),
                 )}
-                <h2>{p.recent}</h2>
-                <p>{p.recentHint}</p>
-                {recent.length ? (
-                  <ResourceTable
-                    compact
-                    world={world}
-                    navigate={navigate}
-                    rows={rows
-                      .filter((r) => recent.includes(r.id))
-                      .sort((a, b) => recent.indexOf(a.id) - recent.indexOf(b.id))}
-                  />
-                ) : (
-                  <div className="portal-empty">
-                    <p>{polish.resource.empty}</p>
-                    <button type="button" onClick={() => navigate('resources')}>
-                      {p.areas.resources}
-                    </button>
-                  </div>
-                )}
-                <section className="portal-home-navigate">
-                  <h2>{nb.portalUi.navigate}</h2>
-                  <div>
-                    {(['subscriptions', 'groups', 'resources'] as const).map((area) => (
-                      <button key={area} type="button" onClick={() => navigate(area)}>
-                        <ServiceIcon kind={area} size={22} />
-                        {p.areas[area]}
-                      </button>
-                    ))}
-                  </div>
-                </section>
-              </>
+                destination={(area) => ({
+                  href: portalLink(portalHref(location, area as Area)),
+                  onSelect: () => navigate(area as Area),
+                })}
+                recent={rows
+                  .filter((r) => recent.includes(r.id))
+                  .sort((a, b) => recent.indexOf(a.id) - recent.indexOf(b.id))
+                  .map((r) =>
+                    courseResourceLink(world, r, (id) => ({
+                      href: portalLink(portalHref(location, 'resource', { id })),
+                      onSelect: () => navigate('resource', { id }),
+                    })),
+                  )}
+                learning={
+                  <>
+                    {(practicalMission || guidedLab || location.bridge) && (
+                      <details className="portal-home-training">
+                        <summary>
+                          {nb.portalUi.learningLayer} ·{' '}
+                          {managementLab
+                            ? architectureNb.title
+                            : (practicalMission?.title ?? nb.official.services)}
+                        </summary>
+                        <ServiceIcon kind="learn" size={25} />
+                        <div>
+                          <h2>
+                            {managementLab
+                              ? architectureNb.title
+                              : (practicalMission?.title ??
+                                (location.bridge ? nb.official.benefits : nb.official.services))}
+                          </h2>
+                          <p>
+                            {managementLab
+                              ? managementNb.portalWhy
+                              : (practicalMission?.purpose ??
+                                (location.bridge ? labsNb.bridge[location.bridge] : p.homeIntro))}
+                          </p>
+                          <small>
+                            {nb.official.certification} ·{' '}
+                            {managementLab ? architectureNb.path : nb.official.path}
+                          </small>
+                        </div>
+                        <button
+                          type="button"
+                          className="primary"
+                          onClick={() =>
+                            managementLab || practicalMission || location.bridge
+                              ? returnLearning()
+                              : navigate(
+                                  module.facts.active || portalUpdated.facts.active
+                                    ? 'challenge'
+                                    : 'learn',
+                                )
+                          }
+                        >
+                          {managementLab || practicalMission || location.bridge
+                            ? nb.course.returnCourse
+                            : module.facts.active || portalUpdated.facts.active
+                              ? p.continueChallenge
+                              : p.startLearning}
+                        </button>
+                      </details>
+                    )}
+                  </>
+                }
+              />
             ) : location.area === 'services' ? (
               <>
                 <p>{p.serviceHint}</p>
-                <div className="portal-services-index">
-                  {[...services, 'policy' as const].map((area) => {
-                    return (
-                      <button key={area} type="button" onClick={() => navigate(area)}>
-                        <ServiceIcon kind={area} size={22} />
-                        <span>{p.areas[area]}</span>
-                        <ServiceIcon kind="next" size={14} />
-                      </button>
-                    );
+                <PortalServiceDirectory
+                  services={courseServices.filter((s) => s.id !== 'architecture')}
+                  destination={(area) => ({
+                    href: portalLink(portalHref(location, area as Area)),
+                    onSelect: () => navigate(area as Area),
                   })}
-                </div>
+                />
                 <details className="portal-learning-tools">
                   <summary>
                     <ServiceIcon kind="learn" />
@@ -1349,9 +1281,27 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
                 <h2>{p.unavailable}</h2>
                 <p>{p.unavailableServices}</p>
               </>
-            ) : ['subscriptions', 'groups', 'resources', 'apps', 'plans', 'vms'].includes(
-                location.area,
-              ) ? (
+            ) : location.area === 'subscriptions' ? (
+              <PortalSubscriptions
+                subscriptions={courseSubscriptions(world, (id) => ({
+                  href: portalLink(portalHref(location, 'resource', { id })),
+                  onSelect: () => navigate('resource', { id }),
+                }))}
+                destination={(id) => ({
+                  href: portalLink(portalHref(location, 'resource', { id })),
+                  onSelect: () => navigate('resource', { id }),
+                })}
+              />
+            ) : location.area === 'resource' && current?.kind === 'subscription' ? (
+              <PortalSubscriptionDetails
+                subscription={courseSubscriptions(world, (id) => ({
+                  href: portalLink(portalHref(location, 'resource', { id })),
+                  onSelect: () => navigate('resource', { id }),
+                })).find((s) => s.id === current.id)!}
+                section={location.view === 'properties' ? 'properties' : 'overview'}
+                onSection={(view) => navigate('resource', { id: current.id, view })}
+              />
+            ) : ['groups', 'resources', 'apps', 'plans', 'vms'].includes(location.area) ? (
               <ResourceTable
                 key={location.area}
                 world={world}

@@ -1,0 +1,327 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: hybrid-experience.spec.ts >> enhanced normal motion preserves full-opacity text fixed Portal and actionable controls at authored start middle and end
+- Location: tests/e2e/hybrid-experience.spec.ts:210:1
+
+# Error details
+
+```
+Error: expect(locator).toHaveAttribute(expected) failed
+
+Locator:  locator('.experience-route-mark')
+Expected: "true"
+Received: ""
+Timeout:  5000ms
+
+Call log:
+  - Expect "toHaveAttribute" locator('.experience-route-mark') with timeout 5000ms
+  - waiting for locator('.experience-route-mark')
+    13 × locator resolved to <div aria-hidden="true" data-mode="chapter" class="experience-route-mark"></div>
+       - unexpected value "null"
+
+```
+
+```yaml
+- alert
+- link "Hopp til innhold":
+  - /url: "#portal-main"
+- banner:
+  - button "Åpne eller lukk portalmenyen" [expanded]
+  - link "AzureLab 3.2.1":
+    - /url: /portal
+  - searchbox "Search resources, services, and docs"
+  - button "SavvyShark · Veiledning"
+  - text: TRAINING SIMULATOR
+  - button "Notifications (8)"
+  - button "Portal appearance"
+  - button "Modellgrenser"
+  - button "Kunnskapsjournal"
+  - link "Til forsiden":
+    - /url: /
+- complementary "Portalmeny":
+  - navigation "Portalmeny":
+    - link "Create a resource":
+      - /url: /portal?area=services&module=services&topic=overview&mode=learn
+    - link "Home":
+      - /url: /portal?area=home&module=services&topic=overview&mode=learn
+    - link "All services":
+      - /url: /portal?area=services&module=services&topic=overview&mode=learn
+    - text: FAVORITES
+    - link "Subscriptions":
+      - /url: /portal?area=subscriptions&module=services&topic=overview&mode=learn
+    - link "Resource groups":
+      - /url: /portal?area=groups&module=services&topic=overview&mode=learn
+    - link "All resources":
+      - /url: /portal?area=resources&module=services&topic=overview&mode=learn
+    - link "App Services":
+      - /url: /portal?area=apps&module=services&topic=overview&mode=learn
+    - link "App Service plans":
+      - /url: /portal?area=plans&module=services&topic=overview&mode=learn
+    - link "Virtual machines":
+      - /url: /portal?area=vms&module=services&topic=overview&mode=learn
+    - link "Activity log":
+      - /url: /portal?area=activity&module=services&topic=overview&mode=learn
+    - group: AzureLab learning tools
+  - text: Lokalt treningsmiljø · ingen Azure-tilkobling
+- main "Home":
+  - heading "Home" [level=1]
+  - text: AzureLab Directory · Lokalt treningsmiljø · ingen Azure-tilkobling Free Sandbox
+  - link "Tilbake til kurset":
+    - /url: /learn
+  - button "Architecture Explorer"
+  - button "Tilbake til læringen"
+  - heading "Azure services" [level=2]
+  - link "Create a resource":
+    - /url: /portal?area=services&module=services&topic=overview&mode=learn
+  - link "Subscriptions":
+    - /url: /portal?area=subscriptions&module=services&topic=overview&mode=learn
+  - link "Resource groups":
+    - /url: /portal?area=groups&module=services&topic=overview&mode=learn
+  - link "All resources":
+    - /url: /portal?area=resources&module=services&topic=overview&mode=learn
+  - link "App Services":
+    - /url: /portal?area=apps&module=services&topic=overview&mode=learn
+  - link "App Service plans":
+    - /url: /portal?area=plans&module=services&topic=overview&mode=learn
+  - link "Virtual machines":
+    - /url: /portal?area=vms&module=services&topic=overview&mode=learn
+  - link "Activity log":
+    - /url: /portal?area=activity&module=services&topic=overview&mode=learn
+  - link "More services":
+    - /url: /portal?area=services&module=services&topic=overview&mode=learn
+  - button "Create a resource group"
+  - heading "Recently visited resources" [level=2]
+  - paragraph: Ressurser du har åpnet i denne økten. Inventaret gjenopprettes separat fra tekniske kommandoer.
+  - table "Resources":
+    - caption: Resources
+    - rowgroup:
+      - row "Name Type Resource group Subscription":
+        - columnheader "Name"
+        - columnheader "Type"
+        - columnheader "Resource group"
+        - columnheader "Subscription"
+    - rowgroup:
+      - row "Ingen ressurser er åpnet i denne økten ennå.":
+        - cell "Ingen ressurser er åpnet i denne økten ennå."
+  - heading "Navigate" [level=2]
+  - link "Subscriptions":
+    - /url: /portal?area=subscriptions&module=services&topic=overview&mode=learn
+  - link "Resource groups":
+    - /url: /portal?area=groups&module=services&topic=overview&mode=learn
+  - link "All resources":
+    - /url: /portal?area=resources&module=services&topic=overview&mode=learn
+  - text: AzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering.
+```
+
+# Test source
+
+```ts
+  164 |   expect((await facts(page)).guide!.runs).toHaveLength(1);
+  165 |   expect(await technical(page)).toEqual(before);
+  166 |   await noOverflow(page);
+  167 |   await axe(page);
+  168 | });
+  169 | 
+  170 | test('actual Compute Portal inspection follows original VM dependencies receipt and both course returns without a Designlab frame', async ({
+  171 |   page,
+  172 | }) => {
+  173 |   const f = await seed(page);
+  174 |   await page.goto('/learn/compute?topic=dependencies');
+  175 |   await begin(page);
+  176 |   const guide = (await facts(page)).guide!.id,
+  177 |     before = await technical(page);
+  178 |   const bridge = page.locator('[data-inspection-context="vm"]');
+  179 |   await bridge.getByRole('combobox').selectOption(f.vm.id);
+  180 |   await bridge.getByRole('link').click();
+  181 |   await expect(page).toHaveURL(/\/portal\?/);
+  182 |   await expect(page.locator('.portal-title h1')).toHaveText(f.vm.name);
+  183 |   await expect(page.locator('.ve-review-bar')).toHaveCount(0);
+  184 |   expect((await page.locator('.portal-header').boundingBox())!.y).toBe(0);
+  185 |   await page.getByRole('button', { name: c.vmCopy.hide, exact: true }).click();
+  186 |   await page.locator('.portal-guidance-toggle').click();
+  187 |   await expect(page.locator('.compute-portal-guide')).toBeVisible();
+  188 |   await page
+  189 |     .locator('.portal-resource-menu')
+  190 |     .getByRole('button', { name: nb.portal.properties, exact: true })
+  191 |     .click();
+  192 |   await expect(page).toHaveURL(/view=properties/);
+  193 |   await page.reload();
+  194 |   await expect(page.locator('.portal-title h1')).toHaveText(f.vm.name);
+  195 |   await page.getByRole('link', { name: nb.course.returnCourse, exact: true }).first().click();
+  196 |   await expect(page).toHaveURL(/learn\/compute\?topic=dependencies/);
+  197 |   expect((await facts(page)).guide!.id).toBe(guide);
+  198 |   expect(await technical(page)).toEqual(before);
+  199 |   await page.goBack();
+  200 |   await expect(page.locator('.portal-title h1')).toHaveText(f.vm.name);
+  201 |   await page
+  202 |     .locator('.compute-portal-guide')
+  203 |     .getByRole('link', { name: /Tilbake til Compute/ })
+  204 |     .click();
+  205 |   await expect(page).toHaveURL(/learn\/compute\?topic=dependencies/);
+  206 |   expect((await facts(page)).guide!.id).toBe(guide);
+  207 |   expect(await technical(page)).toEqual(before);
+  208 | });
+  209 | 
+  210 | test('enhanced normal motion preserves full-opacity text fixed Portal and actionable controls at authored start middle and end', async ({
+  211 |   page,
+  212 | }) => {
+  213 |   await seed(page);
+  214 |   await page.addInitScript(() => {
+  215 |     const qa = window as Window & { hybridHoldDestination?: boolean; hybridTargetQueries?: number };
+  216 |     qa.hybridHoldDestination = true;
+  217 |     qa.hybridTargetQueries = 0;
+  218 |     const search = document.querySelector.bind(document);
+  219 |     document.querySelector = ((selector: string) => {
+  220 |       if (selector === '.portal[data-area]' && qa.hybridHoldDestination) {
+  221 |         qa.hybridTargetQueries! += 1;
+  222 |         return null;
+  223 |       }
+  224 |       return search(selector);
+  225 |     }) as typeof document.querySelector;
+  226 |     const animate = Element.prototype.animate;
+  227 |     Element.prototype.animate = function (frames, options) {
+  228 |       const a = animate.call(this, frames, options);
+  229 |       if (this.classList.contains('experience-route-mark')) {
+  230 |         a.pause();
+  231 |         a.currentTime = 0;
+  232 |       }
+  233 |       return a;
+  234 |     };
+  235 |   });
+  236 |   await page.emulateMedia({ reducedMotion: 'no-preference' });
+  237 |   await page.goto('/learn');
+  238 |   const before = await technical(page);
+  239 |   await page.locator('.learn-hub-module[data-module="compute"] a').click();
+  240 |   await expect(page).toHaveURL(/learn\/compute/);
+  241 |   await page
+  242 |     .locator('.course-header nav')
+  243 |     .getByRole('link', { name: nb.course.sandbox, exact: false })
+  244 |     .click();
+  245 |   await expect(page.locator('.portal-header')).toBeVisible();
+  246 |   // Controlled late destination lookup reproduces the independently observed cold
+  247 |   // Next/Suspense mount gap. The real Portal remains available throughout.
+  248 |   await expect
+  249 |     .poll(() =>
+  250 |       page.evaluate(
+  251 |         () => (window as Window & { hybridTargetQueries?: number }).hybridTargetQueries ?? 0,
+  252 |       ),
+  253 |     )
+  254 |     .toBeGreaterThan(0);
+  255 |   expect(
+  256 |     await page.locator('.experience-route-mark').evaluate((node) => node.getAnimations().length),
+  257 |   ).toBe(0);
+  258 |   await page.evaluate(() => {
+  259 |     (window as Window & { hybridHoldDestination?: boolean }).hybridHoldDestination = false;
+  260 |     const commit = document.createComment('QA destination commit');
+  261 |     document.body.appendChild(commit);
+  262 |     commit.remove();
+  263 |   });
+> 264 |   await expect(page.locator('.experience-route-mark')).toHaveAttribute('data-running', 'true');
+      |                                                        ^ Error: expect(locator).toHaveAttribute(expected) failed
+  265 |   await expect(page.locator('.experience-route-mark')).toHaveAttribute('data-mode', 'workspace');
+  266 |   for (const ms of [0, 160, 320]) {
+  267 |     const style = await page.evaluate((ms) => {
+  268 |       const mark = document.querySelector('.experience-route-mark')!;
+  269 |       const a = mark.getAnimations()[0];
+  270 |       if (!a) throw Error('Expected actual enhanced handoff animation');
+  271 |       a.currentTime = ms;
+  272 |       const ancestors = [];
+  273 |       for (
+  274 |         let e: Element | null = document.querySelector('.portal-header');
+  275 |         e;
+  276 |         e = e.parentElement
+  277 |       ) {
+  278 |         const s = getComputedStyle(e);
+  279 |         ancestors.push([s.opacity, s.transform, s.filter]);
+  280 |       }
+  281 |       return {
+  282 |         ancestors,
+  283 |         pointer: getComputedStyle(mark).pointerEvents,
+  284 |         frames: (a.effect as KeyframeEffect).getKeyframes(),
+  285 |         duration: a.effect!.getTiming().duration,
+  286 |       };
+  287 |     }, ms);
+  288 |     expect(style.pointer).toBe('none');
+  289 |     expect(style.duration).toBe(320);
+  290 |     expect(style.ancestors.every(([o, t, f]) => o === '1' && t === 'none' && f === 'none')).toBe(
+  291 |       true,
+  292 |     );
+  293 |     expect(style.frames.every((x) => x.opacity === undefined)).toBe(true);
+  294 |     expect((await page.locator('.portal-header').boundingBox())!.y).toBe(0);
+  295 |     await axe(page);
+  296 |   }
+  297 |   expect(await technical(page)).toEqual(before);
+  298 | });
+  299 | 
+  300 | test('hybrid actual Hub and theory retain exact independent resume and denied durable assistance shielding', async ({
+  301 |   page,
+  302 |   context,
+  303 | }) => {
+  304 |   await seed(page);
+  305 |   await page.goto(refinedHref('benefits'));
+  306 |   await page.getByRole('button', { name: refinedAssessmentNb.ui.start, exact: true }).click();
+  307 |   await page
+  308 |     .getByRole('dialog')
+  309 |     .getByRole('button', { name: refinedAssessmentNb.ui.confirm, exact: true })
+  310 |     .click();
+  311 |   await page.locator('[data-refined-item="b-capacity"]').getByRole('textbox').fill('4');
+  312 |   const raw = await page.evaluate((k) => localStorage.getItem(k), refinedKeys.benefits),
+  313 |     before = await technical(page);
+  314 |   await context.addInitScript((k) => {
+  315 |     const set = Storage.prototype.setItem;
+  316 |     Storage.prototype.setItem = function (key, v) {
+  317 |       if (key === k && JSON.parse(v).events?.at(-1)?.kind === 'aid')
+  318 |         throw new DOMException('Denied', 'QuotaExceededError');
+  319 |       return set.call(this, key, v);
+  320 |     };
+  321 |   }, refinedKeys.benefits);
+  322 |   await page.goto('/learn/compute?topic=vm');
+  323 |   await expect(page.locator('.compute-theory')).toHaveCount(0);
+  324 |   await expect(page.locator('.course-activity')).toHaveCount(0);
+  325 |   await page.getByRole('button', { name: nb.course.journal, exact: true }).click();
+  326 |   await expect(page.getByRole('dialog').locator('.compute-theory')).toHaveCount(0);
+  327 |   await expect(page.getByRole('dialog').locator('.course-storage').first()).toBeVisible();
+  328 |   await expect(page.getByRole('dialog')).not.toContainText(c.sections.vm.paragraphs[0]);
+  329 |   await page.getByRole('dialog').press('Escape');
+  330 |   await page.goto('/learn');
+  331 |   await expect(page.locator('.learn-hub-start .course-primary')).toHaveAttribute(
+  332 |     'href',
+  333 |     refinedHref('benefits'),
+  334 |   );
+  335 |   await page.locator('.learn-hub-start .course-primary').click();
+  336 |   await expect(page).toHaveURL(refinedHref('benefits'));
+  337 |   await page.reload();
+  338 |   await expect(page.locator('[data-refined-item="b-capacity"]').getByRole('textbox')).toHaveValue(
+  339 |     '4',
+  340 |   );
+  341 |   expect(await page.evaluate((k) => localStorage.getItem(k), refinedKeys.benefits)).toBe(raw);
+  342 |   expect(await technical(page)).toEqual(before);
+  343 | });
+  344 | 
+  345 | test('hybrid desktop compact type keyboard native Journal short-height and reduced motion retain usable real course controls', async ({
+  346 |   page,
+  347 | }) => {
+  348 |   await page.emulateMedia({ reducedMotion: 'reduce' });
+  349 |   await page.goto('/learn');
+  350 |   await expect(page.locator('.course-brand')).toContainText('AzureLab');
+  351 |   await expect(page.locator('.learn-hub-start .course-primary')).toBeInViewport();
+  352 |   await page.getByRole('button', { name: nb.course.journal, exact: true }).click();
+  353 |   await expect(page.getByRole('dialog')).toBeVisible();
+  354 |   await page.getByRole('dialog').press('Escape');
+  355 |   await expect(page.getByRole('button', { name: nb.course.journal, exact: true })).toBeFocused();
+  356 |   await page.evaluate(() => {
+  357 |     document.documentElement.style.fontSize = '200%';
+  358 |   });
+  359 |   await expect(page.locator('.course-brand')).toContainText('AzureLab');
+  360 |   await noOverflow(page);
+  361 |   await page.evaluate(() => {
+  362 |     document.documentElement.style.fontSize = '';
+  363 |   });
+  364 |   await page.setViewportSize({ width: 1024, height: 500 });
+```

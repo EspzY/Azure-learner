@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'portal-consolidation.spec.ts',
+    'shared Home subscriptions compact keyboard focus reduced motion Axe and short desktop stay readable in both modes',
+  ],
+  [
     'ephemeral-landing.spec.ts',
     'compact landing is readable with keyboard access and reduced motion',
   ],

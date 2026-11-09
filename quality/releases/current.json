@@ -1,120 +1,117 @@
 {
   "schema": 1,
-  "id": "PR71-explicit-memory-laboratory-and-product-navigation",
-  "baseCommit": "897bc783a3f49be8d9f561a819ee6816b10ed91d",
-  "author": "pr71-runtime-and-navigation-author",
+  "id": "PR72-shared-portal-home-subscriptions-navigation",
+  "baseCommit": "0538b40cc51af634e71182014e65bdb932936c70",
+  "author": "shared-portal-entry-author",
   "scope": {
-    "kind": "bounded-runtime-transport-and-product-presentation",
-    "description": "Complete existing Draft71 with explicit database-free3.7 document-memory execution over frozen engine, original PostgreSQL path preserved, real whole landing links and pure product Home; course integration proposal only. CI116-exposed guide-menu left overflow and intercepted course return corrected only in shared presentation CSS; original assertions and UI controllers preserved.",
-    "objectives": ["LAB-EPHEMERAL-NAVIGATION"]
+    "kind": "pure-shared-presentation-and-architecture-contract",
+    "description": "First shared Portal consolidation: one Home, service catalogue/navigation/directory and subscriptions list/detail in historical course-v2 and free Laboratory adapters. No new engine, schema, SQL, command, migration, course rubric or assessment result. Full motor/course integration remains explicit follow-up. Bounded serial CI allocation retains every gate, whole468 profile and35-minute job caps with fail-closed prerequisite/actual-SHA validation; total workflow duration may exceed35minutes.",
+    "objectives": ["SHARED-PORTAL-ENTRY"]
   },
   "sources": [
     {
-      "id": "route-table",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table",
-      "title": "Manage route tables",
-      "reviewed": "2026-11-08T21:10:18.752780+00:00",
-      "version": "Markdown SHA256 38be214ae0b8e4f9f83fa2a44d714a9cb57ef4a3f95dfc07c0acc30b650a5ce4; Last-Modified Sun, 23 Aug 2026 23:33:08 GMT",
+      "id": "portal",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
+      "title": "What is the Azure portal? - Azure portal | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-01-26T00:00:00Z; retrieved HTML SHA256 b3a0e9526993345c6bb4f87520635f6dd4943a0cd42c521dad5bb16ae1cb4193",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-EPHEMERAL-NAVIGATION"],
-      "claims": ["frozen.network.rules"],
+      "objectives": ["SHARED-PORTAL-ENTRY"],
+      "claims": ["portal.entry-and-scope"],
       "availability": "AVAILABLE",
-      "limits": "Inherited dated Microsoft source and retained PR70 raw evidence; domain/network behavior is unchanged. PR71 adds execution/inspection transport only, not Azure semantics or renewed live-Azure verification.",
+      "limits": "Actual public body reviewed for Portal discovery/navigation and subscription/group scope; no new Azure operation, billing or tenant/authentication claim.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
           "disposition": "reviewed-scope",
-          "reason": "Actual current Markdown response retained with status/date/hash and final redirected URL. Scoped route mutation, subnet association, directional access/forwarding and conflicting deletion effects; no unsupported inference."
+          "reason": "Actual public body reviewed for Portal discovery/navigation and subscription/group scope; no new Azure operation, billing or tenant/authentication claim."
         }
       ]
     },
     {
-      "id": "udr",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
-      "title": "Azure virtual network traffic routing",
-      "reviewed": "2026-11-08T21:10:18.784794+00:00",
-      "version": "Markdown SHA256 f4d7136c60a44ef9acb9774c5de8c87b29247e9740cb1b423e59f48b71bcda62; Last-Modified Wed, 16 Sep 2026 12:31:19 GMT",
+      "id": "subscriptions",
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription",
+      "title": "Create a Microsoft Customer Agreement subscription - Azure Cost Management + Billing | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-02-10T00:00:00Z; retrieved HTML SHA256 70f35508e60c42eaa5758111ee3e4f87f63f7089e2addc373a35d9ef8cb91847",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-EPHEMERAL-NAVIGATION"],
-      "claims": ["frozen.network.rules"],
+      "objectives": ["SHARED-PORTAL-ENTRY"],
+      "claims": ["portal.entry-and-scope"],
       "availability": "AVAILABLE",
-      "limits": "Inherited dated Microsoft source and retained PR70 raw evidence; domain/network behavior is unchanged. PR71 adds execution/inspection transport only, not Azure semantics or renewed live-Azure verification.",
+      "limits": "Actual public body reviewed for Portal discovery/navigation and subscription/group scope; no new Azure operation, billing or tenant/authentication claim.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview",
+          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription",
           "disposition": "reviewed-scope",
-          "reason": "Actual current Markdown response retained with status/date/hash and final redirected URL. Scoped route mutation, subnet association, directional access/forwarding and conflicting deletion effects; no unsupported inference."
+          "reason": "Actual public body reviewed for Portal discovery/navigation and subscription/group scope; no new Azure operation, billing or tenant/authentication claim."
         }
       ]
     },
     {
-      "id": "nsg",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group",
-      "title": "Manage network security groups",
-      "reviewed": "2026-11-08T21:10:19.011858+00:00",
-      "version": "Markdown SHA256 1fb4efa082f56a0a9107a3c22886e19cc7ac26695dd3789d1399996d2e10670e; Last-Modified Wed, 26 Aug 2026 02:45:10 GMT",
+      "id": "groups",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
+      "title": "Use the Azure portal and Azure Resource Manager to Manage Resource Groups - Azure Resource Manager | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-02-27T00:00:00Z; retrieved HTML SHA256 218f1ce761bd8bf20c7bc4f15d98d313565318b99818580e1ddde5a79f372123",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-EPHEMERAL-NAVIGATION"],
-      "claims": ["frozen.network.rules"],
+      "objectives": ["SHARED-PORTAL-ENTRY"],
+      "claims": ["portal.entry-and-scope"],
       "availability": "AVAILABLE",
-      "limits": "Inherited dated Microsoft source and retained PR70 raw evidence; domain/network behavior is unchanged. PR71 adds execution/inspection transport only, not Azure semantics or renewed live-Azure verification.",
+      "limits": "Actual public body reviewed for Portal discovery/navigation and subscription/group scope; no new Azure operation, billing or tenant/authentication claim.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group",
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
           "disposition": "reviewed-scope",
-          "reason": "Actual current Markdown response retained with status/date/hash and final redirected URL. Scoped route mutation, subnet association, directional access/forwarding and conflicting deletion effects; no unsupported inference."
-        }
-      ]
-    },
-    {
-      "id": "peering",
-      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
-      "title": "Manage virtual network peering",
-      "reviewed": "2026-11-08T21:10:18.952704+00:00",
-      "version": "Markdown SHA256 e7e68fc9ca1852bc4c39ca8948caf247bfe8f7de00a1011b96192b0c61aacfe1; Last-Modified Mon, 24 Aug 2026 01:46:46 GMT",
-      "kind": "official-public-Microsoft",
-      "objectives": ["LAB-EPHEMERAL-NAVIGATION"],
-      "claims": ["frozen.network.rules"],
-      "availability": "AVAILABLE",
-      "limits": "Inherited dated Microsoft source and retained PR70 raw evidence; domain/network behavior is unchanged. PR71 adds execution/inspection transport only, not Azure semantics or renewed live-Azure verification.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
-          "disposition": "reviewed-scope",
-          "reason": "Actual current Markdown response retained with status/date/hash and final redirected URL. Scoped route mutation, subnet association, directional access/forwarding and conflicting deletion effects; no unsupported inference."
+          "reason": "Actual public body reviewed for Portal discovery/navigation and subscription/group scope; no new Azure operation, billing or tenant/authentication claim."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "temporary-laboratory-and-navigation",
-      "objectives": ["LAB-EPHEMERAL-NAVIGATION"],
-      "claims": ["frozen.network.rules"],
-      "limits": "Explicit current-document temporary3.7 only, client-owned untrusted replay evidence; no durable commit, course credit or v2 migration. Frozen engine, PostgreSQL and AZ900 authorities unchanged. No new Azure operation, credential, infrastructure, human approval, runtime or verified connectivity. Delivery gates recorded only after execution.",
-      "theory": [{ "path": "docs/LABORATORY_EPHEMERAL_LANDING.md" }],
-      "mechanism": [
-        { "path": "src/app/api/laboratory/ephemeral/route.ts" },
-        { "path": "src/features/laboratory/ephemeral-client.ts" }
+      "id": "shared-portal-home-subscriptions",
+      "objectives": ["SHARED-PORTAL-ENTRY"],
+      "claims": ["portal.entry-and-scope"],
+      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution.",
+      "theory": [
+        {
+          "path": "docs/SHARED_PORTAL_CONSOLIDATION.md"
+        }
       ],
-      "practice": [{ "path": "tests/e2e/ephemeral-landing.spec.ts" }],
-      "feedback": [{ "path": "src/content/laboratory-ephemeral-nb.ts" }],
+      "mechanism": [
+        {
+          "path": "src/features/portal/service-catalog.ts"
+        }
+      ],
+      "practice": [
+        {
+          "path": "tests/e2e/portal-consolidation.spec.ts"
+        }
+      ],
+      "feedback": [
+        {
+          "path": "src/features/portal/subscriptions.tsx"
+        }
+      ],
       "visual": [
-        { "path": "src/features/landing/landing.tsx" },
-        { "path": "src/features/landing/landing.css" },
-        { "path": "docs/quality/PR71_VISUAL_REVIEW.md" }
+        {
+          "path": "src/features/portal/home.tsx"
+        }
       ],
       "accessible": [
-        { "path": "tests/e2e/ephemeral-landing.spec.ts" },
-        { "path": "tests/e2e/premium-landing.spec.ts" }
+        {
+          "path": "tests/e2e/portal-consolidation.spec.ts"
+        }
       ],
       "assessment": [
-        { "path": "src/laboratory-pr71-preservation.test.ts" },
-        { "path": "docs/LABORATORY_COURSE_INTEGRATION_PLAN.md" }
+        {
+          "path": "src/pr72-shared-portal-preservation.test.ts"
+        }
       ],
       "savvyshark": [
-        { "path": "src/laboratory-pr71-preservation.test.ts" },
-        { "path": "src/features/portal/azurelab-home-link.tsx" }
+        {
+          "path": "src/features/portal/portal.tsx"
+        }
       ],
       "assessmentStatus": "unchanged-existing"
     }
@@ -132,7 +129,6 @@
     "docs/quality/PR70",
     "package.json",
     "package-lock.json",
-    ".github/workflows/ci.yml",
     "tests/e2e/access-control.spec.ts",
     "tests/e2e/application-transfer.spec.ts",
     "tests/e2e/architecture-management.spec.ts",
@@ -201,361 +197,482 @@
   "gates": {
     "source": {
       "checks": [
-        { "path": "docs/LABORATORY_EPHEMERAL_LANDING.md" },
-        { "path": "docs/reviews/evidence/pr70/sources/fetch.json" }
+        {
+          "path": "docs/reviews/evidence/pr72/sources.json"
+        }
       ],
-      "limits": "Explicit current-document temporary3.7 only, client-owned untrusted replay evidence; no durable commit, course credit or v2 migration. Frozen engine, PostgreSQL and AZ900 authorities unchanged. No new Azure operation, credential, infrastructure, human approval, runtime or verified connectivity. Delivery gates recorded only after execution."
+      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution."
     },
     "curriculum": {
       "checks": [
-        { "path": "src/laboratory-pr71-preservation.test.ts" },
-        { "path": "docs/LABORATORY_COURSE_INTEGRATION_PLAN.md" }
+        {
+          "path": "src/pr72-shared-portal-preservation.test.ts"
+        }
       ],
-      "limits": "Explicit current-document temporary3.7 only, client-owned untrusted replay evidence; no durable commit, course credit or v2 migration. Frozen engine, PostgreSQL and AZ900 authorities unchanged. No new Azure operation, credential, infrastructure, human approval, runtime or verified connectivity. Delivery gates recorded only after execution."
+      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution."
     },
     "simulation": {
       "checks": [
-        { "path": "src/laboratory-ephemeral.test.ts" },
-        { "path": "src/laboratory-ephemeral-client.test.ts" },
-        { "path": "src/laboratory-topology.integration.test.ts" }
+        {
+          "path": "src/features/portal/shared-shell.test.ts"
+        }
       ],
-      "limits": "Explicit current-document temporary3.7 only, client-owned untrusted replay evidence; no durable commit, course credit or v2 migration. Frozen engine, PostgreSQL and AZ900 authorities unchanged. No new Azure operation, credential, infrastructure, human approval, runtime or verified connectivity. Delivery gates recorded only after execution."
+      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution."
     },
     "savvyshark": {
       "checks": [
-        { "path": "src/laboratory-pr71-preservation.test.ts" },
-        { "path": "tests/e2e/ephemeral-landing.spec.ts" }
+        {
+          "path": "tests/e2e/portal-consolidation.spec.ts"
+        }
       ],
-      "limits": "Explicit current-document temporary3.7 only, client-owned untrusted replay evidence; no durable commit, course credit or v2 migration. Frozen engine, PostgreSQL and AZ900 authorities unchanged. No new Azure operation, credential, infrastructure, human approval, runtime or verified connectivity. Delivery gates recorded only after execution."
-    },
-    "visual-accessibility": {
-      "checks": [
-        { "path": "docs/quality/PR71_VISUAL_REVIEW.md" },
-        { "path": "tests/e2e/ephemeral-landing.spec.ts" }
-      ],
-      "limits": "Explicit current-document temporary3.7 only, client-owned untrusted replay evidence; no durable commit, course credit or v2 migration. Frozen engine, PostgreSQL and AZ900 authorities unchanged. No new Azure operation, credential, infrastructure, human approval, runtime or verified connectivity. Delivery gates recorded only after execution."
-    },
-    "independent-final-audit": {
-      "checks": [{ "path": "docs/quality/PR71_FINAL_AUDIT.md" }],
-      "limits": "Explicit current-document temporary3.7 only, client-owned untrusted replay evidence; no durable commit, course credit or v2 migration. Frozen engine, PostgreSQL and AZ900 authorities unchanged. No new Azure operation, credential, infrastructure, human approval, runtime or verified connectivity. Delivery gates recorded only after execution."
+      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution."
     },
     "delivery": {
       "checks": [
-        { "path": "docs/quality/PR71_QA_REVIEW.md" },
-        { "path": "playwright.desktop.config.ts" },
-        { "path": ".github/workflows/ci.yml" }
+        {
+          "path": "docs/quality/PR72_QA_REVIEW.md"
+        }
       ],
-      "limits": "Explicit current-document temporary3.7 only, client-owned untrusted replay evidence; no durable commit, course credit or v2 migration. Frozen engine, PostgreSQL and AZ900 authorities unchanged. No new Azure operation, credential, infrastructure, human approval, runtime or verified connectivity. Delivery gates recorded only after execution."
+      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution."
+    },
+    "visual-accessibility": {
+      "checks": [
+        {
+          "path": "tests/e2e/portal-consolidation.spec.ts"
+        }
+      ],
+      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution."
+    },
+    "independent-final-audit": {
+      "checks": [
+        {
+          "path": "docs/quality/PR72_FINAL_AUDIT.md"
+        }
+      ],
+      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution."
     }
   },
-  "humanReview": { "sme": "unperformed", "learning": "unperformed" },
+  "humanReview": {
+    "sme": "unperformed",
+    "learning": "unperformed"
+  },
   "visualEvidence": [
     {
-      "path": "docs/reviews/evidence/pr71/screens/native-desktop-landing-clean-1024-500.png",
+      "path": "docs/reviews/evidence/pr72/screens/course-home-1024-500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual normal production layout; whole-card actions, balanced three cards, no inner CTA, no page scroll; keyboard/reduced-motion/root Axe verified. Status is readable independently of color."
+      "observation": "Actual original v2 workspace uses the single shared Home; original course header/SavvyShark retained. Ordinary vertical scrolling is necessary in the short window."
     },
     {
-      "path": "docs/reviews/evidence/pr71/screens/final-landing-800-700.png",
-      "viewport": "800x700",
-      "inspected": true,
-      "observation": "Actual three-column compact desktop; planned305 name wraps normally, Lab remains visible without vertical scroll; no false planned action."
-    },
-    {
-      "path": "docs/reviews/evidence/pr71/screens/final-landing-1920-1080.png",
-      "viewport": "1920x1080",
-      "inspected": true,
-      "observation": "Centered bounded-width premium navy composition retains readable course and broad Laboratory hierarchy without a menu or extra CTA."
-    },
-    {
-      "path": "docs/reviews/evidence/pr71/screens/final-studio-1024-500.png",
+      "path": "docs/reviews/evidence/pr72/screens/free-home-1024-500.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual command-created32-node hub/spoke World in common Portal; product House link at right, explicit temporary/noXP mode, existing graph pan/zoom and semantic-list alternative. Vertical content scroll is intentional; graph is not traffic."
+      "observation": "Actual free temporary workspace shares Home/service layout, explicit memory status, no guidance panel; final fresh captures renewed after changed guide-marker binding."
     },
     {
-      "path": "docs/reviews/evidence/pr71/screens/renewed-geometry-fixed-801.png",
-      "viewport": "801x500",
+      "path": "docs/reviews/evidence/pr72/screens/course-subscription-details-1024-500.png",
+      "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual corrected normal production DOM: guide panel remains inside viewport after trigger; Home icon keeps original header within viewport. Old-CSS and hide-only-Home causal controls are labelled separately, with no resource-state injection."
+      "observation": "Same resource menu, Essentials and metadata/resource-location distinction; real course RG membership, original technical identity."
     },
     {
-      "path": "docs/reviews/evidence/pr71/screens/renewed-free-lab-header-801.png",
-      "viewport": "801x500",
+      "path": "docs/reviews/evidence/pr72/screens/free-subscription-details-1024-500.png",
+      "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual explicit free temporary workspace retains one shared header and accessible product Home at the800/801 transition. Same current World; no extra technical command."
+      "observation": "Same subscription presentation, real World membership and explicit scoped Create resource group; no billing/authentication claim."
+    },
+    {
+      "path": "docs/reviews/evidence/pr72/screens/course-create-1440-900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual v2 Create form retains original supported fields and Review/commit semantics."
+    },
+    {
+      "path": "docs/reviews/evidence/pr72/screens/free-create-1440-900.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual free Create form uses the existing shared create/layout patterns and authoritative v3 request; not claimed field-identical to v2."
     }
   ],
   "verification": [
     {
-      "command": "targeted-native-browser",
-      "result": "passed",
-      "details": "7/7 new desktop/compact witnesses without retry; unchanged original root/actual125/200zoom2/2 after correction; unchanged server-unavailable compact1/1 after original alert/recovery preservation.14 other inherited PG/course tests passed in initial17-case run; three original failures retained. Supplemental real hub/spoke5/5, not a full-profile or public receipt."
-    },
-    {
       "command": "npm run check",
       "result": "passed",
-      "details": "Renewed complete check-guidance-delivery exited0 after the CI116-exposed presentation correction:1097Vitest/24Node, real localPG, all mandatory type/lint/format/docs/source/curriculum/assets/legacy checks and normal production build; actual log qa/check-guidance-delivery.raw. Full candidate browser profile/strict remain pending."
+      "details": "Final stable current source:1111 Vitest/94 files,24 Node,503 curriculum, real isolated PostgreSQL suites, contracts/format and normal production build; exit0. Earlier lint/format development failures retained."
     },
     {
-      "command": "post-CI116-targeted-browser",
+      "command": "targeted native desktop and compact",
       "result": "passed",
-      "details": "7/7 unchanged original/affected desktop+compact witnesses and2/2 actual production geometry/free-header probes without retry. Old-CSS control reproduces negative801 bounds; hiding only Home restores prior bounds; corrected source preserves viewport and course-storage bytes. No original test body/assertion/worker/retry/timeout/skip changes."
+      "details": "Sequential distinct artifact runs:14 unchanged course/Portal/VM/independent/aid/PG controls +5 new native desktop +1 compact witness,20/20 without retry. Actual memory and PostgreSQL create/reload/isolation, frozen3.0 discovery, Home/subscriptions/Properties/Studio, keyboard/Axe/reduced motion and original rule/return checks."
+    },
+    {
+      "command": "npm run test:e2e:plan",
+      "result": "passed",
+      "details": "468 candidate =419 desktop +49 compact; all462 inherited controls/substantive assertions/settings preserved. Collection is not executed complete candidate CI evidence."
+    },
+    {
+      "command": "separate post-stamp independent final audit",
+      "result": "passed",
+      "details": "Fresh reviewer independently verified76 hashes/fingerprint,17 targeted unit/direct-preservation and8 native controls without retry plus scope/layout probes. No BLOCKER/MAJOR; SP72-01 remains open MINOR. CI/strict/public remain delivery gates."
+    },
+    {
+      "command": "separate evidence-only audit renewal",
+      "result": "passed",
+      "details": "After renewed11:24:34.957Z stamp, independent review started11:25:02Z and checked all83 payload/82 manifest hashes, exact seven raw logs and no executable/source/setting changes; fresh17/17 preservation tests. Eight unchanged native checks remain the earlier implementation audit checkpoint; no repetition or new human approval claimed."
+    },
+    {
+      "command": "Quality118 complete candidate regression",
+      "result": "failed",
+      "details": "Run42609100810 on23d255c…:456 passed,11 failed,1 flaky of468. Strict skipped. Actual job log preserved. Three new Home regressions causally reproduced with original tests/traces; fixes and renewed affected/audit/full candidate gates required. Original compact Firewall receipt-navigation flake remains open."
+    },
+    {
+      "command": "CI118 correction original desktop retest",
+      "result": "passed",
+      "details": "Two sequential unique-output runs7+7=14/14 without retry: unchanged original motion, whole Networking3.1 suite, original dialog placement and guidance width sweeps, all five new shared entry cases including populated course Arial320/600/640. Normal production build, actual memory and PostgreSQL. Compact retest/check/stamp/audit/complete CI remain pending."
+    },
+    {
+      "command": "CI118 correction compact and paired actual captures",
+      "result": "passed",
+      "details": "Three unchanged affected compact cases passed; the new compact witness passed1/1 after correcting its own closed-drawer assumption, no retry.18 affected executions total passed across four sequential batches; the intermediate new-test red log remains. Actual paired Home/catalogue/scope/list/create captures renewed at1440x900,1024x768,1024x500. Independent original compact Firewall passed once, unconfirmed hypothesis rejected, cause OPEN."
+    },
+    {
+      "command": "npm run check after CI118 source correction",
+      "result": "passed",
+      "details": "Exit0;1111 Vitest/94 files,24 Node,503 curriculum, real isolated PostgreSQL integration, required contracts/format/source/legacy/assets and normal production build. Corrected affected original/new native checks passed18 executions without retry across sequential distinct artifact batches. Original red logs retained. New stamp and affected separate renewal precede corrected exact-head complete CI/strict/public."
+    },
+    {
+      "command": "Quality119 unchanged-head complete attempts",
+      "result": "cancelled",
+      "details": "Attempt1:439 passed/no failed attempts,29 incomplete; attempt2:446 completed incl known compact Firewall retry,22 incomplete. Both hit original35-minute job cap, no candidate receipt/strict release. Separate review reproduced distributed slowdown without established cause. Two attempts retained; no arbitrary third rerun."
+    },
+    {
+      "command": "local complete diagnostic before CI allocation maintenance",
+      "result": "interrupted",
+      "details": "135 completed passes/no failed attempts before intentional interruption to implement reviewed CI allocation. No full-profile receipt and no pass credited. Actual prior release record remained byte-identical."
+    },
+    {
+      "command": "actual serial CI and complete raw-preservation targeted controls",
+      "result": "passed",
+      "details": "26/26 across4files without retry: complete actualworkflow gate blocks, real Bash prerequisite/publisher/checkout negatives including blank-line exit0/custom-shell/default/env masks; immutable event/actual/prerequisite SHA; every original PR71 path once across4serial raw-hash categories, allnewbytes and exactruntime/controller/legacyassertion preservation. No timeout/worker/settings change. Fullcheck/newstamp/audit/exactheadCI remain required."
+    },
+    {
+      "command": "npm run check after serial CI allocation and exact raw-preservation maintenance",
+      "result": "passed",
+      "details": "Exit0 on final source:1120 Vitest/95 files,24 Node,503 curriculum, real isolated PostgreSQL, all contracts/format/lint/assets/legacy and normal production build.26 targeted actualworkflow/raw-preservation controls also passed. Browser468 profile/authorities/runtime/script bytes unchanged from8a. Newstamp/affectedreview and actualnewheadserialCI/strict/public stillrequired."
     }
   ],
-  "snapshot": {
-    "files": {
-      ".gitattributes": "42c6baad40c7f1337a73854f36c1ff5b1b400606298389f0fac2479bfa77a80a",
-      "AGENTS.md": "34e3b028c351794d776772cc66f4aa7f7fedf4d04ed74c2c22d6f54c1292452b",
-      "docs/ARCHITECTURE.md": "e74b07b34393b372404cae5697a7eaa436f5a91121910e1d6d0de73ef342326c",
-      "docs/DECISIONS.md": "fd114e5f4fe1d5ebb88cc0b7adf05ba703eba50c929264fc3569169128da7302",
-      "docs/LABORATORY_COURSE_INTEGRATION_PLAN.md": "4d8504ded4206d2e1eb2df8f18b922c80b6a554a546d144cc2a775dea3f59946",
-      "docs/LABORATORY_EPHEMERAL_LANDING.md": "309c4a40b250c6adde56772cfe10862897f11c2e38e201ad6ddca040524e2761",
-      "docs/LABORATORY_V3_SERVER.md": "9fb8004a49fa8e486bb9c19be0628e992ac6259bc51b6201de0f8b6245ba6b53",
-      "docs/PORTAL_CAPABILITY_MATRIX.md": "4d7a02e7ddcebc06e989890d7bcc12a3df6ac63b6ff729b97a2b27afb84170dc",
-      "docs/reviews/evidence/pr71/manifest.json": "4ac0bb54388cd050dc9cfa54645b58ff2d73b732d16c68306113e942f86e4995",
-      "docs/reviews/evidence/pr71/original/initial-candidate.json": "1942b74d846e4c22e0471c3258eea7c0a1ac58716637bca6c6c1be2d2dfb2264",
-      "docs/reviews/evidence/pr71/original/initial-contract.md.raw": "d61041296fa9fcb969e77f4974fd6cd830d1bfa1d39181bdf6dde4d9288fb49b",
-      "docs/reviews/evidence/pr71/original/initial-ephemeral-route.ts.raw": "842b483d640ee7256a7b357c28305bd12fe2710f3904055b2c5741b8dc5f67d0",
-      "docs/reviews/evidence/pr71/original/removed-format-workflow.yml.raw": "51b80e7e55685a8de5ddbc7cb959ea4a484b5e141731b6569380428dbaf7ad2f",
-      "docs/reviews/evidence/pr71/preservation.json": "98ef63c5e93a944ac9e718a525fbd91b01b0d835214f8576d6cc0cba4ed580ac",
-      "docs/reviews/evidence/pr71/qa/actual-journey-final.raw": "b6c7df899c547bbfad1fca95824ebcd4b857bf31791165d93fc12bcdaad43acb",
-      "docs/reviews/evidence/pr71/qa/actual-journey-harness-initial.raw": "3d7c75d0ec67063ea282ac6eab75490a39e5b3c2af7a5aec8affa2e245b974ef",
-      "docs/reviews/evidence/pr71/qa/actual-journey-label-mismatch.raw": "9a5e97f7bfce3620984468d48b4daa5de0220d219fe31829faf9e4a967bd58d7",
-      "docs/reviews/evidence/pr71/qa/actual-journey.config.mts.raw": "05233152ac9a1dbd9772bc23ffb6268ce91acd9d413f419cbe3122e0b35959cf",
-      "docs/reviews/evidence/pr71/qa/actual-journey.spec.ts.raw": "9e925c3d2290f85f704a318857ff41e5cedad8745ba1e015d063057c7259d23b",
-      "docs/reviews/evidence/pr71/qa/before-browser.raw": "5ce8b7719e1c01c67d227a03a0f587536feb1ed75e533d4e12294c2f62a5f246",
-      "docs/reviews/evidence/pr71/qa/before-origin.raw": "c47aa6402cb77451315573e72bba190173700f80612312773ed49b19bbbecc9d",
-      "docs/reviews/evidence/pr71/qa/browser-affected-final.raw": "543bd905da527fa1db5468c81d6f96671f4db98187f7a176943fd99bedc5962d",
-      "docs/reviews/evidence/pr71/qa/browser-affected.raw": "c455b0e988a54c4607e363a2fe80be7e7b4cef78d9fad0b4732025c7b6792cb5",
-      "docs/reviews/evidence/pr71/qa/browser-corrected.raw": "0b74199c5930662cbe85a346f9c33067bfd165e92f1b49b69d768c1b3b87f469",
-      "docs/reviews/evidence/pr71/qa/browser-final-corrected.raw": "7a09112cb7eda8adf08ff5227fb26a0f34440729f92ad9f8bd1947d4033f18a0",
-      "docs/reviews/evidence/pr71/qa/browser-first.raw": "4e9ae8bae8a9e005eb468adf1e8681a7d58fe0c4760d7912b6cf2b964e7aa3a9",
-      "docs/reviews/evidence/pr71/qa/browser-guidance-final.raw": "43d51bf5498700cedb437cbf3a424c8fc79d377f98e2015255ec7ae55fe504fa",
-      "docs/reviews/evidence/pr71/qa/browser-guidance-first-correction.raw": "f5c7f0779fc14cdaefe6a07ae10ab794bfcba205fc3fe4e989b20edc5ff90696",
-      "docs/reviews/evidence/pr71/qa/browser-inherited-initial.raw": "e0e5d22ecdc0607fb9af48c5b7ff79ebae9e0f4bf41ba9d0b394df183b040787",
-      "docs/reviews/evidence/pr71/qa/browser-initial.raw": "bfc634dc6a9c3a4661323fff23e219942c0e74f036751cfc97327fefd2906f08",
-      "docs/reviews/evidence/pr71/qa/browser-properties.raw": "3bd048e4f451a724e926053e4ed7b72e8398795a85a7d2958267df85250a5073",
-      "docs/reviews/evidence/pr71/qa/browser-server-diagnostic-final.raw": "2c60c120c155303f3e1db64e6708e6b962d5c544b4bc866003891c6c6a200f5b",
-      "docs/reviews/evidence/pr71/qa/browser-server-diagnostic-initial.raw": "543bd905da527fa1db5468c81d6f96671f4db98187f7a176943fd99bedc5962d",
-      "docs/reviews/evidence/pr71/qa/check-delivery.raw": "ffe3faba37740ae79670102f835b297d4253e9197d352dceed2af6a7e01f221f",
-      "docs/reviews/evidence/pr71/qa/check-final.raw": "83649502833de4cb5a2d31a6a4219c893a6a7a113b4e1ec84b55c51dee89ba85",
-      "docs/reviews/evidence/pr71/qa/check-guidance-delivery.raw": "c287cd079e3a0de86962090b7959bad8330ba0d853041df143a59af8b3c83b0a",
-      "docs/reviews/evidence/pr71/qa/ci116-analysis.json": "edd0ce97ca22c292575da7a8c5ca43dd25061bc4805d69f611d4bcfadcc10ba1",
-      "docs/reviews/evidence/pr71/qa/ci116-attempt1.raw": "9113c9191abc25904896425bae12ae3fbaa0e86f5e3006de9281f7fc38dde544",
-      "docs/reviews/evidence/pr71/qa/ci116-reproduction.raw": "32ecf1bdf1c50c286472b5db0c1963d4c89d27916ccd5543d9a86c0d88a3e80c",
-      "docs/reviews/evidence/pr71/qa/database-setup.raw": "0a39b1b7fc62f6beb8af885b4eb7d7b8a64630d9ccfbcfc6118b45bdfbbb0b54",
-      "docs/reviews/evidence/pr71/qa/domain-targeted-complete.raw": "e116a34df90d8baa87e00f9f1a4bda802bb6ce6d89ba268f89937622bcd842cc",
-      "docs/reviews/evidence/pr71/qa/guidance-geometry-probe.raw": "6e3bf7409b81a76635870f99fc7fe64c022cf60ec92433de29d8551be338047d",
-      "docs/reviews/evidence/pr71/qa/guidance-geometry.json": "fddb27210893604ef0023424272131a234ba19ee96e0a7c708e05ebfb5f51ed5",
-      "docs/reviews/evidence/pr71/qa/guidance-probe.config.mts.raw": "443ae023f1bc84393d4aedab00f72f6af13244eeef591bc0a3cee2b37f791d67",
-      "docs/reviews/evidence/pr71/qa/guidance-probe.spec.ts.raw": "5b6f47e93514f0e17ff18c4a368290197ff2846ce8dbabf5e13a1ac82657d3df",
-      "docs/reviews/evidence/pr71/qa/historical-ci112.raw": "daeb2f1d7b6aa56a3dc8d27ae50d1c2e6214309c9c9dee56c16c6b70ad9be016",
-      "docs/reviews/evidence/pr71/qa/historical-ci113.raw": "8c81c59aea080c3eae980225fa075a3ae9c2ef5fb6c748f27a73e2b6a3e04f8b",
-      "docs/reviews/evidence/pr71/qa/historical-ci114.raw": "1f03ade6b6b584e1cda6c0acdc3185072374b0275ae163a944cb837311376fb1",
-      "docs/reviews/evidence/pr71/qa/historical-ci115.raw": "bad2d7017ea28852045d9a8c3b9e9c811b3bdcea9f55483ec397e9ec25e84870",
-      "docs/reviews/evidence/pr71/qa/initial-public-root.json": "600330a1929d3841d61883ae0a85f380ca2f64188e056d4722f597bafd326ef8",
-      "docs/reviews/evidence/pr71/qa/learning-flow-guidance-Gui-a2f5d--and-next-actions-reachable-desktop-chromium.raw": "2999a0e4b5836e1479ba9e3153d326748e8ce23a5cd7d62391a226c007a2aeb3",
-      "docs/reviews/evidence/pr71/qa/local-journey-5.spec.ts.raw": "d7faf0c223a61955e1fbd5fc095a12a032b6d0fa0d5fbddf6e60a6a47721eee9",
-      "docs/reviews/evidence/pr71/qa/portal-inspection-bridge-I-55dae-structions-and-exact-resume-desktop-chromium.raw": "020e86bd2d1f67b0abe4507dae4dc1ce1229286d1d20081e8edf3ce799d85e47",
-      "docs/reviews/evidence/pr71/qa/trace-provenance.json": "b3aa6e271b7ab6ab063676bc67830f725037be42fa06e052033731087e7c84fd",
-      "docs/reviews/evidence/pr71/screens/before-lab-entry.png": "f1a5154a055a8e5b70234d647ca8b4b64b85dac78bc304e9c927bee587d7da18",
-      "docs/reviews/evidence/pr71/screens/before-landing-1024-500.png": "1139c8fa5a8e6381952087022b73ae8a3bcbaba4ca4975f7ac73b76f5f631dfd",
-      "docs/reviews/evidence/pr71/screens/before-landing-1440-900.png": "588415064e246f461fc601abfd6d071b1c5cd1eb23ef245183df4a1bc3f8dce9",
-      "docs/reviews/evidence/pr71/screens/final-actual-hub-firewall-1433.png": "b8359206e146790eda21f3094b3a7cbc1e2f4ac73b5122dedf1cb642b4be272c",
-      "docs/reviews/evidence/pr71/screens/final-actual-hub-studio.png": "9a180acdeb20673d4e5e3dbd2ce0272a82420768d65b67dfac6fd8b93c03e8be",
-      "docs/reviews/evidence/pr71/screens/final-landing-1024-500.png": "5c405f1d50ca3a5f1a2f41d26352d63da06d791245db34519cc60445f8065aca",
-      "docs/reviews/evidence/pr71/screens/final-landing-1024-768.png": "48e8acbcf8366a4c51212fd94251a06d19a28d0df2ce77a41aecd7bce30f3ffc",
-      "docs/reviews/evidence/pr71/screens/final-landing-1366-768.png": "151f6de2f474da3ddb6119f3e729b67f80562d8001e2f1840415f78699b91055",
-      "docs/reviews/evidence/pr71/screens/final-landing-1440-900.png": "90aef555c51da05cc7319ad83a9b012039f20329e1ef76ec88e00678062fb8bd",
-      "docs/reviews/evidence/pr71/screens/final-landing-1920-1080.png": "f97be6b0c21e90fe8f51c7aef013b013dc155ef2791e6f847b1738f2ce3c930d",
-      "docs/reviews/evidence/pr71/screens/final-landing-800-700.png": "5c9a5c8349725cb03ee3b1abcf89a91a402c21afdd93a6820405426386266272",
-      "docs/reviews/evidence/pr71/screens/final-page-scale-1.25.png": "16f7a37005ea3d0f28c55de0e5e93619969a7fd173afee9b16935173cba4dc8a",
-      "docs/reviews/evidence/pr71/screens/final-page-scale-2.png": "24bdfba0ab3ec37ec90cc7482b573a370664d5141d87fd83da76dcc99bf6248a",
-      "docs/reviews/evidence/pr71/screens/final-studio-1024-500.png": "456614006f8e88e7b5f48c877901d1e4e9904151d9e4ea73b7c83c738e384797",
-      "docs/reviews/evidence/pr71/screens/final-studio-1024-768.png": "ffd9af8a11e08bb2046e9a62469c76d55f181273aa666a108854389c9cbc492b",
-      "docs/reviews/evidence/pr71/screens/final-studio-1440-900.png": "9a180acdeb20673d4e5e3dbd2ce0272a82420768d65b67dfac6fd8b93c03e8be",
-      "docs/reviews/evidence/pr71/screens/final-studio-1920-1080.png": "0427b648271a7ab5bd9e3e25f9ad42c6e75e720fe5d33896a3b395579c86e500",
-      "docs/reviews/evidence/pr71/screens/native-compact-landing-clean-1024-500.png": "86d2cff193f2cf6b5c5861714c62b81620f9149c3c740b88d39d66deeffd5965",
-      "docs/reviews/evidence/pr71/screens/native-compact-landing-clean-800-700.png": "39f11fb1655a804a3cf1eae6dc3aca75f01c33c739f51226f0afa7e65c7751fa",
-      "docs/reviews/evidence/pr71/screens/native-compact-memory-compact-home.png": "94931c64fef5dcfe175322fac9c8636780847d46c9096fac33407dfa0b2c04f5",
-      "docs/reviews/evidence/pr71/screens/native-desktop-landing-clean-1024-500.png": "86d2cff193f2cf6b5c5861714c62b81620f9149c3c740b88d39d66deeffd5965",
-      "docs/reviews/evidence/pr71/screens/native-desktop-landing-clean-1024-768.png": "b7eabf40c7b71018551220d0ad2f6e368e679fd0bd8620e5a6fe56b2a1276843",
-      "docs/reviews/evidence/pr71/screens/native-desktop-landing-clean-1440-900.png": "e8bf0144bb32238dab6a3bc079b8757a2e08cd8573535b11e57d4a511df91c04",
-      "docs/reviews/evidence/pr71/screens/native-desktop-landing-clean-1920-1080.png": "a093d9388f0cf5a6475ca7361765a26cc151da3b08b36f079909682e67d1f3f9",
-      "docs/reviews/evidence/pr71/screens/native-desktop-landing-clean-800-700.png": "39f11fb1655a804a3cf1eae6dc3aca75f01c33c739f51226f0afa7e65c7751fa",
-      "docs/reviews/evidence/pr71/screens/native-desktop-memory-compact-home.png": "94931c64fef5dcfe175322fac9c8636780847d46c9096fac33407dfa0b2c04f5",
-      "docs/reviews/evidence/pr71/screens/native-desktop-memory-compute-studio.png": "f53126c8b8526bcf0086863d35f8624a0d421869f29068f600e9104de9685f02",
-      "docs/reviews/evidence/pr71/screens/native-desktop-memory-firewall-overview.png": "02ee22a320766afe426b52b64d89aecf67c8c637ac52dbb43002ca947d320735",
-      "docs/reviews/evidence/pr71/screens/native-desktop-memory-original-blob-receipt.png": "24daaab452998e5a6b01922f352ec6b83d6afe4e864a01e5d054b2075e3d5fc2",
-      "docs/reviews/evidence/pr71/screens/preserved-course-create.png": "601838ff3d72552435173fcdc66e1126c1d3dfb6d7f0a33b7879c726b3202463",
-      "docs/reviews/evidence/pr71/screens/preserved-course-detail.png": "c337234daa94e0f4d9dabb1fd988371f058cc6725f0f9c93b2d0c2e2fec373c1",
-      "docs/reviews/evidence/pr71/screens/preserved-course-list.png": "5f2b8fa693c01786694b6cdf1bec19ebe5175682720ce1383155657edf26e2fe",
-      "docs/reviews/evidence/pr71/screens/preserved-free-detail.png": "76cc53d30cbf43a569a77b94a06c32e007086bfab4a5227f1464f7bfd884bbff",
-      "docs/reviews/evidence/pr71/screens/preserved-server-blob.png": "b4280bbb3636668ef5501cd8a4621fcceae5d626a5969fb50b5160deb2ebcf11",
-      "docs/reviews/evidence/pr71/screens/renewed-compact-memory-compact-home.png": "022cead6d92fa0304a25c25b15338e51841ed1355b946034de9eb531367bca61",
-      "docs/reviews/evidence/pr71/screens/renewed-compact-shared-1024-500.png": "f6bf45864fab75cd62fa024d76208094896ce7ea3bcbbbc03b9bf77d3f20a4e7",
-      "docs/reviews/evidence/pr71/screens/renewed-compact-shared-1440-900.png": "2bddec8c21312f60ed67237cc24e0b57267803a6463bd2d65e6e4261727897fb",
-      "docs/reviews/evidence/pr71/screens/renewed-desktop-memory-compact-home.png": "022cead6d92fa0304a25c25b15338e51841ed1355b946034de9eb531367bca61",
-      "docs/reviews/evidence/pr71/screens/renewed-desktop-shared-1024-500.png": "f6bf45864fab75cd62fa024d76208094896ce7ea3bcbbbc03b9bf77d3f20a4e7",
-      "docs/reviews/evidence/pr71/screens/renewed-desktop-shared-1440-900.png": "2bddec8c21312f60ed67237cc24e0b57267803a6463bd2d65e6e4261727897fb",
-      "docs/reviews/evidence/pr71/screens/renewed-free-lab-header-801.png": "05794254a072af7d428aef6230aea3ede805f6de4b1f823f8994a502199fa347",
-      "docs/reviews/evidence/pr71/screens/renewed-geometry-fixed-801.png": "25528df9f005cd48665cae8b8e52aa0355504d4425a8ee0d8478c7606c3c2e7e",
-      "docs/reviews/evidence/pr71/screens/renewed-geometry-negative-control-old-css.png": "3d647845df618bf5336ddea584c8bb517bb2a2e2d3799bbc172b9921cb1fbda2",
-      "playwright.desktop.config.ts": "d970542da4976b562494d937049e98da83bafaf407f71b544ed28eb30a51de55",
-      "src/app/api/laboratory/ephemeral/route.ts": "dd522452d0a44a5ff5e3bf71f39e9589fc0818d521f048ce4ce392868ac8cfb4",
-      "src/content/laboratory-ephemeral-nb.ts": "173649493c1f0704e6fd3214cc2f75426bc6b4706d2a55971ab9b6df15165c10",
-      "src/features/course/course.css": "d01f1f5a472abec15a8c8df2fd8dbfbf664b5fe1a38bcc1105f0e5c24851bd2a",
-      "src/features/course/course.tsx": "4d16f932725482741c818db5094797c20a0770b01cc1d16a184915661cf9d597",
-      "src/features/laboratory/endpoints.tsx": "c3127877e89ee576593471a64d11244abf336cf2c988218ad963dea072af5430",
-      "src/features/laboratory/ephemeral-client.ts": "949602126648e5700eaadba16f37a5b1b874710ffde30b99f040f8151912cd2d",
-      "src/features/laboratory/laboratory.css": "2f2bc4961f77214899f9f22517c997f97e78e815db2fa9686c990588eb4abc30",
-      "src/features/laboratory/laboratory.tsx": "9d88dcdc82a4e55325c95d30202ac70f222c69798731bd0c4ad1f5c4f8a503f9",
-      "src/features/laboratory/routing.tsx": "e713a13915fec8fbf11f7b75832021e21c0eec8638f9bac3cb3e9251e104f605",
-      "src/features/landing/landing.css": "f8c308048072df62bd46d42892837115d0546cc3a2858d795f2a28bdfc32551b",
-      "src/features/landing/landing.tsx": "bc2383c1b52a1e0548bce078015c9eb12208ecef2994d13d6fc25befc39c717b",
-      "src/features/portal/azurelab-home-link.tsx": "cf6d32f713045d85584f44c2c1820fc569409bf2dba6572d7977015bf80e9b7c",
-      "src/features/portal/portal.tsx": "3502fa18acca23fe4d45b7bd2840658665db7f78627399d20e767ec7692f6157",
-      "src/features/portal/presentation.css": "2719f323ff9c0d2c8c93631a78970d6ef4e28e44b966e251058a2d66a8bb970b",
-      "src/laboratory-ephemeral-client.test.ts": "241c15047a538c21f4c6e27b278dec0bcbcd6d9de1fa03b154bfac0f4bc514a1",
-      "src/laboratory-ephemeral.test.ts": "a3d8b2106fd6a58c5141ab3026105c4352052b587a3a7524e9e27bb105da221a",
-      "src/laboratory-pr71-preservation.test.ts": "b0643421e4213cba2089645729ddf3b0a7212a714c664be583ac11b21629f35e",
-      "src/laboratory-topology-preservation.test.ts": "964c4a5330c4bee957f638ec2ca61e9e324c1f92c14e837529c169f9c903259a",
-      "tests/e2e/ephemeral-actions.ts": "ceed24d280aacb4c20360634b90b00977c489e064e56f6fcd830d32ca7210d34",
-      "tests/e2e/ephemeral-landing.spec.ts": "e529a618f69b87f2d82c2e58701ac8710260cc931d2aba1036a08c0a73da90e2",
-      "tests/pr70-preservation.ts": "78836830cc3e9e1378c0f4dbaff2bc0fa9092ae15412dd392fbcd29057ed04d6",
-      "tests/pr71-preservation.ts": "5eeeb45630bd9ae56cd18fe3cc2859ed36c91a0164db46b4b9ba542eb6909862"
-    }
-  },
-  "implementationFinished": "2026-11-09T09:30:33.823Z",
   "review": {
     "status": "complete",
-    "fingerprint": "9036d80e184c59fbe0543d99b22f47605ae3f3159f30c1ac811288eea6b3c884",
-    "reviewer": { "id": "pr71-independent-final-audit-agent", "kind": "agent" },
-    "started": "2026-11-09T09:31:02Z",
+    "fingerprint": "23e773f3f4600151a2876b0df06906de06837dc03da1a4a9ebfc111aa9eee918",
+    "reviewer": {
+      "id": "shared_portal_final_audit",
+      "kind": "agent"
+    },
+    "started": "2026-11-09T14:03:04Z",
+    "report": {
+      "path": "docs/quality/PR72_FINAL_AUDIT.md"
+    },
     "domains": {
       "content": {
-        "finding": "Temporary copy accurately distinguishes document memory, refresh loss and no course results/XP; frozen source claims are preserved, and course integration is an explicitly unimplemented proposal. Renewed review: content/source/runtime-contract/proposal bytes are exact; AGENTS adds only the bounded layout correction instruction.",
+        "finding": "Product/source/course bytes and claims unchanged from signed8a. Bounded serial-CI documentation accurately preserves full gates/profile and35-minute per-job limits while disclosing combined duration can exceed35minutes, unproven cause and pending delivery.",
         "evidence": [
-          { "path": "src/content/laboratory-ephemeral-nb.ts" },
-          { "path": "docs/LABORATORY_EPHEMERAL_LANDING.md" },
-          { "path": "docs/LABORATORY_COURSE_INTEGRATION_PLAN.md" }
+          {
+            "path": "docs/quality/PR72_FINAL_AUDIT.md"
+          },
+          {
+            "path": "docs/reviews/evidence/pr72/sources.json"
+          },
+          {
+            "path": "docs/SHARED_PORTAL_CAPABILITY_MATRIX.md"
+          }
         ]
       },
       "technical": {
-        "finding": "Strict stateless3.7 replay/body/admission/reset-reserve and real Host/Origin boundaries passed independent18-test transport/client/preservation execution and real8-case negative HTTP challenge. Serialized writes, unchanged IDs, uncertain response retention and generation fencing preserve current memory; no PG/cookie/assessment authority is created. Renewed review: all engine/analysis/SQL/repository/endpoint/client bytes remain exact; shared presentation.css is the sole runtime delta. Required fullcheck1097/24/build passed again.",
+        "finding": "Serial check→verify uses actual checkout/event/prerequisite SHA matching and fail-closed prerequisite status. Original fullcheck/audit/whole468 wrapper/immediate strict, pinned environment and isolated PG setups retained. Independent100payload/99manifest hashes exact; complete raw Git/Python comparison2781paths has zero mismatch. Runtime/API/engines/SQL/scripts unchanged.",
         "evidence": [
-          { "path": "src/app/api/laboratory/ephemeral/route.ts" },
-          { "path": "src/features/laboratory/ephemeral-client.ts" },
-          { "path": "src/laboratory-ephemeral.test.ts" },
-          { "path": "src/laboratory-ephemeral-client.test.ts" },
-          { "path": "docs/quality/PR71_FINAL_AUDIT.md" },
-          { "path": "docs/reviews/evidence/pr71/qa/check-guidance-delivery.raw" }
+          {
+            "path": "docs/quality/PR72_FINAL_AUDIT.md"
+          },
+          {
+            "path": "src/features/portal/shared-shell.test.ts"
+          },
+          {
+            "path": "tests/e2e/portal-consolidation.spec.ts"
+          },
+          {
+            "path": ".github/workflows/ci.yml"
+          },
+          {
+            "path": "src/pr72-ci-workflow.test.ts"
+          }
         ]
       },
       "visual": {
-        "finding": "CI116-exposed PR71-induced MAJOR header regression is fixed by rightward menu anchoring above800 and accessible Home icon through1100. Actual old-CSS/hide-Home/production801 geometry isolates cause; independent original desktop+compact guidance and denied-aid return3/3 pass unchanged bounds/overflow/focus/Escape/reduced-motion/Axe assertions. Inspected corrected801 and renewed1024/1440 captures; no human UX approval.",
+        "finding": "Runtime/UI/CSS/assets and browser bodies/configurations are byte-identical8a; earlier signed actual desktop/short/narrow images and8 affected native cases carried forward explicitly, not relabelled reruns. SP72-01 remains open MINOR; human visual review unperformed.",
         "evidence": [
-          { "path": "src/features/portal/presentation.css" },
-          { "path": "docs/reviews/evidence/pr71/qa/guidance-geometry.json" },
-          { "path": "docs/reviews/evidence/pr71/screens/renewed-geometry-fixed-801.png" },
-          { "path": "docs/reviews/evidence/pr71/qa/browser-guidance-final.raw" },
-          { "path": "docs/quality/PR71_FINAL_AUDIT.md" }
+          {
+            "path": "docs/quality/PR72_FINAL_AUDIT.md"
+          },
+          {
+            "path": "docs/reviews/evidence/pr72/screens/course-home-1024-500.png"
+          },
+          {
+            "path": "docs/reviews/evidence/pr72/screens/free-subscription-details-1024-500.png"
+          }
         ]
       },
       "assessment": {
-        "finding": "No bank, rubric, first/help/retry/abandon, course completion or XP semantics change. Full-base and exact-controller reconstruction preserve original learning authorities. Client-owned replay is explicitly untrusted course attestation; future server-owned/versioned integration remains a proposal. Renewed original denied-aid/return/resume test passed independently, preserving original unaided draft, first and technical bytes; no store or rubric change.",
+        "finding": "No assessment/store/rubric/first/help/retry/abandon/XP/attestation change. Four logical serial raw partitions cover all2695 original base paths exactly once plus86 added paths; inherited assertions and technical/learning authorities remain protected. Prior actual aid/draft evidence retained through unchanged source.",
         "evidence": [
-          { "path": "src/laboratory-pr71-preservation.test.ts" },
-          { "path": "docs/COURSE_COMPLETION_CONTRACT.md" },
-          { "path": "docs/LABORATORY_COURSE_INTEGRATION_PLAN.md" }
+          {
+            "path": "docs/quality/PR72_FINAL_AUDIT.md"
+          },
+          {
+            "path": "src/pr72-shared-portal-preservation.test.ts"
+          },
+          {
+            "path": "tests/e2e/portal-inspection-bridge.spec.ts"
+          }
         ]
       },
       "guidance": {
-        "finding": "The added Home width caused an offscreen guide menu and intercepted original course return; both reproduce in original tests and are corrected only in shared CSS. Guide controller, original guide CSS, independent/uncertain shielding, exact denied-assistance return/resume and original tests remain byte-identical. Independent original3/3 desktop+compact executions pass with zero retry; anchoring-only red overflow evidence is retained.",
+        "finding": "Guidance/controller/navigation/assistance source unchanged8a; prior actual independent shielding, denied aid, guide recovery and exact return evidence remains applicable. No CI allocation can grant learning evidence or alter free/course isolation.",
         "evidence": [
-          { "path": "src/features/portal/presentation.css" },
-          { "path": "tests/e2e/learning-flow-guidance.spec.ts" },
-          { "path": "tests/e2e/portal-inspection-bridge.spec.ts" },
-          { "path": "docs/reviews/evidence/pr71/qa/ci116-reproduction.raw" },
-          { "path": "docs/reviews/evidence/pr71/qa/browser-guidance-first-correction.raw" },
-          { "path": "docs/quality/PR71_FINAL_AUDIT.md" }
+          {
+            "path": "docs/quality/PR72_FINAL_AUDIT.md"
+          },
+          {
+            "path": "src/features/portal/home.tsx"
+          },
+          {
+            "path": "tests/e2e/learning-flow-guidance.spec.ts"
+          },
+          {
+            "path": "tests/e2e/shared-portal.spec.ts"
+          }
         ]
       },
       "regression": {
-        "finding": "Independent new-stamp verification matched120/120 payload working+index hashes and88/88 manifest lengths/SHA256.94/99 original rows exact; changed AGENTS/manifest/proof/trace metadata/CSS only,21 evidence additions. Sole runtime delta presentation.css; guide controllers/CSS, original tests/assertions/worker/retry/timeout/skip/profile/CI budget exact. Direct full-base preservation6/6; original affected browser3/3. CI116 canceled after419 distinct completed-attempt cases,417 successful/two failed; no full receipt/strict/artifact credit. New full exact-head CI/strict/deployedSHA functional gate remain pending.",
+        "finding": "Fresh26/26 affected tests and own prior-masking mutations passed; complete finite workflow template rejects omitted/masked/selected gates, environment/shell/default/blank-line appendices, changed limits and bad SHA/status. Native raw hashing preserves all expected bytes without filters/cache/object writes; no timeout/worker/skip relaxation. Author finalfullcheck1120Vitest/95+24Node+503curriculum/realPG/normalbuild inspected. New-head whole468CI/strict/public pending; old CI119 cancellations/local135-pass interruption supply no receipt; Firewall/global-budget causes OPEN.",
         "evidence": [
-          { "path": "src/laboratory-pr71-preservation.test.ts" },
-          { "path": "src/laboratory-topology-preservation.test.ts" },
-          { "path": "docs/reviews/evidence/pr71/manifest.json" },
-          { "path": "docs/reviews/evidence/pr71/qa/ci116-analysis.json" },
-          { "path": "docs/reviews/evidence/pr71/qa/check-guidance-delivery.raw" },
-          { "path": "docs/quality/PR71_FINAL_AUDIT.md" }
+          {
+            "path": "docs/quality/PR72_FINAL_AUDIT.md"
+          },
+          {
+            "path": "src/pr72-shared-portal-preservation.test.ts"
+          },
+          {
+            "path": "docs/quality/PR72_QA_REVIEW.md"
+          },
+          {
+            "path": "docs/DEVELOPMENT_WORKFLOW.md"
+          },
+          {
+            "path": "src/pr72-ci-workflow.test.ts"
+          }
         ]
       }
     },
     "findings": [
       {
-        "id": "PR71-IFA-O01",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Original candidate compared browser Origin to Next internal URL and denied actual browser Start; retained source and403/201 diagnostic establish cause.",
-        "fix": "Actual HTTP Host is compared with canonical Origin, forwarded-host substitution is not trusted, and cross-site metadata is denied.",
-        "retests": [
-          "18/18 independent targeted Vitest; 2/2 independent production browser; raw HTTP correct/foreign/Host-forwarded negatives passed."
-        ]
-      },
-      {
-        "id": "PR71-IFA-V01",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Earlier real root/actual-browser-zoom Axe exposed card label/content/name mismatch, distinct from inherited timing causes.",
-        "fix": "Real full-card overlay anchors retain explicit names and independent visible status/description; no inner CTA or planned action.",
-        "retests": [
-          "Independent native root/Lab Axe and whole-card/modifier/keyboard pass; unchanged original root/actual zoom2/2 retained."
-        ]
-      },
-      {
-        "id": "PR71-IFA-V02",
+        "id": "SP72-01",
         "severity": "minor",
-        "status": "fixed",
-        "description": "Earlier unavailable disclosure lost the original alert and complete recovery sentence.",
-        "fix": "Named Serverlagring disclosure retains both original exact texts and scopes them to server storage; separate temporary Start remains functional.",
-        "retests": [
-          "Unchanged original shared-Portal unavailable witness1/1 in browser-server-diagnostic-final.raw; independent temporary entry/Start/Blob/Home/refresh passed."
-        ]
-      },
-      {
-        "id": "PR71-IFA-N01",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "Document-memory replay is client-owned and not durable course/server attestation, cross-tab consistency, global abuse-tested hosting or real Azure runtime/traffic. Scope is explicit."
-      },
-      {
-        "id": "PR71-IFA-N02",
-        "severity": "note",
         "status": "open",
-        "description": "Corrected candidate still requires complete new exact-head462-case CI, its candidate-bound receipt/strict release and new anonymous deployed-full-SHA functional verification. CI116 on b290 canceled at35min with two deterministic original header failures; earlier b290 public fullSHA/functional6/6 is historical evidence only."
+        "description": "Subscription Overview repeats Resource groups and populated Resources labels in adjacent headings and table captions. Native screenshots confirm visual repetition; membership and controls remain usable. Retain for future presentation cleanup."
       },
       {
-        "id": "PR71-IFA-N03",
-        "severity": "note",
-        "status": "open",
-        "description": "Inherited Compute/Back/landing-resume/Axe/PG/35-minute causes and frozen3.5 malformed-history behavior remain unresolved absent causal evidence; no human SME/UX/learning/screen-reader/psychometric approval."
-      },
-      {
-        "id": "PR71-IFA-G01",
+        "id": "SP72-02",
         "severity": "major",
         "status": "fixed",
-        "description": "PR71 Home width caused original801px guide-menu x=-34.125/document overflow and open-menu interception of exact course-return action in denied-assistance journey. Both original CI tests failed all3 attempts and reproduced locally; initial bounded audit missed these interactions.",
-        "fix": "Only shared presentation.css: above800 menu anchors left0/rightauto from trigger; Home keeps accessible icon through1100. Original guide CSS/controller, tests/assertions and settings unchanged. Old-CSS/hide-only-Home controls isolate cause; partial anchoring-only overflow failure retained.",
+        "description": "New always-rendered Home recents table expanded narrow Home/document to682px at320px, causing four original desktop/compact overflow failures.",
+        "fix": "Scoped shared Home content width100% contains the unchanged650px table within its scrolling wrapper; no global overflow hiding or assertion relaxation.",
         "retests": [
-          "Independent post-stamp original desktop Guidance + denied-aid return + compact Guidance3/3, zero retry,40.1s.",
-          "Independent preservation6/6 and120payload/88evidence staged-byte verification; author original/affected7/7 plus actual geometry/free-header probes2/2."
+          {
+            "path": "tests/e2e/dialog-placement.spec.ts",
+            "result": "Original control passed independently in desktop and compact after corrected stamp."
+          },
+          {
+            "path": "tests/e2e/learning-flow-guidance.spec.ts",
+            "result": "Original narrow/Arial control passed independently in desktop and compact."
+          },
+          {
+            "path": "tests/e2e/portal-consolidation.spec.ts",
+            "result": "Populated course Home Arial320/600/640 and keyboard/Axe controls passed."
+          },
+          {
+            "path": "docs/quality/PR72_FINAL_AUDIT.md"
+          }
         ]
+      },
+      {
+        "id": "SP72-03",
+        "severity": "major",
+        "status": "fixed",
+        "description": "New Home service shortcut anchors duplicated original native menu links used by unchanged Networking controls.",
+        "fix": "Restore original Home shortcuts/Navigate button semantics in the same shared component for both modes; retain native menu/catalogue/resource anchors.",
+        "retests": [
+          {
+            "path": "tests/e2e/laboratory-networking.spec.ts",
+            "result": "Author exact original Networking desktop controls7/7 passed; original red retained."
+          },
+          {
+            "path": "tests/e2e/portal-consolidation.spec.ts",
+            "result": "Independent desktop and compact exact-one accessible VNet link/native keyboard controls passed."
+          },
+          {
+            "path": "docs/quality/PR72_FINAL_AUDIT.md"
+          }
+        ]
+      },
+      {
+        "id": "SP72-04",
+        "severity": "major",
+        "status": "fixed",
+        "description": "New Home wrapper removed the direct .portal-view > h2 destination required by the frozen motion observer while Home title is visually hidden.",
+        "fix": "Render first Home heading directly via Fragment; preserve frozen motion controller and original tests.",
+        "retests": [
+          {
+            "path": "tests/e2e/hybrid-experience.spec.ts",
+            "result": "Unchanged original deterministic normal-motion control passed independently after corrected stamp."
+          },
+          {
+            "path": "docs/quality/PR72_FINAL_AUDIT.md"
+          }
+        ]
+      },
+      {
+        "id": "SP72-05",
+        "severity": "note",
+        "status": "open",
+        "description": "CI118 compact Firewall receipt navigation passed on retry; CI119 second attempt marks the same case failed then retry-passed but supplies no assertion detail. Local passing control and rejected hypothesis do not establish a cause. Keep open; no fix claimed."
+      },
+      {
+        "id": "SP72-06",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Pre-adoption CI negative validators accepted masking custom shells/defaults and blank-line script/environment appendices; the actual masked prerequisite could exit0 after failed status.",
+        "fix": "Final actual-file validator requires one complete finite workflow assembled from immutable original blocks and full explicit guards; complete literal extraction and adversarial tests reject all prior attacks. Final workflow itself contains no masking content.",
+        "retests": [
+          {
+            "path": "src/pr72-ci-workflow.test.ts",
+            "result": "Four actual workflow/negative/Bash-guard tests passed independently; own five prior attacks rejected."
+          },
+          {
+            "path": "docs/quality/PR72_FINAL_AUDIT.md"
+          }
+        ]
+      },
+      {
+        "id": "SP72-07",
+        "severity": "note",
+        "status": "open",
+        "description": "Global observed runtime/35-minute budget cause remains unproven. Serial allocation relocates mandatory check/audit with each35-minute cap unchanged and combined duration potentially longer; actual new-head whole468 CI/strict/public verification remains pending. Old cancelled/partial executions are not full passes."
       }
-    ],
-    "report": { "path": "docs/quality/PR71_FINAL_AUDIT.md" }
-  }
+    ]
+  },
+  "snapshot": {
+    "files": {
+      ".github/workflows/ci.yml": "67980365f0cbdf66ad26b1d2734865f17b17187cf0f6eb8b4cc5ffa53a276ebb",
+      "AGENTS.md": "ae62649e398a799e09367a2b6554dfe62e5e60dd811ff95e6475541ebab98cb1",
+      "docs/ARCHITECTURE.md": "3c421985c9d57ad9ee671444e272e59d9ff8aceb01e4d4d795fa70a37f60b9db",
+      "docs/DECISIONS.md": "bc0ae739add5f904e2e53e3c2697ae72db8aef84d6f6bcd161466270e8309dbb",
+      "docs/DEVELOPMENT_WORKFLOW.md": "3d55fa41f2701e3d53e79d0fdd40667f5ff1af8e9dcea8579bf0e535d2a097eb",
+      "docs/PORTAL_CAPABILITY_MATRIX.md": "898ffd99fdd700642cc98703b0595fb34116ae333fe4781a839d06a26ef016b0",
+      "docs/SHARED_PORTAL_CAPABILITY_MATRIX.md": "50acbd205d897b7caac1a80d9566193cf8ab8c006be887a27d7eb7128fc0261a",
+      "docs/SHARED_PORTAL_CONSOLIDATION.md": "d02df26b0e9237102743d92032188b41ef163f41fc9b565b640681c1da485f20",
+      "docs/reviews/evidence/pr72/catalog-icon-after-course.json": "96d624b479c9b7eef26b31255a42507f39783c871b9fbccbd3201fe4fbcb2651",
+      "docs/reviews/evidence/pr72/catalog-icon-after-free.json": "dc0945686854a52b33d2b7a9a9d6512b6ea293e550f41e652c476bd2508e081b",
+      "docs/reviews/evidence/pr72/failures/catalog-icon-before.json.raw": "155745bd85b67279555a3e559160ff0ca28ca90851199048be487381f28c1b84",
+      "docs/reviews/evidence/pr72/failures/catalog-icon-before.png": "bd7c032842ce80d3194aba73dc8995b5bbb09fb9ae9673a3e0cb83092ca54af8",
+      "docs/reviews/evidence/pr72/failures/ci118-complete.log.raw": "8a6c940de9f1fb72a72cd4cd23bcd1171a9194a4871772c93808bf5338d867c4",
+      "docs/reviews/evidence/pr72/failures/ci118-local-red.log.raw": "d50ff77eb3d493d0cac6377691074c82d6343c4c3051e2682a513dee335bc72d",
+      "docs/reviews/evidence/pr72/failures/ci118-new-compact-closed-menu.log.raw": "2140626629902e89b9838af5286003315874501f01b860fbedb829a08391e87d",
+      "docs/reviews/evidence/pr72/failures/ci118-overflow-isolation.json.raw": "d49e6e7f7d7d5d12f8415cb14795fd3f378b36e481cb522dc04dc486d6b53741",
+      "docs/reviews/evidence/pr72/failures/ci119-attempt1.log.raw": "04fe2db03507ab0f0654f1c3e6ab3c77337d84dda5bf6ae3d681a6b9175715db",
+      "docs/reviews/evidence/pr72/failures/ci119-attempt2.log.raw": "3bb89383ab3aaf8597aca56bf15f174fc2e2d7febd9f3dfba30452ca8b5c7c87",
+      "docs/reviews/evidence/pr72/failures/ci119-timing-comparison.json.raw": "47350d23457622c93abf8ace7764d9bdab55db103e305886bd7fc4a4182988e2",
+      "docs/reviews/evidence/pr72/failures/guided-coach-assumption.md.raw": "1389f65ac3f1b266936abe970105ded1b97f6ff704b6bfdc8afc7b8b24fb8ee8",
+      "docs/reviews/evidence/pr72/failures/hybrid-experience-enhanced-f624f-thored-start-middle-and-end-desktop-chromium.md.raw": "cef521089ec9073246e4f6e8818b6f1f08b43f0d1fd788bb0b4bffab261ea1ff",
+      "docs/reviews/evidence/pr72/failures/initial-filename-collision.log.raw": "161444dab1f50c34aa6b85ca5f0dd5693592ac01a06e8103945a3edd1d7f00c6",
+      "docs/reviews/evidence/pr72/failures/initial-native.log.raw": "5cbf86a1e0bb35204ffd70677ff39b0d218da6343678b8b9197da009b2b14678",
+      "docs/reviews/evidence/pr72/failures/initial-projection-test.log.raw": "a902692f229046beb60c1f2e4939a3dd26dbab02b1f646032e248a6bf2631bb4",
+      "docs/reviews/evidence/pr72/failures/intermediate-prop-lint.log.raw": "4d5f3686c69f0609fd72167f91352375598303b14b1c054b1adc7dab944f10b6",
+      "docs/reviews/evidence/pr72/failures/intermediate-raw-format.log.raw": "e82bf521b681005cf1400bde55a04f0b16490519d77f297c9056eb64b872589b",
+      "docs/reviews/evidence/pr72/failures/laboratory-networking-netw-29365-are-one-authoritative-World-desktop-chromium.md.raw": "3c8fea0b55b38a74e1e8a482bb68f6610ca2b9c4cd743e337f67b4b9c333abef",
+      "docs/reviews/evidence/pr72/failures/local-artifact-collision.log.raw": "e055162244605c628cf41ff0c62baae4ae2768b992ceff1cd06191f35196f906",
+      "docs/reviews/evidence/pr72/failures/local-full-profile.log.raw": "e54c90972e280b94cbac4f5856122eb1270556170ad8c933160dba5c218146db",
+      "docs/reviews/evidence/pr72/failures/model-label-assumption.md.raw": "abbd7e84933d72239e12920183762b4c568f19675858cd7284fbf1372bc838f2",
+      "docs/reviews/evidence/pr72/failures/original-fidelity-collision-run.log.raw": "4d5cb84bf3366b9c9057af35e0a8231a57ef93435cacff6264734f5d99510feb",
+      "docs/reviews/evidence/pr72/failures/serial-ci-env-parser-prototype.log.raw": "0cb304562d0853afdbfb808c528ba36e5fdd9d85cbcae1509575de5377cb0a0a",
+      "docs/reviews/evidence/pr72/failures/serial-ci-monolithic-preservation-timeout.log.raw": "bcf4e5dcdf9998f3bd673ab7d841947e8d8aa491b77a68e98ff5d676bfd9c53e",
+      "docs/reviews/evidence/pr72/failures/serial-ci-new-test-lint.log.raw": "5914765f82006b60a6c809d0221e211ae986963257615412cfe09b53501c3712",
+      "docs/reviews/evidence/pr72/failures/serial-ci-test-env-typecheck.log.raw": "846be378194eaef8154cb9c72096bc36541fb1b69e13f719cd0968d3d3d2b9a4",
+      "docs/reviews/evidence/pr72/manifest.json": "bd79fdd15ccf60b6a56e18f15494a2d360feead6ca9b9ff35044690e2e373402",
+      "docs/reviews/evidence/pr72/preservation.json": "fe5aeb29ea565a0ea4ed18afad11b7fceffa4e5a15efa193586fa4495fd0dfc5",
+      "docs/reviews/evidence/pr72/screens/before-course-home-1440-900.png": "036f98f1c027eb42a08379d79b6b8396091edfedf13b4735cc90de481d68798a",
+      "docs/reviews/evidence/pr72/screens/before-free-entry-1440-900.png": "3fb5c91e930c58788f4d5173b9aa4879fc6ea12adee7f76c196c6b84bcf1c66e",
+      "docs/reviews/evidence/pr72/screens/course-create-1024-500.png": "8bf91b54726241358b3a9b4a427485e412ae344b075a3ca4c891ca40b82d87d0",
+      "docs/reviews/evidence/pr72/screens/course-create-1024-768.png": "01b8c55531fc81226216e2cc6cda9b742f527c755f1b86e471a3e7918dd04b34",
+      "docs/reviews/evidence/pr72/screens/course-create-1440-900.png": "b27ba803fca119857daa77740c6c87b31a234dc0a8c08167e0d0bae40f796a64",
+      "docs/reviews/evidence/pr72/screens/course-group-1024-500.png": "e43b93907defeeaf9c63723cd61b31e4f1c5aa5cb42a118c60e36df0055828fd",
+      "docs/reviews/evidence/pr72/screens/course-group-1024-768.png": "2710c84260fcb149daeae1000f9df127428dd03f3078df6abc403650f8b6c7ae",
+      "docs/reviews/evidence/pr72/screens/course-group-1440-900.png": "fc1d098ea5e22f6382198993b2b3b043e83443732ecb4226c0e1b3cb7ca03938",
+      "docs/reviews/evidence/pr72/screens/course-home-1024-500.png": "0eb95940e0b76a8d4506b2a890e6b8478ab6c8fe245e7c75b4dff21f373769ab",
+      "docs/reviews/evidence/pr72/screens/course-home-1024-768.png": "34d55ee12a71ad37dca39e252401485a181e964466e6caaccbb0f0ca9ad16ca7",
+      "docs/reviews/evidence/pr72/screens/course-home-1440-900.png": "24625bb8f3c4a70d357074c2743be5c46905401702c020a0941ee8beb1668258",
+      "docs/reviews/evidence/pr72/screens/course-list-1024-500.png": "e5d7c59211ed830e1cf3cf0e18b7df6ec8d1c86ba56eb8bce605f893ac2a6f59",
+      "docs/reviews/evidence/pr72/screens/course-list-1024-768.png": "04e088d0a464803e26d928f5bcd7311e36c4a1157cc7278b12745472525a7ab6",
+      "docs/reviews/evidence/pr72/screens/course-list-1440-900.png": "84b89363f5ed8d8cd93e4fe9428f7f108e7f5dc6768367d51eaf4299840f28f5",
+      "docs/reviews/evidence/pr72/screens/course-services-1024-500.png": "3a1a82359a53ea02b32d2fae3c4fa4d62e7accf28b2654297015b87043b766bd",
+      "docs/reviews/evidence/pr72/screens/course-services-1024-768.png": "ba66fa75aad972af85bcb78f5e8ad781028ce72998dc11714ca529a5408379cc",
+      "docs/reviews/evidence/pr72/screens/course-services-1440-900.png": "15bad754b44930d2ff24fc5e2b6d2ce604f291b3f901d05def5723caddb8a22f",
+      "docs/reviews/evidence/pr72/screens/course-subscription-details-1024-500.png": "7fc0aab43f1016cb3928a6f9ce675df07fea1823c588fa5fbfca505d22a66d1b",
+      "docs/reviews/evidence/pr72/screens/course-subscription-details-1024-768.png": "72d5f0b0e8540857e4819fe4c31885704e3dc69e1d46589d9ff1f0eecdf20399",
+      "docs/reviews/evidence/pr72/screens/course-subscription-details-1440-900.png": "d4c8186832f31db5a66c4f870268e95422d0017c1bad2d3b39dc1b62a8011eed",
+      "docs/reviews/evidence/pr72/screens/course-subscriptions-1024-500.png": "c90b601b758ceaff31ec8020dd1e67d53e97811e737eb30bc362423eec4fc4eb",
+      "docs/reviews/evidence/pr72/screens/course-subscriptions-1024-768.png": "5b9e05c9e41965e60fc7a3f708405129d0f269b864c469a519081be6f59006b2",
+      "docs/reviews/evidence/pr72/screens/course-subscriptions-1440-900.png": "8ecbd0d422cb8a47b8aab169e4b82d8d392340782251021d86622300c3fff676",
+      "docs/reviews/evidence/pr72/screens/free-create-1024-500.png": "9c73f4e2a9b042ee49bc037524ed946a01383cf0237f953c48defc4a24f3bb40",
+      "docs/reviews/evidence/pr72/screens/free-create-1024-768.png": "f4cd66475054e3b627cfba0a5c181256a0f5484fc7b946f3c7d5888f6b463446",
+      "docs/reviews/evidence/pr72/screens/free-create-1440-900.png": "46ed3ae01e519c0e0c1c2831c4baec8060e470954c13d6b193412afefae1f003",
+      "docs/reviews/evidence/pr72/screens/free-group-1024-500.png": "c9ad205eb6ab0a9a498d6516c4fd0f0e916ff25c7c8c3ec5e1db138103c4327c",
+      "docs/reviews/evidence/pr72/screens/free-group-1024-768.png": "88b8e904469babbed5487180a923106a9c20a6084620417fe9fb86a80f9009fe",
+      "docs/reviews/evidence/pr72/screens/free-group-1440-900.png": "a71f1433153cc4049901dc8be7a1cc3f640ad8038c6ef785c4d517e232650fbf",
+      "docs/reviews/evidence/pr72/screens/free-home-1024-500.png": "e2108b17ef71aaeccb303cc462faabcc10d8c2f4b413bdb72dcd08bf84c681d1",
+      "docs/reviews/evidence/pr72/screens/free-home-1024-768.png": "de56ba3ee22105dbebe18f773da159601ded7a5360dc9ba32304efc38d271929",
+      "docs/reviews/evidence/pr72/screens/free-home-1440-900.png": "1998635ef84a3fd426fce438366bc20f5cfd929eec4a5c6245b5e71748ce75d8",
+      "docs/reviews/evidence/pr72/screens/free-list-1024-500.png": "07244f49ba4b0221a9ec471cf6fd4e7d9da8603638d083567ffdfae2caa0b52e",
+      "docs/reviews/evidence/pr72/screens/free-list-1024-768.png": "78a3afc6d3ff2d2c8d86c40879de54ca837b58a093e1ca4d56caa17929339778",
+      "docs/reviews/evidence/pr72/screens/free-list-1440-900.png": "d09063c7ac89bbae8dc85c6d776e0fd37514e1ff4fbe43794ffdd7d4b9b8ed2c",
+      "docs/reviews/evidence/pr72/screens/free-services-1024-500.png": "54d5901af77437b8598037f5b378c35f04ae856233cd309c70c8bac7b72c4a83",
+      "docs/reviews/evidence/pr72/screens/free-services-1024-768.png": "4fe3b6e33ecc20d3f8cc1cd308bb25e54560db5cc851cbe8401f6f18abe40b03",
+      "docs/reviews/evidence/pr72/screens/free-services-1440-900.png": "dda6e54d5aa0cbd1a1ea444078146f0d7683a79aa8cc3181f6d0fc5e6e51b340",
+      "docs/reviews/evidence/pr72/screens/free-subscription-details-1024-500.png": "8bda1c239362dca57a160e65bdb93928d673edc374197398c3a157841ad108e2",
+      "docs/reviews/evidence/pr72/screens/free-subscription-details-1024-768.png": "bdaa59fe1b86442309a8534fa09d6b99d4de804c5ac71a31832939e28d8c47aa",
+      "docs/reviews/evidence/pr72/screens/free-subscription-details-1440-900.png": "c2c44a213f48d53f25f4dc1e339f13f057269dc638755a6edcbf2165fa7b79eb",
+      "docs/reviews/evidence/pr72/screens/free-subscriptions-1024-500.png": "79ba95d7a7b2261b6b5229d966a873ad71f6ef578ada69d5f6b42d032ba47918",
+      "docs/reviews/evidence/pr72/screens/free-subscriptions-1024-768.png": "817280fe4270146f4a723275bc677c1d6b8c3a00663202f3627d6d38029b8f47",
+      "docs/reviews/evidence/pr72/screens/free-subscriptions-1440-900.png": "8aa53187cc5a5bca4ab21c01e38f0cd2998cc95dad57265a78881995ae00f811",
+      "docs/reviews/evidence/pr72/screens/guided-subscription-1440-900.png": "5083bbac49bbee98ece7a2f21dab4a987d60d4c190eb0b5c9d8e7fe0847f3467",
+      "docs/reviews/evidence/pr72/sources.json": "9407ea6cbdec665eafc86f1054f1ceee75820c399131856958c3c9aedd89f054",
+      "playwright.desktop.config.ts": "30c4ca1ff24af8d598fed633d5be0e949f3b4affc37b506adcdd7f726b77f614",
+      "src/content/shared-portal-nb.ts": "607390a7faf6f0bab3e25590a74fc3e4f64598056716b05c50fe9ab19b7500b9",
+      "src/features/laboratory/laboratory.tsx": "9f02478331451fed12f333d59a5a572e9675d9d3d87f525ceb575d534fddba46",
+      "src/features/laboratory/scope-projection.ts": "aec8174b1e137f7a5eba1cbf5407fbe60a0c76550f9ab4f14b5471fd80e41f89",
+      "src/features/portal/home.tsx": "7f537af10314e4b87bd303d8c2b3b3594ff643ef566616ea63b44f43136c6199",
+      "src/features/portal/portal.tsx": "0eb33d4aed79167260aacb633eda56df76a46b789e90ea574d26627d83cd3347",
+      "src/features/portal/presentation.css": "96e640afac4484eb92e25dc56c0d8b52dea2b54070308551d93f4ca5be879bfa",
+      "src/features/portal/scope-projection.ts": "6f58ab607f9b32c7692d83d67a622d2fa1f7f805f6b43ee0bded1c01b651b8b6",
+      "src/features/portal/service-catalog.ts": "69773675cfaa017bddcad9a65ce26ed4d25a83fc1af4115f5ec56076a5f67027",
+      "src/features/portal/shared-shell.test.ts": "e191502b0ef849709af7ffcab9b1b139add0d0ec3320603260b800a510bfbc7a",
+      "src/features/portal/subscriptions.tsx": "4aa869d5a314a59d5c700d2449aa77ff58ccd2d061d099096cd38e8bd44e2fd4",
+      "src/laboratory-pr71-preservation.test.ts": "ac278ad343f9d1213e55805262dc72f209d6417f292cd5c443c290379ef1777c",
+      "src/pr72-ci-workflow.test.ts": "6e4320ec5b287aaaac2797c5c1302209a736af1f4b8f6070e3f765483929afa9",
+      "src/pr72-shared-portal-preservation.test.ts": "a6bce433286f9018b4c355795760600ddd6f6fcfec4154d8afab300a9406c4a8",
+      "tests/e2e/portal-consolidation.spec.ts": "a81307f56a707d7911a1611e5643eca1ef510a7f5b75ca297f92f35701b1a0b3",
+      "tests/pr71-preservation.ts": "a31551dc71fb124d709aff841e18728667418430f75b66bd56191a2cbf7fb9c5",
+      "tests/pr72-preservation.ts": "7ca156a50fec95a513b2cecaf936226afcecc73b014b32bc5d8e38d04ccc61ba"
+    }
+  },
+  "implementationFinished": "2026-11-09T14:02:41.613Z"
 }

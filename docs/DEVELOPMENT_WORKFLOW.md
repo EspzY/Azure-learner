@@ -1,5 +1,15 @@
 # Development workflow — owner direction, 29 October 2026
 
+## PR72 — serial mandatory checks and complete browser verification
+
+Measured Quality119 attempts on unchanged8a3967f4eba699c3042aeb561c76a639e5616198 reached the35-minute job limit after439 and446 completed cases. Neither produced full-profile evidence or ran strict release. Check plus dependency audit consumed about158seconds; passing browser cases were broadly slower than Quality118, without a proven runner/CPU/browser cause. Both cancellations and the known Firewall retry remain recorded.
+
+The bounded maintenance changes job allocation, not coverage or test limits. `check` executes the original full `npm run check` (including normal production build and real isolated PostgreSQL tests) and high-level dependency audit. Its successful output binds the actual checkout to immutable `github.sha`. Existing required `verify` waits for that terminal prerequisite, runs even when it failed/skipped/cancelled and explicitly fails on any non-success or empty/mismatched revision. It then checks out the same immutable SHA and compares actual HEAD with both event SHA and prerequisite output before further work.
+
+`verify` retains its own isolated PostgreSQL setup, the original historical review-fixture build, pinned Chromium installation, complete unselected `node scripts/verify-desktop-ci.mjs`, and immediate unchanged strict release. Each job keeps35minutes. Jobs are sequential: there is no extra simultaneous Playwright worker. **The combined workflow can exceed35minutes.** All468 cases, assertions, one-worker/retry/test-timeout/skip settings, fixed whole-command receipt ownership and existing failure-artifact handling remain unchanged. No learner/database history is transferred between jobs.
+
+Actual-file negative tests reject missing dependencies, skipped required verification, omitted/selected commands, reversed release order, failure-masking shells/defaults, extra execution environments, changed caps and SHA mismatches. They execute the actual Bash status/revision guards. Historical presentation readers remain bounded; the independent actual-filesystem guard admits only this exact workflow/documentation amendment. New stamp/audit and complete exact-head CI/strict remain required. This allocation offers measured headroom; it neither proves the underlying slowdown fixed nor guarantees a run will fit. A local full or interrupted diagnostic is never substituted for authoritative CI.
+
 ## PR51 owner corrections
 
 Retain329 inherited browser executions. Seven scoped desktop lifecycle/navigation/feedback cases and one initial compact reflow/keyboard/Axe witness give337 (307desktop/30compact); optional legacy614. Original settings and critical assertions remain; Foundations selectors now explicitly open the approved secondary disclosure and use readable first-submission status. See [owner contract](PR51_OWNER_ACCEPTANCE.md). No broad design rollout or Stage2–5.

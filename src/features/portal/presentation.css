@@ -51,3 +51,25 @@
     right: auto;
   }
 }
+
+/* Keep Home's resource table inside the available flex column. Its own
+   wrapper scrolls; the shared table retains its readable minimum width. */
+.portal[data-area='home'] .portal-content {
+  width: 100%;
+}
+.portal-services-index > a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  color: #005a9e;
+  text-decoration: none;
+  border: 1px solid #e0e5eb;
+  border-radius: 3px;
+}
+.portal-services-index > a > span:not([data-icon]) {
+  flex: 1;
+}
+.portal-home-actions {
+  margin-block: 12px;
+}

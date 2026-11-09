@@ -1,0 +1,29 @@
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ src/features/portal/shared-shell.test.ts (11 tests | 1 failed) 43ms
+   × projects exact subscription membership/locations from real accepted commands without changing World, revision or receipts 25ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/portal/shared-shell.test.ts > projects exact subscription membership/locations from real accepted commands without changing World, revision or receipts
+AssertionError: expected [ { id: 'sub-shared', …(5) }, …(1) ] to deeply equal [ { id: 'sub-shared', …(5) }, …(1) ]
+
+Compared values have no visual difference.
+
+ ❯ src/features/portal/shared-shell.test.ts:102:61
+    100|   expect(scopes[0]!.groups[0]!.destination.href).not.toBe(scopes[1]!.g…
+    101|   expect(JSON.stringify(world)).toBe(before);
+    102|   expect(laboratorySubscriptions(world, rows, destination)).toEqual(sc…
+       |                                                             ^
+    103| });
+    104| it('uses actual historical course scope identity and technical invento…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 10 passed (11)
+   Start at  10:48:40
+   Duration  1.42s (transform 50%, import 46%, tests 4%, worker 1%)
+

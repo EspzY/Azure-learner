@@ -1,0 +1,49 @@
+
+Running 4 tests using 1 worker
+
+(node:43649) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [compact-chromium] › tests/e2e/dialog-placement.spec.ts:134:1 › Portal ordinary modal side panels native briefings and guidance menu retain distinct desktop compact placement (8.8s)
+  ✓  2 [compact-chromium] › tests/e2e/laboratory-networking.spec.ts:266:1 › network Laboratory short desktop keyboard focus reduced motion Axe resource forms and reset keep historical receipts accessible (8.6s)
+  ✓  3 [compact-chromium] › tests/e2e/learning-flow-guidance.spec.ts:376:1 › Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable (16.4s)
+  ✘  4 [compact-chromium] › tests/e2e/portal-consolidation.spec.ts:175:1 › shared Home subscriptions compact keyboard focus reduced motion Axe and short desktop stay readable in both modes (7.1s)
+
+
+  1) [compact-chromium] › tests/e2e/portal-consolidation.spec.ts:175:1 › shared Home subscriptions compact keyboard focus reduced motion Axe and short desktop stay readable in both modes 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  getByRole('link', { name: 'Virtual networks', exact: true })
+    Expected: 1
+    Received: 0
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" getByRole('link', { name: 'Virtual networks', exact: true }) with timeout 5000ms
+      - waiting for getByRole('link', { name: 'Virtual networks', exact: true })
+        14 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      179 |   await startTemporary(page);
+      180 |   await expect(page.locator('.portal-view > h2')).toBeVisible();
+    > 181 |   await expect(page.getByRole('link', { name: n.vnets, exact: true })).toHaveCount(1);
+          |                                                                        ^
+      182 |   for (const [width, height] of [
+      183 |     [1440, 900],
+      184 |     [1024, 768],
+        at /workspace/Azure-learner/tests/e2e/portal-consolidation.spec.ts:181:72
+
+    Error Context: ../azurelab-pr72/ci118-corrected-compact/portal-consolidation-share-fe71b-stay-readable-in-both-modes-compact-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr72/ci118-corrected-compact/portal-consolidation-share-fe71b-stay-readable-in-both-modes-compact-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr72/ci118-corrected-compact/portal-consolidation-share-fe71b-stay-readable-in-both-modes-compact-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [compact-chromium] › tests/e2e/portal-consolidation.spec.ts:175:1 › shared Home subscriptions compact keyboard focus reduced motion Axe and short desktop stay readable in both modes 
+  3 passed (44.6s)

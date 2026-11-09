@@ -2,7 +2,7 @@
  * All actual PR71 changes are hash-checked before the older tests receive
  * their original PR70 bytes. This never runs in application code.
  */
-import { readFileSync } from 'node:fs';
+import { readPR72 as readFileSync } from './pr72-preservation';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { strict as assert } from 'node:assert';

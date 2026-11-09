@@ -1,5 +1,6 @@
 import { it, expect } from 'vitest';
-import { readFileSync, existsSync } from 'node:fs';
+import { existsSync } from 'node:fs';
+import { readPR72 as readFileSync } from '../tests/pr72-preservation';
 import { execFileSync } from 'node:child_process';
 import { blobHash71, original71, pr71Base } from '../tests/pr71-preservation';
 import proof from '../docs/reviews/evidence/pr71/preservation.json';

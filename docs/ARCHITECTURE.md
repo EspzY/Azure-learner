@@ -1,3 +1,7 @@
+## Shared Portal consolidation —9 November2026
+
+[Contract and architecture review](SHARED_PORTAL_CONSOLIDATION.md) and [capability matrix](SHARED_PORTAL_CAPABILITY_MATRIX.md) distinguish the newly shared entry surfaces from the still distinct historical course-v2 and Laboratory3.7 authorities. One Home, subscriptions and service catalogue/navigation; no new engine, model, migration, command or assessment semantics.
+
 # Architecture
 
 ## PR66 — Compute Part A
