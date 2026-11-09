@@ -115,7 +115,11 @@ export function RuleLifecycle({
     else if (editor?.mode === 'edit')
       fields.current?.querySelector<HTMLInputElement | HTMLSelectElement>('input, select')?.focus();
   }, [preview, editor]);
-  if (snapshot.world.model !== laboratoryModel && snapshot.world.model !== 'laboratory@3.7.0')
+  if (
+    snapshot.world.model !== laboratoryModel &&
+    snapshot.world.model !== 'laboratory@3.7.0' &&
+    snapshot.world.model !== 'laboratory@3.8.0'
+  )
     return null;
   const world = snapshot.world,
     nsg = view === 'rule',

@@ -1,0 +1,45 @@
+
+Running 1 test using 1 worker
+
+(node:87418) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/application-platform.spec.ts:204:1 › application compact native keyboard focus reduced motion Axe and short desktop keep Review and Properties readable (19.0s)
+
+
+  1) [desktop-chromium] › tests/e2e/application-platform.spec.ts:204:1 › application compact native keyboard focus reduced motion Axe and short desktop keep Review and Properties readable 
+
+    Error: expect(locator).toBeFocused() failed
+
+    Locator:  getByRole('region', { name: 'Review', exact: true }).getByRole('heading', { name: 'Konfigurasjonen er validert', exact: true })
+    Expected: focused
+    Received: inactive
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toBeFocused" getByRole('region', { name: 'Review', exact: true }).getByRole('heading', { name: 'Konfigurasjonen er validert', exact: true }) with timeout 5000ms
+      - waiting for getByRole('region', { name: 'Review', exact: true }).getByRole('heading', { name: 'Konfigurasjonen er validert', exact: true })
+        12 × locator resolved to <h3>Konfigurasjonen er validert</h3>
+           - unexpected value "inactive"
+
+
+      235 |   await expect(
+      236 |     r.panel.getByRole('heading', { name: 'Konfigurasjonen er validert', exact: true }),
+    > 237 |   ).toBeFocused();
+          |     ^
+      238 |   await expect(r.panel).toContainText('Enabled');
+      239 |   await expect(r.panel).toContainText('Disabled');
+      240 |   expect((await new Axe({ page }).analyze()).violations).toEqual([]);
+        at /workspace/azurelab-parallel/application/tests/e2e/application-platform.spec.ts:237:5
+
+    Error Context: ../application-native-results/application-platform-appli-a46f8-iew-and-Properties-readable-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../application-native-results/application-platform-appli-a46f8-iew-and-Properties-readable-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../application-native-results/application-platform-appli-a46f8-iew-and-Properties-readable-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › tests/e2e/application-platform.spec.ts:204:1 › application compact native keyboard focus reduced motion Axe and short desktop keep Review and Properties readable 

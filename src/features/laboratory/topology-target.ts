@@ -11,7 +11,7 @@ type Target = {
 };
 export function topologyTarget(snapshot: Snapshot, view: string, id: string): Target | null {
   const w = snapshot.world;
-  if (w.model !== 'laboratory@3.7.0') return null;
+  if (w.model !== 'laboratory@3.7.0' && w.model !== 'laboratory@3.8.0') return null;
   if (view === 'route') {
     const r = w.routes.find((x) => x.id === id);
     return r

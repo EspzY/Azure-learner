@@ -37,7 +37,8 @@ export function RoutingViews({
     | import('@/laboratory/v34/contract').World
     | import('@/laboratory/v35/contract').World
     | import('@/laboratory/v36/contract').World
-    | import('@/laboratory/v37/contract').World;
+    | import('@/laboratory/v37/contract').World
+    | import('@/laboratory/v38/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -226,6 +227,7 @@ export function RouteAnalysis({
           | import('@/laboratory/v35/analysis').RouteAnalysis
           | import('@/laboratory/v36/analysis').RouteAnalysis
           | import('@/laboratory/v37/analysis').RouteAnalysis
+          | import('@/laboratory/v38/analysis').RouteAnalysis
         ) & { workspace: string })
       | null
     >(null);

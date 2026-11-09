@@ -40,8 +40,22 @@ export const portalServiceDefinitions: readonly Definition[] = [
     course: 'resources',
     laboratory: 'resources',
   },
-  { id: 'apps', title: nb.portal.areas.apps, icon: 'apps', course: 'apps' },
-  { id: 'plans', title: nb.portal.areas.plans, icon: 'plans', course: 'plans' },
+  {
+    id: 'apps',
+    title: nb.portal.areas.apps,
+    icon: 'apps',
+    course: 'apps',
+    laboratory: 'apps',
+    since: 8,
+  },
+  {
+    id: 'plans',
+    title: nb.portal.areas.plans,
+    icon: 'plans',
+    course: 'plans',
+    laboratory: 'plans',
+    since: 8,
+  },
   {
     id: 'vms',
     title: nb.portal.areas.vms,
@@ -122,6 +136,7 @@ const modelLevels: Record<Model, number> = {
   'laboratory@3.5.0': 5,
   'laboratory@3.6.0': 6,
   'laboratory@3.7.0': 7,
+  'laboratory@3.8.0': 8,
 };
 export function portalServices(mode: 'course' | 'laboratory', model?: Model): PortalService[] {
   return portalServiceDefinitions.flatMap((s) => {

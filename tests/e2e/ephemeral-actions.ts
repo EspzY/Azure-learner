@@ -29,6 +29,11 @@ export const courseBytes = (page: Page) =>
 export async function startTemporary(page: Page) {
   await page.goto('/');
   await page.getByRole('link', { name: t.labLink, exact: true }).click();
+  // These inherited journeys intentionally replay the original3.7 workspace.
+  await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();
+  await page
+    .getByRole('combobox', { name: 'Arbeidsområdemodell', exact: true })
+    .selectOption('laboratory@3.7.0');
   const started = memoryResponse(page, 'session');
   await page.getByRole('button', { name: temp.start, exact: true }).click();
   const result = await started,
