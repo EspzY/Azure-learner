@@ -52,24 +52,10 @@
   }
 }
 
-/* One Home/catalogue structure for both technical adapters. */
-.portal-home-services > a {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-direction: column;
-  gap: 10px;
-  min-width: 0;
-  padding: 14px 8px;
-  color: inherit;
-  text-align: center;
-  text-decoration: none;
-  border: 1px solid transparent;
-  border-radius: 3px;
-}
-.portal-home-services > a:hover {
-  background: #eff6fc;
-  border-color: #c8d9e8;
+/* Keep Home's resource table inside the available flex column. Its own
+   wrapper scrolls; the shared table retains its readable minimum width. */
+.portal[data-area='home'] .portal-content {
+  width: 100%;
 }
 .portal-services-index > a {
   display: flex;
@@ -83,12 +69,6 @@
 }
 .portal-services-index > a > span:not([data-icon]) {
   flex: 1;
-}
-.portal-home-navigate a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
 }
 .portal-home-actions {
   margin-block: 12px;

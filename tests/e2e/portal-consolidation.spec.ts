@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test';
 import Axe from '@axe-core/playwright';
-import { startTemporary, service, create, courseBytes, c } from './ephemeral-actions';
+import { startTemporary, service, create, courseBytes, c, n } from './ephemeral-actions';
 import { nb } from '../../src/content/nb';
 import { architectureStudioNb as studio } from '../../src/content/architecture-studio-nb';
 import { start as missionStart, create as courseCreate, returnCourse } from './vm-debrief-actions';
@@ -108,6 +108,16 @@ test('guided course uses the same Home catalogue and subscriptions while actual 
   await expect(page.locator('[data-portal-component="home"] table')).toContainText(
     'rg-shared-course',
   );
+  const viewport = page.viewportSize()!;
+  await page.addStyleTag({ content: '.portal { font-family: Arial, sans-serif; }' });
+  for (const width of [320, 600, 640]) {
+    await page.setViewportSize({ width, height: 700 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+      true,
+    );
+    await expect(page.locator('.portal-view > h2')).toBeVisible();
+  }
+  await page.setViewportSize(viewport);
   await expect(nav.getByRole('link', { name: 'Storage accounts', exact: true })).toHaveCount(0);
   await expect(nav.getByRole('link', { name: p.areas.apps, exact: true })).toBeVisible();
   await returnCourse(page, 'infrastructure');
@@ -167,6 +177,11 @@ test('shared Home subscriptions compact keyboard focus reduced motion Axe and sh
 }, info) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await startTemporary(page);
+  await expect(page.locator('.portal-view > h2')).toBeVisible();
+  const networkLink = page.getByRole('link', { name: n.vnets, exact: true });
+  await revealLaboratoryLink(page, networkLink);
+  await expect(networkLink).toHaveCount(1);
+  await closeLaboratoryDrawer(page);
   for (const [width, height] of [
     [1440, 900],
     [1024, 768],
@@ -183,7 +198,7 @@ test('shared Home subscriptions compact keyboard focus reduced motion Axe and sh
   }
   const first = page
     .locator('.portal-home-services')
-    .getByRole('link', { name: p.areas.subscriptions, exact: true });
+    .getByRole('button', { name: p.areas.subscriptions, exact: true });
   await first.focus();
   await expect(first).toBeFocused();
   await page.keyboard.press('Enter');
@@ -201,7 +216,7 @@ test('shared Home subscriptions compact keyboard focus reduced motion Axe and sh
   expect((await new Axe({ page }).analyze()).violations).toEqual([]);
   const link = page
     .locator('.portal-home-services')
-    .getByRole('link', { name: p.areas.subscriptions, exact: true });
+    .getByRole('button', { name: p.areas.subscriptions, exact: true });
   await link.focus();
   await page.keyboard.press('Enter');
   await expect(page.locator('[data-portal-component="subscriptions"]')).toBeVisible();

@@ -1,0 +1,87 @@
+
+Running 2 tests using 1 worker
+
+(node:41643) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/hybrid-experience.spec.ts:210:1 › enhanced normal motion preserves full-opacity text fixed Portal and actionable controls at authored start middle and end (7.2s)
+(node:41813) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [desktop-chromium] › tests/e2e/laboratory-networking.spec.ts:73:1 › network Laboratory actual VNet two subnets NSG rule association Storage parent receipts and reload share one authoritative World (2.6s)
+
+
+  1) [desktop-chromium] › tests/e2e/hybrid-experience.spec.ts:210:1 › enhanced normal motion preserves full-opacity text fixed Portal and actionable controls at authored start middle and end 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('.experience-route-mark')
+    Expected: "true"
+    Received: ""
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('.experience-route-mark') with timeout 5000ms
+      - waiting for locator('.experience-route-mark')
+        13 × locator resolved to <div aria-hidden="true" data-mode="chapter" class="experience-route-mark"></div>
+           - unexpected value "null"
+
+
+      262 |     commit.remove();
+      263 |   });
+    > 264 |   await expect(page.locator('.experience-route-mark')).toHaveAttribute('data-running', 'true');
+          |                                                        ^
+      265 |   await expect(page.locator('.experience-route-mark')).toHaveAttribute('data-mode', 'workspace');
+      266 |   for (const ms of [0, 160, 320]) {
+      267 |     const style = await page.evaluate((ms) => {
+        at /workspace/Azure-learner/tests/e2e/hybrid-experience.spec.ts:264:56
+
+    Error Context: ../azurelab-pr72/ci118-local-red/hybrid-experience-enhanced-f624f-thored-start-middle-and-end-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr72/ci118-local-red/hybrid-experience-enhanced-f624f-thored-start-middle-and-end-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr72/ci118-local-red/hybrid-experience-enhanced-f624f-thored-start-middle-and-end-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/laboratory-networking.spec.ts:73:1 › network Laboratory actual VNet two subnets NSG rule association Storage parent receipts and reload share one authoritative World 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('link', { name: 'Virtual networks', exact: true })
+    Expected: visible
+    Error: strict mode violation: getByRole('link', { name: 'Virtual networks', exact: true }) resolved to 2 elements:
+        1) <a href="/labs/laboratory?view=vnets">…</a> aka getByRole('navigation', { name: 'Laboratory v3 navigasjon' }).getByRole('link', { name: 'Virtual networks' })
+        2) <a href="/labs/laboratory?view=vnets">…</a> aka locator('#lab-main').getByRole('link', { name: 'Virtual networks' })
+
+    Call log:
+      - Expect "toBeVisible" getByRole('link', { name: 'Virtual networks', exact: true }) with timeout 5000ms
+      - waiting for getByRole('link', { name: 'Virtual networks', exact: true })
+
+
+       at laboratory-actions.ts:11
+
+       9 |   if (!(await nav.isVisible()))
+      10 |     await page.getByRole('button', { name: nb.portal.menu, exact: true }).click();
+    > 11 |   await expect(link).toBeVisible();
+         |                      ^
+      12 | }
+      13 |
+      14 | export async function closeLaboratoryDrawer(page: Page) {
+        at revealLaboratoryLink (/workspace/Azure-learner/tests/e2e/laboratory-actions.ts:11:22)
+        at start (/workspace/Azure-learner/tests/e2e/laboratory-networking.spec.ts:20:3)
+        at /workspace/Azure-learner/tests/e2e/laboratory-networking.spec.ts:76:3
+
+    Error Context: ../azurelab-pr72/ci118-local-red/laboratory-networking-netw-29365-are-one-authoritative-World-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr72/ci118-local-red/laboratory-networking-netw-29365-are-one-authoritative-World-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr72/ci118-local-red/laboratory-networking-netw-29365-are-one-authoritative-World-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop-chromium] › tests/e2e/hybrid-experience.spec.ts:210:1 › enhanced normal motion preserves full-opacity text fixed Portal and actionable controls at authored start middle and end 
+    [desktop-chromium] › tests/e2e/laboratory-networking.spec.ts:73:1 › network Laboratory actual VNet two subnets NSG rule association Storage parent receipts and reload share one authoritative World 

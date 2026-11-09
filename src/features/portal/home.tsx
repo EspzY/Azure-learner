@@ -166,42 +166,44 @@ export function PortalHome({
   ];
   const shortcuts = preferred.flatMap((id) => services.filter((s) => s.id === id)).slice(0, 7);
   return (
-    <div data-portal-component="home">
+    <>
       <h2>{nb.portal.services}</h2>
-      <div className="portal-home-services">
-        <PortalDestinationLink destination={destination('services')}>
-          <ServiceIcon kind="create" size={30} />
-          <span>{nb.portalUi.create}</span>
-        </PortalDestinationLink>
-        {shortcuts.map((s) => (
-          <PortalDestinationLink key={s.id} destination={destination(s.view)}>
-            <ServiceIcon kind={s.icon} size={30} />
-            <span>{s.title}</span>
-          </PortalDestinationLink>
-        ))}
-        <PortalDestinationLink destination={destination('services')}>
-          <ServiceIcon kind="next" size={28} />
-          <span>{nb.portalUi.moreServices}</span>
-        </PortalDestinationLink>
-      </div>
-      {createGroup && <div className="portal-home-actions">{createGroup}</div>}
-      {learning}
-      <h2>{nb.portal.recent}</h2>
-      <p>{nb.portal.recentHint}</p>
-      <PortalRecentResources rows={recent} />
-      <section className="portal-home-navigate">
-        <h2>{nb.portalUi.navigate}</h2>
-        <div>
-          {services
-            .filter((s) => ['subscriptions', 'groups', 'resources', 'studio'].includes(s.id))
-            .map((s) => (
-              <PortalDestinationLink key={s.id} destination={destination(s.view)}>
-                <ServiceIcon kind={s.icon} size={22} />
-                {s.title}
-              </PortalDestinationLink>
-            ))}
+      <div data-portal-component="home">
+        <div className="portal-home-services">
+          <button type="button" onClick={() => destination('services').onSelect()}>
+            <ServiceIcon kind="create" size={30} />
+            <span>{nb.portalUi.create}</span>
+          </button>
+          {shortcuts.map((s) => (
+            <button key={s.id} type="button" onClick={() => destination(s.view).onSelect()}>
+              <ServiceIcon kind={s.icon} size={30} />
+              <span>{s.title}</span>
+            </button>
+          ))}
+          <button type="button" onClick={() => destination('services').onSelect()}>
+            <ServiceIcon kind="next" size={28} />
+            <span>{nb.portalUi.moreServices}</span>
+          </button>
         </div>
-      </section>
-    </div>
+        {createGroup && <div className="portal-home-actions">{createGroup}</div>}
+        {learning}
+        <h2>{nb.portal.recent}</h2>
+        <p>{nb.portal.recentHint}</p>
+        <PortalRecentResources rows={recent} />
+        <section className="portal-home-navigate">
+          <h2>{nb.portalUi.navigate}</h2>
+          <div>
+            {services
+              .filter((s) => ['subscriptions', 'groups', 'resources', 'studio'].includes(s.id))
+              .map((s) => (
+                <button key={s.id} type="button" onClick={() => destination(s.view).onSelect()}>
+                  <ServiceIcon kind={s.icon} size={22} />
+                  {s.title}
+                </button>
+              ))}
+          </div>
+        </section>
+      </div>
+    </>
   );
 }
