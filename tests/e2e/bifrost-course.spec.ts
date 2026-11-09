@@ -330,6 +330,7 @@ for (const mode of ['light', 'dark'] as const) {
       .locator('.compute-workbench .compute-actions')
       .getByRole('link', { name: `${computeNb.labels.portal} · Resource groups`, exact: true })
       .click();
+    await expect(page).toHaveURL(/\/portal\?.*compute=vm/);
     await page.reload();
     const guide = page.locator('.compute-portal-guide');
     await expect(guide).toHaveClass(/bifrost-guide-island/);
