@@ -328,3 +328,64 @@
     transition: none;
   }
 }
+
+/* An entire available card or Laboratory tile is one accessible link target. */
+.landing-course,
+.landing-laboratory {
+  position: relative;
+  isolation: isolate;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+.landing-course-available,
+.landing-laboratory {
+  cursor: pointer;
+}
+.landing-course-available:hover,
+.landing-course-available:focus-within {
+  transform: translateY(-4px) scale(1.012);
+  border-color: #a4a0e9;
+  background: #183347;
+  box-shadow: 0 18px 40px #020b18a8, 0 0 0 1px #bc8bd34f;
+}
+.landing-laboratory:hover,
+.landing-laboratory:focus-within {
+  transform: translateY(-3px) scale(1.008);
+  border-color: #a4a0e9;
+  box-shadow: 0 16px 38px #020b18a8, 0 0 0 1px #c48ada44;
+}
+.landing-course-available:active,
+.landing-laboratory:active {
+  transform: scale(1.022);
+}
+.landing-action::before,
+.landing-lab-action::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+.landing-action:focus-visible,
+.landing-lab-action:focus-visible {
+  outline-offset: 3px;
+}
+.azurelab-landing[data-opening='course'] .landing-course-available,
+.azurelab-landing[data-opening='laboratory'] .landing-laboratory {
+  transform: scale(1.055);
+  border-color: #d39bdd;
+  box-shadow: 0 24px 50px #040b1bcc, 0 0 32px #ab77ce42;
+}
+.azurelab-landing[data-opening] .landing-hero,
+.azurelab-landing[data-opening] .landing-footer {
+  opacity: 0.7;
+  transition: opacity 160ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .landing-course,
+  .landing-laboratory,
+  .azurelab-landing[data-opening] .landing-hero,
+  .azurelab-landing[data-opening] .landing-footer {
+    transition: none;
+    transform: none;
+  }
+}
