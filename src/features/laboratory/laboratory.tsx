@@ -50,6 +50,15 @@ import { architectureStudioNb as studioCopy } from '@/content/architecture-studi
 import { studioContext, studioReturn } from './studio-location';
 import { RuleLifecycle, RuleHistory, lifecycleMessage } from './rule-lifecycle';
 import { laboratoryRemediationNb as remediationCopy } from '@/content/laboratory-remediation-nb';
+import {
+  PortalHome,
+  PortalServiceNavigation,
+  PortalServiceDirectory,
+} from '@/features/portal/home';
+import { portalServices } from '@/features/portal/service-catalog';
+import { PortalSubscriptions, PortalSubscriptionDetails } from '@/features/portal/subscriptions';
+import { laboratorySubscriptions, laboratoryResourceLink } from './scope-projection';
+import { sharedPortalNb as sharedCopy } from '@/content/shared-portal-nb';
 const base = '/labs/laboratory';
 const baseHref = (view: string, id?: string, receipt?: string) =>
   base +
@@ -445,7 +454,7 @@ export function Laboratory() {
         : undefined,
     compute = isFirewallWorld(world) || world?.model === 'laboratory@3.4.0' ? world : undefined,
     firewall = isFirewallWorld(world) ? world : undefined,
-    view = query.get('view') ?? 'groups',
+    view = query.get('view') ?? 'home',
     id = query.get('id'),
     selectedReceipt = snapshot?.entries.find((e) => e.receipt.commandId === query.get('receipt'));
   const group = world?.groups.find((r) => r.id === id),
@@ -478,7 +487,7 @@ export function Laboratory() {
       privateIpAddress: '',
       allocation: 'Static',
       name: '',
-      subscriptionId: 'sub-shared',
+      subscriptionId: subscription?.id ?? 'sub-shared',
       metadataRegion: 'norwayeast',
       groupId: group?.id ?? world?.groups[0]?.id ?? '',
       region: 'norwayeast',
@@ -685,48 +694,40 @@ export function Laboratory() {
     router.push(href(next, target, receipt));
   };
   const resource = records.find((r) => r.id === id && r.view === view);
+  const recentResourceId = resource?.id;
+  const [recent, setRecent] = useState<{ workspace: string; ids: string[] }>({
+    workspace: '',
+    ids: [],
+  });
+  useEffect(() => {
+    if (!snapshot?.workspace || !recentResourceId) return;
+    const frame = requestAnimationFrame(() =>
+      setRecent((previous) => ({
+        workspace: snapshot.workspace,
+        ids: [
+          recentResourceId,
+          ...(previous.workspace === snapshot.workspace ? previous.ids : []).filter(
+            (x) => x !== recentResourceId,
+          ),
+        ].slice(0, 8),
+      })),
+    );
+    return () => cancelAnimationFrame(frame);
+  }, [snapshot?.workspace, recentResourceId]);
+  const resourceDestination = (view: string, id: string) => ({
+    href: href(view, id),
+    onSelect: () => visit(view, id),
+  });
+  const subscriptions = world ? laboratorySubscriptions(world, records, resourceDestination) : [];
+  const subscription = view === 'subscription' ? subscriptions.find((s) => s.id === id) : undefined;
   const section =
     query.get('section') === 'properties'
       ? 'properties'
       : query.get('section') === 'networking' && view === 'vm' && compute
         ? 'networking'
         : 'overview';
-  const services: [string, string, string][] = [
-    ['studio', studioCopy.title, 'architecture'],
-    ...(firewall
-      ? ([
-          ['firewalls', f.firewalls, 'firewall'],
-          ['firewallPolicies', f.policies, 'firewallPolicy'],
-          ['publicIps', f.publicIps, 'publicIp'],
-        ] as [string, string, string][])
-      : []),
-    ...(compute
-      ? ([
-          ['vms', m.vms, 'vm'],
-          ['disks', m.disks, 'disk'],
-        ] as [string, string, string][])
-      : []),
-    ...(endpoints
-      ? ([
-          ['nics', e.nics, 'nic'],
-          ['policy', firewall ? f.analysis : e.analysis, 'properties'],
-        ] as [string, string, string][])
-      : []),
-    ['groups', c.groups, 'groups'],
-    ['accounts', c.accounts, 'account'],
-    ...(network
-      ? ([
-          ['vnets', n.vnets, 'vnet'],
-          ['nsgs', n.nsgs, 'nsg'],
-        ] as [string, string, string][])
-      : []),
-    ...(routing
-      ? ([
-          ['routeTables', r.tables, 'routeTable'],
-          ['analysis', r.analysis, 'properties'],
-        ] as [string, string, string][])
-      : []),
-  ];
+  const catalog = portalServices('laboratory', world?.model);
+  const services: [string, string, string][] = catalog.map((s) => [s.view, s.title, s.icon]);
   const serviceView = resource
     ? (
         {
@@ -752,25 +753,38 @@ export function Laboratory() {
           route: 'routeTables',
         } as Record<string, string>
       )[resource.view]
-    : view === 'peerings'
-      ? 'vnets'
-      : view;
+    : view === 'subscription'
+      ? 'subscriptions'
+      : view === 'peerings'
+        ? 'vnets'
+        : view;
   const title = !snapshot
     ? c.title
     : view === 'peerings' && routing?.vnets.some((x) => x.id === id)
       ? `${routing.vnets.find((x) => x.id === id)?.name} · ${r.peerings}`
-      : (resource?.name ??
-        (view === 'history'
-          ? c.history
-          : view === 'resources'
-            ? nb.portal.areas.resources
-            : view === 'services'
-              ? nb.portal.areas.services
-              : (services.find(([key]) => key === view)?.[1] ?? c.missing)));
+      : (subscription?.name ??
+        resource?.name ??
+        (view === 'home'
+          ? nb.portal.areas.home
+          : view === 'history'
+            ? c.history
+            : view === 'resources'
+              ? nb.portal.areas.resources
+              : view === 'services'
+                ? nb.portal.areas.services
+                : (services.find(([key]) => key === view)?.[1] ?? c.missing)));
   const titleIcon =
     resource?.kind ??
     services.find(([key]) => key === view)?.[2] ??
-    (view === 'history' ? 'activity' : view === 'services' ? 'services' : 'resources');
+    (view === 'home'
+      ? 'home'
+      : subscription
+        ? 'subscription'
+        : view === 'history'
+          ? 'activity'
+          : view === 'services'
+            ? 'services'
+            : 'resources');
   const formIcon =
     form && firewallFields[form]
       ? form === 'CreateAzureFirewall'
@@ -886,18 +900,54 @@ export function Laboratory() {
             accept={accept}
           />
         ))}
+      {view === 'home' && (
+        <PortalHome
+          services={catalog}
+          destination={(view) => ({ href: href(view), onSelect: () => visit(view) })}
+          recent={
+            recent.workspace === snapshot.workspace
+              ? recent.ids.flatMap((id) =>
+                  records
+                    .filter((r) => r.id === id)
+                    .map((r) => laboratoryResourceLink(r, resourceDestination)),
+                )
+              : []
+          }
+          createGroup={
+            <button disabled={busy || !!error} onClick={() => begin('CreateGroup')}>
+              {c.newGroup}
+            </button>
+          }
+        />
+      )}
+      {view === 'subscriptions' && (
+        <PortalSubscriptions
+          subscriptions={subscriptions}
+          destination={(id) => resourceDestination('subscription', id)}
+        />
+      )}
+      {view === 'subscription' && subscription && (
+        <PortalSubscriptionDetails
+          subscription={subscription}
+          createGroup={
+            <button disabled={busy || !!error} onClick={() => begin('CreateGroup')}>
+              {c.newGroup}
+            </button>
+          }
+          section={section === 'properties' ? 'properties' : 'overview'}
+          onSection={(section) =>
+            router.push(href('subscription', subscription.id) + '&section=' + section)
+          }
+        />
+      )}
       {view === 'services' && (
         <>
           <p>{w.menuNote}</p>
-          <div className="portal-services-index">
-            {services.map(([key, title, icon]) => (
-              <button key={key} type="button" onClick={() => visit(key)}>
-                <ServiceIcon kind={icon} size={22} />
-                <span>{title}</span>
-                <ServiceIcon kind="next" size={14} />
-              </button>
-            ))}
-          </div>
+          <PortalServiceDirectory
+            services={catalog}
+            destination={(view) => ({ href: href(view), onSelect: () => visit(view) })}
+          />
+          <p className="portal-inline-info">{sharedCopy.pendingWeb}</p>
         </>
       )}
       {view === 'resources' && (
@@ -931,7 +981,12 @@ export function Laboratory() {
           <PropertyList
             items={[
               [c.id, group.id],
-              [c.subscription, group.subscriptionId],
+              [
+                c.subscription,
+                <Link key="subscription" href={href('subscription', group.subscriptionId)}>
+                  {subscriptions.find((s) => s.id === group.subscriptionId)?.name}
+                </Link>,
+              ],
               [nb.portal.metadata, group.metadataRegion],
             ]}
           />
@@ -957,7 +1012,23 @@ export function Laboratory() {
                   {world.groups.find((g) => g.id === account.groupId)?.name}
                 </Link>,
               ],
-              [c.subscription, world.groups.find((g) => g.id === account.groupId)?.subscriptionId],
+              [
+                c.subscription,
+                <Link
+                  key="subscription"
+                  href={href(
+                    'subscription',
+                    world.groups.find((g) => g.id === account.groupId)?.subscriptionId,
+                  )}
+                >
+                  {
+                    subscriptions.find(
+                      (s) =>
+                        s.id === world.groups.find((g) => g.id === account.groupId)?.subscriptionId,
+                    )?.name
+                  }
+                </Link>,
+              ],
             ]}
           />
           {receiptLink(account.origin)}
@@ -1171,6 +1242,9 @@ export function Laboratory() {
         </>
       )}
       {(![
+        'home',
+        'subscriptions',
+        'subscription',
         'services',
         'studio',
         'resources',
@@ -1201,6 +1275,7 @@ export function Laboratory() {
           ? ['peerings', 'peering', 'routeTables', 'routeTable', 'route', 'analysis']
           : []),
       ].includes(view) ||
+        (view === 'subscription' && !subscription) ||
         (view === 'group' && !group) ||
         (view === 'account' && !account) ||
         (view === 'container' && !container) ||
@@ -1232,7 +1307,7 @@ export function Laboratory() {
           homeHref={base}
           onHome={(e) => {
             e.preventDefault();
-            visit('groups');
+            visit('home');
           }}
           search={
             <PortalSearch
@@ -1245,7 +1320,7 @@ export function Laboratory() {
               <strong>{nb.portal.searchResults}</strong>
               <div className="portal-search-group">
                 <strong>{nb.portalUi.services}</strong>
-                {[...services, ['resources', nb.portal.areas.resources, 'resources']]
+                {[['home', nb.portal.areas.home, 'home'], ...services]
                   .filter(([, label]) => label!.toLowerCase().includes(search.toLowerCase()))
                   .map(([key, label, icon]) => (
                     <Link
@@ -1292,7 +1367,7 @@ export function Laboratory() {
                   .toLowerCase()
                   .includes(search.toLowerCase()),
               ) &&
-                ![...services, ['resources', nb.portal.areas.resources]].some(([, label]) =>
+                ![['home', nb.portal.areas.home], ...services].some(([, label]) =>
                   label!.toLowerCase().includes(search.toLowerCase()),
                 ) && <p>{nb.portal.noResults}</p>}
             </PortalSearch>
@@ -1316,49 +1391,11 @@ export function Laboratory() {
       }
       navigation={
         <PortalNavigation open={menu} label={c.navigation} footer={w.menuNote}>
-          <Link
-            href={href('services')}
-            onClick={(e) => {
-              e.preventDefault();
-              visit('services');
-            }}
-          >
-            <ServiceIcon kind="create" />
-            {nb.portalUi.create}
-          </Link>
-          <Link
-            href={href('services')}
-            aria-current={view === 'services' ? 'page' : undefined}
-            onClick={(e) => {
-              e.preventDefault();
-              visit('services');
-            }}
-          >
-            <ServiceIcon kind="services" />
-            {nb.portal.areas.services}
-          </Link>
-          <span className="portal-nav-category">
-            <ServiceIcon kind="favorite" size={12} />
-            {nb.portalUi.favorites}
-          </span>
-          {[
-            ['resources', nb.portal.areas.resources, 'resources'],
-            ...services,
-            ['history', c.history, 'activity'],
-          ].map(([key, label, icon]) => (
-            <Link
-              key={key}
-              href={href(key!)}
-              aria-current={serviceView === key ? 'page' : undefined}
-              onClick={(e) => {
-                e.preventDefault();
-                visit(key!);
-              }}
-            >
-              <ServiceIcon kind={icon!} />
-              {label}
-            </Link>
-          ))}
+          <PortalServiceNavigation
+            services={catalog}
+            current={serviceView ?? view}
+            destination={(view) => ({ href: href(view), onSelect: () => visit(view) })}
+          />
         </PortalNavigation>
       }
       layers={
@@ -1411,8 +1448,8 @@ export function Laboratory() {
       }
     >
       <PortalBreadcrumbs>
-        <button type="button" onClick={() => visit('groups')}>
-          {w.free}
+        <button type="button" onClick={() => visit('home')}>
+          {nb.portal.areas.home}
         </button>
         <ServiceIcon kind="next" size={12} />
         <button type="button" onClick={() => visit(serviceView ?? 'groups')}>

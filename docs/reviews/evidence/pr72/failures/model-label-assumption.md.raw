@@ -1,0 +1,253 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: portal-consolidation.spec.ts >> historical free 3.0 has common Home and subscription discovery without advertising newer model operations
+- Location: tests/e2e/portal-consolidation.spec.ts:143:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.selectOption: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByLabel('Arbeidsområdemodell', { exact: true })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - alert [ref=e2]
+  - generic [ref=e3]:
+    - link "Hopp til innhold" [ref=e4] [cursor=pointer]:
+      - /url: "#lab-main"
+    - banner [ref=e5]:
+      - button "Åpne eller lukk portalmenyen" [expanded] [ref=e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=e8] [cursor=pointer]:
+        - /url: /labs/laboratory
+      - searchbox "Search resources and services" [ref=e10]
+      - generic [ref=e11]: Fri Laboratory
+      - button "Originale kvitteringer" [ref=e12] [cursor=pointer]
+      - button "Modellgrenser" [ref=e14] [cursor=pointer]
+      - link "Kursarbeidsområde" [ref=e16] [cursor=pointer]:
+        - /url: /portal
+      - link "Til kurset" [ref=e17] [cursor=pointer]:
+        - /url: /learn
+      - link "Til forsiden" [ref=e18] [cursor=pointer]:
+        - /url: /
+    - generic [ref=e23]:
+      - complementary "Laboratory v3 navigasjon" [ref=e24]:
+        - navigation "Laboratory v3 navigasjon" [ref=e25]:
+          - link "Create a resource" [ref=e26] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - link "Home" [ref=e28] [cursor=pointer]:
+            - /url: /labs/laboratory?view=home
+          - link "All services" [ref=e30] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - generic [ref=e32]: FAVORITES
+        - generic [ref=e34]: Støttede tjenester i dette arbeidsområdet
+      - main [ref=e35]:
+        - generic [ref=e39]:
+          - heading "Laboratory v3" [level=1] [ref=e40]
+          - generic [ref=e41]: Midlertidig Sandbox · nullstilles ved ny innlasting · ingen kursresultater eller XP
+        - generic [ref=e43]:
+          - alert [ref=e44]:
+            - paragraph [ref=e45]: Start eller gjenopprett en anonym laboratoriesesjon for å fortsette.
+          - generic [ref=e46]:
+            - generic [ref=e47]:
+              - button "Start midlertidig Sandbox uten lagring" [ref=e48] [cursor=pointer]
+              - paragraph [ref=e49]: Utforsk alle støttede tjenester uten innlogging. Arbeidet ligger bare i denne fanen og forsvinner ved ny innlasting.
+            - paragraph [ref=e50]: En anonym nettleserøkt med egen serverlagring opprettes først når du starter. Økten varer i inntil sju dager. Dette er ikke verifisert brukeridentitet eller sertifiseringshistorikk.
+            - group [ref=e51]:
+              - generic "Tidligere arbeidsområdemodeller" [active] [ref=e52] [cursor=pointer]
+              - generic [ref=e53]:
+                - text: Arbeidsområdemodell
+                - combobox "Arbeidsområdemodell" [ref=e54]:
+                  - option "3.6 · Security Rule Lifecycle"
+                  - option "3.7 · Topology Remediation" [selected]
+                  - option "3.5 · Storage, Networking, Compute og Firewall A"
+                  - option "3.4 · Storage, Networking og Compute A"
+                  - option "3.3 · Storage og Networking A/B/C"
+                  - option "3.2 · Storage og Networking A/B"
+                  - option "3.1 · Storage og Networking A"
+                  - option "3.0 · Storage"
+              - paragraph [ref=e55]: Valget gjelder bare et nytt arbeidsområde. Eksisterende sesjon gjenopptas uten oppgradering.
+            - button "Start eget laboratoriearbeidsområde" [ref=e56] [cursor=pointer]
+        - generic [ref=e57]:
+          - generic [ref=e58]: Fri Laboratory
+          - button "Oppdater fra serveren" [ref=e59] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  48  |   await page.getByRole('button', { name: c.review, exact: true }).click();
+  49  |   await page
+  50  |     .getByRole('region', { name: c.review, exact: true })
+  51  |     .getByRole('button', { name: c.create, exact: true })
+  52  |     .click();
+  53  |   await expect(page.locator('.portal-title h1')).toHaveText('rg-shared-home');
+  54  |   await service(page, c.accounts);
+  55  |   const made = await create(page, c.newAccount, { name: 'sharedhomeaccount72' });
+  56  |   expect(made.world.groups[0]!.subscriptionId).toBe('sub-app');
+  57  |   const original = JSON.stringify(made.entries);
+  58  |   await page
+  59  |     .getByRole('navigation', { name: 'sharedhomeaccount72 · Overview', exact: true })
+  60  |     .getByRole('button', { name: nb.portalUi.properties, exact: true })
+  61  |     .click();
+  62  |   await expect(page.getByRole('link', { name: c.receipt, exact: true })).toHaveAttribute(
+  63  |     'href',
+  64  |     new RegExp(made.receipt.commandId),
+  65  |   );
+  66  |   await service(page, p.areas.resources);
+  67  |   await expect(page.locator('table')).toContainText('sharedhomeaccount72');
+  68  |   const count = commands.length;
+  69  |   await service(page, studio.title);
+  70  |   await expect(page.locator('.architecture-studio')).toBeVisible();
+  71  |   await home(page, 'laboratory');
+  72  |   await expect(page.locator('[data-portal-component="home"] table')).toContainText(
+  73  |     'sharedhomeaccount72',
+  74  |   );
+  75  |   await scope(page, 'Shared Sandbox');
+  76  |   await expect(page.locator('[data-portal-component="subscription-details"]')).not.toContainText(
+  77  |     'rg-shared-home',
+  78  |   );
+  79  |   await page.goBack();
+  80  |   await expect(page.locator('.portal-title h1')).toHaveText(p.areas.subscriptions);
+  81  |   await page.goForward();
+  82  |   await expect(page.locator('.portal-title h1')).toHaveText('Shared Sandbox');
+  83  |   expect(commands).toHaveLength(count);
+  84  |   expect(await courseBytes(page)).toBe(before);
+  85  |   await service(page, c.history);
+  86  |   await expect(page.locator('table tbody tr')).toHaveCount(made.entries.length);
+  87  |   expect(JSON.stringify(made.entries)).toBe(original);
+  88  |   await page.screenshot({ path: info.outputPath('free-original-history.png') });
+  89  | });
+  90  | test('guided course uses the same Home catalogue and subscriptions while actual v2 task and exact return retain original authority', async ({
+  91  |   page,
+  92  | }, info) => {
+  93  |   await missionStart(page, 'infrastructure');
+  94  |   await home(page, 'course');
+  95  |   await expect(page.locator('.portal-home-training')).toHaveCount(1);
+  96  |   const nav = page.getByRole('navigation', { name: p.navLabel, exact: true });
+  97  |   await nav.getByRole('link', { name: p.areas.subscriptions, exact: true }).click();
+  98  |   await page
+  99  |     .locator('[data-portal-component="subscriptions"]')
+  100 |     .getByRole('link', { name: 'Shared Sandbox', exact: true })
+  101 |     .click();
+  102 |   await expect(page.locator('[data-portal-component="subscription-details"]')).toBeVisible();
+  103 |   await page.screenshot({ path: info.outputPath('course-subscription.png') });
+  104 |   await courseCreate(page, 'group', 'rg-shared-course', 'sub-shared', 'norwayeast');
+  105 |   await home(page, 'course');
+  106 |   await expect(page.locator('[data-portal-component="home"] table')).toContainText(
+  107 |     'rg-shared-course',
+  108 |   );
+  109 |   await expect(nav.getByRole('link', { name: 'Storage accounts', exact: true })).toHaveCount(0);
+  110 |   await expect(nav.getByRole('link', { name: p.areas.apps, exact: true })).toBeVisible();
+  111 |   await returnCourse(page, 'infrastructure');
+  112 | });
+  113 | test('persistent shared Home subscriptions reload and isolated sessions read the same committed World without new history', async ({
+  114 |   page,
+  115 |   browser,
+  116 | }, info) => {
+  117 |   await page.goto('/labs/laboratory');
+  118 |   await page.getByRole('button', { name: c.start, exact: true }).click();
+  119 |   await expect(page.locator('[data-portal-component="home"]')).toBeVisible();
+  120 |   await page.getByRole('button', { name: c.newGroup, exact: true }).click();
+  121 |   await page.getByLabel(c.name, { exact: true }).fill('rg-shared-persistent');
+  122 |   await page.getByRole('button', { name: c.review, exact: true }).click();
+  123 |   await page
+  124 |     .getByRole('region', { name: c.review, exact: true })
+  125 |     .getByRole('button', { name: c.create, exact: true })
+  126 |     .click();
+  127 |   await expect(page.locator('.portal-title h1')).toHaveText('rg-shared-persistent');
+  128 |   const before = await (await page.request.get('/api/laboratory/state')).json();
+  129 |   await scope(page, 'Shared Sandbox');
+  130 |   await expect(page.locator('[data-portal-component="subscription-details"]')).toContainText(
+  131 |     'rg-shared-persistent',
+  132 |   );
+  133 |   await page.reload();
+  134 |   await expect(page.locator('[data-portal-component="subscription-details"]')).toContainText(
+  135 |     'rg-shared-persistent',
+  136 |   );
+  137 |   const after = await (await page.request.get('/api/laboratory/state')).json();
+  138 |   expect(after).toEqual(before);
+  139 |   const isolated = await browser.newContext({ baseURL: info.project.use.baseURL });
+  140 |   expect((await isolated.request.get('/api/laboratory/state')).status()).toBe(401);
+  141 |   await isolated.close();
+  142 | });
+  143 | test('historical free 3.0 has common Home and subscription discovery without advertising newer model operations', async ({
+  144 |   page,
+  145 | }) => {
+  146 |   await page.goto('/labs/laboratory');
+  147 |   await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();
+> 148 |   await page.getByLabel('Arbeidsområdemodell', { exact: true }).selectOption('laboratory@3.0.0');
+      |                                                                 ^ Error: locator.selectOption: Test timeout of 30000ms exceeded.
+  149 |   await page.getByRole('button', { name: c.start, exact: true }).click();
+  150 |   await expect(page.locator('[data-portal-component="home"]')).toBeVisible();
+  151 |   await service(page, p.areas.services);
+  152 |   const directory = page.locator('[data-portal-component="service-directory"]');
+  153 |   await expect(directory.getByRole('link', { name: c.accounts, exact: true })).toBeVisible();
+  154 |   await expect(directory.getByRole('link', { name: p.areas.vms, exact: true })).toHaveCount(0);
+  155 |   await expect(directory.getByRole('link', { name: p.areas.apps, exact: true })).toHaveCount(0);
+  156 |   await scope(page, 'App Sandbox');
+  157 |   await expect(page.locator('[data-portal-component="subscription-details"]')).toContainText(
+  158 |     'sub-app',
+  159 |   );
+  160 | });
+  161 | test('shared Home subscriptions compact keyboard focus reduced motion Axe and short desktop stay readable in both modes', async ({
+  162 |   page,
+  163 | }, info) => {
+  164 |   await page.emulateMedia({ reducedMotion: 'reduce' });
+  165 |   await startTemporary(page);
+  166 |   for (const [width, height] of [
+  167 |     [1440, 900],
+  168 |     [1024, 768],
+  169 |     [1024, 500],
+  170 |     [800, 700],
+  171 |   ]) {
+  172 |     await page.setViewportSize({ width: width!, height: height! });
+  173 |     await home(page, 'laboratory');
+  174 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+  175 |       true,
+  176 |     );
+  177 |     expect((await new Axe({ page }).analyze()).violations).toEqual([]);
+  178 |     await page.screenshot({ path: info.outputPath(`free-home-${width}-${height}.png`) });
+  179 |   }
+  180 |   const first = page
+  181 |     .locator('.portal-home-services')
+  182 |     .getByRole('link', { name: p.areas.subscriptions, exact: true });
+  183 |   await first.focus();
+  184 |   await expect(first).toBeFocused();
+  185 |   await page.keyboard.press('Enter');
+  186 |   await expect(page.locator('[data-portal-component="subscriptions"]')).toBeVisible();
+  187 |   expect((await new Axe({ page }).analyze()).violations).toEqual([]);
+  188 |   await page.screenshot({ path: info.outputPath('free-subscriptions-short.png') });
+  189 |   await page.goto('/portal');
+  190 |   await expect(page.locator('[data-portal-component="home"]')).toBeVisible();
+  191 |   expect((await new Axe({ page }).analyze()).violations).toEqual([]);
+  192 |   const link = page
+  193 |     .locator('.portal-home-services')
+  194 |     .getByRole('link', { name: p.areas.subscriptions, exact: true });
+  195 |   await link.focus();
+  196 |   await page.keyboard.press('Enter');
+  197 |   await expect(page.locator('[data-portal-component="subscriptions"]')).toBeVisible();
+  198 |   await page
+  199 |     .locator('[data-portal-component="subscriptions"]')
+  200 |     .getByRole('link', { name: 'Shared Sandbox', exact: true })
+  201 |     .click();
+  202 |   await expect(page.locator('[data-portal-component="subscription-details"]')).toBeVisible();
+  203 |   expect((await new Axe({ page }).analyze()).violations).toEqual([]);
+  204 |   await page.screenshot({ path: info.outputPath('course-subscription-short.png') });
+  205 | });
+  206 | 
+```

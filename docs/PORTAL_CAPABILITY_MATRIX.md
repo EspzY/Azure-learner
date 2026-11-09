@@ -1,3 +1,7 @@
+## Current shared entry consolidation —9 November2026
+
+See the exhaustive [course-v2 versus Laboratory3.7 matrix](SHARED_PORTAL_CAPABILITY_MATRIX.md) and [architecture contract](SHARED_PORTAL_CONSOLIDATION.md). Home, Subscriptions and catalogue/navigation now share implementation; original resource/learning authorities remain separate. Historical rows below retain their dated scope and are not reclassified as new operations.
+
 # PR50 — Portal capability and fidelity matrix
 
 ## PR66 — Compute Part A
