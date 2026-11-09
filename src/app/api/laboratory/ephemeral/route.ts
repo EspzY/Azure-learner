@@ -90,7 +90,7 @@ function verified(value: unknown): Snapshot {
 function owned(snapshot: Snapshot, workspace: unknown) {
   if (workspace !== snapshot.workspace) throw new RequestError('workspace-changed', 409);
 }
-function command(snapshot: Snapshot, raw: unknown) {
+function command(raw: unknown) {
   const request = parseRequest(raw);
   if (!request) throw new RequestError('invalid-request');
   return request;
@@ -173,7 +173,7 @@ export async function POST(req: Request) {
     }
     if (action === 'analysis' || action === 'policy-analysis')
       return analysis(snapshot, value.values, action);
-    const request: LabRequest = command(snapshot, value.request);
+    const request: LabRequest = command(value.request);
     if (action === 'review')
       return response({ workspace: snapshot.workspace,
         preview: execute(snapshot.world, request, snapshot.entries.length + 1).receipt,
