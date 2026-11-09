@@ -102,7 +102,7 @@ import { useCourse } from '@/features/course/provider';
 import { courseHref, courseLabHref, labFacts, startLab, type LabForm } from '@/domain/course/model';
 import { GuidedCoach } from '@/features/course/guided-coach';
 import Link from 'next/link';
-import { House } from 'lucide-react';
+import { AzureLabHomeLink } from '@/features/portal/azurelab-home-link';
 import { useExpansion, ExpansionAssistance } from '@/features/learning/expansion-provider';
 const p = nb.portal;
 const services = [
@@ -744,10 +744,7 @@ function PortalWorkspace({ navigation }: { navigation?: PortalPresentationNaviga
           >
             <ServiceIcon kind="learn" size={19} />
           </button>
-          <Link className="portal-workspace-link portal-landing-link" href="/" aria-label="Til forsiden">
-            <House size={16} aria-hidden="true" />
-            <span>Til forsiden</span>
-          </Link>
+          <AzureLabHomeLink className="portal-workspace-link portal-landing-link" />
         </PortalHeader>
       }
       navigation={

@@ -1,0 +1,7 @@
+# PR71 actual visual review
+
+Production build, not generated mockups. Initial ae671… landing and unavailable entry retained beside the corrected candidate. Two visible inner CTAs were redundant; whole-card links now carry the same accessible names and actual destinations. Planned cards have the same visual dimensions without pretend actions. Navy background and restrained cyan/lavender edge light leave course choices legible. No new mascot assets.
+
+Actual initial1440×900 and1024×500 captures showed the before/after card balance and whole landing fitting the viewport. New actual native coverage exercises1920×1080,1440×900,1024×768,1024×500,800×700, keyboard/focus, reduced motion, no horizontal overflow and Axe; exact completed results are recorded in the QA report. Original browser125/200% zoom witnesses remain unchanged. CDP page scaling is supplementary evidence, not equivalent to browser text/reflow zoom. No human screen-reader or measured usability approval is claimed.
+
+Free Laboratory retains the common Portal header/navigation/Properties/Review/receipt design. The temporary entry and loaded footer state no storage and refresh loss. A server-storage diagnostic is secondary, while the actual temporary Start is available. Course and guided Portal keep their original context/learning controls with one pure product-Home link. Product Home, course overview and Portal Home remain distinct.

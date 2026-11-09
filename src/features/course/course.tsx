@@ -115,8 +115,9 @@ import { usePractical } from './practical-provider';
 import { practicalHref } from '@/domain/sandbox/practical';
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { AzureLabHomeLink } from '@/features/portal/azurelab-home-link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { ChevronRight, FlaskConical, House, Menu } from 'lucide-react';
+import { ChevronRight, FlaskConical, Menu } from 'lucide-react';
 import { labsNb, nb, serverlessNb, architectureNb, managementNb } from '@/content/nb';
 import { unitIds } from '@/domain/curriculum/manifest';
 import { topics, portalHref, parseLocation, type PortalLocation } from '@/domain/portal/model';
@@ -1219,7 +1220,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
         </Link>
         <nav aria-label={c.home}>
           <Link href="/learn">{c.home}</Link>
-          <Link href="/labs/laboratory" aria-label="Åpne fri Sandbox">
+          <Link href="/portal">
             <FlaskConical size={16} />
             {c.sandbox}
           </Link>
@@ -1235,10 +1236,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
         >
           {c.journal}
         </button>
-        <Link className="course-home-link" href="/" aria-label="Til forsiden">
-          <House size={16} aria-hidden="true" />
-          <span>Til forsiden</span>
-        </Link>
+        <AzureLabHomeLink className="course-home-link" />
       </header>
       <div className="course-layout">
         <aside className={`course-navigation ${menu ? 'course-menu-open' : ''}`}>

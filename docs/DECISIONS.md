@@ -368,3 +368,7 @@ Use3.6 only for new workspaces;007 is additive. Preserve stable rule ID and Crea
 ## PR70 — explicit topology epoch and conservative peering boundary
 
 Use laboratory@3.7.0 only for new workspaces, additive008 and immutable topology-change receipts. Never rebind IDs or overwrite Create-origin to edit a route. Reuse frozen complete validators in private proposals and validate all subnet associations before committing once. Keep peering access separate from relationship/forwarding status; uncertain VirtualNetwork tag dependencies include unselected peerings. Current official Delete sources do not establish one safe shared Portal side-effect contract, so defer that single operation. No synthetic Disconnected/cascade or default-rule certainty is invented. [Contract](LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md).
+
+## PR71 — explicit memory authority, unchanged course authority
+
+Retain the bounded stateless adapter over frozen3.7 rather than fork the Node crypto/domain engine for browser execution. Temporary history belongs only to the current browser document and is never assessment attestation; existing PostgreSQL authority remains unchanged. Keep course Sandbox on its original v2 Portal while adding neutral product Home. [Runtime decision](LABORATORY_EPHEMERAL_LANDING.md) and [proposed controlled course integration](LABORATORY_COURSE_INTEGRATION_PLAN.md) define the boundary and staged approval requirements.

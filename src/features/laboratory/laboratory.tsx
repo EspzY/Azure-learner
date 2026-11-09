@@ -18,8 +18,9 @@ import {
   PortalReceiptSummary,
 } from '@/features/portal/presentation';
 import Link from 'next/link';
-import { House } from 'lucide-react';
+import { AzureLabHomeLink } from '@/features/portal/azurelab-home-link';
 import { ephemeralApi, ephemeralActive, startEphemeral } from './ephemeral-client';
+import { laboratoryEphemeralNb as temp } from '@/content/laboratory-ephemeral-nb';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { laboratoryV3Nb as c } from '@/content/nb';
 import type { Snapshot, Request as LabRequest, Command, Receipt, Model } from '@/laboratory/engine';
@@ -173,6 +174,10 @@ export function Laboratory() {
   useEffect(() => {
     if (form) formHeading.current?.focus({ preventScroll: true });
   }, [form]);
+  useEffect(() => {
+    // Enter a received workspace without stealing focus on Studio filters/pan.
+    if (snapshot?.workspace) resultRef.current?.focus({ preventScroll: true });
+  }, [snapshot?.workspace]);
   const updatePending = useCallback((value: { request: LabRequest; workspace: string } | null) => {
     pending.current = value;
     setPendingView(value);
@@ -252,7 +257,7 @@ export function Laboratory() {
       const bc = new BroadcastChannel('azurelab.laboratory.v3.invalidate');
       channel.current = bc;
       bc.onmessage = () => {
-        void load();
+        if (!ephemeralActive()) void load();
       };
     }
     return () => {
@@ -350,7 +355,7 @@ export function Laboratory() {
                         ? href(kind, target)
                         : href('history', undefined, result.receipt.commandId),
         );
-        channel.current?.postMessage('changed');
+        if (!ephemeralActive()) channel.current?.postMessage('changed');
       } else {
         updatePending(null);
         setForm(null);
@@ -394,7 +399,7 @@ export function Laboratory() {
         ++version.current;
         accept(incoming);
         setError('');
-        channel.current?.postMessage('changed');
+        if (!ephemeralActive()) channel.current?.postMessage('changed');
       });
     } catch (e) {
       setError(e instanceof Error ? e.message : 'server-result-unavailable');
@@ -406,7 +411,7 @@ export function Laboratory() {
   const startTemporary = async () => {
     setBusy(true);
     try {
-      const incoming = await startEphemeral(startModel);
+      const incoming = await startEphemeral(topologyModel);
       ++version.current;
       setSnapshot(incoming);
       updatePending(null);
@@ -421,6 +426,8 @@ export function Laboratory() {
       setLoading(false);
     }
   };
+  const temporary = ephemeralActive();
+  const modeNote = temporary ? temp.mode : snapshot ? w.modeNote : temp.mode;
   const world = snapshot?.world,
     network = world && world.model !== 'laboratory@3.0.0' ? world : undefined,
     routing =
@@ -1094,16 +1101,23 @@ export function Laboratory() {
               identity={selectedReceipt.receipt.commandId}
               title={
                 <>
-                  {c.result} · {selectedReceipt.receipt.sequence}
+                  {temporary ? temp.result : c.result} · {selectedReceipt.receipt.sequence}
                 </>
               }
               description={
                 <>
-                  {selectedReceipt.receipt.outcome === 'accepted' ? c.committed : c.rejected}{' '}
+                  {selectedReceipt.receipt.outcome === 'accepted'
+                    ? temporary
+                      ? temp.accepted
+                      : c.committed
+                    : temporary
+                      ? temp.rejected
+                      : c.rejected}{' '}
                   {message(selectedReceipt.receipt.code, selectedReceipt.receipt.operation)}
                 </>
               }
             >
+              {temporary && <p className="portal-inline-info">{temp.evidence}</p>}
               <PropertyList
                 items={[
                   [c.attempt, selectedReceipt.attempt],
@@ -1297,10 +1311,7 @@ export function Laboratory() {
           <Link className="portal-workspace-link" href="/learn">
             {c.course}
           </Link>
-          <Link className="portal-workspace-link portal-landing-link" href="/" aria-label="Til forsiden">
-            <House size={16} aria-hidden="true" />
-            <span>Til forsiden</span>
-          </Link>
+          <AzureLabHomeLink className="portal-workspace-link portal-landing-link" />
         </PortalHeader>
       }
       navigation={
@@ -1355,7 +1366,7 @@ export function Laboratory() {
           {' '}
           {reset && world && (
             <PortalDialog title={c.resetTitle} onClose={() => setReset(null)}>
-              <p>{c.resetNote}</p>
+              <p>{temporary ? temp.reset : c.resetNote}</p>
               <button
                 disabled={busy}
                 onClick={() => {
@@ -1393,7 +1404,7 @@ export function Laboratory() {
             <PortalDialog title={nb.portal.limitations} onClose={() => setHelp(false)}>
               <p>{w.scopeNote}</p>
               <p>{c.limits}</p>
-              <p>{c.startNote}</p>
+              <p>{temporary || !snapshot ? temp.limits : c.startNote}</p>
             </PortalDialog>
           )}
         </>
@@ -1433,35 +1444,49 @@ export function Laboratory() {
           title={title}
           headingRef={resultRef}
           icon={<ServiceIcon kind={titleIcon} size={28} />}
-          subtitle={resource ? `${resource.typeName} · ${w.modeNote}` : w.modeNote}
+          subtitle={resource ? `${resource.typeName} · ${modeNote}` : modeNote}
         />
       )}
       <div className="portal-content">
         <div className="portal-view">
           {loading && <p role="status">{c.loading}</p>}
-          {error && (
-            <div role="alert" className="lab-alert">
-              <p>{message(error)}</p>
-              {pendingView && (
-                <button
-                  disabled={busy}
-                  onClick={() => {
-                    const action = pending.current;
-                    if (action) void run(action.request, action.workspace);
-                  }}
-                >
-                  {c.retry}
-                </button>
-              )}
-            </div>
-          )}
+          {error &&
+            (!snapshot && ['backend-unavailable', 'server-result-unavailable'].includes(error) ? (
+              <details className="lab-storage-status" open aria-label="Serverlagring">
+                <summary>{temp.persistentUnavailable}</summary>
+                <p className="lab-alert">
+                  <span role="alert">{message(error)}</span>
+                  {error === 'backend-unavailable' &&
+                    c.unavailable.slice(c.codes['backend-unavailable'].length)}
+                </p>
+              </details>
+            ) : (
+              <div role="alert" className="lab-alert">
+                <p>{message(error)}</p>
+                {pendingView && (
+                  <button
+                    disabled={busy}
+                    onClick={() => {
+                      const action = pending.current;
+                      if (action) void run(action.request, action.workspace);
+                    }}
+                  >
+                    {c.retry}
+                  </button>
+                )}
+              </div>
+            ))}
           {!snapshot && !loading && (
             <section>
-              <p>
-                {error === 'backend-unavailable' || error === 'server-result-unavailable'
-                  ? c.unavailable
-                  : c.startNote}
-              </p>
+              <div className="lab-temporary-entry">
+                <button type="button" disabled={busy} onClick={() => void startTemporary()}>
+                  {temp.start}
+                </button>
+                <p>{temp.entry}</p>
+              </div>
+              {!['backend-unavailable', 'server-result-unavailable'].includes(error) && (
+                <p>{c.startNote}</p>
+              )}
               <details className="lab-model-choice">
                 <summary>Tidligere arbeidsområdemodeller</summary>
                 <label>
@@ -1495,17 +1520,6 @@ export function Laboratory() {
               >
                 {c.start}
               </button>
-              {(error === 'backend-unavailable' || error === 'server-result-unavailable') && (
-                <div className="lab-temporary-entry">
-                  <button type="button" disabled={busy} onClick={() => void startTemporary()}>
-                    Start midlertidig Sandbox uten lagring
-                  </button>
-                  <p>
-                    Full simulator med midlertidig arbeidsområde. Ressurser og kvitteringer
-                    forsvinner ved ny innlasting. Dette er ikke lagret kursarbeid.
-                  </p>
-                </div>
-              )}
             </section>
           )}
 
@@ -1532,7 +1546,7 @@ export function Laboratory() {
                       id="lab-page-title"
                       title={operation(form!)}
                       headingRef={formHeading}
-                      subtitle={w.modeNote}
+                      subtitle={modeNote}
                       icon={<ServiceIcon kind={formIcon} size={28} />}
                     />
                   }
@@ -2159,7 +2173,7 @@ export function Laboratory() {
         <span>{w.free}</span>
         {ephemeralActive() && (
           <span className="lab-ephemeral-status" role="status">
-            Midlertidig – ingen lagring · nullstilles ved ny innlasting
+            {temp.status}
           </span>
         )}
         <button
@@ -2170,7 +2184,7 @@ export function Laboratory() {
           disabled={busy}
         >
           <ServiceIcon kind="refresh" size={15} />
-          {c.refresh}
+          {temporary ? temp.refresh : c.refresh}
         </button>
         {world && (
           <>

@@ -1,0 +1,541 @@
+﻿2026-11-09T07:25:39.7490906Z Current runner version: '2.338.2'
+2026-11-09T07:25:39.7511869Z ##[group]Runner Image Provisioner
+2026-11-09T07:25:39.7512832Z Hosted Compute Agent
+2026-11-09T07:25:39.7513458Z Version: 20261028.624
+2026-11-09T07:25:39.7514329Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-09T07:25:39.7515101Z Build Date: 2026-10-28T21:51:42Z
+2026-11-09T07:25:39.7515721Z Worker ID: {2ba59106-6f19-4152-8e22-00574ad4932f}
+2026-11-09T07:25:39.7516326Z Region: centralus
+2026-11-09T07:25:39.7516784Z Cloud: Azure
+2026-11-09T07:25:39.7517304Z ##[endgroup]
+2026-11-09T07:25:39.7518541Z ##[group]Operating System
+2026-11-09T07:25:39.7519129Z Ubuntu
+2026-11-09T07:25:39.7519593Z 24.04.5
+2026-11-09T07:25:39.7520043Z LTS
+2026-11-09T07:25:39.7520532Z ##[endgroup]
+2026-11-09T07:25:39.7521073Z ##[group]Runner Image
+2026-11-09T07:25:39.7521638Z Image: ubuntu-24.04
+2026-11-09T07:25:39.7522144Z Version: 20261101.360.1
+2026-11-09T07:25:39.7523491Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-09T07:25:39.7524861Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-09T07:25:39.7525794Z ##[endgroup]
+2026-11-09T07:25:39.7526710Z ##[group]GITHUB_TOKEN Permissions
+2026-11-09T07:25:39.7528588Z Contents: read
+2026-11-09T07:25:39.7529146Z Metadata: read
+2026-11-09T07:25:39.7529650Z ##[endgroup]
+2026-11-09T07:25:39.7531527Z Secret source: Actions
+2026-11-09T07:25:39.7532383Z Cache mode: write
+2026-11-09T07:25:39.7533463Z Prepare workflow directory
+2026-11-09T07:25:39.7877950Z Prepare all required actions
+2026-11-09T07:25:39.7917689Z Getting action download info
+2026-11-09T07:25:40.0666224Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-09T07:25:40.1772769Z Download action repository 'actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1' (SHA:949feb2413d6458794dcd2491c4babbbce0c15c1)
+2026-11-09T07:25:40.2834673Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-11-09T07:25:40.4732249Z Complete job name: verify
+2026-11-09T07:25:40.5198186Z ##[group]Checking docker version
+2026-11-09T07:25:40.5209379Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+2026-11-09T07:25:40.5857752Z '1.48'
+2026-11-09T07:25:40.5870214Z Docker daemon API version: '1.48'
+2026-11-09T07:25:40.5870851Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+2026-11-09T07:25:40.6026077Z '1.48'
+2026-11-09T07:25:40.6039702Z Docker client API version: '1.48'
+2026-11-09T07:25:40.6044630Z ##[endgroup]
+2026-11-09T07:25:40.6046591Z ##[group]Clean up resources from previous jobs
+2026-11-09T07:25:40.6051297Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=51600f"
+2026-11-09T07:25:40.6198146Z ##[command]/usr/bin/docker network prune --force --filter "label=51600f"
+2026-11-09T07:25:40.6324205Z ##[endgroup]
+2026-11-09T07:25:40.6324663Z ##[group]Create local container network
+2026-11-09T07:25:40.6332683Z ##[command]/usr/bin/docker network create --label 51600f github_network_736d225c5e564e9ab360c3f79b5df32a
+2026-11-09T07:25:40.6861044Z 1b5275bfd6e0233f4c4124a34927c1af3f6af3c4c98d32b0be72be5221484d51
+2026-11-09T07:25:40.6881893Z ##[endgroup]
+2026-11-09T07:25:40.6904243Z ##[group]Starting laboratory-postgres service container
+2026-11-09T07:25:40.6921630Z ##[command]/usr/bin/docker pull postgres:17-bookworm@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T07:25:41.1014331Z docker.io/library/postgres@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994: Pulling from library/postgres
+2026-11-09T07:25:41.2768660Z dd051e1b8c92: Pulling fs layer
+2026-11-09T07:25:41.2769806Z 4fd88e653359: Pulling fs layer
+2026-11-09T07:25:41.2770489Z 41e20cc91088: Pulling fs layer
+2026-11-09T07:25:41.2771122Z cecd59c0f4e8: Pulling fs layer
+2026-11-09T07:25:41.2771896Z fe98381fbf47: Pulling fs layer
+2026-11-09T07:25:41.2773392Z 2c502f9a0399: Pulling fs layer
+2026-11-09T07:25:41.2774075Z 9e6067604731: Pulling fs layer
+2026-11-09T07:25:41.2774614Z 32564e1f6308: Pulling fs layer
+2026-11-09T07:25:41.2775145Z 80ed7b53ecf0: Pulling fs layer
+2026-11-09T07:25:41.2775663Z 46db58682565: Pulling fs layer
+2026-11-09T07:25:41.2776172Z f17bd255b710: Pulling fs layer
+2026-11-09T07:25:41.2776659Z 277e6d734690: Pulling fs layer
+2026-11-09T07:25:41.2777153Z f4368716ea81: Pulling fs layer
+2026-11-09T07:25:41.2777650Z c200e4e2b35b: Pulling fs layer
+2026-11-09T07:25:41.2778187Z 2c502f9a0399: Waiting
+2026-11-09T07:25:41.2778725Z 9e6067604731: Waiting
+2026-11-09T07:25:41.2779172Z 32564e1f6308: Waiting
+2026-11-09T07:25:41.2779616Z 80ed7b53ecf0: Waiting
+2026-11-09T07:25:41.2780063Z 46db58682565: Waiting
+2026-11-09T07:25:41.2780511Z f17bd255b710: Waiting
+2026-11-09T07:25:41.2780957Z 277e6d734690: Waiting
+2026-11-09T07:25:41.2781400Z f4368716ea81: Waiting
+2026-11-09T07:25:41.2781846Z c200e4e2b35b: Waiting
+2026-11-09T07:25:41.2782307Z cecd59c0f4e8: Waiting
+2026-11-09T07:25:41.2782925Z fe98381fbf47: Waiting
+2026-11-09T07:25:41.4231636Z 4fd88e653359: Verifying Checksum
+2026-11-09T07:25:41.4233108Z 4fd88e653359: Download complete
+2026-11-09T07:25:41.5373479Z 41e20cc91088: Verifying Checksum
+2026-11-09T07:25:41.5374716Z 41e20cc91088: Download complete
+2026-11-09T07:25:41.5412181Z dd051e1b8c92: Verifying Checksum
+2026-11-09T07:25:41.5413898Z dd051e1b8c92: Download complete
+2026-11-09T07:25:41.6619500Z cecd59c0f4e8: Download complete
+2026-11-09T07:25:41.7575825Z fe98381fbf47: Verifying Checksum
+2026-11-09T07:25:41.7577224Z fe98381fbf47: Download complete
+2026-11-09T07:25:41.7685258Z 2c502f9a0399: Verifying Checksum
+2026-11-09T07:25:41.7686480Z 2c502f9a0399: Download complete
+2026-11-09T07:25:41.8042750Z 9e6067604731: Verifying Checksum
+2026-11-09T07:25:41.8044435Z 9e6067604731: Download complete
+2026-11-09T07:25:41.9133177Z 32564e1f6308: Verifying Checksum
+2026-11-09T07:25:41.9134083Z 32564e1f6308: Download complete
+2026-11-09T07:25:41.9545561Z 46db58682565: Verifying Checksum
+2026-11-09T07:25:41.9547363Z 46db58682565: Download complete
+2026-11-09T07:25:42.0668711Z f17bd255b710: Verifying Checksum
+2026-11-09T07:25:42.0669544Z f17bd255b710: Download complete
+2026-11-09T07:25:42.1293553Z 277e6d734690: Verifying Checksum
+2026-11-09T07:25:42.1295269Z 277e6d734690: Download complete
+2026-11-09T07:25:42.1905903Z f4368716ea81: Verifying Checksum
+2026-11-09T07:25:42.1906788Z f4368716ea81: Download complete
+2026-11-09T07:25:42.2835237Z 80ed7b53ecf0: Verifying Checksum
+2026-11-09T07:25:42.2835708Z 80ed7b53ecf0: Download complete
+2026-11-09T07:25:42.2913404Z c200e4e2b35b: Verifying Checksum
+2026-11-09T07:25:42.2913826Z c200e4e2b35b: Download complete
+2026-11-09T07:25:42.4619770Z dd051e1b8c92: Pull complete
+2026-11-09T07:25:44.4354329Z 4fd88e653359: Pull complete
+2026-11-09T07:25:44.5932012Z 41e20cc91088: Pull complete
+2026-11-09T07:25:44.6421784Z cecd59c0f4e8: Pull complete
+2026-11-09T07:25:45.0183854Z fe98381fbf47: Pull complete
+2026-11-09T07:25:45.0823436Z 2c502f9a0399: Pull complete
+2026-11-09T07:25:45.0909388Z 9e6067604731: Pull complete
+2026-11-09T07:25:45.0995581Z 32564e1f6308: Pull complete
+2026-11-09T07:25:48.7374034Z 80ed7b53ecf0: Pull complete
+2026-11-09T07:25:48.7528365Z 46db58682565: Pull complete
+2026-11-09T07:25:48.7607274Z f17bd255b710: Pull complete
+2026-11-09T07:25:48.7719371Z 277e6d734690: Pull complete
+2026-11-09T07:25:48.7792293Z f4368716ea81: Pull complete
+2026-11-09T07:25:48.7898196Z c200e4e2b35b: Pull complete
+2026-11-09T07:25:48.7929809Z Digest: sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T07:25:48.7936858Z Status: Downloaded newer image for postgres@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T07:25:48.7944839Z docker.io/library/postgres:17-bookworm@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T07:25:48.7998548Z ##[command]/usr/bin/docker create --name 0eb7cc8240fe4a47a07244a600969ac6_postgres17bookwormsha256665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994_e94bc2 --label 51600f --network github_network_736d225c5e564e9ab360c3f79b5df32a --network-alias laboratory-postgres -p 5432:5432 --health-cmd "pg_isready -h 127.0.0.1 -U postgres -d azurelab_lab_ci" --health-interval 5s --health-timeout 3s --health-retries 10 -e "POSTGRES_DB=azurelab_lab_ci" -e "POSTGRES_PASSWORD=laboratory_ci_only_fixture" -e GITHUB_ACTIONS=true -e CI=true postgres:17-bookworm@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T07:25:48.8243825Z b9e31e571e8c6692996d2fe2273121801efc2c11b972476bdc77b91d4f67e61c
+2026-11-09T07:25:48.8266216Z ##[command]/usr/bin/docker start b9e31e571e8c6692996d2fe2273121801efc2c11b972476bdc77b91d4f67e61c
+2026-11-09T07:25:49.0011597Z b9e31e571e8c6692996d2fe2273121801efc2c11b972476bdc77b91d4f67e61c
+2026-11-09T07:25:49.0029151Z ##[command]/usr/bin/docker ps --all --filter id=b9e31e571e8c6692996d2fe2273121801efc2c11b972476bdc77b91d4f67e61c --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+2026-11-09T07:25:49.0164532Z b9e31e571e8c6692996d2fe2273121801efc2c11b972476bdc77b91d4f67e61c Up Less than a second (health: starting)
+2026-11-09T07:25:49.0185815Z ##[command]/usr/bin/docker port b9e31e571e8c6692996d2fe2273121801efc2c11b972476bdc77b91d4f67e61c
+2026-11-09T07:25:49.0318679Z 5432/tcp -> 0.0.0.0:5432
+2026-11-09T07:25:49.0319367Z 5432/tcp -> [::]:5432
+2026-11-09T07:25:49.0469045Z ##[endgroup]
+2026-11-09T07:25:49.0477251Z ##[group]Waiting for all services to be ready
+2026-11-09T07:25:49.0488621Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" b9e31e571e8c6692996d2fe2273121801efc2c11b972476bdc77b91d4f67e61c
+2026-11-09T07:25:49.0641853Z starting
+2026-11-09T07:25:49.0664773Z laboratory-postgres service is starting, waiting 2 seconds before checking again.
+2026-11-09T07:25:51.0666090Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" b9e31e571e8c6692996d2fe2273121801efc2c11b972476bdc77b91d4f67e61c
+2026-11-09T07:25:51.0787588Z starting
+2026-11-09T07:25:51.0800684Z laboratory-postgres service is starting, waiting 4 seconds before checking again.
+2026-11-09T07:25:55.3594991Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" b9e31e571e8c6692996d2fe2273121801efc2c11b972476bdc77b91d4f67e61c
+2026-11-09T07:25:55.3717874Z healthy
+2026-11-09T07:25:55.3735737Z laboratory-postgres service is healthy.
+2026-11-09T07:25:55.3736118Z ##[endgroup]
+2026-11-09T07:25:55.3954494Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-11-09T07:25:55.3954989Z with:
+2026-11-09T07:25:55.3955159Z   fetch-depth: 0
+2026-11-09T07:25:55.3955348Z   repository: EspzY/Azure-learner
+2026-11-09T07:25:55.3957491Z   token: ***
+2026-11-09T07:25:55.3957667Z   ssh-strict: true
+2026-11-09T07:25:55.3957836Z   ssh-user: git
+2026-11-09T07:25:55.3958009Z   persist-credentials: true
+2026-11-09T07:25:55.3958199Z   clean: true
+2026-11-09T07:25:55.3958387Z   sparse-checkout-cone-mode: true
+2026-11-09T07:25:55.3958593Z   fetch-tags: false
+2026-11-09T07:25:55.3958763Z   show-progress: true
+2026-11-09T07:25:55.3958944Z   lfs: false
+2026-11-09T07:25:55.3959104Z   submodules: false
+2026-11-09T07:25:55.3959282Z   set-safe-directory: true
+2026-11-09T07:25:55.3959485Z   allow-unsafe-pr-checkout: false
+2026-11-09T07:25:55.3959860Z env:
+2026-11-09T07:25:55.3960291Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T07:25:55.3960797Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T07:25:55.3961248Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T07:25:55.3961734Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T07:25:55.3962009Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T07:25:55.3962228Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T07:25:55.3962424Z ##[endgroup]
+2026-11-09T07:25:55.5906352Z Syncing repository: EspzY/Azure-learner
+2026-11-09T07:25:55.5908244Z ##[group]Getting Git version info
+2026-11-09T07:25:55.5908708Z Working directory is '/home/runner/work/Azure-learner/Azure-learner'
+2026-11-09T07:25:55.5909219Z [command]/usr/bin/git version
+2026-11-09T07:25:55.5949317Z git version 2.56.0
+2026-11-09T07:25:55.5966062Z ##[endgroup]
+2026-11-09T07:25:55.5974293Z Temporarily overriding HOME='/home/runner/work/_temp/13d4c0d1-49c1-46ed-9cef-d5de8577593b' before making global git config changes
+2026-11-09T07:25:55.5975386Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-09T07:25:55.5979896Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Azure-learner/Azure-learner
+2026-11-09T07:25:55.6018462Z Deleting the contents of '/home/runner/work/Azure-learner/Azure-learner'
+2026-11-09T07:25:55.6021138Z ##[group]Determining repository object format
+2026-11-09T07:25:55.6022395Z ##[endgroup]
+2026-11-09T07:25:55.6022949Z ##[group]Initializing the repository
+2026-11-09T07:25:55.6025788Z [command]/usr/bin/git init /home/runner/work/Azure-learner/Azure-learner
+2026-11-09T07:25:55.6096017Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-09T07:25:55.6096912Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-09T07:25:55.6097842Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-09T07:25:55.6098267Z hint: call:
+2026-11-09T07:25:55.6098426Z hint:
+2026-11-09T07:25:55.6098722Z hint: 	git config --global init.defaultBranch <name>
+2026-11-09T07:25:55.6099144Z hint:
+2026-11-09T07:25:55.6099405Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-09T07:25:55.6099795Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-09T07:25:55.6100170Z hint:
+2026-11-09T07:25:55.6100423Z hint: 	git branch -m <name>
+2026-11-09T07:25:55.6100709Z hint:
+2026-11-09T07:25:55.6101933Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-09T07:25:55.6102762Z Initialized empty Git repository in /home/runner/work/Azure-learner/Azure-learner/.git/
+2026-11-09T07:25:55.6111628Z [command]/usr/bin/git remote add origin https://github.com/EspzY/Azure-learner
+2026-11-09T07:25:55.6152628Z ##[endgroup]
+2026-11-09T07:25:55.6153090Z ##[group]Disabling automatic garbage collection
+2026-11-09T07:25:55.6156514Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-09T07:25:55.6186656Z ##[endgroup]
+2026-11-09T07:25:55.6187249Z ##[group]Setting up auth
+2026-11-09T07:25:55.6187970Z Removing SSH command configuration
+2026-11-09T07:25:55.6192383Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-09T07:25:55.6229335Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-09T07:25:55.6533372Z Removing HTTP extra header
+2026-11-09T07:25:55.6538864Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-09T07:25:55.6594090Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-09T07:25:55.6813259Z Removing includeIf entries pointing to credentials config files
+2026-11-09T07:25:55.6819204Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-09T07:25:55.6858693Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-09T07:25:55.7064275Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-5729de88-42b8-4470-bc6a-b39f68caa36d.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-09T07:25:55.7105012Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git.path /home/runner/work/_temp/git-credentials-5729de88-42b8-4470-bc6a-b39f68caa36d.config
+2026-11-09T07:25:55.7141407Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-5729de88-42b8-4470-bc6a-b39f68caa36d.config
+2026-11-09T07:25:55.7178304Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-5729de88-42b8-4470-bc6a-b39f68caa36d.config
+2026-11-09T07:25:55.7216345Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-5729de88-42b8-4470-bc6a-b39f68caa36d.config
+2026-11-09T07:25:55.7251108Z ##[endgroup]
+2026-11-09T07:25:55.7251438Z ##[group]Fetching the repository
+2026-11-09T07:25:55.7257890Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/* +16ac2b8664d1de601a2b84e98962019207e83075:refs/remotes/pull/71/merge
+2026-11-09T07:26:00.2880609Z From https://github.com/EspzY/Azure-learner
+2026-11-09T07:26:00.2881311Z  * [new branch]      codex/activate-desktop-ci                -> origin/codex/activate-desktop-ci
+2026-11-09T07:26:00.2882202Z  * [new branch]      codex/az900-assessment-quality-transfer  -> origin/codex/az900-assessment-quality-transfer
+2026-11-09T07:26:00.2883208Z  * [new branch]      codex/az900-assessment-transfer-refinement -> origin/codex/az900-assessment-transfer-refinement
+2026-11-09T07:26:00.2884068Z  * [new branch]      codex/az900-cloud-computing-consolidation -> origin/codex/az900-cloud-computing-consolidation
+2026-11-09T07:26:00.2884986Z  * [new branch]      codex/az900-cloud-concepts-independent-review -> origin/codex/az900-cloud-concepts-independent-review
+2026-11-09T07:26:00.2885866Z  * [new branch]      codex/az900-collapsible-sources          -> origin/codex/az900-collapsible-sources
+2026-11-09T07:26:00.2886608Z  * [new branch]      codex/az900-compute-hosting              -> origin/codex/az900-compute-hosting
+2026-11-09T07:26:00.2887408Z  * [new branch]      codex/az900-core-architecture-management -> origin/codex/az900-core-architecture-management
+2026-11-09T07:26:00.2888300Z  * [new branch]      codex/az900-core-architecture-physical   -> origin/codex/az900-core-architecture-physical
+2026-11-09T07:26:00.2889089Z  * [new branch]      codex/az900-cost-management              -> origin/codex/az900-cost-management
+2026-11-09T07:26:00.2890079Z  * [new branch]      codex/az900-curriculum-audit             -> origin/codex/az900-curriculum-audit
+2026-11-09T07:26:00.2890890Z  * [new branch]      codex/az900-end-to-end-learning-audit    -> origin/codex/az900-end-to-end-learning-audit
+2026-11-09T07:26:00.2891777Z  * [new branch]      codex/az900-entra-identity-foundations   -> origin/codex/az900-entra-identity-foundations
+2026-11-09T07:26:00.2892848Z  * [new branch]      codex/az900-file-movement-migration      -> origin/codex/az900-file-movement-migration
+2026-11-09T07:26:00.2893690Z  * [new branch]      codex/az900-final-quality-sprint         -> origin/codex/az900-final-quality-sprint
+2026-11-09T07:26:00.2894520Z  * [new branch]      codex/az900-governance-compliance        -> origin/codex/az900-governance-compliance
+2026-11-09T07:26:00.2895318Z  * [new branch]      codex/az900-learning-sequencing          -> origin/codex/az900-learning-sequencing
+2026-11-09T07:26:00.2896128Z  * [new branch]      codex/az900-management-deployment        -> origin/codex/az900-management-deployment
+2026-11-09T07:26:00.2896950Z  * [new branch]      codex/az900-monitoring-diagnostics       -> origin/codex/az900-monitoring-diagnostics
+2026-11-09T07:26:00.2897763Z  * [new branch]      codex/az900-networking-connectivity      -> origin/codex/az900-networking-connectivity
+2026-11-09T07:26:00.2898595Z  * [new branch]      codex/az900-networking-foundations       -> origin/codex/az900-networking-foundations
+2026-11-09T07:26:00.2899689Z  * [new branch]      codex/az900-rbac-conditional-access      -> origin/codex/az900-rbac-conditional-access
+2026-11-09T07:26:00.2900907Z  * [new branch]      codex/az900-security-principles          -> origin/codex/az900-security-principles
+2026-11-09T07:26:00.2901853Z  * [new branch]      codex/az900-serverless-foundations       -> origin/codex/az900-serverless-foundations
+2026-11-09T07:26:00.2903338Z  * [new branch]      codex/az900-storage-services             -> origin/codex/az900-storage-services
+2026-11-09T07:26:00.2904441Z  * [new branch]      codex/az900-storage-tiers-redundancy     -> origin/codex/az900-storage-tiers-redundancy
+2026-11-09T07:26:00.2905313Z  * [new branch]      codex/azure-portal-exact-icons           -> origin/codex/azure-portal-exact-icons
+2026-11-09T07:26:00.2906178Z  * [new branch]      codex/azure-portal-high-fidelity         -> origin/codex/azure-portal-high-fidelity
+2026-11-09T07:26:00.2907203Z  * [new branch]      codex/azurelab-hybrid-production-foundation -> origin/codex/azurelab-hybrid-production-foundation
+2026-11-09T07:26:00.2908260Z  * [new branch]      codex/azurelab-landing-volatile-laboratory -> origin/codex/azurelab-landing-volatile-laboratory
+2026-11-09T07:26:00.2909192Z  * [new branch]      codex/azurelab-premium-landing           -> origin/codex/azurelab-premium-landing
+2026-11-09T07:26:00.2910032Z  * [new branch]      codex/azurelab-visual-excellence         -> origin/codex/azurelab-visual-excellence
+2026-11-09T07:26:00.2910902Z  * [new branch]      codex/cc01-challenge-return-resume       -> origin/codex/cc01-challenge-return-resume
+2026-11-09T07:26:00.2911760Z  * [new branch]      codex/cc02-vm-debrief-diagnostics        -> origin/codex/cc02-vm-debrief-diagnostics
+2026-11-09T07:26:00.2912774Z  * [new branch]      codex/cc03-iaas-assessment-validity      -> origin/codex/cc03-iaas-assessment-validity
+2026-11-09T07:26:00.2913687Z  * [new branch]      codex/cloud-concepts-transfer-assessment -> origin/codex/cloud-concepts-transfer-assessment
+2026-11-09T07:26:00.2914536Z  * [new branch]      codex/course-hub-redesign                -> origin/codex/course-hub-redesign
+2026-11-09T07:26:00.2915332Z  * [new branch]      codex/desktop-quality-workflow           -> origin/codex/desktop-quality-workflow
+2026-11-09T07:26:00.2916246Z  * [new branch]      codex/dialog-placement-modal-consistency -> origin/codex/dialog-placement-modal-consistency
+2026-11-09T07:26:00.2917172Z  * [new branch]      codex/guided-learning-visuals            -> origin/codex/guided-learning-visuals
+2026-11-09T07:26:00.2918346Z  * [new branch]      codex/laboratory-architecture-studio-part-a -> origin/codex/laboratory-architecture-studio-part-a
+2026-11-09T07:26:00.2919386Z  * [new branch]      codex/laboratory-azure-firewall-part-a   -> origin/codex/laboratory-azure-firewall-part-a
+2026-11-09T07:26:00.2920301Z  * [new branch]      codex/laboratory-compute-part-a          -> origin/codex/laboratory-compute-part-a
+2026-11-09T07:26:00.2921225Z  * [new branch]      codex/laboratory-network-endpoints-nsg   -> origin/codex/laboratory-network-endpoints-nsg
+2026-11-09T07:26:00.2922179Z  * [new branch]      codex/laboratory-networking-part-a       -> origin/codex/laboratory-networking-part-a
+2026-11-09T07:26:00.2923257Z  * [new branch]      codex/laboratory-networking-part-b       -> origin/codex/laboratory-networking-part-b
+2026-11-09T07:26:00.2924156Z  * [new branch]      codex/laboratory-platform-stage-0        -> origin/codex/laboratory-platform-stage-0
+2026-11-09T07:26:00.2925123Z  * [new branch]      codex/laboratory-platform-storage-stage-1 -> origin/codex/laboratory-platform-storage-stage-1
+2026-11-09T07:26:00.2926165Z  * [new branch]      codex/laboratory-platform-v3-server-storage -> origin/codex/laboratory-platform-v3-server-storage
+2026-11-09T07:26:00.2927236Z  * [new branch]      codex/laboratory-security-remediation-part-a -> origin/codex/laboratory-security-remediation-part-a
+2026-11-09T07:26:00.2928292Z  * [new branch]      codex/laboratory-topology-remediation-part-b -> origin/codex/laboratory-topology-remediation-part-b
+2026-11-09T07:26:00.2929548Z  * [new branch]      codex/learning-flow-guidance-recovery    -> origin/codex/learning-flow-guidance-recovery
+2026-11-09T07:26:00.2930393Z  * [new branch]      codex/legacy-cleanup                     -> origin/codex/legacy-cleanup
+2026-11-09T07:26:00.2931192Z  * [new branch]      codex/permanent-quality-savvyshark       -> origin/codex/permanent-quality-savvyshark
+2026-11-09T07:26:00.2932145Z  * [new branch]      codex/portal-resource-inspection-bridge  -> origin/codex/portal-resource-inspection-bridge
+2026-11-09T07:26:00.2933366Z  * [new branch]      codex/practical-mission-expansion        -> origin/codex/practical-mission-expansion
+2026-11-09T07:26:00.2934306Z  * [new branch]      codex/shared-azurelab-portal-experience  -> origin/codex/shared-azurelab-portal-experience
+2026-11-09T07:26:00.2935315Z  * [new branch]      feat/31a-beginner-learning-design        -> origin/feat/31a-beginner-learning-design
+2026-11-09T07:26:00.2936196Z  * [new branch]      feat/31b-foundations-integration         -> origin/feat/31b-foundations-integration
+2026-11-09T07:26:00.2936996Z  * [new branch]      feat/31b1-ux-refinement                  -> origin/feat/31b1-ux-refinement
+2026-11-09T07:26:00.2937821Z  * [new branch]      feat/32-cloud-benefits-service-types     -> origin/feat/32-cloud-benefits-service-types
+2026-11-09T07:26:00.2938738Z  * [new branch]      feat/321-integrated-practical-labs       -> origin/feat/321-integrated-practical-labs
+2026-11-09T07:26:00.2939593Z  * [new branch]      feat/azurelab-portal-reboot              -> origin/feat/azurelab-portal-reboot
+2026-11-09T07:26:00.2940391Z  * [new branch]      feat/chapter-01-guided                   -> origin/feat/chapter-01-guided
+2026-11-09T07:26:00.2941234Z  * [new branch]      feat/course-first-guided-learning        -> origin/feat/course-first-guided-learning
+2026-11-09T07:26:00.2942090Z  * [new branch]      feat/g1-cinematic-dialogue               -> origin/feat/g1-cinematic-dialogue
+2026-11-09T07:26:00.2943055Z  * [new branch]      feat/g12-onboarding-journey              -> origin/feat/g12-onboarding-journey
+2026-11-09T07:26:00.2943836Z  * [new branch]      feat/g13-living-learning                 -> origin/feat/g13-living-learning
+2026-11-09T07:26:00.2944715Z  * [new branch]      feat/learning-content-foundations        -> origin/feat/learning-content-foundations
+2026-11-09T07:26:00.2945606Z  * [new branch]      feat/phase-0-foundation                  -> origin/feat/phase-0-foundation
+2026-11-09T07:26:00.2946638Z  * [new branch]      feat/rpg-vertical-slice                  -> origin/feat/rpg-vertical-slice
+2026-11-09T07:26:00.2947310Z  * [new branch]      main                                     -> origin/main
+2026-11-09T07:26:00.2947912Z  * [new ref]         16ac2b8664d1de601a2b84e98962019207e83075 -> pull/71/merge
+2026-11-09T07:26:00.2949736Z ##[endgroup]
+2026-11-09T07:26:00.2950237Z ##[group]Determining the checkout info
+2026-11-09T07:26:00.2950747Z ##[endgroup]
+2026-11-09T07:26:00.2951050Z [command]/usr/bin/git sparse-checkout disable
+2026-11-09T07:26:00.2952072Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-09T07:26:00.2986515Z ##[group]Checking out the ref
+2026-11-09T07:26:00.2991095Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/71/merge
+2026-11-09T07:26:01.1239441Z Note: switching to 'refs/remotes/pull/71/merge'.
+2026-11-09T07:26:01.1239791Z 
+2026-11-09T07:26:01.1240042Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-09T07:26:01.1240665Z changes and commit them, and you can discard any commits you make in this
+2026-11-09T07:26:01.1241234Z state without impacting any branches by switching back to a branch.
+2026-11-09T07:26:01.1241554Z 
+2026-11-09T07:26:01.1241751Z If you want to create a new branch to retain commits you create, you may
+2026-11-09T07:26:01.1242241Z do so (now or later) by using -c with the switch command. Example:
+2026-11-09T07:26:01.1242730Z 
+2026-11-09T07:26:01.1242859Z   git switch -c <new-branch-name>
+2026-11-09T07:26:01.1243071Z 
+2026-11-09T07:26:01.1243413Z Or undo this operation with:
+2026-11-09T07:26:01.1243615Z 
+2026-11-09T07:26:01.1243712Z   git switch -
+2026-11-09T07:26:01.1243862Z 
+2026-11-09T07:26:01.1244125Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-09T07:26:01.1244497Z 
+2026-11-09T07:26:01.1244920Z HEAD is now at 16ac2b8 Merge ae671f1f24edf2e5e209188a9203435e32ba47f5 into 897bc783a3f49be8d9f561a819ee6816b10ed91d
+2026-11-09T07:26:01.1302905Z ##[endgroup]
+2026-11-09T07:26:01.1354345Z [command]/usr/bin/git log -1 --format=%H
+2026-11-09T07:26:01.1387822Z 16ac2b8664d1de601a2b84e98962019207e83075
+2026-11-09T07:26:01.1615036Z ##[group]Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+2026-11-09T07:26:01.1615351Z with:
+2026-11-09T07:26:01.1615516Z   node-version: 24
+2026-11-09T07:26:01.1615687Z   cache: npm
+2026-11-09T07:26:01.1615852Z   check-latest: false
+2026-11-09T07:26:01.1617931Z   token: ***
+2026-11-09T07:26:01.1618116Z   package-manager-cache: true
+2026-11-09T07:26:01.1618318Z env:
+2026-11-09T07:26:01.1618742Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T07:26:01.1619216Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T07:26:01.1619663Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T07:26:01.1620151Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T07:26:01.1620421Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T07:26:01.1620633Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T07:26:01.1620821Z ##[endgroup]
+2026-11-09T07:26:01.2694488Z Found in cache @ /opt/hostedtoolcache/node/24.22.2/x64
+2026-11-09T07:26:01.3199884Z ##[group]Environment details
+2026-11-09T07:26:01.5991942Z node: v24.22.2
+2026-11-09T07:26:01.5992170Z npm: 11.19.1
+2026-11-09T07:26:01.5992340Z yarn: 1.22.22
+2026-11-09T07:26:01.5993488Z ##[endgroup]
+2026-11-09T07:26:01.6006208Z [command]/opt/hostedtoolcache/node/24.22.2/x64/bin/npm config get cache
+2026-11-09T07:26:01.6857901Z /home/runner/.npm
+2026-11-09T07:26:01.8269136Z npm cache is not found
+2026-11-09T07:26:01.8422076Z ##[group]Run npm ci
+2026-11-09T07:26:01.8422308Z [36;1mnpm ci[0m
+2026-11-09T07:26:01.8449004Z shell: /usr/bin/bash -e {0}
+2026-11-09T07:26:01.8449212Z env:
+2026-11-09T07:26:01.8449675Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T07:26:01.8450142Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T07:26:01.8450594Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T07:26:01.8451079Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T07:26:01.8451348Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T07:26:01.8451567Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T07:26:01.8451758Z ##[endgroup]
+2026-11-09T07:26:42.1050261Z 
+2026-11-09T07:26:42.1057730Z added 247 packages, and audited 248 packages in 40s
+2026-11-09T07:26:42.1058271Z 
+2026-11-09T07:26:42.1060609Z 56 packages are looking for funding
+2026-11-09T07:26:42.1061308Z   run `npm fund` for details
+2026-11-09T07:26:42.2315412Z 
+2026-11-09T07:26:42.2316175Z 10 moderate severity vulnerabilities
+2026-11-09T07:26:42.2316398Z 
+2026-11-09T07:26:42.2316595Z To address all issues (including breaking changes), run:
+2026-11-09T07:26:42.2316888Z   npm audit fix --force
+2026-11-09T07:26:42.2317018Z 
+2026-11-09T07:26:42.2317120Z Run `npm audit` for details.
+2026-11-09T07:26:42.3115721Z ##[group]Run npm run lab:db:setup
+2026-11-09T07:26:42.3115972Z [36;1mnpm run lab:db:setup[0m
+2026-11-09T07:26:42.3139537Z shell: /usr/bin/bash -e {0}
+2026-11-09T07:26:42.3139746Z env:
+2026-11-09T07:26:42.3140242Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T07:26:42.3140706Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T07:26:42.3141155Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T07:26:42.3141643Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T07:26:42.3141911Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T07:26:42.3142126Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T07:26:42.3142784Z ##[endgroup]
+2026-11-09T07:26:42.3930363Z 
+2026-11-09T07:26:42.3930995Z > azurelab@0.1.0 lab:db:setup
+2026-11-09T07:26:42.3931395Z > node scripts/laboratory-db.mjs
+2026-11-09T07:26:42.3931550Z 
+2026-11-09T07:26:42.5894249Z Dedicated local Laboratory schemas/roles initialized. No application resources created.
+2026-11-09T07:26:42.6057831Z ##[group]Run npm run check
+2026-11-09T07:26:42.6058066Z [36;1mnpm run check[0m
+2026-11-09T07:26:42.6075868Z shell: /usr/bin/bash -e {0}
+2026-11-09T07:26:42.6076070Z env:
+2026-11-09T07:26:42.6076653Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T07:26:42.6077128Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T07:26:42.6077570Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T07:26:42.6078054Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T07:26:42.6078338Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T07:26:42.6078567Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T07:26:42.6078781Z ##[endgroup]
+2026-11-09T07:26:42.6866824Z 
+2026-11-09T07:26:42.6867149Z > azurelab@0.1.0 check
+2026-11-09T07:26:42.6868122Z > npm run typecheck && npm run lint && npm run format:check && npm run docs:check && npm run quality:check && npm run az900:audit:check && npm run curriculum:check && npm run assets:check && npm run legacy:check && npm test && npm run build
+2026-11-09T07:26:42.6868700Z 
+2026-11-09T07:26:42.7637389Z 
+2026-11-09T07:26:42.7637839Z > azurelab@0.1.0 typecheck
+2026-11-09T07:26:42.7638198Z > node scripts/next.mjs typegen && tsc --noEmit
+2026-11-09T07:26:42.7638381Z 
+2026-11-09T07:26:42.9929943Z Generating route types...
+2026-11-09T07:26:43.0068978Z ✓ Types generated successfully
+2026-11-09T07:27:01.9328796Z 
+2026-11-09T07:27:01.9329376Z > azurelab@0.1.0 lint
+2026-11-09T07:27:01.9329705Z > eslint . --max-warnings 0
+2026-11-09T07:27:01.9329854Z 
+2026-11-09T07:27:28.6299754Z 
+2026-11-09T07:27:28.6300391Z > azurelab@0.1.0 format:check
+2026-11-09T07:27:28.6300789Z > prettier --check .
+2026-11-09T07:27:28.6300921Z 
+2026-11-09T07:27:28.6983215Z Checking formatting...
+2026-11-09T07:27:39.8704060Z [[33mwarn[39m] src/app/api/laboratory/ephemeral/route.ts
+2026-11-09T07:27:43.7918132Z [[33mwarn[39m] src/features/laboratory/ephemeral-client.ts
+2026-11-09T07:27:43.9217341Z [[33mwarn[39m] src/features/laboratory/laboratory.tsx
+2026-11-09T07:27:44.0787701Z [[33mwarn[39m] src/features/landing/landing.css
+2026-11-09T07:27:44.0998643Z [[33mwarn[39m] src/features/landing/landing.tsx
+2026-11-09T07:27:46.3944025Z [[33mwarn[39m] src/features/portal/portal.tsx
+2026-11-09T07:27:46.6067919Z [[33mwarn[39m] src/laboratory-ephemeral.test.ts
+2026-11-09T07:27:46.6881440Z [[33mwarn[39m] src/laboratory-pr71-preservation.test.ts
+2026-11-09T07:27:47.6802348Z [[33mwarn[39m] tests/e2e/ephemeral-landing.spec.ts
+2026-11-09T07:27:48.8639501Z [[33mwarn[39m] tests/pr71-preservation.ts
+2026-11-09T07:27:48.8686584Z [[33mwarn[39m] Code style issues found in 10 files. Run Prettier with --write to fix.
+2026-11-09T07:27:48.9398323Z ##[error]Process completed with exit code 1.
+2026-11-09T07:27:48.9473810Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-09T07:27:48.9474142Z with:
+2026-11-09T07:27:48.9474319Z   name: playwright-report
+2026-11-09T07:27:48.9474523Z   path: playwright-report/
+2026-11-09T07:27:48.9474732Z   retention-days: 7
+2026-11-09T07:27:48.9474905Z   if-no-files-found: warn
+2026-11-09T07:27:48.9475089Z   compression-level: 6
+2026-11-09T07:27:48.9475267Z   overwrite: false
+2026-11-09T07:27:48.9475443Z   include-hidden-files: false
+2026-11-09T07:27:48.9475638Z   archive: true
+2026-11-09T07:27:48.9475796Z env:
+2026-11-09T07:27:48.9476309Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T07:27:48.9476775Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T07:27:48.9477223Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T07:27:48.9477707Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T07:27:48.9478164Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T07:27:48.9478415Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T07:27:48.9478611Z ##[endgroup]
+2026-11-09T07:27:49.0661388Z ##[warning]No files were found with the provided path: playwright-report/. No artifacts will be uploaded.
+2026-11-09T07:27:49.0855130Z Post job cleanup.
+2026-11-09T07:27:49.1607121Z [command]/usr/bin/git version
+2026-11-09T07:27:49.1675526Z git version 2.56.0
+2026-11-09T07:27:49.1704346Z Temporarily overriding HOME='/home/runner/work/_temp/46bdd914-2730-4630-a5bc-49f0711c64c9' before making global git config changes
+2026-11-09T07:27:49.1705872Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-09T07:27:49.1708607Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Azure-learner/Azure-learner
+2026-11-09T07:27:49.1738411Z Removing SSH command configuration
+2026-11-09T07:27:49.1744707Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-09T07:27:49.1778755Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-09T07:27:49.2002360Z Removing HTTP extra header
+2026-11-09T07:27:49.2007237Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-09T07:27:49.2052733Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-09T07:27:49.2278773Z Removing includeIf entries pointing to credentials config files
+2026-11-09T07:27:49.2286888Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-09T07:27:49.2323421Z includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git.path
+2026-11-09T07:27:49.2334551Z includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git/worktrees/*.path
+2026-11-09T07:27:49.2335223Z includeif.gitdir:/github/workspace/.git.path
+2026-11-09T07:27:49.2335621Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-09T07:27:49.2336554Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git.path
+2026-11-09T07:27:49.2366590Z /home/runner/work/_temp/git-credentials-5729de88-42b8-4470-bc6a-b39f68caa36d.config
+2026-11-09T07:27:49.2374245Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-5729de88\-42b8\-4470\-bc6a\-b39f68caa36d\.config
+2026-11-09T07:27:49.2419608Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git/worktrees/*.path
+2026-11-09T07:27:49.2449885Z /home/runner/work/_temp/git-credentials-5729de88-42b8-4470-bc6a-b39f68caa36d.config
+2026-11-09T07:27:49.2457525Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-5729de88\-42b8\-4470\-bc6a\-b39f68caa36d\.config
+2026-11-09T07:27:49.2495577Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-09T07:27:49.2524303Z /github/runner_temp/git-credentials-5729de88-42b8-4470-bc6a-b39f68caa36d.config
+2026-11-09T07:27:49.2530492Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-5729de88\-42b8\-4470\-bc6a\-b39f68caa36d\.config
+2026-11-09T07:27:49.2568704Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-09T07:27:49.2597932Z /github/runner_temp/git-credentials-5729de88-42b8-4470-bc6a-b39f68caa36d.config
+2026-11-09T07:27:49.2604973Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-5729de88\-42b8\-4470\-bc6a\-b39f68caa36d\.config
+2026-11-09T07:27:49.2644051Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-09T07:27:49.2850063Z Removing credentials config '/home/runner/work/_temp/git-credentials-5729de88-42b8-4470-bc6a-b39f68caa36d.config'
+2026-11-09T07:27:49.2959652Z Print service container logs: 0eb7cc8240fe4a47a07244a600969ac6_postgres17bookwormsha256665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994_e94bc2
+2026-11-09T07:27:49.2964046Z ##[command]/usr/bin/docker logs --details b9e31e571e8c6692996d2fe2273121801efc2c11b972476bdc77b91d4f67e61c
+2026-11-09T07:27:49.3089014Z  The files belonging to this database system will be owned by user "postgres".
+2026-11-09T07:27:49.3090653Z  initdb: warning: enabling "trust" authentication for local connections
+2026-11-09T07:27:49.3091584Z  initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+2026-11-09T07:27:49.3092646Z  2026-11-09 07:25:50.189 UTC [1] LOG:  starting PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+2026-11-09T07:27:49.3093358Z  2026-11-09 07:25:50.190 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-11-09T07:27:49.3093766Z  2026-11-09 07:25:50.190 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2026-11-09T07:27:49.3094162Z  2026-11-09 07:25:50.190 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-11-09T07:27:49.3094583Z  2026-11-09 07:25:50.193 UTC [64] LOG:  database system was shut down at 2026-11-09 07:25:50 UTC
+2026-11-09T07:27:49.3094979Z  2026-11-09 07:25:50.197 UTC [1] LOG:  database system is ready to accept connections
+2026-11-09T07:27:49.3095569Z  This user must also own the server process.
+2026-11-09T07:27:49.3096009Z  
+2026-11-09T07:27:49.3096387Z  The database cluster will be initialized with locale "en_US.utf8".
+2026-11-09T07:27:49.3096916Z  The default database encoding has accordingly been set to "UTF8".
+2026-11-09T07:27:49.3097320Z  The default text search configuration will be set to "english".
+2026-11-09T07:27:49.3097575Z  
+2026-11-09T07:27:49.3097746Z  Data page checksums are disabled.
+2026-11-09T07:27:49.3097938Z  
+2026-11-09T07:27:49.3098175Z  fixing permissions on existing directory /var/lib/postgresql/data ... ok
+2026-11-09T07:27:49.3098473Z  creating subdirectories ... ok
+2026-11-09T07:27:49.3098720Z  selecting dynamic shared memory implementation ... posix
+2026-11-09T07:27:49.3098996Z  selecting default "max_connections" ... 100
+2026-11-09T07:27:49.3099243Z  selecting default "shared_buffers" ... 128MB
+2026-11-09T07:27:49.3099499Z  selecting default time zone ... Etc/UTC
+2026-11-09T07:27:49.3099725Z  creating configuration files ... ok
+2026-11-09T07:27:49.3099938Z  running bootstrap script ... ok
+2026-11-09T07:27:49.3100196Z  performing post-bootstrap initialization ... ok
+2026-11-09T07:27:49.3100449Z  syncing data to disk ... ok
+2026-11-09T07:27:49.3100635Z  
+2026-11-09T07:27:49.3100777Z  
+2026-11-09T07:27:49.3100962Z  Success. You can now start the database server using:
+2026-11-09T07:27:49.3101206Z  
+2026-11-09T07:27:49.3101401Z      pg_ctl -D /var/lib/postgresql/data -l logfile start
+2026-11-09T07:27:49.3101634Z  
+2026-11-09T07:27:49.3102154Z  waiting for server to start....2026-11-09 07:25:49.888 UTC [48] LOG:  starting PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+2026-11-09T07:27:49.3103029Z  2026-11-09 07:25:49.888 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-11-09T07:27:49.3103449Z  2026-11-09 07:25:49.891 UTC [51] LOG:  database system was shut down at 2026-11-09 07:25:49 UTC
+2026-11-09T07:27:49.3103835Z  2026-11-09 07:25:49.895 UTC [48] LOG:  database system is ready to accept connections
+2026-11-09T07:27:49.3104351Z   done
+2026-11-09T07:27:49.3104506Z  server started
+2026-11-09T07:27:49.3104666Z  CREATE DATABASE
+2026-11-09T07:27:49.3104821Z  
+2026-11-09T07:27:49.3104959Z  
+2026-11-09T07:27:49.3105368Z  /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+2026-11-09T07:27:49.3105864Z  
+2026-11-09T07:27:49.3106529Z  waiting for server to shut down....2026-11-09 07:25:50.070 UTC [48] LOG:  received fast shutdown request
+2026-11-09T07:27:49.3107177Z  2026-11-09 07:25:50.071 UTC [48] LOG:  aborting any active transactions
+2026-11-09T07:27:49.3107875Z  2026-11-09 07:25:50.073 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+2026-11-09T07:27:49.3108503Z  2026-11-09 07:25:50.074 UTC [49] LOG:  shutting down
+2026-11-09T07:27:49.3108957Z  2026-11-09 07:25:50.074 UTC [49] LOG:  checkpoint starting: shutdown immediate
+2026-11-09T07:27:49.3110049Z  2026-11-09 07:25:50.159 UTC [49] LOG:  checkpoint complete: wrote 921 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.068 s, sync=0.016 s, total=0.086 s; sync files=301, longest=0.015 s, average=0.001 s; distance=4238 kB, estimate=4238 kB; lsn=0/190A9C8, redo lsn=0/190A9C8
+2026-11-09T07:27:49.3110828Z  2026-11-09 07:25:50.166 UTC [48] LOG:  database system is shut down
+2026-11-09T07:27:49.3111085Z   done
+2026-11-09T07:27:49.3111245Z  server stopped
+2026-11-09T07:27:49.3111403Z  
+2026-11-09T07:27:49.3111600Z  PostgreSQL init process complete; ready for start up.
+2026-11-09T07:27:49.3111849Z  
+2026-11-09T07:27:49.3116674Z Stop and remove container: 0eb7cc8240fe4a47a07244a600969ac6_postgres17bookwormsha256665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994_e94bc2
+2026-11-09T07:27:49.3120482Z ##[command]/usr/bin/docker rm --force b9e31e571e8c6692996d2fe2273121801efc2c11b972476bdc77b91d4f67e61c
+2026-11-09T07:27:49.4925334Z b9e31e571e8c6692996d2fe2273121801efc2c11b972476bdc77b91d4f67e61c
+2026-11-09T07:27:49.4964836Z Remove container network: github_network_736d225c5e564e9ab360c3f79b5df32a
+2026-11-09T07:27:49.4968799Z ##[command]/usr/bin/docker network rm github_network_736d225c5e564e9ab360c3f79b5df32a
+2026-11-09T07:27:49.5855642Z github_network_736d225c5e564e9ab360c3f79b5df32a
+2026-11-09T07:27:49.5935371Z Cleaning up orphan processes

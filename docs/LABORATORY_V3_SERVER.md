@@ -95,3 +95,7 @@ Cold local install now applies001,002,007;007 supersedes constraint-only003–00
 ## PR70 — additive008 and model3.7
 
 Current local setup applies001→002→008. Migration008 supersedes narrower constraint-only003–007 for cold installation; populated003/004/005/006/007 databases add008 without rewriting existing rows. Repeat setup is supported; applying narrower007 over a populated3.7 database fails rather than discards history. Existing sessions retain their original model, including3.6. New3.7 Route Update, subnet NSG detach and peering access use the unchanged original repository transaction, owner checks, row lock, idempotency, revision and commit-before-response contracts. Pure/real-PG tests cover those cold/upgrade paths. No hosted configuration or historical3.5 recovery is performed. [Topology contract](LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md).
+
+## PR71 optional temporary execution
+
+A database is now optional for explicit free experimentation: [temporary transport](LABORATORY_EPHEMERAL_LANDING.md) replays frozen3.7 through a bounded stateless Node endpoint, with memory-only client-owned history and no credentials/cookies/PG writes. This is not persistence or course attestation. Existing server APIs, dedicated PostgreSQL/schema/roles/TLS/procedures and all historical models remain unchanged; an active server-backed workspace is never silently converted. Hosted setup remains separately authorized. [Course integration proposal](LABORATORY_COURSE_INTEGRATION_PLAN.md) requires its own versioned workspace/evidence contract.

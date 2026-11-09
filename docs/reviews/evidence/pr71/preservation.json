@@ -1,13 +1,45 @@
 {
   "base": "897bc783a3f49be8d9f561a819ee6816b10ed91d",
   "files": {
+    ".gitattributes": {
+      "before": "894d5e25949934ad84d169bdcf1ef63334d18727",
+      "after": "bae90cdefad1f00fb3f5cca2cf461502320b343d"
+    },
+    "AGENTS.md": {
+      "before": "4a361d382ae9f2cd24cf015cd0a7406d5d22f2ab",
+      "after": "e1a7b3337e408af273a9d4335e731303a1df172c"
+    },
+    "docs/ARCHITECTURE.md": {
+      "before": "233addc58bc7e86abe636c5636981ed27ce266ab",
+      "after": "88828a24573f8e2ac6a5d11998b92902d54df4ae"
+    },
+    "docs/DECISIONS.md": {
+      "before": "4f8bf06a47d2b6de801953a6dc69a0c2f65e9bc9",
+      "after": "7c4f1ee0715613b7e1358ea66902cd25f0d6d45f"
+    },
+    "docs/LABORATORY_V3_SERVER.md": {
+      "before": "d9257f6c3021a314fef4ea3689aa347c379a736a",
+      "after": "a2016ead48ffe694e990d0755269067ece0fcab3"
+    },
+    "docs/PORTAL_CAPABILITY_MATRIX.md": {
+      "before": "5e89f15b704abb6707e09694c3d498299fd0ebcc",
+      "after": "0211b4635949ad9321494cb9c39afbc238340d4a"
+    },
+    "docs/PROJECT_STATUS.md": {
+      "before": "de30a165d9d0881b3c344a0e44a363f6a671e3a4",
+      "after": "ba1a8e1ae8e34940d52d0f0941ef7b0cc6f14e56"
+    },
+    "playwright.desktop.config.ts": {
+      "before": "637ca393b4e66abe333c9d2418003c50438c26c4",
+      "after": "4485852da8ea5aa45aa78ce8ec82dfb8ac55ee35"
+    },
     "src/features/course/course.css": {
       "before": "a236ecfea1eb56e1140c1deaf74ae3d4d512b7c5",
       "after": "e6a4c17d4fbf03fe07b537fd8af44659cb76facf"
     },
     "src/features/course/course.tsx": {
       "before": "99d82e4670919b5816c3bc4ad4f199790f4f2a13",
-      "after": "c58255be52abf641e1c88975d1aef5f6e30abaf9"
+      "after": "2a3d87e527cc0cad6e7a097e7dc67f2a65f24a7a"
     },
     "src/features/laboratory/endpoints.tsx": {
       "before": "9092206b04326b5bfe2fb3d9e463e117d884498a",
@@ -19,7 +51,7 @@
     },
     "src/features/laboratory/laboratory.tsx": {
       "before": "7bcc1d6d18b951b3e9c53e83234917057e9ba042",
-      "after": "2a894dde97ec8bb8e8804fc27e8baea1a99909da"
+      "after": "9de41a1ee614546222fe0ccf8d71d32c348de580"
     },
     "src/features/laboratory/routing.tsx": {
       "before": "611bf2876aa3f76b5886ddc453b0ff07c2bfd513",
@@ -27,15 +59,15 @@
     },
     "src/features/landing/landing.css": {
       "before": "4f054969fa43ee1ab9f225037904f58f2ca5d816",
-      "after": "9f1e2746c975005d6992926b760592c224946542"
+      "after": "3095f8fd35f809a5ffa3aa5f06fefb972d945813"
     },
     "src/features/landing/landing.tsx": {
       "before": "32e020bd83afd332cc1e17c87c82d698d0c31afc",
-      "after": "ab8085c273073890a794171f148bcbc310df7ad8"
+      "after": "2daa49b0e87d78d369006726c188354bed22fb8f"
     },
     "src/features/portal/portal.tsx": {
       "before": "fedcbb4767d69faa3e718f6f910238ef7d225d5d",
-      "after": "2da875f6dc956ab5498ae345f63ca6ee3281191c"
+      "after": "bc822b5ac212a0bbbccd880e736db113c4963405"
     },
     "src/features/portal/presentation.css": {
       "before": "19610d3e4554033c0b568528f064ab6fc1012a9c",
@@ -51,12 +83,17 @@
     }
   },
   "added": {
-    "docs/LABORATORY_EPHEMERAL_LANDING.md": "15b84c20b2bbda93e1ee7e14fe672c117d164ef5",
-    "src/app/api/laboratory/ephemeral/route.ts": "84cfd6e15a9848adb7daf9436cc30e5cbcbc0e82",
-    "src/features/laboratory/ephemeral-client.ts": "16bff324982bc1a3151ef0165bf2a114ce39fd31",
-    "src/laboratory-ephemeral.test.ts": "2a4a80b3f003e536b6591313cc75cd943c41266b",
-    "src/laboratory-pr71-preservation.test.ts": "3497bd19f06dde783a3b26e9ddf217d07425da4f",
-    "tests/e2e/ephemeral-landing.spec.ts": "d92e0e5d3dea63a7e5ed45005445517b0debee4c",
-    "tests/pr71-preservation.ts": "114050210cbffd62aa3d4923082e707950ae4b42"
+    "docs/LABORATORY_COURSE_INTEGRATION_PLAN.md": "b1b6efe80ed78220fbb5c1df65ac028472c93ef4",
+    "docs/LABORATORY_EPHEMERAL_LANDING.md": "eda1dedc05ae80357a5d470fa26c20dce5d7365a",
+    "src/app/api/laboratory/ephemeral/route.ts": "2fee4151345405585ef0cc17dee3e7e84fbcfdf1",
+    "src/content/laboratory-ephemeral-nb.ts": "cf2760154e664fef2e04397053891152a196bdfe",
+    "src/features/laboratory/ephemeral-client.ts": "ba22ff1b0fb423016218ba0e8e823b2b416e4194",
+    "src/features/portal/azurelab-home-link.tsx": "a1ac8df6eb7a33741fb87fa7de41a1eeba11314a",
+    "src/laboratory-ephemeral-client.test.ts": "1067ae7a1f8c4fe8b7ad7c95328e1a465691d011",
+    "src/laboratory-ephemeral.test.ts": "f5467ffb28b17993eed697e61f53c80c7994b53f",
+    "src/laboratory-pr71-preservation.test.ts": "0f485b333b15d1951df0029e605ad8047691e842",
+    "tests/e2e/ephemeral-actions.ts": "22437ea92c266fccef0078c3d8a928f770cd0e94",
+    "tests/e2e/ephemeral-landing.spec.ts": "79bb381bb098211efe8123ba7b49584093a50113",
+    "tests/pr71-preservation.ts": "153a8f475fe51b62c6518d84374f656f93ed466b"
   }
 }

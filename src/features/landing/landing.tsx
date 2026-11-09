@@ -1,16 +1,8 @@
 'use client';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState, type MouseEvent } from 'react';
-import {
-  ArrowRight,
-  BookOpen,
-  Layers3,
-  Network,
-  FlaskConical,
-  LockKeyhole,
-  ArrowUpRight,
-} from 'lucide-react';
+import { useEffect, useRef, useState, type MouseEvent } from 'react';
+import { ArrowRight, BookOpen, Layers3, Network, FlaskConical, LockKeyhole } from 'lucide-react';
 import { landingNb as t } from '@/content/nb';
 import { useCourse } from '@/features/course/provider';
 import { currentAz900Status } from './course-status';
@@ -23,7 +15,17 @@ export function Landing({ commit }: { commit: string | null }) {
   const status = currentAz900Status(course);
   const router = useRouter();
   const [opening, setOpening] = useState<'course' | 'laboratory' | null>(null);
-  const open = (event: MouseEvent<HTMLAnchorElement>, kind: 'course' | 'laboratory', url: string) => {
+  const timer = useRef<number | undefined>(undefined);
+  useEffect(() => {
+    // Also reset a restored App Router / back-forward view. No learner state.
+    queueMicrotask(() => setOpening(null));
+    return () => window.clearTimeout(timer.current);
+  }, []);
+  const open = (
+    event: MouseEvent<HTMLAnchorElement>,
+    kind: 'course' | 'laboratory',
+    url: string,
+  ) => {
     if (
       event.defaultPrevented ||
       event.button !== 0 ||
@@ -32,10 +34,12 @@ export function Landing({ commit }: { commit: string | null }) {
       event.shiftKey ||
       event.altKey ||
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    ) return;
+    )
+      return;
     event.preventDefault();
+    window.clearTimeout(timer.current);
     setOpening(kind);
-    window.setTimeout(() => router.push(url), 160);
+    timer.current = window.setTimeout(() => router.push(url), 140);
   };
   return (
     <div className="azurelab-landing" data-opening={opening ?? undefined}>
@@ -60,13 +64,9 @@ export function Landing({ commit }: { commit: string | null }) {
             {t.courses.map((item, index) => {
               const Icon = icons[index]!;
               const available = item.code === 'AZ-900';
-              return (
-                <article
-                  key={item.code}
-                  className={`landing-course ${available ? 'landing-course-available' : ''}`}
-                  aria-labelledby={`course-${item.code}`}
-                >
-                  <div className="landing-course-top">
+              const content = (
+                <>
+                  <div className="landing-course-top" id={`course-status-${item.code}`}>
                     <Icon size={24} strokeWidth={1.4} aria-hidden="true" />
                     {available ? (
                       <CourseStatusBadge status={status} />
@@ -80,42 +80,51 @@ export function Landing({ commit }: { commit: string | null }) {
                   <p className="landing-course-code">{item.code}</p>
                   <h3 id={`course-${item.code}`}>{item.name}</h3>
                   {available && (
-                    <div className="landing-course-bottom">
-                      <Link
-                        className="landing-action"
-                        href="/learn"
-                        prefetch={false}
-                        aria-label={t.az900Link}
-                        onClick={(event) => open(event, 'course', '/learn')}
-                      >
-                        {t.openCourse}
-                        <ArrowRight size={18} aria-hidden="true" />
-                      </Link>
-                    </div>
+                    <ArrowRight className="landing-card-arrow" size={20} aria-hidden="true" />
                   )}
+                </>
+              );
+              return (
+                <article
+                  key={item.code}
+                  className={`landing-course ${available ? 'landing-course-available' : ''}`}
+                  aria-labelledby={`course-${item.code}`}
+                >
+                  {available ? (
+                    <Link
+                      className="landing-card-link"
+                      href="/learn"
+                      prefetch={false}
+                      aria-label={t.az900Link}
+                      aria-describedby={`course-status-${item.code}`}
+                      onClick={(event) => open(event, 'course', '/learn')}
+                    />
+                  ) : null}
+                  {content}
                 </article>
               );
             })}
           </div>
         </section>
-        <section className="landing-laboratory" aria-labelledby="landing-lab-title">
-          <div className="landing-lab-icon">
-            <FlaskConical size={34} strokeWidth={1.3} aria-hidden="true" />
+        <section className="landing-laboratory-section" aria-labelledby="landing-lab-title">
+          <div className="landing-laboratory">
+            <Link
+              className="landing-lab-link"
+              href="/labs/laboratory"
+              prefetch={false}
+              aria-label={t.labLink}
+              aria-describedby="landing-lab-description"
+              onClick={(event) => open(event, 'laboratory', '/labs/laboratory')}
+            />
+            <div className="landing-lab-icon">
+              <FlaskConical size={32} strokeWidth={1.3} aria-hidden="true" />
+            </div>
+            <div className="landing-lab-copy">
+              <h2 id="landing-lab-title">{t.labTitle}</h2>
+              <p id="landing-lab-description">{t.labDescription}</p>
+            </div>
+            <ArrowRight className="landing-lab-arrow" size={21} aria-hidden="true" />
           </div>
-          <div className="landing-lab-copy">
-            <h2 id="landing-lab-title">{t.labTitle}</h2>
-            <p>{t.labDescription}</p>
-          </div>
-          <Link
-            className="landing-lab-action"
-            href="/labs/laboratory"
-            prefetch={false}
-            aria-label={t.labLink}
-            onClick={(event) => open(event, 'laboratory', '/labs/laboratory')}
-          >
-            {t.openLab}
-            <ArrowUpRight size={19} aria-hidden="true" />
-          </Link>
         </section>
       </main>
       <footer className="landing-footer">

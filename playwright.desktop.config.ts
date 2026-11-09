@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'ephemeral-landing.spec.ts',
+    'compact landing is readable with keyboard access and reduced motion',
+  ],
+  [
     'laboratory-topology.spec.ts',
     'topology native short desktop Review keyboard focus reduced motion Axe and pinned disassociation preserve actual resource evidence',
   ],

@@ -14,9 +14,12 @@ export const blobHash71 = (bytes: Buffer) =>
 const cache = new Map<string, Buffer>();
 export function original71(path: string) {
   if (!cache.has(path))
-    cache.set(path, execFileSync('git', ['show', pr71Base + ':' + path], {
-      maxBuffer: 16 * 1024 * 1024,
-    }));
+    cache.set(
+      path,
+      execFileSync('git', ['show', pr71Base + ':' + path], {
+        maxBuffer: 16 * 1024 * 1024,
+      }),
+    );
   return cache.get(path)!;
 }
 export function readPR71(path: string): Buffer;

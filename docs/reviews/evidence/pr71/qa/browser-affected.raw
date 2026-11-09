@@ -1,0 +1,89 @@
+[WebServer] (node:3795) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:3812) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:24:1 › landing launches actual 3.7 Laboratory without a database, then returns to root (6.2s)
+  ✘  2 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:67:1 › memory Networking Compute NSG route and Studio use original resources and invalidate analysis after a real rule correction (15.8s)
+(node:3911) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:145:1 › memory Firewall policy nested rule Review Update Delete and historical replay keep original identities and receipts (15.5s)
+(node:3995) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  4 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:222:1 › memory lost response retry separate tabs and reset preserve course bytes without database writes or shared session (6.7s)
+
+
+  1) [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:67:1 › memory Networking Compute NSG route and Studio use original resources and invalidate analysis after a real rule correction 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  locator('[data-firewall-outcome]')
+    Expected: "bypassed-firewall"
+    Received: "bypasses-firewall"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" locator('[data-firewall-outcome]') with timeout 5000ms
+      - waiting for locator('[data-firewall-outcome]')
+        13 × locator resolved to <strong class="lab-policy-outcome" data-firewall-outcome="bypasses-firewall" data-outcome="allowed-by-modeled-network-policy">Rutevalget går utenom Firewall</strong>
+           - unexpected value "bypasses-firewall"
+
+
+      120 |   await page.getByRole('textbox', { name: e.destinationPort, exact: true }).fill('1433');
+      121 |   await page.getByRole('button', { name: e.calculate, exact: true }).click();
+    > 122 |   await expect(page.locator('[data-firewall-outcome]')).toHaveAttribute(
+          |                                                         ^
+      123 |     'data-firewall-outcome',
+      124 |     'bypassed-firewall',
+      125 |   );
+        at /workspace/Azure-learner/tests/e2e/ephemeral-landing.spec.ts:122:57
+
+    Error Context: ../azurelab-pr71/browser-affected/ephemeral-landing-memory-N-9ab2e-fter-a-real-rule-correction-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr71/browser-affected/ephemeral-landing-memory-N-9ab2e-fter-a-real-rule-correction-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr71/browser-affected/ephemeral-landing-memory-N-9ab2e-fter-a-real-rule-correction-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:145:1 › memory Firewall policy nested rule Review Update Delete and historical replay keep original identities and receipts 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.lab-result')
+    Expected substring: "3389"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" locator('.lab-result') with timeout 5000ms
+      - waiting for locator('.lab-result')
+
+
+      198 |   await page.getByRole('button', { name: life.save, exact: true }).click();
+      199 |   expect((await (await updated).json()).receipt.updatedIds).toEqual([rule]);
+    > 200 |   await expect(page.locator('.lab-result')).toContainText('3389');
+          |                                             ^
+      201 |   await page.getByRole('button', { name: life.verify, exact: true }).click();
+      202 |   await expect(page.locator('.lab-rule-history')).toContainText(life.verified);
+      203 |   await service(page, f.policies);
+        at /workspace/Azure-learner/tests/e2e/ephemeral-landing.spec.ts:200:45
+
+    Error Context: ../azurelab-pr71/browser-affected/ephemeral-landing-memory-F-28e93-nal-identities-and-receipts-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr71/browser-affected/ephemeral-landing-memory-F-28e93-nal-identities-and-receipts-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr71/browser-affected/ephemeral-landing-memory-F-28e93-nal-identities-and-receipts-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:67:1 › memory Networking Compute NSG route and Studio use original resources and invalidate analysis after a real rule correction 
+    [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:145:1 › memory Firewall policy nested rule Review Update Delete and historical replay keep original identities and receipts 
+  2 passed (52.1s)
