@@ -163,7 +163,7 @@ for (const mode of ['light', 'dark'] as const) {
             ? '/learn/computing?topic=v2-assessment'
             : family === 'refined'
               ? '/learn/benefits?topic=assessment&assessment=updated'
-              : '/learn/compute?topic=assessment&item=cp01';
+              : '/learn/compute?topic=assessment&case=cp01';
         await page.goto(`${info.project.use.baseURL}${route}`);
         if (family === 'foundations') {
           await page
@@ -200,7 +200,11 @@ for (const mode of ['light', 'dark'] as const) {
           0,
         );
         const control = form.locator('input, select').nth(0);
+        if (family === 'compute')
+          await expect(page.locator('.compute-assessment > header h3')).toBeFocused();
         await control.focus();
+        await page.keyboard.press('Shift+Tab');
+        await page.keyboard.press('Tab');
         await expect(control).toBeFocused();
         expect(await control.evaluate((el) => getComputedStyle(el).outlineStyle)).toBe('solid');
         await accessible(page);
