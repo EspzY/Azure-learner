@@ -1,0 +1,70 @@
+
+> azurelab@0.1.0 check
+> npm run typecheck && npm run lint && npm run format:check && npm run docs:check && npm run quality:check && npm run az900:audit:check && npm run curriculum:check && npm run assets:check && npm run legacy:check && npm test && npm run build
+
+
+> azurelab@0.1.0 typecheck
+> node scripts/next.mjs typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+
+> azurelab@0.1.0 lint
+> eslint . --max-warnings 0
+
+
+> azurelab@0.1.0 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> azurelab@0.1.0 docs:check
+> node scripts/docs-check.mjs
+
+Documentation OK: 222 Markdown files; required files and local links verified.
+
+> azurelab@0.1.0 quality:check
+> node scripts/quality-check.mjs
+
+Seven-gate quality contracts/source/activity references valid; no final or human approval inferred.
+
+> azurelab@0.1.0 az900:audit:check
+> node scripts/az900-audit-check.mjs
+
+AZ-900 audit: 57 objectives / 126 facets, evidence references and generated matrix valid; no educational approval inferred.
+
+> azurelab@0.1.0 curriculum:check
+> vitest run src/domain/curriculum/integrity.test.ts src/domain/curriculum/official.test.ts src/domain/curriculum/responsibility.test.ts src/domain/portal/portal.test.ts src/domain/course/course.test.ts src/domain/curriculum/foundations-v2.test.ts src/domain/curriculum/expansion.test.ts src/domain/sandbox/practical.test.ts src/domain/guidance/milestones.test.ts src/domain/curriculum/serverless.test.ts src/domain/curriculum/architecture-physical.test.ts src/domain/curriculum/architecture-management.test.ts src/domain/curriculum/teaching-access.test.ts src/domain/sandbox/missions.test.ts src/domain/curriculum/transfer.test.ts src/domain/curriculum/cost.test.ts src/domain/curriculum/compute.test.ts src/domain/curriculum/networking.test.ts src/domain/curriculum/connectivity.test.ts src/domain/curriculum/storage.test.ts src/domain/curriculum/storage-resilience.test.ts src/domain/curriculum/identity-foundations.test.ts src/domain/curriculum/access-control.test.ts src/domain/curriculum/governance.test.ts src/domain/curriculum/management-tools.test.ts src/domain/curriculum/monitoring.test.ts src/domain/curriculum/security.test.ts src/domain/curriculum/migration.test.ts src/domain/curriculum/refined-assessment.test.ts src/domain/curriculum/application-transfer.test.ts
+
+
+ RUN  v5.0.5 /workspace/azurelab-parallel/application
+
+ ❯ src/domain/curriculum/serverless.test.ts (13 tests | 1 failed) 6178ms
+   ❯ FC08 bounded execution mechanism, never Azure runtime (3)
+     × conserves every event deterministically across all bounded inputs and situations 5532ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/domain/curriculum/serverless.test.ts > FC08 bounded execution mechanism, never Azure runtime > conserves every event deterministically across all bounded inputs and situations
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/domain/curriculum/serverless.test.ts:25:3
+     23| };
+     24| describe('FC08 bounded execution mechanism, never Azure runtime', () =…
+     25|   it('conserves every event deterministically across all bounded input…
+       |   ^
+     26|     for (const situation of ['warm', 'cold', 'code-error'] as const)
+     27|       for (let count = 0; count <= 12; count++)
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 29 passed (30)
+      Tests  1 failed | 502 passed (503)
+   Start at  17:57:14
+   Duration  18.23s (tests 49%, import 43%, transform 7%, worker 1%)
+
+    Isolate  30 workers spawned · ~404ms startup each (spawn + environment, per file)
+             at least ~3.63s faster with isolate: false — reuses workers across files instead of one per file
+

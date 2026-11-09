@@ -5,7 +5,7 @@
   "author": "application-platform-author",
   "scope": {
     "kind": "versioned-operational-laboratory-platform",
-    "description": "Operational laboratory@3.8.0 resource/configuration simulator only; no real hosting, Node execution, HTTP probes, Azure quota/billing/authentication or verified availability. Explicit new workspaces only, no automatic migration. B/C modules not registered; no database/FrontDoor/Functions UI claim. Existing course-v2/first-help-retry-abandon/rubrics/Journal/XP remain unchanged, with no new teaching. Human SME and learning validation unperformed.",
+    "description": "Operational laboratory@3.8.0 resource/configuration simulator only; no real hosting, Node execution, HTTP probes, Azure quota/billing/authentication or verified availability. Explicit new workspaces only, no automatic migration. B/C modules not registered; no database/FrontDoor/Functions UI claim. Existing course-v2/first-help-retry-abandon/rubrics/Journal/XP remain unchanged, with no new teaching. Human SME and learning validation unperformed. Owner-requested bounded four-job CI sharding preserves the entire test profile and all worker/retry/timeout/skip settings; explicit fail-closed aggregate owns complete evidence, not selected shards.",
     "objectives": ["LAB-APPLICATION-PLATFORM"]
   },
   "sources": [
@@ -316,7 +316,6 @@
     "docs/reviews/evidence/pr72/screens/guided-subscription-1440-900.png",
     "docs/reviews/evidence/pr72/sources.json",
     "package-lock.json",
-    "package.json",
     "playwright.config.ts",
     "public/design-review/characters/v1/explain-right-320.webp",
     "public/design-review/characters/v1/explain-right-640.webp",
@@ -392,8 +391,6 @@
     "scripts/e2e-preview-build.test.mjs",
     "scripts/legacy-check.mjs",
     "scripts/next.mjs",
-    "scripts/quality-check.mjs",
-    "scripts/quality-check.test.mjs",
     "scripts/verify-desktop-ci.mjs",
     "src/app/api/laboratory/analysis/route.ts",
     "src/app/api/laboratory/command/route.ts",
@@ -780,7 +777,12 @@
       "limits": "Operational laboratory@3.8.0 resource/configuration simulator only; no real hosting, Node execution, HTTP probes, Azure quota/billing/authentication or verified availability. Explicit new workspaces only, no automatic migration. B/C modules not registered; no database/FrontDoor/Functions UI claim. Existing course-v2/first-help-retry-abandon/rubrics/Journal/XP remain unchanged, with no new teaching. Human SME and learning validation unperformed."
     },
     "delivery": {
-      "checks": [{ "path": "docs/quality/APPLICATION_PLATFORM_QA.md" }],
+      "checks": [
+        { "path": "docs/quality/APPLICATION_PLATFORM_QA.md" },
+        { "path": "docs/CI_SHARDED_VERIFICATION.md" },
+        { "path": "src/resource-platform-ci-workflow.test.ts" },
+        { "path": "scripts/e2e-shard.test.mjs" }
+      ],
       "limits": "Operational laboratory@3.8.0 resource/configuration simulator only; no real hosting, Node execution, HTTP probes, Azure quota/billing/authentication or verified availability. Explicit new workspaces only, no automatic migration. B/C modules not registered; no database/FrontDoor/Functions UI claim. Existing course-v2/first-help-retry-abandon/rubrics/Journal/XP remain unchanged, with no new teaching. Human SME and learning validation unperformed."
     },
     "visual-accessibility": {
@@ -822,8 +824,8 @@
   "verification": [
     {
       "command": "npm run check",
-      "result": "passed",
-      "details": "Complete npmruncheck onunchangedproductcode passed1163Vitest/99files,24Node,503curriculum,realPG,normalbuild. AfterwardsONLYonenewE2Ereadinessassertionwasadded; originalstrictassertionunchanged. Currentaffectedtype/lint/format/nativechecksareseparatelyreported; finalnew-headCIwillrepeatfullcheck/profile. NoearliercheckisclaimedonlaterE2Ebytes."
+      "result": "pending",
+      "details": "Complete local npm run check now PASSED1172Vitest/100files+35Node+503curriculum+realisolatedPostgreSQL+normalbuild, after two retained failed whole invocations caused by unchanged5s timers.51focused+35Node separately passed. No timingcauseclosed. This row intentionally remains PENDING for authoritative same-SHA/current-attempt CI execution; verified aggregate will replace it only after required full CI check and all475browsercases pass."
     },
     {
       "command": "npx vitest run src/laboratory-application.test.ts src/laboratory-application-api.test.ts src/laboratory-application.integration.test.ts",
@@ -843,52 +845,40 @@
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "c921621bd3820acb59409df93cbf3d7e54432734bf0f72f89eb09da41f5d3cef",
+    "fingerprint": "47c9a1cd10d804ed4474b2bd79ad6997f60d32cdfa06fa7f79ed7b43990fbad7",
     "reviewer": { "id": "application-platform-independent-final-audit", "kind": "agent" },
-    "started": "2026-11-09T16:46:01.669Z",
+    "started": "2026-11-09T18:08:49.017Z",
     "domains": {
       "content": {
-        "finding": "Actual six Microsoft bodies reviewed; bounded App Service/Node24/configuration semantics and synthetic/runtime limits are accurate. No new curriculum or human validation claim.",
+        "finding": "AffectedCI/processcopy accuratelydistinguishes incomplete474/475serialrun,collection,syntheticvalidatorfixturesandactualexecution. No newAzureclaims/pedagogy; unchangedofficial-source/contentfindingspreserved.",
         "evidence": [
-          { "path": "docs/LABORATORY_APPLICATION_PLATFORM.md" },
-          { "path": "docs/reviews/evidence/parallel-resource-platform/microsoft-sources.json" },
+          { "path": "docs/CI_SHARDED_VERIFICATION.md" },
           { "path": "docs/quality/APPLICATION_PLATFORM_FINAL_AUDIT.md" }
         ]
       },
       "technical": {
-        "finding": "Single3.8 command/replay authority, strict model admission, both transports and additive009 preserve original histories. A-01 WebAppARMparent corrected to ResourceGroup with distinct hostingplan; independent50case+parent+endpoint/native-negative probes passed.",
+        "finding": "Reviewedall4helpers+activeworkflow:fixed4isolatedshards/exactexecutedunion,rawsource/SHA/base/run/attempt/config/fixture/attachments,typedCI-check+fullbrowserreceiptsaftervalidatedsuccessfulprerequisites,read-onlystrictvalidation. Independent24Node+19workflow/proof+directnegativeprobespassed; A05symlinkboundaryfixed. Runtime/evaluators/SQL/Portalunchanged8f.",
         "evidence": [
-          { "path": "src/laboratory/v38/domain.ts" },
-          { "path": "src/laboratory-application.integration.test.ts" },
-          {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-a01-retest.log.raw"
-          },
-          {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/native-negative-probes.log.raw"
-          },
+          { "path": "scripts/e2e-shard-plan.mjs" },
+          { "path": "scripts/e2e-shard-runner.mjs" },
+          { "path": "scripts/e2e-shard-aggregate.mjs" },
+          { "path": "scripts/e2e-shard.test.mjs" },
+          { "path": "src/resource-platform-ci-workflow.test.ts" },
           { "path": "docs/quality/APPLICATION_PLATFORM_FINAL_AUDIT.md" }
         ]
       },
       "visual": {
-        "finding": "Personally inspected all four renewed release images plus actual update receipt and retained badReview. Short1024x500 summaryfocus/headerclearance/correctRGparent/Save are readable; keyboard/reducedmotion/Axe/native7passed. Human accessibility/UX unperformed.",
+        "finding": "UI/Studio/CSS/assets/currentimagesrawbyteexact8f; earlieractualpersonalinspections/manualpublicevidencecarryforwardasboundedpreservation. No new-headbrowser/humanUXclaim.",
         "evidence": [
+          { "path": "src/resource-platform-preservation.test.ts" },
           {
             "path": "docs/reviews/evidence/parallel-resource-platform/screens/application-review-1024-500.png"
-          },
-          {
-            "path": "docs/reviews/evidence/parallel-resource-platform/screens/application-change-receipt.png"
-          },
-          {
-            "path": "docs/reviews/evidence/parallel-resource-platform/screens/application-studio.png"
-          },
-          {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-native-a01-final.log.raw"
           },
           { "path": "docs/quality/APPLICATION_PLATFORM_FINAL_AUDIT.md" }
         ]
       },
       "assessment": {
-        "finding": "All unchanged bank/rubric/store/first-help-retry-abandon/XP/course authorities remain rawbyteexact. Direct2759unexceptedbasepaths and bounded26exceptions checked; historicalreader imports/assertions retain original semantics. No new bank or learning approval.",
+        "finding": "2751unexceptedPR72paths and2832other8ftrackedpaths independentlyrawmatched;34finiteexceptions/77addedbindingschecked. Originalassessments/rubrics/stores/first-help-retry-abandon/XP/coursehistories unchanged; oldserialworkflowassertionsimport-onlyadaptation.",
         "evidence": [
           { "path": "src/resource-platform-preservation.test.ts" },
           { "path": "tests/resource-platform-preservation.ts" },
@@ -897,55 +887,33 @@
         ]
       },
       "guidance": {
-        "finding": "Guidance/mission/independentassistance/mascot bytes unchanged; actual operational UI probes preserve coursebytes and introduce no teaching/reward/session authority.",
+        "finding": "Allcourse/guidance/independentassistance/mission/mascotbytes unchanged; shardingintroducesnolearnerstate, teachingorhelp/rewardauthority.",
         "evidence": [
           { "path": "src/features/course/mission-context.ts" },
           { "path": "src/resource-platform-preservation.test.ts" },
-          {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/native-negative-probes.log.raw"
-          },
           { "path": "docs/quality/APPLICATION_PLATFORM_FINAL_AUDIT.md" }
         ]
       },
       "regression": {
-        "finding": "Formatting-onlyrenewal:83inputsexact. Exactly4newforensicJSONartifacts==pinnedPrettier(committedbytes), parsedvaluesequalHEAD+retainedoriginals; proofonly4addedbindingschanged/26inheritedunchanged. All2837otherHEADrawpaths includingruntime/SQL/E2E/oldtests/images exact. Poststampguard10/10passes. ActualQuality124failedformatbeforelatergates; verifyfailedclosed. Fullformatnowpasses; noCI/browser/strictcreditforfailedrun. EarlierwholechecknotclaimedonlaterE2Ebytes; finalnewhead475/strict/publicpending, unknownlocal/publictimingOPEN.",
+        "finding": "Independent24Node/19workflow+proofcases anddirectprereqno-write/A05/readnonmutation/truncatedreportprobespassed. Actualunchangedwholelocalcheck1172/100+35Node+503curriculum+PG/buildpassedAFTERretainedtimingfailures; causesOPEN. WholecheckrecordintentionallyCIpending; onlyactualsameSHA/currentattemptchecksuccess+all475executedunion mayderiveCI-check/fullprofileentries. Newheadmatrix/strict/publicpending; no partial/syntheticcoveragecredit.",
         "evidence": [
           {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-full-check-a01-final.log.raw"
+            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-full-check-complete.log.raw"
           },
           {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-native-a01-final.log.raw"
-          },
-          { "path": "src/resource-platform-preservation.test.ts" },
-          { "path": "docs/quality/APPLICATION_PLATFORM_FINAL_AUDIT.md" },
-          { "path": "docs/reviews/evidence/parallel-resource-platform/preservation.json" },
-          {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-setting-CAUSAL_REVIEW.md.raw"
+            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-full-check-initial.log.raw"
           },
           {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-setting-before-readiness.trace.zip"
+            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-full-check-recheck.log.raw"
           },
           {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-setting-readiness-serial-native.log.raw"
+            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-preservation-findings.md.raw"
           },
           {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-readiness-parallel-native-original.log.raw"
+            "path": "docs/reviews/evidence/parallel-resource-platform/ci/analysis-FINAL-8f734b69-CANCELLED.json"
           },
-          {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/public-A-combined-corrected.log.raw"
-          },
-          {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-setting-actual-call-timeline.json"
-          },
-          {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-setting-actual-command-and-navigation.json"
-          },
-          {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-setting-assertion-snapshots.json"
-          },
-          {
-            "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-setting-provenance.json"
-          }
+          { "path": "scripts/e2e-shard.test.mjs" },
+          { "path": "docs/quality/APPLICATION_PLATFORM_FINAL_AUDIT.md" }
         ]
       }
     },
@@ -1002,7 +970,7 @@
         "id": "A-03",
         "severity": "note",
         "status": "open",
-        "description": "Originallaterlocalbatch4pass/3timeoutsinAxe/frameevaluation,responseJSONandPGremainsfailed; simultaneouscoldTypeScriptandlaterisolated7/7pass do not establishcausalCPUclosure. TimingcauseOPEN; privatePGtracesnotpublished; no threshold/retry/worker/skipchanges. Public0e244sixcasebatchalso4pass/2aggregatebudgettimeouts; combinednotrun. PlatformagentfirsttracefindingreportneverreachedAPP_MODEanddoesnotestablishdeterministicUI/selector/command/CPUcause; secondDeletetracecausallyunreviewed. Failedrunsnotrelabeledpassed."
+        "description": "Originallaterlocalbatch4pass/3timeoutsinAxe/frameevaluation,responseJSONandPGremainsfailed; simultaneouscoldTypeScriptandlaterisolated7/7pass do not establishcausalCPUclosure. TimingcauseOPEN; privatePGtracesnotpublished; no threshold/retry/worker/skipchanges. Public0e244sixcasebatchalso4pass/2aggregatebudgettimeouts; combinednotrun. PlatformagentfirsttracefindingreportneverreachedAPP_MODEanddoesnotestablishdeterministicUI/selector/command/CPUcause; secondDeletetracecausallyunreviewed. Failedrunsnotrelabeledpassed. SerialCI123450/475andCI125474/475cancelledwithoutcompleteevidence/strict; newlocalwholeinvocationshittopology6114/isolated6628andServerless5532ms5stimers, plusfocused48/51timerfailures. Laterunchangedwhole1172+35+503/PG/buildpassdoesnotclosecause; no cache/parser/oldhelper/assertion/limitoptimizationimplemented."
       },
       {
         "id": "A-04",
@@ -1026,19 +994,42 @@
           { "path": "src/resource-platform-preservation.test.ts" },
           { "path": "docs/quality/APPLICATION_PLATFORM_FINAL_AUDIT.md" }
         ]
+      },
+      {
+        "id": "A-05",
+        "severity": "minor",
+        "status": "fixed",
+        "description": "Newartifactvalidationcouldfollowcorrectlynamed symlinkbundle root/ancestor despiteforbiddingdescendantsymlinks; evidencepathboundarygap,notobservedfalsebrowsercoverage.",
+        "fix": "safeDirectorylstatsanchorandalltraversedparents; safeFile/fileHashing/verifyBundlesvalidateroot/ancestors/bundlesandhash-boundattachments. Independentdirectsymlinkroot+ancestorprobesreject; repeatedstrictreadsnonmutating; badprerequisiteswritezerofiles.",
+        "retests": [
+          { "path": "scripts/e2e-shard.test.mjs" },
+          { "path": "scripts/e2e-shard-plan.mjs" },
+          { "path": "scripts/e2e-shard-aggregate.mjs" },
+          { "path": "docs/quality/APPLICATION_PLATFORM_FINAL_AUDIT.md" }
+        ]
       }
     ],
     "report": { "path": "docs/quality/APPLICATION_PLATFORM_FINAL_AUDIT.md" }
   },
   "snapshot": {
     "files": {
+      ".github/workflows/ci.yml": "819039b3cc80a602866c4e50297c8b4d0622d5b8eb29d7079a66700eb49af949",
+      "AGENTS.md": "9e8cce8f2d648b45ef591acd410a018a0068c84957463eeafc1502406966f082",
       "database/laboratory-v3/009-application-platform.sql": "6faa562ccf1533cdf3dfad995d1cfd89c6222e4a90c3a2f4134aeb825fba929b",
+      "docs/CI_SHARDED_VERIFICATION.md": "0766ce59b694458acd714d8bf86fc13d4b22b69ce5985a3cde80dd507ef1639d",
+      "docs/DEVELOPMENT_WORKFLOW.md": "63c53ce5811ffb9efca1313805b0abc35f39d905413e390a78874a4b8f7835e3",
       "docs/LABORATORY_APPLICATION_PLATFORM.md": "58d7346c04e599028a92e82c8ea0b8786b622e53f0f1df50229609bbb5f302cd",
       "docs/PARALLEL_RESOURCE_PLATFORM.md": "15a5b51ab33244ac6baa634907b63fe0aad9045001d0c99742f68bb504378fd0",
+      "docs/RELEASE_ACCEPTANCE.md": "47f2302f306647c9b8a35bca889a2bacff30be1a04776d2971ed0911dbcec6dc",
       "docs/RESOURCE_PLATFORM_CI_STUDY.md": "18a22483949c575ef0714c83d2c6b989bae504eacf2d9975fa8a55e6193e46ee",
       "docs/RESOURCE_PLATFORM_INTEGRATION_CONTRACT.md": "555a603f940ca54edc3abf26c6398c8f576fc16a93373375767831804c8ee93f",
+      "docs/reviews/evidence/parallel-resource-platform/ci/analysis-FINAL-8f734b69-CANCELLED.json": "c83915694a5dd7efaec11aa6bb8d2f7dd774e3f239d82bbaa5dc5ad58c82ceaa",
+      "docs/reviews/evidence/parallel-resource-platform/ci/capture-provenance.json": "c622fb403a87c10741c5ecbae490ebe6cb664082b12e6a31c96256f88d93adb0",
+      "docs/reviews/evidence/parallel-resource-platform/ci/jobs-FINAL-CANCELLED.json": "0dc86ffaf64c7aba5159d99317d907942b2b60ac36ea2659d664a71db35388aa",
+      "docs/reviews/evidence/parallel-resource-platform/ci/run-FINAL-CANCELLED.json": "8931bf6ce7d6c256722f6452ca259cbb5e9c49f25cc9c1102886b01398dfcaf5",
+      "docs/reviews/evidence/parallel-resource-platform/ci/verify-job-129305439723-FINAL-8f734b69-CANCELLED.log.raw": "73a706d9bed00302821ab2841a21e9a2bae8e58c706f45cec0d504de901bf5a0",
       "docs/reviews/evidence/parallel-resource-platform/microsoft-sources.json": "2b4efce0309b48a4caa5cd5cc9908b8231eb4350fadf7bb76e38d65f80b1be09",
-      "docs/reviews/evidence/parallel-resource-platform/preservation.json": "3632dc737ca26cf01fb311fc6b43919eebcf0b7c6ce62e685da4bf41eb9db970",
+      "docs/reviews/evidence/parallel-resource-platform/preservation.json": "893b709949e0140bf24732316c1f7d32b681304bde3cd1e914a15c86a27bfdfa",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-a01-before-change-receipt.png": "077382d0690bb7ea6292a4e97c37661f3c8830bc5cba255b08827ecf62dcc770",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-a01-before-review-1024-500.png": "f96051943a4ee9ddc13fc23dc3d1387c4c4a955402ad205c97a7d7f45d1ccffc",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-a01-lint.log.raw": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20",
@@ -1065,6 +1056,16 @@
       "docs/reviews/evidence/parallel-resource-platform/qa/application-setting-readiness-incremental-types.log.raw": "a16abc171c3dc40660ceee84a4e7cdcc49f2391b3d72d09cff05adaa9d0cf922",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-setting-readiness-lint.log.raw": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-setting-readiness-serial-native.log.raw": "0dfce842e2a9f55c0dc5920961af7cc5894d74ec3634a4bf92fef13b7796abb0",
+      "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-full-check-complete.log.raw": "e08002e14f6487504d053dea41489cd0b7986ec8a624ae7fd25044917fe88540",
+      "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-full-check-initial.log.raw": "2ef11e939394b3b82653656b2b5878cfa670b44120f9fa4f7d27e3b0b71b6a04",
+      "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-full-check-recheck.log.raw": "fafc4371997d38282b278a440a7fd6f54be9ba1a46613dd29a7c0632ef942328",
+      "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-node-complete.log.raw": "ebab05133e85f6f01d5b6c14347739ddc9adfebaed647ef4e508aca286808943",
+      "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-node-initial.log.raw": "79582e013e165a515f497df9a13432609e0cb6cd05a641d7cc88ecc96f578260",
+      "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-preservation-findings.md.raw": "26fb496cdbf69185e051202236644d04fb59b1d27b5a094f4c7937acaf187b33",
+      "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-preservation-isolated.log.raw": "e96535f9c2e6ee614d33761bc7bb48a786c32000f824e31f5901510364f39ab1",
+      "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-preservation-strace.log.raw": "32fb12558f545bce6152abb40e6a291eba8537a3699ded37fb90f6d2f9d67777",
+      "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-targeted-complete.log.raw": "0d557fb113e743a7bac0ae78f2565147d834e876cb442ab08c9ad112146d30d7",
+      "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-targeted-initial.log.raw": "c0d54d05fbc7758d88e1d109d96e4232e1eb10c7e8a1d658de61858260a31f84",
       "docs/reviews/evidence/parallel-resource-platform/qa/native-negative-probes.log.raw": "7c9fa30b9f9e7f0ecd55d363aabb7c426fc7e4c40e4a39acdf838d8e9871be95",
       "docs/reviews/evidence/parallel-resource-platform/qa/native-negative-probes.mjs.raw": "85d17d156626a4759ac7c36b48fa2884c970753f937f12d57cc67918ef67d111",
       "docs/reviews/evidence/parallel-resource-platform/qa/public-A-combined-corrected.log.raw": "b3749276c30b0b69ebb4ddb7de2de8849dd80971ba89d36b396637ae8b1949e3",
@@ -1077,8 +1078,15 @@
       "docs/reviews/evidence/parallel-resource-platform/screens/application-properties-1440-900.png": "d748a7ca62776a7a5df22c94b6a97c6a53c3a40a042578c11788d4f06f8d248e",
       "docs/reviews/evidence/parallel-resource-platform/screens/application-review-1024-500.png": "eed8ed28377a76a43ed4256a6eddfb742eca66eb3fbc9178de0f1b7666b43a41",
       "docs/reviews/evidence/parallel-resource-platform/screens/application-studio.png": "6b2b6b7ec65a139b155aa808f8131ccbb0f9904dc7b84a136e8503a020f81f58",
+      "package.json": "92ef85d3dcf8ff682f823f8f02b55c010c7d87d681cd7e53ed8b184d71484b79",
       "playwright.desktop.config.ts": "472d48f463ac0a7976697c90d2c7eaa8fe27796b792574a9aba180bc984ee23b",
+      "scripts/e2e-shard-aggregate.mjs": "026143cbec2a1d916a86a0474cee41276a8d338ba8ed86c593d84f7ad0d12dc8",
+      "scripts/e2e-shard-plan.mjs": "0f14f463f44138b932d8d7fdb6792e06e1fdc13714fcb40eec4b12330988c905",
+      "scripts/e2e-shard-runner.mjs": "56919b9530c4c4292394470047c3523188e4e87751b98794a35a8b57bc300e11",
+      "scripts/e2e-shard.test.mjs": "3656ec6aa422c693590a5aceadbe4c52afee5079f1162b6d538bea06bc70bbc1",
       "scripts/laboratory-db.mjs": "b98884b95925b93224833d65ac27acca04891da6b4981f32e5dac08e6187b115",
+      "scripts/quality-check.mjs": "3a7584190c2d3c9b97aab41df43ce9caa98d84cdee40415bc000816fca7d8961",
+      "scripts/quality-check.test.mjs": "06eecc3f349d48eaf8c06e791f4f37c6c7b2e44979e9c30de0f88c95244c446b",
       "src/app/api/laboratory/ephemeral/route.ts": "2afc0a89b497cad379d9bb6b5ebe13ceb3bbc406b8877835527bb58738c04f18",
       "src/content/laboratory-application-nb.ts": "b46ca65324903e289804fa17a406eed2c614318965ef1732f44ae7353257d9ff",
       "src/content/portal-workspace-nb.ts": "194188925cc35e226718c991e0a43450236eaab6e8aa5d9eb1ca6773310afd22",
@@ -1108,8 +1116,10 @@
       "src/laboratory/v38/contract.ts": "d01b922cc1fabe185a500f07e601a2c3efc12ec4658e0c81690256d88cf04daa",
       "src/laboratory/v38/domain.ts": "9acfc50c5b4e7ead5efde4bffceffe7323da113f71cec1df5f1bf4d3bc7a0581",
       "src/laboratory/v38/projection.ts": "83d0525a46b7011e76ca8322bb288c23351d73ff52f5012c1bb9204c53955665",
+      "src/pr72-ci-workflow.test.ts": "bc0fc10e9a2356ff5e87981bb7be4066ed1bba6c4da317573766fb99e440f23b",
       "src/pr72-shared-portal-preservation.test.ts": "bf9790edefb52ba745d1a8c1eda647aee5c9f506578e3b1e8695a55df97cefe1",
-      "src/resource-platform-preservation.test.ts": "b79670482c321c29d3b72210251db049eb8740dac27ec07d01f933df377b4ffb",
+      "src/resource-platform-ci-workflow.test.ts": "cc0bfbbe6bd4a63d910847408fdd2e3648107d4e928a8ff392a61f51e300a302",
+      "src/resource-platform-preservation.test.ts": "d611499275cc02e2cb0b33d90467fb2c43da725419e4d14f988c2620e4374b1d",
       "tests/e2e/application-platform.spec.ts": "7ba4d7f323d18b5d6a2b59c674fb5ce4dc15c673fd2565ddd6446a77204a2e9e",
       "tests/e2e/ephemeral-actions.ts": "bc0033be99ea0c1007955220a1cf2688be9231ba355aa31371e3cd1c09085a46",
       "tests/e2e/laboratory-topology.spec.ts": "3ee7e73a2b9b2725dae687c8d4a69841a3a4085703d1e88b976d123a82efa1ff",
@@ -1117,5 +1127,5 @@
       "tests/resource-platform-preservation.ts": "c81f4d8043c073dda6778ec57913231b86cd31cad67c8e23294cdf62ea784322"
     }
   },
-  "implementationFinished": "2026-11-09T16:44:41.790Z"
+  "implementationFinished": "2026-11-09T18:08:16.627Z"
 }

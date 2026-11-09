@@ -7,6 +7,14 @@ import { boundHistoricalBytes } from '../tests/resource-platform-preservation';
 const base = '249833f7cb7ea41d3e411444ec3c4f83805d3a5f';
 // Finite, independently reviewed owner-authorized integration exceptions.
 const approved: string[] = [
+  '.github/workflows/ci.yml',
+  'AGENTS.md',
+  'docs/DEVELOPMENT_WORKFLOW.md',
+  'docs/RELEASE_ACCEPTANCE.md',
+  'package.json',
+  'scripts/quality-check.mjs',
+  'scripts/quality-check.test.mjs',
+  'src/pr72-ci-workflow.test.ts',
   'scripts/laboratory-db.mjs',
   'src/app/api/laboratory/ephemeral/route.ts',
   'src/content/portal-workspace-nb.ts',
@@ -177,4 +185,23 @@ it('retains exact historical workspace and model assertions while explicitly cho
       '',
     ),
   ).toBe(original('tests/e2e/laboratory-topology.spec.ts').toString());
+});
+
+it('retains the complete historical serial workflow assertions with only a bounded read adapter', () => {
+  expect(readFileSync('src/pr72-ci-workflow.test.ts', 'utf8')).toBe(
+    original('src/pr72-ci-workflow.test.ts')
+      .toString()
+      .replace(
+        "import { readFileSync, mkdtempSync, mkdirSync, writeFileSync, rmSync, existsSync } from 'node:fs';",
+        "import { mkdtempSync, mkdirSync, writeFileSync, rmSync, existsSync } from 'node:fs';\nimport { readPlatformHistory as readFileSync } from '../tests/resource-platform-preservation';",
+      ),
+  );
+  for (const path of ['AGENTS.md', 'docs/DEVELOPMENT_WORKFLOW.md', 'docs/RELEASE_ACCEPTANCE.md'])
+    expect(readFileSync(path, 'utf8').endsWith(original(path).toString()), path).toBe(true);
+  expect(readFileSync('playwright.config.ts', 'utf8')).toBe(
+    original('playwright.config.ts').toString(),
+  );
+  expect(readFileSync('scripts/verify-desktop-ci.mjs', 'utf8')).toBe(
+    original('scripts/verify-desktop-ci.mjs').toString(),
+  );
 });

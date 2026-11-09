@@ -1,0 +1,57 @@
+
+ RUN  v5.0.5 /workspace/azurelab-parallel/application
+
+ ❯ src/resource-platform-ci-workflow.test.ts (8 tests | 1 failed) 8044ms
+   × executes both actual checkout guards and rejects a substituted or malformed tested commit 7577ms
+ ❯ src/laboratory-application.integration.test.ts (5 tests | 1 failed) 10884ms
+   × real3.8 PostgreSQL serializes competing writers, redelivers original receipt and rejects same ID/different request 6846ms
+ ❯ src/resource-platform-preservation.test.ts (11 tests | 1 failed) 11991ms
+   × checks actual raw current bytes for every inherited locked evidence path 8951ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/laboratory-application.integration.test.ts > real3.8 PostgreSQL serializes competing writers, redelivers original receipt and rejects same ID/different request
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/laboratory-application.integration.test.ts:53:1
+     51|   sku: 'B1',
+     52| });
+     53| it('real3.8 PostgreSQL serializes competing writers, redelivers origin…
+       | ^
+     54|   const a = await ready(),
+     55|     before = await repo.read(a.token),
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/resource-platform-ci-workflow.test.ts > executes both actual checkout guards and rejects a substituted or malformed tested commit
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/resource-platform-ci-workflow.test.ts:517:1
+    515|     expect(bash(script, { ...successful, ...values }).status).not.toBe…
+    516| });
+    517| it('executes both actual checkout guards and rejects a substituted or …
+       | ^
+    518|   for (const job of ['browser', 'verify']) {
+    519|     const script = runBlocks(jobBlocks(workflow)[job]!)[1]!;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/resource-platform-preservation.test.ts > checks actual raw current bytes for every inherited locked evidence path
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/resource-platform-preservation.test.ts:81:20
+     79|   }
+     80| });
+     81| it.each(partitions)(
+       |                    ^
+     82|   'checks actual raw current bytes for every inherited $name path',
+     83|   ({ rows }) => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  3 failed | 2 passed (5)
+      Tests  3 failed | 48 passed (51)
+   Start at  18:01:34
+   Duration  12.72s (tests 93%, transform 4%, import 2%)
+

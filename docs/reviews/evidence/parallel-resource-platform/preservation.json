@@ -1,6 +1,26 @@
 {
   "base": "249833f7cb7ea41d3e411444ec3c4f83805d3a5f",
   "files": {
+    ".github/workflows/ci.yml": {
+      "before": "81c61c13f64f31472e8bc09e443499eb0a2e00cf",
+      "after": "726ded53f73930400991933c68c825b10cb93ae0"
+    },
+    "AGENTS.md": {
+      "before": "5f9455d6d94528d26c9b6ffcffe341d9507921d1",
+      "after": "9ecec9be25db2f7cbe82a654890929f71f77d0e2"
+    },
+    "docs/DEVELOPMENT_WORKFLOW.md": {
+      "before": "9757792f2976b28e2ec0149fd82af92c11f36866",
+      "after": "5a748496b4b846e340e53bd072190b30e3c17507"
+    },
+    "docs/RELEASE_ACCEPTANCE.md": {
+      "before": "16daa3acad595bd01273945991c5fcf53064b6e0",
+      "after": "6110962895b61a62a54ba3adffa97a88c704e521"
+    },
+    "package.json": {
+      "before": "633d7f329dc72ba850ee13af7e153e0f6071dd06",
+      "after": "611bc9dafed6f577e823e222d13ea6e595c473a2"
+    },
     "playwright.desktop.config.ts": {
       "before": "0a52d8bd279f554df761ef6da15fc691a0c6a861",
       "after": "e94136b3f9410ebb02b4c8ecba2e3cc677bc8f16"
@@ -8,6 +28,14 @@
     "scripts/laboratory-db.mjs": {
       "before": "6186f60093488e99654ed4947cf1065c8c294216",
       "after": "3f19777090014951b1e3e0f9ad0208d28fad46a9"
+    },
+    "scripts/quality-check.mjs": {
+      "before": "b17705bce180ad0255f04b099ae9ce2e9f38126c",
+      "after": "f42c2c062d061987d4c4e46418b37776e3cbac57"
+    },
+    "scripts/quality-check.test.mjs": {
+      "before": "21190793dc6087504aebddf5869523ab34f6d1f0",
+      "after": "81cb0606fe422ef80f5d130289af4c49f5df49be"
     },
     "src/app/api/laboratory/ephemeral/route.ts": {
       "before": "2fee4151345405585ef0cc17dee3e7e84fbcfdf1",
@@ -89,6 +117,10 @@
       "before": "d3efeea33becac335a77a89e4f52a3b2dc602da9",
       "after": "f48d0f82fc8b5ce0c85fe59fe043ee0b28cfff25"
     },
+    "src/pr72-ci-workflow.test.ts": {
+      "before": "4ebd0be035a011e6527886984a00ab1343792888",
+      "after": "00087c529e7fac8dd8ba331668f9c5414f9bb1be"
+    },
     "src/pr72-shared-portal-preservation.test.ts": {
       "before": "5e9befea51f06ad526de3f52745911cd9b87fd28",
       "after": "ae25be93bf99f27c87c3c47cf6b35c0de94fc5f3"
@@ -108,10 +140,16 @@
   },
   "added": {
     "database/laboratory-v3/009-application-platform.sql": "cf42eea2a531e6196e8933adbe2ab449c2f7d579",
+    "docs/CI_SHARDED_VERIFICATION.md": "4d08d484a7691dcb48ae441a7125acc737f51407",
     "docs/LABORATORY_APPLICATION_PLATFORM.md": "4f6794aba4554e1945345a1f024db889867dd807",
     "docs/PARALLEL_RESOURCE_PLATFORM.md": "1a9d1a62ec5a37915ac315e9a5e91b6a59e0b820",
     "docs/RESOURCE_PLATFORM_CI_STUDY.md": "16dae643ea674d56fbef0acef41ee973d4952ce2",
     "docs/RESOURCE_PLATFORM_INTEGRATION_CONTRACT.md": "9b802e0ad8455c2c03acc0a8c632b9d5f05a7240",
+    "docs/reviews/evidence/parallel-resource-platform/ci/analysis-FINAL-8f734b69-CANCELLED.json": "8dc8842bc6a30a93199fa973855fb91751307500",
+    "docs/reviews/evidence/parallel-resource-platform/ci/capture-provenance.json": "43e00cc2e3027d9ab65a64f7fe05e8ad6da21852",
+    "docs/reviews/evidence/parallel-resource-platform/ci/jobs-FINAL-CANCELLED.json": "adfff16ded41d4cf2dfead873870555ef2dfc25c",
+    "docs/reviews/evidence/parallel-resource-platform/ci/run-FINAL-CANCELLED.json": "a1f6cd175d779261fd00c58474033af8fc0ac7bc",
+    "docs/reviews/evidence/parallel-resource-platform/ci/verify-job-129305439723-FINAL-8f734b69-CANCELLED.log.raw": "d4a233c39a88a5f21e569d4546230745ce3b94df",
     "docs/reviews/evidence/parallel-resource-platform/microsoft-sources.json": "d81c5b9c204cfc6dc8be250b28f2ac11e5b5af3c",
     "docs/reviews/evidence/parallel-resource-platform/qa/application-a01-before-change-receipt.png": "91208c9017de0849fcf432ac4aedeae45a1f1b17",
     "docs/reviews/evidence/parallel-resource-platform/qa/application-a01-before-review-1024-500.png": "f202b03ebf7a098c288def921f8473fd5bc803b9",
@@ -139,6 +177,16 @@
     "docs/reviews/evidence/parallel-resource-platform/qa/application-setting-readiness-incremental-types.log.raw": "78b9dd2266d1037a4e23a9c546dc0d9db1726e5a",
     "docs/reviews/evidence/parallel-resource-platform/qa/application-setting-readiness-lint.log.raw": "4aa0d16e7a0ff5c16269bf45771cebe89cc2e81d",
     "docs/reviews/evidence/parallel-resource-platform/qa/application-setting-readiness-serial-native.log.raw": "137f5522cd847da737e6d46971942518220ec9cc",
+    "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-full-check-complete.log.raw": "ed43898cf2ef9be8be4bc0b9374820e859b6054a",
+    "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-full-check-initial.log.raw": "81f405b8d9c345ad94e1a75063e1c928497ed1f2",
+    "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-full-check-recheck.log.raw": "0fada128a215641a8e4b306b8ca06c3e7c7d902a",
+    "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-node-complete.log.raw": "016cba5079ce8639baef866411a045bb7b879b19",
+    "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-node-initial.log.raw": "d63b9c97576f45cd8ae267d480f26879c07b516a",
+    "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-preservation-findings.md.raw": "b0f052b512124a54ae9a423bd24df69c7a3a6e6b",
+    "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-preservation-isolated.log.raw": "bea937acf972ddc6740b6c8321553531fc659398",
+    "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-preservation-strace.log.raw": "1a07c94f48384f2cf73d459da7ea704338effae6",
+    "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-targeted-complete.log.raw": "a0437481b798623674e104235dea8c8461883bdf",
+    "docs/reviews/evidence/parallel-resource-platform/qa/application-sharded-targeted-initial.log.raw": "4bb664194df6a9438e9fa00d202a340e24ad9b16",
     "docs/reviews/evidence/parallel-resource-platform/qa/native-negative-probes.log.raw": "8d29126430c69a73e428ede7809dcf97bb0bcbca",
     "docs/reviews/evidence/parallel-resource-platform/qa/native-negative-probes.mjs.raw": "d8464db3f44634278232c1688671b84be993d328",
     "docs/reviews/evidence/parallel-resource-platform/qa/public-A-combined-corrected.log.raw": "7608fe3db4f4bcaa5d8eee2f7aee10e4b6926cc8",
@@ -151,6 +199,10 @@
     "docs/reviews/evidence/parallel-resource-platform/screens/application-properties-1440-900.png": "1297413dae651fa1866984edb700e7603fc092de",
     "docs/reviews/evidence/parallel-resource-platform/screens/application-review-1024-500.png": "d5bacedd27f14710b4bcdc74afc6e882b1b94c44",
     "docs/reviews/evidence/parallel-resource-platform/screens/application-studio.png": "0da45d7f53af28954bd50597238b8f75000aa0ea",
+    "scripts/e2e-shard-aggregate.mjs": "5ce691db76cce0c7e226af5198a011e2122849df",
+    "scripts/e2e-shard-plan.mjs": "a0fbead81d9a30d0ac9aeac5ea1822061019db14",
+    "scripts/e2e-shard-runner.mjs": "38366aa80c30094178edb01feff6d37bbda0efd0",
+    "scripts/e2e-shard.test.mjs": "710a6773c917f767b6a55b8040caa739dc6ebd33",
     "src/content/laboratory-application-nb.ts": "1b206d7a289fadcae49d999bb07b9b98ff1831d9",
     "src/features/laboratory/application.tsx": "c610a24ae200f79775fd7a99e0a47524c7122492",
     "src/laboratory-application-api.test.ts": "8e5dd324a9c3de220d1d2c318b64de3041474f25",
@@ -160,7 +212,8 @@
     "src/laboratory/v38/contract.ts": "82ddf677bd3a37dab9b885f302cfd2c1b4d498f5",
     "src/laboratory/v38/domain.ts": "e0896e893919a385a916eea7e71c59a487cf9083",
     "src/laboratory/v38/projection.ts": "0d871a03d2615c1723975fa587ed667b34093168",
-    "src/resource-platform-preservation.test.ts": "4b17004fc642e54cbcd8c9b273905a325e43b333",
+    "src/resource-platform-ci-workflow.test.ts": "cc630571f078aaa9f191621aa4402876216cb2c1",
+    "src/resource-platform-preservation.test.ts": "ae247e2247436599861c1657ff27b2ec94d65fd3",
     "tests/e2e/application-platform.spec.ts": "04dcc78e88441f2e60bb3bd8656e1af2932d82fd",
     "tests/resource-platform-preservation.ts": "1ba1832eb792f63abee77e316dfccbf2a0c2a596"
   }
