@@ -4,7 +4,11 @@ import { dataTypes as T, type DataContext, type DataState, type ResourceRef } fr
 export type AnalysisIdentity = Readonly<{ workspace: string; model: string; revision: number }>;
 type Status =
   'configuration-consistent' | 'denied-by-configuration' | 'undetermined' | 'unsupported';
-export type DataAnalysis = AnalysisIdentity & {
+export type DataAnalysis = {
+  /** Null bindings mean the caller supplied no trustworthy analysis identity. */
+  workspace: string | null;
+  model: string | null;
+  revision: number | null;
   status: Status;
   code: string;
   references: ResourceRef[];
@@ -23,47 +27,82 @@ const functionLimits = [
   'Only anonymous HTTPS HTTP triggers and explicitly selected modeled blob-event inputs are supported.',
 ] as const;
 const result = (
-  identity: AnalysisIdentity,
+  identity: AnalysisIdentity | null,
   status: Status,
   code: string,
   references: ResourceRef[],
   facts: { name: string; value: string }[],
   limitations: readonly string[],
 ): DataAnalysis => ({
-  ...identity,
+  workspace: identity?.workspace ?? null,
+  model: identity?.model ?? null,
+  revision: identity?.revision ?? null,
   status,
   code,
   references: references.map((r) => ({ ...r })),
   facts,
   limitations,
 });
-const validIdentity = (i: AnalysisIdentity) =>
-  typeof i.workspace === 'string' &&
-  i.workspace.length > 0 &&
-  typeof i.model === 'string' &&
-  i.model.length > 0 &&
-  Number.isSafeInteger(i.revision) &&
-  i.revision >= 0;
+/** Accept the JSON-object boundary, not arbitrary prototype/accessor-backed objects.
+ * Copy descriptor values once so validation never calls a supplied getter or echoes
+ * unrelated properties. Failed reflection on an adversarial object fails closed. */
+function record(value: unknown): Record<string, unknown> | null {
+  try {
+    if (!value || typeof value !== 'object' || Object.getPrototypeOf(value) !== Object.prototype)
+      return null;
+    const copy: Record<string, unknown> = Object.create(null);
+    for (const key of Reflect.ownKeys(value)) {
+      if (typeof key !== 'string') return null;
+      const property = Object.getOwnPropertyDescriptor(value, key);
+      if (!property || !property.enumerable || !Object.hasOwn(property, 'value')) return null;
+      copy[key] = property.value;
+    }
+    return copy;
+  } catch {
+    return null;
+  }
+}
+const boundedString = (value: unknown): value is string =>
+  typeof value === 'string' && value.length <= 120 && value.isWellFormed() && !value.includes('\0');
+function analysisIdentity(value: unknown): AnalysisIdentity | null {
+  const input = record(value);
+  if (
+    !input ||
+    Object.keys(input).sort().join(',') !== 'model,revision,workspace' ||
+    !boundedString(input.workspace) ||
+    input.workspace.trim().length === 0 ||
+    !boundedString(input.model) ||
+    input.model.trim().length === 0 ||
+    typeof input.revision !== 'number' ||
+    !Number.isSafeInteger(input.revision) ||
+    input.revision < 0
+  )
+    return null;
+  return { workspace: input.workspace, model: input.model, revision: input.revision };
+}
 
 /** Reads the same resource slice and caller-provided actual World projections.
  * A permitted IP range is not authentication or verified connectivity. */
 export function analyseDatabaseConnection(
   state: DataState,
   context: DataContext,
-  identity: AnalysisIdentity,
-  input: { connectionId: string; sourceIp?: string },
+  suppliedIdentity: unknown,
+  suppliedInput: unknown,
 ): DataAnalysis {
+  const identity = analysisIdentity(suppliedIdentity),
+    input = record(suppliedInput);
   const refs: ResourceRef[] = [],
     facts: { name: string; value: string }[] = [];
   const finish = (status: Status, code: string) =>
     result(identity, status, code, refs, facts, dbLimits);
+  if (!identity) return finish('unsupported', 'invalid-analysis-identity');
   if (
-    !validIdentity(identity) ||
     !input ||
-    typeof input !== 'object' ||
-    Array.isArray(input) ||
     Object.keys(input).some((k) => !['connectionId', 'sourceIp'].includes(k)) ||
-    typeof input.connectionId !== 'string'
+    !Object.hasOwn(input, 'connectionId') ||
+    !boundedString(input.connectionId) ||
+    input.connectionId.length === 0 ||
+    (Object.hasOwn(input, 'sourceIp') && !boundedString(input.sourceIp))
   )
     return finish('unsupported', 'invalid-analysis-input');
   const b = state.databaseConnections.find((b) => b.id === input.connectionId);
@@ -100,7 +139,7 @@ export function analyseDatabaseConnection(
   if (server.publicNetworkAccess !== 'Enabled')
     return finish('denied-by-configuration', 'public-endpoint-disabled');
   if (b.tls !== '1.2') return finish('unsupported', 'unsupported-tls-profile');
-  if (input.sourceIp === undefined) return finish('undetermined', 'source-egress-ip-unknown');
+  if (!Object.hasOwn(input, 'sourceIp')) return finish('undetermined', 'source-egress-ip-unknown');
   if (typeof input.sourceIp !== 'string') return finish('unsupported', 'invalid-source-ip');
   const ip = ipv4(input.sourceIp);
   if (ip === null || ip === 0 || ip >= 0xe0000000)
@@ -139,22 +178,19 @@ export type FunctionAnalysis = DataAnalysis & {
 export function analyseFunctionInvocation(
   state: DataState,
   context: DataContext,
-  identity: AnalysisIdentity,
-  input: InvocationInput,
+  suppliedIdentity: unknown,
+  suppliedInput: unknown,
 ): FunctionAnalysis {
+  const identity = analysisIdentity(suppliedIdentity),
+    input = record(suppliedInput);
   const refs: ResourceRef[] = [],
     facts: { name: string; value: string }[] = [];
   const finish = (status: Status, code: string, text?: string): FunctionAnalysis => ({
     ...result(identity, status, code, refs, facts, functionLimits),
     syntheticOutput: text === undefined ? null : { contentType: 'text/plain', text },
   });
-  if (
-    !validIdentity(identity) ||
-    !input ||
-    typeof input !== 'object' ||
-    Array.isArray(input) ||
-    typeof input.functionId !== 'string'
-  )
+  if (!identity) return finish('unsupported', 'invalid-analysis-identity');
+  if (!input || !boundedString(input.functionId) || input.functionId.length === 0)
     return finish('unsupported', 'invalid-analysis-input');
   const keys =
     input.trigger === 'http'
@@ -165,9 +201,7 @@ export function analyseFunctionInvocation(
   if (
     keys.length === 0 ||
     Object.keys(input).sort().join(',') !== keys.sort().join(',') ||
-    Object.values(input).some(
-      (v) => typeof v !== 'string' || v.length > 120 || !v.isWellFormed() || v.includes('\0'),
-    )
+    Object.values(input).some((v) => !boundedString(v))
   )
     return finish('unsupported', 'invalid-analysis-input');
   const f = state.functions.find((f) => f.id === input.functionId);
@@ -210,6 +244,8 @@ export function analyseFunctionInvocation(
     if (a.publicNetworkAccess !== 'Enabled')
       return finish('denied-by-configuration', 'public-endpoint-disabled');
     if (input.transport !== 'HTTPS') return finish('denied-by-configuration', 'https-required');
+    if (!boundedString(input.method) || !boundedString(input.path) || !boundedString(input.text))
+      return finish('unsupported', 'invalid-analysis-input');
     if (input.method !== f.trigger.method || input.path !== '/api' + f.trigger.route)
       return finish('denied-by-configuration', 'http-trigger-not-matched');
     facts.push(

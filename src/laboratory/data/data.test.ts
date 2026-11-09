@@ -959,3 +959,284 @@ describe('Functions configuration and deterministic synthetic templates', () => 
     expect(JSON.stringify(h.state)).toBe(before);
   });
 });
+
+describe('DATA-AUDIT-001 — analysis JSON boundary and trustworthy identity', () => {
+  const invalidIdentities: { name: string; value: () => unknown }[] = [
+    { name: 'null', value: () => null },
+    { name: 'undefined', value: () => undefined },
+    { name: 'primitive', value: () => 'workspace-data' },
+    { name: 'array', value: () => [identity] },
+    { name: 'inherited required identity', value: () => Object.create(identity) },
+    {
+      name: 'unknown secret identity field',
+      value: () => ({ ...identity, password: 'should-not-echo' }),
+    },
+    { name: 'negative revision', value: () => ({ ...identity, revision: -1 }) },
+    { name: 'fractional revision', value: () => ({ ...identity, revision: 1.2 }) },
+    {
+      name: 'unsafe revision',
+      value: () => ({ ...identity, revision: Number.MAX_SAFE_INTEGER + 1 }),
+    },
+    { name: 'blank workspace', value: () => ({ ...identity, workspace: ' ' }) },
+    { name: 'undefined model', value: () => ({ ...identity, model: undefined }) },
+    { name: 'overlong identity', value: () => ({ ...identity, model: 'm'.repeat(121) }) },
+    { name: 'null byte identity', value: () => ({ ...identity, workspace: 'bad\0workspace' }) },
+    {
+      name: 'non-enumerable identity',
+      value: () =>
+        Object.defineProperty({ ...identity }, 'workspace', {
+          value: identity.workspace,
+          enumerable: false,
+        }),
+    },
+    {
+      name: 'symbol identity field',
+      value: () => ({ ...identity, [Symbol('secret')]: 'should-not-echo' }),
+    },
+    {
+      name: 'accessor identity',
+      value: () =>
+        Object.defineProperty({ ...identity }, 'workspace', {
+          get() {
+            throw Error('untrusted getter must not run');
+          },
+          enumerable: true,
+        }),
+    },
+    {
+      name: 'throwing reflection identity',
+      value: () =>
+        new Proxy(
+          {},
+          {
+            getPrototypeOf() {
+              throw Error('reflection denied');
+            },
+          },
+        ),
+    },
+  ];
+  test.each(invalidIdentities)(
+    'DB identity $name is unsupported, explicitly unbound and never echoed',
+    ({ value }) => {
+      const { h, connectionId, serverId } = postgresSetup();
+      h.create({
+        type: 'CreateDatabaseFirewallRule',
+        serverId,
+        name: 'allowed',
+        startIp: '203.0.113.10',
+        endIp: '203.0.113.10',
+      });
+      const input = { connectionId, sourceIp: '203.0.113.10' };
+      expect(analyseDatabaseConnection(h.state, h.context(), identity, input).status).toBe(
+        'configuration-consistent',
+      );
+      const before = JSON.stringify(h.state);
+      const r = analyseDatabaseConnection(h.state, h.context(), value(), input);
+      expect(r).toMatchObject({
+        workspace: null,
+        model: null,
+        revision: null,
+        status: 'unsupported',
+        code: 'invalid-analysis-identity',
+        references: [],
+        facts: [],
+      });
+      expect(Object.hasOwn(r, 'password')).toBe(false);
+      expect(JSON.stringify(r)).not.toContain('should-not-echo');
+      expect(JSON.stringify(h.state)).toBe(before);
+    },
+  );
+  test.each(invalidIdentities)(
+    'Function identity $name is unsupported, explicitly unbound and has no output',
+    ({ value }) => {
+      const { h, functionId } = functionSetup();
+      const input = {
+        functionId,
+        trigger: 'http',
+        method: 'POST',
+        path: '/api/hello',
+        transport: 'HTTPS',
+        text: 'synthetic',
+      };
+      expect(analyseFunctionInvocation(h.state, h.context(), identity, input).status).toBe(
+        'configuration-consistent',
+      );
+      const r = analyseFunctionInvocation(h.state, h.context(), value(), input);
+      expect(r).toMatchObject({
+        workspace: null,
+        model: null,
+        revision: null,
+        status: 'unsupported',
+        code: 'invalid-analysis-identity',
+        references: [],
+        facts: [],
+        syntheticOutput: null,
+      });
+      expect(Object.hasOwn(r, 'password')).toBe(false);
+      expect(JSON.stringify(r)).not.toContain('should-not-echo');
+    },
+  );
+  const malformedInputs: { name: string; alter: (input: Record<string, string>) => unknown }[] = [
+    { name: 'inherited fields', alter: (input) => Object.create(input) },
+    {
+      name: 'non-enumerable required field',
+      alter: (input) =>
+        Object.defineProperty({ ...input }, Object.keys(input)[0]!, {
+          value: Object.values(input)[0],
+          enumerable: false,
+        }),
+    },
+    {
+      name: 'unknown enumerable secret',
+      alter: (input) => ({ ...input, password: 'should-not-echo' }),
+    },
+    {
+      name: 'unknown non-enumerable secret',
+      alter: (input) =>
+        Object.defineProperty({ ...input }, 'password', {
+          value: 'should-not-echo',
+          enumerable: false,
+        }),
+    },
+    {
+      name: 'symbol field',
+      alter: (input) => ({ ...input, [Symbol('password')]: 'should-not-echo' }),
+    },
+    {
+      name: 'accessor field',
+      alter: (input) =>
+        Object.defineProperty({ ...input }, Object.keys(input)[0]!, {
+          get() {
+            throw Error('untrusted getter must not run');
+          },
+          enumerable: true,
+        }),
+    },
+  ];
+  test.each(malformedInputs)(
+    'DB request $name is unsupported even with otherwise valid allowed resources',
+    ({ alter }) => {
+      const { h, connectionId, serverId } = postgresSetup();
+      h.create({
+        type: 'CreateDatabaseFirewallRule',
+        serverId,
+        name: 'allowed',
+        startIp: '203.0.113.10',
+        endIp: '203.0.113.10',
+      });
+      const input = { connectionId, sourceIp: '203.0.113.10' };
+      expect(analyseDatabaseConnection(h.state, h.context(), identity, input).status).toBe(
+        'configuration-consistent',
+      );
+      const r = analyseDatabaseConnection(h.state, h.context(), identity, alter(input));
+      expect(r).toMatchObject({
+        ...identity,
+        status: 'unsupported',
+        code: 'invalid-analysis-input',
+        references: [],
+        facts: [],
+      });
+      expect(JSON.stringify(r)).not.toContain('should-not-echo');
+    },
+  );
+  test.each(malformedInputs)(
+    'Function request $name is unsupported even with otherwise valid trigger resources',
+    ({ alter }) => {
+      const { h, functionId } = functionSetup();
+      const input = {
+        functionId,
+        trigger: 'http',
+        method: 'POST',
+        path: '/api/hello',
+        transport: 'HTTPS',
+        text: 'synthetic',
+      };
+      const r = analyseFunctionInvocation(h.state, h.context(), identity, alter(input));
+      expect(r).toMatchObject({
+        ...identity,
+        status: 'unsupported',
+        code: 'invalid-analysis-input',
+        references: [],
+        facts: [],
+        syntheticOutput: null,
+      });
+      expect(JSON.stringify(r)).not.toContain('should-not-echo');
+    },
+  );
+  test('DB optional sourceIp cannot be inherited, including the reviewer reproduction', () => {
+    const { h, connectionId, serverId } = postgresSetup();
+    h.create({
+      type: 'CreateDatabaseFirewallRule',
+      serverId,
+      name: 'allowed',
+      startIp: '203.0.113.10',
+      endIp: '203.0.113.10',
+    });
+    const input = Object.assign(Object.create({ sourceIp: '203.0.113.10' }), { connectionId });
+    expect(analyseDatabaseConnection(h.state, h.context(), identity, input)).toMatchObject({
+      ...identity,
+      status: 'unsupported',
+      code: 'invalid-analysis-input',
+    });
+    expect(
+      analyseDatabaseConnection(h.state, h.context(), identity, { connectionId }),
+    ).toMatchObject({ status: 'undetermined', code: 'source-egress-ip-unknown' });
+  });
+  test.each([
+    null,
+    undefined,
+    [],
+    '',
+    { sourceIp: '203.0.113.10' },
+    { connectionId: '' },
+    { connectionId: 'x'.repeat(121) },
+    { connectionId: 'bad\0id' },
+  ])('DB malformed input %j never throws or binds a fabricated success', (input) => {
+    const h = harness();
+    expect(analyseDatabaseConnection(h.state, h.context(), identity, input)).toMatchObject({
+      ...identity,
+      status: 'unsupported',
+      code: 'invalid-analysis-input',
+    });
+  });
+  test('own undefined optional sourceIp is invalid JSON input, not an invented egress address', () => {
+    const { h, connectionId } = postgresSetup();
+    expect(
+      analyseDatabaseConnection(h.state, h.context(), identity, {
+        connectionId,
+        sourceIp: undefined,
+      }),
+    ).toMatchObject({ status: 'unsupported', code: 'invalid-analysis-input' });
+  });
+  test('valid frozen and JSON-normalized records retain exact identity without aliasing', () => {
+    const { h, functionId } = functionSetup();
+    const input = {
+      functionId,
+      trigger: 'http',
+      method: 'POST',
+      path: '/api/hello',
+      transport: 'HTTPS',
+      text: 'synthetic',
+    };
+    const r = analyseFunctionInvocation(
+      h.state,
+      h.context(),
+      frozen({ ...identity }),
+      frozen(input),
+    );
+    expect(r).toMatchObject({
+      ...identity,
+      status: 'configuration-consistent',
+      syntheticOutput: { text: 'synthetic' },
+    });
+    expect(
+      analyseFunctionInvocation(
+        h.state,
+        h.context(),
+        JSON.parse(JSON.stringify(identity)),
+        JSON.parse(JSON.stringify(input)),
+      ),
+    ).toEqual(r);
+  });
+});
