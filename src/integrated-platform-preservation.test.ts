@@ -7,6 +7,7 @@ import provenance from '../docs/reviews/evidence/integrated-application-chain/mo
 import { integrationBase } from '../tests/integrated-platform-preservation';
 import { boundHistoricalBytes, platformBlobHash } from '../tests/resource-platform-preservation';
 const approved = [
+  '.gitattributes',
   'docs/PORTAL_CAPABILITY_MATRIX.md',
   'docs/LABORATORY_REMEDIATION_CAPABILITIES.md',
   'docs/ASSET_REGISTER.md',
@@ -113,6 +114,23 @@ it('binds every actual added file and exact reused module byte without admitting
   }
 });
 it('preserves the original PR75 guard bodies through import-only bounded historical readers', () => {
+  const rawEvidencePaths = [
+    'docs/reviews/evidence/integrated-application-chain/qa/normal-build-post-icons.log.raw',
+    'docs/reviews/evidence/integrated-application-chain/qa/normal-build-post-noop.log.raw',
+  ];
+  expect(readFileSync('.gitattributes')).toEqual(
+    Buffer.concat([
+      original('.gitattributes'),
+      Buffer.from(
+        '# Preserve these two original Laboratory3.9 CRLF build captures byte for byte.\n' +
+          rawEvidencePaths.map((path) => `${path} -text\n`).join(''),
+      ),
+    ]),
+  );
+  for (const path of rawEvidencePaths)
+    expect(execFileSync('git', ['check-attr', 'text', '--', path], { encoding: 'utf8' })).toBe(
+      `${path}: text: unset\n`,
+    );
   const currentPointer =
     '## Current integrated Laboratory3.9 —9 November2026\n\nSee the current [operation-by-operation Laboratory3.9 matrix](LABORATORY_INTEGRATED_CAPABILITIES.md) for the explicit integrated successor. The complete historical body below keeps its original model scope and is not an assertion that newer models are create-only.\n\n';
   for (const path of [

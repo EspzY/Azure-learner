@@ -603,7 +603,6 @@
   ],
   "modules": [],
   "preservedPaths": [
-    ".gitattributes",
     ".github/workflows/ci.yml",
     ".gitignore",
     ".prettierignore",
@@ -3479,7 +3478,20 @@
     }
   },
   "humanReview": { "sme": "unperformed", "learning": "unperformed" },
-  "visualEvidence": [],
+  "visualEvidence": [
+    {
+      "path": "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-official-family-and-inherited-row-icons.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Root inspected actual ordinary AllResources: FrontDoor,PostgreSQL,WebApp/Plan and existingVM/NIC/disk/VNet rows have explicit servicefamilyglyphs; no greenfallback for these actualnewrows. Current overfullglobalchildnavigation remains a documented MAJOR Portalfidelity gap for isolatedcompanionfix; this capture is not visualproductapproval."
+    },
+    {
+      "path": "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-function-and-storage-family-row-icons.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Root inspected actualcreatedFunctionApp/functions/FC1plan/Storage rows: correctexplicitfamilyglyphs and actualresourceidentities. The stillflatglobalchildmenu is real ownerreportedgap, not acceptedfidelity."
+    }
+  ],
   "verification": [
     {
       "command": "PR75 complete authoritative baseline CI",
@@ -3500,11 +3512,21 @@
       "command": "owner Portal fidelity correction",
       "result": "blocked",
       "details": "New owner instruction explicitly rejects flat child/configuration Favorites and generic/raw primary resource pages. These known presentation gaps remain visible in this technical base and require the separate isolated Portal-fidelity candidate. Technical selected checks do not close them or grant whole-product visual approval. No quality gate may be downgraded or reported green to hide this."
+    },
+    {
+      "command": "original raw build evidence checkout integrity",
+      "result": "passed",
+      "details": "Checkpoint25d normalized two CRLF original logs in Git despite raw-proof source hashes. Two exact -text attributes preserve originalbytes, append-only attributes and Gitcheck-attr tested. No broad raw exclusion, source log rewrite or historicalpath change. Actual Gitblob/working/proof bytes checked again before publication."
+    },
+    {
+      "command": "post-icons whole npm run check",
+      "result": "failed",
+      "details": "Explicitexit1:1373/1377 Vitest in109files; four tests exceededunchanged5000ms (integratedPGchain5694ms, historical3.5upgrade5454ms, routingrawpreservation7181ms, topologyrawpreservation6876ms). All precedinggates incl503curriculum passed. Exactunchanged4filetargeted30/30 retest0 verifiesaffectedbehavior only, causeOPEN. Subsequentunchangedreruninterrupted130 for originalrawGitcheckoutintegrity repair; no fullcheck credit."
     }
   ],
   "review": {
     "status": "pending",
-    "fingerprint": "9feeafad858c0602d7e1348f5dcd371c842836707e2588d81dcd4d4e17a4b71f",
+    "fingerprint": "f4cb86a1262d2de6708439ee4ec450ea7f5ee7a66f802b582f18073de5f4b3f1",
     "reviewer": null,
     "started": null,
     "domains": {},
@@ -3513,6 +3535,7 @@
   },
   "snapshot": {
     "files": {
+      ".gitattributes": "6447b88dec5ceb35b5871c223c760a0d06b5b9abf9f5e0cffb3ca825cc378bdb",
       "database/laboratory-v3/010-integrated-application-chain.sql": "1504f2a8da6744fc8127009e5b764638798a02a0d36df5c8c5857dd52f3dd7b6",
       "docs/APPLICATION_DELIVERY_PLATFORM.md": "f508f6c9fd1d4cfce79bd1470122750f7b61bae45c4c522f05fa5438cc78b894",
       "docs/ASSET_REGISTER.md": "14423b7984f073b7594ff68bd957652b40b09f6e8208d6c2621384b054a49266",
@@ -3529,7 +3552,7 @@
       "docs/reviews/evidence/integrated-application-chain/baseline/copy-provenance.json": "153bac4f40d96d5079ffb25723769e72e8bb586587fafdeb33b39ea30f90959d",
       "docs/reviews/evidence/integrated-application-chain/icons/provenance.json": "2b139f6adb4d4b7cea46157b5c16040b68c7c2324e8cf731d1ef5d438c1cf0f4",
       "docs/reviews/evidence/integrated-application-chain/module-provenance.json": "62e58e82221550ad9c4650c6acbb9eb80eba0ec2ac6aa3862c76fc0b0105589f",
-      "docs/reviews/evidence/integrated-application-chain/preservation.json": "f13745bc316f289ef4fef63e2f00d09a0bc888a308b27995ff8b54f6445b61be",
+      "docs/reviews/evidence/integrated-application-chain/preservation.json": "26a8d1337fcd7b188b3765fd578aa745fa5214c5926e6ed15f31f9fcf5bbf537",
       "docs/reviews/evidence/integrated-application-chain/qa/fullcheck-pre-icons-FAILED.log.raw": "66cd38981c649f956baba8c43c323fc2690b2337cbea6d2b3b16abd19da0cec2",
       "docs/reviews/evidence/integrated-application-chain/qa/icons-mapping-final.log.raw": "142b9b49c7a02d37a3c9cbff9d5fafd2c5e556dfa7e528870091459b74502e68",
       "docs/reviews/evidence/integrated-application-chain/qa/jsonb-http-function-noop-green.log.raw": "691744c9bd36e5f88a8c2ba6830027ec7e8162438a8268338677171ec3fe0a30",
@@ -3610,7 +3633,7 @@
       "src/features/laboratory/topology-target.ts": "feec0728962ac219bb89fbef0fd20eaff1bb11cf251aca6aaed0835722e9bf55",
       "src/features/portal/service-catalog.ts": "bb0b91bfd994074266f5a618eef8d7c3a8dfbba128238dba87fbd687cea79549",
       "src/features/portal/shared-shell.test.ts": "6adc259d43965fc91ec76206d3a53afb554703d9bf6e0831e074810861ca950e",
-      "src/integrated-platform-preservation.test.ts": "d7a60f273d7f87dde1223272eac010bdf3412e062768edbe2272341899753a72",
+      "src/integrated-platform-preservation.test.ts": "b744af16cd9eff013e2415e0bc0cd8b35beab195585091d2e0b8007f1cbceb52",
       "src/laboratory-compute.test.ts": "d324b65774bf9b1afd6b9cfa807569a1c14c50ff2e4a54e0bb6620c64dac393e",
       "src/laboratory-integrated-api.test.ts": "2344bb8d9ae175b5cdbfced8e5b85c56e37b5156f9fe65b2508e4b042ec4a4c1",
       "src/laboratory-integrated.integration.test.ts": "5c797d205ea2d3b17b4bea14a4b29491d1f6c2c09b0f7687d973a99d8787010d",
@@ -3639,5 +3662,5 @@
       "tests/resource-platform-preservation.ts": "ca042abcf9ac6c90112407a1857c7b43501bad1691529bc2d9624d47f6040695"
     }
   },
-  "implementationFinished": "2026-11-09T21:45:06.947Z"
+  "implementationFinished": "2026-11-09T21:52:19.948Z"
 }
