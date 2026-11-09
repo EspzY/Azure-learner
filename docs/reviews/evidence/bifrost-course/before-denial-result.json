@@ -1,0 +1,29 @@
+{
+  "at": "2026-11-09T21:19:06.467Z",
+  "build": "qUmyqSY3W446fJTLWUbop",
+  "fingerprint": "c17d9ddc4df77fef12d137afc358f65443fe58dae179765831cf2168fb52b6d8",
+  "results": [
+    {
+      "name": "light-start-modal-neutral-and-independent-guard",
+      "passed": true,
+      "title": {
+        "color": "rgb(7, 22, 39)",
+        "background": "rgb(249, 249, 250)"
+      },
+      "screenshots": [
+        "/tmp/bifrost-course-final-audit/light-independent-start-dialog-1024x500.png",
+        "/tmp/bifrost-course-final-audit/light-independent-neutral-fields.png",
+        "/tmp/bifrost-course-final-audit/light-independent-denied-journal.png"
+      ],
+      "activeAssessmentThroughRealStart": true,
+      "assistanceDeniedWithoutHistoryWrite": true,
+      "noTechnicalWrite": true
+    },
+    {
+      "name": "dark-start-modal-neutral-and-independent-guard",
+      "passed": false,
+      "error": "AssertionError [ERR_ASSERTION]: dark denied Journal Axe\n+ actual - expected\n\n+ [\n+   {\n+     id: 'color-contrast',\n+     nodes: [\n+       [\n+         '.course-storage[role=\"status\"] > h2'\n+       ],\n+       [\n+         '.management-lesson > .course-storage[role=\"status\"] > p'\n+       ],\n+       [\n+         '.course-storage[role=\"status\"] > div > p'\n+       ],\n+       [\n+         'div > .course-storage[role=\"status\"] > p'\n+       ]\n+     ]\n+   }\n+ ]\n- []\n\n    at accessible (/tmp/bifrost-course-final-audit/native.cjs:13:264)\n    at async /tmp/bifrost-course-final-audit/native.cjs:53:405\n    at async run (/tmp/bifrost-course-final-audit/native.cjs:15:121)\n    at async /tmp/bifrost-course-final-audit/native.cjs:45:3",
+      "screenshot": "/tmp/bifrost-course-final-audit/dark-start-modal-neutral-and-independent-guard-FAIL.png"
+    }
+  ]
+}

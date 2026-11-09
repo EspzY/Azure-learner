@@ -1,0 +1,42 @@
+
+Running 5 tests using 1 worker
+
+(node:159029) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:28:1 › Bifrost blocked appearance storage and denied independent Journal remain honest readable and within 320px in both themes (39.8s)
+(node:159236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:268:3 › Bifrost light actual Hub question selected state real wrong correct feedback and Journal preserve original evidence (14.4s)
+  ✓  3 [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:470:3 › Bifrost light compact keyboard reduced motion and native Portal Laboratory theme boundary remain usable (18.9s)
+  ✓  4 [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:268:3 › Bifrost dark actual Hub question selected state real wrong correct feedback and Journal preserve original evidence (6.1s)
+  ✓  5 [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:470:3 › Bifrost dark compact keyboard reduced motion and native Portal Laboratory theme boundary remain usable (12.0s)
+
+
+  1) [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:28:1 › Bifrost blocked appearance storage and denied independent Journal remain honest readable and within 320px in both themes 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: browserContext.close: Target page, context or browser has been closed
+
+      202 |       });
+      203 |     } finally {
+    > 204 |       await context.close();
+          |       ^
+      205 |     }
+      206 |   }
+      207 |   await writeFile(
+        at /workspace/azurelab-phase2/course/tests/e2e/bifrost-course.spec.ts:204:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-warning-final-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-warning-final-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../tmp/bifrost-course-warning-final-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/error-context.md
+
+  1 failed
+    [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:28:1 › Bifrost blocked appearance storage and denied independent Journal remain honest readable and within 320px in both themes 
+  4 passed (1.8m)

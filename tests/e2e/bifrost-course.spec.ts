@@ -1,6 +1,13 @@
-import { test, expect, type Page, type TestInfo } from '@playwright/test';
+import { test, expect, type Page, type TestInfo, type BrowserContext } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { nb, computeNb, refinedAssessmentNb, serverlessNb } from '../../src/content/nb';
+import { writeFile } from 'node:fs/promises';
+import {
+  nb,
+  computeNb,
+  managementNb,
+  refinedAssessmentNb,
+  serverlessNb,
+} from '../../src/content/nb';
 import { themeCopy } from '../../src/features/design/theme-copy';
 import { sandboxKey } from '../../src/domain/sandbox/store';
 import { storageKey } from '../../src/domain/progression';
@@ -17,6 +24,225 @@ async function theme(page: Page, mode: 'light' | 'dark') {
   await page.getByLabel(themeCopy.label, { exact: true }).selectOption(mode);
   await expect(page.locator('html')).toHaveAttribute('data-bf-theme', mode);
 }
+
+const stored = (page: Page) =>
+  page.evaluate(() =>
+    Object.fromEntries(
+      Object.entries(localStorage).filter(([key]) => key !== 'azurelab.visual-theme.v1'),
+    ),
+  );
+async function denyVisualPreference(context: BrowserContext) {
+  await context.addInitScript(() => {
+    const get = Storage.prototype.getItem;
+    const set = Storage.prototype.setItem;
+    Storage.prototype.getItem = function (key) {
+      if (key === 'azurelab.visual-theme.v1')
+        throw new DOMException('denied visual preference', 'SecurityError');
+      return get.call(this, key);
+    };
+    Storage.prototype.setItem = function (key, value) {
+      if (key === 'azurelab.visual-theme.v1')
+        throw new DOMException('denied visual preference', 'SecurityError');
+      return set.call(this, key, value);
+    };
+  });
+}
+test('Bifrost blocked appearance preference remains honest readable and within 320px in both themes', async ({
+  browser,
+}, info) => {
+  const results = [];
+  for (const mode of ['light', 'dark'] as const) {
+    const context = await browser.newContext({
+      viewport: { width: 1440, height: 900 },
+      colorScheme: 'light',
+    });
+    try {
+      await denyVisualPreference(context);
+      const page = await context.newPage();
+      await page.goto(`${info.project.use.baseURL}/learn`);
+      const note = page.locator('.course-header .bifrost-theme-storage-note');
+      await expect(note).toHaveText(themeCopy.unavailable);
+      const beforeTheme = await stored(page);
+      const beforeTechnical = await technical(page);
+      await theme(page, mode);
+      await expect(note).toHaveText(themeCopy.unavailable);
+      expect(await stored(page)).toEqual(beforeTheme);
+      const appearances = [];
+      for (const width of [1440, 320]) {
+        await page.setViewportSize({ width, height: width === 320 ? 700 : 900 });
+        const metrics = await note.evaluate((el) => {
+          const style = getComputedStyle(el);
+          const rect = el.getBoundingClientRect();
+          const luminance = (color: string) => {
+            const channels = color
+              .match(/[\d.]+/g)!
+              .slice(0, 3)
+              .map(Number)
+              .map((n) => {
+                const value = n / 255;
+                return value <= 0.04045 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4;
+              });
+            return 0.2126 * channels[0]! + 0.7152 * channels[1]! + 0.0722 * channels[2]!;
+          };
+          const values = [luminance(style.color), luminance(style.backgroundColor)].sort(
+            (a, b) => b - a,
+          );
+          return {
+            width: document.documentElement.scrollWidth,
+            viewport: innerWidth,
+            left: rect.left,
+            right: rect.right,
+            top: rect.top,
+            bottom: rect.bottom,
+            viewportHeight: innerHeight,
+            text: el.textContent,
+            color: style.color,
+            background: style.backgroundColor,
+            contrast: (values[0]! + 0.05) / (values[1]! + 0.05),
+            clipped: el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight,
+          };
+        });
+        expect(metrics.width).toBeLessThanOrEqual(width);
+        expect(metrics.left).toBeGreaterThanOrEqual(0);
+        expect(metrics.right).toBeLessThanOrEqual(width);
+        expect(metrics.top).toBeGreaterThanOrEqual(0);
+        expect(metrics.bottom).toBeLessThanOrEqual(metrics.viewportHeight);
+        expect(metrics.clipped).toBe(false);
+        expect(metrics.contrast).toBeGreaterThanOrEqual(4.5);
+        await accessible(page);
+        await page.screenshot({
+          path: info.outputPath(`after-${mode}-appearance${width === 320 ? '-320' : ''}.png`),
+        });
+        appearances.push(metrics);
+      }
+      expect(await stored(page)).toEqual(beforeTheme);
+      expect(await technical(page)).toEqual(beforeTechnical);
+      results.push({ mode, appearances, learningBytesUnchanged: true });
+    } finally {
+      await context.close();
+    }
+  }
+  await writeFile(
+    info.outputPath('appearance-storage-metrics.json'),
+    `${JSON.stringify({ capturedAt: new Date().toISOString(), results }, null, 2)}\n`,
+  );
+});
+test('Bifrost real independent Start and denied Journal keep the guard closed and recovery readable in both themes', async ({
+  browser,
+}, info) => {
+  const results = [];
+  for (const mode of ['light', 'dark'] as const) {
+    const context = await browser.newContext({
+      viewport: { width: 1440, height: 900 },
+      colorScheme: 'light',
+    });
+    try {
+      await denyVisualPreference(context);
+      const page = await context.newPage();
+      await page.goto(`${info.project.use.baseURL}/learn`);
+      const note = page.locator('.course-header .bifrost-theme-storage-note');
+      await expect(note).toHaveText(themeCopy.unavailable);
+      const beforeTechnical = await technical(page);
+      await theme(page, mode);
+      const appearance = await note.evaluate((el) => ({
+        color: getComputedStyle(el).color,
+        background: getComputedStyle(el).backgroundColor,
+      }));
+      await page.setViewportSize({ width: 1024, height: 500 });
+      await page.goto(
+        `${info.project.use.baseURL}/learn/benefits?topic=assessment&assessment=updated`,
+      );
+      await theme(page, mode);
+      await page.getByRole('button', { name: refinedAssessmentNb.ui.start, exact: true }).click();
+      await page
+        .getByRole('dialog')
+        .getByRole('button', { name: refinedAssessmentNb.ui.confirm, exact: true })
+        .click();
+      await expect(page.locator('.expanded-assessment form select')).toHaveCount(12);
+      await expect(page.locator('[data-bf-result], .expanded-result')).toHaveCount(0);
+      const key = 'azurelab.learning.benefits-assessment.v2';
+      const saved = await page.evaluate((name) => localStorage.getItem(name), key);
+      expect(saved).toBeTruthy();
+      const beforeDenial = await stored(page);
+      await page.evaluate((deniedKey) => {
+        const set = Storage.prototype.setItem;
+        Storage.prototype.setItem = function (name, value) {
+          if (name === deniedKey)
+            throw new DOMException('denied learning assistance', 'QuotaExceededError');
+          return set.call(this, name, value);
+        };
+      }, key);
+      await page.getByRole('button', { name: nb.course.journal, exact: true }).click();
+      const warning = page.locator('.bifrost-course-journal .management-lesson > .course-storage');
+      await expect(warning).toBeVisible();
+      await expect(warning.locator('h2')).toHaveCount(1);
+      await expect(
+        page.locator(
+          '.portal-dialog .knowledge-journal, .portal-dialog .foundations-v2, .portal-dialog .expanded-reference',
+        ),
+      ).toHaveCount(0);
+      expect(await page.evaluate((name) => localStorage.getItem(name), key)).toBe(saved);
+      expect(await stored(page)).toEqual(beforeDenial);
+      const journal = await warning.evaluate((el) => ({
+        color: getComputedStyle(el).color,
+        background: getComputedStyle(el).backgroundColor,
+        text: el.textContent,
+        children: [...el.querySelectorAll('h2, h3, p')].map((child) => ({
+          color: getComputedStyle(child).color,
+          background: getComputedStyle(child).backgroundColor,
+          text: child.textContent,
+        })),
+      }));
+      for (const child of journal.children) {
+        expect(child.color).toBe(journal.color);
+        expect(child.background).toBe(journal.background);
+      }
+      const recovery = warning.getByRole('button', {
+        name: managementNb.accessReload,
+        exact: true,
+      });
+      await expect(recovery).toBeVisible();
+      await recovery.focus();
+      await page.keyboard.press('Shift+Tab');
+      await page.keyboard.press('Tab');
+      await expect(recovery).toBeFocused();
+      const recoveryStyle = await recovery.evaluate((el) => {
+        const style = getComputedStyle(el);
+        return {
+          color: style.color,
+          background: style.backgroundColor,
+          border: style.borderColor,
+          focus: style.outlineColor,
+          outline: style.outlineStyle,
+        };
+      });
+      expect(journal.color).toBe(appearance.color);
+      expect(journal.background).toBe(appearance.background);
+      expect(recoveryStyle.color).toBe(journal.color);
+      expect(recoveryStyle.background).toBe(journal.background);
+      expect(recoveryStyle.border).toBe(journal.color);
+      expect(recoveryStyle.focus).toBe(journal.color);
+      expect(recoveryStyle.outline).toBe('solid');
+      await accessible(page);
+      await page.screenshot({ path: info.outputPath(`after-${mode}-denied-journal.png`) });
+      await page.keyboard.press('Escape');
+      expect(await stored(page)).toEqual(beforeDenial);
+      expect(await technical(page)).toEqual(beforeTechnical);
+      results.push({
+        mode,
+        journal,
+        recoveryStyle,
+        learningBytesUnchangedAfterDenial: true,
+      });
+    } finally {
+      await context.close();
+    }
+  }
+  await writeFile(
+    info.outputPath('journal-storage-metrics.json'),
+    `${JSON.stringify({ capturedAt: new Date().toISOString(), results }, null, 2)}\n`,
+  );
+});
 async function accessible(page: Page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);

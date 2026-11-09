@@ -1,0 +1,286 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: bifrost-course.spec.ts >> Bifrost blocked appearance storage and denied independent Journal remain honest readable and within 320px in both themes
+- Location: tests/e2e/bifrost-course.spec.ts:22:1
+
+# Error details
+
+```
+Error: expect(received).toEqual(expected) // deep equality
+
+- Expected  -  1
++ Received  + 58
+
+- Array []
++ Array [
++   Object {
++     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
++     "help": "Elements must meet minimum color contrast ratio thresholds",
++     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
++     "id": "color-contrast",
++     "impact": "serious",
++     "nodes": Array [
++       Object {
++         "all": Array [],
++         "any": Array [
++           Object {
++             "data": Object {
++               "bgColor": "#4d3200",
++               "contrastRatio": 2.05,
++               "expectedContrastRatio": "4.5:1",
++               "fgColor": "#0067b8",
++               "fontSize": "12.0pt (16px)",
++               "fontWeight": "normal",
++               "messageKey": null,
++             },
++             "id": "color-contrast",
++             "impact": "serious",
++             "message": "Element has insufficient color contrast of 2.05 (foreground color: #0067b8, background color: #4d3200, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
++             "relatedNodes": Array [
++               Object {
++                 "html": "<div>",
++                 "target": Array [
++                   ".course-storage[role=\"status\"] > div",
++                 ],
++               },
++             ],
++           },
++         ],
++         "failureSummary": "Fix any of the following:
++   Element has insufficient color contrast of 2.05 (foreground color: #0067b8, background color: #4d3200, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
++         "html": "<button type=\"button\">Les lagret vurderingskontekst på nytt</button>",
++         "impact": "serious",
++         "none": Array [],
++         "target": Array [
++           ".course-storage[role=\"status\"] > div > button[type=\"button\"]",
++         ],
++       },
++     ],
++     "tags": Array [
++       "cat.color",
++       "wcag2aa",
++       "wcag143",
++       "TTv5",
++       "TT13.c",
++       "EN-301-549",
++       "EN-9.1.4.3",
++       "ACT",
++       "RGAAv4",
++       "RGAA-3.2.1",
++     ],
++   },
++ ]
+```
+
+# Test source
+
+```ts
+  76  |             return 0.2126 * channels[0]! + 0.7152 * channels[1]! + 0.0722 * channels[2]!;
+  77  |           };
+  78  |           const values = [luminance(style.color), luminance(style.backgroundColor)].sort(
+  79  |             (a, b) => b - a,
+  80  |           );
+  81  |           return {
+  82  |             width: document.documentElement.scrollWidth,
+  83  |             viewport: innerWidth,
+  84  |             left: rect.left,
+  85  |             right: rect.right,
+  86  |             top: rect.top,
+  87  |             bottom: rect.bottom,
+  88  |             viewportHeight: innerHeight,
+  89  |             text: el.textContent,
+  90  |             color: style.color,
+  91  |             background: style.backgroundColor,
+  92  |             contrast: (values[0]! + 0.05) / (values[1]! + 0.05),
+  93  |             clipped: el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight,
+  94  |           };
+  95  |         });
+  96  |         expect(metrics.width).toBeLessThanOrEqual(width);
+  97  |         expect(metrics.left).toBeGreaterThanOrEqual(0);
+  98  |         expect(metrics.right).toBeLessThanOrEqual(width);
+  99  |         expect(metrics.top).toBeGreaterThanOrEqual(0);
+  100 |         expect(metrics.bottom).toBeLessThanOrEqual(metrics.viewportHeight);
+  101 |         expect(metrics.clipped).toBe(false);
+  102 |         expect(metrics.contrast).toBeGreaterThanOrEqual(4.5);
+  103 |         await accessible(page);
+  104 |         await page.screenshot({
+  105 |           path: info.outputPath(`after-${mode}-appearance${width === 320 ? '-320' : ''}.png`),
+  106 |         });
+  107 |         appearances.push(metrics);
+  108 |       }
+  109 |       expect(await stored(page)).toEqual(beforeTheme);
+  110 |       await page.setViewportSize({ width: 1024, height: 500 });
+  111 |       await page.goto(
+  112 |         `${info.project.use.baseURL}/learn/benefits?topic=assessment&assessment=updated`,
+  113 |       );
+  114 |       await theme(page, mode);
+  115 |       await page.getByRole('button', { name: refinedAssessmentNb.ui.start, exact: true }).click();
+  116 |       await page
+  117 |         .getByRole('dialog')
+  118 |         .getByRole('button', { name: refinedAssessmentNb.ui.confirm, exact: true })
+  119 |         .click();
+  120 |       await expect(page.locator('.expanded-assessment form select')).toHaveCount(12);
+  121 |       await expect(page.locator('[data-bf-result], .expanded-result')).toHaveCount(0);
+  122 |       const key = 'azurelab.learning.benefits-assessment.v2';
+  123 |       const saved = await page.evaluate((name) => localStorage.getItem(name), key);
+  124 |       expect(saved).toBeTruthy();
+  125 |       const beforeDenial = await stored(page);
+  126 |       await page.evaluate((deniedKey) => {
+  127 |         const set = Storage.prototype.setItem;
+  128 |         Storage.prototype.setItem = function (name, value) {
+  129 |           if (name === deniedKey)
+  130 |             throw new DOMException('denied learning assistance', 'QuotaExceededError');
+  131 |           return set.call(this, name, value);
+  132 |         };
+  133 |       }, key);
+  134 |       await page.getByRole('button', { name: nb.course.journal, exact: true }).click();
+  135 |       const warning = page.locator('.bifrost-course-journal .management-lesson > .course-storage');
+  136 |       await expect(warning).toBeVisible();
+  137 |       await expect(warning.locator('h2')).toHaveCount(1);
+  138 |       await expect(
+  139 |         page.locator(
+  140 |           '.portal-dialog .knowledge-journal, .portal-dialog .foundations-v2, .portal-dialog .expanded-reference',
+  141 |         ),
+  142 |       ).toHaveCount(0);
+  143 |       expect(await page.evaluate((name) => localStorage.getItem(name), key)).toBe(saved);
+  144 |       expect(await stored(page)).toEqual(beforeDenial);
+  145 |       const journal = await warning.evaluate((el) => ({
+  146 |         color: getComputedStyle(el).color,
+  147 |         background: getComputedStyle(el).backgroundColor,
+  148 |         text: el.textContent,
+  149 |         children: [...el.querySelectorAll('h2, h3, p')].map((child) => ({
+  150 |           color: getComputedStyle(child).color,
+  151 |           background: getComputedStyle(child).backgroundColor,
+  152 |           text: child.textContent,
+  153 |         })),
+  154 |       }));
+  155 |       for (const child of journal.children) {
+  156 |         expect(child.color).toBe(journal.color);
+  157 |         expect(child.background).toBe(journal.background);
+  158 |       }
+  159 |       await accessible(page);
+  160 |       await page.screenshot({ path: info.outputPath(`after-${mode}-denied-journal.png`) });
+  161 |       await page.keyboard.press('Escape');
+  162 |       expect(await stored(page)).toEqual(beforeDenial);
+  163 |       expect(await technical(page)).toEqual(beforeTechnical);
+  164 |       results.push({ mode, appearances, journal, learningBytesUnchangedAfterDenial: true });
+  165 |     } finally {
+  166 |       await context.close();
+  167 |     }
+  168 |   }
+  169 |   await writeFile(
+  170 |     info.outputPath('warning-storage-metrics.json'),
+  171 |     `${JSON.stringify({ capturedAt: new Date().toISOString(), results }, null, 2)}\n`,
+  172 |   );
+  173 | });
+  174 | async function accessible(page: Page) {
+  175 |   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+> 176 |   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+      |                                                                 ^ Error: expect(received).toEqual(expected) // deep equality
+  177 | }
+  178 | 
+  179 | async function nativeReview(page: Page, mode: 'light' | 'dark', info: TestInfo, scope = 'native') {
+  180 |   const navigation = page.getByRole('navigation', { name: nb.portal.navLabel, exact: true });
+  181 |   const groups = navigation.getByRole('link', { name: nb.portal.areas.groups, exact: true });
+  182 |   await revealPortalLink(page, groups);
+  183 |   await groups.click();
+  184 |   await page
+  185 |     .locator('.portal-commandbar')
+  186 |     .getByRole('button', { name: nb.portal.create, exact: true })
+  187 |     .click();
+  188 |   const create = page.locator('.portal-create');
+  189 |   await expect(create).toBeVisible();
+  190 |   const before = await technical(page);
+  191 |   const name = page.getByLabel(nb.portal.groupName, { exact: true });
+  192 |   expect(await name.evaluate((el) => getComputedStyle(el).fontFamily)).toMatch(/Segoe UI/);
+  193 |   expect(await name.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe(
+  194 |     'rgb(255, 255, 255)',
+  195 |   );
+  196 |   expect(
+  197 |     await page
+  198 |       .locator('.portal:not(.course-shell)')
+  199 |       .evaluate((el) => getComputedStyle(el).colorScheme),
+  200 |   ).toBe('light');
+  201 |   await name.fill('rg-bifrost-visual-check');
+  202 |   await page
+  203 |     .getByRole('combobox', { name: nb.portal.subscription, exact: true })
+  204 |     .selectOption('sub-app');
+  205 |   await page
+  206 |     .getByRole('combobox', { name: nb.portal.region, exact: true })
+  207 |     .selectOption('norwayeast');
+  208 |   await page.screenshot({ path: info.outputPath(`${mode}-${scope}-create.png`) });
+  209 |   await create
+  210 |     .locator('.portal-create-tabs')
+  211 |     .getByRole('button', { name: nb.portal.review, exact: true })
+  212 |     .click();
+  213 |   await expect(create.locator('.portal-review')).toContainText(nb.portal.valid);
+  214 |   expect(
+  215 |     await create
+  216 |       .locator('.portal-create-footer')
+  217 |       .evaluate((el) => getComputedStyle(el).backgroundColor),
+  218 |   ).toBe('rgb(255, 255, 255)');
+  219 |   await accessible(page);
+  220 |   await page.screenshot({ path: info.outputPath(`${mode}-${scope}-review.png`) });
+  221 |   await create
+  222 |     .locator('.portal-create-footer')
+  223 |     .getByRole('button', { name: nb.portal.close, exact: true })
+  224 |     .click();
+  225 |   await expect(create).toHaveCount(0);
+  226 |   expect(await technical(page)).toEqual(before);
+  227 | }
+  228 | 
+  229 | for (const mode of ['light', 'dark'] as const) {
+  230 |   test(`Bifrost ${mode} actual Hub question selected state real wrong correct feedback and Journal preserve original evidence`, async ({
+  231 |     page,
+  232 |   }, info) => {
+  233 |     await page.setViewportSize({ width: 1440, height: 900 });
+  234 |     await page.goto('/learn');
+  235 |     await theme(page, mode);
+  236 |     await expect(page.locator('.learn-hub-module')).toHaveCount(17);
+  237 |     await expect(page.locator('.learn-hub-start .course-primary')).toHaveAttribute(
+  238 |       'href',
+  239 |       '/learn/computing?topic=intro-request',
+  240 |     );
+  241 |     await accessible(page);
+  242 |     await page.screenshot({ path: info.outputPath(`${mode}-hub.png`) });
+  243 |     const before = await technical(page);
+  244 |     await page.locator('.learn-hub-start .course-primary').click();
+  245 |     const check = page.locator('#cloud-part-intro-request .v2-check');
+  246 |     await expect(check).toHaveCount(1);
+  247 |     await expect(page.locator('#cloud-part-intro-request .proof-server')).toBeVisible();
+  248 |     await page.getByRole('button', { name: nb.foundationsVisuals.send, exact: true }).click();
+  249 |     await expect(page.locator('#cloud-part-intro-request .proof-causal')).toHaveText(
+  250 |       nb.foundationsV2.traceSteps[0],
+  251 |     );
+  252 |     await page.screenshot({ path: info.outputPath(`${mode}-teaching-info.png`) });
+  253 |     const item = nb.foundationsV2.checkItems['intro-request'];
+  254 |     await expect(check.locator('[data-bf-result]')).toHaveCount(0);
+  255 |     const browser = item.choices.find(([id]) => id === 'browser')![1];
+  256 |     const server = item.choices.find(([id]) => id === 'server')![1];
+  257 |     await check.getByLabel(browser, { exact: true }).check();
+  258 |     await expect(check.locator('[data-bf-result]')).toHaveCount(0);
+  259 |     expect(
+  260 |       await check.getByLabel(browser, { exact: true }).evaluate((el) => {
+  261 |         const row = el.closest('label')!;
+  262 |         return getComputedStyle(row).backgroundColor;
+  263 |       }),
+  264 |     ).not.toBe(
+  265 |       await check
+  266 |         .getByLabel(server, { exact: true })
+  267 |         .evaluate((el) => getComputedStyle(el.closest('label')!).backgroundColor),
+  268 |     );
+  269 |     await check
+  270 |       .getByRole('button', { name: nb.foundationsV2.check, exact: true })
+  271 |       .evaluate((el) => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
+  272 |     await page.screenshot({ path: info.outputPath(`${mode}-question-selected.png`) });
+  273 |     await check.getByRole('button', { name: nb.foundationsV2.check, exact: true }).click();
+  274 |     await expect(check.locator('[data-bf-result="incorrect"]')).toHaveText(item.wrong);
+  275 |     await check
+  276 |       .locator('[data-bf-result="incorrect"]')
+```

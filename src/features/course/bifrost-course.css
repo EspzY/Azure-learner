@@ -613,7 +613,19 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
 }
 .bifrost-learning.course-shell .course-header .bifrost-theme-control {
   color: var(--bfc-theme-hc);
-  flex: none;
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+}
+.bifrost-learning.course-shell .course-header .bifrost-theme-storage-note {
+  color: var(--bfc-warning-fade-c);
+  background: var(--bfc-warning-fade);
+  border-radius: var(--bf-radius);
+  padding: 6px 8px;
+  min-width: 0;
+  max-width: min(32ch, 100%);
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 .bifrost-learning.course-shell .learn-hub-path-activities {
   background: var(--bfc-base-2);
@@ -722,6 +734,32 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
 .bifrost-learning.course-shell .bifrost-course-journal .v2-teaching {
   grid-template-columns: 1fr;
   gap: 24px;
+}
+.bifrost-learning.course-shell .bifrost-course-journal .management-lesson .course-storage {
+  color: var(--bfc-warning-fade-c);
+  background: var(--bfc-warning-fade);
+  border-color: var(--bfc-warning-fade-c);
+  border-radius: var(--bf-radius);
+}
+.bifrost-learning.course-shell
+  .bifrost-course-journal
+  .management-lesson
+  .course-storage
+  :is(h2, h3, p, strong, a, button, div, [role='status']) {
+  color: var(--bfc-warning-fade-c);
+  background: var(--bfc-warning-fade);
+  border-color: var(--bfc-warning-fade-c);
+}
+.bifrost-learning.course-shell .bifrost-course-journal .management-lesson .course-storage button {
+  border: 1px solid var(--bfc-warning-fade-c);
+}
+.bifrost-learning.course-shell
+  .bifrost-course-journal
+  .management-lesson
+  .course-storage
+  :is(a, button):focus-visible {
+  outline: 3px solid var(--bfc-warning-fade-c);
+  outline-offset: 3px;
 }
 .bifrost-learning.course-shell
   :is(
