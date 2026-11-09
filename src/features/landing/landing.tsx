@@ -1,5 +1,7 @@
 'use client';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState, type MouseEvent } from 'react';
 import {
   ArrowRight,
   BookOpen,
@@ -19,8 +21,24 @@ const icons = [BookOpen, Layers3, Network];
 export function Landing({ commit }: { commit: string | null }) {
   const course = useCourse();
   const status = currentAz900Status(course);
+  const router = useRouter();
+  const [opening, setOpening] = useState<'course' | 'laboratory' | null>(null);
+  const open = (event: MouseEvent<HTMLAnchorElement>, kind: 'course' | 'laboratory', url: string) => {
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) return;
+    event.preventDefault();
+    setOpening(kind);
+    window.setTimeout(() => router.push(url), 160);
+  };
   return (
-    <div className="azurelab-landing">
+    <div className="azurelab-landing" data-opening={opening ?? undefined}>
       <a className="landing-skip" href="#landing-main">
         {t.skip}
       </a>
@@ -68,6 +86,7 @@ export function Landing({ commit }: { commit: string | null }) {
                         href="/learn"
                         prefetch={false}
                         aria-label={t.az900Link}
+                        onClick={(event) => open(event, 'course', '/learn')}
                       >
                         {t.openCourse}
                         <ArrowRight size={18} aria-hidden="true" />
@@ -92,6 +111,7 @@ export function Landing({ commit }: { commit: string | null }) {
             href="/labs/laboratory"
             prefetch={false}
             aria-label={t.labLink}
+            onClick={(event) => open(event, 'laboratory', '/labs/laboratory')}
           >
             {t.openLab}
             <ArrowUpRight size={19} aria-hidden="true" />
