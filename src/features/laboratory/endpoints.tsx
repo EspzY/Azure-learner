@@ -4,6 +4,7 @@ import { FirewallPathDetails } from './firewall';
 import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
+import { requestLaboratoryAnalysis } from './ephemeral-client';
 import { TopologyAccess } from './topology-access';
 import type { World, Command } from '@/laboratory/v33/contract';
 import type { PolicyAnalysis } from '@/laboratory/v33/policy';
@@ -213,16 +214,11 @@ export function PolicyAnalysisView({
     setError('');
     setResult(null);
     try {
-      const response = await fetch(
-          '/api/laboratory/policy-analysis?' + new URLSearchParams(input),
-          {
-            credentials: 'same-origin',
-            cache: 'no-store',
-            headers: { 'If-Laboratory-Workspace': workspace },
-          },
-        ),
-        value = await response.json();
-      if (!response.ok || value.error) throw Error(value.error ?? 'server-result-unavailable');
+      const value = await requestLaboratoryAnalysis(
+        'policy-analysis',
+        new URLSearchParams(input),
+        workspace,
+      );
       if (!mounted.current) return;
       if (value.workspace !== workspace || current.current.workspace !== workspace)
         throw Error('workspace-changed');
