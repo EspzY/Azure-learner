@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { format, resolveConfig } from 'prettier';
 import proof from '../../../docs/reviews/evidence/bifrost-course/preservation.json';
+import ciPreservation from '../../../docs/reviews/evidence/bifrost-course/ci-preservation.json';
 import {
   courseBase,
   courseHistoricalBase,
@@ -101,6 +102,7 @@ const additions = [
   'docs/reviews/evidence/bifrost-course/qa/before-appearance-result.json.raw',
   'docs/reviews/evidence/bifrost-course/qa/final-warning-two-cases.txt',
   'docs/reviews/evidence/bifrost-course/qa/final-case-plan.txt',
+  'docs/reviews/evidence/bifrost-course/ci-preservation.json',
   ...images,
 ];
 const bindings = proof.files as Record<string, { before: string; after: string }>;
@@ -159,7 +161,7 @@ it('checks every actual new file and the exact changed/untracked set before hist
   for (const [i, [path, hash]] of entries.entries()) expect(hashes[i], path).toBe(hash);
   verifyCourseProjection(courseProjectionSnapshot());
 });
-it('rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration', () => {
+it('rejects altered snapshots and unknown changed or untracked paths', () => {
   const snapshot = courseProjectionSnapshot();
   verifyCourseProjection(snapshot);
   const path = approved[0]!;
@@ -190,6 +192,8 @@ it('rejects altered current/base bytes and unknown changed or untracked paths be
       after: courseBlobHash(after),
     }),
   ).toEqual(before);
+});
+it('validates actual bytes before exact historical Git projections', () => {
   expect(
     execBifrostCourse('git', ['diff', '--name-only', courseHistoricalBase], { encoding: 'utf8' }),
   ).toBe(
@@ -200,12 +204,52 @@ it('rejects altered current/base bytes and unknown changed or untracked paths be
   expect(
     execBifrostCourse('git', ['ls-files', '--others', '--exclude-standard'], { encoding: 'utf8' }),
   ).toBe('');
+});
+it('delegates unrelated Git commands and arguments unchanged', () => {
   expect(execBifrostCourse('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' })).toBe(
     execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }),
   );
   expect(execBifrostCourse('git', ['diff', '--name-only', courseBase], { encoding: 'utf8' })).toBe(
     execFileSync('git', ['diff', '--name-only', courseBase], { encoding: 'utf8' }),
   );
+});
+
+it('retains every original combined-case statement across the three risk cases', () => {
+  const sourcePath = 'src/features/course/bifrost-course-preservation.test.ts';
+  const sourceCommit = 'd17c48ea1d495a8a4e3a68aba221c62efebc99db';
+  expect(ciPreservation.sourceCommit).toBe(sourceCommit);
+  expect(ciPreservation.sourcePath).toBe(sourcePath);
+  const originalSource = execFileSync('git', ['show', `${sourceCommit}:${sourcePath}`], {
+    encoding: 'utf8',
+    maxBuffer: 16 * 1024 * 1024,
+  });
+  const extractCase = (source: string, title: string) => {
+    const opening = `it('${title}', () => {`;
+    const start = source.indexOf(opening);
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(source.lastIndexOf(opening)).toBe(start);
+    const end = source.indexOf('\n});', start + opening.length);
+    expect(end).toBeGreaterThan(start);
+    return {
+      call: source.slice(start, end + '\n});'.length),
+      body: source.slice(start + opening.length + 1, end),
+    };
+  };
+  const originalCase = extractCase(originalSource, ciPreservation.originalCase.title);
+  expect(originalCase.call).toBe(ciPreservation.originalCase.call);
+  expect(courseBlobHash(Buffer.from(originalCase.call))).toBe(
+    ciPreservation.originalCase.gitBlobHash,
+  );
+  const currentSource = readFileSync(sourcePath, 'utf8');
+  expect(
+    [
+      'rejects altered snapshots and unknown changed or untracked paths',
+      'validates actual bytes before exact historical Git projections',
+      'delegates unrelated Git commands and arguments unchanged',
+    ]
+      .map((title) => extractCase(currentSource, title).body)
+      .join('\n'),
+  ).toBe(originalCase.body);
 });
 
 async function unchangedExcept(path: string, transform: (source: string) => string) {
