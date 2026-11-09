@@ -184,6 +184,18 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
   opacity: 1;
   cursor: default;
 }
+.bifrost-learning.course-shell .course-main button:is(.primary, .compute-primary, .proof-primary) {
+  background: var(--bfc-theme);
+  color: var(--bfc-theme-hc);
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell .course-main button:is(.primary, .compute-primary, .proof-primary):hover:not(:disabled) {
+  background: var(--bfc-theme-2);
+  border-color: var(--bfc-theme-2);
+}
+.bifrost-learning.course-shell .course-main .compute-lesson h2 {
+  font-family: var(--bf-font-open-sans), sans-serif;
+}
 .bifrost-learning.course-shell .course-main :is(input[type='radio'], input[type='checkbox'], input[type='range']) {
   accent-color: var(--bfc-theme);
 }
