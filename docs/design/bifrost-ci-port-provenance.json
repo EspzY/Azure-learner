@@ -1,0 +1,166 @@
+{
+  "schema": 1,
+  "purpose": "Exact CI-only reuse of the generic four-runner verification proven by PR75, without any Laboratory/domain dependency or inherited Bifrost execution credit.",
+  "source": {
+    "repository": "EspzY/Azure-learner",
+    "commit": "5b2e814b9f4bae1aa3c2fe4e79cd3a4e53029484",
+    "base": "249833f7cb7ea41d3e411444ec3c4f83805d3a5f",
+    "pullRequest": 75,
+    "runId": "42672514055",
+    "runAttempt": "3",
+    "runUrl": "https://github.com/EspzY/Azure-learner/actions/runs/42672514055/attempts/3",
+    "actualCheckedMerge": "d318b10c536f94e962a1bdf6778f418fac83c688",
+    "fingerprint": "47c9a1cd10d804ed4474b2bd79ad6997f60d32cdfa06fa7f79ed7b43990fbad7",
+    "actualOutcome": "success",
+    "actualBrowserResults": {
+      "cases": 475,
+      "desktop": 425,
+      "compact": 50,
+      "passed": 475,
+      "flaky": 0,
+      "attempts": 475,
+      "shards": [119, 119, 119, 118]
+    },
+    "requiredCheck": "success:1172Vitest/100files+35Node+503curriculum+realPostgreSQL+normalBuild+highAudit",
+    "aggregate": "passed",
+    "strictRelease": "passed",
+    "aggregateEvidenceSha256": "d99b5bd20c90cb7abe4cb308f3400e514d3cbfe3d6062634e041dfb12c50a3d0",
+    "localEvidenceLimit": "Shard4 ZIP1381188913bytes exceeds connector536870912byte download limit. Remote aggregate/strict verified all4; local monitor rehashed shards1-3 and aggregate, preserving fourth metadata/rawlog/digest."
+  },
+  "files": [
+    {
+      "path": ".github/workflows/ci.yml",
+      "sourceGitBlob": "726ded53f73930400991933c68c825b10cb93ae0",
+      "sourceSha256": "819039b3cc80a602866c4e50297c8b4d0622d5b8eb29d7079a66700eb49af949",
+      "exactBytesReused": true
+    },
+    {
+      "path": "scripts/e2e-shard-plan.mjs",
+      "sourceGitBlob": "a0fbead81d9a30d0ac9aeac5ea1822061019db14",
+      "sourceSha256": "0f14f463f44138b932d8d7fdb6792e06e1fdc13714fcb40eec4b12330988c905",
+      "exactBytesReused": true
+    },
+    {
+      "path": "scripts/e2e-shard-runner.mjs",
+      "sourceGitBlob": "38366aa80c30094178edb01feff6d37bbda0efd0",
+      "sourceSha256": "56919b9530c4c4292394470047c3523188e4e87751b98794a35a8b57bc300e11",
+      "exactBytesReused": true
+    },
+    {
+      "path": "scripts/e2e-shard-aggregate.mjs",
+      "sourceGitBlob": "5ce691db76cce0c7e226af5198a011e2122849df",
+      "sourceSha256": "026143cbec2a1d916a86a0474cee41276a8d338ba8ed86c593d84f7ad0d12dc8",
+      "exactBytesReused": true
+    },
+    {
+      "path": "scripts/e2e-shard.test.mjs",
+      "sourceGitBlob": "710a6773c917f767b6a55b8040caa739dc6ebd33",
+      "sourceSha256": "3656ec6aa422c693590a5aceadbe4c52afee5079f1162b6d538bea06bc70bbc1",
+      "exactBytesReused": true
+    },
+    {
+      "path": "scripts/quality-check.mjs",
+      "sourceGitBlob": "f42c2c062d061987d4c4e46418b37776e3cbac57",
+      "sourceSha256": "3a7584190c2d3c9b97aab41df43ce9caa98d84cdee40415bc000816fca7d8961",
+      "exactBytesReused": true
+    },
+    {
+      "path": "scripts/quality-check.test.mjs",
+      "sourceGitBlob": "81cb0606fe422ef80f5d130289af4c49f5df49be",
+      "sourceSha256": "06eecc3f349d48eaf8c06e791f4f37c6c7b2e44979e9c30de0f88c95244c446b",
+      "exactBytesReused": true
+    },
+    {
+      "path": "package.json",
+      "sourceGitBlob": "611bc9dafed6f577e823e222d13ea6e595c473a2",
+      "sourceSha256": "92ef85d3dcf8ff682f823f8f02b55c010c7d87d681cd7e53ed8b184d71484b79",
+      "exactBytesReused": true
+    },
+    {
+      "path": "src/resource-platform-ci-workflow.test.ts",
+      "sourceGitBlob": "cc630571f078aaa9f191621aa4402876216cb2c1",
+      "sourceSha256": "cc0bfbbe6bd4a63d910847408fdd2e3648107d4e928a8ff392a61f51e300a302",
+      "exactBytesReused": true
+    }
+  ],
+  "unchangedDependencies": [
+    {
+      "path": "package-lock.json",
+      "sha256": "19bc93a14aaf2384bc857b8f17acded389d7e1b1b86a8a1cd8093024f281f3ff",
+      "sourceAndTargetBytesEqual": true
+    },
+    {
+      "path": "playwright.config.ts",
+      "sha256": "4afb32366051d193b24ff776846bfafd94047ab1ab02b0573ef46bb757c6ee55",
+      "sourceAndTargetBytesEqual": true
+    },
+    {
+      "path": "scripts/e2e-plan-check.mjs",
+      "sha256": "5dbb3b2f0e2abebf8f31283f35b59736dab84bf14477f802d108354d9f25e751",
+      "sourceAndTargetBytesEqual": true
+    },
+    {
+      "path": "scripts/e2e-preview-build.mjs",
+      "sha256": "e16eba6f16b83642a9aa25c2f23c4cfc588064d02f754d320309f86000966684",
+      "sourceAndTargetBytesEqual": true
+    },
+    {
+      "path": "scripts/verify-desktop-ci.mjs",
+      "sha256": "a3ad649dda3a51fb796bbbbeaa8b6d2636d8da3c51c7acf3bc4c6af527a4cfc1",
+      "sourceAndTargetBytesEqual": true
+    },
+    {
+      "path": "scripts/next.mjs",
+      "sha256": "a84ea7b5a9e5b9063f635cb5ab19478b9a965f7cbd5803ebd4e56d78d9ed2bb7",
+      "sourceAndTargetBytesEqual": true
+    }
+  ],
+  "target": {
+    "track": "Bifrost visual foundation",
+    "base": "249833f7cb7ea41d3e411444ec3c4f83805d3a5f",
+    "laboratoryModel": "Existing3.7 unchanged",
+    "sql": "Existing001-008 unchanged",
+    "expectedBrowserPlan": {
+      "cases": 475,
+      "desktop": 426,
+      "compact": 49,
+      "addedDesktop": 7,
+      "inherited": 468
+    },
+    "actualCollection": {
+      "result": "passed",
+      "scope": "collection-only; no browser execution or receipt",
+      "cases": 475,
+      "projects": {
+        "compact-chromium": 49,
+        "desktop-chromium": 426
+      },
+      "shards": [119, 119, 119, 118],
+      "planDigest": "962170e8b1a79a6d99e8d8566cd66bd5066b4f9962a498e9a559ac0646158fe1",
+      "originalPlanGate": "passed",
+      "exactDisjointUnion": true
+    },
+    "actualFullCheck": "pending after CI maintenance; prior1148passing cases followed by historical unhandledPostgreSQL57P01 retained as failed invocation",
+    "actualFullBrowserExecution": "pending; no source-run receipt inherited",
+    "actualStrictRelease": "pending",
+    "focusedNodeValidation": {
+      "passed": 20,
+      "failed": 0,
+      "shardCases": 10,
+      "qualityCases": 10,
+      "scope": "unit and adversarial artifact/receipt validation; not target full browser execution"
+    },
+    "sourceFormatting": "All9 exact source files passed Prettier check"
+  },
+  "preservation": {
+    "productChanges": false,
+    "dependencyChanges": false,
+    "engineOrSqlChanges": false,
+    "worker": 1,
+    "retriesInCI": 2,
+    "jobTimeoutMinutes": 35,
+    "serialWrapper": "unchanged",
+    "candidateReceiptAdmission": "Only successful current-head/current-run/current-attempt mandatorycheck plus all4 exact-disjoint-union execution bundles, validated aggregate, then immediate independent strict gate."
+  },
+  "historicalFailures": "Keep originalGitHuboutage,serialbudget,local/publictiming and targetPGcleanup causes retained/open unless independently diagnosed. Successful reuse is not a causal fix."
+}

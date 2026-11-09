@@ -4,6 +4,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve, relative, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { format } from 'prettier';
+import { validateAggregateReceipt } from './e2e-shard-aggregate.mjs';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 export const recordPath = 'quality/releases/current.json';
@@ -247,9 +248,14 @@ function validateRecord(record, folder, strict) {
         /^[a-f0-9]{64}$/.test(v.fingerprint ?? '') &&
         v.fingerprint === record.review?.fingerprint,
     );
-    if (!executed('npm run test:e2e') && !desktopExecuted)
+    const aggregateExecuted = record.verification?.some(
+      (v) =>
+        v.command === 'node scripts/e2e-shard-aggregate.mjs' &&
+        validateAggregateReceipt(v, { record, folder }).length === 0,
+    );
+    if (!executed('npm run test:e2e') && !desktopExecuted && !aggregateExecuted)
       errors.push(
-        'Missing executed full browser profile (npm run test:e2e or candidate-bound npm run test:e2e:desktop)',
+        'Missing executed full browser profile (legacy, candidate-bound desktop or independently verified complete shard aggregate)',
       );
   }
   return errors;
