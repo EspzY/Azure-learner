@@ -1537,3 +1537,38 @@
   flex-wrap: wrap;
   gap: 10px 20px;
 }
+
+/* Persistent, direct route back to AzureLab root without altering course progress. */
+.course-header .course-home-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid #b9cddb;
+  border-radius: 6px;
+  color: #18466d;
+  background: #f4f9fc;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+.course-header .course-home-link:hover {
+  background: #e6f2fb;
+  border-color: #799db9;
+}
+.course-header .course-home-link:focus-visible {
+  outline: 3px solid #0b72b8;
+  outline-offset: 2px;
+}
+@media (max-width: 800px) {
+  .course-header .course-home-link {
+    min-height: 36px;
+    padding: 6px 9px;
+  }
+  .course-header .course-home-link span {
+    display: none;
+  }
+}
