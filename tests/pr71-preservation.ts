@@ -22,7 +22,7 @@ export function original71(path: string) {
 export function readPR71(path: string): Buffer;
 export function readPR71(path: string, encoding: 'utf8'): string;
 export function readPR71(path: string, encoding?: 'utf8'): Buffer | string {
-  let bytes = readFileSync(path);
+  let bytes: Buffer = readFileSync(path);
   const row = (proof.files as Record<string, { before: string; after: string }>)[path];
   if (row) {
     assert.equal(blobHash71(bytes), row.after, path);
