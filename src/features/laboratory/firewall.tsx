@@ -6,7 +6,8 @@ type World =
   | PreviousWorld
   | import('@/laboratory/v36/contract').World
   | import('@/laboratory/v37/contract').World
-  | import('@/laboratory/v38/contract').World;
+  | import('@/laboratory/v38/contract').World
+  | import('@/laboratory/v39/contract').World;
 import type { PolicyAnalysis as PreviousAnalysis } from '@/laboratory/v35/analysis';
 import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
 import { laboratoryV3Nb as c } from '@/content/nb';
@@ -16,7 +17,8 @@ type PolicyAnalysis =
   | PreviousAnalysis
   | import('@/laboratory/v36/analysis').PolicyAnalysis
   | import('@/laboratory/v37/analysis').PolicyAnalysis
-  | import('@/laboratory/v38/analysis').PolicyAnalysis;
+  | import('@/laboratory/v38/analysis').PolicyAnalysis
+  | import('@/laboratory/v39/analysis').PolicyAnalysis;
 const href = (view: string, id?: string) =>
   '/labs/laboratory?' + new URLSearchParams({ view, ...(id ? { id } : {}) });
 export function firewallDefaults(

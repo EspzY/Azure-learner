@@ -1,0 +1,18 @@
+
+> azurelab@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.2 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 43ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 19.0s
+  Running TypeScript ...
+src/features/laboratory/integrated-resource.tsx(408,24): error TS2488: Type 'string[] | undefined' must have a '[Symbol.iterator]()' method that returns an iterator.
+src/laboratory-integrated.test.ts(602,32): error TS2352: Conversion of type '{ z: string; a: string; type: string; accountId: string; containerId?: undefined; } | { z: string; a: string; type: string; containerId: string; accountId?: undefined; }' to type 'Command' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Object literal may only specify known properties, and 'z' does not exist in type 'Command'.
+src/laboratory-integrated.test.ts(607,36): error TS2352: Conversion of type '{ type: string; accountId: string; containerId?: undefined; a: string; z: string; } | { type: string; containerId: string; accountId?: undefined; a: string; z: string; }' to type 'Command' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Object literal may only specify known properties, and 'a' does not exist in type 'Command'.
+Failed to type check.
+

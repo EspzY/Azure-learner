@@ -118,7 +118,8 @@ export function RuleLifecycle({
   if (
     snapshot.world.model !== laboratoryModel &&
     snapshot.world.model !== 'laboratory@3.7.0' &&
-    snapshot.world.model !== 'laboratory@3.8.0'
+    snapshot.world.model !== 'laboratory@3.8.0' &&
+    snapshot.world.model !== 'laboratory@3.9.0'
   )
     return null;
   const world = snapshot.world,

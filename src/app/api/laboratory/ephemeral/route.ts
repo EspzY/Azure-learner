@@ -15,6 +15,11 @@ import {
   type Snapshot,
 } from '@/laboratory/engine';
 import { limits } from '@/laboratory/v3/contract';
+import { laboratoryModel as integratedModel } from '@/laboratory/v39/contract';
+import {
+  analyseRoutes as integratedRoutes,
+  analysePolicy as integratedPolicy,
+} from '@/laboratory/v39/analysis';
 import { laboratoryModel as applicationModel } from '@/laboratory/v38/contract';
 import {
   analyseRoutes as applicationRoutes,
@@ -94,7 +99,7 @@ function verified(value: unknown): Snapshot {
     value.historical !== false ||
     !object(value.world) ||
     typeof value.world.model !== 'string' ||
-    ![topologyModel, applicationModel].includes(value.world.model) ||
+    ![topologyModel, applicationModel, integratedModel].includes(value.world.model) ||
     !Array.isArray(value.entries) ||
     value.entries.length > limits.events
   )
@@ -139,13 +144,15 @@ function analysis(snapshot: Snapshot, values: unknown, kind: 'analysis' | 'polic
     )
       throw new RequestError('invalid-query');
     const result =
-      world.model === applicationModel
-        ? applicationRoutes(world, values.subnetId, values.destination)
-        : topologyRoutes(
-            world as Extract<Snapshot['world'], { model: typeof topologyModel }>,
-            values.subnetId,
-            values.destination,
-          );
+      world.model === integratedModel
+        ? integratedRoutes(world, values.subnetId, values.destination)
+        : world.model === applicationModel
+          ? applicationRoutes(world, values.subnetId, values.destination)
+          : topologyRoutes(
+              world as Extract<Snapshot['world'], { model: typeof topologyModel }>,
+              values.subnetId,
+              values.destination,
+            );
     if (!result) throw new RequestError('unsupported-model', 422);
     if (!result.ok) throw new RequestError(result.code, 422);
     return response({
@@ -174,12 +181,14 @@ function analysis(snapshot: Snapshot, values: unknown, kind: 'analysis' | 'polic
     destinationPort: values.destinationPort as string,
   };
   const result =
-    world.model === applicationModel
-      ? applicationPolicy(world, packet)
-      : topologyPolicy(
-          world as Extract<Snapshot['world'], { model: typeof topologyModel }>,
-          packet,
-        );
+    world.model === integratedModel
+      ? integratedPolicy(world, packet)
+      : world.model === applicationModel
+        ? applicationPolicy(world, packet)
+        : topologyPolicy(
+            world as Extract<Snapshot['world'], { model: typeof topologyModel }>,
+            packet,
+          );
   if (!result) throw new RequestError('unsupported-model', 422);
   if (!result.ok) throw new RequestError(result.code, 422);
   return response({
@@ -238,13 +247,19 @@ export async function POST(req: Request) {
       if (
         value.model !== undefined &&
         (typeof value.model !== 'string' ||
-          ![topologyModel, applicationModel].includes(value.model))
+          ![topologyModel, applicationModel, integratedModel].includes(value.model))
       )
         throw new RequestError('unsupported-model', 422);
       return response(
         {
           workspace: randomUUID(),
-          world: freshWorld(value.model === applicationModel ? applicationModel : topologyModel),
+          world: freshWorld(
+            value.model === integratedModel
+              ? integratedModel
+              : value.model === applicationModel
+                ? applicationModel
+                : topologyModel,
+          ),
           entries: [],
           historical: false,
         },

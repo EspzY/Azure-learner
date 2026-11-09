@@ -1,0 +1,469 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: integrated-data.spec.ts >> integrated Function App uses actual Storage and FC1 parents for HTTP and blob configuration analysis and rejects dependent deletion
+- Location: tests/e2e/integrated-data.spec.ts:42:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.selectOption: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for getByRole('region', { name: 'Synthetic function analysis', exact: true }).getByLabel('Modeled input blob', { exact: true })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - alert [ref=e2]: AzureLab — Lær Azure ved å bruke det
+  - generic [ref=e3]:
+    - link "Hopp til innhold" [ref=e4] [cursor=pointer]:
+      - /url: "#lab-main"
+    - banner [ref=e5]:
+      - button "Åpne eller lukk portalmenyen" [expanded] [ref=e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=e8] [cursor=pointer]:
+        - /url: /labs/laboratory
+      - searchbox "Search resources and services" [ref=e10]
+      - generic [ref=e11]: Fri Laboratory
+      - button "Originale kvitteringer" [ref=e12] [cursor=pointer]
+      - button "Modellgrenser" [ref=e14] [cursor=pointer]
+      - link "Kursarbeidsområde" [ref=e16] [cursor=pointer]:
+        - /url: /portal
+      - link "Til kurset" [ref=e17] [cursor=pointer]:
+        - /url: /learn
+      - link "Til forsiden" [ref=e18] [cursor=pointer]:
+        - /url: /
+    - generic [ref=e23]:
+      - complementary "Laboratory v3 navigasjon" [ref=e24]:
+        - navigation "Laboratory v3 navigasjon" [ref=e25]:
+          - link "Create a resource" [ref=e26] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - link "Home" [ref=e28] [cursor=pointer]:
+            - /url: /labs/laboratory?view=home
+          - link "All services" [ref=e30] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - generic [ref=e32]: FAVORITES
+          - link "Front Door profiles" [ref=e34] [cursor=pointer]:
+            - /url: /labs/laboratory?view=frontDoor
+          - link "Front Door endpoints" [ref=e36] [cursor=pointer]:
+            - /url: /labs/laboratory?view=frontDoorEndpoint
+          - link "Origin groups and synthetic probes" [ref=e38] [cursor=pointer]:
+            - /url: /labs/laboratory?view=originGroup
+          - link "Front Door origins" [ref=e40] [cursor=pointer]:
+            - /url: /labs/laboratory?view=frontDoorOrigin
+          - link "Front Door routes" [ref=e42] [cursor=pointer]:
+            - /url: /labs/laboratory?view=frontDoorRoute
+          - link "Front Door WAF policies" [ref=e44] [cursor=pointer]:
+            - /url: /labs/laboratory?view=frontDoorWafPolicy
+          - link "WAF custom rules" [ref=e46] [cursor=pointer]:
+            - /url: /labs/laboratory?view=frontDoorWafRule
+          - link "Front Door security policies" [ref=e48] [cursor=pointer]:
+            - /url: /labs/laboratory?view=frontDoorSecurityPolicy
+          - link "Application Gateways" [ref=e50] [cursor=pointer]:
+            - /url: /labs/laboratory?view=applicationGateway
+          - link "Gateway backend pools" [ref=e52] [cursor=pointer]:
+            - /url: /labs/laboratory?view=gatewayBackendPool
+          - link "Gateway HTTP listeners" [ref=e54] [cursor=pointer]:
+            - /url: /labs/laboratory?view=gatewayListener
+          - link "Gateway HTTPS backend settings" [ref=e56] [cursor=pointer]:
+            - /url: /labs/laboratory?view=gatewayBackendSetting
+          - link "Gateway synthetic probes" [ref=e58] [cursor=pointer]:
+            - /url: /labs/laboratory?view=gatewayProbe
+          - link "Gateway routing rules" [ref=e60] [cursor=pointer]:
+            - /url: /labs/laboratory?view=gatewayRoutingRule
+          - link "Azure Database for PostgreSQL flexible server" [ref=e62] [cursor=pointer]:
+            - /url: /labs/laboratory?view=postgresServer
+          - link "PostgreSQL database" [ref=e64] [cursor=pointer]:
+            - /url: /labs/laboratory?view=postgresDatabase
+          - link "SQL logical server" [ref=e66] [cursor=pointer]:
+            - /url: /labs/laboratory?view=sqlServer
+          - link "SQL database" [ref=e68] [cursor=pointer]:
+            - /url: /labs/laboratory?view=sqlDatabase
+          - link "Database server firewall rule" [ref=e70] [cursor=pointer]:
+            - /url: /labs/laboratory?view=databaseFirewallRule
+          - link "Functions Flex Consumption plan" [ref=e72] [cursor=pointer]:
+            - /url: /labs/laboratory?view=functionPlan
+          - link "Function App" [ref=e74] [cursor=pointer]:
+            - /url: /labs/laboratory?view=functionApp
+          - link "Synthetic function" [ref=e76] [cursor=pointer]:
+            - /url: /labs/laboratory?view=function
+          - link "Application database binding" [ref=e78] [cursor=pointer]:
+            - /url: /labs/laboratory?view=databaseConnection
+          - link "Subscriptions" [ref=e80] [cursor=pointer]:
+            - /url: /labs/laboratory?view=subscriptions
+          - link "Resource groups" [ref=e82] [cursor=pointer]:
+            - /url: /labs/laboratory?view=groups
+          - link "All resources" [ref=e84] [cursor=pointer]:
+            - /url: /labs/laboratory?view=resources
+          - link "App Services" [ref=e86] [cursor=pointer]:
+            - /url: /labs/laboratory?view=apps
+          - link "App Service plans" [ref=e88] [cursor=pointer]:
+            - /url: /labs/laboratory?view=plans
+          - link "Virtual machines" [ref=e90] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vms
+          - link "Managed disks" [ref=e92] [cursor=pointer]:
+            - /url: /labs/laboratory?view=disks
+          - link "Network interfaces" [ref=e94] [cursor=pointer]:
+            - /url: /labs/laboratory?view=nics
+          - link "Storage accounts" [ref=e96] [cursor=pointer]:
+            - /url: /labs/laboratory?view=accounts
+          - link "Virtual networks" [ref=e98] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vnets
+          - link "Network security groups" [ref=e100] [cursor=pointer]:
+            - /url: /labs/laboratory?view=nsgs
+          - link "Route tables" [ref=e102] [cursor=pointer]:
+            - /url: /labs/laboratory?view=routeTables
+          - link "Azure Firewalls" [ref=e104] [cursor=pointer]:
+            - /url: /labs/laboratory?view=firewalls
+          - link "Firewall Policies" [ref=e106] [cursor=pointer]:
+            - /url: /labs/laboratory?view=firewallPolicies
+          - link "Public IP addresses" [ref=e108] [cursor=pointer]:
+            - /url: /labs/laboratory?view=publicIps
+          - link "Originale kvitteringer" [ref=e110] [cursor=pointer]:
+            - /url: /labs/laboratory?view=history
+          - link "Architecture Studio" [ref=e112] [cursor=pointer]:
+            - /url: /labs/laboratory?view=studio
+          - link "Ruteanalyse" [ref=e114] [cursor=pointer]:
+            - /url: /labs/laboratory?view=analysis
+          - link "Network Policy Analysis" [ref=e116] [cursor=pointer]:
+            - /url: /labs/laboratory?view=policy
+        - generic [ref=e118]: Støttede tjenester i dette arbeidsområdet
+      - main [ref=e119]:
+        - generic [ref=e120]:
+          - button "Home" [ref=e121] [cursor=pointer]
+          - button "Synthetic function" [ref=e123] [cursor=pointer]
+          - button "functions-integrated" [ref=e125] [cursor=pointer]
+          - generic [ref=e127]: blob-integrated
+        - generic [ref=e131]:
+          - heading "blob-integrated" [active] [level=1] [ref=e132]
+          - generic [ref=e133]: Synthetic function · Midlertidig Sandbox · nullstilles ved ny innlasting · ingen kursresultater eller XP
+        - generic [ref=e136]:
+          - navigation "blob-integrated · Overview" [ref=e137]:
+            - strong [ref=e138]: blob-integrated
+            - generic [ref=e140]:
+              - generic [ref=e141]: Search this resource
+              - searchbox "Search this resource" [ref=e142]
+            - button "Overview" [ref=e143] [cursor=pointer]
+            - button "Activity log" [ref=e145] [cursor=pointer]
+            - group [ref=e147]:
+              - generic "Settings" [ref=e148] [cursor=pointer]
+              - button "Properties" [ref=e149] [cursor=pointer]
+            - generic [ref=e151]: Lokalt simulator-scope
+          - region "Synthetic function" [ref=e153]:
+            - heading "blob-integrated" [level=2] [ref=e154]
+            - paragraph [ref=e155]: Konfigurasjon i AzureLab-simulatoren. Ingen Azure-utrulling, HTTP-kall, DNS-oppslag, databaseautentisering eller faktisk kjøring.
+            - generic [ref=e156]:
+              - button "Edit synthetic function" [ref=e157] [cursor=pointer]
+              - button "Delete synthetic function" [ref=e158] [cursor=pointer]
+            - heading "Overview" [level=3] [ref=e159]
+            - generic [ref=e160]:
+              - generic [ref=e161]:
+                - term [ref=e162]: Name
+                - definition [ref=e163]: blob-integrated
+              - generic [ref=e164]:
+                - term [ref=e165]: Resource ID
+                - definition [ref=e166]: function-8
+              - generic [ref=e167]:
+                - term [ref=e168]: Type
+                - definition [ref=e169]: Microsoft.Web/sites/functions
+              - generic [ref=e170]:
+                - term [ref=e171]: Resource group
+                - definition [ref=e172]: rg-integrated-functions
+              - generic [ref=e173]:
+                - term [ref=e174]: Region
+                - definition [ref=e175]: norwayeast
+              - generic [ref=e176]:
+                - term [ref=e177]: Create origin
+                - definition [ref=e178]: fd73824e-748b-4d87-9306-c90e9a440bb9
+            - paragraph [ref=e179]:
+              - text: "Parent:"
+              - link "function-app-6" [ref=e180] [cursor=pointer]:
+                - /url: /labs/laboratory?view=functionApp&id=function-app-6
+            - heading "Properties and settings" [level=3] [ref=e181]
+            - generic [ref=e182]:
+              - generic [ref=e183]:
+                - term [ref=e184]: Group Id
+                - definition [ref=e185]: group-1
+              - generic [ref=e186]:
+                - term [ref=e187]: Region
+                - definition [ref=e188]: norwayeast
+              - generic [ref=e189]:
+                - term [ref=e190]: Type
+                - definition [ref=e191]: Microsoft.Web/sites/functions
+              - generic [ref=e192]:
+                - term [ref=e193]: App Id
+                - definition [ref=e194]: function-app-6
+              - generic [ref=e195]:
+                - term [ref=e196]: Enabled
+                - definition [ref=e197]: "true"
+              - generic [ref=e198]:
+                - term [ref=e199]: Trigger
+                - definition [ref=e200]: "{\"kind\":\"blob-event\",\"containerId\":\"container-3\"}"
+              - generic [ref=e201]:
+                - term [ref=e202]: Behavior
+                - definition [ref=e203]: echo-text
+              - generic [ref=e204]:
+                - term [ref=e205]: Response Text
+                - definition [ref=e206]: Hello from the synthetic function
+            - heading "Activity log" [level=3] [ref=e207]
+            - link "Åpne original kvittering" [ref=e208] [cursor=pointer]:
+              - /url: /labs/laboratory?view=history&receipt=fd73824e-748b-4d87-9306-c90e9a440bb9
+            - list [ref=e209]:
+              - listitem [ref=e210]:
+                - link "8 · CreateFunction · created" [ref=e211] [cursor=pointer]:
+                  - /url: /labs/laboratory?view=history&receipt=fd73824e-748b-4d87-9306-c90e9a440bb9
+            - region "Synthetic function analysis" [ref=e212]:
+              - heading "Synthetic function analysis" [level=2] [ref=e213]
+              - paragraph [ref=e214]: Simulert database- og Functions-konfigurasjon. Ingen database, SQL-spørring, kode, HTTP-trafikk eller hendelseslevering kjøres.
+              - generic [ref=e215]:
+                - generic [ref=e216]:
+                  - text: Modeled input blob
+                  - combobox "Modeled input blob" [ref=e217]:
+                    - option "Select a resource" [disabled]
+                    - option "input.txt · blob-4" [selected]
+                - button "Evaluate synthetic configuration" [ref=e218] [cursor=pointer]
+              - paragraph [ref=e219]: Konfigurasjonsanalysen verifiserer ikke nettverk, autentisering, databasebruk eller faktisk Functions-runtime.
+            - heading "Related resources" [level=3] [ref=e220]
+            - link "Azure Database for PostgreSQL flexible server" [ref=e222] [cursor=pointer]:
+              - /url: /labs/laboratory?view=postgresServer
+            - link "PostgreSQL database" [ref=e224] [cursor=pointer]:
+              - /url: /labs/laboratory?view=postgresDatabase
+            - link "SQL logical server" [ref=e226] [cursor=pointer]:
+              - /url: /labs/laboratory?view=sqlServer
+            - link "SQL database" [ref=e228] [cursor=pointer]:
+              - /url: /labs/laboratory?view=sqlDatabase
+            - link "Database server firewall rule" [ref=e230] [cursor=pointer]:
+              - /url: /labs/laboratory?view=databaseFirewallRule
+            - link "Functions Flex Consumption plan" [ref=e232] [cursor=pointer]:
+              - /url: /labs/laboratory?view=functionPlan
+            - link "Function App" [ref=e234] [cursor=pointer]:
+              - /url: /labs/laboratory?view=functionApp
+            - link "Synthetic function" [ref=e236] [cursor=pointer]:
+              - /url: /labs/laboratory?view=function
+            - link "Application database binding" [ref=e238] [cursor=pointer]:
+              - /url: /labs/laboratory?view=databaseConnection
+        - generic [ref=e239]:
+          - generic [ref=e240]: Fri Laboratory
+          - status [ref=e241]: Midlertidig – ingen lagring · nullstilles ved ny innlasting
+          - button "Oppdater visningen" [ref=e242] [cursor=pointer]
+          - generic [ref=e244]: "World-revisjon: 8 · Arbeidsforsøk: 1 · Arbeidsområdets modell: laboratory@3.9.0"
+          - button "Nullstill eget arbeidsområde" [ref=e245] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  33  |   await expect(form.getByLabel(targetLabel, { exact: true })).toHaveValue(targetId);
+  34  |   const response = memoryResponse(page, 'review');
+  35  |   await form.getByRole('button', { name: 'Review', exact: true }).click();
+  36  |   const review = await (await response).json();
+  37  |   expect(review.preview).toMatchObject({ outcome: 'rejected', code: 'cascade-delete-unsupported' });
+  38  |   await expect(form.getByRole('button', { name: 'Delete', exact: true })).toBeDisabled();
+  39  |   await form.getByRole('button', { name: 'Cancel', exact: true }).click();
+  40  | }
+  41  | 
+  42  | test('integrated Function App uses actual Storage and FC1 parents for HTTP and blob configuration analysis and rejects dependent deletion', async ({
+  43  |   page,
+  44  | }, info) => {
+  45  |   const commands = countCommands(page);
+  46  |   await startIntegrated(page);
+  47  |   const before = await courseBytes(page);
+  48  |   await create(page, storage.newGroup, { name: 'rg-integrated-functions' });
+  49  |   await service(page, storage.accounts);
+  50  |   const account = await create(page, storage.newAccount, { name: 'integratedfunctions' });
+  51  |   const accountId = account.receipt.addedIds[0]!;
+  52  |   const container = await create(page, storage.newContainer, { name: 'function-inputs' });
+  53  |   const containerId = container.receipt.addedIds[0]!;
+  54  |   const blobText = '<script>window.functionInputExecuted=true</script> synthetic blob';
+  55  |   const blob = await create(page, storage.newBlob, { name: 'input.txt', text: blobText });
+  56  |   const blobId = blob.receipt.addedIds[0]!;
+  57  |   await service(page, d.types.functionApp);
+  58  |   const created = await integratedOperation(page, d.operations.CreateFunctionApp, {
+  59  |     [d.fields.name]: 'functions-integrated',
+  60  |     [d.fields.planName]: 'plan-functions-integrated',
+  61  |     [d.fields.storageAccountId]: accountId,
+  62  |     [d.fields.deploymentContainerId]: containerId,
+  63  |   });
+  64  |   const world = integratedWorld(created),
+  65  |     app = world.data.functionApps[0]!,
+  66  |     plan = world.data.functionPlans[0]!;
+  67  |   expect(app).toMatchObject({
+  68  |     storageAccountId: accountId,
+  69  |     deploymentContainerId: containerId,
+  70  |     planId: plan.id,
+  71  |   });
+  72  |   expect(plan).toMatchObject({ ownerAppId: app.id, sku: 'FC1', os: 'Linux', origin: app.origin });
+  73  |   expect(created.receipt.addedIds).toEqual([plan.id, app.id]);
+  74  |   await service(page, d.types.function);
+  75  |   const configured = await integratedOperation(page, d.operations.CreateFunction, {
+  76  |     [d.fields.appId]: app.id,
+  77  |     [d.fields.name]: 'http-integrated',
+  78  |     [d.fields.behavior]: 'echo-text',
+  79  |   });
+  80  |   const http = integratedWorld(configured).data.functions[0]!;
+  81  |   expect(http).toMatchObject({
+  82  |     appId: app.id,
+  83  |     trigger: { kind: 'http', method: 'GET', route: '/hello', authLevel: 'anonymous' },
+  84  |   });
+  85  |   await service(page, d.types.function);
+  86  |   await openResource(page, http.name);
+  87  |   const httpAnalysis = page.getByRole('region', { name: d.invocation, exact: true });
+  88  |   const writesBeforeHttp = commands();
+  89  |   await httpAnalysis.getByLabel(d.inputText, { exact: true }).fill(blobText);
+  90  |   await httpAnalysis.getByRole('button', { name: d.evaluate, exact: true }).click();
+  91  |   await expect(httpAnalysis.getByRole('status')).toHaveText(d.status['configuration-consistent']);
+  92  |   await expect(httpAnalysis.locator('pre')).toHaveText(blobText);
+  93  |   expect(await page.evaluate(() => Object.hasOwn(window, 'functionInputExecuted'))).toBe(false);
+  94  |   expect(commands()).toBe(writesBeforeHttp);
+  95  |   await httpAnalysis.getByLabel(d.path, { exact: true }).fill('/api/not-configured');
+  96  |   await expect(httpAnalysis.getByRole('status')).toHaveCount(0);
+  97  |   await httpAnalysis.getByRole('button', { name: d.evaluate, exact: true }).click();
+  98  |   await expect(httpAnalysis.getByText('http-trigger-not-matched', { exact: true })).toBeVisible();
+  99  |   const changed = await integratedOperation(
+  100 |     page,
+  101 |     d.operations.UpdateFunction,
+  102 |     {
+  103 |       [d.fields.route]: '/changed',
+  104 |       [d.fields.behavior]: 'static-text',
+  105 |       [d.fields.responseText]: 'Changed synthetic output',
+  106 |     },
+  107 |     'Save',
+  108 |   );
+  109 |   expect(changed.receipt).toMatchObject({
+  110 |     updatedIds: [http.id],
+  111 |     integrationChange: { id: http.id, createOrigin: http.origin },
+  112 |   });
+  113 |   await expect(httpAnalysis.getByRole('status')).toHaveCount(0);
+  114 |   await expect(httpAnalysis.getByLabel(d.path, { exact: true })).toHaveValue('/api/changed');
+  115 |   await httpAnalysis.getByRole('button', { name: d.evaluate, exact: true }).click();
+  116 |   await expect(httpAnalysis.locator('pre')).toHaveText('Changed synthetic output');
+  117 |   await service(page, d.types.function);
+  118 |   const blobFunction = await integratedOperation(page, d.operations.CreateFunction, {
+  119 |     [d.fields.appId]: app.id,
+  120 |     [d.fields.name]: 'blob-integrated',
+  121 |     [d.fields.trigger]: 'blob-event',
+  122 |     [d.fields.containerId]: containerId,
+  123 |     [d.fields.behavior]: 'echo-text',
+  124 |   });
+  125 |   const handler = integratedWorld(blobFunction).data.functions.find(
+  126 |     (row) => row.name === 'blob-integrated',
+  127 |   )!;
+  128 |   expect(handler.trigger).toEqual({ kind: 'blob-event', containerId });
+  129 |   await service(page, d.types.function);
+  130 |   await openResource(page, handler.name);
+  131 |   const blobAnalysis = page.getByRole('region', { name: d.invocation, exact: true });
+  132 |   const writesBeforeBlob = commands();
+> 133 |   await blobAnalysis.getByLabel(d.blob, { exact: true }).selectOption(blobId);
+      |                                                          ^ Error: locator.selectOption: Test timeout of 30000ms exceeded.
+  134 |   await blobAnalysis.getByRole('button', { name: d.evaluate, exact: true }).click();
+  135 |   await expect(blobAnalysis.getByRole('status')).toHaveText(d.status['configuration-consistent']);
+  136 |   await expect(blobAnalysis.locator('pre')).toHaveText(blobText);
+  137 |   await expect(blobAnalysis).toContainText('not-performed');
+  138 |   expect(commands()).toBe(writesBeforeBlob);
+  139 |   await service(page, d.types.functionApp);
+  140 |   await openResource(page, app.name);
+  141 |   await deniedDelete(page, d.operations.DeleteFunctionApp, d.fields.appId, app.id);
+  142 |   expect(commands()).toBe(writesBeforeBlob);
+  143 |   expect(await courseBytes(page)).toBe(before);
+  144 |   await page.screenshot({ path: info.outputPath('integrated-function-storage-dependencies.png') });
+  145 | });
+  146 | 
+  147 | test('integrated SQL binding distinguishes unknown hypothetical IP firewall allowance and changed server configuration without runtime claims', async ({
+  148 |   page,
+  149 | }, info) => {
+  150 |   const commands = countCommands(page);
+  151 |   const setup = await integratedApp(page, 'sql-binding');
+  152 |   const app = integratedWorld(setup.app).webApps[0]!;
+  153 |   await service(page, d.types.sqlServer);
+  154 |   const created = await integratedOperation(page, d.operations.CreateSqlServer, {
+  155 |     [d.fields.name]: 'sql-integrated-binding',
+  156 |   });
+  157 |   const server = integratedWorld(created).data.sqlServers[0]!;
+  158 |   await service(page, d.types.sqlDatabase);
+  159 |   const databaseCreated = await integratedOperation(page, d.operations.CreateSqlDatabase, {
+  160 |     [d.fields.serverId]: server.id,
+  161 |     [d.fields.name]: 'applicationdb',
+  162 |   });
+  163 |   const database = integratedWorld(databaseCreated).data.sqlDatabases[0]!;
+  164 |   expect(database.serverId).toBe(server.id);
+  165 |   await service(page, d.types.databaseConnection);
+  166 |   const bound = await integratedOperation(page, d.operations.CreateDatabaseConnection, {
+  167 |     [d.fields.appId]: app.id,
+  168 |     [d.fields.databaseId]: database.id,
+  169 |   });
+  170 |   const binding = integratedWorld(bound).data.databaseConnections[0]!;
+  171 |   expect(binding).toMatchObject({
+  172 |     source: { id: app.id, type: 'Microsoft.Web/sites' },
+  173 |     database: { id: database.id, type: dataTypes.sqlDatabase },
+  174 |     tls: '1.2',
+  175 |   });
+  176 |   await service(page, d.types.databaseConnection);
+  177 |   await openResource(page, binding.name);
+  178 |   const analysis = page.getByRole('region', { name: d.analysis, exact: true });
+  179 |   const writesBeforeAnalysis = commands();
+  180 |   await expect(analysis.getByLabel(d.sourceIp, { exact: true })).toHaveValue('');
+  181 |   await analysis.getByRole('button', { name: d.analyse, exact: true }).click();
+  182 |   await expect(analysis.getByText('source-egress-ip-unknown', { exact: true })).toBeVisible();
+  183 |   await expect(analysis.getByRole('status')).toHaveText(d.status.undetermined);
+  184 |   await analysis.getByLabel(d.sourceIp, { exact: true }).fill('203.0.113.10');
+  185 |   await expect(analysis.getByRole('status')).toHaveCount(0);
+  186 |   await analysis.getByRole('button', { name: d.analyse, exact: true }).click();
+  187 |   await expect(analysis.getByText('source-ip-not-allowed', { exact: true })).toBeVisible();
+  188 |   expect(commands()).toBe(writesBeforeAnalysis);
+  189 |   await service(page, d.types.databaseFirewallRule);
+  190 |   const ruleCreated = await integratedOperation(page, d.operations.CreateDatabaseFirewallRule, {
+  191 |     [d.fields.serverId]: server.id,
+  192 |     [d.fields.name]: 'allow-hypothetical-input',
+  193 |     [d.fields.startIp]: '203.0.113.10',
+  194 |     [d.fields.endIp]: '203.0.113.10',
+  195 |   });
+  196 |   expect(integratedWorld(ruleCreated).data.databaseFirewallRules[0]).toMatchObject({
+  197 |     type: dataTypes.sqlFirewallRule,
+  198 |     server: { id: server.id, type: dataTypes.sqlServer },
+  199 |   });
+  200 |   await service(page, d.types.databaseConnection);
+  201 |   await openResource(page, binding.name);
+  202 |   await expect(analysis.getByRole('status')).toHaveCount(0);
+  203 |   await analysis.getByLabel(d.sourceIp, { exact: true }).fill('203.0.113.10');
+  204 |   await analysis.getByRole('button', { name: d.analyse, exact: true }).click();
+  205 |   await expect(analysis.getByRole('status')).toHaveText(d.status['configuration-consistent']);
+  206 |   await expect(analysis).toContainText('not-evaluated');
+  207 |   await expect(analysis.getByText(d.notRuntime, { exact: true })).toBeVisible();
+  208 |   await service(page, d.types.sqlServer);
+  209 |   await openResource(page, server.name);
+  210 |   const changed = await integratedOperation(
+  211 |     page,
+  212 |     d.operations.UpdateSqlServer,
+  213 |     { [d.fields.publicNetworkAccess]: 'Disabled' },
+  214 |     'Save',
+  215 |   );
+  216 |   expect(changed.receipt).toMatchObject({
+  217 |     updatedIds: [server.id],
+  218 |     integrationChange: {
+  219 |       id: server.id,
+  220 |       createOrigin: server.origin,
+  221 |       before: { publicNetworkAccess: 'Enabled' },
+  222 |       after: { publicNetworkAccess: 'Disabled' },
+  223 |     },
+  224 |   });
+  225 |   await service(page, d.types.databaseConnection);
+  226 |   await openResource(page, binding.name);
+  227 |   await expect(analysis.getByRole('status')).toHaveCount(0);
+  228 |   await analysis.getByRole('button', { name: d.analyse, exact: true }).click();
+  229 |   await expect(analysis.getByText('public-endpoint-disabled', { exact: true })).toBeVisible();
+  230 |   await expect(analysis.getByRole('status')).toHaveText(d.status['denied-by-configuration']);
+  231 |   const writesBeforeDeniedDelete = commands();
+  232 |   await service(page, d.types.sqlDatabase);
+  233 |   await openResource(page, database.name);
+```

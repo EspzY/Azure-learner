@@ -1,3 +1,7 @@
+## Laboratory3.9 official service-family continuation —9 November2026
+
+Seven additional unmodified Microsoft V24 service-family SVGs now identify the integrated Front Door, WAF, Application Gateway, PostgreSQL, SQL and Functions resources through the existing central registry. The same pinned archive and original terms are reused; child families, FC1 and local configuration glyphs are explicitly mapped. See [exact source/license/hash provenance and limits](LABORATORY_INTEGRATED_ICONS.md). The complete historical register below remains unchanged.
+
 # G1 asset register
 
 ## PR28 original network figures

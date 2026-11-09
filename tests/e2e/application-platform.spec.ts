@@ -9,6 +9,10 @@ import type { CommandResult, Snapshot } from '../../src/laboratory/engine';
 async function begin(page: Page) {
   await page.goto('/');
   await page.getByRole('link', { name: landing.labLink, exact: true }).click();
+  await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();
+  await page
+    .getByRole('combobox', { name: 'Arbeidsområdemodell', exact: true })
+    .selectOption('laboratory@3.8.0');
   const response = memoryResponse(page, 'session');
   await page.getByRole('button', { name: temp.start, exact: true }).click();
   const s: Snapshot = await (await response).json();
@@ -305,6 +309,10 @@ test('application PostgreSQL workspace persists actual UI-created plan app and d
 }, info) => {
   await page.goto('/');
   await page.getByRole('link', { name: landing.labLink, exact: true }).click();
+  await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();
+  await page
+    .getByRole('combobox', { name: 'Arbeidsområdemodell', exact: true })
+    .selectOption('laboratory@3.8.0');
   const started = operationResponse(page, 'session');
   await page.getByRole('button', { name: c.start, exact: true }).click();
   const initial: Snapshot = await (await started).json();

@@ -1,3 +1,7 @@
+## Current integrated Laboratory3.9 —9 November2026
+
+See the current [operation-by-operation Laboratory3.9 matrix](LABORATORY_INTEGRATED_CAPABILITIES.md) for the explicit integrated successor. The complete historical body below keeps its original model scope and is not an assertion that newer models are create-only.
+
 ## Current shared entry consolidation —9 November2026
 
 See the exhaustive [course-v2 versus Laboratory3.7 matrix](SHARED_PORTAL_CAPABILITY_MATRIX.md) and [architecture contract](SHARED_PORTAL_CONSOLIDATION.md). Home, Subscriptions and catalogue/navigation now share implementation; original resource/learning authorities remain separate. Historical rows below retain their dated scope and are not reclassified as new operations.

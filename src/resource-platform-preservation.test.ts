@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { readIntegratedHistory as readFileSync } from '../tests/integrated-platform-preservation';
+import { execIntegratedHistory as execFileSync } from '../tests/integrated-platform-preservation';
 import { createHash } from 'node:crypto';
 import proof from '../docs/reviews/evidence/parallel-resource-platform/preservation.json';
 import { boundHistoricalBytes } from '../tests/resource-platform-preservation';

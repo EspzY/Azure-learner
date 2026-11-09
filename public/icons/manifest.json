@@ -432,6 +432,83 @@
       "reference": "official V24 asset; current Portal variant not independently matched",
       "result": "UNVERIFIED",
       "name": "Public IP addresses"
+    },
+    "frontDoor": {
+      "family": "azure",
+      "file": "azure/10073-icon-service-Front-Door-and-CDN-Profiles.svg",
+      "bytes": 942,
+      "sha256": "b2e9c9a8b091a0694532257354dea94bb8c65b33876826e44dbc9b2aae01cf17",
+      "source": "Azure_Public_Service_Icons/Icons/networking/10073-icon-service-Front-Door-and-CDN-Profiles.svg",
+      "reference": "Original Microsoft V24 identity from the existing pinned archive; live Portal pixel variant not independently matched.",
+      "result": "UNVERIFIED",
+      "name": "Front Door and CDN profiles",
+      "reviewed": "2026-11-09"
+    },
+    "waf": {
+      "family": "azure",
+      "file": "azure/10362-icon-service-Web-Application-Firewall-Policies-WAF.svg",
+      "bytes": 3249,
+      "sha256": "b790e4e7b7617c8155025ab238cfab39a303df74dc030dbe9943a6eef2732255",
+      "source": "Azure_Public_Service_Icons/Icons/networking/10362-icon-service-Web-Application-Firewall-Policies(WAF).svg",
+      "reference": "Original Microsoft V24 identity from the existing pinned archive; live Portal pixel variant not independently matched.",
+      "result": "UNVERIFIED",
+      "name": "Web Application Firewall policies",
+      "reviewed": "2026-11-09"
+    },
+    "applicationGateway": {
+      "family": "azure",
+      "file": "azure/10076-icon-service-Application-Gateways.svg",
+      "bytes": 3351,
+      "sha256": "531e668e47cf61872b2811ec67dcc103cee2ecc1d272f07132d6196d68ba6c19",
+      "source": "Azure_Public_Service_Icons/Icons/networking/10076-icon-service-Application-Gateways.svg",
+      "reference": "Original Microsoft V24 identity from the existing pinned archive; live Portal pixel variant not independently matched.",
+      "result": "UNVERIFIED",
+      "name": "Application Gateways",
+      "reviewed": "2026-11-09"
+    },
+    "postgresServer": {
+      "family": "azure",
+      "file": "azure/10131-icon-service-Azure-Database-PostgreSQL-Server.svg",
+      "bytes": 3564,
+      "sha256": "8232e8ecfbd607ce3b54646199805a823646d71e552f9aa71e7a3952cde35620",
+      "source": "Azure_Public_Service_Icons/Icons/databases/10131-icon-service-Azure-Database-PostgreSQL-Server.svg",
+      "reference": "Original Microsoft V24 identity from the existing pinned archive; live Portal pixel variant not independently matched.",
+      "result": "UNVERIFIED",
+      "name": "PostgreSQL servers",
+      "reviewed": "2026-11-09"
+    },
+    "sqlServer": {
+      "family": "azure",
+      "file": "azure/10132-icon-service-SQL-Server.svg",
+      "bytes": 2448,
+      "sha256": "72c6104c5f2199f6eaebbc215c5cb78dea9c1d571b95f470341ca7f83eee5be8",
+      "source": "Azure_Public_Service_Icons/Icons/databases/10132-icon-service-SQL-Server.svg",
+      "reference": "Original Microsoft V24 identity from the existing pinned archive; live Portal pixel variant not independently matched.",
+      "result": "UNVERIFIED",
+      "name": "SQL logical servers",
+      "reviewed": "2026-11-09"
+    },
+    "sqlDatabase": {
+      "family": "azure",
+      "file": "azure/10130-icon-service-SQL-Database.svg",
+      "bytes": 2420,
+      "sha256": "a26124a2b188ccf910520c935c726f7364e0f5935d7a4319ebcab9c80a40e475",
+      "source": "Azure_Public_Service_Icons/Icons/databases/10130-icon-service-SQL-Database.svg",
+      "reference": "Original Microsoft V24 identity from the existing pinned archive; live Portal pixel variant not independently matched.",
+      "result": "UNVERIFIED",
+      "name": "SQL databases",
+      "reviewed": "2026-11-09"
+    },
+    "functionApp": {
+      "family": "azure",
+      "file": "azure/10029-icon-service-Function-Apps.svg",
+      "bytes": 1747,
+      "sha256": "1a6c9c108d5f63f7b78bc6fbc464059acd2eaa8c1d111e9bcd28a8b2cdf470b9",
+      "source": "Azure_Public_Service_Icons/Icons/compute/10029-icon-service-Function-Apps.svg",
+      "reference": "Original Microsoft V24 identity from the existing pinned archive; live Portal pixel variant not independently matched.",
+      "result": "UNVERIFIED",
+      "name": "Function Apps",
+      "reviewed": "2026-11-09"
     }
   },
   "aliases": {
@@ -449,7 +526,24 @@
     "blobs": "blob",
     "firewallGroup": "properties",
     "firewallCollection": "properties",
-    "firewallRule": "properties"
+    "firewallRule": "properties",
+    "frontDoorEndpoint": "frontDoor",
+    "originGroup": "frontDoor",
+    "frontDoorOrigin": "frontDoor",
+    "frontDoorRoute": "frontDoor",
+    "frontDoorWafPolicy": "waf",
+    "frontDoorWafRule": "waf",
+    "frontDoorSecurityPolicy": "frontDoor",
+    "gatewayBackendPool": "applicationGateway",
+    "gatewayListener": "applicationGateway",
+    "gatewayBackendSetting": "applicationGateway",
+    "gatewayProbe": "applicationGateway",
+    "gatewayRoutingRule": "applicationGateway",
+    "postgresDatabase": "postgresServer",
+    "databaseFirewallRule": "settings",
+    "functionPlan": "plan",
+    "function": "functionApp",
+    "databaseConnection": "settings"
   },
   "licenses": {
     "licenses/Microsoft_Terms_of_Use.pdf": {

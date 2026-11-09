@@ -1,4 +1,7 @@
 'use client';
+import { integratedResourceIcon } from './integrated-icons';
+import { deliveryInventory } from './integrated-delivery';
+import { dataFamilies } from './integrated-data';
 import { isFirewallWorld } from './capabilities';
 
 import { useState } from 'react';
@@ -173,7 +176,7 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
       if (c && p) add('firewallRule', x, p.groupId, p.region, c.id);
     }
   }
-  if (world.model === 'laboratory@3.8.0') {
+  if (world.model === 'laboratory@3.8.0' || world.model === 'laboratory@3.9.0') {
     for (const p of world.plans) add('appPlan', p, p.groupId, p.region, p.groupId);
     for (const a of world.webApps) add('webApp', a, a.groupId, a.region, a.groupId);
     for (const d of world.deployments) {
@@ -183,6 +186,26 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
     for (const s of world.settings) {
       const a = world.webApps.find((a) => a.id === s.webAppId);
       if (a) add('appSetting', s, a.groupId, a.region, a.id);
+    }
+  }
+  if (world.model === 'laboratory@3.9.0') {
+    for (const resource of [
+      ...deliveryInventory(world),
+      ...dataFamilies.flatMap((family) => family.resources(world)),
+    ]) {
+      add(
+        resource.view as LaboratoryResource['view'],
+        resource.source as { id: string; name: string; origin: string },
+        resource.groupId,
+        resource.region,
+        resource.parentId,
+      );
+      const row = rows[rows.length - 1]!;
+      rows[rows.length - 1] = {
+        ...row,
+        kind: integratedResourceIcon(resource.view, resource.type) ?? resource.view,
+        category: 'resource',
+      };
     }
   }
   return rows;

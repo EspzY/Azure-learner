@@ -1,0 +1,159 @@
+{
+  "verifiedAt": "2026-11-09T20:00:40.019Z",
+  "run": {
+    "id": 42672514055,
+    "attempt": 3,
+    "url": "https://github.com/EspzY/Azure-learner/actions/runs/42672514055",
+    "head": "5b2e814b9f4bae1aa3c2fe4e79cd3a4e53029484",
+    "checkedMerge": "d318b10c536f94e962a1bdf6778f418fac83c688",
+    "base": "249833f7cb7ea41d3e411444ec3c4f83805d3a5f",
+    "conclusion": "success"
+  },
+  "fingerprint": "47c9a1cd10d804ed4474b2bd79ad6997f60d32cdfa06fa7f79ed7b43990fbad7",
+  "source": {
+    "tree": "ae980a411cf842d8e6649740d415edc8a934e973",
+    "digest": "bd70b5c48c2f2fff6acf3c64cbf7055249273931b66184f4ce4f6f929d28e38b"
+  },
+  "configuration": "06eea42481111165774d93f5d45118ea6032f7fdb736e4d9a62481a12da02603",
+  "toolchain": {
+    "node": "v24.22.2",
+    "platform": "linux",
+    "architecture": "x64",
+    "playwright": "1.64.1",
+    "browserRegistry": "2cfd419f71ac6475d81e1301fa86c34cf2a2a6bae2a0da4b5a2b18310216b6bf"
+  },
+  "fullPlan": {
+    "cases": 475,
+    "projects": {
+      "compact-chromium": 50,
+      "desktop-chromium": 425
+    },
+    "shards": [119, 119, 119, 118],
+    "exactDisjointUnion": true,
+    "digest": "b39154e4d731daf8003d7fdd0a86f4ab07e884fedd80eaaadb9f00ade2c66c1a"
+  },
+  "counts": {
+    "cases": 475,
+    "passed": 475,
+    "flaky": 0,
+    "attempts": 475
+  },
+  "strictPassed": true,
+  "aggregateEvidenceSha256": "d99b5bd20c90cb7abe4cb308f3400e514d3cbfe3d6062634e041dfb12c50a3d0",
+  "checkReceipt": {
+    "command": "npm run check",
+    "result": "passed",
+    "scope": "candidate-ci-check",
+    "commit": "d318b10c536f94e962a1bdf6778f418fac83c688",
+    "fingerprint": "47c9a1cd10d804ed4474b2bd79ad6997f60d32cdfa06fa7f79ed7b43990fbad7",
+    "repository": "EspzY/Azure-learner",
+    "baseCommit": "249833f7cb7ea41d3e411444ec3c4f83805d3a5f",
+    "runId": "42672514055",
+    "runAttempt": "3",
+    "evidence": {
+      "path": ".artifacts/ci-shards/aggregate.json",
+      "sha256": "d99b5bd20c90cb7abe4cb308f3400e514d3cbfe3d6062634e041dfb12c50a3d0"
+    },
+    "details": "The mandatory GitHub check job successfully executed the literal npm run check and npm audit --audit-level=high on this actual SHA and current run attempt. Its successful same-SHA/current-attempt prerequisite and the complete browser shard union were validated before this CI execution receipt was written; no local check pass is inferred."
+  },
+  "receipt": {
+    "command": "node scripts/e2e-shard-aggregate.mjs",
+    "result": "passed",
+    "scope": "candidate-full-profile",
+    "commit": "d318b10c536f94e962a1bdf6778f418fac83c688",
+    "fingerprint": "47c9a1cd10d804ed4474b2bd79ad6997f60d32cdfa06fa7f79ed7b43990fbad7",
+    "evidence": {
+      "path": ".artifacts/ci-shards/aggregate.json",
+      "sha256": "d99b5bd20c90cb7abe4cb308f3400e514d3cbfe3d6062634e041dfb12c50a3d0"
+    },
+    "planDigest": "b39154e4d731daf8003d7fdd0a86f4ab07e884fedd80eaaadb9f00ade2c66c1a",
+    "provenanceDigest": "143d06b4622398b26ed7bbbbde4b9a70d4e7d245684525b248473798ee40d4df",
+    "totalShards": 4,
+    "cases": 475,
+    "details": "All 4 same-run/same-attempt shard processes passed, with an exact disjoint union of 475 required cases. 0 cases recovered under the unchanged retry policy. Strict release and final CI conclusion remain separate."
+  },
+  "localBundleVerification": [
+    {
+      "index": 1,
+      "name": "browser-42672514055-3-1",
+      "counts": {
+        "cases": 119,
+        "passed": 119,
+        "flaky": 0,
+        "attempts": 119
+      },
+      "zipDigestVerified": true,
+      "allFileHashesVerified": true,
+      "manifestAndReportDigestsMatchAggregate": true
+    },
+    {
+      "index": 2,
+      "name": "browser-42672514055-3-2",
+      "counts": {
+        "cases": 119,
+        "passed": 119,
+        "flaky": 0,
+        "attempts": 119
+      },
+      "zipDigestVerified": true,
+      "allFileHashesVerified": true,
+      "manifestAndReportDigestsMatchAggregate": true
+    },
+    {
+      "index": 3,
+      "name": "browser-42672514055-3-3",
+      "counts": {
+        "cases": 119,
+        "passed": 119,
+        "flaky": 0,
+        "attempts": 119
+      },
+      "zipDigestVerified": true,
+      "allFileHashesVerified": true,
+      "manifestAndReportDigestsMatchAggregate": true
+    }
+  ],
+  "remoteArtifacts": [
+    {
+      "id": 13705468306,
+      "name": "browser-42672514055-3-4",
+      "size": 1381188913,
+      "digest": "sha256:aa2735d3769de1ad07839a6b5a0f2be84d1f68f9473e440fc9f428aa670d0159",
+      "expiresAt": "2026-11-16T19:55:41Z"
+    },
+    {
+      "id": 13705137183,
+      "name": "browser-42672514055-3-1",
+      "size": 3998052,
+      "digest": "sha256:a61296759fc69e2c4d1464d0c3021939eb5fe07c070f204379bab6143adfd9c9",
+      "expiresAt": "2026-11-16T19:48:45Z"
+    },
+    {
+      "id": 13704757550,
+      "name": "browser-42672514055-3-2",
+      "size": 16611531,
+      "digest": "sha256:58df3f2986be6c08a27181720500448d3c8e973b1479a4f9de3414ed436b49d4",
+      "expiresAt": "2026-11-16T19:53:09Z"
+    },
+    {
+      "id": 13704588351,
+      "name": "browser-aggregate-42672514055-3",
+      "size": 50161,
+      "digest": "sha256:710dec3bf39916b5ed3b6568113fb098f09a5e5bd59ffd03fd477cad8efd5569",
+      "expiresAt": "2026-11-16T19:58:36Z"
+    },
+    {
+      "id": 13704289078,
+      "name": "browser-42672514055-3-3",
+      "size": 8907236,
+      "digest": "sha256:ba229033fc74f344701db3cce1811a140ec582d1ff00e2c16ae5812aceba23d0",
+      "expiresAt": "2026-11-16T19:48:55Z"
+    }
+  ],
+  "fourthBundle": {
+    "localDownloaded": false,
+    "reason": "GitHub connector rejects artifacts larger than 536870912 bytes; actual shard4 ZIP is 1381188913 bytes. Successful remote aggregate and strict validated every fourth-bundle byte/hash/report/outcome. Raw job log and metadata retained locally.",
+    "remoteVerified": true
+  },
+  "historicalLimits": "Prior outage attempts, serial profile budget timeouts and local/public timing failures remain retained; their causes are not retrospectively closed by this successful attempt."
+}

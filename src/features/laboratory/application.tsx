@@ -7,6 +7,8 @@ import {
   type ApplicationCommand,
   type ApplicationChange,
 } from '@/laboratory/v38/contract';
+import { analyseWebApp as analyseIntegratedWebApp } from '@/laboratory/v39/analysis';
+import { isApplicationWorld } from './capabilities';
 import { analyseWebApp } from '@/laboratory/v38/analysis';
 import { laboratoryApplicationNb as t } from '@/content/laboratory-application-nb';
 import { PropertyList } from '@/features/portal/shared';
@@ -66,7 +68,7 @@ export function ApplicationViews({
     reviewHeading.current?.scrollIntoView({ block: 'start', behavior: 'instant' });
     reviewHeading.current?.focus({ preventScroll: true });
   }, [reviewCommandId]);
-  if (snapshot.world.model !== 'laboratory@3.8.0') return null;
+  if (!isApplicationWorld(snapshot.world)) return null;
   const world = snapshot.world,
     plan = world.plans.find((p) => p.id === id),
     app = world.webApps.find((a) => a.id === id),
@@ -403,7 +405,11 @@ export function ApplicationViews({
           />
           <h2>{t.analysis}</h2>
           {(() => {
-            const a = analyseWebApp(world, app.id)!;
+            const a = (
+              world.model === 'laboratory@3.9.0'
+                ? analyseIntegratedWebApp(world, app.id)
+                : analyseWebApp(world, app.id)
+            )!;
             return (
               <>
                 <p>{a.issues.length ? t.incomplete : t.configured}</p>

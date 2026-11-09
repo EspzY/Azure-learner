@@ -1,0 +1,12 @@
+
+ RUN  v5.0.5 /workspace/azurelab-phase2/integration
+
+
+ Test Files  10 passed (10)
+      Tests  222 passed (222)
+   Start at  20:43:30
+   Duration  21.44s (transform 38%, import 37%, tests 24%, worker 1%)
+
+    Isolate  10 workers spawned · ~3.41s startup each (spawn + environment, per file)
+             at least ~7.95s faster with isolate: false — reuses workers across files instead of one per file
+

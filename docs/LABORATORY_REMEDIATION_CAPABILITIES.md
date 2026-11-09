@@ -1,3 +1,7 @@
+## Current integrated Laboratory3.9 —9 November2026
+
+See the current [operation-by-operation Laboratory3.9 matrix](LABORATORY_INTEGRATED_CAPABILITIES.md) for the explicit integrated successor. The complete historical body below keeps its original model scope and is not an assertion that newer models are create-only.
+
 # Laboratory remediation capability matrix — Parts A/B
 
 Observed source baseline: PR70 / laboratory3.7,8 November2026. “Inspect” means verified configured properties and original technical evidence, never Azure runtime. Commands are registered in the frozen v3/3.1/3.2/3.3/3.4/3.5/3.6/3.7 contracts/domains. No operation is added by Architecture Studio. Course v2 is a different historical authority and does not inherit this matrix.
