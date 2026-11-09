@@ -3,105 +3,6 @@
   "transformation": "Only action identity/timing/selector/key and failure messages retained. All network collections, request/response bodies, headers, cookies, tokens, resource blobs and frame-snapshots excluded. Original error-context DOM output is a separate original safe artifact.",
   "actions": [
     {
-      "type": "before",
-      "callId": "pjtr@1",
-      "class": "Test",
-      "method": "hook",
-      "startTime": 131882.434,
-      "selectorOrKey": {}
-    },
-    {
-      "type": "before",
-      "callId": "pjtr@30",
-      "class": "Test",
-      "method": "fixture",
-      "startTime": 131900.786,
-      "selectorOrKey": {}
-    },
-    {
-      "type": "before",
-      "callId": "pjtr@31",
-      "class": "Test",
-      "method": "pw:api",
-      "startTime": 131903.392,
-      "selectorOrKey": {}
-    },
-    {
-      "type": "after",
-      "callId": "pjtr@31",
-      "endTime": 132126.877
-    },
-    {
-      "type": "after",
-      "callId": "pjtr@30",
-      "endTime": 132127.146
-    },
-    {
-      "type": "before",
-      "callId": "pjtr@34",
-      "class": "Test",
-      "method": "fixture",
-      "startTime": 132129.4,
-      "selectorOrKey": {}
-    },
-    {
-      "type": "before",
-      "callId": "pjtr@35",
-      "class": "Test",
-      "method": "pw:api",
-      "startTime": 132131.61,
-      "selectorOrKey": {}
-    },
-    {
-      "type": "after",
-      "callId": "pjtr@35",
-      "endTime": 132148.863
-    },
-    {
-      "type": "after",
-      "callId": "pjtr@34",
-      "endTime": 132163.122
-    },
-    {
-      "type": "before",
-      "callId": "pjtr@42",
-      "class": "Test",
-      "method": "fixture",
-      "startTime": 132163.959,
-      "selectorOrKey": {}
-    },
-    {
-      "type": "before",
-      "callId": "pjtr@43",
-      "class": "Test",
-      "method": "pw:api",
-      "startTime": 132165.381,
-      "selectorOrKey": {}
-    },
-    {
-      "type": "after",
-      "callId": "pjtr@43",
-      "endTime": 132260.721
-    },
-    {
-      "type": "after",
-      "callId": "pjtr@42",
-      "endTime": 132260.782
-    },
-    {
-      "type": "after",
-      "callId": "pjtr@1",
-      "endTime": 132260.84
-    },
-    {
-      "type": "before",
-      "callId": "pjtr@45",
-      "class": "Test",
-      "method": "pw:api",
-      "startTime": 132263.6,
-      "selectorOrKey": {}
-    },
-    {
       "type": "after",
       "callId": "pjtr@45",
       "endTime": 132685.61
@@ -638,5 +539,8 @@
         "selector": ".lab-form >> internal:label=\"subscriptionId\"s"
       }
     }
-  ]
+  ],
+  "originalActionCount": 95,
+  "retainedActionCount": 80,
+  "omission": "Only the final80 action events are retained in this safe diagnostic excerpt; the complete exact original remains private."
 }

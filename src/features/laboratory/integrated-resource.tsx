@@ -12,6 +12,7 @@ import {
   PortalTechnicalEvidence,
   portalDisplayValue,
   portalOptionLabel,
+  PortalCreateStages,
 } from '@/features/portal/resource-details';
 import {
   portalContextCollections,
@@ -275,10 +276,11 @@ export function IntegratedResourceViews({
           </h2>
         }
       >
-        <ol className="portal-create-steps" aria-label={editor.operation.label}>
-          <li aria-current={!preview ? 'step' : undefined}>{copy.basics}</li>
-          <li aria-current={preview ? 'step' : undefined}>{reviewLabel}</li>
-        </ol>
+        <PortalCreateStages
+          review={!!preview}
+          reviewLabel={reviewLabel}
+          label={editor.operation.label}
+        />
         <form
           onSubmit={(event) => {
             event.preventDefault();

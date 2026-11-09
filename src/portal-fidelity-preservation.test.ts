@@ -27,6 +27,7 @@ const approved = [
   'src/features/laboratory/laboratory.tsx',
   'src/features/laboratory/portal-adapter.tsx',
   'src/features/portal/home.tsx',
+  'src/features/portal/presentation.tsx',
   'src/integrated-platform-preservation.test.ts',
   'tests/integrated-platform-preservation.ts',
   'tests/e2e/ephemeral-actions.ts',
@@ -132,7 +133,7 @@ it('checks every actual added file and rejects any undeclared source or evidence
     .filter((path) => !basePaths.has(path) && !mutable.has(path))
     .sort();
   expect(Object.keys(proof.added).sort()).toEqual(actualAdded);
-  for (const [path, expected] of Object.entries(proof.added))
+  for (const [path, expected] of Object.entries(proof.added as Record<string, string>))
     expect(hash(readFileSync(path)), path).toBe(expected);
 });
 it('fails closed for changed protected bytes, missing paths and unknown additions at the historical projection boundary', () => {
@@ -144,7 +145,8 @@ it('fails closed for changed protected bytes, missing paths and unknown addition
         (proof.files as Record<string, { after: string }>)[row.path]?.after ?? row.hash,
       ]),
   );
-  for (const [path, value] of Object.entries(proof.added)) expected.set(path, value);
+  for (const [path, value] of Object.entries(proof.added as Record<string, string>))
+    expected.set(path, value);
   expect(() => validateFidelityProjection(expected)).not.toThrow();
   const corrupt = new Map(expected);
   corrupt.set('src/laboratory/v39/domain.ts', '0'.repeat(40));
@@ -202,7 +204,7 @@ it('preserves original technical session command review and commit controller bo
     'start',
     'startTemporary',
     'begin',
-    'inspect',
+    'review',
     'visit',
     'accept',
     'load',

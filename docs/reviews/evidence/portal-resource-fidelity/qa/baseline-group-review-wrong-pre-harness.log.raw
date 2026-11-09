@@ -1,0 +1,53 @@
+
+Running 2 tests using 1 worker
+
+(node:194225) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › ../integration/tests/e2e/portal-fidelity.spec.ts:341:1 › guided coach minimization restores the actual operational workspace without losing the mission (5.4s)
+  ✘  2 [desktop-chromium] › .artifacts/before-native.spec.ts:4:1 › baseline actual resource group Basics and Review capture (9.9s)
+
+
+  1) [desktop-chromium] › .artifacts/before-native.spec.ts:4:1 › baseline actual resource group Basics and Review capture 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('.lab-form pre')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('.lab-form pre') with timeout 5000ms
+      - waiting for locator('.lab-form pre')
+
+
+       8 |  await page.screenshot({path:info.outputPath('baseline-resource-group-basics.png')});
+       9 |  await page.locator('.lab-form').getByRole('button',{name:'Review',exact:true}).click();
+    > 10 |  await expect(page.locator('.lab-form pre')).toBeVisible();
+         |                                              ^
+      11 |  await page.screenshot({path:info.outputPath('baseline-resource-group-review.png')});
+      12 | });
+      13 |
+        at /workspace/azurelab-phase2/portal-fidelity/.artifacts/before-native.spec.ts:10:46
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .artifacts/before-final-results/before-native-baseline-act-22c13-p-Basics-and-Review-capture-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    .artifacts/before-final-results/before-native-baseline-act-22c13-p-Basics-and-Review-capture-desktop-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .artifacts/before-final-results/before-native-baseline-act-22c13-p-Basics-and-Review-capture-desktop-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    .artifacts/before-final-results/before-native-baseline-act-22c13-p-Basics-and-Review-capture-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace .artifacts/before-final-results/before-native-baseline-act-22c13-p-Basics-and-Review-capture-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › .artifacts/before-native.spec.ts:4:1 › baseline actual resource group Basics and Review capture 
+  1 passed (18.4s)

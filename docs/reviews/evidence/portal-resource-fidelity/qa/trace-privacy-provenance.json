@@ -5,8 +5,12 @@
     "originalBytes": 7830945,
     "credentialHeaderEntries": 0,
     "repositoryDerivative": "docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-chain.trace-actions.json",
-    "derivativeSha256": "e54c08c6fd0dad5b1b569869422eb71e451b4a7cd98b46c2992ca1c6574d566e",
-    "rawTraceCommitted": false
+    "derivativeSha256": "43c9efd3bf082a9318bb8e21b57eca8dcbd2e348b35a1fdbeb43c2caeab909c0",
+    "rawTraceCommitted": false,
+    "rawTraceWasInUnpublishedCheckpoint": true,
+    "finalCandidateRawTraceReachable": false,
+    "everPushed": false,
+    "rawTraceCommittedFieldMeaning": "False means no raw trace in the final reachable candidate/history. Earlier unpublished local checkpoint included the original, then was rewritten before any push."
   },
   {
     "privateOriginalPath": "/workspace/azurelab-phase2/portal-fidelity-private-evidence/native-initial-gateway.trace.zip",
@@ -14,8 +18,12 @@
     "originalBytes": 7882755,
     "credentialHeaderEntries": 0,
     "repositoryDerivative": "docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-gateway.trace-actions.json",
-    "derivativeSha256": "55b461bad042dfdfea082451c21d6dfca0955df3cd0d77eeb6ce35eec7e1441d",
-    "rawTraceCommitted": false
+    "derivativeSha256": "292e80125fc1b4b1c5998312a8485d720ecfecd98c51aa74a4662cf5325d1322",
+    "rawTraceCommitted": false,
+    "rawTraceWasInUnpublishedCheckpoint": true,
+    "finalCandidateRawTraceReachable": false,
+    "everPushed": false,
+    "rawTraceCommittedFieldMeaning": "False means no raw trace in the final reachable candidate/history. Earlier unpublished local checkpoint included the original, then was rewritten before any push."
   },
   {
     "privateOriginalPath": "/workspace/azurelab-phase2/portal-fidelity-private-evidence/native-initial-scope.trace.zip",
@@ -23,7 +31,97 @@
     "originalBytes": 2256889,
     "credentialHeaderEntries": 16,
     "repositoryDerivative": "docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-scope.trace-actions.json",
-    "derivativeSha256": "6a7fbf84a5c38f5cc02ce04152f717a779fb761e0377938ada8a2c1d61663d81",
-    "rawTraceCommitted": false
+    "derivativeSha256": "db93061cb67c1cf685751df688a89a8c3a5afaead5efcac646478c39f6af8d72",
+    "rawTraceCommitted": false,
+    "rawTraceWasInUnpublishedCheckpoint": true,
+    "finalCandidateRawTraceReachable": false,
+    "everPushed": false,
+    "rawTraceCommittedFieldMeaning": "False means no raw trace in the final reachable candidate/history. Earlier unpublished local checkpoint included the original, then was rewritten before any push."
+  },
+  {
+    "privateOriginalPath": "/workspace/azurelab-phase2/portal-fidelity-private-evidence/rg-pending-first-1.trace.zip",
+    "originalSha256": "a1570a4c446d10000835a9f929e510413d7ae0a199ef901ab464756e4212df13",
+    "originalBytes": 822871,
+    "credentialHeaderEntries": 16,
+    "repositoryDerivative": "docs/reviews/evidence/portal-resource-fidelity/qa/rg-pending-first-1.context.md.raw",
+    "derivativeSha256": "ea3a4fdbcc834b8ba875f3f235348a488d6d6cc22d1f57c32e4c25a594a91007",
+    "transformation": "Playwright generated DOM/error-context diagnostic only. Original network/header/body fields are not published. No bit-exact trace derivative claim.",
+    "rawTraceCommitted": false,
+    "rawTraceWasInUnpublishedCheckpoint": false,
+    "finalCandidateRawTraceReachable": false,
+    "everPushed": false
+  },
+  {
+    "privateOriginalPath": "/workspace/azurelab-phase2/portal-fidelity-private-evidence/rg-pending-first-2.trace.zip",
+    "originalSha256": "c889e1a590342092acbd76dfc3a7714ea56393e9ae75c8fe2bbdbc00b4052538",
+    "originalBytes": 14150,
+    "credentialHeaderEntries": 0,
+    "repositoryDerivative": "docs/reviews/evidence/portal-resource-fidelity/qa/rg-pending-first-2.context.md.raw",
+    "derivativeSha256": "8e6c81a3287871baa9de36b9d3aac674946e3f8f393d4fc6f7cd5813d25a2a44",
+    "transformation": "Playwright generated DOM/error-context diagnostic only. Original network/header/body fields are not published. No bit-exact trace derivative claim.",
+    "rawTraceCommitted": false,
+    "rawTraceWasInUnpublishedCheckpoint": false,
+    "finalCandidateRawTraceReachable": false,
+    "everPushed": false
+  },
+  {
+    "privateOriginalPath": "/workspace/azurelab-phase2/portal-fidelity-private-evidence/final-visual-first-chain.trace.zip",
+    "originalSha256": "e6193c725d90c46ab1666d63cd84d9be4a6a661d0b5273586fdeb8ad1aa464fb",
+    "originalBytes": 9359340,
+    "repositoryDerivative": "docs/reviews/evidence/portal-resource-fidelity/qa/final-visual-first-chain.context.md.raw",
+    "derivativeSha256": "2d14f92dd9793d224515c04fec0c98b7f345224c73ae9fa7185ca9b1eab0dc78",
+    "transformation": "Playwright DOM/error-context diagnostic; original network/header/body omitted. No bit-exact derivative claim.",
+    "rawTraceCommitted": false,
+    "rawTraceWasInUnpublishedCheckpoint": false,
+    "finalCandidateRawTraceReachable": false,
+    "everPushed": false
+  },
+  {
+    "privateOriginalPath": "/workspace/azurelab-phase2/portal-fidelity-private-evidence/optimized-native-failure-1.trace.zip",
+    "originalSha256": "3c8333c216c475da3e7cd6b6d45708a355a868ac2f7cef52b653433523738299",
+    "originalBytes": 1622197,
+    "repositoryDerivative": "docs/reviews/evidence/portal-resource-fidelity/qa/optimized-native-1.context.md.raw",
+    "derivativeSha256": "8cb680825fb009c14b90251dd1ed3dfa6331ecec8e7746886874305d1ec91b01",
+    "transformation": "Playwright DOM/error-context only; original trace network/header/body omitted. No bit-exact trace derivative claim.",
+    "rawTraceCommitted": false,
+    "rawTraceWasInUnpublishedCheckpoint": false,
+    "finalCandidateRawTraceReachable": false,
+    "everPushed": false
+  },
+  {
+    "privateOriginalPath": "/workspace/azurelab-phase2/portal-fidelity-private-evidence/optimized-native-failure-2.trace.zip",
+    "originalSha256": "d492d48de19c3c6799b6565619a9eff537a988853754cccd2f69fbdb0413359d",
+    "originalBytes": 2028137,
+    "repositoryDerivative": "docs/reviews/evidence/portal-resource-fidelity/qa/optimized-native-2.context.md.raw",
+    "derivativeSha256": "ab22d45c02826378d0300fa88aaca2a7f93451240640945bf3ccc04a7507b2ec",
+    "transformation": "Playwright DOM/error-context only; original trace network/header/body omitted. No bit-exact trace derivative claim.",
+    "rawTraceCommitted": false,
+    "rawTraceWasInUnpublishedCheckpoint": false,
+    "finalCandidateRawTraceReachable": false,
+    "everPushed": false
+  },
+  {
+    "privateOriginalPath": "/workspace/azurelab-phase2/portal-fidelity-private-evidence/optimized-native-failure-3.trace.zip",
+    "originalSha256": "ad3c565bdf54d9135fb0930a72b9c6049c41f5053b7b43b77b4af0466fccc235",
+    "originalBytes": 2786537,
+    "repositoryDerivative": "docs/reviews/evidence/portal-resource-fidelity/qa/optimized-native-3.context.md.raw",
+    "derivativeSha256": "469a4e9e9b0c7ec83d0416941ecc6b10997e6f77208e934a7caa2147c093a672",
+    "transformation": "Playwright DOM/error-context only; original trace network/header/body omitted. No bit-exact trace derivative claim.",
+    "rawTraceCommitted": false,
+    "rawTraceWasInUnpublishedCheckpoint": false,
+    "finalCandidateRawTraceReachable": false,
+    "everPushed": false
+  },
+  {
+    "privateOriginalPath": "/workspace/azurelab-phase2/portal-fidelity-private-evidence/optimized-native-failure-4.trace.zip",
+    "originalSha256": "9614eaf1fd2aa2e11b42d191b7a38b37e985ccde4f754a450c3003029b47001f",
+    "originalBytes": 635213,
+    "repositoryDerivative": "docs/reviews/evidence/portal-resource-fidelity/qa/optimized-native-4.context.md.raw",
+    "derivativeSha256": "97fdb78bac36d24cbdf9a0ea6b3b04c0d342baf9ab67a97d8c4234996e7aa2e4",
+    "transformation": "Playwright DOM/error-context only; original trace network/header/body omitted. No bit-exact trace derivative claim.",
+    "rawTraceCommitted": false,
+    "rawTraceWasInUnpublishedCheckpoint": false,
+    "finalCandidateRawTraceReachable": false,
+    "everPushed": false
   }
 ]

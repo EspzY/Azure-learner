@@ -2,6 +2,11 @@ export const portalResourceContextNb = {
   essentials: 'Essentials',
   tools: 'AzureLab tools',
   node22: 'Node.js 22',
+  groupTitle: 'Create a resource group',
+  groupName: 'Resource group name',
+  resourceDetails: 'Resource details',
+  groupMetadataNote:
+    'Region lagrer metadata for ressursgruppen; den bestemmer ikke plasseringen til ressursene i gruppen.',
   configuration: 'Configuration',
   overview: 'Overview',
   technical: 'Technical evidence',

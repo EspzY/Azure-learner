@@ -1,0 +1,41 @@
+tests/e2e/portal-resource-fidelity.spec.ts 668ms (unchanged)
+docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-chain.trace-actions.json 77ms (unchanged)
+docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-gateway.trace-actions.json 61ms (unchanged)
+docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-scope.trace-actions.json 19ms (unchanged)
+docs/reviews/evidence/portal-resource-fidelity/qa/trace-privacy-provenance.json 5ms (unchanged)
+docs/reviews/evidence/portal-resource-fidelity/qa/chain-timing-after-helper.md 115ms (unchanged)
+docs/reviews/evidence/portal-resource-fidelity/qa/chain-timing-before-helper.md 240ms
+docs/reviews/evidence/portal-resource-fidelity/qa/review-viewport-timing.md 37ms
+{
+  "changed": 18,
+  "added": 61,
+  "raw": 27,
+  "changedPaths": [
+    ".gitattributes",
+    "docs/PORTAL_ICONOGRAPHY.md",
+    "docs/PORTAL_REFERENCE_FIDELITY.md",
+    "docs/PROJECT_STATUS.md",
+    "playwright.desktop.config.ts",
+    "src/features/laboratory/integrated-resource.tsx",
+    "src/features/laboratory/laboratory.tsx",
+    "src/features/laboratory/portal-adapter.tsx",
+    "src/features/portal/home.tsx",
+    "src/features/portal/presentation.tsx",
+    "src/integrated-platform-preservation.test.ts",
+    "tests/e2e/ephemeral-actions.ts",
+    "tests/e2e/integrated-actions.ts",
+    "tests/e2e/integrated-chain.spec.ts",
+    "tests/e2e/integrated-data.spec.ts",
+    "tests/e2e/integrated-delivery.spec.ts",
+    "tests/e2e/laboratory-actions.ts",
+    "tests/integrated-platform-preservation.ts"
+  ]
+}
+{
+  "legacyCases": 876,
+  "desktopCasesUnchanged": 438,
+  "compactCases": 52,
+  "candidateCases": 490,
+  "workers": 1,
+  "status": "desktop/compact plan validated; legacy regression remains available"
+}

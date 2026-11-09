@@ -1,5 +1,5 @@
 'use client';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, useTransition } from 'react';
 import { nb } from '@/content/nb';
 import { portalWorkspaceNb as w } from '@/content/portal-workspace-nb';
 import { laboratoryInventory, LaboratoryResourceList } from './portal-adapter';
@@ -79,7 +79,10 @@ import {
   PortalHumanProperties,
   PortalTechnicalEvidence,
   portalOptionLabel,
+  PortalCreateStages,
+  portalDisplayValue,
 } from '@/features/portal/resource-details';
+import { portalResourceContextNb as fidelityCopy } from '@/content/portal-resource-context-nb';
 const base = '/labs/laboratory';
 const baseHref = (view: string, id?: string, receipt?: string) =>
   base +
@@ -182,6 +185,8 @@ export function Laboratory() {
     query.get('section'),
     query.get('receipt'),
   ].join('|');
+  const [sectionPending, startSectionTransition] = useTransition();
+  const navigateSection = (target: string) => startSectionTransition(() => router.push(target));
   const [snapshot, setSnapshot] = useState<Snapshot | null>(null),
     [startModel, setStartModel] = useState<Model>(integratedModel),
     [newWorkspace, setNewWorkspace] = useState(false),
@@ -221,7 +226,7 @@ export function Laboratory() {
   useEffect(() => {
     snapshotRef.current = snapshot;
   }, [snapshot]);
-  useEffect(() => {
+  useLayoutEffect(() => {
     // Route commits move focus; presentation-only Studio filters/pan must not steal it.
     resultRef.current?.focus({ preventScroll: true });
   }, [routeFocusKey]);
@@ -804,6 +809,7 @@ export function Laboratory() {
           ? `context:${contextCollection.key}`
           : (contextSection?.key ?? 'overview');
   const catalog = portalServices('laboratory', world?.model);
+  const nativeGroupCreate = world?.model === integratedModel && form === 'CreateGroup';
   const globalServices = portalGlobalServices(catalog).map((s) => [s.view, s.title, s.icon]);
   const services: [string, string, string][] = catalog.map((s) => [s.view, s.title, s.icon]);
   const serviceView = resource
@@ -1623,26 +1629,45 @@ export function Laboratory() {
         <button type="button" onClick={() => visit('home')}>
           {nb.portal.areas.home}
         </button>
-        <ServiceIcon kind="next" size={12} />
-        <button type="button" onClick={() => visit(serviceView ?? 'groups')}>
-          {services.find(([key]) => key === serviceView)?.[1] ?? title}
-        </button>
-        {parent && (
+        {nativeGroupCreate ? (
           <>
             <ServiceIcon kind="next" size={12} />
-            <button type="button" onClick={() => visit(parent.view, parent.id)}>
-              {world?.model === integratedModel
-                ? portalOptionLabel(parent.id, parent.name, records)
-                : parent.name}
+            <Link
+              href={href('groups')}
+              onClick={(event) => {
+                event.preventDefault();
+                visit('groups');
+              }}
+            >
+              {nb.portal.areas.groups}
+            </Link>
+            <ServiceIcon kind="next" size={12} />
+            <span aria-current="page">{fidelityCopy.groupTitle}</span>
+          </>
+        ) : view !== 'home' ? (
+          <>
+            <ServiceIcon kind="next" size={12} />
+            <button type="button" onClick={() => visit(serviceView ?? 'groups')}>
+              {services.find(([key]) => key === serviceView)?.[1] ?? title}
             </button>
+            {parent && (
+              <>
+                <ServiceIcon kind="next" size={12} />
+                <button type="button" onClick={() => visit(parent.view, parent.id)}>
+                  {world?.model === integratedModel
+                    ? portalOptionLabel(parent.id, parent.name, records)
+                    : parent.name}
+                </button>
+              </>
+            )}
+            {resource && (
+              <>
+                <ServiceIcon kind="next" size={12} />
+                <span>{resource.name}</span>
+              </>
+            )}
           </>
-        )}
-        {resource && (
-          <>
-            <ServiceIcon kind="next" size={12} />
-            <span>{resource.name}</span>
-          </>
-        )}
+        ) : null}
       </PortalBreadcrumbs>
       {query.get('studio') === '1' && view !== 'studio' && (
         <p className="studio-return">
@@ -1781,35 +1806,62 @@ export function Laboratory() {
                 )}
               {form ? (
                 <PortalCreateLayout
-                  className="lab-form"
-                  intro={w.createNote}
+                  className={
+                    nativeGroupCreate ? 'lab-form lab-integrated-form lab-group-create' : 'lab-form'
+                  }
+                  intro={nativeGroupCreate ? undefined : w.createNote}
                   title={
                     <PortalTitle
                       id="lab-page-title"
-                      title={operation(form!)}
+                      title={nativeGroupCreate ? fidelityCopy.groupTitle : operation(form!)}
                       headingRef={formHeading}
                       subtitle={modeNote}
                       icon={<ServiceIcon kind={formIcon} size={28} />}
                     />
                   }
                 >
+                  {nativeGroupCreate && (
+                    <PortalCreateStages review={!!preview} label={fidelityCopy.groupTitle} />
+                  )}
                   <form
+                    hidden={nativeGroupCreate && !!preview}
                     onSubmit={(e) => {
                       e.preventDefault();
                       void review();
                     }}
                   >
-                    <fieldset disabled={busy || !!pendingView}>
-                      {![
-                        'SetPeeringForwardedTraffic',
-                        'DeleteRoute',
-                        'AssociateNicNsg',
-                        'DisassociateNicNsg',
-                        'AssociateSubnetNsg',
-                        'DisassociateSubnetNsg',
-                        'AssociateSubnetRouteTable',
-                        'DisassociateSubnetRouteTable',
-                      ].includes(form) &&
+                    <fieldset
+                      hidden={nativeGroupCreate && !!preview}
+                      disabled={busy || !!pendingView}
+                    >
+                      {nativeGroupCreate && (
+                        <>
+                          <legend>{fidelityCopy.project}</legend>
+                          {field('subscriptionId', c.subscription, [
+                            ['sub-shared', 'Shared Sandbox'],
+                            ['sub-app', 'App Sandbox'],
+                          ])}
+                          {field('name', fidelityCopy.groupName)}
+                          <h3 className="portal-form-section">{fidelityCopy.resourceDetails}</h3>
+                          {field(
+                            'metadataRegion',
+                            c.region,
+                            regions,
+                            fidelityCopy.groupMetadataNote,
+                          )}
+                        </>
+                      )}
+                      {!nativeGroupCreate &&
+                        ![
+                          'SetPeeringForwardedTraffic',
+                          'DeleteRoute',
+                          'AssociateNicNsg',
+                          'DisassociateNicNsg',
+                          'AssociateSubnetNsg',
+                          'DisassociateSubnetNsg',
+                          'AssociateSubnetRouteTable',
+                          'DisassociateSubnetRouteTable',
+                        ].includes(form) &&
                         field(
                           'name',
                           c.name,
@@ -2145,7 +2197,7 @@ export function Laboratory() {
                           )}
                         </>
                       )}
-                      {form === 'CreateGroup' && (
+                      {form === 'CreateGroup' && !nativeGroupCreate && (
                         <>
                           {field('subscriptionId', c.subscription, [
                             ['sub-shared', 'Shared Sandbox'],
@@ -2189,7 +2241,7 @@ export function Laboratory() {
                       )}
                       <PortalCreateActions>
                         <button type="submit" className="primary" disabled={busy}>
-                          {c.review}
+                          {nativeGroupCreate ? fidelityCopy.reviewCreate : c.review}
                         </button>
                         <button
                           type="button"
@@ -2204,29 +2256,62 @@ export function Laboratory() {
                     </fieldset>
                   </form>
                   {preview && (
-                    <section className="lab-review" aria-label={c.review}>
+                    <section
+                      className={
+                        nativeGroupCreate ? 'lab-review portal-group-review' : 'lab-review'
+                      }
+                      aria-label={c.review}
+                    >
                       <h2 ref={reviewHeading} tabIndex={-1}>
-                        {c.review}
+                        {nativeGroupCreate ? fidelityCopy.reviewCreate : c.review}
                       </h2>
-                      <p>{c.reviewNote}</p>
-                      <p>
+                      <p>{nativeGroupCreate ? fidelityCopy.validationNote : c.reviewNote}</p>
+                      <p role={nativeGroupCreate ? 'status' : undefined}>
                         {preview.receipt.outcome === 'accepted'
-                          ? w.reviewAccepted
+                          ? nativeGroupCreate
+                            ? fidelityCopy.validationPassed
+                            : w.reviewAccepted
                           : message(preview.receipt.code, preview.request.command.type)}{' '}
                         {preview.receipt.field && label(preview.receipt.field)}
                       </p>
-                      <PropertyList
-                        items={Object.entries(preview.request.command).map(([k, v]) => [
-                          label(k),
-                          k === 'image'
-                            ? (images.find((x) => x.id === v)?.name ?? v)
-                            : k === 'nsgId' && v === 'none'
-                              ? m.none
-                              : records.find((x) => x.id === v)
-                                ? `${records.find((x) => x.id === v)!.name} · ${v}`
-                                : v,
-                        ])}
-                      />
+                      {nativeGroupCreate && preview.request.command.type === 'CreateGroup' ? (
+                        <>
+                          <PropertyList
+                            items={[
+                              [
+                                c.subscription,
+                                preview.request.command.subscriptionId === 'sub-app'
+                                  ? 'App Sandbox'
+                                  : preview.request.command.subscriptionId === 'sub-shared'
+                                    ? 'Shared Sandbox'
+                                    : preview.request.command.subscriptionId,
+                              ],
+                              [fidelityCopy.groupName, preview.request.command.name],
+                              [
+                                c.region,
+                                portalDisplayValue(preview.request.command.metadataRegion),
+                              ],
+                            ]}
+                          />
+                          <details className="portal-technical-evidence">
+                            <summary>{fidelityCopy.technical}</summary>
+                            <pre>{JSON.stringify(preview.request, null, 2)}</pre>
+                          </details>
+                        </>
+                      ) : (
+                        <PropertyList
+                          items={Object.entries(preview.request.command).map(([k, v]) => [
+                            label(k),
+                            k === 'image'
+                              ? (images.find((x) => x.id === v)?.name ?? v)
+                              : k === 'nsgId' && v === 'none'
+                                ? m.none
+                                : records.find((x) => x.id === v)
+                                  ? `${records.find((x) => x.id === v)!.name} · ${v}`
+                                  : v,
+                          ])}
+                        />
+                      )}
                       {preview.request.command.type === 'CreateVirtualMachine' && (
                         <PropertyList
                           items={[
@@ -2269,187 +2354,210 @@ export function Laboratory() {
                           ? n.apply
                           : c.create}
                       </button>
+                      {nativeGroupCreate && (
+                        <>
+                          <button type="button" disabled={busy} onClick={() => setPreview(null)}>
+                            {fidelityCopy.previous}
+                          </button>
+                          <button
+                            type="button"
+                            disabled={busy}
+                            onClick={() => {
+                              setForm(null);
+                              setPreview(null);
+                            }}
+                          >
+                            {c.cancel}
+                          </button>
+                        </>
+                      )}
                     </section>
                   )}
                 </PortalCreateLayout>
               ) : resource ? (
-                <PortalResourceLayout
-                  menu={
-                    <PortalResourceMenu
-                      key={resource.id}
-                      name={resource.name}
-                      icon={resource.kind}
-                      items={[
-                        {
-                          key: 'overview',
-                          label: nb.portal.overview,
-                          icon: resource.kind,
-                          active: section === 'overview',
-                          onSelect: () => router.push(href(view, id ?? undefined)),
-                        },
-                        {
-                          key: 'history',
-                          label: nb.portal.areas.activity,
-                          icon: 'activity',
-                          onSelect: () => visit('history', undefined, resource.origin),
-                        },
-                        ...contextCollections.map((item) => ({
-                          key: `context:${item.key}`,
-                          label: item.label,
-                          icon: item.icon,
-                          settings: true,
-                          active: section === `context:${item.key}`,
-                          onSelect: () =>
-                            router.push(
-                              href(view, resource.id) +
-                                '&section=' +
-                                encodeURIComponent(`context:${item.key}`),
-                            ),
-                        })),
-                        ...(integratedResource
-                          ? portalResourceSections(resource.view).map((item) => ({
-                              key: item.key,
-                              label: item.label,
-                              icon: 'settings',
-                              settings: true,
-                              active: section === item.key,
-                              onSelect: () =>
-                                router.push(href(view, resource.id) + '&section=' + item.key),
-                            }))
-                          : []),
-                        ...(compute && resource.view === 'vm'
-                          ? [
-                              {
-                                key: 'networking',
-                                label: m.network,
-                                icon: 'nic',
-                                active: section === 'networking',
+                <>
+                  {sectionPending && <p role="status">{c.loading}</p>}
+                  <PortalResourceLayout
+                    pending={sectionPending}
+                    menu={
+                      <PortalResourceMenu
+                        key={resource.id}
+                        name={resource.name}
+                        icon={resource.kind}
+                        items={[
+                          {
+                            key: 'overview',
+                            label: nb.portal.overview,
+                            icon: resource.kind,
+                            active: section === 'overview',
+                            onSelect: () => navigateSection(href(view, id ?? undefined)),
+                          },
+                          {
+                            key: 'history',
+                            label: nb.portal.areas.activity,
+                            icon: 'activity',
+                            onSelect: () => visit('history', undefined, resource.origin),
+                          },
+                          ...contextCollections.map((item) => ({
+                            key: `context:${item.key}`,
+                            label: item.label,
+                            icon: item.icon,
+                            settings: true,
+                            active: section === `context:${item.key}`,
+                            onSelect: () =>
+                              navigateSection(
+                                href(view, resource.id) +
+                                  '&section=' +
+                                  encodeURIComponent(`context:${item.key}`),
+                              ),
+                          })),
+                          ...(integratedResource
+                            ? portalResourceSections(resource.view).map((item) => ({
+                                key: item.key,
+                                label: item.label,
+                                icon: 'settings',
+                                settings: true,
+                                active: section === item.key,
                                 onSelect: () =>
-                                  router.push(href(view, id ?? undefined) + '&section=networking'),
-                              },
-                            ]
-                          : []),
-                        ...(routing && resource.view === 'vnet'
-                          ? [
-                              {
-                                key: 'peerings',
-                                label: r.peerings,
-                                icon: 'peering',
-                                onSelect: () => visit('peerings', resource.id),
-                              },
-                            ]
-                          : []),
-                        {
-                          key: 'properties',
-                          label: nb.portalUi.properties,
-                          icon: 'properties',
-                          settings: true,
-                          active: section === 'properties',
-                          onSelect: () =>
-                            router.push(href(view, id ?? undefined) + '&section=properties'),
-                        },
-                      ]}
-                      footer={w.localScope}
-                    />
-                  }
-                >
-                  {section === 'properties' ? (
-                    integratedResource ? (
-                      <>
-                        <h2>{nb.portalUi.properties}</h2>
-                        <PortalHumanProperties
-                          resource={resource}
-                          resources={records}
-                          href={href}
-                        />
-                        <PortalTechnicalEvidence resource={resource}>
-                          {receiptLink(resource.origin)}
-                        </PortalTechnicalEvidence>
-                      </>
+                                  navigateSection(href(view, resource.id) + '&section=' + item.key),
+                              }))
+                            : []),
+                          ...(compute && resource.view === 'vm'
+                            ? [
+                                {
+                                  key: 'networking',
+                                  label: m.network,
+                                  icon: 'nic',
+                                  active: section === 'networking',
+                                  onSelect: () =>
+                                    navigateSection(
+                                      href(view, id ?? undefined) + '&section=networking',
+                                    ),
+                                },
+                              ]
+                            : []),
+                          ...(routing && resource.view === 'vnet'
+                            ? [
+                                {
+                                  key: 'peerings',
+                                  label: r.peerings,
+                                  icon: 'peering',
+                                  onSelect: () => visit('peerings', resource.id),
+                                },
+                              ]
+                            : []),
+                          {
+                            key: 'properties',
+                            label: nb.portalUi.properties,
+                            icon: 'properties',
+                            settings: true,
+                            active: section === 'properties',
+                            onSelect: () =>
+                              navigateSection(href(view, id ?? undefined) + '&section=properties'),
+                          },
+                        ]}
+                        footer={w.localScope}
+                      />
+                    }
+                  >
+                    {section === 'properties' ? (
+                      integratedResource ? (
+                        <>
+                          <h2>{nb.portalUi.properties}</h2>
+                          <PortalHumanProperties
+                            resource={resource}
+                            resources={records}
+                            href={href}
+                          />
+                          <PortalTechnicalEvidence resource={resource}>
+                            {receiptLink(resource.origin)}
+                          </PortalTechnicalEvidence>
+                        </>
+                      ) : (
+                        <>
+                          <h2>{nb.portalUi.properties}</h2>
+                          <PropertyList
+                            items={Object.entries(resource.source).map(([key, value]) => [
+                              resource.view === 'disk' && key === 'sku' ? m.osDiskSku : label(key),
+                              value === null ? (
+                                '—'
+                              ) : [
+                                  'origin',
+                                  'associationOrigin',
+                                  'routeAssociationOrigin',
+                                  'forwardingOrigin',
+                                ].includes(key) ? (
+                                receiptLink(String(value))
+                              ) : ((isApplicationWorld(world) &&
+                                  ['appPlan', 'webApp', 'appDeployment', 'appSetting'].includes(
+                                    resource.view,
+                                  )) ||
+                                  (compute && ['vm', 'disk'].includes(resource.view)) ||
+                                  (firewall &&
+                                    [
+                                      'firewall',
+                                      'firewallPolicy',
+                                      'firewallGroup',
+                                      'firewallCollection',
+                                      'firewallRule',
+                                      'publicIp',
+                                    ].includes(resource.view))) &&
+                                [
+                                  'planId',
+                                  'webAppId',
+                                  'policyId',
+                                  'collectionGroupId',
+                                  'collectionId',
+                                  'firewallId',
+                                  'publicIpId',
+                                  'nicId',
+                                  'osDiskId',
+                                  'subnetId',
+                                  'vnetId',
+                                  'groupId',
+                                  'nsgId',
+                                  'routeTableId',
+                                ].includes(key) &&
+                                records.some((r) => r.id === value) ? (
+                                <Link
+                                  href={href(
+                                    records.find((r) => r.id === value)!.view,
+                                    String(value),
+                                  )}
+                                >
+                                  {records.find((r) => r.id === value)!.name} · {String(value)}
+                                </Link>
+                              ) : typeof value === 'object' ? (
+                                JSON.stringify(value)
+                              ) : (
+                                String(value)
+                              ),
+                            ])}
+                          />
+                        </>
+                      )
                     ) : (
                       <>
-                        <h2>{nb.portalUi.properties}</h2>
-                        <PropertyList
-                          items={Object.entries(resource.source).map(([key, value]) => [
-                            resource.view === 'disk' && key === 'sku' ? m.osDiskSku : label(key),
-                            value === null ? (
-                              '—'
-                            ) : [
-                                'origin',
-                                'associationOrigin',
-                                'routeAssociationOrigin',
-                                'forwardingOrigin',
-                              ].includes(key) ? (
-                              receiptLink(String(value))
-                            ) : ((isApplicationWorld(world) &&
-                                ['appPlan', 'webApp', 'appDeployment', 'appSetting'].includes(
-                                  resource.view,
-                                )) ||
-                                (compute && ['vm', 'disk'].includes(resource.view)) ||
-                                (firewall &&
-                                  [
-                                    'firewall',
-                                    'firewallPolicy',
-                                    'firewallGroup',
-                                    'firewallCollection',
-                                    'firewallRule',
-                                    'publicIp',
-                                  ].includes(resource.view))) &&
-                              [
-                                'planId',
-                                'webAppId',
-                                'policyId',
-                                'collectionGroupId',
-                                'collectionId',
-                                'firewallId',
-                                'publicIpId',
-                                'nicId',
-                                'osDiskId',
-                                'subnetId',
-                                'vnetId',
-                                'groupId',
-                                'nsgId',
-                                'routeTableId',
-                              ].includes(key) &&
-                              records.some((r) => r.id === value) ? (
-                              <Link
-                                href={href(
-                                  records.find((r) => r.id === value)!.view,
-                                  String(value),
-                                )}
+                        {!!actions.length && (
+                          <div className="portal-commandbar">
+                            {actions.map(([type, label]) => (
+                              <button
+                                key={type}
+                                type="button"
+                                disabled={busy || !!error}
+                                onClick={() => begin(type)}
                               >
-                                {records.find((r) => r.id === value)!.name} · {String(value)}
-                              </Link>
-                            ) : typeof value === 'object' ? (
-                              JSON.stringify(value)
-                            ) : (
-                              String(value)
-                            ),
-                          ])}
-                        />
+                                <ServiceIcon kind="create" />
+                                {label}
+                              </button>
+                            ))}
+                          </div>
+                        )}
+                        {body}
                       </>
-                    )
-                  ) : (
-                    <>
-                      {!!actions.length && (
-                        <div className="portal-commandbar">
-                          {actions.map(([type, label]) => (
-                            <button
-                              key={type}
-                              type="button"
-                              disabled={busy || !!error}
-                              onClick={() => begin(type)}
-                            >
-                              <ServiceIcon kind="create" />
-                              {label}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                      {body}
-                    </>
-                  )}
-                </PortalResourceLayout>
+                    )}
+                  </PortalResourceLayout>
+                </>
               ) : (
                 body
               )}

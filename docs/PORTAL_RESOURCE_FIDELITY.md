@@ -32,7 +32,23 @@ The included one-page `Microsoft_Terms_of_Use.pdf` says:
 
 > Microsoft permits the use of these icons in architectural diagrams, training materials, or documentation. You may copy, distribute, and display the icons only for the permitted use unless granted explicit permission by Microsoft. Microsoft reserves all other rights.
 
-Both prohibit cropping/flipping/rotation, shape distortion, and using Microsoft product icons to represent **your product or service**. Here the service icons identify Microsoft's services within explicitly independent Azure training exercises; they do not represent AzureLab's identity, logo or marketing. That distinction addresses the product-representation restriction but does not turn an architecture icon download into blanket software-UI approval.
+The public page's exact Don'ts are:
+
+> Don't crop, flip, or rotate icons.
+>
+> Don't distort or change icon shape in any way.
+>
+> Don't use Microsoft product icons to represent your product or service.
+
+The included [PDF, page1](../public/icons/licenses/Microsoft_Terms_of_Use.pdf), from the pinned [V24 archive](https://arch-center.azureedge.net/icons/Azure_Public_Service_Icons_V24.zip), uses these exact restrictions:
+
+> Don’t crop, flip or rotate icons
+>
+> Don’t distort or change icon shape in any way
+>
+> Don’t use Microsoft product icons to represent your product or service
+
+Here the service icons identify Microsoft's services within explicitly independent Azure training exercises; they do not represent AzureLab's identity, logo or marketing. That distinction addresses the product-representation restriction but does not turn an architecture icon download into blanket software-UI approval.
 
 The express permission includes training materials; whether this interactive simulator's entire operational UI falls within that category is a bounded implementation interpretation, not formal Microsoft permission, legal advice, counsel approval or endorsement. Any use outside the stated educational surfaces needs a fresh rights decision. Original SVG geometry, bytes, colors and proportions remain unchanged. System actions use the separately licensed existing Fluent MIT assets.
 
@@ -46,7 +62,7 @@ Resource menus show only relevant collections. Lists within a parent context fil
 
 The integrated-family Overview shows readable Essentials, actual configuration, named links and explicit local configuration status. Hosting plans, Storage and backend references remain dependencies; they do not become ARM parents. In that integrated renderer, raw resource/command JSON, opaque IDs, model/revision and original receipts remain available in closed technical-evidence disclosures. Analysis uses the existing read-only deterministic functions and original result limits; no packet, database or function-runtime execution is asserted.
 
-Create/edit uses real Basics fields followed by a human-readable Review result and the existing explicit Create/Save/Delete. Review is read-only. Workspace, model and revision pins, original command fields, stale review rejection, delete confirmation, idempotency and receipts remain unchanged. Earlier group/Storage/network/VM and application-family Overview/Properties forms remain their existing model-specific presentation; the matrix explicitly marks pure metadata that is not applied as a new renderer. No claim is made that every historical Properties view has newly collapsed raw evidence. No optimistic resource is added. No unsupported tags or tabs are manufactured.
+Create/edit uses real Basics fields followed by a human-readable Review result and the existing explicit Create/Save/Delete. Review is read-only. Workspace, model and revision pins, original command fields, stale review rejection, delete confirmation, idempotency and receipts remain unchanged. The3.9 resource-group create form reuses those original handlers with Subscription → resource-group name → Region, actual Basics/Review stages and validation. Older model group creation and all historical group/Storage/network/VM and application-family Overview/Properties views remain their existing model-specific presentation; the matrix explicitly marks pure metadata that is not applied as a new renderer. No claim is made that every historical Properties view has newly collapsed raw evidence. No optimistic resource is added. No unsupported tags or tabs are manufactured.
 
 The native v2 Portal, mission briefing, SavvyShark minimize/recall, independent-help suppression and old learning data remain under their original controllers. Free mode has no course guide or XP. Bifrost styling belongs to the course/guide surfaces and is not applied to Portal chrome.
 
@@ -55,3 +71,9 @@ The native v2 Portal, mission briefing, SavvyShark minimize/recall, independent-
 New tests must prove global-versus-context navigation, exact parent scoping with duplicate names, standalone-versus-LOCAL classification, correct central icons, readable overview/review, historical direct links, read-only navigation/analysis, original receipts and every active operation. Existing substantive domain/receipt/isolation assertions remain; incompatible global-child menu expectations become stronger absence-plus-context checks. No new test snapshot masks the new hierarchy semantics.
 
 Actual production-browser comparison at 1920×1080, 1440×900, 1366×768, 1024×768 and a short/compact witness, keyboard/Axe/reduced motion, guided/native v2 preservation, full check, fresh stamped independent audit, complete exact-head CI/strict and actual anonymous full-SHA preview journeys remain required. Execution results are added only when performed. Human Azure SME, legal, novice-transfer and screen-reader reviews remain unperformed.
+
+## Resource-section commit and focus boundary
+
+The original parent CI129 Firewall trace exposed an interaction window: old Overview evidence could satisfy a Properties assertion before the section committed, and route heading focus was scheduled in a passive effect. The trace did not record the actual Enter target; no exact historical key-target or general timing cause is claimed. Its Properties transition had no recorded RSC request, so no response gate is invented.
+
+Resource-section buttons now use a React transition. The existing resource main is hidden and inert while that transition is pending, with its existing loading status; the unchanged route-focus callback runs in a layout effect before paint. Command, review, session, World and receipt handlers remain unchanged. A controlled nonresource fixture exercises the actual full old/current presentation modules and installed React19 with a genuine Suspense Promise, separately from native application receipt-keyboard/Back/Forward observations. Fixture output is not application World, Azure runtime or authenticated Portal evidence. Actual results are recorded in the QA report after execution.

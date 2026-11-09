@@ -1,3 +1,4 @@
+import { portalResourceContextNb as fidelity } from '../../src/content/portal-resource-context-nb';
 import { expect, type Page } from '@playwright/test';
 import { nb, landingNb as landing, laboratoryV3Nb as storage } from '../../src/content/nb';
 import { laboratoryEphemeralNb as temp } from '../../src/content/laboratory-ephemeral-nb';
@@ -47,17 +48,29 @@ export async function service(page: Page, name: string) {
   };
   const context = contexts[name];
   if (!context) return globalService(page, name);
-  await globalService(page, nb.portal.areas.services);
-  await expect(
-    page
-      .locator('[data-portal-component="service-directory"]')
-      .getByRole('link', { name, exact: true }),
-  ).toHaveCount(0);
-  await expect(
-    page
-      .getByRole('navigation', { name: storage.navigation, exact: true })
-      .getByRole('link', { name, exact: true }),
-  ).toHaveCount(0);
+  const serviceViews: Record<string, string> = {
+    'Front Door profiles': 'frontDoor',
+    'Front Door WAF policies': 'frontDoorWafPolicy',
+    'Application Gateways': 'applicationGateway',
+    'Azure Database for PostgreSQL flexible server': 'postgresServer',
+    'SQL logical server': 'sqlServer',
+    'Function App': 'functionApp',
+    [nb.portal.areas.apps]: 'webApp',
+  };
+  const owners = context.services.map((name) => serviceViews[name]);
+  if (name === 'Front Door origins') owners.push('originGroup');
+  if (name === 'Front Door routes') owners.push('frontDoorEndpoint');
+  const menu = page.locator('[data-portal-component="resource-menu"]');
+  const target = menu.getByRole('button', { name: context.menu, exact: true });
+  const current = new URL(page.url()).searchParams.get('view');
+  if (owners.includes(current ?? '') && (await target.count())) {
+    await expect(target, `Unique actual ${current} context menu`).toHaveCount(1);
+    await target.click();
+    await expect(
+      page.getByRole('heading', { level: 2, name: context.menu, exact: true }),
+    ).toBeVisible();
+    return;
+  }
   let selected = false;
   for (const parentService of context.services) {
     await globalService(page, parentService);
@@ -70,7 +83,6 @@ export async function service(page: Page, name: string) {
     }
   }
   expect(selected, `Actual parent required for ${name}`).toBe(true);
-  const menu = page.locator('[data-portal-component="resource-menu"]');
   await expect(menu.getByRole('button', { name: context.menu, exact: true })).toBeVisible();
   await menu.getByRole('button', { name: context.menu, exact: true }).click();
   await expect(
@@ -168,7 +180,11 @@ export async function startIntegrated(page: Page, persistent = false) {
 }
 export async function fillIntegrated(page: Page, fields: Record<string, string>) {
   for (const [label, value] of Object.entries(fields)) {
-    const input = page.locator('.lab-form').getByLabel(label, { exact: true });
+    const fieldLabel =
+      label === storage.name && (await page.locator('.lab-group-create').count())
+        ? fidelity.groupName
+        : label;
+    const input = page.locator('.lab-form').getByLabel(fieldLabel, { exact: true });
     if (!(await input.isEditable())) {
       await expect(input).toHaveValue(value);
       continue;

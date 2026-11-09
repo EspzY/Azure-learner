@@ -1,0 +1,64 @@
+[WebServer] (node:197607) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 11 tests using 1 worker
+
+(node:197628) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:25:1 › integrated3.9 default native Portal forms commit the actual app PostgreSQL binding FrontDoor chain and one Studio authority (29.5s)
+  ✓   2 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:324:1 › integrated3.9 PostgreSQL native reload and same-value Function Review preserve verifiable JSONB history before a real configuration change (13.1s)
+  ✓   3 [desktop-chromium] › tests/e2e/integrated-data.spec.ts:45:1 › integrated Function App uses actual Storage and FC1 parents for HTTP and blob configuration analysis and rejects dependent deletion (25.9s)
+  ✓   4 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:66:1 › integrated Front Door native WAF Prevention and Detection changes affect the actual configured delivery chain (28.5s)
+  ✓   5 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:189:1 › integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references (25.7s)
+  ✓   6 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:311:1 › Portal fidelity native WAF association retains its pinned policy after a cross-subscription profile callback without committing rejected Review (13.4s)
+  ✓   7 [desktop-chromium] › tests/e2e/portal-navigation-pending.spec.ts:72:1 › resource navigation actual old and current presentation under a real React transition suspension excludes stale fixture actions (5.7s)
+  ✓   8 [desktop-chromium] › tests/e2e/portal-navigation-pending.spec.ts:195:1 › native cached resource section navigation commits focus before original receipt keyboard activation and Back Forward without writes (6.5s)
+  ✓   9 [desktop-chromium] › tests/e2e/portal-resource-fidelity.spec.ts:21:1 › Portal fidelity scopes same-named profile children by actual IDs and preserves direct historical links original receipts and neutral navigation (13.1s)
+  ✘  10 [desktop-chromium] › tests/e2e/portal-resource-fidelity.spec.ts:141:1 › Portal fidelity native Review readable Overview keyboard reduced motion Axe and compact parent menus retain real configuration boundaries (8.3s)
+(node:198399) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  11 [desktop-chromium] › tests/e2e/portal-fidelity.spec.ts:341:1 › guided coach minimization restores the actual operational workspace without losing the mission (8.9s)
+
+
+  1) [desktop-chromium] › tests/e2e/portal-resource-fidelity.spec.ts:141:1 › Portal fidelity native Review readable Overview keyboard reduced motion Axe and compact parent menus retain real configuration boundaries 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('[data-portal-component="breadcrumbs"]').getByRole('button', { name: 'Home', exact: true })
+    Expected: 1
+    Received: 0
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('[data-portal-component="breadcrumbs"]').getByRole('button', { name: 'Home', exact: true }) with timeout 5000ms
+      - waiting for locator('[data-portal-component="breadcrumbs"]').getByRole('button', { name: 'Home', exact: true })
+        14 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      149 |   await expect(
+      150 |     breadcrumbs.getByRole('button', { name: nb.portal.areas.home, exact: true }),
+    > 151 |   ).toHaveCount(1);
+          |     ^
+      152 |   await expect(breadcrumbs.getByRole('link')).toHaveCount(0);
+      153 |
+      154 |   await page.getByRole('button', { name: storage.newGroup, exact: true }).click();
+        at /workspace/azurelab-phase2/portal-fidelity/tests/e2e/portal-resource-fidelity.spec.ts:151:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .artifacts/final-native-results/portal-resource-fidelity-P-232f5-al-configuration-boundaries-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .artifacts/final-native-results/portal-resource-fidelity-P-232f5-al-configuration-boundaries-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .artifacts/final-native-results/portal-resource-fidelity-P-232f5-al-configuration-boundaries-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace .artifacts/final-native-results/portal-resource-fidelity-P-232f5-al-configuration-boundaries-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › tests/e2e/portal-resource-fidelity.spec.ts:141:1 › Portal fidelity native Review readable Overview keyboard reduced motion Axe and compact parent menus retain real configuration boundaries 
+  10 passed (3.4m)

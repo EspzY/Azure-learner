@@ -1,0 +1,150 @@
+
+ RUN  v5.0.5 /workspace/azurelab-phase2/portal-fidelity
+
+ ❯ src/integrated-platform-preservation.test.ts (0 test)
+ ❯ src/portal-fidelity-preservation.test.ts (10 tests | 4 failed) 4468ms
+   × checks actual raw bytes for every final-parent source and tests path without a historical reader 147ms
+   × checks every actual added file and rejects any undeclared source or evidence path 62ms
+   × preserves original raw captures through exact path attributes without a wildcard exemption 37ms
+   × preserves original technical session command review and commit controller bodies and historical report bodies 2548ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/integrated-platform-preservation.test.ts [ src/integrated-platform-preservation.test.ts ]
+AssertionError: unapproved current bytes: tests/e2e/integrated-actions.ts
++ actual - expected
+
++ 'b9f2cbde053ee61e88eab74ec9fa0062283cf21a'
+- '4132339f0c1a0e25ea04069a062c73bb9d997925'
+
+
+Expected: "4132339f0c1a0e25ea04069a062c73bb9d997925"
+Received: "b9f2cbde053ee61e88eab74ec9fa0062283cf21a"
+
+ ❯ validateFidelityProjection tests/portal-fidelity-preservation.ts:42:12
+     40|     const binding = Object.hasOwn(bindings, path) ? bindings[path] : u…
+     41|     if (binding) assert.equal(binding.before, before, 'wrong original …
+     42|     assert.equal(actual.get(path), binding?.after ?? before, 'unapprov…
+       |            ^
+     43|   }
+     44|   const actualAdded = [...actual.keys()]
+ ❯ validateCurrent tests/portal-fidelity-preservation.ts:63:3
+ ❯ execFidelityHistory tests/portal-fidelity-preservation.ts:103:3
+ ❯ src/integrated-platform-preservation.test.ts:42:14
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/5]⎯
+
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/portal-fidelity-preservation.test.ts > checks actual raw bytes for every final-parent source and tests path without a historical reader
+AssertionError: tests/e2e/integrated-actions.ts: expected 'b9f2cbde053ee61e88eab74ec9fa0062283cf…' to be '4132339f0c1a0e25ea04069a062c73bb9d997…' // Object.is equality
+
+Expected: "4132339f0c1a0e25ea04069a062c73bb9d997925"
+Received: "b9f2cbde053ee61e88eab74ec9fa0062283cf21a"
+
+ ❯ src/portal-fidelity-preservation.test.ts:119:54
+    117|       const binding = (proof.files as Record<string, { before: string;…
+    118|       if (binding) expect(binding.before, row.path).toBe(row.hash);
+    119|       expect(hash(readFileSync(row.path)), row.path).toBe(binding?.aft…
+       |                                                      ^
+    120|     }
+    121|   },
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/5]⎯
+
+ FAIL  src/portal-fidelity-preservation.test.ts > checks every actual added file and rejects any undeclared source or evidence path
+AssertionError: tests/e2e/portal-navigation-pending.spec.ts: expected '52e625bb7dc0fa68c8e005aefa1bed7ae4a17…' to be 'f40e6c7cbbd532c0e60b33a2c8135bd376d08…' // Object.is equality
+
+Expected: "f40e6c7cbbd532c0e60b33a2c8135bd376d0820d"
+Received: "52e625bb7dc0fa68c8e005aefa1bed7ae4a17571"
+
+ ❯ src/portal-fidelity-preservation.test.ts:137:44
+    135|   expect(Object.keys(proof.added).sort()).toEqual(actualAdded);
+    136|   for (const [path, expected] of Object.entries(proof.added as Record<…
+    137|     expect(hash(readFileSync(path)), path).toBe(expected);
+       |                                            ^
+    138| });
+    139| it('fails closed for changed protected bytes, missing paths and unknow…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/5]⎯
+
+ FAIL  src/portal-fidelity-preservation.test.ts > preserves original raw captures through exact path attributes without a wildcard exemption
+AssertionError: expected '* text=auto eol=lf\n# Original licens…' to be '* text=auto eol=lf\n# Original licens…' // Object.is equality
+
+- Expected
++ Received
+
+@@ -7,10 +7,11 @@
+  # Keep original PR71 source and diagnostic evidence bytes.
+  docs/reviews/evidence/pr71/**/*.raw -text
+  # Preserve these two original Laboratory3.9 CRLF build captures byte for byte.
+  docs/reviews/evidence/integrated-application-chain/qa/normal-build-post-icons.log.raw -text
+  docs/reviews/evidence/integrated-application-chain/qa/normal-build-post-noop.log.raw -text
++
+  # Preserve the original Portal fidelity command and failure captures exactly.
+  docs/reviews/evidence/portal-resource-fidelity/qa/baseline-module-harness-failure.log.raw -text
+  docs/reviews/evidence/portal-resource-fidelity/qa/current-baseline-four-passed.log.raw -text
+  docs/reviews/evidence/portal-resource-fidelity/qa/initial-production-build.log.raw -text
+  docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-chain.context.md.raw -text
+
+ ❯ src/portal-fidelity-preservation.test.ts:165:50
+    163|     .filter((path) => path.endsWith('.raw'))
+    164|     .sort();
+    165|   expect(readFileSync('.gitattributes', 'utf8')).toBe(
+       |                                                  ^
+    166|     original('.gitattributes').toString() +
+    167|       '# Preserve the original Portal fidelity command and failure cap…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/5]⎯
+
+ FAIL  src/portal-fidelity-preservation.test.ts > preserves original technical session command review and commit controller bodies and historical report bodies
+AssertionError: src/integrated-platform-preservation.test.ts: expected 'import { expect, it } from \'vitest\'…' to be 'import { expect, it } from \'vitest\'…' // Object.is equality
+
+- Expected
++ Received
+
+@@ -155,23 +155,23 @@
+    );
+    expect(readFileSync('src/resource-platform-preservation.test.ts', 'utf8')).toBe(
+      original('src/resource-platform-preservation.test.ts')
+        .toString()
+        .replace(
+-         "import { readFileSync } from 'node:fs';",
++         "import { readFidelityHistory as readFileSync } from '../tests/portal-fidelity-preservation';",
+          "import { readIntegratedHistory as readFileSync } from '../tests/integrated-platform-preservation';",
+        )
+        .replace(
+-         "import { execFileSync } from 'node:child_process';",
++         "import { execFidelityHistory as execFileSync } from '../tests/portal-fidelity-preservation';",
+          "import { execIntegratedHistory as execFileSync } from '../tests/integrated-platform-preservation';",
+        ),
+    );
+    expect(readFileSync('tests/resource-platform-preservation.ts', 'utf8')).toBe(
+      original('tests/resource-platform-preservation.ts')
+        .toString()
+        .replace(
+-         "import { readFileSync } from 'node:fs';",
++         "import { readFidelityHistory as readFileSync } from '../tests/portal-fidelity-preservation';",
+          "import { readIntegratedHistory as readFileSync } from './integrated-platform-preservation';",
+        ),
+    );
+    expect(readFileSync('src/laboratory-compute.test.ts', 'utf8')).toBe(
+      original('src/laboratory-compute.test.ts')
+
+ ❯ src/portal-fidelity-preservation.test.ts:253:46
+    251|     'tests/integrated-platform-preservation.ts',
+    252|   ])
+    253|     expect(readFileSync(path, 'utf8'), path).toBe(
+       |                                              ^
+    254|       original(path)
+    255|         .toString()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/5]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  4 failed | 6 passed (10)
+   Start at  22:45:51
+   Duration  8.30s (tests 57%, import 28%, transform 14%)
+

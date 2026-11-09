@@ -1,6 +1,6 @@
 {
   "reviewedAt": "2026-11-09",
-  "baselineImplementation": "25d3ea297b947cd339204d2d65e15dda4b4ff11a",
+  "baselineImplementation": "c4119f3f770d6767881dc5ee455686cbae0150d7",
   "familyCount": 47,
   "deliveryOperationCount": 40,
   "dataOperationCount": 22,
@@ -24,12 +24,14 @@
       "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
       "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
       "references": ["resource-groups"],
-      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "status": "PARTIAL:3.9 create form has actual Basics/Review presentation; older create forms and all historical Overview/Properties remain preserved. Exact current Portal variant UNVERIFIED.",
       "presentationMetadataApplied": false,
       "configurationMetadata": ["metadataRegion"],
       "settings": [
         "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
-      ]
+      ],
+      "createPresentation": "laboratory@3.9.0 only: Project details Subscription then resource-group name, Resource details Region; actual Basics → Review + create → Validation; original typed read-only Review/explicit Create. No Tags or unsupported stages. Earlier model create flows unchanged.",
+      "creationPresentationAppliedModels": ["laboratory@3.9.0"]
     },
     {
       "view": "account",
@@ -39,7 +41,7 @@
       "parentField": "groupId",
       "globalService": "accounts",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [
         {
           "key": "containers",
@@ -128,7 +130,7 @@
       "parentField": "groupId",
       "globalService": "vnets",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [
         {
           "key": "subnets",
@@ -191,7 +193,7 @@
       "parentField": "groupId",
       "globalService": "nsgs",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [
         {
           "key": "security-rules",
@@ -217,7 +219,7 @@
     },
     {
       "view": "rule",
-      "icon": "rule",
+      "icon": "properties",
       "armOrLocalType": "Microsoft.Network/networkSecurityGroups/securityRules",
       "classification": "child",
       "parentField": "nsgId",
@@ -257,7 +259,7 @@
       "parentField": "groupId",
       "globalService": "routeTables",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [
         {
           "key": "routes",
@@ -283,7 +285,7 @@
     },
     {
       "view": "route",
-      "icon": "route",
+      "icon": "properties",
       "armOrLocalType": "Microsoft.Network/routeTables/routes",
       "classification": "child",
       "parentField": "routeTableId",
@@ -343,7 +345,7 @@
       "parentField": "groupId",
       "globalService": "nics",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [],
       "overview": [
         "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
@@ -368,7 +370,7 @@
       "parentField": "groupId",
       "globalService": "vms",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [],
       "overview": [
         "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
@@ -393,7 +395,7 @@
       "parentField": "groupId",
       "globalService": "disks",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [],
       "overview": [
         "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
@@ -418,7 +420,7 @@
       "parentField": "groupId",
       "globalService": "publicIps",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [],
       "overview": [
         "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
@@ -443,7 +445,7 @@
       "parentField": "groupId",
       "globalService": "firewalls",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [],
       "overview": [
         "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
@@ -468,7 +470,7 @@
       "parentField": "groupId",
       "globalService": "firewallPolicies",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [
         {
           "key": "rule-collection-groups",
@@ -589,7 +591,7 @@
       "parentField": "groupId",
       "globalService": "plans",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [],
       "overview": [
         "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
@@ -614,7 +616,7 @@
       "parentField": "groupId",
       "globalService": "apps",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [
         {
           "key": "deployments",
@@ -708,7 +710,7 @@
       "parentField": "groupId",
       "globalService": "frontDoor",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [
         {
           "key": "endpoints",
@@ -943,7 +945,7 @@
       "parentField": "groupId",
       "globalService": "frontDoorWafPolicy",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [
         {
           "key": "custom-rules",
@@ -1073,7 +1075,7 @@
       "parentField": "groupId",
       "globalService": "applicationGateway",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [
         {
           "key": "backends",
@@ -1359,7 +1361,7 @@
       "parentField": "groupId",
       "globalService": "postgresServer",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [
         {
           "key": "databases",
@@ -1452,7 +1454,7 @@
       "parentField": "groupId",
       "globalService": "sqlServer",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [
         {
           "key": "sql-databases",
@@ -1503,7 +1505,7 @@
       "parentField": "serverId",
       "globalService": "sqlDatabase",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource. SQL database remains included despite its logical-server ARM parent.",
       "contextualMenus": [],
       "overview": [
         "Readable resource group, subscription, location and configuration state",
@@ -1573,7 +1575,7 @@
       "parentField": "groupId",
       "globalService": "plans",
       "globalServiceEntry": false,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [],
       "overview": [
         "Readable resource group, subscription, location and configuration state",
@@ -1598,7 +1600,7 @@
       "parentField": "groupId",
       "globalService": "functionApp",
       "globalServiceEntry": true,
-      "allResources": "Standalone configured resource. SQL database included despite server ARM parent.",
+      "allResources": "Standalone configured resource.",
       "contextualMenus": [
         {
           "key": "functions",

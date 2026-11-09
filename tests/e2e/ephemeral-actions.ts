@@ -6,6 +6,7 @@ import { laboratoryRoutingNb as r } from '../../src/content/laboratory-routing-n
 import { laboratoryEndpointsNb as e } from '../../src/content/laboratory-endpoints-nb';
 import { laboratoryComputeNb as m } from '../../src/content/laboratory-compute-nb';
 import { laboratoryFirewallNb as f } from '../../src/content/laboratory-firewall-nb';
+import { portalResourceContextNb as fidelity } from '../../src/content/portal-resource-context-nb';
 import { revealLaboratoryLink, closeLaboratoryDrawer } from './laboratory-actions';
 import type { CommandResult, Snapshot } from '../../src/laboratory/engine';
 export { t, c, temp, n, r, e, m, f };
@@ -81,10 +82,20 @@ const label = (key: string) =>
         .map((map) => (map as Record<string, string>)[key])
         .find(Boolean) ?? key);
 export async function fill(page: Page, fields: Record<string, string>, selector = '.lab-form') {
+  const nativeGroup = (await page.locator('.lab-group-create').count()) > 0;
   for (const [key, value] of Object.entries(fields)) {
     const input = page
       .locator(selector)
-      .getByLabel(key === 'name' ? c.name : key === 'text' ? c.text : label(key), { exact: true });
+      .getByLabel(
+        key === 'name'
+          ? nativeGroup
+            ? fidelity.groupName
+            : c.name
+          : key === 'text'
+            ? c.text
+            : label(key),
+        { exact: true },
+      );
     if (await input.evaluate((el) => el.tagName === 'SELECT')) await input.selectOption(value);
     else await input.fill(value);
   }
@@ -98,9 +109,14 @@ export async function create(
 ) {
   await page.getByRole('button', { name: button, exact: true }).click();
   await fill(page, fields);
-  await page.getByRole('button', { name: c.review, exact: true }).click();
+  const nativeGroup = (await page.locator('.lab-group-create').count()) > 0;
+  await page
+    .getByRole('button', { name: nativeGroup ? fidelity.reviewCreate : c.review, exact: true })
+    .click();
   const review = page.getByRole('region', { name: c.review, exact: true });
-  await expect(review).toContainText('Konfigurasjonen er validert');
+  await expect(review).toContainText(
+    nativeGroup ? fidelity.validationPassed : 'Konfigurasjonen er validert',
+  );
   const response =
     transport === 'persistent'
       ? page.waitForResponse(

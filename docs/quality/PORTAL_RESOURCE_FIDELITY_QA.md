@@ -1,0 +1,46 @@
+# Portal resource fidelity — author QA
+
+Candidate over verified technical parent `c4119f3f770d6767881dc5ee455686cbae0150d7`. This is a separate presentation correction; parent technical CI is not credited as this candidate's full regression. No merge or production deployment is authorized.
+
+## Implemented behavior
+
+One shared Portal now separates bounded top-level Favorites/All services from resource collections. The47-family [matrix](../PORTAL_RESOURCE_FAMILY_MATRIX.md) distinguishes actual root resources, nested ARM children and LOCAL configuration/data; SQL databases remain a global service, PostgreSQL databases remain server context, and Front Door WAF policies remain independent with actual associations. All62 integrated operations retain original model limits, typed Review/commit, workspace/model/revision fences and receipts. Historical child URLs, ID identity, read-only search/inspection and Studio remain available.
+
+The integrated family renderer supplies readable Essentials, named full-ancestor scope links, supported configuration and service-context actions; opaque IDs/raw JSON/original receipt evidence are secondary, closed disclosures. Existing old-family Overview/Properties remain their original renderers. The3.9 group create form alone gains Subscription/name/Region, Basics/Review and validation presentation using original handlers. No Tags, Identity, IAM, live metrics, code/database/runtime or Gateway WAF are invented. FC1 owned plans remain RG resources and are visible in the existing App Service plans list.
+
+Resource-section navigation now hides and makes pending stale main content inert; the existing route-heading focus callback runs before paint. Controlled fixture evidence and real-app native focus evidence have different scopes. The original parent Firewall trace did not record its Enter target; general timing causes and the exact historical target remain unresolved.
+
+## References and rights
+
+[Actual public reference review](../PORTAL_RESOURCE_FIDELITY.md) records39 current Microsoft HTML sources and18 publisher images with actual titles/dates/URLs/hashes. No authenticated live Azure session was available. The older Function App and Premium WAF images do not verify FC1/Standard fidelity. All unmatched exact Portal variants remain UNVERIFIED. Icon page/PDF permission and restrictions are quoted exactly; training-material use is a bounded interpretation, not formal software-UI approval or endorsement. Existing original V24 SVGs are reused unchanged.
+
+## Executed checks
+
+- TypeScript noEmit and scoped ESLint passed; normal final UI build `M2ekCB4btaU3nE6E-PGhX` exited0. Its actual64-file UI source bindings and dirty-at-build checkpoint are distinguished from the final Git head in the capture register.
+- Hierarchy controls:6/6 passed, including all47 families, root/catalog aliases, same-name full ancestry, dynamic PG/SQL scope and readable collapsed evidence. Raw preservation controls18/18 passed before final evidence addition; final full check revalidates the complete final projection.
+- Earlier corrected native batch11/11 passed. Final optimized14-case diagnostic batch:10passed/4failed, exit1. Three unchanged inherited cases reached their30-second global deadline (Review viewports, WAF, Gateway); one new Home breadcrumb harness incorrectly expected a visible trail although Home deliberately hides it. The corrected new harness preserves that hidden single-Home structure and verifies the visible Group parent URL/current title.
+- Final bounded native checks:6/6 passed in1.9minutes, desktop and compact, with original default trace mode, unchanged limits/assertions: original Review viewports, original Firewall Properties→receipt keyboard/Axe, and new Group/PG Review/Overview/breadcrumb/keyboard/reduced-motion/Axe controls. Earlier WAF/Gateway success on the same production UI is retained; this does not turn their later diagnostic deadlines into passes.
+- Exact full plan:490 cases =438desktop+52compact; legacy876 retained; one worker and original retries/timeouts. No full browser regression result is inferred from targeted cases.
+- Full `npm run check`: PENDING at this report revision. Fresh independent final audit, complete exact-head CI/strict and anonymous full-SHA journeys remain PENDING.
+
+The [before register](../reviews/evidence/portal-resource-fidelity/before/capture-provenance.json) contains12 actual original-parent3003 PNGs, including native group Basics/Review and genuine guided briefing/minimize/recall. The [after register](../reviews/evidence/portal-resource-fidelity/after/capture-provenance.json) contains20 actual synthetic native UI PNGs plus2 explicitly labelled NONRESOURCE controlled presentation fixture PNGs, from normal3006 buildM2ek. Exact source/build/producer/hash provenance is separate from Git checkpoint metadata. Microsoft publisher images are reference material, never authenticated tenant captures.
+
+The controlled full old/current presentation modules run installed React19 with genuine Suspense: the old pending layout permits its stale plain anchor, the candidate excludes it, and the settled candidate permits the new action. The separate real application observer recorded zero Properties RSC requests, two true pending/hidden states and two native Enter events on connected original receipt anchors through Back/Forward, with zero new commands/course changes. No response gate or fabricated receipt/World was injected.
+
+### Timing boundary
+
+Actual parent/current comparison showed325→584 browser calls and20.457→27.649seconds in the body, with the same32 API requests and15accepted writes. Redundant new service-directory detours dominated the extra work. The bounded helper now reuses only a unique actual menu in an allowed current parent kind, retains unique parent selection and all old substantive assertions, and performs a complete47-family global-directory/navigation negative census once in its own actual-DOM case. Optimized trace:461 calls (123 fewer), same API/commands, but body27.683seconds and reported29.4seconds: elapsed time was essentially flat, with different observed action latencies. No CPU, database, general runtime stability or original exact-key-target cause is declared resolved.
+
+The failed Review viewport trace never reached Axe. It recorded3.4205seconds collecting a snapshot before focus assertion and2.4192seconds before the initial screenshot, plus ordinary operations completing late; global deadline and teardown followed. That is observed instrumentation wall time, not proof of a particular renderer/host/source cause. Post-deadline body events are not credited as passed assertions. [Original and optimized comparison](../reviews/evidence/portal-resource-fidelity/qa/chain-timing-after-helper.md), [Review timing](../reviews/evidence/portal-resource-fidelity/qa/review-viewport-timing.md) and all red logs remain retained. Authoritative complete CI remains required.
+
+## Failure preservation and private diagnostics
+
+Original invalid fixture, launch/module harness and first native failures are retained as `.raw` logs and native DOM/action extracts. No engine validation or browser timeout/retry/worker setting was changed to obtain green. The explicit persistent fixture helper opts into PG; inherited temporary tests retain their original memory-only response guarantee. Changed global-child expectations retain their substantive commands/receipts/World/isolation checks and add absence plus correct parent-context checks.
+
+Raw local Playwright traces can contain anonymous session credentials. Original trace ZIPs are retained privately outside the repository with original hashes/bytes and restrictive permissions. A preparatory unpublished local checkpoint briefly contained a raw trace and was rewritten before any push; no raw ZIP is reachable from the final candidate history. Derived action extracts omit network/header/body fields and are explicitly labelled transformed. [Exact provenance](../reviews/evidence/portal-resource-fidelity/qa/trace-privacy-provenance.json) identifies originals, derivatives and history cleanup. Final index/HEAD/privacy scanning is required before publication.
+
+## Preservation and limits
+
+The [raw proof](../reviews/evidence/portal-resource-fidelity/preservation.json) pins the complete actual parent tree and exact changed/added union, including original tests/evidence. It permits only18 finite parent presentation/test/documentation paths plus exact mutable QA/current/proof records. A native filesystem guard hashes independent risk partitions and rejects unknown additions or modified engine bytes; test-only historical readers may expose original presentation to existing locked preservation controls only after actual projection validation. Runtime/new browser checks read the new implementation.
+
+Course controllers, original engines/SQL/server/replay, sources, assessment/store/XP, SavvyShark and historical evidence remain byte-preserved. Free mode creates no course credit. Native guided v2 briefing/minimize/independent help remain under original controllers. Human Azure SME, legal, novice-transfer and screen-reader reviews are unperformed. Public persistent Laboratory remains subject to existing availability; expected unavailable503 is not a functional Lab pass.

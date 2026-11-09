@@ -1,0 +1,140 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: integrated-delivery.spec.ts >> integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references
+- Location: tests/e2e/integrated-delivery.spec.ts:189:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - alert [ref=e2]: AzureLab — Lær Azure ved å bruke det
+  - generic [ref=e3]:
+    - link "Hopp til innhold" [ref=e4] [cursor=pointer]:
+      - /url: "#lab-main"
+    - banner [ref=e5]:
+      - button "Åpne eller lukk portalmenyen" [expanded] [ref=e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=e8] [cursor=pointer]:
+        - /url: /labs/laboratory
+      - searchbox "Search resources and services" [ref=e10]
+      - generic [ref=e11]: Fri Laboratory
+      - button "Originale kvitteringer" [ref=e12] [cursor=pointer]
+      - button "Modellgrenser" [ref=e14] [cursor=pointer]
+      - link "Kursarbeidsområde" [ref=e16] [cursor=pointer]:
+        - /url: /portal
+      - link "Til kurset" [ref=e17] [cursor=pointer]:
+        - /url: /learn
+      - link "Til forsiden" [ref=e18] [cursor=pointer]:
+        - /url: /
+    - generic [ref=e23]:
+      - complementary "Laboratory v3 navigasjon" [ref=e24]:
+        - navigation "Laboratory v3 navigasjon" [ref=e25]:
+          - link "Create a resource" [ref=e26] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - link "Home" [ref=e28] [cursor=pointer]:
+            - /url: /labs/laboratory?view=home
+          - link "All services" [ref=e30] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - generic [ref=e32]: FAVORITES
+          - link "Subscriptions" [ref=e34] [cursor=pointer]:
+            - /url: /labs/laboratory?view=subscriptions
+          - link "Resource groups" [ref=e36] [cursor=pointer]:
+            - /url: /labs/laboratory?view=groups
+          - link "All resources" [ref=e38] [cursor=pointer]:
+            - /url: /labs/laboratory?view=resources
+          - link "App Services" [ref=e40] [cursor=pointer]:
+            - /url: /labs/laboratory?view=apps
+          - link "App Service plans" [ref=e42] [cursor=pointer]:
+            - /url: /labs/laboratory?view=plans
+          - link "Virtual machines" [ref=e44] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vms
+          - link "Storage accounts" [ref=e46] [cursor=pointer]:
+            - /url: /labs/laboratory?view=accounts
+          - link "Virtual networks" [ref=e48] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vnets
+          - link "Function App" [ref=e50] [cursor=pointer]:
+            - /url: /labs/laboratory?view=functionApp
+          - link "Front Door profiles" [ref=e52] [cursor=pointer]:
+            - /url: /labs/laboratory?view=frontDoor
+          - link "Application Gateways" [ref=e54] [cursor=pointer]:
+            - /url: /labs/laboratory?view=applicationGateway
+          - link "SQL database" [ref=e56] [cursor=pointer]:
+            - /url: /labs/laboratory?view=sqlDatabase
+          - group [ref=e58]:
+            - generic "AzureLab tools" [ref=e59] [cursor=pointer]
+            - link "Architecture Studio" [ref=e61] [cursor=pointer]:
+              - /url: /labs/laboratory?view=studio
+            - link "Ruteanalyse" [ref=e63] [cursor=pointer]:
+              - /url: /labs/laboratory?view=analysis
+            - link "Network Policy Analysis" [ref=e65] [cursor=pointer]:
+              - /url: /labs/laboratory?view=policy
+        - generic [ref=e67]: Støttede tjenester i dette arbeidsområdet
+      - main [ref=e68]:
+        - generic [ref=e69]:
+          - button "Home" [ref=e70] [cursor=pointer]
+          - button "Application Gateways" [ref=e72] [cursor=pointer]
+          - button "rg-delivery-gateway" [ref=e74] [cursor=pointer]
+          - generic [ref=e76]: gateway-delivery
+        - generic [ref=e80]:
+          - heading "gateway-delivery" [level=1] [ref=e81]
+          - generic [ref=e82]: Application Gateway · Midlertidig Sandbox · nullstilles ved ny innlasting · ingen kursresultater eller XP
+        - generic [ref=e85]:
+          - navigation "gateway-delivery · Overview" [ref=e86]:
+            - strong [ref=e87]: gateway-delivery
+            - generic [ref=e89]:
+              - generic [ref=e90]: Search this resource
+              - searchbox "Search this resource" [ref=e91]
+            - button "Overview" [ref=e92] [cursor=pointer]
+            - button "Activity log" [ref=e94] [cursor=pointer]
+            - group [ref=e96]:
+              - generic "Settings" [ref=e97] [cursor=pointer]
+              - button "Backend pools" [ref=e98] [cursor=pointer]
+              - button "Listeners" [ref=e100] [cursor=pointer]
+              - button "Health probes" [ref=e102] [cursor=pointer]
+              - button "Backend settings" [ref=e104] [cursor=pointer]
+              - button "Rules" [ref=e106] [cursor=pointer]
+              - button "Properties" [ref=e108] [cursor=pointer]
+            - generic [ref=e110]: Lokalt simulator-scope
+          - generic [ref=e112]:
+            - heading "Create gateway backend pool" [level=2] [ref=e113]
+            - list "Create gateway backend pool" [ref=e114]:
+              - listitem [ref=e115]: Basics
+              - listitem [ref=e116]: Review + create
+            - generic [ref=e117]:
+              - group "Project details" [ref=e118]:
+                - paragraph [ref=e120]: Parent resource er valgt fra denne konteksten.
+                - generic [ref=e121]:
+                  - text: Application Gateway
+                  - combobox "Application Gateway" [disabled] [ref=e122]:
+                    - option "Velg application gateway"
+                    - option "gateway-delivery" [selected]
+                - heading "Instance details" [level=3] [ref=e123]
+                - generic [ref=e124]:
+                  - text: Name
+                  - textbox "Name" [active] [ref=e125]: pool-delivery
+                - generic [ref=e126]:
+                  - text: Web App backend
+                  - combobox "Web App backend" [ref=e127]:
+                    - option "Velg web app backend"
+                    - option "app-delivery-gateway" [selected]
+              - generic [ref=e128]:
+                - button "Review + create" [ref=e129] [cursor=pointer]
+                - button "Cancel" [ref=e130] [cursor=pointer]
+        - generic [ref=e131]:
+          - generic [ref=e132]: Fri Laboratory
+          - status [ref=e133]: Midlertidig – ingen lagring · nullstilles ved ny innlasting
+          - button "Oppdater visningen" [ref=e134] [cursor=pointer]
+          - generic [ref=e136]: "World-revisjon: 7 · Arbeidsforsøk: 1 · Arbeidsområdets modell: laboratory@3.9.0"
+          - button "Nullstill eget arbeidsområde" [ref=e137] [cursor=pointer]
+```

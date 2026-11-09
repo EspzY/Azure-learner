@@ -1,0 +1,85 @@
+
+Running 2 tests using 1 worker
+
+(node:192454) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › ../integration/tests/e2e/portal-fidelity.spec.ts:341:1 › guided coach minimization restores the actual operational workspace without losing the mission (871ms)
+(node:192552) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [desktop-chromium] › .artifacts/before-native.spec.ts:4:1 › baseline actual resource group Basics and Review capture (894ms)
+
+
+  1) [desktop-chromium] › ../integration/tests/e2e/portal-fidelity.spec.ts:341:1 › guided coach minimization restores the actual operational workspace without losing the mission 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3003/learn
+    Call log:
+      - navigating to "http://127.0.0.1:3003/learn", waiting until "load"
+
+
+      343 | }) => {
+      344 |   await page.setViewportSize({ width: 1440, height: 900 });
+    > 345 |   await page.goto('/learn');
+          |              ^
+      346 |   await openServiceLab(page, 'iaas');
+      347 |   await page
+      348 |     .locator('.practical-entry')
+        at /workspace/azurelab-phase2/integration/tests/e2e/portal-fidelity.spec.ts:345:14
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .artifacts/before-final-results/before-native-guided-coach-8f65c--without-losing-the-mission-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    .artifacts/before-final-results/before-native-guided-coach-8f65c--without-losing-the-mission-desktop-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .artifacts/before-final-results/before-native-guided-coach-8f65c--without-losing-the-mission-desktop-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    .artifacts/before-final-results/before-native-guided-coach-8f65c--without-losing-the-mission-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace .artifacts/before-final-results/before-native-guided-coach-8f65c--without-losing-the-mission-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › .artifacts/before-native.spec.ts:4:1 › baseline actual resource group Basics and Review capture 
+
+    Error: page.goto: net::ERR_CONNECTION_REFUSED at http://127.0.0.1:3003/
+    Call log:
+      - navigating to "http://127.0.0.1:3003/", waiting until "load"
+
+
+       at ../../integration/tests/e2e/integrated-actions.ts:60
+
+      58 | };
+      59 | export async function startIntegrated(page: Page, persistent = false) {
+    > 60 |   await page.goto('/');
+         |              ^
+      61 |   await page.getByRole('link', { name: landing.labLink, exact: true }).click();
+      62 |   await expect(page.getByText('3.9 · Integrated Application Chain', { exact: true })).toBeVisible();
+      63 |   const started = integratedResponse(page, 'session');
+        at startIntegrated (/workspace/azurelab-phase2/integration/tests/e2e/integrated-actions.ts:60:14)
+        at /workspace/azurelab-phase2/portal-fidelity/.artifacts/before-native.spec.ts:5:8
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .artifacts/before-final-results/before-native-baseline-act-22c13-p-Basics-and-Review-capture-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    .artifacts/before-final-results/before-native-baseline-act-22c13-p-Basics-and-Review-capture-desktop-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .artifacts/before-final-results/before-native-baseline-act-22c13-p-Basics-and-Review-capture-desktop-chromium/error-context.md
+
+    attachment #4: trace (application/zip) ─────────────────────────────────────────────────────────
+    .artifacts/before-final-results/before-native-baseline-act-22c13-p-Basics-and-Review-capture-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace .artifacts/before-final-results/before-native-baseline-act-22c13-p-Basics-and-Review-capture-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop-chromium] › ../integration/tests/e2e/portal-fidelity.spec.ts:341:1 › guided coach minimization restores the actual operational workspace without losing the mission 
+    [desktop-chromium] › .artifacts/before-native.spec.ts:4:1 › baseline actual resource group Basics and Review capture 

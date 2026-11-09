@@ -100,6 +100,17 @@
   color: #a4262c;
   font-weight: 600;
 }
+.portal .lab-group-create form[hidden] {
+  display: none;
+}
+.portal .lab-group-create .portal-group-review {
+  padding: 0;
+  border-left: 0;
+  background: #fff;
+}
+.portal .lab-group-create fieldset > label > small {
+  grid-column: 2;
+}
 @media (max-width: 1100px) {
   .portal-context-essentials .portal-properties {
     grid-template-columns: minmax(0, 1fr);
@@ -109,5 +120,8 @@
   .portal .lab-integrated-form fieldset > label {
     grid-template-columns: minmax(0, 1fr);
     row-gap: 6px;
+  }
+  .portal .lab-group-create fieldset > label > small {
+    grid-column: 1;
   }
 }

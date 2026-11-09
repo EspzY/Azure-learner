@@ -26,6 +26,22 @@ type Props = {
   resources: readonly PortalContextResource[];
   href: (view: string, id?: string) => string;
 };
+export function PortalCreateStages({
+  review,
+  reviewLabel = copy.reviewCreate,
+  label,
+}: {
+  review: boolean;
+  reviewLabel?: string;
+  label: string;
+}) {
+  return (
+    <ol className="portal-create-steps" aria-label={label}>
+      <li aria-current={!review ? 'step' : undefined}>{copy.basics}</li>
+      <li aria-current={review ? 'step' : undefined}>{reviewLabel}</li>
+    </ol>
+  );
+}
 const label = (key: string) =>
   copy.fields[key as keyof typeof copy.fields] ??
   key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^./, (value) => value.toUpperCase());

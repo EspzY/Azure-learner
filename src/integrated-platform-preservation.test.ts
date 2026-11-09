@@ -157,11 +157,11 @@ it('preserves the original PR75 guard bodies through import-only bounded histori
     original('src/resource-platform-preservation.test.ts')
       .toString()
       .replace(
-        "import { readFidelityHistory as readFileSync } from '../tests/portal-fidelity-preservation';",
+        "import { readFileSync } from 'node:fs';",
         "import { readIntegratedHistory as readFileSync } from '../tests/integrated-platform-preservation';",
       )
       .replace(
-        "import { execFidelityHistory as execFileSync } from '../tests/portal-fidelity-preservation';",
+        "import { execFileSync } from 'node:child_process';",
         "import { execIntegratedHistory as execFileSync } from '../tests/integrated-platform-preservation';",
       ),
   );
@@ -169,7 +169,7 @@ it('preserves the original PR75 guard bodies through import-only bounded histori
     original('tests/resource-platform-preservation.ts')
       .toString()
       .replace(
-        "import { readFidelityHistory as readFileSync } from '../tests/portal-fidelity-preservation';",
+        "import { readFileSync } from 'node:fs';",
         "import { readIntegratedHistory as readFileSync } from './integrated-platform-preservation';",
       ),
   );

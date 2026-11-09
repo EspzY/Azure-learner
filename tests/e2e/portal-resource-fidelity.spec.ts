@@ -1,5 +1,6 @@
 import { expect, test, type Page } from '@playwright/test';
 import Axe from '@axe-core/playwright';
+import { readFileSync } from 'node:fs';
 import { nb } from '../../src/content/nb';
 import { laboratoryIntegratedDeliveryNb as delivery } from '../../src/content/laboratory-integrated-delivery-nb';
 import { laboratoryIntegratedDataNb as data } from '../../src/content/laboratory-integrated-data-nb';
@@ -15,6 +16,16 @@ import {
   storage,
 } from './integrated-actions';
 
+const familyMatrix = JSON.parse(
+  readFileSync(
+    new URL(
+      '../../docs/reviews/evidence/portal-resource-fidelity/family-matrix.json',
+      import.meta.url,
+    ),
+    'utf8',
+  ),
+) as { families: { view: string; classification: string }[] };
+
 const byId = (page: Page, id: string) =>
   page.locator(`table a[href$="id=${id}"], table a[href*="id=${id}&"]`);
 
@@ -23,6 +34,41 @@ test('Portal fidelity scopes same-named profile children by actual IDs and prese
 }, info) => {
   await startIntegrated(page, true);
   const before = await courseBytes(page);
+  // One complete actual-DOM negative census replaces repeated helper detours.
+  await globalService(page, nb.portal.areas.services);
+  const catalogViews = await page
+    .locator('[data-portal-component="service-directory"] a')
+    .evaluateAll((links) =>
+      links.map((link) => new URL((link as HTMLAnchorElement).href).searchParams.get('view')),
+    );
+  const navigationViews = await page
+    .getByRole('navigation', { name: storage.navigation, exact: true })
+    .locator('a')
+    .evaluateAll((links) =>
+      links.map((link) => new URL((link as HTMLAnchorElement).href).searchParams.get('view')),
+    );
+  expect(familyMatrix.families).toHaveLength(47);
+  for (const root of [
+    'frontDoor',
+    'frontDoorWafPolicy',
+    'applicationGateway',
+    'postgresServer',
+    'sqlServer',
+    'sqlDatabase',
+    'functionApp',
+  ])
+    expect(catalogViews).toContain(root);
+  for (const family of familyMatrix.families) {
+    if (
+      ['child', 'configuration', 'data'].includes(family.classification) ||
+      family.view === 'functionPlan'
+    ) {
+      expect(catalogViews, family.view).not.toContain(family.view);
+      expect(navigationViews, family.view).not.toContain(family.view);
+    }
+  }
+  await globalService(page, nb.portal.areas.home);
+
   const commands: string[] = [];
   page.on('request', (request) => {
     if (request.method() === 'POST' && request.url().endsWith('/api/laboratory/command'))
@@ -144,7 +190,55 @@ test('Portal fidelity native Review readable Overview keyboard reduced motion Ax
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await startIntegrated(page);
   const before = await courseBytes(page);
-  const group = await create(page, storage.newGroup, { name: 'rg-readable-review' });
+  const initialViewport = page.viewportSize()!;
+  const breadcrumbs = page.locator('.portal-breadcrumbs');
+  // Home intentionally hides its breadcrumb trail; its DOM still has one Home.
+  await expect(breadcrumbs).not.toBeVisible();
+  await expect(breadcrumbs.locator('button')).toHaveText([nb.portal.areas.home]);
+  await expect(breadcrumbs.locator('a')).toHaveCount(0);
+
+  await page.getByRole('button', { name: storage.newGroup, exact: true }).click();
+  const groupForm = page.locator('.lab-group-create');
+  await expect(
+    breadcrumbs.getByRole('link', { name: nb.portal.areas.groups, exact: true }),
+  ).toHaveAttribute('href', '/labs/laboratory?view=groups');
+  await expect(breadcrumbs.locator('[aria-current="page"]')).toHaveText(copy.groupTitle);
+
+  await expect(groupForm.locator('fieldset > label')).toHaveCount(3);
+  expect(
+    await groupForm
+      .locator('fieldset > label')
+      .evaluateAll((labels) => labels.map((label) => label.childNodes[0]?.textContent?.trim())),
+  ).toEqual([storage.subscription, copy.groupName, storage.region]);
+  await groupForm.getByLabel(copy.groupName, { exact: true }).fill('rg-readable-review');
+  await page.screenshot({
+    path: info.outputPath(
+      `resource-group-basics-${initialViewport.width}x${initialViewport.height}.png`,
+    ),
+  });
+  const groupChecked = integratedResponse(page, 'review');
+  await groupForm.getByRole('button', { name: copy.reviewCreate, exact: true }).click();
+  expect((await (await groupChecked).json()).preview.outcome).toBe('accepted');
+  const groupReview = page.getByRole('region', { name: storage.review, exact: true });
+  await expect(groupReview.getByRole('status')).toHaveText(copy.validationPassed);
+  await expect(groupReview.locator('pre:visible')).toHaveCount(0);
+  for (const viewport of [
+    initialViewport,
+    { width: 1440, height: 900 },
+    { width: 1024, height: 500 },
+  ]) {
+    await page.setViewportSize(viewport);
+    await groupReview.getByRole('button', { name: 'Create', exact: true }).scrollIntoViewIfNeeded();
+    await page.screenshot({
+      path: info.outputPath(`resource-group-review-${viewport.width}x${viewport.height}.png`),
+    });
+  }
+  await page.setViewportSize(initialViewport);
+  const groupCreated = integratedResponse(page, 'command');
+  await groupReview.getByRole('button', { name: 'Create', exact: true }).click();
+  const group = await (await groupCreated).json();
+  expect(group.receipt.outcome).toBe('accepted');
+  await expect(groupForm).toHaveCount(0);
   await globalService(page, data.types.postgresServer);
   await page
     .getByRole('button', { name: data.operations.CreatePostgresServer, exact: true })

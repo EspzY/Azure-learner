@@ -1,602 +1,769 @@
 {
   "schema": 1,
-  "id": "laboratory-integrated-application-chain-3.9",
-  "baseCommit": "5b2e814b9f4bae1aa3c2fe4e79cd3a4e53029484",
-  "author": "laboratory-integrated-application-author",
+  "id": "shared-portal-resource-fidelity",
+  "baseCommit": "c4119f3f770d6767881dc5ee455686cbae0150d7",
+  "author": "portal-resource-fidelity-author",
   "scope": {
-    "kind": "versioned-technical-resource-integration",
-    "description": "Integrate exact PR73 delivery and PR74 data/Functions modules into one explicit Laboratory3.9 continuation of verified3.8, with the shared Portal, Architecture Studio and configuration/dependency analysis. Additive SQL010 and explicit new workspaces retain one authoritative command pipeline. The host compares no-op proposals canonically before commit so PostgreSQL JSONB ordering cannot make their history unverifiable. No new courses, assessments, curriculum, global design or v2 migration. The owner now requires a separately isolated Portal-fidelity correction for contextual hierarchy and service-specific presentation. This technical checkpoint does not claim that the current flat child menu or generic primary properties are visually finished; those remain product release blockers until corrected in the companion candidate.",
-    "objectives": ["LAB-APPLICATION-PLATFORM", "LAB-APPLICATION-DELIVERY", "LAB-DATA-SERVERLESS"]
+    "kind": "shared-portal-presentation-correction",
+    "description": "Correct native Azure Portal service/global/resource hierarchy, explicit central icons, scoped human-readable Essentials and settings, exact-ID parent presentation and original technical evidence. Preserve all authoritative engines and histories. Close parent IAC05/IAC06 only where actual UI and independent evidence demonstrate it. Correct proven presentation readiness hazards without changing old substantive assertions.",
+    "objectives": ["PORTAL-FIDELITY"]
   },
   "sources": [
     {
-      "id": "application-1",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
-      "title": "Microsoft Learn App Service configuration reference: overview-hosting-plans",
+      "id": "icons",
+      "url": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+      "title": "Azure Icons - Azure Architecture Center | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "{'ms.date': '2026-11-06T00:00:00Z', 'document_id': '09a9696e-10fd-a74e-4957-0d7ed9ef5a0f', 'updated_at': '2026-11-06T23:12:00Z'}",
+      "version": "ms.date 2026-07-09T00:00:00Z; updated_at 2026-11-05T06:03:00Z; source commit 31400b8130442aa31687a6e0192028e2347a5322; captured HTML SHA256 11906cc2b9fb28bff122f0e3d837ec333a1d503a6ce711d8222d4319ba8b94b5",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-PLATFORM"],
-      "claims": ["application.resources-and-configuration"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Actual body read; source-supported naming, plans, runtime/configuration are separated from declared synthetic application behavior. No live SKU/deployment/runtime claim. Reused from exact independently reviewed same-day source delivery 5b2e814b9f4bae1aa3c2fe4e79cd3a4e53029484; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
-          "disposition": "reviewed-bounded-profile",
-          "reason": "Verify the specific resource/type/plan/runtime/configuration semantics implemented in this explicit model."
+          "url": "https://learn.microsoft.com/en-us/azure/architecture/icons/",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "application-2",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-language-nodejs",
-      "title": "Microsoft Learn App Service configuration reference: configure-language-nodejs",
+      "id": "portal-overview",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
+      "title": "What is the Azure portal? - Azure portal | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "{'ms.date': '2026-11-06T00:00:00Z', 'document_id': '896b5d4c-ac3b-f0a2-5102-9e59bbe2ed48', 'updated_at': '2026-11-06T23:12:00Z'}",
+      "version": "ms.date 2026-01-26T00:00:00Z; updated_at 2026-04-07T06:02:00Z; source commit 9785bfd5a070d87cb2e103ac8cf4dcf5181a220a; captured HTML SHA256 b3a0e9526993345c6bb4f87520635f6dd4943a0cd42c521dad5bb16ae1cb4193",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-PLATFORM"],
-      "claims": ["application.resources-and-configuration"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Actual body read; source-supported naming, plans, runtime/configuration are separated from declared synthetic application behavior. No live SKU/deployment/runtime claim. Reused from exact independently reviewed same-day source delivery 5b2e814b9f4bae1aa3c2fe4e79cd3a4e53029484; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-language-nodejs",
-          "disposition": "reviewed-bounded-profile",
-          "reason": "Verify the specific resource/type/plan/runtime/configuration semantics implemented in this explicit model."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "application-3",
-      "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-common",
-      "title": "Microsoft Learn App Service configuration reference: configure-common",
+      "id": "portal-preferences",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-portal/set-preferences",
+      "title": "Manage Azure portal settings and preferences - Azure portal | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "{'ms.date': '2026-11-06T00:00:00Z', 'document_id': '1e25899c-1ed8-7cfc-2c37-73bb010a87f0', 'updated_at': '2026-11-08T12:43:00Z'}",
+      "version": "ms.date 2026-04-06T00:00:00Z; updated_at 2026-04-07T06:02:00Z; source commit 0158871bbf8f5f66dd81daa492a70415ff3cc3ed; captured HTML SHA256 b1ccd98325773d86efe3532e0cfdfb47ac26342dc2a3659b91faecc27f55e10e",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-PLATFORM"],
-      "claims": ["application.resources-and-configuration"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Actual body read; source-supported naming, plans, runtime/configuration are separated from declared synthetic application behavior. No live SKU/deployment/runtime claim. Reused from exact independently reviewed same-day source delivery 5b2e814b9f4bae1aa3c2fe4e79cd3a4e53029484; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-common",
-          "disposition": "reviewed-bounded-profile",
-          "reason": "Verify the specific resource/type/plan/runtime/configuration semantics implemented in this explicit model."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-portal/set-preferences",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "application-4",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.web/serverfarms",
-      "title": "Microsoft Learn App Service configuration reference: serverfarms",
+      "id": "front-door-create",
+      "url": "https://learn.microsoft.com/en-us/azure/frontdoor/create-front-door-portal",
+      "title": "Quickstart: Create an Azure Front Door using the Azure portal | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "{'ms.date': '2024-12-09T00:00:00Z', 'document_id': '0db022d1-88a6-4a24-cddc-a928720be966', 'updated_at': '2026-07-20T15:14:00Z'}",
+      "version": "ms.date 2026-04-30T00:00:00Z; updated_at 2026-05-01T06:12:00Z; source commit 85aecd10b51f201e7c1180a08ddf1b3b63f05870; captured HTML SHA256 17e73394ab02caf4264a44781560bd1c9018daf00db80e1c42d9f464ecdb3dd3",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-PLATFORM"],
-      "claims": ["application.resources-and-configuration"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Actual body read; source-supported naming, plans, runtime/configuration are separated from declared synthetic application behavior. No live SKU/deployment/runtime claim. Reused from exact independently reviewed same-day source delivery 5b2e814b9f4bae1aa3c2fe4e79cd3a4e53029484; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.web/serverfarms",
-          "disposition": "reviewed-bounded-profile",
-          "reason": "Verify the specific resource/type/plan/runtime/configuration semantics implemented in this explicit model."
+          "url": "https://learn.microsoft.com/en-us/azure/frontdoor/create-front-door-portal",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "application-5",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.web/sites",
-      "title": "Microsoft Learn App Service configuration reference: sites",
+      "id": "front-door-manager",
+      "url": "https://learn.microsoft.com/en-us/azure/frontdoor/manager",
+      "title": "Front Door manager | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "{'ms.date': '2024-12-09T00:00:00Z', 'document_id': '1b88fbc9-72cb-9aa9-7b53-6f55cee73c43', 'updated_at': '2026-10-20T20:55:00Z'}",
+      "version": "ms.date 2024-11-13T00:00:00Z; updated_at 2025-05-12T22:03:00Z; source commit 0a9bc1037c2b5b1c4532bcbd7d1abd112eab1acc; captured HTML SHA256 b268affa0316339ef6e95002a762fc5416ff9678082459b7e008f5636a5ab5d2",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-PLATFORM"],
-      "claims": ["application.resources-and-configuration"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Actual body read; source-supported naming, plans, runtime/configuration are separated from declared synthetic application behavior. No live SKU/deployment/runtime claim. Reused from exact independently reviewed same-day source delivery 5b2e814b9f4bae1aa3c2fe4e79cd3a4e53029484; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.web/sites",
-          "disposition": "reviewed-bounded-profile",
-          "reason": "Verify the specific resource/type/plan/runtime/configuration semantics implemented in this explicit model."
+          "url": "https://learn.microsoft.com/en-us/azure/frontdoor/manager",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "application-6",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
-      "title": "Microsoft Learn App Service configuration reference: resource-name-rules",
+      "id": "front-door-origins",
+      "url": "https://learn.microsoft.com/en-us/azure/frontdoor/how-to-configure-origin",
+      "title": "How to configure origins - Azure Front Door | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "{'ms.date': '2026-08-05T00:00:00Z', 'document_id': '374ec8eb-64d4-3766-5c5e-39137a262ffd', 'updated_at': '2026-08-07T17:22:00Z'}",
+      "version": "ms.date 2025-02-18T00:00:00Z; updated_at 2025-09-10T17:15:00Z; source commit 0bd3b8be672f41460f74b4d8ce71a37d0757d236; captured HTML SHA256 d522f1a2ae4b0f9b9f1a1a015b51bb8d56ae8601e710860d31a7f7ae642b9c2c",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-PLATFORM"],
-      "claims": ["application.resources-and-configuration"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Actual body read; source-supported naming, plans, runtime/configuration are separated from declared synthetic application behavior. No live SKU/deployment/runtime claim. Reused from exact independently reviewed same-day source delivery 5b2e814b9f4bae1aa3c2fe4e79cd3a4e53029484; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
-          "disposition": "reviewed-bounded-profile",
-          "reason": "Verify the specific resource/type/plan/runtime/configuration semantics implemented in this explicit model."
+          "url": "https://learn.microsoft.com/en-us/azure/frontdoor/how-to-configure-origin",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "application-delivery-1",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.cdn/profiles/afdendpoints/routes",
-      "title": "ARM/CDN route contract",
+      "id": "front-door-endpoints",
+      "url": "https://learn.microsoft.com/en-us/azure/frontdoor/how-to-configure-endpoints",
+      "title": "Add a New Endpoint With Front Door Manager - Azure Front Door | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2024-12-09",
+      "version": "ms.date 2026-04-30T00:00:00Z; updated_at 2026-05-01T11:12:00Z; source commit d1bcad6e5f0a0be320d5e44491ff857485e680b3; captured HTML SHA256 877c6ad133f4a1c2a36caca2bb262dc12edf764493483087344f65f4751463a3",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-DELIVERY"],
-      "claims": ["application-delivery.configuration-and-dependencies"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/APPLICATION_DELIVERY_PLATFORM.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery a19f9615e475faa3bd651debe13baedd6fa7b580; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.cdn/profiles/afdendpoints/routes",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+          "url": "https://learn.microsoft.com/en-us/azure/frontdoor/how-to-configure-endpoints",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "application-delivery-2",
-      "url": "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-route-matching",
-      "title": "Front Door request route matching",
+      "id": "front-door-waf",
+      "url": "https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-create-portal",
+      "title": "Tutorial: Create a WAF Policy for Azure Front Door - Azure Portal - Azure Web Application Firewall | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2026-05-01",
+      "version": "ms.date 2026-09-01T00:00:00Z; updated_at 2026-09-01T22:21:00Z; source commit 0704569806f4b8f70e792e688d465b34f10410bf; captured HTML SHA256 a08f353be9f1155deb8acae359b8110f6ae8878956191498a2e6578b1f3376d8",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-DELIVERY"],
-      "claims": ["application-delivery.configuration-and-dependencies"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/APPLICATION_DELIVERY_PLATFORM.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery a19f9615e475faa3bd651debe13baedd6fa7b580; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-route-matching",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+          "url": "https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-create-portal",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "application-delivery-3",
-      "url": "https://learn.microsoft.com/en-us/azure/frontdoor/health-probes",
-      "title": "Front Door health probes",
+      "id": "gateway-create",
+      "url": "https://learn.microsoft.com/en-us/azure/application-gateway/quick-create-portal",
+      "title": "Quickstart: Direct web traffic using the portal - Azure Application Gateway | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2026-11-06",
+      "version": "ms.date 2026-08-04T00:00:00Z; updated_at 2026-08-04T17:21:00Z; source commit ee7199570e1d2477c054025f7fb2df2daff73425; captured HTML SHA256 1d3986a0efa34dc8e7668020aa55f0258f83535acfe6392553f1b49a6b8703b2",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-DELIVERY"],
-      "claims": ["application-delivery.configuration-and-dependencies"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/APPLICATION_DELIVERY_PLATFORM.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery a19f9615e475faa3bd651debe13baedd6fa7b580; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/frontdoor/health-probes",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+          "url": "https://learn.microsoft.com/en-us/azure/application-gateway/quick-create-portal",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "application-delivery-4",
-      "url": "https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-custom-rules",
-      "title": "Front Door WAF custom rules",
+      "id": "gateway-components",
+      "url": "https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-components",
+      "title": "Application gateway components | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2026-10-08",
+      "version": "ms.date 2026-09-04T00:00:00Z; updated_at 2026-10-29T22:11:00Z; source commit 4fa9ccc1d80cccd030bb55840ec8ab64bf587c9d; captured HTML SHA256 6046176d2076f49c64fa0dfca2bd6d3c83faa8a27d5e4012c4b20c42712ff896",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-DELIVERY"],
-      "claims": ["application-delivery.configuration-and-dependencies"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/APPLICATION_DELIVERY_PLATFORM.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery a19f9615e475faa3bd651debe13baedd6fa7b580; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-custom-rules",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+          "url": "https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-components",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "application-delivery-5",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.cdn/profiles/securitypolicies",
-      "title": "ARM/CDN security policies",
+      "id": "gateway-backend-settings",
+      "url": "https://learn.microsoft.com/en-us/azure/application-gateway/configuration-http-settings",
+      "title": "Azure Application Gateway Backend Settings configuration | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update None",
+      "version": "ms.date 2026-09-04T00:00:00Z; updated_at 2026-09-10T22:03:00Z; source commit 4a15bdfb9636661671ad10358829fae61dc2ae38; captured HTML SHA256 8d2850501adcc6a957d7ecccc555586d3d95b4123c6599c4762e5085f26f279c",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-DELIVERY"],
-      "claims": ["application-delivery.configuration-and-dependencies"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/APPLICATION_DELIVERY_PLATFORM.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery a19f9615e475faa3bd651debe13baedd6fa7b580; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.cdn/profiles/securitypolicies",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+          "url": "https://learn.microsoft.com/en-us/azure/application-gateway/configuration-http-settings",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "application-delivery-6",
-      "url": "https://learn.microsoft.com/en-us/azure/application-gateway/configuration-overview",
-      "title": "Application Gateway configuration",
-      "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2025-07-15",
-      "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-DELIVERY"],
-      "claims": ["application-delivery.configuration-and-dependencies"],
-      "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/APPLICATION_DELIVERY_PLATFORM.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery a19f9615e475faa3bd651debe13baedd6fa7b580; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/application-gateway/configuration-overview",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "application-delivery-7",
+      "id": "gateway-routing",
       "url": "https://learn.microsoft.com/en-us/azure/application-gateway/configuration-request-routing-rules",
-      "title": "Application Gateway routing rules",
+      "title": "Azure Application Gateway request routing rules configuration | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update None",
+      "version": "ms.date 2026-08-20T00:00:00Z; updated_at 2026-10-29T22:11:00Z; source commit 4fa9ccc1d80cccd030bb55840ec8ab64bf587c9d; captured HTML SHA256 365428b5c39717efbd3b492066e997f0bb78464674534d24f0c0cc60bfe131cb",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-DELIVERY"],
-      "claims": ["application-delivery.configuration-and-dependencies"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/APPLICATION_DELIVERY_PLATFORM.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery a19f9615e475faa3bd651debe13baedd6fa7b580; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/application-gateway/configuration-request-routing-rules",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "application-delivery-8",
-      "url": "https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-private-deployment",
-      "title": "Private-only v2/network isolation opt-in",
+      "id": "functions-create",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal",
+      "title": "Create a function app in the Azure portal | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update None",
+      "version": "ms.date 2026-08-03T00:00:00Z; updated_at 2026-08-07T22:20:00Z; source commit bf0116938de7005309fe32e848cfc8b0c84b2715; captured HTML SHA256 0d6f422f9a0f7de51d8c7bdd3dfe04db430aa7b2ec93e1037e8609ec93b4d398",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-DELIVERY"],
-      "claims": ["application-delivery.configuration-and-dependencies"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/APPLICATION_DELIVERY_PLATFORM.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery a19f9615e475faa3bd651debe13baedd6fa7b580; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-private-deployment",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "application-delivery-9",
-      "url": "https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure",
-      "title": "Gateway dedicated subnet/IP capacity",
-      "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update None",
-      "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-DELIVERY"],
-      "claims": ["application-delivery.configuration-and-dependencies"],
-      "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/APPLICATION_DELIVERY_PLATFORM.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery a19f9615e475faa3bd651debe13baedd6fa7b580; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "application-delivery-10",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
-      "title": "Provider-specific naming rules",
-      "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update None",
-      "kind": "official-public-Microsoft",
-      "objectives": ["LAB-APPLICATION-DELIVERY"],
-      "claims": ["application-delivery.configuration-and-dependencies"],
-      "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/APPLICATION_DELIVERY_PLATFORM.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery a19f9615e475faa3bd651debe13baedd6fa7b580; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "data-serverless-1",
-      "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-public",
-      "title": "Microsoft Learn configuration reference: concepts-networking-public",
-      "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2026-07-16",
-      "kind": "official-public-Microsoft",
-      "objectives": ["LAB-DATA-SERVERLESS"],
-      "claims": ["data-serverless.configuration-and-dependencies"],
-      "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery c571288cec6421b6818883ee4d3fd166f533c3b8; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-public",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "data-serverless-2",
-      "url": "https://learn.microsoft.com/en-us/azure/postgresql/compute-storage/concepts-compute",
-      "title": "Microsoft Learn configuration reference: concepts-compute",
-      "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2026-07-09",
-      "kind": "official-public-Microsoft",
-      "objectives": ["LAB-DATA-SERVERLESS"],
-      "claims": ["data-serverless.configuration-and-dependencies"],
-      "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery c571288cec6421b6818883ee4d3fd166f533c3b8; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/postgresql/compute-storage/concepts-compute",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "data-serverless-3",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/flexibleservers",
-      "title": "Microsoft Learn configuration reference: flexibleservers",
-      "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2026-10-20",
-      "kind": "official-public-Microsoft",
-      "objectives": ["LAB-DATA-SERVERLESS"],
-      "claims": ["data-serverless.configuration-and-dependencies"],
-      "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery c571288cec6421b6818883ee4d3fd166f533c3b8; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/flexibleservers",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "data-serverless-4",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/flexibleservers/databases",
-      "title": "Microsoft Learn configuration reference: databases",
-      "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2026-10-20",
-      "kind": "official-public-Microsoft",
-      "objectives": ["LAB-DATA-SERVERLESS"],
-      "claims": ["data-serverless.configuration-and-dependencies"],
-      "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery c571288cec6421b6818883ee4d3fd166f533c3b8; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/flexibleservers/databases",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "data-serverless-5",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/logical-servers?view=azuresql",
-      "title": "Microsoft Learn configuration reference: logical-servers?view=azuresql",
-      "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2026-06-02",
-      "kind": "official-public-Microsoft",
-      "objectives": ["LAB-DATA-SERVERLESS"],
-      "claims": ["data-serverless.configuration-and-dependencies"],
-      "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery c571288cec6421b6818883ee4d3fd166f533c3b8; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/logical-servers?view=azuresql",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "data-serverless-6",
-      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.sql/servers/databases",
-      "title": "Microsoft Learn configuration reference: databases",
-      "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2024-12-09",
-      "kind": "official-public-Microsoft",
-      "objectives": ["LAB-DATA-SERVERLESS"],
-      "claims": ["data-serverless.configuration-and-dependencies"],
-      "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery c571288cec6421b6818883ee4d3fd166f533c3b8; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.sql/servers/databases",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "data-serverless-7",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/resource-limits-dtu-single-databases?view=azuresql",
-      "title": "Microsoft Learn configuration reference: resource-limits-dtu-single-databases?view=azuresql",
-      "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2023-08-02",
-      "kind": "official-public-Microsoft",
-      "objectives": ["LAB-DATA-SERVERLESS"],
-      "claims": ["data-serverless.configuration-and-dependencies"],
-      "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery c571288cec6421b6818883ee4d3fd166f533c3b8; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/resource-limits-dtu-single-databases?view=azuresql",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "data-serverless-8",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
-      "title": "Microsoft Learn configuration reference: resource-name-rules",
-      "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2026-08-05",
-      "kind": "official-public-Microsoft",
-      "objectives": ["LAB-DATA-SERVERLESS"],
-      "claims": ["data-serverless.configuration-and-dependencies"],
-      "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery c571288cec6421b6818883ee4d3fd166f533c3b8; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "data-serverless-9",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/storage-considerations",
-      "title": "Microsoft Learn configuration reference: storage-considerations",
-      "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2026-09-16",
-      "kind": "official-public-Microsoft",
-      "objectives": ["LAB-DATA-SERVERLESS"],
-      "claims": ["data-serverless.configuration-and-dependencies"],
-      "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery c571288cec6421b6818883ee4d3fd166f533c3b8; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/storage-considerations",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "data-serverless-10",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan",
-      "title": "Microsoft Learn configuration reference: flex-consumption-plan",
-      "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2026-09-15",
-      "kind": "official-public-Microsoft",
-      "objectives": ["LAB-DATA-SERVERLESS"],
-      "claims": ["data-serverless.configuration-and-dependencies"],
-      "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery c571288cec6421b6818883ee4d3fd166f533c3b8; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
-      "discovery": [
-        {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
-        }
-      ]
-    },
-    {
-      "id": "data-serverless-11",
+      "id": "functions-flex",
       "url": "https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-how-to",
-      "title": "Microsoft Learn configuration reference: flex-consumption-how-to",
+      "title": "Create and Manage Function Apps in a Flex Consumption Plan | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update None",
+      "version": "ms.date 2026-10-12T00:00:00Z; updated_at 2026-11-08T12:43:00Z; source commit 52f6a7b2d4898361f5dfdc8720fac26f60e29bf1; captured HTML SHA256 a62aa0a5e22a784d5d35637c7f17c505ad9b3a81dd1e19fb183ee22f8489698d",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-DATA-SERVERLESS"],
-      "claims": ["data-serverless.configuration-and-dependencies"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery c571288cec6421b6818883ee4d3fd166f533c3b8; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-how-to",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "data-serverless-12",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-node",
-      "title": "Microsoft Learn configuration reference: functions-reference-node",
+      "id": "functions-settings",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal",
+      "title": "Configure function app settings in Azure Functions | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2026-07-23",
+      "version": "ms.date 2025-05-21T00:00:00Z; updated_at 2026-07-04T11:45:00Z; source commit 46f00d8e4c7c9eadc009df90f7e93658f6758980; captured HTML SHA256 48a1712488b99d98e657265c60cb5e31776def98b22dd770eb273b2ecdeb6dea",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-DATA-SERVERLESS"],
-      "claims": ["data-serverless.configuration-and-dependencies"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery c571288cec6421b6818883ee4d3fd166f533c3b8; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-node",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "data-serverless-13",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger",
-      "title": "Microsoft Learn configuration reference: functions-bindings-http-webhook-trigger",
+      "id": "postgres-create",
+      "url": "https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/quickstart-create-server",
+      "title": "Quickstart: Create an Azure Database for PostgreSQL Flexible Server - Azure Database for PostgreSQL | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2026-09-18",
+      "version": "ms.date 2026-07-08T00:00:00Z; updated_at 2026-08-12T06:06:00Z; source commit c15ca6207631c773f92ecb37897d29830089eb2d; captured HTML SHA256 da9692640793e769b445acff6198216b1a60cc789c48c6de467c64d777f6e417",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-DATA-SERVERLESS"],
-      "claims": ["data-serverless.configuration-and-dependencies"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery c571288cec6421b6818883ee4d3fd166f533c3b8; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+          "url": "https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/quickstart-create-server",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     },
     {
-      "id": "data-serverless-14",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-trigger",
-      "title": "Microsoft Learn configuration reference: functions-bindings-storage-blob-trigger",
+      "id": "postgres-network",
+      "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/how-to-networking",
+      "title": "Networking in Azure Database for PostgreSQL Flexible Server - Azure Database for PostgreSQL | Microsoft Learn",
       "reviewed": "2026-11-09",
-      "version": "Actual public body reviewed; displayed update 2026-08-28",
+      "version": "ms.date 2026-07-13T00:00:00Z; updated_at 2026-09-06T11:03:00Z; source commit 822e6fde35830c2dfa4b5f9bf8750690f8bb1b48; captured HTML SHA256 66685bbd7fb586146fd50c319a8d254888c7ec8b17e785564ea8720cc74c2594",
       "kind": "official-public-Microsoft",
-      "objectives": ["LAB-DATA-SERVERLESS"],
-      "claims": ["data-serverless.configuration-and-dependencies"],
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
       "availability": "AVAILABLE",
-      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim. Reused from exact independently reviewed same-day source delivery c571288cec6421b6818883ee4d3fd166f533c3b8; this integration adds no claim of real cloud runtime. New host identity/dependency/replay guards are simulator contracts, not Azure behavior.",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-trigger",
-          "disposition": "reviewed-bounded-configuration",
-          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+          "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/how-to-networking",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "postgres-firewall",
+      "url": "https://learn.microsoft.com/en-us/azure/postgresql/security/security-firewall-rules",
+      "title": "Firewall Rules in Azure Database for PostgreSQL Flexible Server - Azure Database for PostgreSQL | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-07-14T00:00:00Z; updated_at 2026-07-16T06:04:00Z; source commit 190574e02f4582d59344702b77cb6b5e16a11bd1; captured HTML SHA256 c31a937d24036d3b900837b6eec812d195f94827b625c12458a981b0c1f7cf96",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/postgresql/security/security-firewall-rules",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "sql-servers",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/logical-servers?view=azuresql",
+      "title": "What is a server in Azure SQL Database? - Azure SQL Database | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-05-28T00:00:00Z; updated_at 2026-10-19T17:38:00Z; source commit c1d92c9d18596d6c14dae6a3dfef2afeb3896a30; captured HTML SHA256 4db2593146a26c6333326c2da92fda986cbfa0a30c36316e981d10915989fb62",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/logical-servers",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "sql-create",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart?view=azuresql",
+      "title": "Create a Single Database - Azure SQL Database | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-01-23T00:00:00Z; updated_at 2026-10-21T17:40:00Z; source commit b9060f3c5c12bd5f2ce0ae21fb96f6b55d8e7a29; captured HTML SHA256 feb97eef336dd63e62ab8387bc8af3b14635bb719e1883ee6e65c2bc7d234567",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/single-database-create-quickstart",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "resource-groups",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
+      "title": "Use the Azure portal and Azure Resource Manager to Manage Resource Groups - Azure Resource Manager | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-02-27T00:00:00Z; updated_at 2026-03-04T23:27:00Z; source commit 5ab1eafa6f76d46d4b5c3e110039a6cb6105f153; captured HTML SHA256 218f1ce761bd8bf20c7bc4f15d98d313565318b99818580e1ddde5a79f372123",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "subscriptions",
+      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription",
+      "title": "Create a Microsoft Customer Agreement subscription - Azure Cost Management + Billing | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-02-10T00:00:00Z; updated_at 2026-06-16T17:13:00Z; source commit 802eb4e63d1682f988a40b8f7783611bf4807471; captured HTML SHA256 70f35508e60c42eaa5758111ee3e4f87f63f7089e2addc373a35d9ef8cb91847",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "storage-create",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal",
+      "title": "Create an Azure Storage Account - Azure Storage | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-05-08T00:00:00Z; updated_at 2026-09-01T22:21:00Z; source commit 91869e1b9f98dc21a05cd0c5d0fc819437288f8c; captured HTML SHA256 c3f0056e2075dcf674c33fe9927d0af6dea8a2ed6fe4a2c4459a91e912fbb171",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "storage-blobs",
+      "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal",
+      "title": "Quickstart: Upload, download, and list blobs - Azure portal - Azure Storage | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-08-19T00:00:00Z; updated_at 2026-08-25T02:03:00Z; source commit cdf0d71d6878c96f2d38f3ff00f3df6f91bb82b2; captured HTML SHA256 6a27dc826dd1c66a60f452138cb106fd8ceff6583d450fb9a23026710dbeac9e",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "virtual-network",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-virtual-network",
+      "title": "Create, change, or delete an Azure virtual network - Azure Virtual Network | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2025-04-21T00:00:00Z; updated_at 2025-10-08T22:11:00Z; source commit 136130fc1149e51f3cc15b573e22d653e7ad6353; captured HTML SHA256 32b6373129c99b1d575d168e515beeace96ff05c7ca102cdccdd37540d686392",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-virtual-network",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "subnets",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet",
+      "title": "Add, change, or delete a subnet | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2025-07-29T00:00:00Z; updated_at 2026-04-09T17:25:00Z; source commit b866a42a0f6ef8536c78daa491fe8519c95a94df; captured HTML SHA256 e854d62dde988f649b82d525bc705eb1c602687287b74090bdbd218069e2282b",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "nsg",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group",
+      "title": "Create, Change, or Delete Azure Network Security Groups | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2025-07-26T00:00:00Z; updated_at 2025-10-08T22:11:00Z; source commit 136130fc1149e51f3cc15b573e22d653e7ad6353; captured HTML SHA256 c2bea3f66c244b52c12527fc13de39e13851225be60c1e999b827a085a236da0",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "routes",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table",
+      "title": "Create, change, or delete an Azure route table - Azure Virtual Network | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2025-04-21T00:00:00Z; updated_at 2025-10-08T22:11:00Z; source commit 136130fc1149e51f3cc15b573e22d653e7ad6353; captured HTML SHA256 70b599b3ce34f3e64ee3c7f487e739a6b30c2fafdb227f73efd990fa50c4b481",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/manage-route-table",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "peerings",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
+      "title": "Create, Change, or Delete Azure Virtual Network Peering | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2025-07-29T00:00:00Z; updated_at 2026-08-13T22:14:00Z; source commit bc7263ae7eed82b28fa7e4f44cecfc337dba9928; captured HTML SHA256 1a53e892df336369542b2e9ebd32b8fd5a2454a1b7f782f3744c0773d88ddbb0",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "nic",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface",
+      "title": "Create, Change, or Delete Azure Network Interfaces | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2025-07-28T00:00:00Z; updated_at 2025-10-08T22:11:00Z; source commit 136130fc1149e51f3cc15b573e22d653e7ad6353; captured HTML SHA256 893b2c8de8d36a9e9e1e13994d7bfe66189c451f29ae2fde3942011be56ab8be",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "vm-create",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
+      "title": "Quickstart - Create a Linux VM in the Azure portal - Azure Virtual Machines | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-02-06T00:00:00Z; updated_at 2026-06-24T06:10:00Z; source commit 40aaa64a2771acda033ca09289e1e777241f201e; captured HTML SHA256 584f058f30cc4e9d502da0a1ecad896a0d82d356c1d40d1dbce068f1b0a92f8f",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "managed-disks",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
+      "title": "Overview of Azure Disk Storage - Azure Virtual Machines | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-08-20T00:00:00Z; updated_at 2026-08-20T22:03:00Z; source commit c03e59fad3a617b9072517065c38cbc7ac4dc76b; captured HTML SHA256 eb20ed32dcf9eec7b8c23162040df1427e45020c8a623c3b97abb0fd4a854b62",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/managed-disks-overview",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "firewall-create",
+      "url": "https://learn.microsoft.com/en-us/azure/firewall/tutorial-firewall-deploy-portal-policy",
+      "title": "Tutorial: Deploy and configure Azure Firewall and policy using the Azure portal | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-03-28T00:00:00Z; updated_at 2026-09-14T22:37:00Z; source commit 8a19ea8f2654dcc701c3b684c5791bca0eae8862; captured HTML SHA256 2264ae770d1575c29b9b26996775bbca704a688066b11b3950e21c8b2eeee375",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/firewall/tutorial-firewall-deploy-portal-policy",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "firewall-rules",
+      "url": "https://learn.microsoft.com/en-us/azure/firewall/policy-rule-sets",
+      "title": "Azure Firewall policy rule sets | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-03-28T00:00:00Z; updated_at 2026-03-29T11:12:00Z; source commit 3d2a82da93bec0ad142decf33aed610dc206c95d; captured HTML SHA256 25f0a1b43174ef201f9a2ec7725370896615f1325046c31b67c5190345ed86f9",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/firewall/policy-rule-sets",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "public-ip",
+      "url": "https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses",
+      "title": "Public IP addresses in Azure - Azure Virtual Network | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2025-02-04T00:00:00Z; updated_at 2026-02-25T06:24:00Z; source commit b5d5aac386a4ccf7ce2b17724287294ae14eaab2; captured HTML SHA256 8c3173a04ef6ba075f27fc1d1579e31b794eeed444f90b1ef0d0e6851dc035d0",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "app-plan",
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/app-service-plan-manage",
+      "title": "Manage an App Service Plan - Azure App Service | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-10-06T00:00:00Z; updated_at 2026-10-08T22:13:00Z; source commit b202e5e267d115d07f838915f01274c67c82a055; captured HTML SHA256 1c63bc4d6779031d626bafc08beaf828d0dbd89f9ca3c8bbec6f1be89e335cdd",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/app-service/app-service-plan-manage",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "web-app",
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/quickstart-nodejs?tabs=linux&pivots=development-environment-azure-portal",
+      "title": "Quickstart: Create a Node.js Web App - Azure App Service | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2025-11-18T00:00:00Z; updated_at 2026-10-19T22:15:00Z; source commit cd02c006ff5043bfc6e3bce1be7234ca583d80f8; captured HTML SHA256 8fccd18009a133e91fa7510e36ceb7c616be0f3c3724b5dc0c83c2919f953b1f",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/app-service/quickstart-nodejs?tabs=linux&pivots=development-environment-azure-portal",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "app-settings",
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-common",
+      "title": "Configure an App Service App - Azure App Service | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-11-06T00:00:00Z; updated_at 2026-11-08T12:43:00Z; source commit 52f6a7b2d4898361f5dfdc8720fac26f60e29bf1; captured HTML SHA256 072710bad2d85707d5210507c20f54843ee1bb33b307e916c2f2e99a468b641a",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-common",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
+        }
+      ]
+    },
+    {
+      "id": "gateway-portal-ui",
+      "url": "https://learn.microsoft.com/en-us/azure/application-gateway/create-url-route-portal",
+      "title": "Tutorial: Create an application gateway with URL path-based routing rules using Azure portal | Microsoft Learn",
+      "reviewed": "2026-11-09",
+      "version": "ms.date 2026-07-16T00:00:00Z; updated_at 2026-08-04T17:21:00Z; source commit 25cd1ad08ece26074d4640f21d93c14bacaec0b9; captured HTML SHA256 1be977757d6a78a81276843994dfd2f82bb9c6b2770a08af0c3878f21fe07153",
+      "kind": "official-public-Microsoft",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "availability": "AVAILABLE",
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-create-url-route-portal",
+          "disposition": "reviewed-scope",
+          "reason": "Actual captured public source, title/date/hash and publisher screenshots reviewed for implemented resource scope. Source-specific exclusions and old/current variants are recorded in the matrix and reference register."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "technical-integrated-application-chain-evidence",
-      "objectives": ["LAB-APPLICATION-PLATFORM", "LAB-APPLICATION-DELIVERY", "LAB-DATA-SERVERLESS"],
-      "claims": [
-        "application.resources-and-configuration",
-        "application-delivery.configuration-and-dependencies",
-        "data-serverless.configuration-and-dependencies"
-      ],
-      "limits": "Technical QA journey/evidence binding only, not a new student task. Explicit new3.9 workspaces only. Frozen3.0–3.8, original SQL001–009 and course/v2 evidence remain unchanged. One host World, ID counter, revision, original receipt, replay and existing temporary/PostgreSQL adapters. Configuration analysis is not actual Azure runtime, HTTP, DNS or database authentication. No automatic upgrade/import, course activity or credit. Empty Storage deletion is a conservative simulator restriction, not full Azure cascade behavior. Exact candidate CI/strict/public and fresh post-stamp review remain pending until actual execution; human validation is unperformed.",
-      "theory": [{ "path": "docs/LABORATORY_INTEGRATED_APPLICATION_CHAIN.md" }],
-      "mechanism": [{ "path": "src/laboratory/v39/domain.ts" }],
-      "practice": [{ "path": "tests/e2e/integrated-chain.spec.ts" }],
-      "feedback": [{ "path": "src/features/laboratory/integrated-resource.tsx" }],
-      "visual": [{ "path": "src/features/laboratory/studio-model.ts" }],
-      "accessible": [{ "path": "tests/e2e/integrated-chain.spec.ts" }],
-      "assessment": [{ "path": "src/integrated-platform-preservation.test.ts" }],
+      "id": "portal-fidelity-technical-qa-evidence",
+      "objectives": ["PORTAL-FIDELITY"],
+      "claims": ["portal.fidelity-subset"],
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
+      "theory": [{ "path": "docs/PORTAL_RESOURCE_FIDELITY.md" }],
+      "mechanism": [{ "path": "src/features/portal/resource-context.ts" }],
+      "practice": [{ "path": "tests/e2e/portal-resource-fidelity.spec.ts" }],
+      "feedback": [{ "path": "src/features/portal/resource-details.tsx" }],
+      "visual": [{ "path": "src/features/laboratory/integrated-resource.tsx" }],
+      "accessible": [{ "path": "tests/e2e/portal-resource-fidelity.spec.ts" }],
+      "assessment": [{ "path": "src/portal-fidelity-preservation.test.ts" }],
       "savvyshark": [{ "path": "src/features/course/guided-coach.tsx" }],
       "assessmentStatus": "unchanged-existing"
     }
@@ -618,11 +785,14 @@
     "database/laboratory-v3/007-security-rules.sql",
     "database/laboratory-v3/008-topology-remediation.sql",
     "database/laboratory-v3/009-application-platform.sql",
+    "database/laboratory-v3/010-integrated-application-chain.sql",
     "docs/ACCESS_CONTROL.md",
+    "docs/APPLICATION_DELIVERY_PLATFORM.md",
     "docs/ARCHITECTURE.md",
     "docs/ARCHITECTURE_STUDIO_PART_A.md",
     "docs/ASSESSMENT_REFINEMENT.md",
     "docs/ASSESSMENT_TRANSFER_STAGE_A.md",
+    "docs/ASSET_REGISTER.md",
     "docs/AZ900_ASSESSMENT_BLUEPRINT.md",
     "docs/AZ900_COVERAGE_MATRIX.md",
     "docs/AZ900_DEMO_GUIDE.md",
@@ -652,6 +822,7 @@
     "docs/COURSE_HUB_REDESIGN.md",
     "docs/COURSE_LAB_ORCHESTRATION.md",
     "docs/CURRICULUM_COVERAGE.md",
+    "docs/DATA_SERVERLESS_DOMAIN.md",
     "docs/DECISIONS.md",
     "docs/DEPENDENCY_FOLLOWUP.md",
     "docs/DESIGN_SYSTEM.md",
@@ -684,11 +855,15 @@
     "docs/LABORATORY_COURSE_INTEGRATION_PLAN.md",
     "docs/LABORATORY_EPHEMERAL_LANDING.md",
     "docs/LABORATORY_FIREWALL_PART_A.md",
+    "docs/LABORATORY_INTEGRATED_APPLICATION_CHAIN.md",
+    "docs/LABORATORY_INTEGRATED_CAPABILITIES.md",
+    "docs/LABORATORY_INTEGRATED_ICONS.md",
     "docs/LABORATORY_NETWORKING_PART_A.md",
     "docs/LABORATORY_NETWORKING_PART_B.md",
     "docs/LABORATORY_NETWORKING_PART_C.md",
     "docs/LABORATORY_PLATFORM_CONTRACT.md",
     "docs/LABORATORY_PLATFORM_HANDOVER.md",
+    "docs/LABORATORY_REMEDIATION_CAPABILITIES.md",
     "docs/LABORATORY_SCENARIO_CONTRACT_PROPOSAL.md",
     "docs/LABORATORY_SECURITY_REMEDIATION_PART_A.md",
     "docs/LABORATORY_STAGE1_BLOCKER.md",
@@ -710,11 +885,10 @@
     "docs/PAAS_LAB_REFINEMENT.md",
     "docs/PARALLEL_RESOURCE_PLATFORM.md",
     "docs/PLAYER_ONBOARDING.md",
-    "docs/PORTAL_ICONOGRAPHY.md",
+    "docs/PORTAL_CAPABILITY_MATRIX.md",
     "docs/PORTAL_INSPECTION_BRIDGE.md",
     "docs/PORTAL_LEARNING_EXPERIENCE.md",
     "docs/PORTAL_PRODUCT_STRATEGY.md",
-    "docs/PORTAL_REFERENCE_FIDELITY.md",
     "docs/PORTAL_SANDBOX_ARCHITECTURE.md",
     "docs/PR51_OWNER_ACCEPTANCE.md",
     "docs/PRACTICAL_LABS_QA.md",
@@ -722,7 +896,6 @@
     "docs/PREMIUM_LANDING.md",
     "docs/PRODUCT_BLUEPRINT.md",
     "docs/PRODUCT_VISION.md",
-    "docs/PROJECT_STATUS.md",
     "docs/PUBLIC_ACCESS_REVIEW.md",
     "docs/QUALITY_CONTRACT.md",
     "docs/RELEASE_ACCEPTANCE.md",
@@ -753,6 +926,9 @@
     "docs/licenses/lucide-react-1.61.0.txt",
     "docs/quality/APPLICATION_PLATFORM_FINAL_AUDIT.md",
     "docs/quality/APPLICATION_PLATFORM_QA.md",
+    "docs/quality/INTEGRATED_APPLICATION_CHAIN_FINAL_AUDIT.md",
+    "docs/quality/INTEGRATED_APPLICATION_CHAIN_QA.md",
+    "docs/quality/INTEGRATED_APPLICATION_CHAIN_RELEASE_REVIEW.md",
     "docs/quality/PR20_FINAL_AUDIT.md",
     "docs/quality/PR21_FINAL_AUDIT.md",
     "docs/quality/PR22_FINAL_AUDIT.md",
@@ -945,6 +1121,57 @@
     "docs/reviews/evidence/hybrid51-design-sources.json",
     "docs/reviews/evidence/hybrid51-preservation.json",
     "docs/reviews/evidence/inspection48-preservation.json",
+    "docs/reviews/evidence/integrated-application-chain/baseline/BASELINE_CI_REVIEW.md",
+    "docs/reviews/evidence/integrated-application-chain/baseline/BASELINE_CI_REVIEW.md.raw",
+    "docs/reviews/evidence/integrated-application-chain/baseline/BASELINE_CI_VERIFICATION.json",
+    "docs/reviews/evidence/integrated-application-chain/baseline/BASELINE_CI_VERIFICATION.json.raw",
+    "docs/reviews/evidence/integrated-application-chain/baseline/copy-provenance.json",
+    "docs/reviews/evidence/integrated-application-chain/icons/provenance.json",
+    "docs/reviews/evidence/integrated-application-chain/module-provenance.json",
+    "docs/reviews/evidence/integrated-application-chain/preservation.json",
+    "docs/reviews/evidence/integrated-application-chain/qa/fullcheck-pre-icons-FAILED.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/icons-mapping-final.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/jsonb-http-function-noop-green.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/jsonb-http-function-noop-red.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/native-corrected-precision-initial.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/native-final-affected.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/native-function-label-initial-context.md.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/native-function-label-initial.trace.zip",
+    "docs/reviews/evidence/integrated-application-chain/qa/native-initial.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/native-post-icons.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/native-post-noop-and-inherited.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/native-studio-receipt-href-initial-context.md.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/native-studio-receipt-href-initial.trace.zip",
+    "docs/reviews/evidence/integrated-application-chain/qa/normal-build-post-icons-interrupted-UNKNOWN.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/normal-build-post-icons.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/normal-build-post-noop.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/preservation-corrected.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/preservation-import-adapter-initial.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/production-build-types-initial.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/targeted-domain-api-pg-corrected.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/qa/targeted-jsonb-final.log.raw",
+    "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/capture-provenance.json",
+    "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/front-door-detection-analysis.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-chain-1440x900.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-function-and-storage-family-row-icons.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-function-storage-dependencies.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-official-family-and-inherited-row-icons.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-sql-binding-dependency.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-waf-family-row-icon.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/private-gateway-probe-analysis.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots/capture-provenance.json",
+    "docs/reviews/evidence/integrated-application-chain/screenshots/desktop-integrated-initial-1440x900.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots/front-door-detection-analysis.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-chain-1440x900.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-function-storage-dependencies.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-initial-800x700.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-original-storage-create-after-delete.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-pg-jsonb-noop-and-real-change.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-review-1024x500.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-review-1024x768.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-review-1440x900.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-sql-binding-dependency.png",
+    "docs/reviews/evidence/integrated-application-chain/screenshots/private-gateway-probe-analysis.png",
     "docs/reviews/evidence/laboratory-stage0/command-golden.json",
     "docs/reviews/evidence/laboratory-stage0/local/app.png",
     "docs/reviews/evidence/laboratory-stage0/local/hub.png",
@@ -2738,16 +2965,23 @@
     "public/icons/azure/10007-icon-service-Resource-Groups.svg",
     "public/icons/azure/10011-icon-service-Management-Groups.svg",
     "public/icons/azure/10021-icon-service-Virtual-Machine.svg",
+    "public/icons/azure/10029-icon-service-Function-Apps.svg",
     "public/icons/azure/10032-icon-service-Disks.svg",
     "public/icons/azure/10035-icon-service-App-Services.svg",
     "public/icons/azure/10061-icon-service-Virtual-Networks.svg",
     "public/icons/azure/10067-icon-service-Network-Security-Groups.svg",
     "public/icons/azure/10069-icon-service-Public-IP-Addresses.svg",
+    "public/icons/azure/10073-icon-service-Front-Door-and-CDN-Profiles.svg",
+    "public/icons/azure/10076-icon-service-Application-Gateways.svg",
     "public/icons/azure/10080-icon-service-Network-Interfaces.svg",
     "public/icons/azure/10082-icon-service-Route-Tables.svg",
     "public/icons/azure/10084-icon-service-Firewalls.svg",
     "public/icons/azure/10086-icon-service-Storage-Accounts.svg",
+    "public/icons/azure/10130-icon-service-SQL-Database.svg",
+    "public/icons/azure/10131-icon-service-Azure-Database-PostgreSQL-Server.svg",
+    "public/icons/azure/10132-icon-service-SQL-Server.svg",
     "public/icons/azure/10316-icon-service-Policy.svg",
+    "public/icons/azure/10362-icon-service-Web-Application-Firewall-Policies-WAF.svg",
     "public/icons/azure/10780-icon-service-Blob-Block.svg",
     "public/icons/azure/10839-icon-service-Storage-Container.svg",
     "public/icons/fluent/add_16_regular.svg",
@@ -2772,6 +3006,7 @@
     "public/icons/fluent/text_bullet_list_square_16_regular.svg",
     "public/icons/licenses/Fluent-MIT.txt",
     "public/icons/licenses/Microsoft_Terms_of_Use.pdf",
+    "public/icons/manifest.json",
     "public/mascot/manifest.json",
     "public/mascot/savvy-shark-default.png",
     "quality/fixtures/valid-release.json",
@@ -2789,6 +3024,7 @@
     "scripts/e2e-shard-plan.mjs",
     "scripts/e2e-shard-runner.mjs",
     "scripts/e2e-shard.test.mjs",
+    "scripts/laboratory-db.mjs",
     "scripts/legacy-check.mjs",
     "scripts/next.mjs",
     "scripts/quality-check.mjs",
@@ -2796,6 +3032,7 @@
     "scripts/verify-desktop-ci.mjs",
     "src/app/api/laboratory/analysis/route.ts",
     "src/app/api/laboratory/command/route.ts",
+    "src/app/api/laboratory/ephemeral/route.ts",
     "src/app/api/laboratory/policy-analysis/route.ts",
     "src/app/api/laboratory/review/route.ts",
     "src/app/api/laboratory/session/route.ts",
@@ -2829,12 +3066,15 @@
     "src/content/laboratory-endpoints-nb.ts",
     "src/content/laboratory-ephemeral-nb.ts",
     "src/content/laboratory-firewall-nb.ts",
+    "src/content/laboratory-integrated-data-nb.ts",
+    "src/content/laboratory-integrated-delivery-nb.ts",
     "src/content/laboratory-networking-nb.ts",
     "src/content/laboratory-remediation-nb.ts",
     "src/content/laboratory-routing-nb.ts",
     "src/content/laboratory-topology-nb.ts",
     "src/content/learning-journey.ts",
     "src/content/nb.ts",
+    "src/content/portal-workspace-nb.ts",
     "src/content/shared-portal-nb.ts",
     "src/domain/assessment.ts",
     "src/domain/chapter01/model.test.ts",
@@ -3063,14 +3303,32 @@
     "src/features/design-review/preservation.test.ts",
     "src/features/design-review/visual-review.css",
     "src/features/design-review/visual-review.tsx",
+    "src/features/laboratory/application.tsx",
+    "src/features/laboratory/capabilities.ts",
+    "src/features/laboratory/compute.tsx",
+    "src/features/laboratory/endpoints.tsx",
+    "src/features/laboratory/ephemeral-client.ts",
+    "src/features/laboratory/firewall.tsx",
+    "src/features/laboratory/integrated-data.test.ts",
+    "src/features/laboratory/integrated-data.tsx",
+    "src/features/laboratory/integrated-delivery.test.ts",
+    "src/features/laboratory/integrated-delivery.tsx",
+    "src/features/laboratory/integrated-icons.test.ts",
+    "src/features/laboratory/integrated-icons.ts",
+    "src/features/laboratory/integrated-storage.tsx",
     "src/features/laboratory/laboratory.css",
+    "src/features/laboratory/networking.tsx",
     "src/features/laboratory/portal-adapter.test.ts",
+    "src/features/laboratory/routing.tsx",
     "src/features/laboratory/rule-lifecycle.css",
+    "src/features/laboratory/rule-lifecycle.tsx",
     "src/features/laboratory/scope-projection.ts",
     "src/features/laboratory/studio-location.ts",
+    "src/features/laboratory/studio-model.ts",
     "src/features/laboratory/studio.css",
     "src/features/laboratory/studio.tsx",
     "src/features/laboratory/topology-access.tsx",
+    "src/features/laboratory/topology-target.ts",
     "src/features/landing/course-status-badge.tsx",
     "src/features/landing/course-status.ts",
     "src/features/landing/landing.css",
@@ -3232,7 +3490,6 @@
     "src/features/portal/create-resource.tsx",
     "src/features/portal/guide-recovery.css",
     "src/features/portal/guide-recovery.tsx",
-    "src/features/portal/home.tsx",
     "src/features/portal/infrastructure-details.tsx",
     "src/features/portal/inspection-evidence.tsx",
     "src/features/portal/inventory.tsx",
@@ -3241,7 +3498,6 @@
     "src/features/portal/portal.css",
     "src/features/portal/portal.tsx",
     "src/features/portal/presentation.css",
-    "src/features/portal/presentation.tsx",
     "src/features/portal/receipt-panel.tsx",
     "src/features/portal/receipts.css",
     "src/features/portal/responsibility.tsx",
@@ -3250,8 +3506,10 @@
     "src/features/portal/saas.css",
     "src/features/portal/sandbox-provider.tsx",
     "src/features/portal/scope-projection.ts",
+    "src/features/portal/service-catalog.ts",
     "src/features/portal/service-icon.test.ts",
     "src/features/portal/service-icon.tsx",
+    "src/features/portal/shared-shell.test.ts",
     "src/features/portal/shared.tsx",
     "src/features/portal/subscriptions.tsx",
     "src/features/portal/vm-form.tsx",
@@ -3261,6 +3519,7 @@
     "src/laboratory-application.test.ts",
     "src/laboratory-compute-preservation.test.ts",
     "src/laboratory-compute.integration.test.ts",
+    "src/laboratory-compute.test.ts",
     "src/laboratory-contract.test.ts",
     "src/laboratory-endpoints-preservation.test.ts",
     "src/laboratory-endpoints.integration.test.ts",
@@ -3270,6 +3529,9 @@
     "src/laboratory-firewall-preservation.test.ts",
     "src/laboratory-firewall.integration.test.ts",
     "src/laboratory-firewall.test.ts",
+    "src/laboratory-integrated-api.test.ts",
+    "src/laboratory-integrated.integration.test.ts",
+    "src/laboratory-integrated.test.ts",
     "src/laboratory-networking-preservation.test.ts",
     "src/laboratory-networking.integration.test.ts",
     "src/laboratory-networking.test.ts",
@@ -3289,9 +3551,19 @@
     "src/laboratory-v3-preservation.test.ts",
     "src/laboratory-v3.integration.test.ts",
     "src/laboratory-v3.test.ts",
+    "src/laboratory/data/analysis.ts",
+    "src/laboratory/data/contract.ts",
+    "src/laboratory/data/data.test.ts",
+    "src/laboratory/data/domain.ts",
+    "src/laboratory/delivery/analysis.ts",
+    "src/laboratory/delivery/contract.ts",
+    "src/laboratory/delivery/domain.test.ts",
+    "src/laboratory/delivery/domain.ts",
+    "src/laboratory/engine.ts",
     "src/laboratory/v3/contract.ts",
     "src/laboratory/v3/domain.ts",
     "src/laboratory/v3/repository.ts",
+    "src/laboratory/v3/server.ts",
     "src/laboratory/v31/contract.ts",
     "src/laboratory/v31/default-rules.ts",
     "src/laboratory/v31/domain.ts",
@@ -3328,15 +3600,21 @@
     "src/laboratory/v38/contract.ts",
     "src/laboratory/v38/domain.ts",
     "src/laboratory/v38/projection.ts",
+    "src/laboratory/v39/analysis.ts",
+    "src/laboratory/v39/contract.ts",
+    "src/laboratory/v39/domain.ts",
+    "src/laboratory/v39/projection.ts",
     "src/pr72-ci-workflow.test.ts",
     "src/pr72-shared-portal-preservation.test.ts",
     "src/resource-platform-ci-workflow.test.ts",
+    "src/resource-platform-preservation.test.ts",
     "src/shared-portal-preservation.test.ts",
     "tests/cc01-preservation.ts",
     "tests/cc02-fixture.ts",
     "tests/cc02-preservation.ts",
     "tests/cc03-preservation.ts",
     "tests/e2e/access-control.spec.ts",
+    "tests/e2e/application-platform.spec.ts",
     "tests/e2e/application-transfer.spec.ts",
     "tests/e2e/architecture-management.spec.ts",
     "tests/e2e/architecture-physical.spec.ts",
@@ -3357,7 +3635,6 @@
     "tests/e2e/course.spec.ts",
     "tests/e2e/curriculum-expansion.spec.ts",
     "tests/e2e/dialog-placement.spec.ts",
-    "tests/e2e/ephemeral-actions.ts",
     "tests/e2e/ephemeral-landing.spec.ts",
     "tests/e2e/file-movement-migration.spec.ts",
     "tests/e2e/final-quality-sprint.spec.ts",
@@ -3366,7 +3643,6 @@
     "tests/e2e/guided-learning-polish.spec.ts",
     "tests/e2e/hybrid-experience.spec.ts",
     "tests/e2e/identity-foundations.spec.ts",
-    "tests/e2e/laboratory-actions.ts",
     "tests/e2e/laboratory-activation.spec.ts",
     "tests/e2e/laboratory-compute.spec.ts",
     "tests/e2e/laboratory-endpoints.spec.ts",
@@ -3436,398 +3712,216 @@
     "tests/pr70-preservation.ts",
     "tests/pr71-preservation.ts",
     "tests/pr72-preservation.ts",
+    "tests/resource-platform-preservation.ts",
     "tsconfig.json",
     "vitest.config.ts"
   ],
   "gates": {
     "source": {
-      "checks": [
-        {
-          "path": "docs/reviews/evidence/integrated-application-chain/module-provenance.json"
-        }
-      ],
-      "limits": "Explicit new3.9 workspaces only. Frozen3.0–3.8, original SQL001–009 and course/v2 evidence remain unchanged. One host World, ID counter, revision, original receipt, replay and existing temporary/PostgreSQL adapters. Configuration analysis is not actual Azure runtime, HTTP, DNS or database authentication. No automatic upgrade/import, course activity or credit. Empty Storage deletion is a conservative simulator restriction, not full Azure cascade behavior. Exact candidate CI/strict/public and fresh post-stamp review remain pending until actual execution; human validation is unperformed."
+      "checks": [{ "path": "docs/reviews/evidence/portal-resource-fidelity/public-sources.json" }],
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "curriculum": {
-      "checks": [{ "path": "src/integrated-platform-preservation.test.ts" }],
-      "limits": "Explicit new3.9 workspaces only. Frozen3.0–3.8, original SQL001–009 and course/v2 evidence remain unchanged. One host World, ID counter, revision, original receipt, replay and existing temporary/PostgreSQL adapters. Configuration analysis is not actual Azure runtime, HTTP, DNS or database authentication. No automatic upgrade/import, course activity or credit. Empty Storage deletion is a conservative simulator restriction, not full Azure cascade behavior. Exact candidate CI/strict/public and fresh post-stamp review remain pending until actual execution; human validation is unperformed."
+      "checks": [{ "path": "src/portal-fidelity-preservation.test.ts" }],
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "simulation": {
-      "checks": [{ "path": "src/laboratory-integrated.integration.test.ts" }],
-      "limits": "Explicit new3.9 workspaces only. Frozen3.0–3.8, original SQL001–009 and course/v2 evidence remain unchanged. One host World, ID counter, revision, original receipt, replay and existing temporary/PostgreSQL adapters. Configuration analysis is not actual Azure runtime, HTTP, DNS or database authentication. No automatic upgrade/import, course activity or credit. Empty Storage deletion is a conservative simulator restriction, not full Azure cascade behavior. Exact candidate CI/strict/public and fresh post-stamp review remain pending until actual execution; human validation is unperformed."
+      "checks": [{ "path": "src/portal-fidelity-preservation.test.ts" }],
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "savvyshark": {
-      "checks": [{ "path": "src/integrated-platform-preservation.test.ts" }],
-      "limits": "Explicit new3.9 workspaces only. Frozen3.0–3.8, original SQL001–009 and course/v2 evidence remain unchanged. One host World, ID counter, revision, original receipt, replay and existing temporary/PostgreSQL adapters. Configuration analysis is not actual Azure runtime, HTTP, DNS or database authentication. No automatic upgrade/import, course activity or credit. Empty Storage deletion is a conservative simulator restriction, not full Azure cascade behavior. Exact candidate CI/strict/public and fresh post-stamp review remain pending until actual execution; human validation is unperformed."
+      "checks": [{ "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md" }],
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "visual-accessibility": {
-      "checks": [
-        { "path": "tests/e2e/integrated-chain.spec.ts" },
-        { "path": "src/features/laboratory/integrated-icons.ts" }
-      ],
-      "limits": "Explicit new3.9 workspaces only. Frozen3.0–3.8, original SQL001–009 and course/v2 evidence remain unchanged. One host World, ID counter, revision, original receipt, replay and existing temporary/PostgreSQL adapters. Configuration analysis is not actual Azure runtime, HTTP, DNS or database authentication. No automatic upgrade/import, course activity or credit. Empty Storage deletion is a conservative simulator restriction, not full Azure cascade behavior. Exact candidate CI/strict/public and fresh post-stamp review remain pending until actual execution; human validation is unperformed."
+      "checks": [{ "path": "tests/e2e/portal-resource-fidelity.spec.ts" }],
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "independent-final-audit": {
-      "checks": [{ "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_FINAL_AUDIT.md" }],
-      "limits": "Explicit new3.9 workspaces only. Frozen3.0–3.8, original SQL001–009 and course/v2 evidence remain unchanged. One host World, ID counter, revision, original receipt, replay and existing temporary/PostgreSQL adapters. Configuration analysis is not actual Azure runtime, HTTP, DNS or database authentication. No automatic upgrade/import, course activity or credit. Empty Storage deletion is a conservative simulator restriction, not full Azure cascade behavior. Exact candidate CI/strict/public and fresh post-stamp review remain pending until actual execution; human validation is unperformed."
+      "checks": [{ "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md" }],
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "delivery": {
-      "checks": [
-        {
-          "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_RELEASE_REVIEW.md"
-        },
-        { "path": "docs/LABORATORY_INTEGRATED_CAPABILITIES.md" }
-      ],
-      "limits": "Explicit new3.9 workspaces only. Frozen3.0–3.8, original SQL001–009 and course/v2 evidence remain unchanged. One host World, ID counter, revision, original receipt, replay and existing temporary/PostgreSQL adapters. Configuration analysis is not actual Azure runtime, HTTP, DNS or database authentication. No automatic upgrade/import, course activity or credit. Empty Storage deletion is a conservative simulator restriction, not full Azure cascade behavior. Exact candidate CI/strict/public and fresh post-stamp review remain pending until actual execution; human validation is unperformed."
+      "checks": [{ "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_RELEASE_REVIEW.md" }],
+      "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     }
   },
   "humanReview": { "sme": "unperformed", "learning": "unperformed" },
   "visualEvidence": [
     {
-      "path": "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-official-family-and-inherited-row-icons.png",
-      "viewport": "1440x900",
+      "path": "docs/reviews/evidence/portal-resource-fidelity/after/function-app-overview.png",
+      "viewport": "1440×960",
       "inspected": true,
-      "observation": "Root inspected actual ordinary AllResources: FrontDoor,PostgreSQL,WebApp/Plan and existingVM/NIC/disk/VNet rows have explicit servicefamilyglyphs; no greenfallback for these actualnewrows. Current overfullglobalchildnavigation remains a documented MAJOR Portalfidelity gap for isolatedcompanionfix; this capture is not visualproductapproval."
+      "observation": "Personally inspected actual production capture: bounded root Favorites, native Function App resource menu with Functions/configuration/networking/bindings, human hosting and Storage relationships, closed technical evidence; no mandatory free-mode SavvyShark."
     },
     {
-      "path": "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-function-and-storage-family-row-icons.png",
-      "viewport": "1440x900",
+      "path": "docs/reviews/evidence/portal-resource-fidelity/after/front-door-route-chain.png",
+      "viewport": "1440×960",
       "inspected": true,
-      "observation": "Root inspected actualcreatedFunctionApp/functions/FC1plan/Storage rows: correctexplicitfamilyglyphs and actualresourceidentities. The stillflatglobalchildmenu is real ownerreportedgap, not acceptedfidelity."
+      "observation": "Personally inspected actual native endpoint capture: Front Door profile/endpoint breadcrumb and resource Routes context, family icon, named scope/parent and closed original evidence; read-only configuration analysis remains explicitly simulated."
+    },
+    {
+      "path": "docs/reviews/evidence/portal-resource-fidelity/after/gateway-analysis.png",
+      "viewport": "1440×960",
+      "inspected": true,
+      "observation": "Personally inspected actual native Gateway capture: backend/listener/probe/settings/rule menu in gateway context, Standard_v2 private configuration and named subnet, no invented WAF/runtime controls, conservative analysis."
+    },
+    {
+      "path": "docs/reviews/evidence/portal-resource-fidelity/after/guided-native-coach.png",
+      "viewport": "1440×900",
+      "inspected": true,
+      "observation": "Personally inspected actual guided course capture: original approved SavvyShark visible with contextual briefing, minimize control and exact course return; shared native Portal Home/header/menu remain intact."
+    },
+    {
+      "path": "docs/reviews/evidence/portal-resource-fidelity/after/resource-group-review-1440x900.png",
+      "viewport": "1440×900",
+      "inspected": true,
+      "observation": "Personally inspected final native Resource Group Review: actual Home→Resource groups→Create breadcrumb, Basics/Review stage, Validation passed, human subscription/name/region, explicit Create/Previous/Cancel and closed technical evidence; earlier empty gap removed."
+    },
+    {
+      "path": "docs/reviews/evidence/portal-resource-fidelity/after/resource-group-review-1024x500.png",
+      "viewport": "1024×500",
+      "inspected": true,
+      "observation": "Personally inspected actual scrolled compact Group Review: supported fields and commit controls remain reachable at short desktop; screenshot follows ordinary scrollIntoView and does not claim initial unscrolled viewport fit."
     }
   ],
   "verification": [
     {
-      "command": "PR75 complete authoritative baseline CI",
+      "command": "exact parent complete technical CI",
       "result": "passed",
-      "details": "Exact base5b2e814b9f4bae1aa3c2fe4e79cd3a4e53029484: Quality126 run42672514055 attempt3 completed fullcheck (1172 Vitest/100 files,35 Node,503 curriculum,real PostgreSQL,build and high audit),475/475 browser attempts with no retry/skip, exact aggregate and strict release. This is base provenance, not new3.9 candidate credit. Prior outage/timing failures and the local fourth-bundle download limit are retained explicitly."
+      "details": "Parentc4119f3f770d6767881dc5ee455686cbae0150d7 Quality129/run42708661408 attempt1:1377Vitest/109+35Node+503curriculum/realPG/build/highaudit; complete484-case aggregate483direct+1originalFirewallPropertiesflake/485attempts. Strict rejected ONLY parentIAC05/IAC06; no parentproductapproval/waiver. Originaltrace/sanitizedcausalsummary retained, targetkeydownunrecorded; newsource requires fresh completeCI/strict/public."
     },
     {
-      "command": "post-no-op targeted domain/API/PostgreSQL",
+      "command": "npm run test:e2e:plan",
       "result": "passed",
-      "details": "225/225 across ten targeted files: exact reused modules, UI metadata, host key-order/no-op variants, real isolated PostgreSQL8 including actual RED→GREEN JSONB reproduction, temporary API3 and retained3.8 domain/API/PG. Frozen module bytes remain exact; no damaged historical model is repaired."
+      "details": "Actual complete local collection exit0:490=438desktop+52compact, legacy876 retained, workers1 and original retries/timeouts/assertions. This is collection, not full execution or strict-release credit."
     },
     {
-      "command": "current production native integration and inherited App3.8",
+      "command": "bounded native desktop and compact regression",
       "result": "passed",
-      "details": "Fresh post-NoOp build and compiled guard verified.9/9 new native executions (eight desktop plus actual initial800compact) and6/6 retained3.8 executions passed with original assertions, including real PostgreSQL/reload, original receipts, lifecycle and keyboard/Axe. Actual plan484=433desktop+51compact, worker1, no new retries/timeouts/skips. This is targeted native evidence, not complete candidateCI."
-    },
-    {
-      "command": "owner Portal fidelity correction",
-      "result": "blocked",
-      "details": "New owner instruction explicitly rejects flat child/configuration Favorites and generic/raw primary resource pages. These known presentation gaps remain visible in this technical base and require the separate isolated Portal-fidelity candidate. Technical selected checks do not close them or grant whole-product visual approval. No quality gate may be downgraded or reported green to hide this."
-    },
-    {
-      "command": "original raw build evidence checkout integrity",
-      "result": "passed",
-      "details": "Checkpoint25d normalized two CRLF original logs in Git despite raw-proof source hashes. Two exact -text attributes preserve originalbytes, append-only attributes and Gitcheck-attr tested. No broad raw exclusion, source log rewrite or historicalpath change. Actual Gitblob/working/proof bytes checked again before publication."
-    },
-    {
-      "command": "post-icons whole npm run check",
-      "result": "failed",
-      "details": "Explicitexit1:1373/1377 Vitest in109files; four tests exceededunchanged5000ms (integratedPGchain5694ms, historical3.5upgrade5454ms, routingrawpreservation7181ms, topologyrawpreservation6876ms). All precedinggates incl503curriculum passed. Exactunchanged4filetargeted30/30 retest0 verifiesaffectedbehavior only, causeOPEN. Subsequentunchangedreruninterrupted130 for originalrawGitcheckoutintegrity repair; no fullcheck credit."
-    },
-    {
-      "command": "npm run check",
-      "result": "passed",
-      "details": "Final125-file source f4cb86a1262d2de6708439ee4ec450ea7f5ee7a66f802b582f18073de5f4b3f1, actualterminalexit0 in a-final-fullcheck-post-qa-format.exit.1377/1377Vitest109files,35Node,503curriculum30files,real isolatedPostgreSQL,allmandatorycontracts and finalnormalbuildTS6.8s16routes. LogSHA256c434da440bf84bf20dce64daba0dcfc0238fda66dc7e33a62a638adddf8f5277. Priorwhole4timeoutRED/exact30green/interrupted130/QAformatred arepreserved; unchangedgreenrerundoesnotclosetimingcause. CompleteCI/strict/productfidelityremainseparategates."
+      "details": "Actual final six cases passed in1.9minutes without retry: original integrated Review viewports, original Firewall Properties/original receipt keyboard+Axe, new Resource Group/PG Review/breadcrumb/readable Overview/reduced-motion/Axe. Earlier diagnostic10/14 contains three inherited cumulative deadlines plus corrected NEW hidden-Home harness; all failures retained, no root-cause closure inferred."
     }
   ],
   "review": {
-    "status": "complete",
-    "fingerprint": "f4cb86a1262d2de6708439ee4ec450ea7f5ee7a66f802b582f18073de5f4b3f1",
-    "reviewer": {
-      "id": "integrated-application-chain-independent-final-audit",
-      "kind": "agent"
-    },
-    "started": "2026-11-09T21:53:00.723Z",
-    "domains": {
-      "content": {
-        "finding": "Exact dated module source/provenance and explicit simulator limits preserve technical truth without new curriculum, runtime, authentication or learning claims. Gateway Delete location copy is qualified. No fresh full Microsoft-source traversal or human SME approval is claimed.",
-        "evidence": [
-          { "path": "docs/LABORATORY_INTEGRATED_APPLICATION_CHAIN.md" },
-          { "path": "docs/LABORATORY_INTEGRATED_CAPABILITIES.md" },
-          {
-            "path": "docs/reviews/evidence/integrated-application-chain/module-provenance.json"
-          },
-          { "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_FINAL_AUDIT.md" }
-        ]
-      },
-      "technical": {
-        "finding": "One explicit3.9 host/World/revision/ID/receipt/replay and both original storage adapters; exact copied modules remain proposals. Independent55 selected cases plus2 own key-order/migration probes passed, including actual PG, original IDs, stale/rollback/reset/through, all7 data Update no-op cases and real001…009→010 repeated setup preserving all9 old models. Actual HEAD checkout matches all125 inputs/30 finite old paths/94 additions; frozen engines/SQL/history preserved.",
-        "evidence": [
-          { "path": "src/laboratory/v39/domain.ts" },
-          { "path": "src/laboratory/v39/projection.ts" },
-          { "path": "src/laboratory-integrated.integration.test.ts" },
-          {
-            "path": "database/laboratory-v3/010-integrated-application-chain.sql"
-          },
-          { "path": "src/integrated-platform-preservation.test.ts" },
-          { "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_FINAL_AUDIT.md" }
-        ]
-      },
-      "visual": {
-        "finding": "Viewed12 original+8 corrected author PNGs and6 fresh independent normal-bundle images; all20 author copies match actual capture sources. Exact seven V24 SVGs and original44 asset/15 alias/license records preserved; real decoded family/title/row checks and current native journeys pass. IAC-05 flattened child navigation and IAC-06 generic/raw primary resource presentation remain MAJOR OPEN and block whole-product visual/release acceptance. No overall Portal, human UX or screen-reader approval.",
-        "evidence": [
-          { "path": "public/icons/manifest.json" },
-          { "path": "src/features/laboratory/integrated-icons.test.ts" },
-          { "path": "src/features/portal/service-catalog.ts" },
-          { "path": "src/features/laboratory/integrated-resource.tsx" },
-          {
-            "path": "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-chain-1440x900.png"
-          },
-          {
-            "path": "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-function-storage-dependencies.png"
-          },
-          { "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_FINAL_AUDIT.md" }
-        ]
-      },
-      "assessment": {
-        "finding": "Direct full-base raw comparison preserves every old bank, rubric, first/help/retry/abandon, completion/course history and XP authority. Actual native courseBytes assertions pass. No commands or configuration results become competence evidence. Existing course-v2 still uses its different frozen engine; full course consolidation is unimplemented.",
-        "evidence": [
-          { "path": "src/integrated-platform-preservation.test.ts" },
-          { "path": "tests/e2e/integrated-chain.spec.ts" },
-          { "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_FINAL_AUDIT.md" }
-        ]
-      },
-      "guidance": {
-        "finding": "All old guidance, independent-context, mission and mascot bytes preserved. Free3.9 introduces no SavvyShark guide, automatic assistance, course learning authority or reward. Human learning/usability validation remains unperformed.",
-        "evidence": [
-          { "path": "src/integrated-platform-preservation.test.ts" },
-          { "path": "docs/LABORATORY_INTEGRATED_APPLICATION_CHAIN.md" },
-          { "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_FINAL_AUDIT.md" }
-        ]
-      },
-      "regression": {
-        "finding": "Actual canonical npm run check exit0 independently read and SHA256-verified:1377 Vitest/109 files,35 Node,503 curriculum, real PG and normal build. Independent55+2 probes and4 native journeys exit0; plan484=433 desktop+51 compact, worker1. Earlier compatibility failure, four unchanged5000ms timeouts, interrupted130 and QA-format stop are retained; cause remains open. Complete exact-head candidate browser CI/strict/anonymous full-SHA journey remain pending; strict must reject two MAJOR product findings.",
-        "evidence": [
-          { "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_QA.md" },
-          { "path": "src/integrated-platform-preservation.test.ts" },
-          { "path": "tests/e2e/integrated-chain.spec.ts" },
-          { "path": "tests/e2e/integrated-delivery.spec.ts" },
-          { "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_FINAL_AUDIT.md" }
-        ]
-      }
-    },
-    "findings": [
-      {
-        "id": "IAC-00",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Pre-stamp coordinator finding: actual JSONB nested key ordering falsely accepted a same-value HTTP Function update and made the next read unverifiable.",
-        "fix": "New3.9 host canonically compares nonnull data before/after proposals before revision/commit; original module bytes unchanged and no old history is repaired.",
-        "retests": [
-          {
-            "path": "docs/reviews/evidence/integrated-application-chain/qa/jsonb-http-function-noop-red.log.raw"
-          },
-          { "path": "src/laboratory-integrated.integration.test.ts" },
-          { "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_FINAL_AUDIT.md" }
-        ]
-      },
-      {
-        "id": "IAC-01",
-        "severity": "major",
-        "status": "fixed",
-        "description": "All23 new catalogue kinds and new Delivery/Data rows substituted All Resources artwork, contrary to explicit service identity/no-generic-fallback contract. Existing VM/Storage/Web rows were not affected.",
-        "fix": "Seven exact Microsoft V24 family SVGs, explicit registry/mapping, typed firewall parent identities and decoded catalogue/title/row regressions; exact Portal variant remains UNVERIFIED.",
-        "retests": [
-          { "path": "src/features/laboratory/integrated-icons.test.ts" },
-          { "path": "docs/LABORATORY_INTEGRATED_ICONS.md" },
-          {
-            "path": "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-official-family-and-inherited-row-icons.png"
-          },
-          { "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_FINAL_AUDIT.md" }
-        ]
-      },
-      {
-        "id": "IAC-02",
-        "severity": "minor",
-        "status": "fixed",
-        "description": "Integration copy overclaimed regional location for every gateway receipt; exact nested Delete proposals can retain null location with actual parent/before evidence.",
-        "fix": "Qualified the current integration document without changing module bytes or historical/new receipt fields.",
-        "retests": [
-          { "path": "docs/LABORATORY_INTEGRATED_APPLICATION_CHAIN.md" },
-          { "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_FINAL_AUDIT.md" }
-        ]
-      },
-      {
-        "id": "IAC-03",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Mandatory whole check failed the historical catalogue assertion when new3.9 entered its no-App-Services branch.",
-        "fix": "Minimal condition adds3.9 alongside3.8; all original old-model assertions remain exact. Independent55-case affected batch and final canonical full check passed.",
-        "retests": [
-          { "path": "src/features/portal/shared-shell.test.ts" },
-          { "path": "src/integrated-platform-preservation.test.ts" },
-          { "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_FINAL_AUDIT.md" }
-        ]
-      },
-      {
-        "id": "IAC-04",
-        "severity": "major",
-        "status": "fixed",
-        "description": "First source checkpoint normalized two original CRLF build captures in Git despite raw filesystem/proof bindings.",
-        "fix": "Append only two exact -text paths; original raw bytes retained. Independently compared every proof byte in an actual separate HEAD checkout plus direct two-log Git comparisons.",
-        "retests": [
-          { "path": ".gitattributes" },
-          { "path": "src/integrated-platform-preservation.test.ts" },
-          {
-            "path": "docs/reviews/evidence/integrated-application-chain/preservation.json"
-          },
-          { "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_FINAL_AUDIT.md" }
-        ]
-      },
-      {
-        "id": "IAC-05",
-        "severity": "major",
-        "status": "open",
-        "description": "Owner-confirmed Portal fidelity blocker:23 new child/configuration families appear as flat global Favorites instead of parent/resource-context navigation. Current source and actual fresh UI confirm the gap. The separate Portal-fidelity companion must correct it and pass its own review/gates; technical checks do not waive product acceptance."
-      },
-      {
-        "id": "IAC-06",
-        "severity": "major",
-        "status": "open",
-        "description": "Owner-confirmed Portal fidelity blocker: generic source-field serialization and raw trigger/request JSON remain primary resource/Review presentation rather than service-specific readable configuration and relationships. Current source and fresh Function/Front Door views confirm the gap. Companion correction and independent acceptance are required."
-      },
-      {
-        "id": "IAC-07",
-        "severity": "note",
-        "status": "open",
-        "description": "Earlier compatibility/full-check failures and four unchanged5000ms timeouts remain retained; isolated30/30 and later whole1377/1377 do not establish a timing cause fix. Interrupted130 and subsequent QA-format stop provide no whole-check credit. Older Compute/Back/Axe/landing/PG/CI-budget causes remain open where unproven; no settings or assertions were relaxed."
-      }
-    ],
-    "report": {
-      "path": "docs/quality/INTEGRATED_APPLICATION_CHAIN_FINAL_AUDIT.md"
-    }
+    "status": "pending",
+    "fingerprint": "9571cec53dae97f70029db25a03326eda99419fa638f9fc129c26a34d9e62e6f",
+    "reviewer": null,
+    "started": null,
+    "domains": {},
+    "findings": [],
+    "report": null
   },
   "snapshot": {
     "files": {
-      ".gitattributes": "6447b88dec5ceb35b5871c223c760a0d06b5b9abf9f5e0cffb3ca825cc378bdb",
-      "database/laboratory-v3/010-integrated-application-chain.sql": "1504f2a8da6744fc8127009e5b764638798a02a0d36df5c8c5857dd52f3dd7b6",
-      "docs/APPLICATION_DELIVERY_PLATFORM.md": "f508f6c9fd1d4cfce79bd1470122750f7b61bae45c4c522f05fa5438cc78b894",
-      "docs/ASSET_REGISTER.md": "14423b7984f073b7594ff68bd957652b40b09f6e8208d6c2621384b054a49266",
-      "docs/DATA_SERVERLESS_DOMAIN.md": "fe8b0a2cc7c9ac06709fcb43c7bc2a6a65525dc90eb10dd04366315087617f1b",
-      "docs/LABORATORY_INTEGRATED_APPLICATION_CHAIN.md": "490ce0aa2cff4b9483ce71651b23498d480688053885d4f1b6ff54e64625a4cb",
-      "docs/LABORATORY_INTEGRATED_CAPABILITIES.md": "2678f363bc271379e0b3a9bd2c082cc3851f4b6f38346207c6a3eb6e238d4ba3",
-      "docs/LABORATORY_INTEGRATED_ICONS.md": "36f8603c5d422b3fdefec38aab10a8d9f28086d3b4fbf92b72fa843d8163eca3",
-      "docs/LABORATORY_REMEDIATION_CAPABILITIES.md": "05502e5c2dcccab1ab73c4d3d3dff30faa8cfa889ed7754dcfd66eedf8c4a6e7",
-      "docs/PORTAL_CAPABILITY_MATRIX.md": "80f19b3568a60c663fd04bca329d77bcc209022f0736db5a2d733943d93b454f",
-      "docs/reviews/evidence/integrated-application-chain/baseline/BASELINE_CI_REVIEW.md": "eaf028bc54a0196d0a94642f32361a798208a787d5408fdc7ec0a75989616859",
-      "docs/reviews/evidence/integrated-application-chain/baseline/BASELINE_CI_REVIEW.md.raw": "9d52a0e334770bac08c888ce99e6b5ba0b72dff7b89ad2c0bebcfb949d1b04d2",
-      "docs/reviews/evidence/integrated-application-chain/baseline/BASELINE_CI_VERIFICATION.json": "9fcfdab201fb0837acd5c1529696ce5fbd5fd22c07132e8882278dc98a782031",
-      "docs/reviews/evidence/integrated-application-chain/baseline/BASELINE_CI_VERIFICATION.json.raw": "13060dceadbf160d2ea8083125c06b47d20dea923d7112052e2161fd4f824fa4",
-      "docs/reviews/evidence/integrated-application-chain/baseline/copy-provenance.json": "153bac4f40d96d5079ffb25723769e72e8bb586587fafdeb33b39ea30f90959d",
-      "docs/reviews/evidence/integrated-application-chain/icons/provenance.json": "2b139f6adb4d4b7cea46157b5c16040b68c7c2324e8cf731d1ef5d438c1cf0f4",
-      "docs/reviews/evidence/integrated-application-chain/module-provenance.json": "62e58e82221550ad9c4650c6acbb9eb80eba0ec2ac6aa3862c76fc0b0105589f",
-      "docs/reviews/evidence/integrated-application-chain/preservation.json": "26a8d1337fcd7b188b3765fd578aa745fa5214c5926e6ed15f31f9fcf5bbf537",
-      "docs/reviews/evidence/integrated-application-chain/qa/fullcheck-pre-icons-FAILED.log.raw": "66cd38981c649f956baba8c43c323fc2690b2337cbea6d2b3b16abd19da0cec2",
-      "docs/reviews/evidence/integrated-application-chain/qa/icons-mapping-final.log.raw": "142b9b49c7a02d37a3c9cbff9d5fafd2c5e556dfa7e528870091459b74502e68",
-      "docs/reviews/evidence/integrated-application-chain/qa/jsonb-http-function-noop-green.log.raw": "691744c9bd36e5f88a8c2ba6830027ec7e8162438a8268338677171ec3fe0a30",
-      "docs/reviews/evidence/integrated-application-chain/qa/jsonb-http-function-noop-red.log.raw": "0508c2877e059f6becae5eaabbcb0063953e633c1e6e7afef4f9933d7232bc2b",
-      "docs/reviews/evidence/integrated-application-chain/qa/native-corrected-precision-initial.log.raw": "0bac016f619587c447a99f724af8f594c04289575c4ee817fbf31dbc8eba2256",
-      "docs/reviews/evidence/integrated-application-chain/qa/native-final-affected.log.raw": "e6fabee7cf9ff0f01503118ef24aad151b75af313c2778d51623b3f467bcef98",
-      "docs/reviews/evidence/integrated-application-chain/qa/native-function-label-initial-context.md.raw": "da1409bb03b263028e30493cb8ee68343e6502f2359004b567f8c662bee8e120",
-      "docs/reviews/evidence/integrated-application-chain/qa/native-function-label-initial.trace.zip": "f0b84477af8d216259863ef8c31908f21ca0e3a6746dab528d91dd0d73a57de3",
-      "docs/reviews/evidence/integrated-application-chain/qa/native-initial.log.raw": "bb0f86240e631cd9d9ecee1dceb1b42adba32954f3e88a3c25ff8441ca654581",
-      "docs/reviews/evidence/integrated-application-chain/qa/native-post-icons.log.raw": "5a69d23c2b421161adf33dd9a173afdeee8b3bdf210d19144a298b5a8b42d54d",
-      "docs/reviews/evidence/integrated-application-chain/qa/native-post-noop-and-inherited.log.raw": "27b935cd3d186354e22cccd59ae5625a7cc02568f7cd407a9b62d5ee8bcdc67f",
-      "docs/reviews/evidence/integrated-application-chain/qa/native-studio-receipt-href-initial-context.md.raw": "c0402ddf2f30389c3e9460383066beef385f061b12a34891eff9d8c479e692be",
-      "docs/reviews/evidence/integrated-application-chain/qa/native-studio-receipt-href-initial.trace.zip": "124c21a2e862acb2a798a2074a1833a3723958d71a2d1548ca98fa81991acd87",
-      "docs/reviews/evidence/integrated-application-chain/qa/normal-build-post-icons-interrupted-UNKNOWN.log.raw": "f9b4964513793f5d6a2af4e9874fe98c3ace2f281abe497d7b6afa2ef9accaaf",
-      "docs/reviews/evidence/integrated-application-chain/qa/normal-build-post-icons.log.raw": "68e929ebd93fbb7b72ea1b5f0092cad02f34e6c37df4ed148488f46a596c601b",
-      "docs/reviews/evidence/integrated-application-chain/qa/normal-build-post-noop.log.raw": "6c516690805089681c6641593c7fc8be30319c3cab52f3bf55343f39e9778b28",
-      "docs/reviews/evidence/integrated-application-chain/qa/preservation-corrected.log.raw": "c7b0ed0e8b458de20ed584fcfccdd3c682d4bab18bf1e3ae337975ce4c554b56",
-      "docs/reviews/evidence/integrated-application-chain/qa/preservation-import-adapter-initial.log.raw": "960c184c90f1853ba4c52b6a1463ae9c306b7e0eb247a4433f2e583ba591c210",
-      "docs/reviews/evidence/integrated-application-chain/qa/production-build-types-initial.log.raw": "1cb03081de153c1d188a3799070b8688cce14ac3fe790b2ca56efae572339a02",
-      "docs/reviews/evidence/integrated-application-chain/qa/targeted-domain-api-pg-corrected.log.raw": "d5971948bbf76288021b7e445ae6360caed241ad3787f130a4dc090c26492e3a",
-      "docs/reviews/evidence/integrated-application-chain/qa/targeted-jsonb-final.log.raw": "fac1d801c483371ce353063c19b1f8fc4d99532889b70ea2206f582117c0e2a7",
-      "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/capture-provenance.json": "e11c2e2d855e1c863b9d34ba90d5e97175296df3995c2f6bf9b1c848f51b399c",
-      "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/front-door-detection-analysis.png": "c590ef899edb929122fff669d4aecd4504d4496a640a945c32fd1007c35d4579",
-      "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-chain-1440x900.png": "1858267a5f6a973c55327cf8eb5e2145081fd522d40d2facec960aa2a4bb6134",
-      "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-function-and-storage-family-row-icons.png": "80198a591ddfb7140db2845688471054105532f467c62f194368ac3825ba1b06",
-      "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-function-storage-dependencies.png": "9332c7035f6d4e049572118de9ef6e00e4a93cb609e0045b0d784c14948f0e3f",
-      "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-official-family-and-inherited-row-icons.png": "6fbe09c9e7cba3485e8a76afb5d1fc8ecc5ae03181c7bbe0d5213e460c6d4c5c",
-      "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-sql-binding-dependency.png": "0510df9d63a4ff4cddfd4a8b645f9dc157f96a6f7d3fd21d65c1b9cdde0fd6c1",
-      "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/integrated-waf-family-row-icon.png": "422ad55f24c9cd39531a82e71b98e7e84c9d2987cc587df8a2971c2e3e257b2c",
-      "docs/reviews/evidence/integrated-application-chain/screenshots-post-icons/private-gateway-probe-analysis.png": "0b2b546be3d257df97b767f7ca9da096b2fea8834f5d6af4fdfbb8fe9d5f4001",
-      "docs/reviews/evidence/integrated-application-chain/screenshots/capture-provenance.json": "ea87013eef557d1bcfbe5a1ce78317a00c5b2ea465c0daff2e58d57fc3bf100a",
-      "docs/reviews/evidence/integrated-application-chain/screenshots/desktop-integrated-initial-1440x900.png": "77b10fc39c6e159872850be044ee985bf5b6d21c32bb8130762263fe13c09038",
-      "docs/reviews/evidence/integrated-application-chain/screenshots/front-door-detection-analysis.png": "46286caef270a9abb427e63527d6a8e772008f2002398439a9269ee04652e8bb",
-      "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-chain-1440x900.png": "fc9b50740bbeecb64fcea29e789a287114b7d62969f0d1835179b73b1c76548c",
-      "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-function-storage-dependencies.png": "efd4c953c1f8f021a31189715e39d360210476864975ba524ab28e4b1bcbc6ba",
-      "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-initial-800x700.png": "9bad319ff60c858ee14cc15b5a733d6adf3bd32a2fdb57ea606f34da5e378ff0",
-      "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-original-storage-create-after-delete.png": "053d543f3b01a9f960c2dbb5a4ea860154414556b654200eda29b2057c4450f9",
-      "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-pg-jsonb-noop-and-real-change.png": "dc7b8245b537fb20b27a73b35c121ce2198441dfbd0a8282047f6a6dfb09cd32",
-      "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-review-1024x500.png": "13ee0ff9618c2079b2edb38f5a38fcd8a5d39f66663a5d5821496732d2fce8fc",
-      "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-review-1024x768.png": "e4402617f79633d0eb5be76bc30917d9764857a93911e0bc552ce32c32fae57a",
-      "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-review-1440x900.png": "77b10fc39c6e159872850be044ee985bf5b6d21c32bb8130762263fe13c09038",
-      "docs/reviews/evidence/integrated-application-chain/screenshots/integrated-sql-binding-dependency.png": "b2fb8ed29562ecd1c29abf1c53692343b40a8670bf608ea7d8bc275ab92acb0b",
-      "docs/reviews/evidence/integrated-application-chain/screenshots/private-gateway-probe-analysis.png": "9f3a1838f77f38b39ef3ffc534ff99f446c93014542d05663d20c0b0440e5949",
-      "playwright.desktop.config.ts": "7e3912e035c7794d48feeda19784c83f699ab43107bf12151bdda2d4cb0401c5",
-      "public/icons/azure/10029-icon-service-Function-Apps.svg": "1a6c9c108d5f63f7b78bc6fbc464059acd2eaa8c1d111e9bcd28a8b2cdf470b9",
-      "public/icons/azure/10073-icon-service-Front-Door-and-CDN-Profiles.svg": "b2e9c9a8b091a0694532257354dea94bb8c65b33876826e44dbc9b2aae01cf17",
-      "public/icons/azure/10076-icon-service-Application-Gateways.svg": "531e668e47cf61872b2811ec67dcc103cee2ecc1d272f07132d6196d68ba6c19",
-      "public/icons/azure/10130-icon-service-SQL-Database.svg": "a26124a2b188ccf910520c935c726f7364e0f5935d7a4319ebcab9c80a40e475",
-      "public/icons/azure/10131-icon-service-Azure-Database-PostgreSQL-Server.svg": "8232e8ecfbd607ce3b54646199805a823646d71e552f9aa71e7a3952cde35620",
-      "public/icons/azure/10132-icon-service-SQL-Server.svg": "72c6104c5f2199f6eaebbc215c5cb78dea9c1d571b95f470341ca7f83eee5be8",
-      "public/icons/azure/10362-icon-service-Web-Application-Firewall-Policies-WAF.svg": "b790e4e7b7617c8155025ab238cfab39a303df74dc030dbe9943a6eef2732255",
-      "public/icons/manifest.json": "25b6c31b1a330a2f5318309190318c928e2e25ad305c5a14e6c4009becf64981",
-      "scripts/laboratory-db.mjs": "2bacd278bdbb4b246f73023f7d1c6ab967af261e250c5ad4bc67472a719d7902",
-      "src/app/api/laboratory/ephemeral/route.ts": "9bb4769a7e3b25f2bc48e9fdd8274d9a91f276c623e8ee5876d63e39134e9f82",
-      "src/content/laboratory-integrated-data-nb.ts": "b8bbc6d948abd238129e54cf5dedbb63a6feb0f41a37e77c7ce88bb47b4ff4b8",
-      "src/content/laboratory-integrated-delivery-nb.ts": "851c16eb7dfb60699d0c56e62b7cb9ab36d5dd263a95e7d033e39b0ca0a2e719",
-      "src/content/portal-workspace-nb.ts": "f4c83e69914da4764ef11c6a90e799cf7a153b4292d2ef7aa4a150e1de49b418",
-      "src/features/laboratory/application.tsx": "5a70e47b6182b119591ac8fbe15d82abe05ea9487305a7e79ebb9e34e08077ac",
-      "src/features/laboratory/capabilities.ts": "62c12a259171cd61738e0f46046f5fcc1aad4f036b79986290da1a1a6e0ba2c3",
-      "src/features/laboratory/compute.tsx": "8cb5b9eb4dcce71475e92a54ff246d36db6394d0670ac2adf18632e944287a57",
-      "src/features/laboratory/endpoints.tsx": "e7f0fd167678f53ffaa5c40c6f561ba929f0b374136793f631cb3985b778d917",
-      "src/features/laboratory/ephemeral-client.ts": "f2ad74896c5953072bad7e69fa635a762eedd25f1dea5b2c9c15ad389b3bf5a0",
-      "src/features/laboratory/firewall.tsx": "08e2165c2bc76a82e8d386bd7f5676e55ab2f88f3f5e4f90d7ce7129900ade0e",
-      "src/features/laboratory/integrated-data.test.ts": "c48cb534d0da5a5f5e13f05aa1bba97b10380132d0e1f85a9a2fd19ffa5b87fd",
-      "src/features/laboratory/integrated-data.tsx": "1b7ae53d023a780cf7b24635d7ee9e88f755f333fa51b4fd9d55b2ce6fc22f23",
-      "src/features/laboratory/integrated-delivery.test.ts": "627082980c7c7b456e0805471bcc936c0c62dafda5c765b87109013fbb7d7d8c",
-      "src/features/laboratory/integrated-delivery.tsx": "d25e00704c2c50e745a1c6b56f86cb7ff5bf0076a8162271ca49ca0103a9a48c",
-      "src/features/laboratory/integrated-icons.test.ts": "bf5e4b9ffaacadc895c8e702792e423956f3cac90c5d918fb44c7216e3ea8dfa",
-      "src/features/laboratory/integrated-icons.ts": "bf752c846fc02bde1ddf9d8301b5cdc0c2ccd8d8f393c046b2f8c0248208e7ff",
-      "src/features/laboratory/integrated-resource.tsx": "f11523c72bf1c99b964190008b5186d2bf3fe0327dfdacab7f16baac10921a68",
-      "src/features/laboratory/integrated-storage.tsx": "a7b1714746b6ce6d4c468d8304047ee7f40f998ecb822fae4758f366b71588cc",
-      "src/features/laboratory/laboratory.tsx": "471842abaf7e48fcf8b0e4dd32847409941dd567a5781d0fb241d217c6c865fa",
-      "src/features/laboratory/networking.tsx": "fadfc9875f372dd050ca11125c55d0c48625ef2848d71840f320ba11ec7f135d",
-      "src/features/laboratory/portal-adapter.tsx": "a70ea3afb072c6a03dc4acbf8f3eac3eeeea6964526b3fc9df74d311af9b11a1",
-      "src/features/laboratory/routing.tsx": "07cdee7d79fc8621ce9b1022b2f3cfd511a3c09acfb8bc74574a81dc39808cb3",
-      "src/features/laboratory/rule-lifecycle.tsx": "5516bc0ac653d6c7827abdce86221eebabefbbe322c419205acf9c639a7c6488",
-      "src/features/laboratory/studio-model.ts": "08fc8668360434bfdda1bc898431f83aab95a726e7532cf96dc91b8107f015a8",
-      "src/features/laboratory/topology-target.ts": "feec0728962ac219bb89fbef0fd20eaff1bb11cf251aca6aaed0835722e9bf55",
-      "src/features/portal/service-catalog.ts": "bb0b91bfd994074266f5a618eef8d7c3a8dfbba128238dba87fbd687cea79549",
-      "src/features/portal/shared-shell.test.ts": "6adc259d43965fc91ec76206d3a53afb554703d9bf6e0831e074810861ca950e",
-      "src/integrated-platform-preservation.test.ts": "b744af16cd9eff013e2415e0bc0cd8b35beab195585091d2e0b8007f1cbceb52",
-      "src/laboratory-compute.test.ts": "d324b65774bf9b1afd6b9cfa807569a1c14c50ff2e4a54e0bb6620c64dac393e",
-      "src/laboratory-integrated-api.test.ts": "2344bb8d9ae175b5cdbfced8e5b85c56e37b5156f9fe65b2508e4b042ec4a4c1",
-      "src/laboratory-integrated.integration.test.ts": "5c797d205ea2d3b17b4bea14a4b29491d1f6c2c09b0f7687d973a99d8787010d",
-      "src/laboratory-integrated.test.ts": "56ed72196fd732774258396275fcafa15cb5702c9b43c640a4d03151059b3bb6",
-      "src/laboratory/data/analysis.ts": "76c917d648d7906681c6eb7ac76536a972c9dcada002c7c1e972f0f779c3d412",
-      "src/laboratory/data/contract.ts": "25969caef76cd0eaa4b89d466f4f4f0e389d6a7de9d36797fe48d33e6fccee5c",
-      "src/laboratory/data/data.test.ts": "909e74d0b0f3e065e79f1800b0daf039aa97af3528152aca6d56329e5c7d9fc2",
-      "src/laboratory/data/domain.ts": "4c5178f3d713a85f9064acd9942dbc9b1888e87e767542c8dab14872a8d6ae29",
-      "src/laboratory/delivery/analysis.ts": "d8742f36e67f6b449897f48a5f45106a15d5d34432a8be63810ff0dbbb4b263f",
-      "src/laboratory/delivery/contract.ts": "c2b9bd1665feaff279eecdd324f6604a7da9d7c4593158853306453df45504b4",
-      "src/laboratory/delivery/domain.test.ts": "73010386e8be76a2439beb88608f2b86b40826d37beb699dab4ca6f3a6e6ebeb",
-      "src/laboratory/delivery/domain.ts": "908bcea0fce12fc8a96be1e8e6c309cf7e1bc971456abfeeeaae30ea558448bf",
-      "src/laboratory/engine.ts": "a1702d95ad4ee50148cc6f5b2d7223dcbc4656e4dec9b01fb42181948f066f17",
-      "src/laboratory/v3/server.ts": "969a81459b25c0fd9606b8bcdfc9d63eea9b08336931cff1eb3ea64d21c1311f",
-      "src/laboratory/v39/analysis.ts": "c6fbf3c0a16d9e1f94e55d9ddc8385d5f914e2abe5734d20bd5bbf422e4293f2",
-      "src/laboratory/v39/contract.ts": "59c042db92bb0679220f3d59e8bf25cd8c0f8d95a2965856c5e6a33c020162a7",
-      "src/laboratory/v39/domain.ts": "19ddd595a744a8c93a52f24f91ee93e91c1002037b648b81836fe60d7c4f950d",
-      "src/laboratory/v39/projection.ts": "45b5f7207a10f31697f8a44aa351b739a23531416182de7db4f1813f3fc86398",
-      "src/resource-platform-preservation.test.ts": "18fdfda41546c3e8e0bdf16078e5c684b39e3e6420b3896dc9ccf414d315d26e",
-      "tests/e2e/application-platform.spec.ts": "2c333333524930a416942aac3fc932656713a27d3b27dd99c9714c5f1bc5d39a",
-      "tests/e2e/integrated-actions.ts": "0fa9ba97102a60dc6125b45ddee523a22007f94104caa97cf55545f7f82bf61a",
-      "tests/e2e/integrated-chain.spec.ts": "83077f0a551073a1d3421425a519fac0d3a0ac46a495ce3823308ca1a5aa13a7",
-      "tests/e2e/integrated-data.spec.ts": "1171d1bbff1766b51d208582ae5f61dbeb7dece693fee15883e88e69a63626db",
-      "tests/e2e/integrated-delivery.spec.ts": "9a1db8f58f3d905bd2300e065d123351810bc7db2cb5849347cd8eac877fd78a",
-      "tests/integrated-platform-preservation.ts": "102fa0e269101c5890a20cfd94c04fe5fb4a0de16a4702a2f992b95e4b8f4f40",
-      "tests/resource-platform-preservation.ts": "ca042abcf9ac6c90112407a1857c7b43501bad1691529bc2d9624d47f6040695"
+      ".gitattributes": "06b3e6b614af6ff336694e69485bfc8e645684a0158dcd88834b534fc1d0afce",
+      "docs/PORTAL_ICONOGRAPHY.md": "1e50aab452a278891a50ecd58a4fb762d5cad5c56077b45a2eced4e866236f97",
+      "docs/PORTAL_REFERENCE_FIDELITY.md": "59dfda495fa1080fbd4234a090e8b1bbde836b3e288f86e3854468049ddaf285",
+      "docs/PORTAL_RESOURCE_FAMILY_MATRIX.md": "55d9e07ab53947fba82fee858ccdbaf008d60482cc9da5898669b1075fe34abd",
+      "docs/PORTAL_RESOURCE_FIDELITY.md": "902f23afa00228e5f562a87731da53685a75af6e4dbe3d506a743070d78ff650",
+      "docs/reviews/evidence/portal-resource-fidelity/after/capture-provenance.json": "929ba92958a3a7bfd25c5aa8790f36b92b9ba455c0634a7827c8f683894dad96",
+      "docs/reviews/evidence/portal-resource-fidelity/after/controlled-candidate-pending.png": "8bf5cc1278242835b7e2f3d69be48f6d493d782612aa23a2df96e87be0a45d72",
+      "docs/reviews/evidence/portal-resource-fidelity/after/controlled-parent-pending.png": "1570a82a77b6c9959eb7a1dd42a23518e20c0303a03efc9770f9b92565aba2c8",
+      "docs/reviews/evidence/portal-resource-fidelity/after/front-door-analysis.png": "a7b2787f7671ee0927cff424b4233525b7a33408eaa1046abad61a3ce504d930",
+      "docs/reviews/evidence/portal-resource-fidelity/after/front-door-route-chain.png": "4ff4351cf537a0fa0e433a638cdcabaef9c4b296f0b80494eff9531aff4f3584",
+      "docs/reviews/evidence/portal-resource-fidelity/after/function-app-overview.png": "c7812081f40ffa7633e66f6c8452f44af154c132f73a02d027fc3e7e89c51a41",
+      "docs/reviews/evidence/portal-resource-fidelity/after/function-owned-plan-and-storage-icons.png": "00bab2c5f3d4f7c89ab768b3997cf5b7df5a3b8396ec7eac249b6ce3b1d1061d",
+      "docs/reviews/evidence/portal-resource-fidelity/after/gateway-analysis.png": "611e6bdfbf2ab38b5365760d219b3294daaf05f9478590fcfbe16bafcfcc3790",
+      "docs/reviews/evidence/portal-resource-fidelity/after/guided-native-coach.png": "010ff8cf809e56f93c9970eeabacc16b79a2e7f050c96e16b1ec0bd3ee3721f9",
+      "docs/reviews/evidence/portal-resource-fidelity/after/native-cached-navigation-settled.png": "491153242a1915f8dec1035d2f77afd56d6a728df7e1461fb0862ba3b4c68f59",
+      "docs/reviews/evidence/portal-resource-fidelity/after/readable-overview-1024x500.png": "5d0c10d32c064a7aad58a54a44bb37442eb04a6d4efe618770399f567bbee3b5",
+      "docs/reviews/evidence/portal-resource-fidelity/after/readable-overview-1024x768.png": "8acf52123830387ef47b5fc223fc73b44d1d1fc67e5c3df959deb8d8800902bf",
+      "docs/reviews/evidence/portal-resource-fidelity/after/readable-overview-1366x768.png": "0c01a648082b22c04a873a0913eaad5eaa5f80d5c6ab983a67e6eb6c2818e634",
+      "docs/reviews/evidence/portal-resource-fidelity/after/readable-overview-1440x900.png": "e522d0fab4b440ddd730a3582f076176345b9652a1bf92b7e08d0ffc6ac31d16",
+      "docs/reviews/evidence/portal-resource-fidelity/after/readable-overview-1920x1080.png": "22feac13a4f57e8c1c275b18cb24c40bf2881be3634b579864bad9097a0aee9f",
+      "docs/reviews/evidence/portal-resource-fidelity/after/resource-group-basics-1440x960.png": "c97f9c020d032aab398cd2610ceb757d8015be835a5db8762db9d17065ffb4ed",
+      "docs/reviews/evidence/portal-resource-fidelity/after/resource-group-basics-800x700.png": "c87dfbf2c907c439748079b60813653d7c6dd56b65c91380bec2da60fd27ebda",
+      "docs/reviews/evidence/portal-resource-fidelity/after/resource-group-review-1024x500.png": "877676830e26cd36dd248baf317944e4c90cae76c1ea392a4e8fb530d52dfeca",
+      "docs/reviews/evidence/portal-resource-fidelity/after/resource-group-review-1440x900.png": "8da2f91f94bfa81d98400da78f067465c2b9ec53c228efbd8212782a2c6a9545",
+      "docs/reviews/evidence/portal-resource-fidelity/after/resource-group-review-1440x960.png": "07b869a037fc5d02a9d727815363965fbaa59defdef2aeb0492c0af93891f0d5",
+      "docs/reviews/evidence/portal-resource-fidelity/after/root-vm-nic-disk-inventory.png": "d0f97bd6df71d745a0ea14e9128ff4062e0147bcfcfdf1cd8a3e98284978778b",
+      "docs/reviews/evidence/portal-resource-fidelity/after/sql-binding-configuration.png": "f8eb732b5ad06e6aabb77c1257276ea20119e15edd7d35b028ae94da7ec7cb7a",
+      "docs/reviews/evidence/portal-resource-fidelity/after/waf-root-inventory.png": "d4f2f3029a90fabd9afdf423cb98d0057335e9ad3566cee7b428a25f548629ee",
+      "docs/reviews/evidence/portal-resource-fidelity/before/capture-provenance.json": "80267564f176ebd9d0e5f308f9ecfa427413a5a318d414af9666af148896e038",
+      "docs/reviews/evidence/portal-resource-fidelity/before/front-door-detection-analysis.png": "aa4c6845949a2d931a66892d02e7357e7f290e524b9aacaed70af6a970996901",
+      "docs/reviews/evidence/portal-resource-fidelity/before/guided-native-coach.png": "010ff8cf809e56f93c9970eeabacc16b79a2e7f050c96e16b1ec0bd3ee3721f9",
+      "docs/reviews/evidence/portal-resource-fidelity/before/integrated-function-and-storage-family-row-icons.png": "798bccc80cdee9ecd423443a839d5d9bf4a29f5c99f78b013ad5d6061a959726",
+      "docs/reviews/evidence/portal-resource-fidelity/before/integrated-function-storage-dependencies.png": "82e347a8339eaea2704ee260991b8e857c2bbc3f3bea3a2cf13c55c48accf6a0",
+      "docs/reviews/evidence/portal-resource-fidelity/before/integrated-initial-1440x960.png": "1603ce4cfd42b199cc71e3931b249ebfe5bdc9565cb2e0de2e39ff195e755120",
+      "docs/reviews/evidence/portal-resource-fidelity/before/integrated-review-1024x500.png": "3a458fd7059e809e64d3775d2b863c042d3f2d2a37b169df5fe5d22107a73f2e",
+      "docs/reviews/evidence/portal-resource-fidelity/before/integrated-review-1024x768.png": "abb8aca330f032109c3aa04cf80094ecf5e31a89e48d035ebf6bf8bc62d0bd2c",
+      "docs/reviews/evidence/portal-resource-fidelity/before/integrated-review-1440x900.png": "f62236affa28a32ad80c9ceba9f7ebbe2c2dc4426902f60386786a5c53e14a62",
+      "docs/reviews/evidence/portal-resource-fidelity/before/integrated-waf-family-row-icon.png": "00e7d7ed24b60d30243f97f7c57ec10adf0b936383c58ccb6844fbd59a5a5de7",
+      "docs/reviews/evidence/portal-resource-fidelity/before/private-gateway-probe-analysis.png": "20f2b3f1f9b9f8f7f21c0639457642f26825ba61331c9868a62ce621281561a2",
+      "docs/reviews/evidence/portal-resource-fidelity/before/resource-group-basics.png": "a57fb17a8eaa393be03fb2ab4240f69c67c0ffefa2c317fe0a6baaed08e57d20",
+      "docs/reviews/evidence/portal-resource-fidelity/before/resource-group-review.png": "3e271b04917bed6d0cb19133d38682e00ac1af95e9d97d3ec65c96f6f1ab58b6",
+      "docs/reviews/evidence/portal-resource-fidelity/family-matrix.json": "3cdbdff3aec9dd5b68aedc3ef08809896a9b4d9adf80dcff3fc0f705cccca907",
+      "docs/reviews/evidence/portal-resource-fidelity/preservation.json": "f67e6fbe8aa178505fdfe80c33063809796418d0988ff74826389688a41a9c86",
+      "docs/reviews/evidence/portal-resource-fidelity/public-reference-images.json": "1f33f269d2e30a0e7a0e7be27d227e55e2b98d6b1d250e00663fffc31c41f0ee",
+      "docs/reviews/evidence/portal-resource-fidelity/public-sources.json": "e632049a4cdf33134227565109280a693736ca3b14763b3108c2450c3e90a938",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/baseline-group-guided-two-passed.log.raw": "35e93efc295e5ce7f2830650fd525af54187bbe289c5f016219c3e24c2138438",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/baseline-group-review-wrong-pre-harness.log.raw": "37d34538ff9586fe26ff0b8ae852ccfffabfee01c56261676ef4939db7fb251b",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/baseline-module-harness-failure.log.raw": "1d3fd3be6384926eeffd4a2d8ce2e177463525401f15e9c47118f5e9b38190c9",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/baseline-rg-guided-server-unavailable.log.raw": "87b09533250166d3a5f0dbe60067549123447d3d794014e5e5f47f52a07320c6",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/bounded-final-six-passed.log.raw": "f9b8ba44afe5cab822a8412e87d28df471ab4aad226c5f227d4932d9c6a9b41f",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/breadcrumb-first-10-pass-1-selector-harness.log.raw": "9841163a9a7a4b3b6f34ae991136e845707b99cb8dfbecfe43be50bfa3996a53",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/breadcrumb-first-selector.context.md.raw": "e4bb532c3ca4198a9f03e23657f72d6475cbe0545e8ba787c5d8e2eea8d0ebb8",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/census-json-import-harness.log.raw": "85817cc5ded58bf403afb0b350ce2de02134b45323fd6b84d2305a0eb2f84c01",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/chain-timing-after-helper.md": "cca113d5eb5bce3c0374bafc2b3e83ca2e69674b44b0bd442b3ffdbaaae3103e",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/chain-timing-before-helper.md": "07b7d93979bf2b1863b63fa7c177f1ce1b709c9b04d188ef56e6b1c2b41672b1",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/complete-490-plan.log.raw": "03d3f9a1b7e0cdf5cfd6eb3f1112a70b1eb4de38576fb4e5006425557b19f541",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/controlled-presentation-evidence.json": "20048a5920f38934b66120f22b8d5b245ba6f8d14895a496ef6b52fbbc1dfdd1",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/current-baseline-four-passed.log.raw": "6ffd5c5c5aa81f6fa0cb199bad6575ecc3e5fda51a320a8337b913eb504224a3",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/final-visual-first-17-pass-1-cap.log.raw": "340ba790847225ae69ba403a4de91de49897f5e38475257ccef29d7ab1efddf8",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/final-visual-first-chain.context.md.raw": "2d14f92dd9793d224515c04fec0c98b7f345224c73ae9fa7185ca9b1eab0dc78",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/initial-production-build.log.raw": "715c91eb78c88929afc05107cd2240148fe1a2afa1518a72fe00b9c2daf3f1dc",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-chain.context.md.raw": "cac1d73e4219ceef84e8898d9e4d8c5e990f66a1f66fa49f7ae62a55a31a3a3b",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-chain.trace-actions.json": "43c9efd3bf082a9318bb8e21b57eca8dcbd2e348b35a1fdbeb43c2caeab909c0",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-gateway.context.md.raw": "a33c43a20528003a0d655e3cbe33d2e84603dfe20a7befda3ffb92b4ca286474",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-gateway.trace-actions.json": "292e80125fc1b4b1c5998312a8485d720ecfecd98c51aa74a4662cf5325d1322",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-scope.context.md.raw": "85c6b0604d5a32dfedaa14f68647f517ce7d54f8879b90ff2980fa04af45071f",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-scope.trace-actions.json": "db93061cb67c1cf685751df688a89a8c3a5afaead5efcac646478c39f6af8d72",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-three-failures.log.raw": "7f80e28b882f84f7cf17efb62a5f5579e8b0fba79e56f34daff3cc9e5847c71c",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/native-navigation-observations.json": "555b2918e337b9882544b8ab4b6639d168d976152e4cb84d5a0f19f0359d4d16",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/normal-final-breadcrumb-build.log.raw": "74cfcf8aab2a149653013ce1f7336a2aff25dbc90fbad65f09caa0833b06e7ff",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/optimized-native-1.context.md.raw": "8cb680825fb009c14b90251dd1ed3dfa6331ecec8e7746886874305d1ec91b01",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/optimized-native-10-pass-4-fail.log.raw": "cd442dc2724f0700363c215be8ca7676ccaea8cbe154a01f352e2a86f61c73a8",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/optimized-native-2.context.md.raw": "ab22d45c02826378d0300fa88aaca2a7f93451240640945bf3ccc04a7507b2ec",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/optimized-native-3.context.md.raw": "469a4e9e9b0c7ec83d0416941ecc6b10997e6f77208e934a7caa2147c093a672",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/optimized-native-4.context.md.raw": "97fdb78bac36d24cbdf9a0ea6b3b04c0d342baf9ab67a97d8c4234996e7aa2e4",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/plan-first-collection-cap.log.raw": "ccee485c0c08f4b83f4fdeb9328f421ee1ff02e6af20d3d77411dc6d9b1b6a03",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/preservation-first-fail-closed.log.raw": "44bc211e097af01f2f3a70af8102b09ec17d96c829fc4ca8048275935385cd67",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/project-args-harness-failure.log.raw": "79dff58c6d0b8808d18a8ad267843ad5deed877d31499827c47172c56b83767e",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/review-viewport-timing.md": "626b312ff4bb31aa6403da717c8e37ba3dcca6053e8669182892c009fe7e724c",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/rg-pending-first-1.context.md.raw": "ea3a4fdbcc834b8ba875f3f235348a488d6d6cc22d1f57c32e4c25a594a91007",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/rg-pending-first-2.context.md.raw": "8e6c81a3287871baa9de36b9d3aac674946e3f8f393d4fc6f7cd5813d25a2a44",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/rg-pending-native-first-10-pass-2-harness.log.raw": "e242557e0c28837be8cb2063c8e51f87b40a50c4da922fb7a5d5f432c98cf67e",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/sql-fixture-invalid.log.raw": "b6a839b447c844c16177429152d8b6f43b6a4171ab13f05373638143ffaec0b8",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/trace-privacy-provenance.json": "34c463ffef470118241872445c35d29c5a3df1b62a00eeb3e9718a5202d8fd04",
+      "docs/reviews/evidence/portal-resource-fidelity/qa/waf-fixture-invalid.log.raw": "d8c0077d6f39716692ae44fdec53329d6829f1d6b0dfc76e89304d2b17944c88",
+      "playwright.desktop.config.ts": "30d2febdb376727ec9d94a98e010aea132823d8d250a66f380857311f3459c9d",
+      "src/content/portal-resource-context-nb.ts": "3b8eb3b17e125c2ef1b485690c20b41f80f8e9bc457ff09eb9a8d4a651e8e9c6",
+      "src/features/laboratory/integrated-resource.tsx": "e54a85ee505b25bc980dbd6c0d1bef4e6835e1206eb4e55dca8949c52ea0e408",
+      "src/features/laboratory/laboratory.tsx": "3b299e258621c0c15d2dce8d9e063f24ed1ca9b8e73a0c8f1cd1426b3134547b",
+      "src/features/laboratory/portal-adapter.tsx": "32c6aed0bf80b0db3e73488bf2e983b6fb3837e3c66bf2d046bb4a419573b87b",
+      "src/features/portal/home.tsx": "c45a0ba7efa1ceb8b6439a41c9d964a52883d32e5dec134d1c4fbd6a58738967",
+      "src/features/portal/presentation.tsx": "c89639172b228a420631c90cc4fb3826656e27cc1769d3586c320dffabaeffed",
+      "src/features/portal/resource-context.css": "32e681ec2806e423c115bdd1c2955960c3ded8924ee9c5742724b1c0ae5c8a42",
+      "src/features/portal/resource-context.test.ts": "1bd5fff850b3ea4e0e830a9e90e007f866f35d492242fa44f009c17c8600eaae",
+      "src/features/portal/resource-context.ts": "cc7aafd342d8e533ce4e4f52b8e1c8d66d71a576bc4c0540fe243427b3bca3dc",
+      "src/features/portal/resource-details.tsx": "ea09a748ee84c8af9065ecffad77b05f0e8c71d022fb0027a262c66e4e25e4d6",
+      "src/integrated-platform-preservation.test.ts": "374edc8816531a93ce05852f6cbbcbf88294ade8f025845c9ac8130b8dd48809",
+      "src/portal-fidelity-preservation.test.ts": "6a06b592c782a1ff2ef2b68b61ead74cdde221a00eed2f0024ff6c682e159bf6",
+      "tests/e2e/ephemeral-actions.ts": "093908486565e0aacb41f03eb564522ad9f1151d14c61a68c938ff7e43ad824e",
+      "tests/e2e/integrated-actions.ts": "7bf6f73edaa51a14b20ed689df1de8891a80a80edc88f076238b79a937e9a683",
+      "tests/e2e/integrated-chain.spec.ts": "2ffa7fccb569e6689005a2a2916c63a943fb1ad4d9824b6fb576b6b7b85d1e24",
+      "tests/e2e/integrated-data.spec.ts": "cac3120ea3d8e5e50e4f06b1702640ec49161b41a1a79f8efb5caf01d05cde62",
+      "tests/e2e/integrated-delivery.spec.ts": "07b198993222133affb0337a37b0a8108566577fb94dadd9760a55afa71ee81e",
+      "tests/e2e/laboratory-actions.ts": "6674ee2cdb354a8a8b455bb830775b66b8144e7d31a660c11e5153b9983dd765",
+      "tests/e2e/portal-navigation-pending.spec.ts": "f81243bea874f36264cc548aa19717fd5bff9cc36a1887c820a50469ac126a29",
+      "tests/e2e/portal-resource-fidelity.spec.ts": "81facba913ea76b62be5b529c1b63aa215544a49b21f89df582e2618c9f6b2b5",
+      "tests/integrated-platform-preservation.ts": "e79d8a18b2e3b168e7a20ebe4f89eff30af4fe191332665653a76266108368e7",
+      "tests/portal-fidelity-preservation.ts": "9c792b596b3594c373560fd8418c5d8b1fa21fabe9d7609f143d9cba4bf44a19"
     }
   },
-  "implementationFinished": "2026-11-09T21:52:19.948Z"
+  "implementationFinished": "2026-11-09T23:35:53.867Z"
 }
