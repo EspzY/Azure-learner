@@ -1,0 +1,119 @@
+{
+  "checkedOn": "2026-11-09",
+  "method": "Actual official Microsoft Learn/ARM page content opened; displayed update dates read. No Azure deployment/SKU discovery performed.",
+  "sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-public",
+      "updated": "2026-07-16",
+      "claims": [
+        "public endpoint and server firewall IPv4 rules",
+        "network permission does not establish authentication",
+        "encryption required",
+        "special allow-Azure-services configuration is excluded"
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/postgresql/compute-storage/concepts-compute",
+      "updated": "2026-07-09",
+      "claims": [
+        "B1ms representative Burstable profile",
+        "storage minimum32GiB",
+        "in-place storage increase rather than shrink"
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/flexibleservers",
+      "updated": "2026-10-20",
+      "claims": ["resource provider/type", "server version/SKU/storage properties"]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/flexibleservers/databases",
+      "updated": "2026-10-20",
+      "claims": [
+        "database child identity",
+        "UTF8 charset",
+        "specific Flexible Server database naming pattern"
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/logical-servers?view=azuresql",
+      "updated": "2026-06-02",
+      "claims": [
+        "logical server differs from a SQL Server instance",
+        "parent/namespace and same-region databases",
+        "firewall versus authentication"
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.sql/servers/databases",
+      "updated": "2024-12-09",
+      "claims": ["SQL database resource type and parent", "SKU properties"]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/resource-limits-dtu-single-databases?view=azuresql",
+      "updated": "2023-08-02",
+      "claims": ["Basic maximum2GB"]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
+      "updated": "2026-08-05",
+      "claims": [
+        "provider namespaces and case comparisons",
+        "sites2–60 and serverfarms RG scope",
+        "SQL broader identifier syntax narrowed explicitly"
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/storage-considerations",
+      "updated": "2026-09-16",
+      "claims": [
+        "actual general-purpose Storage dependency",
+        "same-region Portal configuration",
+        "authentication not implied by a resource reference"
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan",
+      "updated": "2026-09-15",
+      "claims": [
+        "Linux profile",
+        "2048MB default instance size",
+        "event-based Blob trigger profile"
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-how-to",
+      "updated": null,
+      "claims": ["Node22 creation example", "private deployment Blob container role"],
+      "limitation": "Content inspected; displayed update date not relied on."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-node",
+      "updated": "2026-07-23",
+      "claims": ["Node22/runtime4 distinction", "one trigger per function"]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger",
+      "updated": "2026-09-18",
+      "claims": [
+        "HTTP method/route",
+        "anonymous authorization is separate from key-protected invocation"
+      ]
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-trigger",
+      "updated": "2026-08-28",
+      "claims": [
+        "Flex supports event-based Blob triggers",
+        "explicit synthetic input is not event delivery"
+      ]
+    }
+  ],
+  "notProven": [
+    "live regional SKU capacity",
+    "actual authentication",
+    "Functions runtime or network request execution",
+    "Azure database/SQL execution",
+    "complete Portal integration"
+  ]
+}
