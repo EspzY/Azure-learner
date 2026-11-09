@@ -131,6 +131,9 @@ for (const mode of ['light', 'dark'] as const) {
       );
     }
     await page.goto('/learn/benefits?topic=availability');
+    const assumptions = page.locator('.expanded-assumptions');
+    await assumptions.evaluate((el) => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
+    await page.screenshot({ path: info.outputPath(`${mode}-warning.png`) });
     const savvy = page.locator('.expanded-module .savvy');
     await expect(savvy).toBeVisible();
     await savvy.scrollIntoViewIfNeeded();
