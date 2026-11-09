@@ -13,3 +13,31 @@
     max-width: 110px;
   }
 }
+
+/* The shared header keeps Laboratory and guided Portal return consistent. */
+.portal .portal-header > .portal-landing-link {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 30px;
+  padding: 4px 9px;
+  border: 1px solid #89c6e8;
+  border-radius: 5px;
+  background: #06528e;
+  text-decoration: none;
+}
+.portal .portal-header > .portal-landing-link:hover {
+  background: #0b629d;
+}
+@media (max-width: 800px) {
+  .portal .portal-header > .portal-landing-link {
+    min-width: 32px;
+    max-width: none;
+    padding: 5px;
+  }
+  .portal .portal-header > .portal-landing-link span {
+    display: none;
+  }
+}
