@@ -670,9 +670,10 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
   --cost-ink: var(--bfc-base-c);
   color: var(--bfc-base-c);
 }
+.bifrost-learning.course-shell .course-main small,
 .bifrost-learning.course-shell
   .course-main
-  :is(small, .proof-parts button span, .guided-mission-status, .expanded-guidance dt) {
+  :is(.proof-parts button span, .guided-mission-status, .expanded-guidance dt) {
   color: var(--bfc-base-c-2);
 }
 .bifrost-learning.course-shell .course-main summary {
@@ -691,6 +692,17 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
   background: var(--bfc-base-2);
   color: var(--bfc-base-c);
   border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .course-main p.compute-boundary {
+  color: var(--bfc-warning-fade-c);
+}
+.bifrost-learning.course-shell .course-main .curriculum-trail {
+  background: var(--bfc-base-2);
+  color: var(--bfc-base-c);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .bifrost-course-journal :is(small, .v2-lesson-heading p) {
+  color: var(--bfc-base-c-2);
 }
 .bifrost-learning.course-shell
   .course-main

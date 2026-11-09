@@ -12,6 +12,7 @@ const technical = (page: Page) =>
     xp: storageKey,
   });
 async function theme(page: Page, mode: 'light' | 'dark') {
+  await expect(page.locator('.course-shell')).toHaveCount(1);
   await page.getByLabel(themeCopy.label, { exact: true }).selectOption(mode);
   await expect(page.locator('html')).toHaveAttribute('data-bf-theme', mode);
 }
@@ -37,6 +38,13 @@ for (const mode of ['light', 'dark'] as const) {
     const before = await technical(page);
     await page.locator('.learn-hub-start .course-primary').click();
     const check = page.locator('#cloud-part-intro-request .v2-check');
+    await expect(check).toHaveCount(1);
+    await expect(page.locator('#cloud-part-intro-request .proof-server')).toBeVisible();
+    await page.getByRole('button', { name: nb.foundationsVisuals.send, exact: true }).click();
+    await expect(page.locator('#cloud-part-intro-request .proof-causal')).toHaveText(
+      nb.foundationsV2.traceSteps[0],
+    );
+    await page.screenshot({ path: info.outputPath(`${mode}-teaching-info.png`) });
     const item = nb.foundationsV2.checkItems['intro-request'];
     await expect(check.locator('[data-bf-result]')).toHaveCount(0);
     const browser = item.choices.find(([id]) => id === 'browser')![1];
@@ -80,7 +88,7 @@ for (const mode of ['light', 'dark'] as const) {
 
   test(`Bifrost ${mode} existing module reading primitives retain original routes and no automatic assessment`, async ({
     page,
-  }) => {
+  }, info) => {
     await page.goto('/learn');
     await theme(page, mode);
     const before = await technical(page);
@@ -104,6 +112,7 @@ for (const mode of ['light', 'dark'] as const) {
       'migration',
     ]) {
       await page.goto(`/learn/${module}`);
+      await expect(page.locator('.course-shell')).toHaveCount(1);
       await expect(page.locator('.course-shell')).toHaveAttribute('data-course-module', module);
       await expect(page.locator('.course-module-header h1')).toBeVisible();
       await expect(
@@ -113,6 +122,12 @@ for (const mode of ['light', 'dark'] as const) {
         true,
       );
     }
+    await page.goto('/learn/benefits?topic=availability');
+    const savvy = page.locator('.expanded-module .savvy');
+    await expect(savvy).toBeVisible();
+    await savvy.scrollIntoViewIfNeeded();
+    await accessible(page);
+    await page.screenshot({ path: info.outputPath(`${mode}-savvy.png`) });
     expect(await technical(page)).toEqual(before);
   });
 
