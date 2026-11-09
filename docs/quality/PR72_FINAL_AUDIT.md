@@ -79,3 +79,27 @@ This is the **first coherent common Shell/Home/Subscriptions/catalogue/navigatio
 At review time, complete candidate **468-case exact-head CI**, strict `quality:release`, and anonymous stable-preview **new full-SHA** root-to-course/free-Lab/action/return journeys have not been executed for this delivery. They remain mandatory delivery gates; neither the PR71 pass nor local targeted results substitute for them. No external infrastructure, credential/configuration change, migration, merge or production deploy was performed or authorized by this audit.
 
 Qualified human SME, learning-effect/transfer, novice/IT usability, screen-reader and psychometric approval remain **unperformed**.
+
+## Evidence-only packaging renewal — 9 November 2026
+
+Renewal reviewer: the same separate `shared_portal_final_audit` agent. Renewal started **2026-11-09T11:25:02Z**, after the new implementation/evidence stamp **2026-11-09T11:24:34.957Z**. The initial review and its observations above are preserved. The renewed binding is **`855e694ddbf77bac319a2f386af510a66c9f623885203c2cfb8e4196ca755a5e`**.
+
+Independently compared the complete working-tree/new-file delta with reviewed commit `8687a5237dff3dbd6fa0348e9f48cd6e0a984577`: seven new `.log.raw` evidence files, their entries in `preservation.json` and `manifest.json`, and the release record's `review`, `snapshot` and `implementationFinished` fields. No runtime source, normative documentation, test body/assertion, CI, worker/retry/timeout/skip, asset, schema, engine or SQL changed. All **83 stamped payload hashes** and **82 manifest byte counts/SHA-256 entries** independently matched the actual files; the recomputed fingerprint equals the renewed value above.
+
+All seven new raw files were read and byte-compared with retained originals. The mapping is:
+
+| Added failure evidence                    | Identical original under the task directory |
+| ----------------------------------------- | ------------------------------------------- |
+| `initial-filename-collision.log.raw`      | `preservation-first.log`                    |
+| `initial-native.log.raw`                  | `native-first.log`                          |
+| `initial-projection-test.log.raw`         | `unit-first.log`                            |
+| `intermediate-prop-lint.log.raw`          | `check-final.log`                           |
+| `intermediate-raw-format.log.raw`         | `check-corrected.log`                       |
+| `local-artifact-collision.log.raw`        | `native-final.log`                          |
+| `original-fidelity-collision-run.log.raw` | `original-regressions.log`                  |
+
+These are nonexecutable plain-text records under the documentation evidence directory, with no NUL/binary payload, runtime binding or executable extension. Full-content inspection and credential-pattern scanning found no credentials, authenticated PostgreSQL URLs, private keys, bearer material or recognized secret-token prefixes. The original failures remain failures: the logs preserve the old icon-width assertions, free guide-marker leak, new-test assumptions, filename collision, lint/format errors, artifact ENOENT collisions and interrupted/not-run cases. They neither rewrite history nor establish a diagnosis for unrelated inherited timing causes. The unchanged `.md.raw` excerpt's original trailing whitespace remains inert source evidence, not a source formatting exception or weakened quality threshold.
+
+Fresh independent preservation/projection execution again passed **17/17 in three files**, exit 0. Its output is `/workspace/azurelab-pr72/independent-audit-111655/renewal-112502/vitest.log`; the separate author packaging log also records 17/17. No unchanged browser/full suite was repeated for this inert delta.
+
+All six domain conclusions are renewed proportionally: content/source records and technical authorities are unchanged; visual and assessment behavior retain the initial actual-browser/preservation evidence; guidance/assistance bindings are unchanged; regression/evidence packaging now includes authentic original red logs with exact integrity metadata. **No new BLOCKER/MAJOR; SP72-01 remains MINOR/OPEN**, with no fix or reclassification claimed. Complete candidate exact-head CI/strict release and anonymous new-full-SHA journeys remain pending mandatory delivery gates. Human approvals remain unperformed. This renewal changes no implementation or delivery authorization.
