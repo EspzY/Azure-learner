@@ -21,7 +21,7 @@ function validSnapshot(v: unknown): v is Snapshot & Record<string, unknown> {
     typeof v.workspace === 'string' &&
     object(v.world) &&
     typeof v.world.model === 'string' &&
-    ['laboratory@3.7.0', 'laboratory@3.8.0'].includes(v.world.model) &&
+    ['laboratory@3.7.0', 'laboratory@3.8.0', 'laboratory@3.9.0'].includes(v.world.model) &&
     Number.isSafeInteger(v.world.revision) &&
     Array.isArray(v.entries) &&
     typeof v.historical === 'boolean'
@@ -58,7 +58,8 @@ export function ephemeralActive() {
   return current !== null;
 }
 export async function startEphemeral(model: Model = 'laboratory@3.7.0'): Promise<Snapshot> {
-  if (!['laboratory@3.7.0', 'laboratory@3.8.0'].includes(model)) throw Error('unsupported-model');
+  if (!['laboratory@3.7.0', 'laboratory@3.8.0', 'laboratory@3.9.0'].includes(model))
+    throw Error('unsupported-model');
   const token = ++generation;
   const snapshot = await post('session', { model });
   if (token !== generation) throw Error('workspace-changed');

@@ -1,6 +1,6 @@
 /** Test-only historical view. The current finite raw-byte guard validates every
  * real file first; this adapter never appears in a runtime import graph. */
-import { readFileSync } from 'node:fs';
+import { readIntegratedHistory as readFileSync } from './integrated-platform-preservation';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { strict as assert } from 'node:assert';

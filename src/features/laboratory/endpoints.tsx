@@ -46,7 +46,8 @@ export function EndpointViews({
     | import('@/laboratory/v35/contract').World
     | import('@/laboratory/v36/contract').World
     | import('@/laboratory/v37/contract').World
-    | import('@/laboratory/v38/contract').World;
+    | import('@/laboratory/v38/contract').World
+    | import('@/laboratory/v39/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;
@@ -147,6 +148,7 @@ export type LaboratoryPolicyResult = (
   | import('@/laboratory/v36/analysis').PolicyAnalysis
   | import('@/laboratory/v37/analysis').PolicyAnalysis
   | import('@/laboratory/v38/analysis').PolicyAnalysis
+  | import('@/laboratory/v39/analysis').PolicyAnalysis
 ) & { workspace: string };
 export function PolicyAnalysisView({
   snapshot,

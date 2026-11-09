@@ -1,0 +1,43 @@
+
+> azurelab@0.1.0 test:e2e:plan
+> node scripts/e2e-plan-check.mjs
+
+{
+  "legacyCases": 866,
+  "desktopCasesUnchanged": 433,
+  "compactCases": 51,
+  "candidateCases": 484,
+  "workers": 1,
+  "status": "desktop/compact plan validated; legacy regression remains available"
+}
+
+Running 9 tests using 1 worker
+
+(node:146010) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:19:1 › integrated3.9 default native Portal forms commit the actual app PostgreSQL binding FrontDoor chain and one Studio authority (10.0s)
+  ✓  2 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:103:1 › integrated3.9 compact native Review keyboard focus reduced motion Axe and short desktop keep typed configuration readable (5.2s)
+  ✓  3 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:172:1 › integrated3.9 native empty Storage deletion blocks Function dependencies and lands on original committed delete receipts (6.9s)
+  ✓  4 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:245:1 › integrated3.9 PostgreSQL native reload and same-value Function Review preserve verifiable JSONB history before a real configuration change (6.1s)
+  ✓  5 [desktop-chromium] › tests/e2e/integrated-data.spec.ts:42:1 › integrated Function App uses actual Storage and FC1 parents for HTTP and blob configuration analysis and rejects dependent deletion (8.7s)
+  ✓  6 [desktop-chromium] › tests/e2e/integrated-data.spec.ts:163:1 › integrated SQL binding distinguishes unknown hypothetical IP firewall allowance and changed server configuration without runtime claims (7.1s)
+  ✓  7 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:61:1 › integrated Front Door native WAF Prevention and Detection changes affect the actual configured delivery chain (9.0s)
+  ✓  8 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:179:1 › integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references (8.6s)
+(node:146340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  9 [compact-chromium] › tests/e2e/integrated-chain.spec.ts:103:1 › integrated3.9 compact native Review keyboard focus reduced motion Axe and short desktop keep typed configuration readable (5.2s)
+
+  9 passed (1.2m)
+
+Running 6 tests using 1 worker
+
+(node:146445) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/e2e/application-platform.spec.ts:83:1 › application platform creates actual plan app synthetic deployment settings receipts and Studio relationships without course writes (4.8s)
+  ✓  2 [desktop-chromium] › tests/e2e/application-platform.spec.ts:143:1 › application configuration changes preserve IDs and origins and change the real read-only diagnosis (3.6s)
+  ✓  3 [desktop-chromium] › tests/e2e/application-platform.spec.ts:183:1 › application server Review denies occupied plan deletion and invalid settings without committing a proposal (3.5s)
+  ✓  4 [desktop-chromium] › tests/e2e/application-platform.spec.ts:209:1 › application compact native keyboard focus reduced motion Axe and short desktop keep Review and Properties readable (10.4s)
+  ✓  5 [desktop-chromium] › tests/e2e/application-platform.spec.ts:261:1 › application explicit delete preserves original receipts and removes only owned configuration with dependency checks (7.7s)
+  ✓  6 [desktop-chromium] › tests/e2e/application-platform.spec.ts:307:1 › application PostgreSQL workspace persists actual UI-created plan app and deployment across reload with original evidence (4.5s)
+
+  6 passed (36.9s)

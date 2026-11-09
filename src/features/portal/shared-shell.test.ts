@@ -22,7 +22,7 @@ describe('shared Portal catalogue reflects actual versioned capabilities without
           'activity',
         ]),
       );
-      if (model === 'laboratory@3.8.0') {
+      if (model === 'laboratory@3.8.0' || model === 'laboratory@3.9.0') {
         expect(rows.filter((r) => r.id === 'apps' || r.id === 'plans').map((r) => r.id)).toEqual([
           'apps',
           'plans',

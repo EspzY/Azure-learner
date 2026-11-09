@@ -1,0 +1,55 @@
+
+Running 8 tests using 1 worker
+
+(node:142437) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:18:1 › integrated3.9 default native Portal forms commit the actual app PostgreSQL binding FrontDoor chain and one Studio authority (8.2s)
+  ✓  2 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:102:1 › integrated3.9 compact native Review keyboard focus reduced motion Axe and short desktop keep typed configuration readable (4.5s)
+  ✓  3 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:164:1 › integrated3.9 native empty Storage deletion blocks Function dependencies and lands on original committed delete receipts (5.5s)
+  ✓  4 [desktop-chromium] › tests/e2e/integrated-data.spec.ts:42:1 › integrated Function App uses actual Storage and FC1 parents for HTTP and blob configuration analysis and rejects dependent deletion (7.0s)
+  ✓  5 [desktop-chromium] › tests/e2e/integrated-data.spec.ts:147:1 › integrated SQL binding distinguishes unknown hypothetical IP firewall allowance and changed server configuration without runtime claims (7.4s)
+  ✓  6 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:61:1 › integrated Front Door native WAF Prevention and Detection changes affect the actual configured delivery chain (13.5s)
+  ✘  7 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:179:1 › integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references (15.0s)
+(node:142719) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  8 [compact-desktop-chromium] › tests/e2e/integrated-chain.spec.ts:102:1 › integrated3.9 compact native Review keyboard focus reduced motion Axe and short desktop keep typed configuration readable (4.2s)
+
+
+  1) [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:179:1 › integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references 
+
+    Error: expect(locator).toHaveAttribute(expected) failed
+
+    Locator:  getByRole('link', { name: 'Åpne original kvittering', exact: true })
+    Expected: "/labs/laboratory?view=history&receipt=eb3fbf88-4127-41bd-8b66-62b90fa9a14c"
+    Received: "/labs/laboratory?view=history&receipt=eb3fbf88-4127-41bd-8b66-62b90fa9a14c&studio=1&sselected=application-gateway-7&sx=240&sy=51&sz=0.3006451612903226&sw=dffe7309-1781-4029-b298-d13ae2e09445"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveAttribute" getByRole('link', { name: 'Åpne original kvittering', exact: true }) with timeout 5000ms
+      - waiting for getByRole('link', { name: 'Åpne original kvittering', exact: true })
+        14 × locator resolved to <a class="lab-evidence-link" href="/labs/laboratory?view=history&receipt=eb3fbf88-4127-41bd-8b66-62b90fa9a14c&studio=1&sselected=application-gateway-7&sx=240&sy=51&sz=0.3006451612903226&sw=dffe7309-1781-4029-b298-d13ae2e09445">Åpne original kvittering</a>
+           - unexpected value "/labs/laboratory?view=history&receipt=eb3fbf88-4127-41bd-8b66-62b90fa9a14c&studio=1&sselected=application-gateway-7&sx=240&sy=51&sz=0.3006451612903226&sw=dffe7309-1781-4029-b298-d13ae2e09445"
+
+
+      284 |   await expect(page.locator('.portal-title h1')).toHaveText(gateway.name);
+      285 |   const originalReceipt = page.getByRole('link', { name: storage.receipt, exact: true });
+    > 286 |   await expect(originalReceipt).toHaveAttribute(
+          |                                 ^
+      287 |     'href',
+      288 |     '/labs/laboratory?view=history&receipt=' + gateway.origin,
+      289 |   );
+        at /workspace/azurelab-phase2/integration/tests/e2e/integrated-delivery.spec.ts:286:33
+
+    Error Context: ../a-native-corrected-results/integrated-delivery-integr-bc471-ener-and-routing-references-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../a-native-corrected-results/integrated-delivery-integr-bc471-ener-and-routing-references-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../a-native-corrected-results/integrated-delivery-integr-bc471-ener-and-routing-references-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:179:1 › integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references 
+  7 passed (1.2m)

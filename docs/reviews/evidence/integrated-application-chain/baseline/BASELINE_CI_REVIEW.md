@@ -1,0 +1,26 @@
+# PR75 baseline CI verified
+
+Quality126 [whole-workflow attempt3](https://github.com/EspzY/Azure-learner/actions/runs/42672514055/attempts/3) completed SUCCESS on 2026-11-09 at19:58:41 UTC. The required check, four isolated browser jobs, and aggregate/strict verify job all succeeded. No source, settings, thresholds or assertions changed during this monitoring phase; no monitor rerun or cancellation was requested.
+
+The candidate is `5b2e814b9f4bae1aa3c2fe4e79cd3a4e53029484`, base `249833f7cb7ea41d3e411444ec3c4f83805d3a5f`. Actual checked synthetic merge is `d318b10c536f94e962a1bdf6778f418fac83c688`; its source tree `ae980a411cf842d8e6649740d415edc8a934e973` equals the candidate's committed tree. The112-input fingerprint is `47c9a1cd10d804ed4474b2bd79ad6997f60d32cdfa06fa7f79ed7b43990fbad7`. All evidence uses repository `EspzY/Azure-learner`, run42672514055, attempt3.
+
+| Job      | Job ID       | Actual outcome | Browser results                                       |
+| -------- | ------------ | -------------- | ----------------------------------------------------- |
+| check    | 129388769344 | SUCCESS        | Literal npm run check and high-level npm audit passed |
+| browser1 | 129391086198 | SUCCESS        | 119 passed,0 recovered retries;6.4m execution         |
+| browser2 | 129391086423 | SUCCESS        | 119 passed,0 recovered retries;8.4m execution         |
+| browser3 | 129391086251 | SUCCESS        | 119 passed,0 recovered retries;6.6m execution         |
+| browser4 | 129391086376 | SUCCESS        | 118 passed,0 recovered retries;13.2m execution        |
+| verify   | 129400360818 | SUCCESS        | Full aggregate and subsequent strict release passed   |
+
+The required check executed1,172 Vitest cases across100files,35Node cases,503curriculum cases, real isolated PostgreSQL and the normal production build. The high-severity audit gate passed; npm still reported10moderate vulnerabilities. Expected negative PostgreSQL permission checks produced database error diagnostics inside the passing suite; no failing CI job resulted.
+
+The browser evidence contains475passed cases in475attempts,0flaky,0skipped and0unexpected. The exact disjoint partition is119/119/119/118 and projects425desktop/50compact. Existing worker1, retries2, per-case timeouts, assertions and35-minute job caps remain unchanged. Successful remote aggregate freshly recollected the full plan plus all four native shards, verified every artifact's source/configuration/toolchain/fixture identity and raw hashes, checked actual result attempts, then wrote distinct check/full-profile receipts. Strict immediately reread/revalidated that evidence and passed. Whole attempt elapsed about22m53s; execution durations above exclude setup/upload and do not establish the causes of earlier timeouts.
+
+Both receipts bind aggregate evidence SHA256 `d99b5bd20c90cb7abe4cb308f3400e514d3cbfe3d6062634e041dfb12c50a3d0`. Full plan digest is `b39154e4d731daf8003d7fdd0a86f4ab07e884fedd80eaaadb9f00ade2c66c1a`; provenance digest is `143d06b4622398b26ed7bbbbde4b9a70d4e7d245684525b248473798ee40d4df`. The saved aggregate ZIP hash matches GitHub's artifact digest. `verify-evidence.mjs` independently checked the plan's exact disjoint475-case union, receipt/aggregate hash and identity bindings, successful final job graph, source-tree identity, and downloaded shard1–3 ZIPs plus every internal file hash, actual report outcome and attachment reference. It passed; machine results are in `BASELINE_CI_VERIFICATION.json` and `receipts.json`.
+
+Shard4's ZIP is1,381,188,913bytes, GitHub artifact13705468306, SHA256 `aa2735d3769de1ad07839a6b5a0f2be84d1f68f9473e440fc9f428aa670d0159`. The connector rejects files over536,870,912bytes, so this fourth ZIP was not downloaded/rehashed locally. Its raw job log, remote metadata/digest and aggregate manifest/report digests are preserved here. Actual remote aggregate and strict validated its complete bytes and report, which is decisive CI execution evidence. The original artifact remains on GitHub until2026-11-16; this report does not claim a complete local fourth-bundle copy.
+
+Raw logs for all six jobs, initial/final API metadata, three browser ZIPs/extracted bundles, aggregate ZIP/JSON, receipts and reproducible monitor assertions are retained in this directory. PR75 verification text was updated with this actual success using a structured GitHub REST body-file request after the installed gh PR editor encountered an unrelated deprecated Projects API. Response confirms the body and exact head; the PR remains draft and unmerged.
+
+The two prior run126 outage attempts retain zero test/artifact/receipt credit. GitHub's official critical Actions incident `tp8cghg7tlc4` began18:12:37Z and overlapped both; its specific internal job-abandonment mechanism remains unconfirmed. Parent verified official recovery before launching this separate whole attempt3. Original captures remain under `/workspace/azurelab-parallel/ci-A-sharded/`. Older pre-outage serial budget cancellations and local/public timing failures remain retained and causally OPEN. This success neither erases them nor establishes human learning/accessibility approval. Targeted public preview journeys keep their documented separate scope.

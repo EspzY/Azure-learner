@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'integrated-chain.spec.ts',
+    'integrated3.9 compact native Review keyboard focus reduced motion Axe and short desktop keep typed configuration readable',
+  ],
+  [
     'application-platform.spec.ts',
     'application compact native keyboard focus reduced motion Axe and short desktop keep Review and Properties readable',
   ],

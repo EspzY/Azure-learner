@@ -1,3 +1,5 @@
+import type { World as Integrated } from '@/laboratory/v39/contract';
+import { applicationProjection } from '@/laboratory/v39/projection';
 import type { World } from '@/laboratory/engine';
 import type { World as Previous } from '@/laboratory/v35/contract';
 import type { World as Current } from '@/laboratory/v36/contract';
@@ -12,14 +14,18 @@ import { routingProjection } from '@/laboratory/v33/projection';
 import { endpointProjection } from '@/laboratory/v34/projection';
 export const isFirewallWorld = (
   w: World | undefined,
-): w is Previous | Current | Topology | Application =>
+): w is Previous | Current | Topology | Application | Integrated =>
   w?.model === 'laboratory@3.5.0' ||
   w?.model === 'laboratory@3.6.0' ||
   w?.model === 'laboratory@3.7.0' ||
-  w?.model === 'laboratory@3.8.0';
+  w?.model === 'laboratory@3.8.0' ||
+  w?.model === 'laboratory@3.9.0';
+export const isApplicationWorld = (w: World | undefined): w is Application | Integrated =>
+  w?.model === 'laboratory@3.8.0' || w?.model === 'laboratory@3.9.0';
 /** Existing pure render projection; no alternate resource authority. */
-export const computeView = (w: Previous | Current | Topology | Application) => {
-  const source = w.model === 'laboratory@3.8.0' ? topologyProjection(w) : w;
+export const computeView = (w: Previous | Current | Topology | Application | Integrated) => {
+  const app = w.model === 'laboratory@3.9.0' ? applicationProjection(w) : w;
+  const source = app.model === 'laboratory@3.8.0' ? topologyProjection(app) : app;
   const v = source.model === 'laboratory@3.7.0' ? remediationProjection(source) : source;
   return computeProjection(v.model === 'laboratory@3.6.0' ? firewallProjection(v) : v);
 };

@@ -1,4 +1,5 @@
 /** Read-only display projection. Inputs are the existing verified snapshot and canonical inventory. */
+import { integrationReferences } from '@/laboratory/v39/projection';
 import { isFirewallWorld } from './capabilities';
 import { laboratoryTopologyNb as topologyCopy } from '@/content/laboratory-topology-nb';
 import type { Snapshot } from '@/laboratory/engine';
@@ -6,10 +7,14 @@ import type { LaboratoryResource } from './portal-adapter';
 import type { LaboratoryPolicyResult } from './endpoints';
 import { architectureStudioNb as t } from '@/content/architecture-studio-nb';
 import { laboratoryApplicationNb as applicationCopy } from '@/content/laboratory-application-nb';
-export type RelationKind = keyof typeof t.edge | 'app-plan-hosting';
+export type RelationKind = keyof typeof t.edge | 'app-plan-hosting' | 'configured-dependency';
 /** Resource hosting is a dependency, never an ARM parent/child relationship. */
 export const relationLabel = (kind: RelationKind) =>
-  kind === 'app-plan-hosting' ? applicationCopy.hosting : t.edge[kind];
+  kind === 'app-plan-hosting'
+    ? applicationCopy.hosting
+    : kind === 'configured-dependency'
+      ? 'Configured dependency'
+      : t.edge[kind];
 export type StudioNode = {
   id: string;
   name: string;
@@ -84,7 +89,7 @@ export function projectTopology(snapshot: Snapshot, rows: readonly LaboratoryRes
         );
     }
   }
-  if (world.model === 'laboratory@3.8.0')
+  if (world.model === 'laboratory@3.8.0' || world.model === 'laboratory@3.9.0')
     for (const app of world.webApps) add(app.id, app.planId, 'app-plan-hosting');
   if (world.model !== 'laboratory@3.0.0')
     for (const s of world.subnets) {
@@ -111,6 +116,9 @@ export function projectTopology(snapshot: Snapshot, rows: readonly LaboratoryRes
     for (const r of world.routes)
       if (r.nextHopType === 'VirtualAppliance') add(r.id, r.firewallId, 'appliance-reference');
   }
+  if (world.model === 'laboratory@3.9.0')
+    for (const reference of integrationReferences(world))
+      add(reference.sourceId, reference.targetId, 'configured-dependency');
   // Stable layered layout, no stored positions. Each RG gets disjoint rows; columns follow actual parents.
   let offset = 0;
   for (const subscription of nodes

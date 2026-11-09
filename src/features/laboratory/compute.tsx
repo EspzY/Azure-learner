@@ -39,7 +39,8 @@ export function ComputeViews({
     | import('@/laboratory/v35/contract').World
     | import('@/laboratory/v36/contract').World
     | import('@/laboratory/v37/contract').World
-    | import('@/laboratory/v38/contract').World;
+    | import('@/laboratory/v38/contract').World
+    | import('@/laboratory/v39/contract').World;
   view: string;
   id: string | null;
   begin: (type: Command['type']) => void;

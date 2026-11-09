@@ -25,6 +25,11 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { laboratoryV3Nb as c } from '@/content/nb';
 import type { Snapshot, Request as LabRequest, Command, Receipt, Model } from '@/laboratory/engine';
 import { isFirewallWorld } from './capabilities';
+import { DeliveryViews, deliveryFamilies } from './integrated-delivery';
+import { DataViews, dataFamilies } from './integrated-data';
+import { IntegratedStorageActions } from './integrated-storage';
+import { laboratoryModel as integratedModel } from '@/laboratory/v39/contract';
+import { isApplicationWorld } from './capabilities';
 import { ApplicationViews, ApplicationChangeDetails } from './application';
 import { laboratoryModel as applicationModel } from '@/laboratory/v38/contract';
 import { laboratoryApplicationNb as applicationCopy } from '@/content/laboratory-application-nb';
@@ -165,9 +170,10 @@ export function Laboratory() {
     query.get('receipt'),
   ].join('|');
   const [snapshot, setSnapshot] = useState<Snapshot | null>(null),
-    [startModel, setStartModel] = useState<Model>(applicationModel),
+    [startModel, setStartModel] = useState<Model>(integratedModel),
     [newWorkspace, setNewWorkspace] = useState(false),
     [newApplicationWorkspace, setNewApplicationWorkspace] = useState(false),
+    [newIntegratedWorkspace, setNewIntegratedWorkspace] = useState(false),
     [loading, setLoading] = useState(true),
     [error, setError] = useState(''),
     [busy, setBusy] = useState(false),
@@ -307,8 +313,11 @@ export function Laboratory() {
         setPreview(null);
         setReset(null);
         const target =
-          result.receipt.addedIds[0] ??
-          (result.receipt.applicationChange ? result.receipt.updatedIds?.[0] : undefined);
+          result.receipt.integrationChange?.after === null
+            ? undefined
+            : (result.receipt.integrationChange?.id ??
+              result.receipt.addedIds[0] ??
+              (result.receipt.applicationChange ? result.receipt.updatedIds?.[0] : undefined));
         const kind =
           (
             {
@@ -341,7 +350,7 @@ export function Laboratory() {
                 ? 'container'
                 : 'blob');
         const appKind =
-          target && result.world.model === applicationModel
+          target && isApplicationWorld(result.world)
             ? result.world.plans.some((p: { id: string }) => p.id === target)
               ? 'appPlan'
               : result.world.webApps.some((p: { id: string }) => p.id === target)
@@ -350,47 +359,54 @@ export function Laboratory() {
                   ? 'appSetting'
                   : null
             : null;
+        const integratedKind =
+          result.world.model === integratedModel && target
+            ? laboratoryInventory(result.world).find((r) => r.id === target)?.view
+            : undefined;
         router.push(
-          appKind && result.receipt.outcome === 'accepted'
-            ? href(appKind, target)
-            : (request.command.type === 'UpdateSecurityRule' ||
-                  request.command.type === 'UpdateFirewallNetworkRule') &&
-                result.receipt.outcome === 'accepted'
-              ? href(
-                  request.command.type === 'UpdateSecurityRule' ? 'rule' : 'firewallRule',
-                  request.command.ruleId,
-                )
-              : request.command.type === 'UpdateRoute' && result.receipt.outcome === 'accepted'
-                ? href('route', request.command.routeId)
-                : (request.command.type === 'SetPeeringForwardedTraffic' ||
-                      request.command.type === 'SetPeeringVirtualNetworkAccess') &&
-                    result.receipt.outcome === 'accepted'
-                  ? href('peering', request.command.peeringId)
-                  : request.command.type === 'DeleteRoute' && result.receipt.outcome === 'accepted'
-                    ? href(
-                        'routeTable',
-                        isFirewallWorld(snapshotRef.current?.world)
-                          ? snapshotRef.current.world.routes.find(
-                              (r) => r.id === (request.command as { routeId: string }).routeId,
-                            )?.routeTableId
-                          : undefined,
-                      )
-                    : ['AssociateNicNsg', 'DisassociateNicNsg'].includes(request.command.type) &&
-                        'nicId' in request.command &&
+          integratedKind && result.receipt.outcome === 'accepted'
+            ? href(integratedKind, target)
+            : appKind && result.receipt.outcome === 'accepted'
+              ? href(appKind, target)
+              : (request.command.type === 'UpdateSecurityRule' ||
+                    request.command.type === 'UpdateFirewallNetworkRule') &&
+                  result.receipt.outcome === 'accepted'
+                ? href(
+                    request.command.type === 'UpdateSecurityRule' ? 'rule' : 'firewallRule',
+                    request.command.ruleId,
+                  )
+                : request.command.type === 'UpdateRoute' && result.receipt.outcome === 'accepted'
+                  ? href('route', request.command.routeId)
+                  : (request.command.type === 'SetPeeringForwardedTraffic' ||
+                        request.command.type === 'SetPeeringVirtualNetworkAccess') &&
+                      result.receipt.outcome === 'accepted'
+                    ? href('peering', request.command.peeringId)
+                    : request.command.type === 'DeleteRoute' &&
                         result.receipt.outcome === 'accepted'
-                      ? href('nic', request.command.nicId)
-                      : [
-                            'AssociateSubnetNsg',
-                            'DisassociateSubnetNsg',
-                            'AssociateSubnetRouteTable',
-                            'DisassociateSubnetRouteTable',
-                          ].includes(request.command.type) &&
-                          'subnetId' in request.command &&
+                      ? href(
+                          'routeTable',
+                          isFirewallWorld(snapshotRef.current?.world)
+                            ? snapshotRef.current.world.routes.find(
+                                (r) => r.id === (request.command as { routeId: string }).routeId,
+                              )?.routeTableId
+                            : undefined,
+                        )
+                      : ['AssociateNicNsg', 'DisassociateNicNsg'].includes(request.command.type) &&
+                          'nicId' in request.command &&
                           result.receipt.outcome === 'accepted'
-                        ? href('subnet', request.command.subnetId)
-                        : target && result.receipt.outcome === 'accepted'
-                          ? href(kind, target)
-                          : href('history', undefined, result.receipt.commandId),
+                        ? href('nic', request.command.nicId)
+                        : [
+                              'AssociateSubnetNsg',
+                              'DisassociateSubnetNsg',
+                              'AssociateSubnetRouteTable',
+                              'DisassociateSubnetRouteTable',
+                            ].includes(request.command.type) &&
+                            'subnetId' in request.command &&
+                            result.receipt.outcome === 'accepted'
+                          ? href('subnet', request.command.subnetId)
+                          : target && result.receipt.outcome === 'accepted'
+                            ? href(kind, target)
+                            : href('history', undefined, result.receipt.commandId),
         );
         if (!ephemeralActive()) channel.current?.postMessage('changed');
       } else {
@@ -435,6 +451,7 @@ export function Laboratory() {
         setReset(null);
         setNewWorkspace(false);
         setNewApplicationWorkspace(false);
+        setNewIntegratedWorkspace(false);
         ++version.current;
         accept(incoming);
         setError('');
@@ -759,7 +776,7 @@ export function Laboratory() {
   const catalog = portalServices('laboratory', world?.model);
   const services: [string, string, string][] = catalog.map((s) => [s.view, s.title, s.icon]);
   const serviceView = resource
-    ? (
+    ? ((
         {
           appPlan: 'plans',
           webApp: 'apps',
@@ -786,7 +803,7 @@ export function Laboratory() {
           routeTable: 'routeTables',
           route: 'routeTables',
         } as Record<string, string>
-      )[resource.view]
+      )[resource.view] ?? resource.view)
     : view === 'subscription'
       ? 'subscriptions'
       : view === 'peerings'
@@ -910,7 +927,7 @@ export function Laboratory() {
                     : [];
   const body = snapshot && world && (
     <>
-      {world.model === applicationModel && (
+      {isApplicationWorld(world) && (
         <ApplicationViews
           snapshot={snapshot}
           view={view}
@@ -923,9 +940,48 @@ export function Laboratory() {
           commit={run}
         />
       )}
+      {world.model === integratedModel && (
+        <>
+          <DeliveryViews
+            snapshot={snapshot}
+            view={view}
+            id={id}
+            disabled={busy || !!error}
+            list={links}
+            receipt={receiptLink}
+            href={href}
+            review={(request, workspace) => api('review', request, workspace)}
+            commit={run}
+          />
+          <DataViews
+            snapshot={snapshot}
+            view={view}
+            id={id}
+            disabled={busy || !!error}
+            list={links}
+            receipt={receiptLink}
+            href={href}
+            review={(request, workspace) => api('review', request, workspace)}
+            commit={run}
+          />
+          {['account', 'container'].includes(view) && (
+            <IntegratedStorageActions
+              snapshot={snapshot}
+              view={view}
+              id={id}
+              disabled={busy || !!error}
+              list={links}
+              receipt={receiptLink}
+              href={href}
+              review={(request, workspace) => api('review', request, workspace)}
+              commit={run}
+            />
+          )}
+        </>
+      )}
       {(world.model === remediationModel ||
         world.model === topologyModel ||
-        world.model === applicationModel) &&
+        isApplicationWorld(world)) &&
         id &&
         ['rule', 'firewallRule', 'route', 'subnet', 'peering'].includes(view) && (
           <RuleLifecycle
@@ -996,7 +1052,7 @@ export function Laboratory() {
             services={catalog}
             destination={(view) => ({ href: href(view), onSelect: () => visit(view) })}
           />
-          {world.model !== applicationModel && (
+          {!isApplicationWorld(world) && (
             <p className="portal-inline-info">{sharedCopy.pendingWeb}</p>
           )}
         </>
@@ -1309,8 +1365,11 @@ export function Laboratory() {
         'container',
         'blob',
         'history',
-        ...(world.model === applicationModel
+        ...(isApplicationWorld(world)
           ? ['plans', 'apps', 'appPlan', 'webApp', 'appDeployment', 'appSetting']
+          : []),
+        ...(world.model === integratedModel
+          ? [...deliveryFamilies, ...dataFamilies].map((family) => family.view)
           : []),
         ...(compute ? ['vms', 'vm', 'disks', 'disk'] : []),
         ...(endpoints ? ['nics', 'nic', 'policy'] : []),
@@ -1479,6 +1538,21 @@ export function Laboratory() {
               <button onClick={() => setReset(null)}>{c.cancel}</button>
             </PortalDialog>
           )}
+          {newIntegratedWorkspace && (
+            <PortalDialog
+              title="New integrated3.9 workspace"
+              onClose={() => setNewIntegratedWorkspace(false)}
+            >
+              <p>
+                Create a separate3.9 workspace. Existing resources and original receipts keep their
+                original model and are not upgraded.
+              </p>
+              <button disabled={busy} onClick={() => void start(true, integratedModel)}>
+                Create separate3.9 workspace
+              </button>
+              <button onClick={() => setNewIntegratedWorkspace(false)}>{c.cancel}</button>
+            </PortalDialog>
+          )}
           {newApplicationWorkspace && (
             <PortalDialog
               title="New Application Platform workspace"
@@ -1591,6 +1665,11 @@ export function Laboratory() {
             ))}
           {!snapshot && !loading && (
             <section>
+              <p>
+                <strong>3.9 · Integrated Application Chain</strong> · Recommended new workspace: App
+                Service, databases, Functions and application delivery. Existing workspaces keep
+                their original model.
+              </p>
               <div className="lab-temporary-entry">
                 <button type="button" disabled={busy} onClick={() => void startTemporary()}>
                   {temp.start}
@@ -1608,6 +1687,9 @@ export function Laboratory() {
                     value={startModel}
                     onChange={(e) => setStartModel(e.target.value as Model)}
                   >
+                    <option value={integratedModel}>
+                      3.9 · Integrated Application Chain (recommended)
+                    </option>
                     <option value={applicationModel}>3.8 · Application Platform</option>
                     <option value={remediationModel}>3.6 · Security Rule Lifecycle</option>
                     <option value={topologyModel}>3.7 · Topology Remediation</option>
@@ -1639,8 +1721,18 @@ export function Laboratory() {
 
           {snapshot && world && (
             <>
+              {world.model !== integratedModel && ['groups', 'services'].includes(view) && (
+                <p>
+                  <button
+                    disabled={busy || !!pendingView || !!error}
+                    onClick={() => setNewIntegratedWorkspace(true)}
+                  >
+                    New integrated3.9 workspace
+                  </button>
+                </p>
+              )}
               {!network && <p className="lab-network-boundary">{n.legacy}</p>}
-              {world.model !== applicationModel && ['groups', 'services'].includes(view) && (
+              {!isApplicationWorld(world) && ['groups', 'services'].includes(view) && (
                 <p className="lab-network-boundary">
                   <button
                     disabled={busy || !!pendingView || !!error}
@@ -1651,7 +1743,7 @@ export function Laboratory() {
                 </p>
               )}
               {world.model !== topologyModel &&
-                world.model !== applicationModel &&
+                !isApplicationWorld(world) &&
                 ['groups', 'services'].includes(view) && (
                   <div className="lab-network-boundary">
                     <p>{topologyCopy.legacy}</p>
@@ -2228,7 +2320,7 @@ export function Laboratory() {
                               'forwardingOrigin',
                             ].includes(key) ? (
                             receiptLink(String(value))
-                          ) : ((world.model === applicationModel &&
+                          ) : ((isApplicationWorld(world) &&
                               ['appPlan', 'webApp', 'appDeployment', 'appSetting'].includes(
                                 resource.view,
                               )) ||
