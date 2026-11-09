@@ -843,9 +843,9 @@
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "2f1220579e648a2fdecb21d06d0b529d6bfa2a666085e649f0c6e924139cd52e",
+    "fingerprint": "c1c095286150cc61a02176c7474122268b90c11e01a76c8f7c1901b4c634a997",
     "reviewer": { "id": "application-platform-independent-final-audit", "kind": "agent" },
-    "started": "2026-11-09T16:07:23.616Z",
+    "started": "2026-11-09T16:11:02.445Z",
     "domains": {
       "content": {
         "finding": "Actual six Microsoft bodies reviewed; bounded App Service/Node24/configuration semantics and synthetic/runtime limits are accurate. No new curriculum or human validation claim.",
@@ -908,7 +908,7 @@
         ]
       },
       "regression": {
-        "finding": "Renewed complete localcheck1163Vitest/99files+24Node+503curriculum+realPG+normalbuild and targetednative7pass inspected; independentpoststamp50pass. All468oldbrowsers/settings retained; candidate475collection is not execution. ExactheadCI/fullprofile/strict/public remain pending.",
+        "finding": "Renewed complete localcheck1163Vitest/99files+24Node+503curriculum+realPG+normalbuild and targetednative7pass inspected; independentpoststamp50pass. All468oldbrowsers/settings retained; candidate475collection is not execution. ExactheadCI/fullprofile/strict/public remain pending. Packagingrenewal independently confirms only3CRLF-normalizedlogcopies+proof changed, exactGitblobandoriginal-contentmatches; allproduct/test/imagebytes unchanged, poststampguard10/10passed. Currentauthoritativefingerprint andtimeline in appendedreport.",
         "evidence": [
           {
             "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-full-check-a01-final.log.raw"
@@ -917,7 +917,8 @@
             "path": "docs/reviews/evidence/parallel-resource-platform/qa/application-native-a01-final.log.raw"
           },
           { "path": "src/resource-platform-preservation.test.ts" },
-          { "path": "docs/quality/APPLICATION_PLATFORM_FINAL_AUDIT.md" }
+          { "path": "docs/quality/APPLICATION_PLATFORM_FINAL_AUDIT.md" },
+          { "path": "docs/reviews/evidence/parallel-resource-platform/preservation.json" }
         ]
       }
     },
@@ -956,7 +957,7 @@
       "docs/RESOURCE_PLATFORM_CI_STUDY.md": "18a22483949c575ef0714c83d2c6b989bae504eacf2d9975fa8a55e6193e46ee",
       "docs/RESOURCE_PLATFORM_INTEGRATION_CONTRACT.md": "555a603f940ca54edc3abf26c6398c8f576fc16a93373375767831804c8ee93f",
       "docs/reviews/evidence/parallel-resource-platform/microsoft-sources.json": "2b4efce0309b48a4caa5cd5cc9908b8231eb4350fadf7bb76e38d65f80b1be09",
-      "docs/reviews/evidence/parallel-resource-platform/preservation.json": "2f1645da3d0daf4d869529c048dd27cb186d7177c866c611cce3c8ca63813335",
+      "docs/reviews/evidence/parallel-resource-platform/preservation.json": "0d9d26137ee6517976489c8878d7fa2d5a5959ccfa7f498e714ee012b9110d4a",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-a01-before-change-receipt.png": "077382d0690bb7ea6292a4e97c37661f3c8830bc5cba255b08827ecf62dcc770",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-a01-before-review-1024-500.png": "f96051943a4ee9ddc13fc23dc3d1387c4c4a955402ad205c97a7d7f45d1ccffc",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-a01-lint.log.raw": "17aa973d3f004560237d9a95171210b0671deff23d61628eecf7322ff5938f20",
@@ -964,14 +965,14 @@
       "docs/reviews/evidence/parallel-resource-platform/qa/application-a01-retest.log.raw": "e559d60706d26a4cfacf0dda89fab41f035ea51dec37567527675a35afa9d04a",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-a01-types.log.raw": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-final-proof-tests.log.raw": "292c4dd0210322605dad170331fea6e480b7431bd54da10b3a7b7960fe8e3ea1",
-      "docs/reviews/evidence/parallel-resource-platform/qa/application-full-check-a01-final.log.raw": "e2a96a11de10ad9c521856c99c8b4735541e3bc58248a4413bf11692b088feeb",
-      "docs/reviews/evidence/parallel-resource-platform/qa/application-full-check-corrected.log.raw": "8e9d4386ba899be8ac7199e6fea5132da00efc8c493b118c1eb23b65eb07ab9f",
+      "docs/reviews/evidence/parallel-resource-platform/qa/application-full-check-a01-final.log.raw": "2e902ed69dc38b60fb196475fe8d25c483a1f5dab0fcc4e9a63f6431720ecb71",
+      "docs/reviews/evidence/parallel-resource-platform/qa/application-full-check-corrected.log.raw": "ded19ff4c97d41a70d3c735d0b9e8ca153a7659a251e110fe67422f7d69d7d94",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-full-check.log.raw": "2ba2250846ef1c3cb9a08e3260d5e3b7c5ecdaa4690d32b7860e32d2e50835f9",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-native-a01-final.log.raw": "49061863709ad04893655976ecf53ba3ccc27e313d1e7ace3d74bcd81546c0b1",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-native-layout-final.log.raw": "dad16373469cfe6e1b4f10c94e5c089dc332a57da92509f1e3f9ff55c252b9c4",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-review-focus-before-actual.log.raw": "d1a9776d6e7169c6af3ebc7a8271dac7e8c5ecf46ab48b2a2d1010afa4c21771",
       "docs/reviews/evidence/parallel-resource-platform/qa/application-review-focus-check.log.raw": "7578a7989cb5dd304282519eaafde6130768ca5b0945b6acf74e94bcc3a0d5bb",
-      "docs/reviews/evidence/parallel-resource-platform/qa/application-review-layout-build.log.raw": "04f3adced891cb72498e466ab13dc76b009d4e428d42716ada76c04a3835539c",
+      "docs/reviews/evidence/parallel-resource-platform/qa/application-review-layout-build.log.raw": "a17b495bda9afbe8f888a90b62ae78ecb3578e07737b4d491de1b5a67bfabf05",
       "docs/reviews/evidence/parallel-resource-platform/qa/native-negative-probes.log.raw": "7c9fa30b9f9e7f0ecd55d363aabb7c426fc7e4c40e4a39acdf838d8e9871be95",
       "docs/reviews/evidence/parallel-resource-platform/qa/native-negative-probes.mjs.raw": "85d17d156626a4759ac7c36b48fa2884c970753f937f12d57cc67918ef67d111",
       "docs/reviews/evidence/parallel-resource-platform/screens/application-change-receipt.png": "4aae7343016368c4d5c02e59b922f45b5e07d636a12bc41733a124bc6adea406",
@@ -1023,5 +1024,5 @@
       "tests/resource-platform-preservation.ts": "c81f4d8043c073dda6778ec57913231b86cd31cad67c8e23294cdf62ea784322"
     }
   },
-  "implementationFinished": "2026-11-09T16:06:56.880Z"
+  "implementationFinished": "2026-11-09T16:10:29.669Z"
 }
