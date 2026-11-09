@@ -1,4 +1,5 @@
 'use client';
+import './bifrost-guidance.css';
 import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
 import { useState } from 'react';
 import Link from 'next/link';
@@ -60,7 +61,10 @@ export function MissionPortalLayer({
     world = technical.attempt.engine.world;
   if (blocked || !result.verifiable)
     return (
-      <aside className="guided-coach mission-coach" aria-label={c.blocked}>
+      <aside
+        className="guided-coach mission-coach bifrost-learning bifrost-guide-island"
+        aria-label={c.blocked}
+      >
         <p role="status">{c.blocked}</p>
         {!result.verifiable && <p>{c.unverified}</p>}
         <MissionRecovery />
@@ -140,7 +144,7 @@ export function MissionPortalLayer({
     <>
       <aside
         tabIndex={-1}
-        className={`guided-coach mission-coach ${minimized ? 'coach-minimized' : ''}`}
+        className={`guided-coach bifrost-learning bifrost-guide-island mission-coach ${minimized ? 'coach-minimized' : ''}`}
         aria-label={independent ? c.independentMode : c.guided}
         data-mission={s.mission}
       >

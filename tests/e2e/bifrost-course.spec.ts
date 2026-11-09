@@ -1,6 +1,6 @@
-import { test, expect, type Page } from '@playwright/test';
+import { test, expect, type Page, type TestInfo } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { nb, computeNb, refinedAssessmentNb } from '../../src/content/nb';
+import { nb, computeNb, refinedAssessmentNb, serverlessNb } from '../../src/content/nb';
 import { themeCopy } from '../../src/features/design/theme-copy';
 import { sandboxKey } from '../../src/domain/sandbox/store';
 import { storageKey } from '../../src/domain/progression';
@@ -20,6 +20,56 @@ async function theme(page: Page, mode: 'light' | 'dark') {
 async function accessible(page: Page) {
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+}
+
+async function nativeReview(page: Page, mode: 'light' | 'dark', info: TestInfo, scope = 'native') {
+  const navigation = page.getByRole('navigation', { name: nb.portal.navLabel, exact: true });
+  const groups = navigation.getByRole('link', { name: nb.portal.areas.groups, exact: true });
+  await revealPortalLink(page, groups);
+  await groups.click();
+  await page
+    .locator('.portal-commandbar')
+    .getByRole('button', { name: nb.portal.create, exact: true })
+    .click();
+  const create = page.locator('.portal-create');
+  await expect(create).toBeVisible();
+  const before = await technical(page);
+  const name = page.getByLabel(nb.portal.groupName, { exact: true });
+  expect(await name.evaluate((el) => getComputedStyle(el).fontFamily)).toMatch(/Segoe UI/);
+  expect(await name.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe(
+    'rgb(255, 255, 255)',
+  );
+  expect(
+    await page
+      .locator('.portal:not(.course-shell)')
+      .evaluate((el) => getComputedStyle(el).colorScheme),
+  ).toBe('light');
+  await name.fill('rg-bifrost-visual-check');
+  await page
+    .getByRole('combobox', { name: nb.portal.subscription, exact: true })
+    .selectOption('sub-app');
+  await page
+    .getByRole('combobox', { name: nb.portal.region, exact: true })
+    .selectOption('norwayeast');
+  await page.screenshot({ path: info.outputPath(`${mode}-${scope}-create.png`) });
+  await create
+    .locator('.portal-create-tabs')
+    .getByRole('button', { name: nb.portal.review, exact: true })
+    .click();
+  await expect(create.locator('.portal-review')).toContainText(nb.portal.valid);
+  expect(
+    await create
+      .locator('.portal-create-footer')
+      .evaluate((el) => getComputedStyle(el).backgroundColor),
+  ).toBe('rgb(255, 255, 255)');
+  await accessible(page);
+  await page.screenshot({ path: info.outputPath(`${mode}-${scope}-review.png`) });
+  await create
+    .locator('.portal-create-footer')
+    .getByRole('button', { name: nb.portal.close, exact: true })
+    .click();
+  await expect(create).toHaveCount(0);
+  expect(await technical(page)).toEqual(before);
 }
 
 for (const mode of ['light', 'dark'] as const) {
@@ -262,55 +312,44 @@ for (const mode of ['light', 'dark'] as const) {
         await page.locator('.portal-header').evaluate((el) => getComputedStyle(el).backgroundColor),
       ).toBe('rgb(0, 120, 212)');
       await expect(page.locator('.bifrost-theme-control')).toHaveCount(0);
-      if (path === '/portal') {
-        const navigation = page.getByRole('navigation', { name: nb.portal.navLabel, exact: true });
-        const groups = navigation.getByRole('link', { name: nb.portal.areas.groups, exact: true });
-        await revealPortalLink(page, groups);
-        await groups.click();
-        await page
-          .locator('.portal-commandbar')
-          .getByRole('button', { name: nb.portal.create, exact: true })
-          .click();
-        const create = page.locator('.portal-create');
-        await expect(create).toBeVisible();
-        const before = await technical(page);
-        const name = page.getByLabel(nb.portal.groupName, { exact: true });
-        expect(await name.evaluate((el) => getComputedStyle(el).fontFamily)).toMatch(/Segoe UI/);
-        expect(await name.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe(
-          'rgb(255, 255, 255)',
-        );
-        expect(
-          await page
-            .locator('.portal:not(.course-shell)')
-            .evaluate((el) => getComputedStyle(el).colorScheme),
-        ).toBe('light');
-        await name.fill('rg-bifrost-visual-check');
-        await page
-          .getByRole('combobox', { name: nb.portal.subscription, exact: true })
-          .selectOption('sub-app');
-        await page
-          .getByRole('combobox', { name: nb.portal.region, exact: true })
-          .selectOption('norwayeast');
-        await page.screenshot({ path: info.outputPath(`${mode}-native-create.png`) });
-        await create
-          .locator('.portal-create-tabs')
-          .getByRole('button', { name: nb.portal.review, exact: true })
-          .click();
-        await expect(create.locator('.portal-review')).toContainText(nb.portal.valid);
-        expect(
-          await create
-            .locator('.portal-create-footer')
-            .evaluate((el) => getComputedStyle(el).backgroundColor),
-        ).toBe('rgb(255, 255, 255)');
-        await accessible(page);
-        await page.screenshot({ path: info.outputPath(`${mode}-native-review.png`) });
-        await create
-          .locator('.portal-create-footer')
-          .getByRole('button', { name: nb.portal.close, exact: true })
-          .click();
-        await expect(create).toHaveCount(0);
-        expect(await technical(page)).toEqual(before);
-      }
+      if (path === '/portal') await nativeReview(page, mode, info);
     }
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto('/learn/compute?topic=dependencies');
+    const beforeGuide = await technical(page);
+    await page
+      .locator('.compute-workbench')
+      .getByRole('button', { name: computeNb.labels.begin, exact: true })
+      .click();
+    await accessible(page);
+    await page
+      .getByRole('dialog')
+      .getByRole('button', { name: serverlessNb.start, exact: true })
+      .click();
+    await page
+      .locator('.compute-workbench .compute-actions')
+      .getByRole('link', { name: `${computeNb.labels.portal} · Resource groups`, exact: true })
+      .click();
+    await page.reload();
+    const guide = page.locator('.compute-portal-guide');
+    await expect(guide).toHaveClass(/bifrost-guide-island/);
+    const toggle = guide.locator('.compute-guide-toolbar button');
+    if ((await toggle.getAttribute('aria-expanded')) !== 'true') await toggle.click();
+    await expect(
+      guide.getByRole('heading', { name: computeNb.missions.vm.title, exact: true }),
+    ).toBeVisible();
+    await expect(guide).toContainText(computeNb.vmCopy.noCommands);
+    expect(await guide.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe(
+      mode === 'light' ? 'rgb(255, 255, 255)' : 'rgb(15, 33, 51)',
+    );
+    expect(
+      await page.locator('.portal-header').evaluate((el) => getComputedStyle(el).backgroundColor),
+    ).toBe('rgb(0, 120, 212)');
+    await accessible(page);
+    await page.screenshot({ path: info.outputPath(`${mode}-resident-savvy.png`) });
+    await nativeReview(page, mode, info, 'resident-native');
+    expect(await technical(page)).toEqual(beforeGuide);
+    await page.goto('/labs/laboratory');
+    await expect(page.locator('.bifrost-guide-island, .savvy')).toHaveCount(0);
   });
 }
