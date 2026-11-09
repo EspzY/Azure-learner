@@ -1,0 +1,93 @@
+/* Existing pedagogical dialogs only; the simulator's native chrome is separate. */
+dialog.mission-briefing.bifrost-learning {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-3);
+  border-color: var(--bfc-base-dimmed);
+  border-radius: var(--bf-radius-lg);
+  font: 14px/1.8 var(--bf-font-open-sans);
+  box-shadow: 0 24px 80px var(--bfc-shadow);
+}
+dialog.mission-briefing.bifrost-learning .mission-heading {
+  color: var(--bfc-theme-hc);
+  background: var(--bfc-theme);
+}
+dialog.mission-briefing.bifrost-learning .mission-heading :is(small, button) {
+  color: var(--bfc-theme-hc);
+}
+dialog.mission-briefing.bifrost-learning :is(h2, h3, h4) {
+  color: var(--bfc-base-c);
+  font-family: var(--bf-font-satoshi);
+  letter-spacing: -0.025em;
+}
+dialog.mission-briefing.bifrost-learning .mission-intro {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-2);
+  border-bottom: 1px solid var(--bfc-base-dimmed);
+}
+dialog.mission-briefing.bifrost-learning :is(p, li, dd) {
+  color: var(--bfc-base-c);
+}
+dialog.mission-briefing.bifrost-learning :is(dt, .savvy small, footer p) {
+  color: var(--bfc-base-c-2);
+}
+dialog.mission-briefing.bifrost-learning .savvy strong {
+  color: var(--bfc-theme-fade-c);
+  font-family: var(--bf-font-satoshi);
+}
+dialog.mission-briefing.bifrost-learning :is(footer, .milestone-facts > div) {
+  border-color: var(--bfc-base-dimmed);
+  background: var(--bfc-base-2);
+}
+dialog.mission-briefing.bifrost-learning footer button {
+  background: var(--bfc-base-3);
+  color: var(--bfc-base-c);
+  border-color: var(--bfc-base-dimmed);
+  border-radius: var(--bf-radius);
+  min-height: 40px;
+  font-family: var(--bf-font-open-sans);
+}
+dialog.mission-briefing.bifrost-learning footer button.mission-start {
+  background: var(--bfc-theme);
+  color: var(--bfc-theme-hc);
+  border-color: var(--bfc-theme);
+}
+dialog.mission-briefing.bifrost-learning footer button.mission-start:hover:not(:disabled) {
+  background: var(--bfc-theme-2);
+}
+dialog.mission-briefing.bifrost-learning :focus-visible {
+  outline: 3px solid var(--bf-focus-ring);
+  outline-offset: 3px;
+}
+dialog.mission-briefing.bifrost-learning .mission-scroll:focus-visible {
+  outline-offset: -3px;
+}
+dialog.mission-briefing.bifrost-learning .mission-heading :focus-visible {
+  outline-color: var(--bfc-theme-hc);
+}
+.knowledge-journal.bifrost-learning {
+  padding: 20px;
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-3);
+  font: 14px/1.85 var(--bf-font-open-sans);
+}
+.knowledge-journal.bifrost-learning :is(h3, h4, dt) {
+  color: var(--bfc-base-c);
+  font-family: var(--bf-font-satoshi);
+}
+.knowledge-journal.bifrost-learning :is(p, li, dd, label) {
+  color: var(--bfc-base-c);
+}
+.knowledge-journal.bifrost-learning a {
+  color: var(--bfc-theme-fade-c);
+}
+.knowledge-journal.bifrost-learning :is(select, button) {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-2);
+  border: 1px solid var(--bfc-base-dimmed);
+  border-radius: var(--bf-radius);
+  font-family: var(--bf-font-open-sans);
+}
+.knowledge-journal.bifrost-learning :focus-visible {
+  outline: 3px solid var(--bf-focus-ring);
+  outline-offset: 3px;
+}

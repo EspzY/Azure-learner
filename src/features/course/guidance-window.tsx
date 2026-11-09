@@ -2,6 +2,7 @@
 import { useEffect, useId, useRef } from 'react';
 import { nb, serverlessNb as c } from '@/content/nb';
 import './mission-briefing.css';
+import './bifrost-guidance.css';
 /** Native presentation frame, no technical or evidence effects. */
 export function GuidanceWindow({
   title,
@@ -29,7 +30,7 @@ export function GuidanceWindow({
   }, []);
   return (
     <dialog
-      className="mission-briefing sl-guidance"
+      className="mission-briefing sl-guidance bifrost-learning"
       ref={ref}
       aria-labelledby={id}
       onCancel={(e) => {
