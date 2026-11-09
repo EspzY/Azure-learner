@@ -1,678 +1,484 @@
 {
   "schema": 1,
-  "id": "PR72-shared-portal-home-subscriptions-navigation",
-  "baseCommit": "0538b40cc51af634e71182014e65bdb932936c70",
-  "author": "shared-portal-entry-author",
+  "id": "resource-platform-data-serverless",
+  "baseCommit": "249833f7cb7ea41d3e411444ec3c4f83805d3a5f",
+  "author": "resource-platform-data-serverless-author",
   "scope": {
-    "kind": "pure-shared-presentation-and-architecture-contract",
-    "description": "First shared Portal consolidation: one Home, service catalogue/navigation/directory and subscriptions list/detail in historical course-v2 and free Laboratory adapters. No new engine, schema, SQL, command, migration, course rubric or assessment result. Full motor/course integration remains explicit follow-up. Bounded serial CI allocation retains every gate, whole468 profile and35-minute job caps with fail-closed prerequisite/actual-SHA validation; total workflow duration may exceed35minutes.",
-    "objectives": ["SHARED-PORTAL-ENTRY"]
+    "kind": "platform-contract-and-preservation-tests",
+    "description": "Pure executable domain component and engineering QA, not a new learner activity, UI service or competence. No command registration, host model, SQL, transport, original receipt, runtime hosting or integrated browser/resource journey is claimed. Historical course/v2 and Laboratory3.0–3.7 authorities unchanged. Full future integration remains TrackA-owned and separately verifiable. Human SME and learning validation unperformed.",
+    "objectives": ["LAB-DATA-SERVERLESS"]
   },
   "sources": [
     {
-      "id": "portal",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
-      "title": "What is the Azure portal? - Azure portal | Microsoft Learn",
+      "id": "data-serverless-1",
+      "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-public",
+      "title": "Microsoft Learn configuration reference: concepts-networking-public",
       "reviewed": "2026-11-09",
-      "version": "ms.date 2026-01-26T00:00:00Z; retrieved HTML SHA256 b3a0e9526993345c6bb4f87520635f6dd4943a0cd42c521dad5bb16ae1cb4193",
+      "version": "Actual public body reviewed; displayed update 2026-07-16",
       "kind": "official-public-Microsoft",
-      "objectives": ["SHARED-PORTAL-ENTRY"],
-      "claims": ["portal.entry-and-scope"],
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
       "availability": "AVAILABLE",
-      "limits": "Actual public body reviewed for Portal discovery/navigation and subscription/group scope; no new Azure operation, billing or tenant/authentication claim.",
+      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
-          "disposition": "reviewed-scope",
-          "reason": "Actual public body reviewed for Portal discovery/navigation and subscription/group scope; no new Azure operation, billing or tenant/authentication claim."
+          "url": "https://learn.microsoft.com/en-us/azure/postgresql/network/concepts-networking-public",
+          "disposition": "reviewed-bounded-configuration",
+          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
         }
       ]
     },
     {
-      "id": "subscriptions",
-      "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription",
-      "title": "Create a Microsoft Customer Agreement subscription - Azure Cost Management + Billing | Microsoft Learn",
+      "id": "data-serverless-2",
+      "url": "https://learn.microsoft.com/en-us/azure/postgresql/compute-storage/concepts-compute",
+      "title": "Microsoft Learn configuration reference: concepts-compute",
       "reviewed": "2026-11-09",
-      "version": "ms.date 2026-02-10T00:00:00Z; retrieved HTML SHA256 70f35508e60c42eaa5758111ee3e4f87f63f7089e2addc373a35d9ef8cb91847",
+      "version": "Actual public body reviewed; displayed update 2026-07-09",
       "kind": "official-public-Microsoft",
-      "objectives": ["SHARED-PORTAL-ENTRY"],
-      "claims": ["portal.entry-and-scope"],
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
       "availability": "AVAILABLE",
-      "limits": "Actual public body reviewed for Portal discovery/navigation and subscription/group scope; no new Azure operation, billing or tenant/authentication claim.",
+      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/create-subscription",
-          "disposition": "reviewed-scope",
-          "reason": "Actual public body reviewed for Portal discovery/navigation and subscription/group scope; no new Azure operation, billing or tenant/authentication claim."
+          "url": "https://learn.microsoft.com/en-us/azure/postgresql/compute-storage/concepts-compute",
+          "disposition": "reviewed-bounded-configuration",
+          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
         }
       ]
     },
     {
-      "id": "groups",
-      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
-      "title": "Use the Azure portal and Azure Resource Manager to Manage Resource Groups - Azure Resource Manager | Microsoft Learn",
+      "id": "data-serverless-3",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/flexibleservers",
+      "title": "Microsoft Learn configuration reference: flexibleservers",
       "reviewed": "2026-11-09",
-      "version": "ms.date 2026-02-27T00:00:00Z; retrieved HTML SHA256 218f1ce761bd8bf20c7bc4f15d98d313565318b99818580e1ddde5a79f372123",
+      "version": "Actual public body reviewed; displayed update 2026-10-20",
       "kind": "official-public-Microsoft",
-      "objectives": ["SHARED-PORTAL-ENTRY"],
-      "claims": ["portal.entry-and-scope"],
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
       "availability": "AVAILABLE",
-      "limits": "Actual public body reviewed for Portal discovery/navigation and subscription/group scope; no new Azure operation, billing or tenant/authentication claim.",
+      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim.",
       "discovery": [
         {
-          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
-          "disposition": "reviewed-scope",
-          "reason": "Actual public body reviewed for Portal discovery/navigation and subscription/group scope; no new Azure operation, billing or tenant/authentication claim."
+          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/flexibleservers",
+          "disposition": "reviewed-bounded-configuration",
+          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "data-serverless-4",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/flexibleservers/databases",
+      "title": "Microsoft Learn configuration reference: databases",
+      "reviewed": "2026-11-09",
+      "version": "Actual public body reviewed; displayed update 2026-10-20",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
+      "availability": "AVAILABLE",
+      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.dbforpostgresql/flexibleservers/databases",
+          "disposition": "reviewed-bounded-configuration",
+          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "data-serverless-5",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/logical-servers?view=azuresql",
+      "title": "Microsoft Learn configuration reference: logical-servers?view=azuresql",
+      "reviewed": "2026-11-09",
+      "version": "Actual public body reviewed; displayed update 2026-06-02",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
+      "availability": "AVAILABLE",
+      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/logical-servers?view=azuresql",
+          "disposition": "reviewed-bounded-configuration",
+          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "data-serverless-6",
+      "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.sql/servers/databases",
+      "title": "Microsoft Learn configuration reference: databases",
+      "reviewed": "2026-11-09",
+      "version": "Actual public body reviewed; displayed update 2024-12-09",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
+      "availability": "AVAILABLE",
+      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/templates/microsoft.sql/servers/databases",
+          "disposition": "reviewed-bounded-configuration",
+          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "data-serverless-7",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/resource-limits-dtu-single-databases?view=azuresql",
+      "title": "Microsoft Learn configuration reference: resource-limits-dtu-single-databases?view=azuresql",
+      "reviewed": "2026-11-09",
+      "version": "Actual public body reviewed; displayed update 2023-08-02",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
+      "availability": "AVAILABLE",
+      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-sql/database/resource-limits-dtu-single-databases?view=azuresql",
+          "disposition": "reviewed-bounded-configuration",
+          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "data-serverless-8",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
+      "title": "Microsoft Learn configuration reference: resource-name-rules",
+      "reviewed": "2026-11-09",
+      "version": "Actual public body reviewed; displayed update 2026-08-05",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
+      "availability": "AVAILABLE",
+      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/resource-name-rules",
+          "disposition": "reviewed-bounded-configuration",
+          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "data-serverless-9",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/storage-considerations",
+      "title": "Microsoft Learn configuration reference: storage-considerations",
+      "reviewed": "2026-11-09",
+      "version": "Actual public body reviewed; displayed update 2026-09-16",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
+      "availability": "AVAILABLE",
+      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/storage-considerations",
+          "disposition": "reviewed-bounded-configuration",
+          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "data-serverless-10",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan",
+      "title": "Microsoft Learn configuration reference: flex-consumption-plan",
+      "reviewed": "2026-11-09",
+      "version": "Actual public body reviewed; displayed update 2026-09-15",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
+      "availability": "AVAILABLE",
+      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-plan",
+          "disposition": "reviewed-bounded-configuration",
+          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "data-serverless-11",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-how-to",
+      "title": "Microsoft Learn configuration reference: flex-consumption-how-to",
+      "reviewed": "2026-11-09",
+      "version": "Actual public body reviewed; displayed update None",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
+      "availability": "AVAILABLE",
+      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/flex-consumption-how-to",
+          "disposition": "reviewed-bounded-configuration",
+          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "data-serverless-12",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-node",
+      "title": "Microsoft Learn configuration reference: functions-reference-node",
+      "reviewed": "2026-11-09",
+      "version": "Actual public body reviewed; displayed update 2026-07-23",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
+      "availability": "AVAILABLE",
+      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-reference-node",
+          "disposition": "reviewed-bounded-configuration",
+          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "data-serverless-13",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger",
+      "title": "Microsoft Learn configuration reference: functions-bindings-http-webhook-trigger",
+      "reviewed": "2026-11-09",
+      "version": "Actual public body reviewed; displayed update 2026-09-18",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
+      "availability": "AVAILABLE",
+      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger",
+          "disposition": "reviewed-bounded-configuration",
+          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
+        }
+      ]
+    },
+    {
+      "id": "data-serverless-14",
+      "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-trigger",
+      "title": "Microsoft Learn configuration reference: functions-bindings-storage-blob-trigger",
+      "reviewed": "2026-11-09",
+      "version": "Actual public body reviewed; displayed update 2026-08-28",
+      "kind": "official-public-Microsoft",
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
+      "availability": "AVAILABLE",
+      "limits": "Scoped configuration/identity/semantics reference only. Actual documented facts and deliberate simulator restrictions are separated in docs/DATA_SERVERLESS_DOMAIN.md. No live Azure SKU, hosting, health, identity or network claim.",
+      "discovery": [
+        {
+          "url": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-blob-trigger",
+          "disposition": "reviewed-bounded-configuration",
+          "reason": "Actual official content reviewed by the independent development track for this component; unsupported functions are explicitly excluded."
         }
       ]
     }
   ],
   "activities": [
     {
-      "id": "shared-portal-home-subscriptions",
-      "objectives": ["SHARED-PORTAL-ENTRY"],
-      "claims": ["portal.entry-and-scope"],
-      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution.",
-      "theory": [
-        {
-          "path": "docs/SHARED_PORTAL_CONSOLIDATION.md"
-        }
-      ],
-      "mechanism": [
-        {
-          "path": "src/features/portal/service-catalog.ts"
-        }
-      ],
-      "practice": [
-        {
-          "path": "tests/e2e/portal-consolidation.spec.ts"
-        }
-      ],
-      "feedback": [
-        {
-          "path": "src/features/portal/subscriptions.tsx"
-        }
-      ],
-      "visual": [
-        {
-          "path": "src/features/portal/home.tsx"
-        }
-      ],
-      "accessible": [
-        {
-          "path": "tests/e2e/portal-consolidation.spec.ts"
-        }
-      ],
-      "assessment": [
-        {
-          "path": "src/pr72-shared-portal-preservation.test.ts"
-        }
-      ],
-      "savvyshark": [
-        {
-          "path": "src/features/portal/portal.tsx"
-        }
-      ],
+      "id": "data-serverless-technical-contract",
+      "objectives": ["LAB-DATA-SERVERLESS"],
+      "claims": ["data-serverless.configuration-and-dependencies"],
+      "limits": "Pure executable domain component and engineering QA, not a new learner activity, UI service or competence. No command registration, host model, SQL, transport, original receipt, runtime hosting or integrated browser/resource journey is claimed. Historical course/v2 and Laboratory3.0–3.7 authorities unchanged. Full future integration remains TrackA-owned and separately verifiable. Human SME and learning validation unperformed.",
+      "theory": [{ "path": "docs/DATA_SERVERLESS_DOMAIN.md" }],
+      "mechanism": [{ "path": "src/laboratory/data/domain.ts" }],
+      "practice": [{ "path": "src/laboratory/data/data.test.ts" }],
+      "feedback": [{ "path": "src/laboratory/data/analysis.ts" }],
+      "visual": [{ "path": "src/features/portal/home.tsx" }],
+      "accessible": [{ "path": "tests/e2e/portal-consolidation.spec.ts" }],
+      "assessment": [{ "path": "src/data-serverless-preservation.test.ts" }],
+      "savvyshark": [{ "path": "src/features/course/mission-context.ts" }],
       "assessmentStatus": "unchanged-existing"
     }
   ],
   "modules": [],
   "preservedPaths": [
     "src/domain/",
-    "src/laboratory/",
+    "src/app/",
+    "src/features/",
+    "src/content/",
+    "src/laboratory/engine.ts",
+    "src/laboratory/v3/",
+    "src/laboratory/v31/",
+    "src/laboratory/v32/",
+    "src/laboratory/v33/",
+    "src/laboratory/v34/",
+    "src/laboratory/v35/",
+    "src/laboratory/v36/",
+    "src/laboratory/v37/",
     "database/",
     "scripts/",
     "public/",
-    "src/content/nb.ts",
-    "src/content/laboratory-topology-nb.ts",
-    "docs/reviews/evidence/pr70/",
-    "docs/quality/PR70",
+    ".github/",
     "package.json",
     "package-lock.json",
-    "tests/e2e/access-control.spec.ts",
-    "tests/e2e/application-transfer.spec.ts",
-    "tests/e2e/architecture-management.spec.ts",
-    "tests/e2e/architecture-physical.spec.ts",
-    "tests/e2e/assessment-refinement.spec.ts",
-    "tests/e2e/az900-audit.spec.ts",
-    "tests/e2e/challenge-return.spec.ts",
-    "tests/e2e/challenge-v2-actions.ts",
-    "tests/e2e/challenge-validity.spec.ts",
-    "tests/e2e/cloud-chapter-actions.ts",
-    "tests/e2e/cloud-consolidation.spec.ts",
-    "tests/e2e/cloud-owner-navigation.spec.ts",
-    "tests/e2e/cloud-transfer.spec.ts",
-    "tests/e2e/collapsible-sources.spec.ts",
-    "tests/e2e/compute-hosting.spec.ts",
-    "tests/e2e/cost-management.spec.ts",
-    "tests/e2e/course-hub-actions.ts",
-    "tests/e2e/course-hub.spec.ts",
-    "tests/e2e/course.spec.ts",
-    "tests/e2e/curriculum-expansion.spec.ts",
-    "tests/e2e/dialog-placement.spec.ts",
-    "tests/e2e/file-movement-migration.spec.ts",
-    "tests/e2e/final-quality-sprint.spec.ts",
-    "tests/e2e/foundations-v2.spec.ts",
-    "tests/e2e/governance-compliance.spec.ts",
-    "tests/e2e/guided-learning-polish.spec.ts",
-    "tests/e2e/hybrid-experience.spec.ts",
-    "tests/e2e/identity-foundations.spec.ts",
-    "tests/e2e/laboratory-actions.ts",
-    "tests/e2e/laboratory-activation.spec.ts",
-    "tests/e2e/laboratory-compute.spec.ts",
-    "tests/e2e/laboratory-endpoints.spec.ts",
-    "tests/e2e/laboratory-firewall.spec.ts",
-    "tests/e2e/laboratory-networking.spec.ts",
-    "tests/e2e/laboratory-remediation.spec.ts",
-    "tests/e2e/laboratory-routing.spec.ts",
-    "tests/e2e/laboratory-server.spec.ts",
-    "tests/e2e/laboratory-studio.spec.ts",
-    "tests/e2e/laboratory-topology.spec.ts",
-    "tests/e2e/learning-flow-guidance.spec.ts",
-    "tests/e2e/learning-sequencing.spec.ts",
-    "tests/e2e/legacy-retirement.spec.ts",
-    "tests/e2e/management-tools.spec.ts",
-    "tests/e2e/monitoring-diagnostics.spec.ts",
-    "tests/e2e/networking-connectivity.spec.ts",
-    "tests/e2e/networking-foundations.spec.ts",
-    "tests/e2e/owner-acceptance.spec.ts",
-    "tests/e2e/portal-actions.ts",
-    "tests/e2e/portal-fidelity.spec.ts",
-    "tests/e2e/portal-inspection-bridge.spec.ts",
-    "tests/e2e/portal.spec.ts",
-    "tests/e2e/practical-labs.spec.ts",
-    "tests/e2e/practical-missions.spec.ts",
-    "tests/e2e/premium-landing.spec.ts",
-    "tests/e2e/quality-system.spec.ts",
-    "tests/e2e/security-principles.spec.ts",
-    "tests/e2e/serverless.spec.ts",
-    "tests/e2e/shared-portal.spec.ts",
-    "tests/e2e/storage-resilience.spec.ts",
-    "tests/e2e/storage-services.spec.ts",
-    "tests/e2e/ux-refinement.spec.ts",
-    "tests/e2e/visual-excellence.spec.ts",
-    "tests/e2e/vm-debrief-actions.ts",
-    "tests/e2e/vm-debrief.spec.ts"
+    "playwright.config.ts",
+    "playwright.desktop.config.ts",
+    "docs/reviews/evidence/pr71/",
+    "docs/reviews/evidence/pr72/",
+    "tests/e2e/"
   ],
   "gates": {
     "source": {
-      "checks": [
-        {
-          "path": "docs/reviews/evidence/pr72/sources.json"
-        }
-      ],
-      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution."
+      "checks": [{ "path": "docs/reviews/evidence/data-serverless/microsoft-sources.json" }],
+      "limits": "Pure executable domain component and engineering QA, not a new learner activity, UI service or competence. No command registration, host model, SQL, transport, original receipt, runtime hosting or integrated browser/resource journey is claimed. Historical course/v2 and Laboratory3.0–3.7 authorities unchanged. Full future integration remains TrackA-owned and separately verifiable. Human SME and learning validation unperformed."
     },
     "curriculum": {
-      "checks": [
-        {
-          "path": "src/pr72-shared-portal-preservation.test.ts"
-        }
-      ],
-      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution."
+      "checks": [{ "path": "src/data-serverless-preservation.test.ts" }],
+      "limits": "Pure executable domain component and engineering QA, not a new learner activity, UI service or competence. No command registration, host model, SQL, transport, original receipt, runtime hosting or integrated browser/resource journey is claimed. Historical course/v2 and Laboratory3.0–3.7 authorities unchanged. Full future integration remains TrackA-owned and separately verifiable. Human SME and learning validation unperformed."
     },
     "simulation": {
-      "checks": [
-        {
-          "path": "src/features/portal/shared-shell.test.ts"
-        }
-      ],
-      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution."
+      "checks": [{ "path": "src/laboratory/data/data.test.ts" }],
+      "limits": "Pure executable domain component and engineering QA, not a new learner activity, UI service or competence. No command registration, host model, SQL, transport, original receipt, runtime hosting or integrated browser/resource journey is claimed. Historical course/v2 and Laboratory3.0–3.7 authorities unchanged. Full future integration remains TrackA-owned and separately verifiable. Human SME and learning validation unperformed."
     },
     "savvyshark": {
-      "checks": [
-        {
-          "path": "tests/e2e/portal-consolidation.spec.ts"
-        }
-      ],
-      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution."
+      "checks": [{ "path": "src/features/course/mission-context.ts" }],
+      "limits": "Pure executable domain component and engineering QA, not a new learner activity, UI service or competence. No command registration, host model, SQL, transport, original receipt, runtime hosting or integrated browser/resource journey is claimed. Historical course/v2 and Laboratory3.0–3.7 authorities unchanged. Full future integration remains TrackA-owned and separately verifiable. Human SME and learning validation unperformed."
     },
     "delivery": {
-      "checks": [
-        {
-          "path": "docs/quality/PR72_QA_REVIEW.md"
-        }
-      ],
-      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution."
+      "checks": [{ "path": "docs/quality/DATA_SERVERLESS_QA.md" }],
+      "limits": "Pure executable domain component and engineering QA, not a new learner activity, UI service or competence. No command registration, host model, SQL, transport, original receipt, runtime hosting or integrated browser/resource journey is claimed. Historical course/v2 and Laboratory3.0–3.7 authorities unchanged. Full future integration remains TrackA-owned and separately verifiable. Human SME and learning validation unperformed."
     },
     "visual-accessibility": {
-      "checks": [
-        {
-          "path": "tests/e2e/portal-consolidation.spec.ts"
-        }
-      ],
-      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution."
+      "checks": [{ "path": "tests/e2e/portal-consolidation.spec.ts" }],
+      "limits": "Pure executable domain component and engineering QA, not a new learner activity, UI service or competence. No command registration, host model, SQL, transport, original receipt, runtime hosting or integrated browser/resource journey is claimed. Historical course/v2 and Laboratory3.0–3.7 authorities unchanged. Full future integration remains TrackA-owned and separately verifiable. Human SME and learning validation unperformed."
     },
     "independent-final-audit": {
-      "checks": [
-        {
-          "path": "docs/quality/PR72_FINAL_AUDIT.md"
-        }
-      ],
-      "limits": "Pure presentation/projection; historical technical and learning authorities unchanged. Free memory3.7 remains untrusted/refresh-lost, PG path preserved and public persistent DB deferred. Course-v2 and Laboratory still use different frozen evaluators. No full one-engine integration or human learning approval claimed. Exact-head CI/strict/public gate pending until actual execution."
+      "checks": [{ "path": "docs/quality/DATA_SERVERLESS_FINAL_AUDIT.md" }],
+      "limits": "Pure executable domain component and engineering QA, not a new learner activity, UI service or competence. No command registration, host model, SQL, transport, original receipt, runtime hosting or integrated browser/resource journey is claimed. Historical course/v2 and Laboratory3.0–3.7 authorities unchanged. Full future integration remains TrackA-owned and separately verifiable. Human SME and learning validation unperformed."
     }
   },
-  "humanReview": {
-    "sme": "unperformed",
-    "learning": "unperformed"
-  },
+  "humanReview": { "sme": "unperformed", "learning": "unperformed" },
   "visualEvidence": [
     {
-      "path": "docs/reviews/evidence/pr72/screens/course-home-1024-500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Actual original v2 workspace uses the single shared Home; original course header/SavvyShark retained. Ordinary vertical scrolling is necessary in the short window."
-    },
-    {
-      "path": "docs/reviews/evidence/pr72/screens/free-home-1024-500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Actual free temporary workspace shares Home/service layout, explicit memory status, no guidance panel; final fresh captures renewed after changed guide-marker binding."
-    },
-    {
-      "path": "docs/reviews/evidence/pr72/screens/course-subscription-details-1024-500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Same resource menu, Essentials and metadata/resource-location distinction; real course RG membership, original technical identity."
-    },
-    {
-      "path": "docs/reviews/evidence/pr72/screens/free-subscription-details-1024-500.png",
-      "viewport": "1024x500",
-      "inspected": true,
-      "observation": "Same subscription presentation, real World membership and explicit scoped Create resource group; no billing/authentication claim."
-    },
-    {
-      "path": "docs/reviews/evidence/pr72/screens/course-create-1440-900.png",
+      "path": "docs/reviews/evidence/data-serverless/screens/module-preserved-home-1440-900.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual v2 Create form retains original supported fields and Review/commit semantics."
+      "observation": "Actual unchanged normal production Portal preservation only: sharedHome/scope/catalogue; no new database/function service exposed. Native keyboard/reduced-motion/Axe and zero technical/coursewrites checked. Not an integrated Data/Functions browser journey."
     },
     {
-      "path": "docs/reviews/evidence/pr72/screens/free-create-1440-900.png",
+      "path": "docs/reviews/evidence/data-serverless/screens/module-preserved-services-1024-500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Actual unchanged normal production Portal preservation only: sharedHome/scope/catalogue; no new database/function service exposed. Native keyboard/reduced-motion/Axe and zero technical/coursewrites checked. Not an integrated Data/Functions browser journey."
+    },
+    {
+      "path": "docs/reviews/evidence/data-serverless/screens/module-preserved-subscription-1440-900.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual free Create form uses the existing shared create/layout patterns and authoritative v3 request; not claimed field-identical to v2."
+      "observation": "Actual unchanged normal production Portal preservation only: sharedHome/scope/catalogue; no new database/function service exposed. Native keyboard/reduced-motion/Axe and zero technical/coursewrites checked. Not an integrated Data/Functions browser journey."
     }
   ],
   "verification": [
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Final stable current source:1111 Vitest/94 files,24 Node,503 curriculum, real isolated PostgreSQL suites, contracts/format and normal production build; exit0. Earlier lint/format development failures retained."
+      "details": "Actual renewed completecheck after DATA-AUDIT-001 exited0:1248Vitest/97files,24Node,503curriculum, real isolatedPostgreSQL and normalproductionbuild;121focusedmodulecases included. Original pre-fix1191 and redtype/harness/audit evidence retained."
     },
     {
-      "command": "targeted native desktop and compact",
+      "command": "npx vitest run src/laboratory/data/data.test.ts",
       "result": "passed",
-      "details": "Sequential distinct artifact runs:14 unchanged course/Portal/VM/independent/aid/PG controls +5 new native desktop +1 compact witness,20/20 without retry. Actual memory and PostgreSQL create/reload/isolation, frozen3.0 discovery, Home/subscriptions/Properties/Studio, keyboard/Axe/reduced motion and original rule/return checks."
-    },
-    {
-      "command": "npm run test:e2e:plan",
-      "result": "passed",
-      "details": "468 candidate =419 desktop +49 compact; all462 inherited controls/substantive assertions/settings preserved. Collection is not executed complete candidate CI evidence."
-    },
-    {
-      "command": "separate post-stamp independent final audit",
-      "result": "passed",
-      "details": "Fresh reviewer independently verified76 hashes/fingerprint,17 targeted unit/direct-preservation and8 native controls without retry plus scope/layout probes. No BLOCKER/MAJOR; SP72-01 remains open MINOR. CI/strict/public remain delivery gates."
-    },
-    {
-      "command": "separate evidence-only audit renewal",
-      "result": "passed",
-      "details": "After renewed11:24:34.957Z stamp, independent review started11:25:02Z and checked all83 payload/82 manifest hashes, exact seven raw logs and no executable/source/setting changes; fresh17/17 preservation tests. Eight unchanged native checks remain the earlier implementation audit checkpoint; no repetition or new human approval claimed."
-    },
-    {
-      "command": "Quality118 complete candidate regression",
-      "result": "failed",
-      "details": "Run42609100810 on23d255c…:456 passed,11 failed,1 flaky of468. Strict skipped. Actual job log preserved. Three new Home regressions causally reproduced with original tests/traces; fixes and renewed affected/audit/full candidate gates required. Original compact Firewall receipt-navigation flake remains open."
-    },
-    {
-      "command": "CI118 correction original desktop retest",
-      "result": "passed",
-      "details": "Two sequential unique-output runs7+7=14/14 without retry: unchanged original motion, whole Networking3.1 suite, original dialog placement and guidance width sweeps, all five new shared entry cases including populated course Arial320/600/640. Normal production build, actual memory and PostgreSQL. Compact retest/check/stamp/audit/complete CI remain pending."
-    },
-    {
-      "command": "CI118 correction compact and paired actual captures",
-      "result": "passed",
-      "details": "Three unchanged affected compact cases passed; the new compact witness passed1/1 after correcting its own closed-drawer assumption, no retry.18 affected executions total passed across four sequential batches; the intermediate new-test red log remains. Actual paired Home/catalogue/scope/list/create captures renewed at1440x900,1024x768,1024x500. Independent original compact Firewall passed once, unconfirmed hypothesis rejected, cause OPEN."
-    },
-    {
-      "command": "npm run check after CI118 source correction",
-      "result": "passed",
-      "details": "Exit0;1111 Vitest/94 files,24 Node,503 curriculum, real isolated PostgreSQL integration, required contracts/format/source/legacy/assets and normal production build. Corrected affected original/new native checks passed18 executions without retry across sequential distinct artifact batches. Original red logs retained. New stamp and affected separate renewal precede corrected exact-head complete CI/strict/public."
-    },
-    {
-      "command": "Quality119 unchanged-head complete attempts",
-      "result": "cancelled",
-      "details": "Attempt1:439 passed/no failed attempts,29 incomplete; attempt2:446 completed incl known compact Firewall retry,22 incomplete. Both hit original35-minute job cap, no candidate receipt/strict release. Separate review reproduced distributed slowdown without established cause. Two attempts retained; no arbitrary third rerun."
-    },
-    {
-      "command": "local complete diagnostic before CI allocation maintenance",
-      "result": "interrupted",
-      "details": "135 completed passes/no failed attempts before intentional interruption to implement reviewed CI allocation. No full-profile receipt and no pass credited. Actual prior release record remained byte-identical."
-    },
-    {
-      "command": "actual serial CI and complete raw-preservation targeted controls",
-      "result": "passed",
-      "details": "26/26 across4files without retry: complete actualworkflow gate blocks, real Bash prerequisite/publisher/checkout negatives including blank-line exit0/custom-shell/default/env masks; immutable event/actual/prerequisite SHA; every original PR71 path once across4serial raw-hash categories, allnewbytes and exactruntime/controller/legacyassertion preservation. No timeout/worker/settings change. Fullcheck/newstamp/audit/exactheadCI remain required."
-    },
-    {
-      "command": "npm run check after serial CI allocation and exact raw-preservation maintenance",
-      "result": "passed",
-      "details": "Exit0 on final source:1120 Vitest/95 files,24 Node,503 curriculum, real isolated PostgreSQL, all contracts/format/lint/assets/legacy and normal production build.26 targeted actualworkflow/raw-preservation controls also passed. Browser468 profile/authorities/runtime/script bytes unchanged from8a. Newstamp/affectedreview and actualnewheadserialCI/strict/public stillrequired."
+      "details": "121 focused component cases passed after DATA-AUDIT-001 correction (all64original retained plus57boundary cases). No integrated host/browser/runtime credit."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "23e773f3f4600151a2876b0df06906de06837dc03da1a4a9ebfc111aa9eee918",
-    "reviewer": {
-      "id": "shared_portal_final_audit",
-      "kind": "agent"
-    },
-    "started": "2026-11-09T14:03:04Z",
-    "report": {
-      "path": "docs/quality/PR72_FINAL_AUDIT.md"
-    },
+    "fingerprint": "022262b4837c1a63b521205ed56421715cd56604f35d0770875721f2be1887f0",
+    "reviewer": { "id": "resource-platform-data-serverless-independent-auditor", "kind": "agent" },
+    "started": "2026-11-09T15:48:11.314Z",
     "domains": {
       "content": {
-        "finding": "Product/source/course bytes and claims unchanged from signed8a. Bounded serial-CI documentation accurately preserves full gates/profile and35-minute per-job limits while disclosing combined duration can exceed35minutes, unproven cause and pending delivery.",
+        "finding": "Actual14Microsoft public page bodies reviewed in initial separate pass; unchanged source evidence and conservative scope preserved after correction. No new teaching, competence or human acceptance fabricated.",
         "evidence": [
-          {
-            "path": "docs/quality/PR72_FINAL_AUDIT.md"
-          },
-          {
-            "path": "docs/reviews/evidence/pr72/sources.json"
-          },
-          {
-            "path": "docs/SHARED_PORTAL_CAPABILITY_MATRIX.md"
-          }
+          { "path": "docs/DATA_SERVERLESS_DOMAIN.md" },
+          { "path": "docs/reviews/evidence/data-serverless/microsoft-sources.json" },
+          { "path": "docs/quality/DATA_SERVERLESS_FINAL_AUDIT.md" }
         ]
       },
       "technical": {
-        "finding": "Serial check→verify uses actual checkout/event/prerequisite SHA matching and fail-closed prerequisite status. Original fullcheck/audit/whole468 wrapper/immediate strict, pinned environment and isolated PG setups retained. Independent100payload/99manifest hashes exact; complete raw Git/Python comparison2781paths has zero mismatch. Runtime/API/engines/SQL/scripts unchanged.",
+        "finding": "DATA-AUDIT-001 MAJOR fixed in fba02b4 and independently renewed after newstamp:66 direct cases verify own-field/identity boundary, explicit null invalid binding, no secret echo/getter/throw/synthetic output and exact valid revision binding. Pure proposals/dependencies/atomicplan and configuration-only limits remain valid; host AppSettings namespace guard remains futureintegration.",
         "evidence": [
-          {
-            "path": "docs/quality/PR72_FINAL_AUDIT.md"
-          },
-          {
-            "path": "src/features/portal/shared-shell.test.ts"
-          },
-          {
-            "path": "tests/e2e/portal-consolidation.spec.ts"
-          },
-          {
-            "path": ".github/workflows/ci.yml"
-          },
-          {
-            "path": "src/pr72-ci-workflow.test.ts"
-          }
+          { "path": "src/laboratory/data/analysis.ts" },
+          { "path": "src/laboratory/data/domain.ts" },
+          { "path": "src/laboratory/data/data.test.ts" },
+          { "path": "docs/quality/DATA_SERVERLESS_FINAL_AUDIT.md" }
         ]
       },
       "visual": {
-        "finding": "Runtime/UI/CSS/assets and browser bodies/configurations are byte-identical8a; earlier signed actual desktop/short/narrow images and8 affected native cases carried forward explicitly, not relabelled reruns. SP72-01 remains open MINOR; human visual review unperformed.",
+        "finding": "Three actual normal-build unchanged3.7Portal PNGs inspected; all image hashes unchanged after correction. Retained1/1keyboard/reducedmotion/Axe/no-write preservation result only; no new database/Functions journey claimed.",
         "evidence": [
           {
-            "path": "docs/quality/PR72_FINAL_AUDIT.md"
+            "path": "docs/reviews/evidence/data-serverless/screens/module-preserved-home-1440-900.png"
           },
           {
-            "path": "docs/reviews/evidence/pr72/screens/course-home-1024-500.png"
+            "path": "docs/reviews/evidence/data-serverless/screens/module-preserved-services-1024-500.png"
           },
           {
-            "path": "docs/reviews/evidence/pr72/screens/free-subscription-details-1024-500.png"
-          }
+            "path": "docs/reviews/evidence/data-serverless/screens/module-preserved-subscription-1440-900.png"
+          },
+          { "path": "docs/quality/DATA_SERVERLESS_FINAL_AUDIT.md" }
         ]
       },
       "assessment": {
-        "finding": "No assessment/store/rubric/first/help/retry/abandon/XP/attestation change. Four logical serial raw partitions cover all2695 original base paths exactly once plus86 added paths; inherited assertions and technical/learning authorities remain protected. Prior actual aid/draft evidence retained through unchanged source.",
+        "finding": "No new assessment/pedagogy/schema/reward. All2785inherited files raw-byte unchanged on initial and renewed independent checks. All64original module test source retained;57new boundary tests added.",
         "evidence": [
-          {
-            "path": "docs/quality/PR72_FINAL_AUDIT.md"
-          },
-          {
-            "path": "src/pr72-shared-portal-preservation.test.ts"
-          },
-          {
-            "path": "tests/e2e/portal-inspection-bridge.spec.ts"
-          }
+          { "path": "src/data-serverless-preservation.test.ts" },
+          { "path": "docs/reviews/evidence/data-serverless/preservation.json" },
+          { "path": "docs/quality/DATA_SERVERLESS_FINAL_AUDIT.md" }
         ]
       },
       "guidance": {
-        "finding": "Guidance/controller/navigation/assistance source unchanged8a; prior actual independent shielding, denied aid, guide recovery and exact return evidence remains applicable. No CI allocation can grant learning evidence or alter free/course isolation.",
+        "finding": "Guide/mission/mascot/help/learning-store bytes remain preserved; no competing learner state or implied help/completion. Retained no-guide/no-course-write browser assertions reviewed.",
         "evidence": [
-          {
-            "path": "docs/quality/PR72_FINAL_AUDIT.md"
-          },
-          {
-            "path": "src/features/portal/home.tsx"
-          },
-          {
-            "path": "tests/e2e/learning-flow-guidance.spec.ts"
-          },
-          {
-            "path": "tests/e2e/shared-portal.spec.ts"
-          }
+          { "path": "src/data-serverless-preservation.test.ts" },
+          { "path": "docs/quality/DATA_SERVERLESS_FINAL_AUDIT.md" }
         ]
       },
       "regression": {
-        "finding": "Fresh26/26 affected tests and own prior-masking mutations passed; complete finite workflow template rejects omitted/masked/selected gates, environment/shell/default/blank-line appendices, changed limits and bad SHA/status. Native raw hashing preserves all expected bytes without filters/cache/object writes; no timeout/worker/skip relaxation. Author finalfullcheck1120Vitest/95+24Node+503curriculum/realPG/normalbuild inspected. New-head whole468CI/strict/public pending; old CI119 cancellations/local135-pass interruption supply no receipt; Firewall/global-budget causes OPEN.",
+        "finding": "Fresh128/128 scoped tests and66 direct independent probes passed after newstamp. Current14file fingerprint exact;2785inherited files unchanged; actual corrected fullcheck1248/97+24Node+503curriculum/realPG/normalbuild inspected. New-headCI/fullbrowser/strict/publicverification pending.",
         "evidence": [
-          {
-            "path": "docs/quality/PR72_FINAL_AUDIT.md"
-          },
-          {
-            "path": "src/pr72-shared-portal-preservation.test.ts"
-          },
-          {
-            "path": "docs/quality/PR72_QA_REVIEW.md"
-          },
-          {
-            "path": "docs/DEVELOPMENT_WORKFLOW.md"
-          },
-          {
-            "path": "src/pr72-ci-workflow.test.ts"
-          }
+          { "path": "src/laboratory/data/data.test.ts" },
+          { "path": "src/data-serverless-preservation.test.ts" },
+          { "path": "docs/quality/DATA_SERVERLESS_QA.md" },
+          { "path": "docs/quality/DATA_SERVERLESS_FINAL_AUDIT.md" }
         ]
       }
     },
     "findings": [
       {
-        "id": "SP72-01",
-        "severity": "minor",
-        "status": "open",
-        "description": "Subscription Overview repeats Resource groups and populated Resources labels in adjacent headings and table captions. Native screenshots confirm visual repetition; membership and controls remain usable. Retain for future presentation cleanup."
-      },
-      {
-        "id": "SP72-02",
+        "id": "DATA-AUDIT-001",
         "severity": "major",
         "status": "fixed",
-        "description": "New always-rendered Home recents table expanded narrow Home/document to682px at320px, causing four original desktop/compact overflow failures.",
-        "fix": "Scoped shared Home content width100% contains the unchanged650px table within its scrolling wrapper; no global overflow hiding or assertion relaxation.",
+        "description": "Initial analysis boundary accepted inherited DB/identity fields, could emit successful unbound results, threw on null/undefined identity and echoed unknown fields. Initial pending audit retained in report.",
+        "fix": "Commit fba02b4a1cdcce8e9e01d1323f42faf8f3078f61 validates strict own enumerable descriptor-backed JSON records and exact bounded identities, projects only supported output fields and returns explicit null identity for invalid callers. New stamp022262b4837c1a63b521205ed56421715cd56604f35d0770875721f2be1887f0 independently checked.",
         "retests": [
-          {
-            "path": "tests/e2e/dialog-placement.spec.ts",
-            "result": "Original control passed independently in desktop and compact after corrected stamp."
-          },
-          {
-            "path": "tests/e2e/learning-flow-guidance.spec.ts",
-            "result": "Original narrow/Arial control passed independently in desktop and compact."
-          },
-          {
-            "path": "tests/e2e/portal-consolidation.spec.ts",
-            "result": "Populated course Home Arial320/600/640 and keyboard/Axe controls passed."
-          },
-          {
-            "path": "docs/quality/PR72_FINAL_AUDIT.md"
-          }
+          "2026-11-09T15:48:11.314Z independent66directprobe cases passed against actual corrected imports: inherited/null/secret/getter/symbol/nonenumerable/malformed/normalized/frozen, bothanalyses;zero getters/no echo/no throw/no invalid synthetic output/exactvalidbinding.",
+          "2026-11-09T15:48:19Z npx vitest run src/laboratory/data/data.test.ts src/data-serverless-preservation.test.ts passed128/128; original64 source prefix byte-preserved.",
+          "Renewed actual whole-tree npm run check completed1248Vitest/97files+24Node+503curriculum+realPostgreSQL+normalbuild; independent2785-file rawbase and14snapshot/fingerprint checks passed."
         ]
-      },
-      {
-        "id": "SP72-03",
-        "severity": "major",
-        "status": "fixed",
-        "description": "New Home service shortcut anchors duplicated original native menu links used by unchanged Networking controls.",
-        "fix": "Restore original Home shortcuts/Navigate button semantics in the same shared component for both modes; retain native menu/catalogue/resource anchors.",
-        "retests": [
-          {
-            "path": "tests/e2e/laboratory-networking.spec.ts",
-            "result": "Author exact original Networking desktop controls7/7 passed; original red retained."
-          },
-          {
-            "path": "tests/e2e/portal-consolidation.spec.ts",
-            "result": "Independent desktop and compact exact-one accessible VNet link/native keyboard controls passed."
-          },
-          {
-            "path": "docs/quality/PR72_FINAL_AUDIT.md"
-          }
-        ]
-      },
-      {
-        "id": "SP72-04",
-        "severity": "major",
-        "status": "fixed",
-        "description": "New Home wrapper removed the direct .portal-view > h2 destination required by the frozen motion observer while Home title is visually hidden.",
-        "fix": "Render first Home heading directly via Fragment; preserve frozen motion controller and original tests.",
-        "retests": [
-          {
-            "path": "tests/e2e/hybrid-experience.spec.ts",
-            "result": "Unchanged original deterministic normal-motion control passed independently after corrected stamp."
-          },
-          {
-            "path": "docs/quality/PR72_FINAL_AUDIT.md"
-          }
-        ]
-      },
-      {
-        "id": "SP72-05",
-        "severity": "note",
-        "status": "open",
-        "description": "CI118 compact Firewall receipt navigation passed on retry; CI119 second attempt marks the same case failed then retry-passed but supplies no assertion detail. Local passing control and rejected hypothesis do not establish a cause. Keep open; no fix claimed."
-      },
-      {
-        "id": "SP72-06",
-        "severity": "major",
-        "status": "fixed",
-        "description": "Pre-adoption CI negative validators accepted masking custom shells/defaults and blank-line script/environment appendices; the actual masked prerequisite could exit0 after failed status.",
-        "fix": "Final actual-file validator requires one complete finite workflow assembled from immutable original blocks and full explicit guards; complete literal extraction and adversarial tests reject all prior attacks. Final workflow itself contains no masking content.",
-        "retests": [
-          {
-            "path": "src/pr72-ci-workflow.test.ts",
-            "result": "Four actual workflow/negative/Bash-guard tests passed independently; own five prior attacks rejected."
-          },
-          {
-            "path": "docs/quality/PR72_FINAL_AUDIT.md"
-          }
-        ]
-      },
-      {
-        "id": "SP72-07",
-        "severity": "note",
-        "status": "open",
-        "description": "Global observed runtime/35-minute budget cause remains unproven. Serial allocation relocates mandatory check/audit with each35-minute cap unchanged and combined duration potentially longer; actual new-head whole468 CI/strict/public verification remains pending. Old cancelled/partial executions are not full passes."
       }
-    ]
+    ],
+    "report": { "path": "docs/quality/DATA_SERVERLESS_FINAL_AUDIT.md" }
   },
   "snapshot": {
     "files": {
-      ".github/workflows/ci.yml": "67980365f0cbdf66ad26b1d2734865f17b17187cf0f6eb8b4cc5ffa53a276ebb",
-      "AGENTS.md": "ae62649e398a799e09367a2b6554dfe62e5e60dd811ff95e6475541ebab98cb1",
-      "docs/ARCHITECTURE.md": "3c421985c9d57ad9ee671444e272e59d9ff8aceb01e4d4d795fa70a37f60b9db",
-      "docs/DECISIONS.md": "bc0ae739add5f904e2e53e3c2697ae72db8aef84d6f6bcd161466270e8309dbb",
-      "docs/DEVELOPMENT_WORKFLOW.md": "3d55fa41f2701e3d53e79d0fdd40667f5ff1af8e9dcea8579bf0e535d2a097eb",
-      "docs/PORTAL_CAPABILITY_MATRIX.md": "898ffd99fdd700642cc98703b0595fb34116ae333fe4781a839d06a26ef016b0",
-      "docs/SHARED_PORTAL_CAPABILITY_MATRIX.md": "50acbd205d897b7caac1a80d9566193cf8ab8c006be887a27d7eb7128fc0261a",
-      "docs/SHARED_PORTAL_CONSOLIDATION.md": "d02df26b0e9237102743d92032188b41ef163f41fc9b565b640681c1da485f20",
-      "docs/reviews/evidence/pr72/catalog-icon-after-course.json": "96d624b479c9b7eef26b31255a42507f39783c871b9fbccbd3201fe4fbcb2651",
-      "docs/reviews/evidence/pr72/catalog-icon-after-free.json": "dc0945686854a52b33d2b7a9a9d6512b6ea293e550f41e652c476bd2508e081b",
-      "docs/reviews/evidence/pr72/failures/catalog-icon-before.json.raw": "155745bd85b67279555a3e559160ff0ca28ca90851199048be487381f28c1b84",
-      "docs/reviews/evidence/pr72/failures/catalog-icon-before.png": "bd7c032842ce80d3194aba73dc8995b5bbb09fb9ae9673a3e0cb83092ca54af8",
-      "docs/reviews/evidence/pr72/failures/ci118-complete.log.raw": "8a6c940de9f1fb72a72cd4cd23bcd1171a9194a4871772c93808bf5338d867c4",
-      "docs/reviews/evidence/pr72/failures/ci118-local-red.log.raw": "d50ff77eb3d493d0cac6377691074c82d6343c4c3051e2682a513dee335bc72d",
-      "docs/reviews/evidence/pr72/failures/ci118-new-compact-closed-menu.log.raw": "2140626629902e89b9838af5286003315874501f01b860fbedb829a08391e87d",
-      "docs/reviews/evidence/pr72/failures/ci118-overflow-isolation.json.raw": "d49e6e7f7d7d5d12f8415cb14795fd3f378b36e481cb522dc04dc486d6b53741",
-      "docs/reviews/evidence/pr72/failures/ci119-attempt1.log.raw": "04fe2db03507ab0f0654f1c3e6ab3c77337d84dda5bf6ae3d681a6b9175715db",
-      "docs/reviews/evidence/pr72/failures/ci119-attempt2.log.raw": "3bb89383ab3aaf8597aca56bf15f174fc2e2d7febd9f3dfba30452ca8b5c7c87",
-      "docs/reviews/evidence/pr72/failures/ci119-timing-comparison.json.raw": "47350d23457622c93abf8ace7764d9bdab55db103e305886bd7fc4a4182988e2",
-      "docs/reviews/evidence/pr72/failures/guided-coach-assumption.md.raw": "1389f65ac3f1b266936abe970105ded1b97f6ff704b6bfdc8afc7b8b24fb8ee8",
-      "docs/reviews/evidence/pr72/failures/hybrid-experience-enhanced-f624f-thored-start-middle-and-end-desktop-chromium.md.raw": "cef521089ec9073246e4f6e8818b6f1f08b43f0d1fd788bb0b4bffab261ea1ff",
-      "docs/reviews/evidence/pr72/failures/initial-filename-collision.log.raw": "161444dab1f50c34aa6b85ca5f0dd5693592ac01a06e8103945a3edd1d7f00c6",
-      "docs/reviews/evidence/pr72/failures/initial-native.log.raw": "5cbf86a1e0bb35204ffd70677ff39b0d218da6343678b8b9197da009b2b14678",
-      "docs/reviews/evidence/pr72/failures/initial-projection-test.log.raw": "a902692f229046beb60c1f2e4939a3dd26dbab02b1f646032e248a6bf2631bb4",
-      "docs/reviews/evidence/pr72/failures/intermediate-prop-lint.log.raw": "4d5f3686c69f0609fd72167f91352375598303b14b1c054b1adc7dab944f10b6",
-      "docs/reviews/evidence/pr72/failures/intermediate-raw-format.log.raw": "e82bf521b681005cf1400bde55a04f0b16490519d77f297c9056eb64b872589b",
-      "docs/reviews/evidence/pr72/failures/laboratory-networking-netw-29365-are-one-authoritative-World-desktop-chromium.md.raw": "3c8fea0b55b38a74e1e8a482bb68f6610ca2b9c4cd743e337f67b4b9c333abef",
-      "docs/reviews/evidence/pr72/failures/local-artifact-collision.log.raw": "e055162244605c628cf41ff0c62baae4ae2768b992ceff1cd06191f35196f906",
-      "docs/reviews/evidence/pr72/failures/local-full-profile.log.raw": "e54c90972e280b94cbac4f5856122eb1270556170ad8c933160dba5c218146db",
-      "docs/reviews/evidence/pr72/failures/model-label-assumption.md.raw": "abbd7e84933d72239e12920183762b4c568f19675858cd7284fbf1372bc838f2",
-      "docs/reviews/evidence/pr72/failures/original-fidelity-collision-run.log.raw": "4d5cb84bf3366b9c9057af35e0a8231a57ef93435cacff6264734f5d99510feb",
-      "docs/reviews/evidence/pr72/failures/serial-ci-env-parser-prototype.log.raw": "0cb304562d0853afdbfb808c528ba36e5fdd9d85cbcae1509575de5377cb0a0a",
-      "docs/reviews/evidence/pr72/failures/serial-ci-monolithic-preservation-timeout.log.raw": "bcf4e5dcdf9998f3bd673ab7d841947e8d8aa491b77a68e98ff5d676bfd9c53e",
-      "docs/reviews/evidence/pr72/failures/serial-ci-new-test-lint.log.raw": "5914765f82006b60a6c809d0221e211ae986963257615412cfe09b53501c3712",
-      "docs/reviews/evidence/pr72/failures/serial-ci-test-env-typecheck.log.raw": "846be378194eaef8154cb9c72096bc36541fb1b69e13f719cd0968d3d3d2b9a4",
-      "docs/reviews/evidence/pr72/manifest.json": "bd79fdd15ccf60b6a56e18f15494a2d360feead6ca9b9ff35044690e2e373402",
-      "docs/reviews/evidence/pr72/preservation.json": "fe5aeb29ea565a0ea4ed18afad11b7fceffa4e5a15efa193586fa4495fd0dfc5",
-      "docs/reviews/evidence/pr72/screens/before-course-home-1440-900.png": "036f98f1c027eb42a08379d79b6b8396091edfedf13b4735cc90de481d68798a",
-      "docs/reviews/evidence/pr72/screens/before-free-entry-1440-900.png": "3fb5c91e930c58788f4d5173b9aa4879fc6ea12adee7f76c196c6b84bcf1c66e",
-      "docs/reviews/evidence/pr72/screens/course-create-1024-500.png": "8bf91b54726241358b3a9b4a427485e412ae344b075a3ca4c891ca40b82d87d0",
-      "docs/reviews/evidence/pr72/screens/course-create-1024-768.png": "01b8c55531fc81226216e2cc6cda9b742f527c755f1b86e471a3e7918dd04b34",
-      "docs/reviews/evidence/pr72/screens/course-create-1440-900.png": "b27ba803fca119857daa77740c6c87b31a234dc0a8c08167e0d0bae40f796a64",
-      "docs/reviews/evidence/pr72/screens/course-group-1024-500.png": "e43b93907defeeaf9c63723cd61b31e4f1c5aa5cb42a118c60e36df0055828fd",
-      "docs/reviews/evidence/pr72/screens/course-group-1024-768.png": "2710c84260fcb149daeae1000f9df127428dd03f3078df6abc403650f8b6c7ae",
-      "docs/reviews/evidence/pr72/screens/course-group-1440-900.png": "fc1d098ea5e22f6382198993b2b3b043e83443732ecb4226c0e1b3cb7ca03938",
-      "docs/reviews/evidence/pr72/screens/course-home-1024-500.png": "0eb95940e0b76a8d4506b2a890e6b8478ab6c8fe245e7c75b4dff21f373769ab",
-      "docs/reviews/evidence/pr72/screens/course-home-1024-768.png": "34d55ee12a71ad37dca39e252401485a181e964466e6caaccbb0f0ca9ad16ca7",
-      "docs/reviews/evidence/pr72/screens/course-home-1440-900.png": "24625bb8f3c4a70d357074c2743be5c46905401702c020a0941ee8beb1668258",
-      "docs/reviews/evidence/pr72/screens/course-list-1024-500.png": "e5d7c59211ed830e1cf3cf0e18b7df6ec8d1c86ba56eb8bce605f893ac2a6f59",
-      "docs/reviews/evidence/pr72/screens/course-list-1024-768.png": "04e088d0a464803e26d928f5bcd7311e36c4a1157cc7278b12745472525a7ab6",
-      "docs/reviews/evidence/pr72/screens/course-list-1440-900.png": "84b89363f5ed8d8cd93e4fe9428f7f108e7f5dc6768367d51eaf4299840f28f5",
-      "docs/reviews/evidence/pr72/screens/course-services-1024-500.png": "3a1a82359a53ea02b32d2fae3c4fa4d62e7accf28b2654297015b87043b766bd",
-      "docs/reviews/evidence/pr72/screens/course-services-1024-768.png": "ba66fa75aad972af85bcb78f5e8ad781028ce72998dc11714ca529a5408379cc",
-      "docs/reviews/evidence/pr72/screens/course-services-1440-900.png": "15bad754b44930d2ff24fc5e2b6d2ce604f291b3f901d05def5723caddb8a22f",
-      "docs/reviews/evidence/pr72/screens/course-subscription-details-1024-500.png": "7fc0aab43f1016cb3928a6f9ce675df07fea1823c588fa5fbfca505d22a66d1b",
-      "docs/reviews/evidence/pr72/screens/course-subscription-details-1024-768.png": "72d5f0b0e8540857e4819fe4c31885704e3dc69e1d46589d9ff1f0eecdf20399",
-      "docs/reviews/evidence/pr72/screens/course-subscription-details-1440-900.png": "d4c8186832f31db5a66c4f870268e95422d0017c1bad2d3b39dc1b62a8011eed",
-      "docs/reviews/evidence/pr72/screens/course-subscriptions-1024-500.png": "c90b601b758ceaff31ec8020dd1e67d53e97811e737eb30bc362423eec4fc4eb",
-      "docs/reviews/evidence/pr72/screens/course-subscriptions-1024-768.png": "5b9e05c9e41965e60fc7a3f708405129d0f269b864c469a519081be6f59006b2",
-      "docs/reviews/evidence/pr72/screens/course-subscriptions-1440-900.png": "8ecbd0d422cb8a47b8aab169e4b82d8d392340782251021d86622300c3fff676",
-      "docs/reviews/evidence/pr72/screens/free-create-1024-500.png": "9c73f4e2a9b042ee49bc037524ed946a01383cf0237f953c48defc4a24f3bb40",
-      "docs/reviews/evidence/pr72/screens/free-create-1024-768.png": "f4cd66475054e3b627cfba0a5c181256a0f5484fc7b946f3c7d5888f6b463446",
-      "docs/reviews/evidence/pr72/screens/free-create-1440-900.png": "46ed3ae01e519c0e0c1c2831c4baec8060e470954c13d6b193412afefae1f003",
-      "docs/reviews/evidence/pr72/screens/free-group-1024-500.png": "c9ad205eb6ab0a9a498d6516c4fd0f0e916ff25c7c8c3ec5e1db138103c4327c",
-      "docs/reviews/evidence/pr72/screens/free-group-1024-768.png": "88b8e904469babbed5487180a923106a9c20a6084620417fe9fb86a80f9009fe",
-      "docs/reviews/evidence/pr72/screens/free-group-1440-900.png": "a71f1433153cc4049901dc8be7a1cc3f640ad8038c6ef785c4d517e232650fbf",
-      "docs/reviews/evidence/pr72/screens/free-home-1024-500.png": "e2108b17ef71aaeccb303cc462faabcc10d8c2f4b413bdb72dcd08bf84c681d1",
-      "docs/reviews/evidence/pr72/screens/free-home-1024-768.png": "de56ba3ee22105dbebe18f773da159601ded7a5360dc9ba32304efc38d271929",
-      "docs/reviews/evidence/pr72/screens/free-home-1440-900.png": "1998635ef84a3fd426fce438366bc20f5cfd929eec4a5c6245b5e71748ce75d8",
-      "docs/reviews/evidence/pr72/screens/free-list-1024-500.png": "07244f49ba4b0221a9ec471cf6fd4e7d9da8603638d083567ffdfae2caa0b52e",
-      "docs/reviews/evidence/pr72/screens/free-list-1024-768.png": "78a3afc6d3ff2d2c8d86c40879de54ca837b58a093e1ca4d56caa17929339778",
-      "docs/reviews/evidence/pr72/screens/free-list-1440-900.png": "d09063c7ac89bbae8dc85c6d776e0fd37514e1ff4fbe43794ffdd7d4b9b8ed2c",
-      "docs/reviews/evidence/pr72/screens/free-services-1024-500.png": "54d5901af77437b8598037f5b378c35f04ae856233cd309c70c8bac7b72c4a83",
-      "docs/reviews/evidence/pr72/screens/free-services-1024-768.png": "4fe3b6e33ecc20d3f8cc1cd308bb25e54560db5cc851cbe8401f6f18abe40b03",
-      "docs/reviews/evidence/pr72/screens/free-services-1440-900.png": "dda6e54d5aa0cbd1a1ea444078146f0d7683a79aa8cc3181f6d0fc5e6e51b340",
-      "docs/reviews/evidence/pr72/screens/free-subscription-details-1024-500.png": "8bda1c239362dca57a160e65bdb93928d673edc374197398c3a157841ad108e2",
-      "docs/reviews/evidence/pr72/screens/free-subscription-details-1024-768.png": "bdaa59fe1b86442309a8534fa09d6b99d4de804c5ac71a31832939e28d8c47aa",
-      "docs/reviews/evidence/pr72/screens/free-subscription-details-1440-900.png": "c2c44a213f48d53f25f4dc1e339f13f057269dc638755a6edcbf2165fa7b79eb",
-      "docs/reviews/evidence/pr72/screens/free-subscriptions-1024-500.png": "79ba95d7a7b2261b6b5229d966a873ad71f6ef578ada69d5f6b42d032ba47918",
-      "docs/reviews/evidence/pr72/screens/free-subscriptions-1024-768.png": "817280fe4270146f4a723275bc677c1d6b8c3a00663202f3627d6d38029b8f47",
-      "docs/reviews/evidence/pr72/screens/free-subscriptions-1440-900.png": "8aa53187cc5a5bca4ab21c01e38f0cd2998cc95dad57265a78881995ae00f811",
-      "docs/reviews/evidence/pr72/screens/guided-subscription-1440-900.png": "5083bbac49bbee98ece7a2f21dab4a987d60d4c190eb0b5c9d8e7fe0847f3467",
-      "docs/reviews/evidence/pr72/sources.json": "9407ea6cbdec665eafc86f1054f1ceee75820c399131856958c3c9aedd89f054",
-      "playwright.desktop.config.ts": "30c4ca1ff24af8d598fed633d5be0e949f3b4affc37b506adcdd7f726b77f614",
-      "src/content/shared-portal-nb.ts": "607390a7faf6f0bab3e25590a74fc3e4f64598056716b05c50fe9ab19b7500b9",
-      "src/features/laboratory/laboratory.tsx": "9f02478331451fed12f333d59a5a572e9675d9d3d87f525ceb575d534fddba46",
-      "src/features/laboratory/scope-projection.ts": "aec8174b1e137f7a5eba1cbf5407fbe60a0c76550f9ab4f14b5471fd80e41f89",
-      "src/features/portal/home.tsx": "7f537af10314e4b87bd303d8c2b3b3594ff643ef566616ea63b44f43136c6199",
-      "src/features/portal/portal.tsx": "0eb33d4aed79167260aacb633eda56df76a46b789e90ea574d26627d83cd3347",
-      "src/features/portal/presentation.css": "96e640afac4484eb92e25dc56c0d8b52dea2b54070308551d93f4ca5be879bfa",
-      "src/features/portal/scope-projection.ts": "6f58ab607f9b32c7692d83d67a622d2fa1f7f805f6b43ee0bded1c01b651b8b6",
-      "src/features/portal/service-catalog.ts": "69773675cfaa017bddcad9a65ce26ed4d25a83fc1af4115f5ec56076a5f67027",
-      "src/features/portal/shared-shell.test.ts": "e191502b0ef849709af7ffcab9b1b139add0d0ec3320603260b800a510bfbc7a",
-      "src/features/portal/subscriptions.tsx": "4aa869d5a314a59d5c700d2449aa77ff58ccd2d061d099096cd38e8bd44e2fd4",
-      "src/laboratory-pr71-preservation.test.ts": "ac278ad343f9d1213e55805262dc72f209d6417f292cd5c443c290379ef1777c",
-      "src/pr72-ci-workflow.test.ts": "6e4320ec5b287aaaac2797c5c1302209a736af1f4b8f6070e3f765483929afa9",
-      "src/pr72-shared-portal-preservation.test.ts": "a6bce433286f9018b4c355795760600ddd6f6fcfec4154d8afab300a9406c4a8",
-      "tests/e2e/portal-consolidation.spec.ts": "a81307f56a707d7911a1611e5643eca1ef510a7f5b75ca297f92f35701b1a0b3",
-      "tests/pr71-preservation.ts": "a31551dc71fb124d709aff841e18728667418430f75b66bd56191a2cbf7fb9c5",
-      "tests/pr72-preservation.ts": "7ca156a50fec95a513b2cecaf936226afcecc73b014b32bc5d8e38d04ccc61ba"
+      "docs/DATA_SERVERLESS_DOMAIN.md": "fe8b0a2cc7c9ac06709fcb43c7bc2a6a65525dc90eb10dd04366315087617f1b",
+      "docs/PARALLEL_RESOURCE_PLATFORM.md": "15a5b51ab33244ac6baa634907b63fe0aad9045001d0c99742f68bb504378fd0",
+      "docs/RESOURCE_PLATFORM_CI_STUDY.md": "18a22483949c575ef0714c83d2c6b989bae504eacf2d9975fa8a55e6193e46ee",
+      "docs/RESOURCE_PLATFORM_INTEGRATION_CONTRACT.md": "555a603f940ca54edc3abf26c6398c8f576fc16a93373375767831804c8ee93f",
+      "docs/reviews/evidence/data-serverless/microsoft-sources.json": "872085f811f24389f62685f8e78f8e544d7492ba73e4b92d664ee005e1872ac3",
+      "docs/reviews/evidence/data-serverless/preservation.json": "437918f3c208cd8753be878638ffb56477c20e5cce527a1c0256a403e9294e4c",
+      "docs/reviews/evidence/data-serverless/screens/module-preserved-home-1440-900.png": "578df7a49f83bf9d6ea3877f28b98b290c2834ed707790944255b64984198d1e",
+      "docs/reviews/evidence/data-serverless/screens/module-preserved-services-1024-500.png": "0de1c1bc641694c0d31b82d9934b93ac1080741ab72445160a57c2d11e6ba4ac",
+      "docs/reviews/evidence/data-serverless/screens/module-preserved-subscription-1440-900.png": "39bef7f9a26639cd8f137137f31830d626d6c12e4772d42162fec28adb5baedd",
+      "src/data-serverless-preservation.test.ts": "ce462685134ea154a547fd9efdb7764e9a84d99f6cf723f886de374cd5eec141",
+      "src/laboratory/data/analysis.ts": "76c917d648d7906681c6eb7ac76536a972c9dcada002c7c1e972f0f779c3d412",
+      "src/laboratory/data/contract.ts": "25969caef76cd0eaa4b89d466f4f4f0e389d6a7de9d36797fe48d33e6fccee5c",
+      "src/laboratory/data/data.test.ts": "909e74d0b0f3e065e79f1800b0daf039aa97af3528152aca6d56329e5c7d9fc2",
+      "src/laboratory/data/domain.ts": "4c5178f3d713a85f9064acd9942dbc9b1888e87e767542c8dab14872a8d6ae29"
     }
   },
-  "implementationFinished": "2026-11-09T14:02:41.613Z"
+  "implementationFinished": "2026-11-09T15:47:12.112Z"
 }
