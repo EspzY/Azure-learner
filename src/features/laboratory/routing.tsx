@@ -3,6 +3,7 @@ import { isFirewallWorld } from './capabilities';
 import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
+import { requestLaboratoryAnalysis } from './ephemeral-client';
 import { TopologyAccess } from './topology-access';
 import type { World, Command } from '@/laboratory/v32/contract';
 import type { Snapshot } from '@/laboratory/engine';
@@ -267,16 +268,11 @@ export function RouteAnalysis({
     setError('');
     setResult(null);
     try {
-      const response = await fetch(
-        '/api/laboratory/analysis?' + new URLSearchParams({ subnetId: source, destination }),
-        {
-          credentials: 'same-origin',
-          cache: 'no-store',
-          headers: { 'If-Laboratory-Workspace': workspace },
-        },
+      const value = await requestLaboratoryAnalysis(
+        'analysis',
+        new URLSearchParams({ subnetId: source, destination }),
+        workspace,
       );
-      const value = await response.json();
-      if (!response.ok || value.error) throw Error(value.error ?? 'server-result-unavailable');
       if (
         !mounted.current ||
         value.workspace !== workspace ||
