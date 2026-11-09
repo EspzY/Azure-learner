@@ -720,6 +720,7 @@ describe('Functions configuration and deterministic synthetic templates', () => 
     { groupId: 'rg-other' },
     { runtime: 'node10' },
     { name: '-bad' },
+    { planName: 'plan_invalid' },
   ])('invalid Function App dependency/profile %j produces no orphan plan', (extra) => {
     const h = harness();
     expect(h.run(fa(extra)).ok).toBe(false);

@@ -407,7 +407,7 @@ export function applyDataCommand(
     if (problem) return problem;
     if (!/^[A-Za-z0-9](?:[A-Za-z0-9-]{0,58}[A-Za-z0-9])$/.test(c.name))
       return fail('invalid-name', 'name');
-    if (!configName(c.planName)) return fail('invalid-name', 'planName');
+    if (!/^[A-Za-z][A-Za-z0-9-]{0,59}$/.test(c.planName)) return fail('invalid-name', 'planName');
     if (
       state.functionApps.some((a) => lower(a.name) === lower(c.name)) ||
       context.applications.some((a) => lower(a.name) === lower(c.name))
