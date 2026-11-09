@@ -194,3 +194,31 @@
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
+/* Browser-memory mode is explicit and cannot be mistaken for stored evidence. */
+.laboratory-v3 .lab-temporary-entry {
+  margin-top: 16px;
+  padding: 16px;
+  border-left: 3px solid #8056b2;
+  background: #f4f2fa;
+  max-width: 650px;
+}
+.laboratory-v3 .lab-temporary-entry button {
+  border: 1px solid #6d54a6;
+  background: #312e65;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.laboratory-v3 .lab-temporary-entry p {
+  margin: 12px 0 0;
+  color: #3f4361;
+  max-width: 58ch;
+}
+.laboratory-v3 .lab-ephemeral-status {
+  color: #593a78;
+  font-size: 12px;
+  font-weight: 650;
+  flex: 1 1 240px;
+}

@@ -1,0 +1,26 @@
+# Temporary read-only formatter receipt for Draft PR71. Remove after applying formatted bytes.
+name: PR71 format preview
+on:
+  push:
+    branches: [codex/azurelab-landing-volatile-laboratory]
+permissions:
+  contents: read
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Produce exact formatted source for review
+        shell: bash
+        run: |
+          ./node_modules/.bin/prettier --write src/app/api/laboratory/ephemeral/route.ts src/features/laboratory/ephemeral-client.ts src/features/laboratory/laboratory.tsx src/features/landing/landing.css src/features/landing/landing.tsx src/features/portal/portal.tsx src/laboratory-ephemeral.test.ts src/laboratory-pr71-preservation.test.ts tests/e2e/ephemeral-landing.spec.ts tests/pr71-preservation.ts
+          for file in src/app/api/laboratory/ephemeral/route.ts src/features/laboratory/ephemeral-client.ts src/features/laboratory/laboratory.tsx src/features/landing/landing.css src/features/landing/landing.tsx src/features/portal/portal.tsx src/laboratory-ephemeral.test.ts src/laboratory-pr71-preservation.test.ts tests/e2e/ephemeral-landing.spec.ts tests/pr71-preservation.ts; do
+            printf 'PR71_BEGIN_FILE=%s\n' "$file"
+            base64 -w 4096 "$file"
+            printf '\nPR71_END_FILE=%s\n' "$file"
+          done

@@ -1,0 +1,201 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: portal-inspection-bridge.spec.ts >> Independent raw Portal inspection stays neutral while denied durable assistance withholds course bridge instructions and exact resume
+- Location: tests/e2e/portal-inspection-bridge.spec.ts:245:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f1e1]:
+  - alert [ref=f1e2]
+  - generic [ref=f1e3]:
+    - link "Hopp til innhold" [ref=f1e4] [cursor=pointer]:
+      - /url: "#portal-main"
+    - banner [ref=f1e5]:
+      - button "Åpne eller lukk portalmenyen" [expanded] [ref=f1e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=f1e8] [cursor=pointer]:
+        - /url: /portal
+      - searchbox "Search resources, services, and docs" [ref=f1e10]
+      - generic [ref=f1e11]:
+        - button "SavvyShark · Veiledning" [expanded] [ref=f1e12] [cursor=pointer]:
+          - generic [ref=f1e13]:
+            - text: SavvyShark
+            - generic [ref=f1e14]: · Veiledning
+        - region "SavvyShark-veiledning" [active] [ref=f1e15]:
+          - generic [ref=f1e16]:
+            - strong [ref=f1e17]: SavvyShark
+            - button "Lukk veiledningsmenyen" [ref=f1e18] [cursor=pointer]: ×
+          - paragraph [ref=f1e19]: Du har en aktiv selvstendig vurdering. Løsningsveiledning er begrenset mens vurderingen pågår.
+          - paragraph [ref=f1e20]: Åpning av denne statusmenyen registrerer ingen hjelp.
+          - link "Til læringsoversikten og vurderingen" [ref=f1e21] [cursor=pointer]:
+            - /url: /learn
+      - generic [ref=f1e22]: TRAINING SIMULATOR
+      - button "Notifications (8)" [ref=f1e23] [cursor=pointer]:
+        - generic [aria-hidden] [ref=f1e26]: "8"
+      - button "Portal appearance" [ref=f1e27] [cursor=pointer]
+      - button "Modellgrenser" [ref=f1e29] [cursor=pointer]
+      - button "Kunnskapsjournal" [ref=f1e31] [cursor=pointer]
+      - link "Til forsiden" [ref=f1e33] [cursor=pointer]:
+        - /url: /
+    - generic [ref=f1e38]:
+      - complementary "Portalmeny" [ref=f1e39]:
+        - navigation "Portalmeny" [ref=f1e40]:
+          - link "Create a resource" [ref=f1e41] [cursor=pointer]:
+            - /url: /portal?area=services&module=services&topic=overview&mode=learn&compute=vm
+          - link "Home" [ref=f1e43] [cursor=pointer]:
+            - /url: /portal?area=home&module=services&topic=overview&mode=learn&compute=vm
+          - link "All services" [ref=f1e45] [cursor=pointer]:
+            - /url: /portal?area=services&module=services&topic=overview&mode=learn&compute=vm
+          - generic [ref=f1e47]: FAVORITES
+          - link "Subscriptions" [ref=f1e49] [cursor=pointer]:
+            - /url: /portal?area=subscriptions&module=services&topic=overview&mode=learn&compute=vm
+          - link "Resource groups" [ref=f1e51] [cursor=pointer]:
+            - /url: /portal?area=groups&module=services&topic=overview&mode=learn&compute=vm
+          - link "All resources" [ref=f1e53] [cursor=pointer]:
+            - /url: /portal?area=resources&module=services&topic=overview&mode=learn&compute=vm
+          - link "App Services" [ref=f1e55] [cursor=pointer]:
+            - /url: /portal?area=apps&module=services&topic=overview&mode=learn&compute=vm
+          - link "App Service plans" [ref=f1e57] [cursor=pointer]:
+            - /url: /portal?area=plans&module=services&topic=overview&mode=learn&compute=vm
+          - link "Virtual machines" [ref=f1e59] [cursor=pointer]:
+            - /url: /portal?area=vms&module=services&topic=overview&mode=learn&compute=vm
+          - link "Activity log" [ref=f1e61] [cursor=pointer]:
+            - /url: /portal?area=activity&module=services&topic=overview&mode=learn&compute=vm
+          - group [ref=f1e63]:
+            - generic "AzureLab learning tools" [ref=f1e64] [cursor=pointer]
+        - generic [ref=f1e66]: Lokalt treningsmiljø · ingen Azure-tilkobling
+      - main [ref=f1e67]:
+        - generic [ref=f1e68]:
+          - button "Home" [ref=f1e69] [cursor=pointer]
+          - button "Activity log" [ref=f1e71] [cursor=pointer]
+        - generic [ref=f1e75]:
+          - heading "Activity log" [level=1] [ref=f1e76]
+          - generic [ref=f1e77]: AzureLab Directory · Lokalt treningsmiljø · ingen Azure-tilkobling
+        - button "Refresh" [ref=f1e79] [cursor=pointer]
+        - generic [ref=f1e81]:
+          - generic [ref=f1e82]: Independent Challenge
+          - generic [ref=f1e83]: Describe Azure compute services
+          - link "Tilbake til kurset" [ref=f1e84] [cursor=pointer]:
+            - /url: /learn/compute?topic=dependencies
+          - button "Architecture Explorer" [ref=f1e85] [cursor=pointer]
+          - button "Tilbake til læringen" [ref=f1e87] [cursor=pointer]
+        - generic [ref=f1e90]:
+          - generic [ref=f1e91]:
+            - generic [ref=f1e92]:
+              - text: Activity log avgrenset til ·
+              - strong [ref=f1e93]: vm-pr48
+            - button "Åpne gjeldende objekt" [ref=f1e94] [cursor=pointer]
+            - button "Vis alle operasjoner" [ref=f1e95] [cursor=pointer]
+          - table [ref=f1e97]:
+            - caption [ref=f1e98]: Operations
+            - rowgroup [ref=f1e99]:
+              - row [ref=f1e100]:
+                - columnheader "Sequence" [ref=f1e101]
+                - columnheader "Operation" [ref=f1e102]
+                - columnheader "Result" [ref=f1e103]
+                - columnheader "World revision" [ref=f1e104]
+            - rowgroup [ref=f1e105]:
+              - row [ref=f1e106]:
+                - cell [ref=f1e107]:
+                  - button "portal-5" [ref=f1e108] [cursor=pointer]
+                - cell "Opprett VM og avhengigheter" [ref=f1e109]
+                - cell "Registrert created" [ref=f1e110]:
+                  - text: Registrert
+                  - generic [ref=f1e111]: created
+                - cell "3 → 4" [ref=f1e112]
+          - generic [ref=f1e113]:
+            - generic [ref=f1e114]:
+              - generic [ref=f1e115]: Registrert · portal-5
+              - heading "Teknisk årsak og tilstand" [level=2] [ref=f1e116]
+              - paragraph [ref=f1e117]: Konfigurasjonen er registrert i den lokale modellen. Dette bekrefter ikke at kode kjører.
+              - generic [ref=f1e118]:
+                - generic [ref=f1e119]:
+                  - term [ref=f1e120]: Operasjon
+                  - definition [ref=f1e121]: Opprett VM og avhengigheter
+                - generic [ref=f1e122]:
+                  - term [ref=f1e123]: Ressurstype
+                  - definition [ref=f1e124]: Microsoft.Compute/virtualMachines
+                - generic [ref=f1e125]:
+                  - term [ref=f1e126]: Mål-scope
+                  - definition [ref=f1e127]: group-1
+                - generic [ref=f1e128]:
+                  - term [ref=f1e129]: Forespurt / avledet lokasjon
+                  - definition [ref=f1e130]: Norway East
+                - generic [ref=f1e131]:
+                  - term [ref=f1e132]: Modellregel
+                  - definition [ref=f1e133]:
+                    - text: vm-profile@2
+                    - code [ref=f1e134]: created
+                - generic [ref=f1e135]:
+                  - term [ref=f1e136]: Verdensrevisjon
+                  - definition [ref=f1e137]: 3 → 4
+                - generic [ref=f1e138]:
+                  - term [ref=f1e139]: Aktive objekter
+                  - definition [ref=f1e140]: 8 → 14
+                - generic [ref=f1e141]:
+                  - term [ref=f1e142]: Nye objekt-ID-er
+                  - definition [ref=f1e143]: vm-4, disk-5, nic-6, vnet-7, subnet-8, disk-9
+            - generic [ref=f1e144]:
+              - heading "Støttede felt i den opprinnelige forespørselen" [level=2] [ref=f1e145]
+              - generic [ref=f1e146]:
+                - generic [ref=f1e147]:
+                  - term [ref=f1e148]: Resource group ID
+                  - definition [ref=f1e149]: group-1
+                - generic [ref=f1e150]:
+                  - term [ref=f1e151]: Name
+                  - definition [ref=f1e152]: vm-pr48
+                - generic [ref=f1e153]:
+                  - term [ref=f1e154]: Requested location
+                  - definition [ref=f1e155]: norwayeast
+                - generic [ref=f1e156]:
+                  - term [ref=f1e157]: Image alias
+                  - definition [ref=f1e158]: ubuntu-22-04
+                - generic [ref=f1e159]:
+                  - term [ref=f1e160]: Training profile
+                  - definition [ref=f1e161]: small
+                - generic [ref=f1e162]:
+                  - term [ref=f1e163]: Data disk (GiB)
+                  - definition [ref=f1e164]: "32"
+                - generic [ref=f1e165]:
+                  - term [ref=f1e166]: Subnet ID
+                  - definition [ref=f1e167]
+              - heading "Objektreferanser i denne operasjonen" [level=3] [ref=f1e168]
+              - list [ref=f1e169]:
+                - listitem [ref=f1e170]:
+                  - button "vm-pr48 · vm-4" [ref=f1e171] [cursor=pointer]
+                  - generic [ref=f1e173]: Oppført som lagt til
+                - listitem [ref=f1e174]:
+                  - button "vm-pr48-os · disk-5" [ref=f1e175] [cursor=pointer]
+                  - generic [ref=f1e177]: Oppført som lagt til
+                - listitem [ref=f1e178]:
+                  - button "vm-pr48-nic · nic-6" [ref=f1e179] [cursor=pointer]
+                  - generic [ref=f1e181]: Oppført som lagt til
+                - listitem [ref=f1e182]:
+                  - button "vm-pr48-vnet · vnet-7" [ref=f1e183] [cursor=pointer]
+                  - generic [ref=f1e185]: Oppført som lagt til
+                - listitem [ref=f1e186]:
+                  - button "vm-pr48-subnet · subnet-8" [ref=f1e187] [cursor=pointer]
+                  - generic [ref=f1e189]: Oppført som lagt til
+                - listitem [ref=f1e190]:
+                  - button "vm-pr48-data · disk-9" [ref=f1e191] [cursor=pointer]
+                  - generic [ref=f1e193]: Oppført som lagt til
+                - listitem [ref=f1e194]:
+                  - button "rg-pr48 · group-1" [ref=f1e195] [cursor=pointer]
+            - button "Go to resource" [ref=f1e197] [cursor=pointer]
+        - generic [ref=f1e198]: AzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering.
+    - complementary [ref=f1e199]:
+      - link "Tilbake til Compute-oppdraget" [ref=f1e200] [cursor=pointer]:
+        - /url: /learn/compute?topic=dependencies
+```

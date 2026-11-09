@@ -266,3 +266,7 @@ New workspaces may explicitly use laboratory@3.6.0; old3.0–3.5 dispatch stays 
 ## PR70 — stable topology remediation in3.7
 
 [Topology Remediation](LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md) extends the same PostgreSQL command/replay authority with in-place Route Update, subnet-NSG disassociation and directional peering access changes. Immutable topologyChange receipts preserve original Create-origin and full before/after state. All existing subnet users are validated before one route mutation; no delete/create commits or alternate inventory. The shared rule lifecycle dialog now presents both rule and bounded topology changes. Studio remains read-only. New access preconditions compose with existing route/NSG/Firewall analysis and conservatively expose incomplete route/tag assumptions; old evaluators stay frozen.
+
+## PR71 — one rule implementation, explicit storage authority
+
+The free Portal now supports an explicit current-document3.7 workspace via a bounded stateless Node adapter. Original domain/replay/analysis functions are reused; the browser owns temporary evidence and cannot attest course results. The existing PostgreSQL adapter remains authoritative only for its own owned sessions. Course-v2 is still a separate historical motor behind the same presentation; its original route is retained. [Runtime boundary](LABORATORY_EPHEMERAL_LANDING.md) and [proposed course-bound integration](LABORATORY_COURSE_INTEGRATION_PLAN.md) distinguish implemented functionality from future migration.

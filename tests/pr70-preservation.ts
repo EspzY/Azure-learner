@@ -1,6 +1,6 @@
 /** Finite test-only compatibility adapter. It checks actual reviewed bytes
  * before returning original PR69 bytes to historical assertions. Not runtime. */
-import { readFileSync } from 'node:fs';
+import { readPR71 as readFileSync } from './pr71-preservation';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { strict as assert } from 'node:assert';

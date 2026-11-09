@@ -1,0 +1,52 @@
+{
+  "run": 42587576831,
+  "job": 129060985500,
+  "head": "b290227b8a6b6122994a6d2189c49a94d89cb131",
+  "conclusion": "cancelled at existing35-minute job limit; strict gate and artifact upload skipped",
+  "distinctCasesWithCompletedAttemptLines": 419,
+  "successfulCasesFromLines": 417,
+  "failedCasesFromLines": [
+    {
+      "test": "desktop-chromium::tests/e2e/learning-flow-guidance.spec.ts:376:1 \u203a Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable",
+      "attempts": [
+        {
+          "index": 242,
+          "status": "\u2718",
+          "durationSeconds": 9.0
+        },
+        {
+          "index": 243,
+          "status": "\u2718",
+          "durationSeconds": 9.5
+        },
+        {
+          "index": 244,
+          "status": "\u2718",
+          "durationSeconds": 9.4
+        }
+      ]
+    },
+    {
+      "test": "desktop-chromium::tests/e2e/portal-inspection-bridge.spec.ts:245:1 \u203a Independent raw Portal inspection stays neutral while denied durable assistance withholds course bridge instructions and exact resume",
+      "attempts": [
+        {
+          "index": 306,
+          "status": "\u2718",
+          "durationSeconds": 30.2
+        },
+        {
+          "index": 307,
+          "status": "\u2718",
+          "durationSeconds": 30.3
+        },
+        {
+          "index": 308,
+          "status": "\u2718",
+          "durationSeconds": 30.3
+        }
+      ]
+    }
+  ],
+  "attemptLines": 423,
+  "limits": "Derived from actual list output, NOT a complete Playwright success/summary. Remaining compact profile incomplete; original CI trace artifacts absent. Local actual traces separately reproduce both geometry/pointer failures. Expected negative PG permission/migration errors in container shutdown logs are integration-test fixtures, not failed fullcheck."
+}

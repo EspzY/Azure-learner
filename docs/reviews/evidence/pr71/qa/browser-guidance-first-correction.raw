@@ -1,0 +1,72 @@
+[WebServer] (node:16962) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:16987) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:376:1 › Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable (15.8s)
+(node:17174) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop-chromium] › tests/e2e/portal-inspection-bridge.spec.ts:245:1 › Independent raw Portal inspection stays neutral while denied durable assistance withholds course bridge instructions and exact resume (3.4s)
+(node:17254) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [compact-chromium] › tests/e2e/learning-flow-guidance.spec.ts:376:1 › Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable (14.9s)
+
+
+  1) [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:376:1 › Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      420 |     expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(width);
+      421 |     expect(bounds!.y).toBeGreaterThanOrEqual(header!.y + header!.height);
+    > 422 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+          |                                                                                           ^
+      423 |       true,
+      424 |     );
+      425 |     if (width === 320 || width === 800)
+        at /workspace/Azure-learner/tests/e2e/learning-flow-guidance.spec.ts:422:91
+
+    Error Context: test-results/learning-flow-guidance-Gui-a2f5d--and-next-actions-reachable-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-flow-guidance-Gui-a2f5d--and-next-actions-reachable-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/learning-flow-guidance-Gui-a2f5d--and-next-actions-reachable-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [compact-chromium] › tests/e2e/learning-flow-guidance.spec.ts:376:1 › Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      420 |     expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(width);
+      421 |     expect(bounds!.y).toBeGreaterThanOrEqual(header!.y + header!.height);
+    > 422 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+          |                                                                                           ^
+      423 |       true,
+      424 |     );
+      425 |     if (width === 320 || width === 800)
+        at /workspace/Azure-learner/tests/e2e/learning-flow-guidance.spec.ts:422:91
+
+    Error Context: test-results/learning-flow-guidance-Gui-a2f5d--and-next-actions-reachable-compact-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-flow-guidance-Gui-a2f5d--and-next-actions-reachable-compact-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/learning-flow-guidance-Gui-a2f5d--and-next-actions-reachable-compact-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:376:1 › Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable 
+    [compact-chromium] › tests/e2e/learning-flow-guidance.spec.ts:376:1 › Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable 
+  1 passed (43.9s)

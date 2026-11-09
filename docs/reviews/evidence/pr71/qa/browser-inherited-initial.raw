@@ -1,0 +1,244 @@
+[WebServer] (node:6317) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 17 tests using 1 worker
+
+(node:6333) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop-chromium] › tests/e2e/laboratory-server.spec.ts:50:1 › server Laboratory actual Storage chain commits escaped text metadata original receipts reload parent history and explicit reset without old-store writes (6.3s)
+  ✓   2 [desktop-chromium] › tests/e2e/laboratory-server.spec.ts:102:1 › server Laboratory two actual tabs with same cookie reject stale writer without lost update and preserve original idempotency (3.1s)
+  ✓   3 [desktop-chromium] › tests/e2e/laboratory-server.spec.ts:176:1 › server Laboratory lost response after real commit remains uncertain then retries same request without duplicate World or receipt (2.4s)
+  ✓   4 [desktop-chromium] › tests/e2e/laboratory-server.spec.ts:205:1 › server Laboratory private sessions cookies Origin and unknown session-ID inputs cannot select another workspace (3.6s)
+  ✓   5 [desktop-chromium] › tests/e2e/laboratory-server.spec.ts:242:1 › server Laboratory compact native keyboard short-height reduced motion Axe and actual Blob read remain usable (5.9s)
+  ✓   6 [desktop-chromium] › tests/e2e/laboratory-server.spec.ts:272:1 › server Laboratory separate v3 workspace leaves actual old v2 Portal writer and historical local records intact (3.7s)
+  ✓   7 [desktop-chromium] › tests/e2e/laboratory-server.spec.ts:306:1 › server Laboratory changed session invalidates reviewed intent and never retargets stale Create or Reset to replacement workspace (3.9s)
+  ✓   8 [desktop-chromium] › tests/e2e/premium-landing.spec.ts:41:1 › landing actual root has three distinct courses honest planned states and a separate v3 laboratory without storage or session writes (1.7s)
+  ✓   9 [desktop-chromium] › tests/e2e/premium-landing.spec.ts:75:1 › landing delegates actual active independent draft resume to unchanged Course Hub and does not start submit or assist it (4.5s)
+  ✓  10 [desktop-chromium] › tests/e2e/premium-landing.spec.ts:108:1 › landing connects actual independent server workspace and preserves both directions of course versus laboratory reset (4.9s)
+  ✓  11 [desktop-chromium] › tests/e2e/premium-landing.spec.ts:149:1 › landing unavailable backend and corrupt forged or cross-tab course status never create fake completion or fallback World (3.1s)
+  ✘  12 [desktop-chromium] › tests/e2e/premium-landing.spec.ts:198:1 › landing responsive keyboard short desktop status semantics reduced motion and Axe preserve primary choices (1.8s)
+(node:6719) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  13 [desktop-chromium] › tests/e2e/premium-landing.spec.ts:264:1 › landing actual browser zoom at125 and200 percent retains course and Laboratory actions without overflow (3.2s)
+(node:6878) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  14 [desktop-chromium] › tests/e2e/shared-portal.spec.ts:53:1 › shared Portal actual course and free RG create list properties receipts and reset use common presentation with isolated original authorities (5.3s)
+  ✓  15 [desktop-chromium] › tests/e2e/shared-portal.spec.ts:149:1 › shared Portal free search filters parent properties Back Forward and reload inspect one World without commands or course credit (4.5s)
+  ✓  16 [desktop-chromium] › tests/e2e/shared-portal.spec.ts:209:1 › shared Portal free mode cannot mount course learning or alter an actual active independent draft and assistance boundary (3.4s)
+  ✘  17 [desktop-chromium] › tests/e2e/shared-portal.spec.ts:237:1 › shared Portal compact native search drawer properties dialogs reduced motion Axe and unavailable server preserve scope and visible controls (15.1s)
+
+
+  1) [desktop-chromium] › tests/e2e/premium-landing.spec.ts:198:1 › landing responsive keyboard short desktop status semantics reduced motion and Axe preserve primary choices 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 60
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+    +     "help": "Elements must have their visible text as part of their accessible name",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+    +     "id": "label-content-name-mismatch",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "label-content-name-mismatch",
+    +             "impact": "serious",
+    +             "message": "Text inside the element is not included in the accessible name",
+    +             "relatedNodes": Array [],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Text inside the element is not included in the accessible name",
+    +         "html": "<a class=\"landing-card-link\" aria-label=\"Åpne kurset · AZ-900 Azure Fundamentals\" aria-describedby=\"course-status-AZ-900\" href=\"/learn\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".landing-card-link",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "label-content-name-mismatch",
+    +             "impact": "serious",
+    +             "message": "Text inside the element is not included in the accessible name",
+    +             "relatedNodes": Array [],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Text inside the element is not included in the accessible name",
+    +         "html": "<a class=\"landing-laboratory\" aria-label=\"Åpne laboratoriet · AzureLab Laboratory, separat arbeidsområde\" href=\"/labs/laboratory\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".landing-laboratory",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.semantics",
+    +       "wcag21a",
+    +       "wcag253",
+    +       "EN-301-549",
+    +       "EN-9.2.5.3",
+    +       "RGAAv4",
+    +       "RGAA-6.1.5",
+    +     ],
+    +   },
+    + ]
+
+      225 |       height,
+      226 |     );
+    > 227 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+          |                                                                   ^
+      228 |     await page.screenshot({ path: info.outputPath(`landing-${width}-${height}.png`) });
+      229 |     await az900(page).focus();
+      230 |     await page.keyboard.press('Tab');
+        at /workspace/Azure-learner/tests/e2e/premium-landing.spec.ts:227:67
+
+    Error Context: test-results/premium-landing-landing-re-725e5-xe-preserve-primary-choices-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/premium-landing-landing-re-725e5-xe-preserve-primary-choices-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/premium-landing-landing-re-725e5-xe-preserve-primary-choices-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/premium-landing.spec.ts:264:1 › landing actual browser zoom at125 and200 percent retains course and Laboratory actions without overflow 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 60
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure that elements labelled through their content must have their visible text as part of their accessible name",
+    +     "help": "Elements must have their visible text as part of their accessible name",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=playwright",
+    +     "id": "label-content-name-mismatch",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "label-content-name-mismatch",
+    +             "impact": "serious",
+    +             "message": "Text inside the element is not included in the accessible name",
+    +             "relatedNodes": Array [],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Text inside the element is not included in the accessible name",
+    +         "html": "<a class=\"landing-card-link\" aria-label=\"Åpne kurset · AZ-900 Azure Fundamentals\" aria-describedby=\"course-status-AZ-900\" href=\"/learn\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".landing-card-link",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": null,
+    +             "id": "label-content-name-mismatch",
+    +             "impact": "serious",
+    +             "message": "Text inside the element is not included in the accessible name",
+    +             "relatedNodes": Array [],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Text inside the element is not included in the accessible name",
+    +         "html": "<a class=\"landing-laboratory\" aria-label=\"Åpne laboratoriet · AzureLab Laboratory, separat arbeidsområde\" href=\"/labs/laboratory\">",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".landing-laboratory",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.semantics",
+    +       "wcag21a",
+    +       "wcag253",
+    +       "EN-301-549",
+    +       "EN-9.2.5.3",
+    +       "RGAAv4",
+    +       "RGAA-6.1.5",
+    +     ],
+    +   },
+    + ]
+
+      305 |       await freeLab(page).focus();
+      306 |       await expect(freeLab(page)).toBeInViewport();
+    > 307 |       expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+          |                                                                     ^
+      308 |       // Native zoom requires the browser surface, not Playwright's CSS-pixel clip.
+      309 |       const cdp = await context.newCDPSession(page);
+      310 |       const capture = await cdp.send('Page.captureScreenshot', {
+        at /workspace/Azure-learner/tests/e2e/premium-landing.spec.ts:307:69
+
+    Error Context: test-results/premium-landing-landing-ac-ba470-ry-actions-without-overflow-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/premium-landing-landing-ac-ba470-ry-actions-without-overflow-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/premium-landing-landing-ac-ba470-ry-actions-without-overflow-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop-chromium] › tests/e2e/shared-portal.spec.ts:237:1 › shared Portal compact native search drawer properties dialogs reduced motion Axe and unavailable server preserve scope and visible controls 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator: getByRole('main').getByRole('alert')
+    Expected: "Laboratory v3 er ikke tilgjengelig i denne forhåndsvisningen."
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toHaveText" getByRole('main').getByRole('alert') with timeout 5000ms
+      - waiting for getByRole('main').getByRole('alert')
+
+
+      317 |     await off.goto(new URL('/labs/laboratory', page.url()).href);
+      318 |     await expect(off.locator('[data-portal-component="header"]')).toBeVisible();
+    > 319 |     await expect(off.getByRole('main').getByRole('alert')).toHaveText(
+          |                                                            ^
+      320 |       c.codes['backend-unavailable'],
+      321 |     );
+      322 |     await expect(off.getByRole('main')).toContainText(c.unavailable);
+        at /workspace/Azure-learner/tests/e2e/shared-portal.spec.ts:319:60
+
+    Error Context: test-results/shared-portal-shared-Porta-36d98--scope-and-visible-controls-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/shared-portal-shared-Porta-36d98--scope-and-visible-controls-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/shared-portal-shared-Porta-36d98--scope-and-visible-controls-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [desktop-chromium] › tests/e2e/premium-landing.spec.ts:198:1 › landing responsive keyboard short desktop status semantics reduced motion and Axe preserve primary choices 
+    [desktop-chromium] › tests/e2e/premium-landing.spec.ts:264:1 › landing actual browser zoom at125 and200 percent retains course and Laboratory actions without overflow 
+    [desktop-chromium] › tests/e2e/shared-portal.spec.ts:237:1 › shared Portal compact native search drawer properties dialogs reduced motion Axe and unavailable server preserve scope and visible controls 
+  14 passed (1.4m)

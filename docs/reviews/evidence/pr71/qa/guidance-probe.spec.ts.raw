@@ -1,0 +1,15 @@
+import { test, expect } from '/workspace/Azure-learner/node_modules/@playwright/test/index.mjs';
+import { writeFile } from 'node:fs/promises';
+import { startTemporary, temp } from '/workspace/Azure-learner/tests/e2e/ephemeral-actions';
+const rects=page=>page.evaluate(()=>{const rect=s=>{const r=document.querySelector(s).getBoundingClientRect();return{x:r.x,y:r.y,width:r.width,right:r.right}};return{width:innerWidth,scrollWidth:document.documentElement.scrollWidth,header:rect('.portal-header'),menu:document.querySelector('#portal-guidance-menu')?rect('#portal-guidance-menu'):null,home:rect('[aria-label="Til forsiden"]')}});
+test('actual801 header geometry isolates Home width and menu anchoring without technical writes',async({page},info)=>{
+ await page.setViewportSize({width:801,height:500});await page.goto('/portal');await page.addStyleTag({content:'.portal{font-family:Arial,sans-serif}'});await page.locator('.portal-guidance-toggle').focus();await page.keyboard.press('Enter');await expect(page.locator('#portal-guidance-menu')).toBeVisible();
+ const bytes=()=>page.evaluate(()=>JSON.stringify(Object.entries(localStorage).sort()));const beforeBytes=await bytes();
+ const beforeStyle=await page.addStyleTag({content:'.portal .portal-header .portal-guidance-menu{left:auto;right:0} .portal .portal-header > .portal-landing-link{min-width:auto;padding:4px 9px} .portal .portal-header > .portal-landing-link span{display:inline}'});
+ const before=await rects(page);expect(before.menu.x).toBeLessThan(0);await page.screenshot({path:info.outputPath('geometry-negative-control-old-css.png')});
+ const hide=await page.addStyleTag({content:'.portal .portal-header > .portal-landing-link{display:none}'});const withoutHome=await rects(page);expect(withoutHome.menu.x).toBeGreaterThanOrEqual(0);await hide.evaluate(el=>el.remove());await beforeStyle.evaluate(el=>el.remove());
+ const after=await rects(page);expect(after.menu.x).toBeGreaterThanOrEqual(0);expect(after.menu.right).toBeLessThanOrEqual(801);expect(after.scrollWidth).toBeLessThanOrEqual(801);expect(await bytes()).toBe(beforeBytes);await page.screenshot({path:info.outputPath('geometry-fixed-801.png')});await writeFile(info.outputPath('geometry.json'),JSON.stringify({before,withoutHome,after,scope:'Old-CSS and hide-Home are presentation-only causal controls; corrected source is actual production build. No World/receipt/learning injection or writes.'},null,2));
+});
+test('actual free Lab Home remains accessible across800 boundary and short desktop',async({page},info)=>{
+ await startTemporary(page);for(const width of [800,801,1024,1100,1101,1440]){await page.setViewportSize({width,height:500});expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await expect(page.getByRole('link',{name:'Til forsiden',exact:true})).toBeVisible();if(width===801)await page.screenshot({path:info.outputPath('free-lab-header-801.png')});}await expect(page.locator('.laboratory-workspace-status')).toContainText(temp.status);
+});

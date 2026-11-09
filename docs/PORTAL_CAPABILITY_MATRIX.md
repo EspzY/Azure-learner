@@ -110,3 +110,7 @@ Custom NSG rules: full supported-field Update/Delete. Nested Firewall network ru
 | Peering Delete                 | Not implemented: official shared-Portal versus single-link side effects remain insufficiently resolved.                                        |
 
 The existing shared Portal Review/Save/confirmation and Studio resource links are reused. Earlier models/coursev2 do not inherit the new operations and are not upgraded. [Contract and source distinction](LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md).
+
+## PR71 — temporary free workspace transport
+
+Explicit temporary3.7 uses every already supported3.7 resource/command and the original route/NSG/Firewall diagnostics in the shared Portal/Studio. It adds no Azure capability. State, receipts and through-history live only in this document; refresh clears them. No course credit or durable attestation. The original PostgreSQL path and all historical versions remain separate and unchanged. [Contract](LABORATORY_EPHEMERAL_LANDING.md). Course-v2 Web hosting is not newly implemented in3.7; shared course motor integration remains a [versioned proposal](LABORATORY_COURSE_INTEGRATION_PLAN.md).

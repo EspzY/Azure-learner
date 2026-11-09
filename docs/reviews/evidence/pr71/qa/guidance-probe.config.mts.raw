@@ -1,0 +1,2 @@
+import { defineConfig } from '/workspace/Azure-learner/node_modules/@playwright/test/index.mjs';
+export default defineConfig({testDir:'/workspace/azurelab-pr71/guidance-probe',workers:1,retries:0,reporter:'list',outputDir:'/workspace/azurelab-pr71/guidance-probe-output',use:{baseURL:'http://127.0.0.1:3000',viewport:{width:1440,height:900},trace:'retain-on-failure'},webServer:{command:'npm run start',cwd:'/workspace/Azure-learner',url:'http://127.0.0.1:3000',reuseExistingServer:false}});

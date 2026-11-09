@@ -115,6 +115,7 @@ import { usePractical } from './practical-provider';
 import { practicalHref } from '@/domain/sandbox/practical';
 import { useCallback, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { AzureLabHomeLink } from '@/features/portal/azurelab-home-link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ChevronRight, FlaskConical, Menu } from 'lucide-react';
 import { labsNb, nb, serverlessNb, architectureNb, managementNb } from '@/content/nb';
@@ -1235,6 +1236,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
         >
           {c.journal}
         </button>
+        <AzureLabHomeLink className="course-home-link" />
       </header>
       <div className="course-layout">
         <aside className={`course-navigation ${menu ? 'course-menu-open' : ''}`}>
