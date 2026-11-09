@@ -18,6 +18,7 @@ import {
   PortalReceiptSummary,
 } from '@/features/portal/presentation';
 import Link from 'next/link';
+import { House } from 'lucide-react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { laboratoryV3Nb as c } from '@/content/nb';
 import type { Snapshot, Request as LabRequest, Command, Receipt, Model } from '@/laboratory/engine';
@@ -1275,6 +1276,10 @@ export function Laboratory() {
           </Link>
           <Link className="portal-workspace-link" href="/learn">
             {c.course}
+          </Link>
+          <Link className="portal-workspace-link portal-landing-link" href="/" aria-label="Til forsiden">
+            <House size={16} aria-hidden="true" />
+            <span>Til forsiden</span>
           </Link>
         </PortalHeader>
       }
