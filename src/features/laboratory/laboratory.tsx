@@ -67,6 +67,19 @@ import { portalServices } from '@/features/portal/service-catalog';
 import { PortalSubscriptions, PortalSubscriptionDetails } from '@/features/portal/subscriptions';
 import { laboratorySubscriptions, laboratoryResourceLink } from './scope-projection';
 import { sharedPortalNb as sharedCopy } from '@/content/shared-portal-nb';
+import {
+  portalContextCollections,
+  portalResourceSections,
+  portalResourceService,
+  portalResourceScopeLabel,
+  portalResourceParent,
+  portalGlobalServices,
+} from '@/features/portal/resource-context';
+import {
+  PortalHumanProperties,
+  PortalTechnicalEvidence,
+  portalOptionLabel,
+} from '@/features/portal/resource-details';
 const base = '/labs/laboratory';
 const baseHref = (view: string, id?: string, receipt?: string) =>
   base +
@@ -767,43 +780,34 @@ export function Laboratory() {
   });
   const subscriptions = world ? laboratorySubscriptions(world, records, resourceDestination) : [];
   const subscription = view === 'subscription' ? subscriptions.find((s) => s.id === id) : undefined;
+  const integratedResource =
+    world?.model === integratedModel &&
+    resource &&
+    [...deliveryFamilies, ...dataFamilies].some((family) => family.view === resource.view);
+  const contextCollections = integratedResource
+    ? portalContextCollections(resource.view)
+    : world?.model === integratedModel && resource?.view === 'webApp'
+      ? portalContextCollections('webApp').filter((item) => item.key === 'database-bindings')
+      : [];
+  const contextCollection = contextCollections.find(
+    (item) => query.get('section') === `context:${item.key}`,
+  );
+  const contextSection = integratedResource
+    ? portalResourceSections(resource.view).find((item) => item.key === query.get('section'))
+    : undefined;
   const section =
     query.get('section') === 'properties'
       ? 'properties'
       : query.get('section') === 'networking' && view === 'vm' && compute
         ? 'networking'
-        : 'overview';
+        : contextCollection
+          ? `context:${contextCollection.key}`
+          : (contextSection?.key ?? 'overview');
   const catalog = portalServices('laboratory', world?.model);
+  const globalServices = portalGlobalServices(catalog).map((s) => [s.view, s.title, s.icon]);
   const services: [string, string, string][] = catalog.map((s) => [s.view, s.title, s.icon]);
   const serviceView = resource
-    ? ((
-        {
-          appPlan: 'plans',
-          webApp: 'apps',
-          appDeployment: 'apps',
-          appSetting: 'apps',
-          firewall: 'firewalls',
-          firewallPolicy: 'firewallPolicies',
-          firewallGroup: 'firewallPolicies',
-          firewallCollection: 'firewallPolicies',
-          firewallRule: 'firewallPolicies',
-          publicIp: 'publicIps',
-          vm: 'vms',
-          disk: 'disks',
-          nic: 'nics',
-          group: 'groups',
-          account: 'accounts',
-          container: 'accounts',
-          blob: 'accounts',
-          vnet: 'vnets',
-          subnet: 'vnets',
-          nsg: 'nsgs',
-          rule: 'nsgs',
-          peering: 'vnets',
-          routeTable: 'routeTables',
-          route: 'routeTables',
-        } as Record<string, string>
-      )[resource.view] ?? resource.view)
+    ? portalResourceService(resource, records)
     : view === 'subscription'
       ? 'subscriptions'
       : view === 'peerings'
@@ -860,7 +864,13 @@ export function Laboratory() {
                     : form === 'CreateNetworkSecurityGroup'
                       ? 'nsg'
                       : 'settings';
-  const parent = records.find((r) => r.id === resource?.parentId);
+  const parent = records.find(
+    (r) =>
+      r.id ===
+      (world?.model === integratedModel && resource
+        ? portalResourceParent(resource)
+        : resource?.parentId),
+  );
   const actions: [Command['type'], string][] =
     view === 'nic' && endpoints
       ? [
@@ -927,7 +937,7 @@ export function Laboratory() {
                     : [];
   const body = snapshot && world && (
     <>
-      {isApplicationWorld(world) && (
+      {isApplicationWorld(world) && !contextCollection && (
         <ApplicationViews
           snapshot={snapshot}
           view={view}
@@ -940,12 +950,22 @@ export function Laboratory() {
           commit={run}
         />
       )}
+      {world.model === integratedModel &&
+        view === 'plans' &&
+        world.data.functionPlans.length > 0 && (
+          <section aria-label={w.resourceKinds.functionPlan}>
+            <h2>{w.resourceKinds.functionPlan}</h2>
+            {links('functionPlan', world.data.functionPlans)}
+          </section>
+        )}
       {world.model === integratedModel && (
         <>
           <DeliveryViews
             snapshot={snapshot}
             view={view}
             id={id}
+            section={section}
+            resources={records}
             disabled={busy || !!error}
             list={links}
             receipt={receiptLink}
@@ -957,6 +977,8 @@ export function Laboratory() {
             snapshot={snapshot}
             view={view}
             id={id}
+            section={section}
+            resources={records}
             disabled={busy || !!error}
             list={links}
             receipt={receiptLink}
@@ -1436,7 +1458,7 @@ export function Laboratory() {
               <strong>{nb.portal.searchResults}</strong>
               <div className="portal-search-group">
                 <strong>{nb.portalUi.services}</strong>
-                {[['home', nb.portal.areas.home, 'home'], ...services]
+                {[['home', nb.portal.areas.home, 'home'], ...globalServices]
                   .filter(([, label]) => label!.toLowerCase().includes(search.toLowerCase()))
                   .map(([key, label, icon]) => (
                     <Link
@@ -1473,7 +1495,7 @@ export function Laboratory() {
                       <ServiceIcon kind={r.kind} />
                       {r.name}
                       <small>
-                        {r.typeName} · {r.groupName}
+                        {r.typeName} · {portalResourceScopeLabel(r, records, false)}
                       </small>
                     </Link>
                   ))}
@@ -1483,7 +1505,7 @@ export function Laboratory() {
                   .toLowerCase()
                   .includes(search.toLowerCase()),
               ) &&
-                ![['home', nb.portal.areas.home], ...services].some(([, label]) =>
+                ![['home', nb.portal.areas.home], ...globalServices].some(([, label]) =>
                   label!.toLowerCase().includes(search.toLowerCase()),
                 ) && <p>{nb.portal.noResults}</p>}
             </PortalSearch>
@@ -1609,7 +1631,9 @@ export function Laboratory() {
           <>
             <ServiceIcon kind="next" size={12} />
             <button type="button" onClick={() => visit(parent.view, parent.id)}>
-              {parent.name}
+              {world?.model === integratedModel
+                ? portalOptionLabel(parent.id, parent.name, records)
+                : parent.name}
             </button>
           </>
         )}
@@ -2269,6 +2293,30 @@ export function Laboratory() {
                           icon: 'activity',
                           onSelect: () => visit('history', undefined, resource.origin),
                         },
+                        ...contextCollections.map((item) => ({
+                          key: `context:${item.key}`,
+                          label: item.label,
+                          icon: item.icon,
+                          settings: true,
+                          active: section === `context:${item.key}`,
+                          onSelect: () =>
+                            router.push(
+                              href(view, resource.id) +
+                                '&section=' +
+                                encodeURIComponent(`context:${item.key}`),
+                            ),
+                        })),
+                        ...(integratedResource
+                          ? portalResourceSections(resource.view).map((item) => ({
+                              key: item.key,
+                              label: item.label,
+                              icon: 'settings',
+                              settings: true,
+                              active: section === item.key,
+                              onSelect: () =>
+                                router.push(href(view, resource.id) + '&section=' + item.key),
+                            }))
+                          : []),
                         ...(compute && resource.view === 'vm'
                           ? [
                               {
@@ -2306,64 +2354,81 @@ export function Laboratory() {
                   }
                 >
                   {section === 'properties' ? (
-                    <>
-                      <h2>{nb.portalUi.properties}</h2>
-                      <PropertyList
-                        items={Object.entries(resource.source).map(([key, value]) => [
-                          resource.view === 'disk' && key === 'sku' ? m.osDiskSku : label(key),
-                          value === null ? (
-                            '—'
-                          ) : [
-                              'origin',
-                              'associationOrigin',
-                              'routeAssociationOrigin',
-                              'forwardingOrigin',
-                            ].includes(key) ? (
-                            receiptLink(String(value))
-                          ) : ((isApplicationWorld(world) &&
-                              ['appPlan', 'webApp', 'appDeployment', 'appSetting'].includes(
-                                resource.view,
-                              )) ||
-                              (compute && ['vm', 'disk'].includes(resource.view)) ||
-                              (firewall &&
-                                [
-                                  'firewall',
-                                  'firewallPolicy',
-                                  'firewallGroup',
-                                  'firewallCollection',
-                                  'firewallRule',
-                                  'publicIp',
-                                ].includes(resource.view))) &&
-                            [
-                              'planId',
-                              'webAppId',
-                              'policyId',
-                              'collectionGroupId',
-                              'collectionId',
-                              'firewallId',
-                              'publicIpId',
-                              'nicId',
-                              'osDiskId',
-                              'subnetId',
-                              'vnetId',
-                              'groupId',
-                              'nsgId',
-                              'routeTableId',
-                            ].includes(key) &&
-                            records.some((r) => r.id === value) ? (
-                            <Link
-                              href={href(records.find((r) => r.id === value)!.view, String(value))}
-                            >
-                              {records.find((r) => r.id === value)!.name} · {String(value)}
-                            </Link>
-                          ) : typeof value === 'object' ? (
-                            JSON.stringify(value)
-                          ) : (
-                            String(value)
-                          ),
-                        ])}
-                      />
-                    </>
+                    integratedResource ? (
+                      <>
+                        <h2>{nb.portalUi.properties}</h2>
+                        <PortalHumanProperties
+                          resource={resource}
+                          resources={records}
+                          href={href}
+                        />
+                        <PortalTechnicalEvidence resource={resource}>
+                          {receiptLink(resource.origin)}
+                        </PortalTechnicalEvidence>
+                      </>
+                    ) : (
+                      <>
+                        <h2>{nb.portalUi.properties}</h2>
+                        <PropertyList
+                          items={Object.entries(resource.source).map(([key, value]) => [
+                            resource.view === 'disk' && key === 'sku' ? m.osDiskSku : label(key),
+                            value === null ? (
+                              '—'
+                            ) : [
+                                'origin',
+                                'associationOrigin',
+                                'routeAssociationOrigin',
+                                'forwardingOrigin',
+                              ].includes(key) ? (
+                              receiptLink(String(value))
+                            ) : ((isApplicationWorld(world) &&
+                                ['appPlan', 'webApp', 'appDeployment', 'appSetting'].includes(
+                                  resource.view,
+                                )) ||
+                                (compute && ['vm', 'disk'].includes(resource.view)) ||
+                                (firewall &&
+                                  [
+                                    'firewall',
+                                    'firewallPolicy',
+                                    'firewallGroup',
+                                    'firewallCollection',
+                                    'firewallRule',
+                                    'publicIp',
+                                  ].includes(resource.view))) &&
+                              [
+                                'planId',
+                                'webAppId',
+                                'policyId',
+                                'collectionGroupId',
+                                'collectionId',
+                                'firewallId',
+                                'publicIpId',
+                                'nicId',
+                                'osDiskId',
+                                'subnetId',
+                                'vnetId',
+                                'groupId',
+                                'nsgId',
+                                'routeTableId',
+                              ].includes(key) &&
+                              records.some((r) => r.id === value) ? (
+                              <Link
+                                href={href(
+                                  records.find((r) => r.id === value)!.view,
+                                  String(value),
+                                )}
+                              >
+                                {records.find((r) => r.id === value)!.name} · {String(value)}
+                              </Link>
+                            ) : typeof value === 'object' ? (
+                              JSON.stringify(value)
+                            ) : (
+                              String(value)
+                            ),
+                          ])}
+                        />
+                      </>
+                    )
                   ) : (
                     <>
                       {!!actions.length && (

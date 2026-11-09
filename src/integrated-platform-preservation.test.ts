@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { readFidelityHistory as readFileSync } from '../tests/portal-fidelity-preservation';
+import { execFidelityHistory as execFileSync } from '../tests/portal-fidelity-preservation';
 import { createHash } from 'node:crypto';
 import proof from '../docs/reviews/evidence/integrated-application-chain/preservation.json';
 import provenance from '../docs/reviews/evidence/integrated-application-chain/module-provenance.json';
@@ -157,11 +157,11 @@ it('preserves the original PR75 guard bodies through import-only bounded histori
     original('src/resource-platform-preservation.test.ts')
       .toString()
       .replace(
-        "import { readFileSync } from 'node:fs';",
+        "import { readFidelityHistory as readFileSync } from '../tests/portal-fidelity-preservation';",
         "import { readIntegratedHistory as readFileSync } from '../tests/integrated-platform-preservation';",
       )
       .replace(
-        "import { execFileSync } from 'node:child_process';",
+        "import { execFidelityHistory as execFileSync } from '../tests/portal-fidelity-preservation';",
         "import { execIntegratedHistory as execFileSync } from '../tests/integrated-platform-preservation';",
       ),
   );
@@ -169,7 +169,7 @@ it('preserves the original PR75 guard bodies through import-only bounded histori
     original('tests/resource-platform-preservation.ts')
       .toString()
       .replace(
-        "import { readFileSync } from 'node:fs';",
+        "import { readFidelityHistory as readFileSync } from '../tests/portal-fidelity-preservation';",
         "import { readIntegratedHistory as readFileSync } from './integrated-platform-preservation';",
       ),
   );

@@ -8,6 +8,7 @@ import { laboratoryIntegratedDeliveryNb as delivery } from '../../src/content/la
 import {
   integratedApp,
   integratedIconFiles,
+  integratedFamilyKinds,
   expectIntegratedTitleIcon,
   expectIntegratedRowIcon,
   integratedOperation,
@@ -27,33 +28,10 @@ test('integrated3.9 default native Portal forms commit the actual app PostgreSQL
   await page.setViewportSize({ width: 1440, height: 900 });
   const base = await integratedApp(page, 'integrated-chain'),
     app = integratedWorld(base.app).webApps[0]!;
-  const expectedIcons: Record<string, string> = {
-    frontDoor: 'frontDoor',
-    frontDoorEndpoint: 'frontDoor',
-    originGroup: 'frontDoor',
-    frontDoorOrigin: 'frontDoor',
-    frontDoorRoute: 'frontDoor',
-    frontDoorWafPolicy: 'waf',
-    frontDoorWafRule: 'waf',
-    frontDoorSecurityPolicy: 'frontDoor',
-    applicationGateway: 'applicationGateway',
-    gatewayBackendPool: 'applicationGateway',
-    gatewayListener: 'applicationGateway',
-    gatewayBackendSetting: 'applicationGateway',
-    gatewayProbe: 'applicationGateway',
-    gatewayRoutingRule: 'applicationGateway',
-    postgresServer: 'postgresServer',
-    postgresDatabase: 'postgresServer',
-    sqlServer: 'sqlServer',
-    sqlDatabase: 'sqlDatabase',
-    databaseFirewallRule: 'settings',
-    functionPlan: 'plan',
-    functionApp: 'functionApp',
-    function: 'functionApp',
-    databaseConnection: 'settings',
-  };
+  const expectedIcons = integratedFamilyKinds;
+  await service(page, nb.portal.areas.services);
   const actualIcons = await page
-    .getByRole('navigation', { name: storage.navigation, exact: true })
+    .locator('[data-portal-component="service-directory"]')
     .locator('a')
     .evaluateAll((links) =>
       links.map((link) => {
@@ -68,8 +46,26 @@ test('integrated3.9 default native Portal forms commit the actual app PostgreSQL
         };
       }),
     );
+  const globalFamilies = new Set([
+    'frontDoor',
+    'frontDoorWafPolicy',
+    'applicationGateway',
+    'postgresServer',
+    'sqlServer',
+    'sqlDatabase',
+    'functionApp',
+  ]);
   for (const [view, kind] of Object.entries(expectedIcons)) {
     const row = actualIcons.find((row) => row.view === view);
+    if (!globalFamilies.has(view)) {
+      expect(row, `${view} belongs in resource context, not All services`).toBeUndefined();
+      await expect(
+        page
+          .getByRole('navigation', { name: storage.navigation, exact: true })
+          .locator(`a[href*="view=${view}&"], a[href$="view=${view}"]`),
+      ).toHaveCount(0);
+      continue;
+    }
     expect(row, view).toMatchObject({
       kind,
       family: kind === 'settings' ? 'fluent' : 'azure',
@@ -205,11 +201,13 @@ test('integrated3.9 compact native Review keyboard focus reduced motion Axe and 
   const reviewed = memoryResponse(page, 'review');
   await page
     .locator('.lab-integrated-form')
-    .getByRole('button', { name: 'Review', exact: true })
+    .getByRole('button', { name: /^Review \+ (?:create|save|delete)$/ })
     .click();
   expect((await (await reviewed).json()).preview.outcome).toBe('accepted');
   await expect(
-    page.locator('.lab-integrated-form').getByRole('heading', { name: 'Review', exact: true }),
+    page
+      .locator('.lab-integrated-form')
+      .getByRole('heading', { name: 'Review + create', exact: true }),
   ).toBeFocused();
   await page.screenshot({
     path: info.outputPath(
@@ -271,7 +269,7 @@ test('integrated3.9 native empty Storage deletion blocks Function dependencies a
   const denied = memoryResponse(page, 'review');
   await page
     .locator('.lab-integrated-form')
-    .getByRole('button', { name: 'Review', exact: true })
+    .getByRole('button', { name: /^Review \+ (?:create|save|delete)$/ })
     .click();
   expect((await (await denied).json()).preview.code).toBe('resource-in-use');
   await expect(
@@ -371,7 +369,7 @@ test('integrated3.9 PostgreSQL native reload and same-value Function Review pres
   const review = integratedResponse(page, 'review');
   await page
     .locator('.lab-integrated-form')
-    .getByRole('button', { name: 'Review', exact: true })
+    .getByRole('button', { name: /^Review \+ (?:create|save|delete)$/ })
     .click();
   expect((await (await review).json()).preview).toMatchObject({
     outcome: 'rejected',

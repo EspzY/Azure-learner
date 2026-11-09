@@ -1,0 +1,124 @@
+[WebServer] (node:180357) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 10 tests using 1 worker
+
+(node:180396) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   1 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:25:1 › integrated3.9 default native Portal forms commit the actual app PostgreSQL binding FrontDoor chain and one Studio authority (31.5s)
+(node:180583) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   2 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:180:1 › integrated3.9 compact native Review keyboard focus reduced motion Axe and short desktop keep typed configuration readable (5.9s)
+  ✓   3 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:251:1 › integrated3.9 native empty Storage deletion blocks Function dependencies and lands on original committed delete receipts (6.8s)
+  ✓   4 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:324:1 › integrated3.9 PostgreSQL native reload and same-value Function Review preserve verifiable JSONB history before a real configuration change (7.1s)
+  ✓   5 [desktop-chromium] › tests/e2e/integrated-data.spec.ts:45:1 › integrated Function App uses actual Storage and FC1 parents for HTTP and blob configuration analysis and rejects dependent deletion (10.3s)
+  ✓   6 [desktop-chromium] › tests/e2e/integrated-data.spec.ts:179:1 › integrated SQL binding distinguishes unknown hypothetical IP firewall allowance and changed server configuration without runtime claims (10.1s)
+  ✓   7 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:64:1 › integrated Front Door native WAF Prevention and Detection changes affect the actual configured delivery chain (15.2s)
+  ✘   8 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:187:1 › integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references (31.1s)
+(node:180947) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   9 [desktop-chromium] › tests/e2e/portal-resource-fidelity.spec.ts:21:1 › Portal fidelity scopes same-named profile children by actual IDs and preserves direct historical links original receipts and neutral navigation (30.3s)
+(node:181063) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [desktop-chromium] › tests/e2e/portal-resource-fidelity.spec.ts:106:1 › Portal fidelity native Review readable Overview keyboard reduced motion Axe and compact parent menus retain real configuration boundaries (4.5s)
+
+
+  1) [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:25:1 › integrated3.9 default native Portal forms commit the actual app PostgreSQL binding FrontDoor chain and one Studio authority 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('main').getByRole('link', { name: 'Architecture Studio', exact: true })
+
+
+       at ephemeral-actions.ts:68
+
+      66 |     if ((await disclosure.count()) && (await disclosure.getAttribute('open')) === null)
+      67 |       await disclosure.locator('summary').click();
+    > 68 |     await link.click();
+         |                ^
+      69 |   }
+      70 |   await closeLaboratoryDrawer(page);
+      71 |   await expect(page.locator('.portal-title h1')).toHaveText(name);
+        at service (/workspace/azurelab-phase2/portal-fidelity/tests/e2e/ephemeral-actions.ts:68:16)
+        at /workspace/azurelab-phase2/portal-fidelity/tests/e2e/integrated-chain.spec.ts:153:3
+
+    Error Context: .artifacts/native-results/integrated-chain-integrate-1da22-in-and-one-Studio-authority-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    .artifacts/native-results/integrated-chain-integrate-1da22-in-and-one-Studio-authority-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace .artifacts/native-results/integrated-chain-integrate-1da22-in-and-one-Studio-authority-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:187:1 › integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('main').getByRole('link', { name: 'Architecture Studio', exact: true })
+
+
+       at ephemeral-actions.ts:68
+
+      66 |     if ((await disclosure.count()) && (await disclosure.getAttribute('open')) === null)
+      67 |       await disclosure.locator('summary').click();
+    > 68 |     await link.click();
+         |                ^
+      69 |   }
+      70 |   await closeLaboratoryDrawer(page);
+      71 |   await expect(page.locator('.portal-title h1')).toHaveText(name);
+        at service (/workspace/azurelab-phase2/portal-fidelity/tests/e2e/ephemeral-actions.ts:68:16)
+        at /workspace/azurelab-phase2/portal-fidelity/tests/e2e/integrated-delivery.spec.ts:285:3
+
+    Error Context: .artifacts/native-results/integrated-delivery-integr-bc471-ener-and-routing-references-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    .artifacts/native-results/integrated-delivery-integr-bc471-ener-and-routing-references-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace .artifacts/native-results/integrated-delivery-integr-bc471-ener-and-routing-references-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop-chromium] › tests/e2e/portal-resource-fidelity.spec.ts:21:1 › Portal fidelity scopes same-named profile children by actual IDs and preserves direct historical links original receipts and neutral navigation 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.evaluate: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('.lab-form').getByLabel('subscriptionId', { exact: true })
+
+
+       at ephemeral-actions.ts:97
+
+       95 | ) {
+       96 |   await page.getByRole('button', { name: button, exact: true }).click();
+    >  97 |   await fill(page, fields);
+          |                     ^
+       98 |   await page.getByRole('button', { name: c.review, exact: true }).click();
+       99 |   const review = page.getByRole('region', { name: c.review, exact: true });
+      100 |   await expect(review).toContainText('Konfigurasjonen er validert');
+        at fill (/workspace/azurelab-phase2/portal-fidelity/tests/e2e/ephemeral-actions.ts:97:21)
+        at create (/workspace/azurelab-phase2/portal-fidelity/tests/e2e/ephemeral-actions.ts:105:3)
+        at /workspace/azurelab-phase2/portal-fidelity/tests/e2e/portal-resource-fidelity.spec.ts:31:22
+
+    Error Context: .artifacts/native-results/portal-resource-fidelity-P-25349-ipts-and-neutral-navigation-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    .artifacts/native-results/portal-resource-fidelity-P-25349-ipts-and-neutral-navigation-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace .artifacts/native-results/portal-resource-fidelity-P-25349-ipts-and-neutral-navigation-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:25:1 › integrated3.9 default native Portal forms commit the actual app PostgreSQL binding FrontDoor chain and one Studio authority 
+    [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:187:1 › integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references 
+    [desktop-chromium] › tests/e2e/portal-resource-fidelity.spec.ts:21:1 › Portal fidelity scopes same-named profile children by actual IDs and preserves direct historical links original receipts and neutral navigation 
+  7 passed (2.8m)

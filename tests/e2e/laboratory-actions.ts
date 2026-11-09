@@ -8,6 +8,9 @@ export async function revealLaboratoryLink(page: Page, link: Locator) {
   const nav = page.getByRole('navigation', { name: c.navigation, exact: true });
   if (!(await nav.isVisible()))
     await page.getByRole('button', { name: nb.portal.menu, exact: true }).click();
+  const disclosure = link.locator('xpath=ancestor::details[1]');
+  if ((await disclosure.count()) && (await disclosure.getAttribute('open')) === null)
+    await disclosure.locator('summary').click();
   await expect(link).toBeVisible();
 }
 

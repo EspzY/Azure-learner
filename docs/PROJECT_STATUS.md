@@ -1,3 +1,7 @@
+# Portal resource fidelity correction — candidate, 9 November 2026
+
+Isolated presentation work over the integrated Application checkpoint scopes global services versus resource-context children, readable Essentials/Review, original icons and closed technical evidence. Existing engines, SQL, course controllers, SavvyShark and historical evidence remain unchanged. [Scope, actual public reference review and limits](PORTAL_RESOURCE_FIDELITY.md); [complete47-family matrix](PORTAL_RESOURCE_FAMILY_MATRIX.md). Initial TypeScript/ESLint and21 existing scoped unit controls passed; new fixture/browser checks, production captures, full check, fresh independent audit and exact-head CI/strict/public delivery are still in progress. This candidate paragraph does not claim those gates passed.
+
 ## Current candidate — shared Portal entry consolidation,9 November2026
 
 Verified base is completed Draft71 head0538b40cc51af634e71182014e65bdb932936c70 / Quality117:1097Vitest,24Node,462browser with zero retries. New isolated branch unifies Portal Home, subscriptions and catalogue/navigation; historical authorities are preserved. [Architecture/capability gap and bounded roadmap](SHARED_PORTAL_CONSOLIDATION.md). Candidate checks, independent audit, exact-head CI/strict and public gate are reported only when actually completed. No merge, production deploy or external infrastructure.

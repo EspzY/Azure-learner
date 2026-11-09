@@ -1,5 +1,5 @@
 import { expect, type Page } from '@playwright/test';
-import { landingNb as t, laboratoryV3Nb as c } from '../../src/content/nb';
+import { nb, landingNb as t, laboratoryV3Nb as c } from '../../src/content/nb';
 import { laboratoryEphemeralNb as temp } from '../../src/content/laboratory-ephemeral-nb';
 import { laboratoryNetworkNb as n } from '../../src/content/laboratory-networking-nb';
 import { laboratoryRoutingNb as r } from '../../src/content/laboratory-routing-nb';
@@ -45,11 +45,28 @@ export async function startTemporary(page: Page) {
   return s;
 }
 export async function service(page: Page, name: string) {
-  const link = page
-    .getByRole('navigation', { name: c.navigation, exact: true })
-    .getByRole('link', { name, exact: true });
-  await revealLaboratoryLink(page, link);
-  await link.click();
+  const nav = page.getByRole('navigation', { name: c.navigation, exact: true });
+  const favorite = nav.getByRole('link', { name, exact: true, includeHidden: true });
+  if (await favorite.count()) {
+    await revealLaboratoryLink(
+      page,
+      nav.getByRole('link', { name: nb.portal.areas.home, exact: true }),
+    );
+    const disclosure = favorite.locator('xpath=ancestor::details[1]');
+    if ((await disclosure.count()) && (await disclosure.getAttribute('open')) === null)
+      await disclosure.locator('summary').click();
+    await favorite.click();
+  } else {
+    const directory = nav.getByRole('link', { name: nb.portal.areas.services, exact: true });
+    await revealLaboratoryLink(page, directory);
+    await directory.click();
+    await closeLaboratoryDrawer(page);
+    const link = page.locator('main').getByRole('link', { name, exact: true, includeHidden: true });
+    const disclosure = link.locator('xpath=ancestor::details[1]');
+    if ((await disclosure.count()) && (await disclosure.getAttribute('open')) === null)
+      await disclosure.locator('summary').click();
+    await link.click();
+  }
   await closeLaboratoryDrawer(page);
   await expect(page.locator('.portal-title h1')).toHaveText(name);
 }
@@ -58,9 +75,11 @@ export async function openResource(page: Page, name: string) {
   await expect(page.locator('.portal-title h1')).toHaveText(name);
 }
 const label = (key: string) =>
-  [f.fields, m.fields, e.fields, r.fields, n.fields, c.fields]
-    .map((map) => (map as Record<string, string>)[key])
-    .find(Boolean) ?? key;
+  key === 'subscriptionId'
+    ? c.subscription
+    : ([f.fields, m.fields, e.fields, r.fields, n.fields, c.fields]
+        .map((map) => (map as Record<string, string>)[key])
+        .find(Boolean) ?? key);
 export async function fill(page: Page, fields: Record<string, string>, selector = '.lab-form') {
   for (const [key, value] of Object.entries(fields)) {
     const input = page
@@ -75,13 +94,21 @@ export async function create(
   button: string,
   fields: Record<string, string>,
   apply = false,
+  transport: 'memory' | 'persistent' = 'memory',
 ) {
   await page.getByRole('button', { name: button, exact: true }).click();
   await fill(page, fields);
   await page.getByRole('button', { name: c.review, exact: true }).click();
   const review = page.getByRole('region', { name: c.review, exact: true });
   await expect(review).toContainText('Konfigurasjonen er validert');
-  const response = memoryResponse(page, 'command');
+  const response =
+    transport === 'persistent'
+      ? page.waitForResponse(
+          (response) =>
+            response.request().method() === 'POST' &&
+            response.url().endsWith('/api/laboratory/command'),
+        )
+      : memoryResponse(page, 'command');
   await review.getByRole('button', { name: apply ? n.apply : c.create, exact: true }).click();
   const res = await response;
   const result: CommandResult = await res.json();

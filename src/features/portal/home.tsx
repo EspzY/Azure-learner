@@ -2,9 +2,15 @@
 import type { ReactNode, MouseEvent } from 'react';
 import { nb } from '@/content/nb';
 import { sharedPortalNb as copy } from '@/content/shared-portal-nb';
+import { portalResourceContextNb } from '@/content/portal-resource-context-nb';
 import { ServiceIcon } from './service-icon';
 import { portalEntryServices, type PortalService } from './service-catalog';
 import { PortalTable } from './presentation';
+import {
+  portalFavoriteServices,
+  portalGlobalServices,
+  portalToolServices,
+} from './resource-context';
 
 export type PortalDestination = { href: string; onSelect: () => void };
 export type PortalResourceLink = {
@@ -72,7 +78,7 @@ export function PortalServiceNavigation({
         <ServiceIcon kind="favorite" size={12} />
         {nb.portalUi.favorites}
       </span>
-      {services.map((s) => (
+      {portalFavoriteServices(services).map((s) => (
         <PortalDestinationLink
           key={s.id}
           destination={destination(s.view)}
@@ -83,6 +89,28 @@ export function PortalServiceNavigation({
           {s.title}
         </PortalDestinationLink>
       ))}
+      {services.some((service) => portalToolServices.has(service.id)) && (
+        <details className="portal-learning-tools" open>
+          <summary>
+            <ServiceIcon kind="learn" size={14} />
+            {services.some((service) => service.id === 'studio')
+              ? portalResourceContextNb.tools
+              : nb.portalUi.learningTools}
+          </summary>
+          {services
+            .filter((service) => portalToolServices.has(service.id))
+            .map((service) => (
+              <PortalDestinationLink
+                key={service.id}
+                destination={destination(service.view)}
+                aria-current={current === service.view ? 'page' : undefined}
+              >
+                <ServiceIcon kind={service.icon} size={17} />
+                {service.title}
+              </PortalDestinationLink>
+            ))}
+        </details>
+      )}
       {children}
     </>
   );
@@ -95,15 +123,35 @@ export function PortalServiceDirectory({
   destination: (view: string) => PortalDestination;
 }) {
   return (
-    <div className="portal-services-index" data-portal-component="service-directory">
-      {services.map((s) => (
-        <PortalDestinationLink key={s.id} destination={destination(s.view)}>
-          <ServiceIcon kind={s.icon} size={22} />
-          <span>{s.title}</span>
-          <ServiceIcon kind="next" size={14} />
-        </PortalDestinationLink>
-      ))}
-    </div>
+    <>
+      <div className="portal-services-index" data-portal-component="service-directory">
+        {portalGlobalServices(services).map((s) => (
+          <PortalDestinationLink key={s.id} destination={destination(s.view)}>
+            <ServiceIcon kind={s.icon} size={22} />
+            <span>{s.title}</span>
+            <ServiceIcon kind="next" size={14} />
+          </PortalDestinationLink>
+        ))}
+      </div>
+      {services.some((service) => portalToolServices.has(service.id)) && (
+        <details className="portal-learning-tools">
+          <summary>
+            <ServiceIcon kind="learn" size={14} />
+            {services.some((service) => service.id === 'studio')
+              ? portalResourceContextNb.tools
+              : nb.portalUi.learningTools}
+          </summary>
+          {services
+            .filter((service) => portalToolServices.has(service.id))
+            .map((service) => (
+              <PortalDestinationLink key={service.id} destination={destination(service.view)}>
+                <ServiceIcon kind={service.icon} size={17} />
+                {service.title}
+              </PortalDestinationLink>
+            ))}
+        </details>
+      )}
+    </>
   );
 }
 export function PortalRecentResources({

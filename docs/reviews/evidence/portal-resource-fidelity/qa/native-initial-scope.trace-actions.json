@@ -1,0 +1,642 @@
+{
+  "derived": true,
+  "transformation": "Only action identity/timing/selector/key and failure messages retained. All network collections, request/response bodies, headers, cookies, tokens, resource blobs and frame-snapshots excluded. Original error-context DOM output is a separate original safe artifact.",
+  "actions": [
+    {
+      "type": "before",
+      "callId": "pjtr@1",
+      "class": "Test",
+      "method": "hook",
+      "startTime": 131882.434,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@30",
+      "class": "Test",
+      "method": "fixture",
+      "startTime": 131900.786,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@31",
+      "class": "Test",
+      "method": "pw:api",
+      "startTime": 131903.392,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@31",
+      "endTime": 132126.877
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@30",
+      "endTime": 132127.146
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@34",
+      "class": "Test",
+      "method": "fixture",
+      "startTime": 132129.4,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@35",
+      "class": "Test",
+      "method": "pw:api",
+      "startTime": 132131.61,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@35",
+      "endTime": 132148.863
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@34",
+      "endTime": 132163.122
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@42",
+      "class": "Test",
+      "method": "fixture",
+      "startTime": 132163.959,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@43",
+      "class": "Test",
+      "method": "pw:api",
+      "startTime": 132165.381,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@43",
+      "endTime": 132260.721
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@42",
+      "endTime": 132260.782
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@1",
+      "endTime": 132260.84
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@45",
+      "class": "Test",
+      "method": "pw:api",
+      "startTime": 132263.6,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@45",
+      "endTime": 132685.61
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@47",
+      "class": "Test",
+      "method": "pw:api",
+      "startTime": 132689.931,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@47",
+      "endTime": 132836.504
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@49",
+      "class": "Test",
+      "method": "expect",
+      "startTime": 132842.118,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@49",
+      "endTime": 133870.638
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@51",
+      "class": "Test",
+      "method": "pw:api",
+      "startTime": 133872.265,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@54",
+      "class": "Test",
+      "method": "pw:api",
+      "startTime": 133874.027,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@54",
+      "endTime": 133941.774
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@51",
+      "endTime": 133988.622
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@59",
+      "class": "Test",
+      "method": "pw:api",
+      "startTime": 133989.469,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@59",
+      "endTime": 134062.713
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@61",
+      "class": "Test",
+      "method": "expect",
+      "startTime": 134064.161,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@61",
+      "endTime": 134064.479
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@62",
+      "class": "Test",
+      "method": "expect",
+      "startTime": 134069.103,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@62",
+      "endTime": 134099.599
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@64",
+      "class": "Test",
+      "method": "pw:api",
+      "startTime": 134101.043,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@64",
+      "endTime": 134115.306
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@67",
+      "class": "Test",
+      "method": "pw:api",
+      "startTime": 134116.464,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@67",
+      "endTime": 134192.629
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@69",
+      "class": "Test",
+      "method": "pw:api",
+      "startTime": 134199.389,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@69",
+      "endTime": 134245.062
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@73",
+      "class": "Test",
+      "method": "pw:api",
+      "startTime": 134246.418,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@73",
+      "endTime": 134273.543
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@75",
+      "class": "Test",
+      "method": "pw:api",
+      "startTime": 134274.81,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@77",
+      "class": "Test",
+      "method": "hook",
+      "startTime": 162129.371,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@78",
+      "class": "Test",
+      "method": "fixture",
+      "startTime": 162132.746,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@78",
+      "endTime": 162133.248
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@79",
+      "class": "Test",
+      "method": "fixture",
+      "startTime": 162133.604,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@86",
+      "class": "Test",
+      "method": "pw:api",
+      "startTime": 162383.302,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@75",
+      "endTime": 162393.223,
+      "errorMessage": "Error: locator.evaluate: Test timeout of 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.lab-form').getByLabel('subscriptionId', { exact: true })\u001b[22m\n"
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@86",
+      "endTime": 162395.559
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@79",
+      "endTime": 162395.629
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@93",
+      "class": "Test",
+      "method": "test.attach",
+      "startTime": 162403.686,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@93",
+      "endTime": 162403.697
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@96",
+      "class": "Test",
+      "method": "fixture",
+      "startTime": 162404.594,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@96",
+      "endTime": 162404.612
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@97",
+      "class": "Test",
+      "method": "fixture",
+      "startTime": 162404.621,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@97",
+      "endTime": 162404.631
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@99",
+      "class": "Test",
+      "method": "fixture",
+      "startTime": 162404.944,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@99",
+      "endTime": 162404.957
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@101",
+      "class": "Test",
+      "method": "fixture",
+      "startTime": 162405.308,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@101",
+      "endTime": 162405.324
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@108",
+      "class": "Test",
+      "method": "fixture",
+      "startTime": 162406.401,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@108",
+      "endTime": 162406.414
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@112",
+      "class": "Test",
+      "method": "fixture",
+      "startTime": 162407.369,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@112",
+      "endTime": 162407.382
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@115",
+      "class": "Test",
+      "method": "fixture",
+      "startTime": 162407.97,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@115",
+      "endTime": 162407.98
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@77",
+      "endTime": 162409.013
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@122",
+      "class": "Test",
+      "method": "hook",
+      "startTime": 162409.412,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@127",
+      "class": "Test",
+      "method": "fixture",
+      "startTime": 162410.316,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@127",
+      "endTime": 162453.637
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@132",
+      "class": "Test",
+      "method": "fixture",
+      "startTime": 162454.678,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@132",
+      "endTime": 162454.688
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@122",
+      "endTime": 162456.62
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@43",
+      "class": "BrowserContext",
+      "method": "newPage",
+      "startTime": 132167.106,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@43",
+      "endTime": 132258.322
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@45",
+      "class": "Frame",
+      "method": "goto",
+      "startTime": 132264.792,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@45",
+      "endTime": 132666.837
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@47",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 132690.91,
+      "selectorOrKey": {
+        "selector": "internal:role=link[name=\"\u00c5pne laboratoriet \u00b7 AzureLab Laboratory, separat arbeidsomr\u00e5de\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@47",
+      "endTime": 132832.031
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@49",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 132844.366,
+      "selectorOrKey": {
+        "selector": "internal:text=\"3.9 \u00b7 Integrated Application Chain\"s"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@49",
+      "endTime": 133863.97
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@51",
+      "class": "Page",
+      "method": "__waitInfo__",
+      "startTime": 133874.593,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@54",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 133875.048,
+      "selectorOrKey": {
+        "selector": "internal:role=button[name=\"Start eget laboratoriearbeidsomr\u00e5de\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@54",
+      "endTime": 133932.812
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@51",
+      "endTime": 133990.018
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@59",
+      "class": "Response",
+      "method": "body",
+      "startTime": 133990.995,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@59",
+      "endTime": 134058.008
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@62",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 134070.754,
+      "selectorOrKey": {
+        "selector": "[data-portal-component=\"home\"]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@62",
+      "endTime": 134089.838
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@64",
+      "class": "Frame",
+      "method": "evaluateExpression",
+      "startTime": 134101.81,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@64",
+      "endTime": 134108.931
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@67",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 134116.751,
+      "selectorOrKey": {
+        "selector": "internal:role=button[name=\"Create resource group\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@67",
+      "endTime": 134188.334
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@69",
+      "class": "Frame",
+      "method": "waitForSelector",
+      "startTime": 134199.744,
+      "selectorOrKey": {
+        "selector": ".lab-form >> internal:label=\"Name\"s"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@69",
+      "endTime": 134216.682
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@73",
+      "class": "Frame",
+      "method": "fill",
+      "startTime": 134246.674,
+      "selectorOrKey": {
+        "selector": ".lab-form >> internal:label=\"Name\"s"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "pjtr@73",
+      "endTime": 134270.52
+    },
+    {
+      "type": "before",
+      "callId": "pjtr@75",
+      "class": "Frame",
+      "method": "waitForSelector",
+      "startTime": 134275.159,
+      "selectorOrKey": {
+        "selector": ".lab-form >> internal:label=\"subscriptionId\"s"
+      }
+    }
+  ]
+}

@@ -1,3 +1,7 @@
+# Fresh rights and integrated-family review — 9 November 2026
+
+The [resource fidelity review](PORTAL_RESOURCE_FIDELITY.md) quotes the actual public terms and included PDF page1, records current public update/version differences and keeps the training-material interpretation explicitly bounded. The existing original V24 and Fluent asset registry is reused unchanged. No blanket interactive-product-UI license, formal legal approval or Microsoft endorsement is claimed. New-family exact current Portal variants remain UNVERIFIED without actual matching reference evidence.
+
 # Portal iconography and exact-reference implementation
 
 ## Audit and implementation plan — 2026-10-26

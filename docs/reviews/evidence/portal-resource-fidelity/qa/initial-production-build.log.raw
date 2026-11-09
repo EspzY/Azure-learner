@@ -1,0 +1,58 @@
+
+ RUN  v5.0.5 /workspace/azurelab-phase2/portal-fidelity
+
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  22:03:09
+   Duration  914ms (transform 50%, import 39%, tests 10%, worker 1%)
+
+
+> azurelab@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.2 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 84ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 48s
+  Running TypeScript ...
+  Finished TypeScript in 62s ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/16) ...
+  Generating static pages using 4 workers (4/16) 
+  Generating static pages using 4 workers (8/16) 
+  Generating static pages using 4 workers (12/16) 
+✓ Generating static pages using 4 workers (16/16) in 1260ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/laboratory/analysis
+├ ƒ /api/laboratory/command
+├ ƒ /api/laboratory/ephemeral
+├ ƒ /api/laboratory/policy-analysis
+├ ƒ /api/laboratory/review
+├ ƒ /api/laboratory/session
+├ ƒ /api/laboratory/state
+├ ○ /design/foundations-31a
+├ ○ /expedition-3d
+├ ○ /explore
+├ ○ /icon.svg
+├ ○ /labs/laboratory
+├ ○ /labs/saas
+├ ○ /learn
+├ ƒ /learn/[module]
+├ ○ /learn/design-review
+├ ○ /legacy-expedition
+├ ○ /legacy/rpg
+├ ○ /missions
+├ ○ /portal
+└ ○ /progress
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

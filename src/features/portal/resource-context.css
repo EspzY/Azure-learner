@@ -1,0 +1,113 @@
+.portal-context-note {
+  max-width: 78ch;
+  color: #525252;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.portal-context-essentials {
+  padding: 0 0 16px;
+  border-bottom: 1px solid #edebe9;
+}
+.portal-context-essentials .portal-properties {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 32px;
+}
+.portal-context-essentials .portal-properties > div {
+  grid-template-columns: minmax(120px, 38%) minmax(0, 1fr);
+}
+.portal-context-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  padding: 16px 0;
+}
+.portal-context-links a {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-height: 28px;
+}
+.portal-context-links a span {
+  color: #525252;
+}
+.portal-technical-evidence {
+  margin: 18px 0;
+  padding: 12px 0;
+  border-top: 1px solid #edebe9;
+  border-bottom: 1px solid #edebe9;
+}
+.portal-technical-evidence summary {
+  cursor: pointer;
+  color: #0067b8;
+}
+.portal-technical-evidence pre {
+  max-width: 100%;
+  max-height: 24rem;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.portal-create-steps {
+  display: flex;
+  gap: 28px;
+  margin: 24px 0;
+  padding: 0;
+  border-bottom: 1px solid #d2d0ce;
+  list-style: none;
+}
+.portal-create-steps li {
+  padding: 8px 0;
+}
+.portal-create-steps li[aria-current] {
+  border-bottom: 2px solid #0078d4;
+  font-weight: 600;
+}
+.portal .lab-integrated-form fieldset {
+  display: block;
+  max-width: 850px;
+  border: 0;
+}
+.portal .lab-integrated-form fieldset[hidden] {
+  display: none;
+}
+.portal .lab-integrated-form legend,
+.portal .lab-integrated-form .portal-form-section {
+  margin: 20px 0 16px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.portal .lab-integrated-form fieldset > label {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 500px);
+  align-items: center;
+  column-gap: 20px;
+  margin: 14px 0;
+}
+.portal .lab-integrated-form label input,
+.portal .lab-integrated-form label select {
+  min-width: 0;
+  width: 100%;
+}
+.portal .lab-integrated-form button[hidden] {
+  display: none;
+}
+.portal-validation-passed {
+  color: #107c10;
+  font-weight: 600;
+}
+.portal-validation-failed {
+  color: #a4262c;
+  font-weight: 600;
+}
+@media (max-width: 1100px) {
+  .portal-context-essentials .portal-properties {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .portal .lab-integrated-form fieldset > label {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 6px;
+  }
+}
