@@ -1,0 +1,208 @@
+[
+  {
+    "type": "before",
+    "callId": "fjbl@255",
+    "startTime": 14668.657,
+    "class": "Frame",
+    "method": "click",
+    "params": {
+      "selector": "internal:role=region[name=\"Review\"s] >> internal:role=button[name=\"Save\"s]",
+      "strict": true
+    }
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@255",
+    "time": 14670.498,
+    "message": "waiting for getByRole('region', { name: 'Review', exact: true }).getByRole('button', { name: 'Save', exact: true })"
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@255",
+    "time": 14674.369,
+    "message": "  locator resolved to <button class=\"primary\">Save</button>"
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@255",
+    "time": 14676.755,
+    "message": "attempting click action"
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@255",
+    "time": 14676.783,
+    "message": "  waiting for element to be visible, enabled and stable"
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@255",
+    "time": 14717.896,
+    "message": "  element is visible, enabled and stable"
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@255",
+    "time": 14717.906,
+    "message": "  scrolling into view if needed"
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@255",
+    "time": 14720.077,
+    "message": "  done scrolling"
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@255",
+    "time": 14727.927,
+    "message": "  performing click action"
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@255",
+    "time": 14738.729,
+    "message": "  click action done"
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@255",
+    "time": 14738.744,
+    "message": "  waiting for scheduled navigations to finish"
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@255",
+    "time": 14741.637,
+    "message": "  navigations have finished"
+  },
+  {
+    "type": "after",
+    "callId": "fjbl@255",
+    "endTime": 14741.711
+  },
+  {
+    "type": "before",
+    "callId": "fjbl@263",
+    "startTime": 14901.693,
+    "title": "Expect \"toHaveCount\"",
+    "class": "Frame",
+    "method": "expect",
+    "params": {
+      "selector": ".lab-form",
+      "expression": "to.have.count",
+      "expectedNumber": 0,
+      "expectedValue": {
+        "value": {
+          "v": "undefined"
+        },
+        "handles": []
+      },
+      "isNot": false,
+      "timeout": 5000
+    }
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@263",
+    "time": 14905.812,
+    "message": "Expect \"toHaveCount\" locator('.lab-form') with timeout 5000ms"
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@263",
+    "time": 14905.819,
+    "message": "waiting for locator('.lab-form')"
+  },
+  {
+    "type": "after",
+    "callId": "fjbl@263",
+    "endTime": 14909.275
+  },
+  {
+    "type": "before",
+    "callId": "fjbl@265",
+    "startTime": 14913.087,
+    "title": "Expect \"toContainText\"",
+    "class": "Frame",
+    "method": "expect",
+    "params": {
+      "selector": ".portal-properties",
+      "expression": "to.have.text",
+      "expectedText": [
+        {
+          "string": "synthetic",
+          "matchSubstring": true,
+          "normalizeWhiteSpace": true
+        }
+      ],
+      "expectedValue": {
+        "value": {
+          "v": "undefined"
+        },
+        "handles": []
+      },
+      "isNot": false,
+      "timeout": 5000
+    }
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@265",
+    "time": 14915.611,
+    "message": "Expect \"toContainText\" locator('.portal-properties') with timeout 5000ms"
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@265",
+    "time": 14915.62,
+    "message": "waiting for locator('.portal-properties')"
+  },
+  {
+    "type": "after",
+    "callId": "fjbl@265",
+    "endTime": 14925.252,
+    "error": {
+      "message": "Expect failed",
+      "stack": "ExpectError: Expect failed\n    at _Frame.expect (/workspace/azurelab-parallel/application/node_modules/playwright-core/lib/coreBundle.js:25606:17)\n    at _FrameDispatcher.expect (/workspace/azurelab-parallel/application/node_modules/playwright-core/lib/coreBundle.js:56333:11)\n    at _ProgressController.run (/workspace/azurelab-parallel/application/node_modules/playwright-core/lib/coreBundle.js:13018:27)\n    at DispatcherConnection.dispatch (/workspace/azurelab-parallel/application/node_modules/playwright-core/lib/coreBundle.js:20191:27)",
+      "name": "ExpectError"
+    }
+  },
+  {
+    "type": "before",
+    "callId": "fjbl@275",
+    "startTime": 14958.757,
+    "title": "Expect \"toBeVisible\"",
+    "class": "Frame",
+    "method": "expect",
+    "params": {
+      "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"Storage accounts\"s]",
+      "expression": "to.be.visible",
+      "expectedValue": {
+        "value": {
+          "v": "undefined"
+        },
+        "handles": []
+      },
+      "isNot": false,
+      "timeout": 5000
+    }
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@275",
+    "time": 14974.8,
+    "message": "Expect \"toBeVisible\" getByRole('navigation', { name: 'Laboratory v3 navigasjon', exact: true }).getByRole('link', { name: 'Storage accounts', exact: true }) with timeout 5000ms"
+  },
+  {
+    "type": "log",
+    "callId": "fjbl@275",
+    "time": 14974.811,
+    "message": "waiting for getByRole('navigation', { name: 'Laboratory v3 navigasjon', exact: true }).getByRole('link', { name: 'Storage accounts', exact: true })"
+  },
+  {
+    "type": "after",
+    "callId": "fjbl@275",
+    "endTime": 14984.027
+  }
+]

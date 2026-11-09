@@ -1,0 +1,94 @@
+
+Running 7 tests using 1 worker
+
+(node:97150) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/e2e/application-platform.spec.ts:79:1 › application platform creates actual plan app synthetic deployment settings receipts and Studio relationships without course writes (5.7s)
+  ✓  2 [desktop-chromium] › tests/e2e/application-platform.spec.ts:139:1 › application configuration changes preserve IDs and origins and change the real read-only diagnosis (4.4s)
+  ✓  3 [desktop-chromium] › tests/e2e/application-platform.spec.ts:179:1 › application server Review denies occupied plan deletion and invalid settings without committing a proposal (4.1s)
+  ✘  4 [desktop-chromium] › tests/e2e/application-platform.spec.ts:205:1 › application compact native keyboard focus reduced motion Axe and short desktop keep Review and Properties readable (35.5s)
+(node:97363) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  5 [desktop-chromium] › tests/e2e/application-platform.spec.ts:257:1 › application explicit delete preserves original receipts and removes only owned configuration with dependency checks (34.8s)
+(node:97503) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:97503) TimeoutNegativeWarning: -9.301000000006752 is a negative number.
+Timeout duration was set to 1.
+  ✘  6 [desktop-chromium] › tests/e2e/application-platform.spec.ts:303:1 › application PostgreSQL workspace persists actual UI-created plan app and deployment across reload with original evidence (54.9s)
+(node:97599) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  7 [compact-chromium] › tests/e2e/application-platform.spec.ts:205:1 › application compact native keyboard focus reduced motion Axe and short desktop keep Review and Properties readable (8.9s)
+
+
+  1) [desktop-chromium] › tests/e2e/application-platform.spec.ts:205:1 › application compact native keyboard focus reduced motion Axe and short desktop keep Review and Properties readable 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: frame.evaluate: Test timeout of 30000ms exceeded.
+
+      244 |   await expect(r.panel).toContainText('Enabled');
+      245 |   await expect(r.panel).toContainText('Disabled');
+    > 246 |   expect((await new Axe({ page }).analyze()).violations).toEqual([]);
+          |           ^
+      247 |   await page.screenshot({ path: info.outputPath('application-review-1024-500.png') });
+      248 |   await r.panel.getByRole('button', { name: a.save, exact: true }).focus();
+      249 |   await expect(r.panel.getByRole('button', { name: a.save, exact: true })).toBeInViewport({
+        at AxeBuilder.runPartialRecursive (/workspace/azurelab-parallel/application/node_modules/@axe-core/playwright/dist/index.mjs:285:34)
+        at AxeBuilder.analyze (/workspace/azurelab-parallel/application/node_modules/@axe-core/playwright/dist/index.mjs:211:28)
+        at /workspace/azurelab-parallel/application/tests/e2e/application-platform.spec.ts:246:11
+
+    Error Context: ../application-native-results/application-platform-appli-a46f8-iew-and-Properties-readable-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../application-native-results/application-platform-appli-a46f8-iew-and-Properties-readable-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../application-native-results/application-platform-appli-a46f8-iew-and-Properties-readable-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/application-platform.spec.ts:257:1 › application explicit delete preserves original receipts and removes only owned configuration with dependency checks 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: response.json: Test timeout of 30000ms exceeded.
+
+      46 |     .getByRole('button', { name: label, exact: true })
+      47 |     .click();
+    > 48 |   const result: CommandResult = await (await response).json();
+         |                                                        ^
+      49 |   expect(result.receipt.outcome).toBe('accepted');
+      50 |   await expect(page.locator('.lab-form')).toHaveCount(0);
+      51 |   return result;
+        at save (/workspace/azurelab-parallel/application/tests/e2e/application-platform.spec.ts:48:56)
+        at /workspace/azurelab-parallel/application/tests/e2e/application-platform.spec.ts:264:3
+
+    Error Context: ../application-native-results/application-platform-appli-ce563-tion-with-dependency-checks-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../application-native-results/application-platform-appli-ce563-tion-with-dependency-checks-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../application-native-results/application-platform-appli-ce563-tion-with-dependency-checks-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop-chromium] › tests/e2e/application-platform.spec.ts:303:1 › application PostgreSQL workspace persists actual UI-created plan app and deployment across reload with original evidence 
+
+    Test timeout of 30000ms exceeded.
+
+    Error Context: ../application-native-results/application-platform-appli-68a1e-load-with-original-evidence-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../application-native-results/application-platform-appli-68a1e-load-with-original-evidence-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../application-native-results/application-platform-appli-68a1e-load-with-original-evidence-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3 failed
+    [desktop-chromium] › tests/e2e/application-platform.spec.ts:205:1 › application compact native keyboard focus reduced motion Axe and short desktop keep Review and Properties readable 
+    [desktop-chromium] › tests/e2e/application-platform.spec.ts:257:1 › application explicit delete preserves original receipts and removes only owned configuration with dependency checks 
+    [desktop-chromium] › tests/e2e/application-platform.spec.ts:303:1 › application PostgreSQL workspace persists actual UI-created plan app and deployment across reload with original evidence 
+  4 passed (4.1m)

@@ -108,6 +108,7 @@ test('application platform creates actual plan app synthetic deployment settings
     { [a.fields.name]: 'APP_MODE', [a.fields.value]: 'synthetic' },
     a.save,
   );
+  await expect(page.locator('.portal-title h1')).toHaveText('APP_MODE');
   await expect(page.locator('.portal-properties')).toContainText('synthetic');
   await page.locator('.lab-evidence-link').click();
   await expect(page.locator('[data-portal-component="receipt"]')).toContainText('SetWebAppSetting');
