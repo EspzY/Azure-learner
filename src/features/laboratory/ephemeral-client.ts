@@ -34,7 +34,7 @@ export async function ephemeralApi(
   actionWithQuery: string,
   request?: unknown,
   workspace?: string,
-): Promise<any> {
+) {
   if (!current) throw Error('session-required');
   const [action, query] = actionWithQuery.split('?');
   if (action === 'session') {
