@@ -61,15 +61,23 @@ for (const mode of ['light', 'dark'] as const) {
         .getByLabel(server, { exact: true })
         .evaluate((el) => getComputedStyle(el.closest('label')!).backgroundColor),
     );
-    await check.scrollIntoViewIfNeeded();
+    await check
+      .getByRole('button', { name: nb.foundationsV2.check, exact: true })
+      .evaluate((el) => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
     await page.screenshot({ path: info.outputPath(`${mode}-question-selected.png`) });
     await check.getByRole('button', { name: nb.foundationsV2.check, exact: true }).click();
     await expect(check.locator('[data-bf-result="incorrect"]')).toHaveText(item.wrong);
+    await check
+      .locator('[data-bf-result="incorrect"]')
+      .evaluate((el) => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
     await page.screenshot({ path: info.outputPath(`${mode}-question-wrong.png`) });
     await check.getByLabel(server, { exact: true }).check();
     await expect(check.locator('[data-bf-result="incorrect"]')).toHaveText(item.wrong);
     await check.getByRole('button', { name: nb.foundationsV2.check, exact: true }).click();
     await expect(check.locator('[data-bf-result="correct"]')).toHaveText(item.correct);
+    await check
+      .locator('[data-bf-result="correct"]')
+      .evaluate((el) => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
     await page.screenshot({ path: info.outputPath(`${mode}-question-correct.png`) });
     await accessible(page);
     await page.getByRole('button', { name: nb.course.journal, exact: true }).click();
