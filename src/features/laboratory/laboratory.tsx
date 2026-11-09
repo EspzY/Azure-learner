@@ -19,6 +19,7 @@ import {
 } from '@/features/portal/presentation';
 import Link from 'next/link';
 import { House } from 'lucide-react';
+import { ephemeralApi, ephemeralActive, startEphemeral } from './ephemeral-client';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { laboratoryV3Nb as c } from '@/content/nb';
 import type { Snapshot, Request as LabRequest, Command, Receipt, Model } from '@/laboratory/engine';
@@ -111,6 +112,7 @@ const operation = (key: string) =>
                   ? c.operations[key as keyof typeof c.operations]
                   : key;
 async function api(action: string, request?: unknown, workspace?: string) {
+  if (ephemeralActive()) return ephemeralApi(action, request, workspace);
   let response: Response, value;
   try {
     response = await fetch('/api/laboratory/' + action, {
@@ -394,6 +396,24 @@ export function Laboratory() {
         setError('');
         channel.current?.postMessage('changed');
       });
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'server-result-unavailable');
+    } finally {
+      setBusy(false);
+      setLoading(false);
+    }
+  };
+  const startTemporary = async () => {
+    setBusy(true);
+    try {
+      const incoming = await startEphemeral(startModel);
+      ++version.current;
+      setSnapshot(incoming);
+      updatePending(null);
+      setForm(null);
+      setPreview(null);
+      setReset(null);
+      setError('');
     } catch (e) {
       setError(e instanceof Error ? e.message : 'server-result-unavailable');
     } finally {
@@ -1475,6 +1495,17 @@ export function Laboratory() {
               >
                 {c.start}
               </button>
+              {(error === 'backend-unavailable' || error === 'server-result-unavailable') && (
+                <div className="lab-temporary-entry">
+                  <button type="button" disabled={busy} onClick={() => void startTemporary()}>
+                    Start midlertidig Sandbox uten lagring
+                  </button>
+                  <p>
+                    Full simulator med midlertidig arbeidsområde. Ressurser og kvitteringer
+                    forsvinner ved ny innlasting. Dette er ikke lagret kursarbeid.
+                  </p>
+                </div>
+              )}
             </section>
           )}
 
@@ -2126,6 +2157,11 @@ export function Laboratory() {
       </div>
       <footer className="portal-footer laboratory-workspace-status">
         <span>{w.free}</span>
+        {ephemeralActive() && (
+          <span className="lab-ephemeral-status" role="status">
+            Midlertidig – ingen lagring · nullstilles ved ny innlasting
+          </span>
+        )}
         <button
           type="button"
           onClick={() => {
