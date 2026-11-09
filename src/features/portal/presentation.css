@@ -31,7 +31,7 @@
 .portal .portal-header > .portal-landing-link:hover {
   background: #0b629d;
 }
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
   .portal .portal-header > .portal-landing-link {
     min-width: 32px;
     max-width: none;
@@ -39,5 +39,15 @@
   }
   .portal .portal-header > .portal-landing-link span {
     display: none;
+  }
+}
+
+/* Product Home adds header width. Keep the guide panel anchored after its
+   trigger, rather than extending over course-return actions to its left.
+   The existing <=800px viewport-bound menu remains unchanged. */
+@media (min-width: 801px) {
+  .portal .portal-header .portal-guidance-menu {
+    left: 0;
+    right: auto;
   }
 }

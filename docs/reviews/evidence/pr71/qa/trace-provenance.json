@@ -11,5 +11,10 @@
       "disposition": "Retained locally; raw browser authentication/network traces are not published. Relevant exact DOM/assertion output retained in raw QA log."
     }
   ],
-  "limits": "No claim of inspection of inaccessible historical CI traces. New root label mismatch was observed in real visible DOM and Axe output; old timing failures remain open."
+  "limits": "No claim of inspection of inaccessible historical CI traces. New root label mismatch was observed in real visible DOM and Axe output; old timing failures remain open.",
+  "ci116": {
+    "artifacts": [],
+    "reason": "Cancelled job skipped artifact upload. Actual original list log retained, no claim original CI trace was inspected.",
+    "local": "Both exact original tests reproduced with Playwright DOM/error/click logs retained as raw. Local trace viewport801 inspection plus old-CSS/hide-Home causal geometry are retained as numeric metadata; ignored test-report trace paths can be overwritten by subsequent runs."
+  }
 }

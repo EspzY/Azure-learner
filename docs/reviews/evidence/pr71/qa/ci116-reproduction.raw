@@ -1,0 +1,145 @@
+[WebServer] (node:16382) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:16408) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:376:1 › Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable (18.3s)
+(node:16610) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [desktop-chromium] › tests/e2e/portal-inspection-bridge.spec.ts:245:1 › Independent raw Portal inspection stays neutral while denied durable assistance withholds course bridge instructions and exact resume (30.4s)
+
+
+  1) [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:376:1 › Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable 
+
+    Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 0
+    Received:    -34.125
+
+      417 |     const bounds = await page.locator('#portal-guidance-menu').boundingBox();
+      418 |     const header = await page.locator('.portal-header').boundingBox();
+    > 419 |     expect(bounds!.x).toBeGreaterThanOrEqual(0);
+          |                       ^
+      420 |     expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(width);
+      421 |     expect(bounds!.y).toBeGreaterThanOrEqual(header!.y + header!.height);
+      422 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+        at /workspace/Azure-learner/tests/e2e/learning-flow-guidance.spec.ts:419:23
+
+    Error Context: test-results/learning-flow-guidance-Gui-a2f5d--and-next-actions-reachable-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/learning-flow-guidance-Gui-a2f5d--and-next-actions-reachable-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/learning-flow-guidance-Gui-a2f5d--and-next-actions-reachable-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/portal-inspection-bridge.spec.ts:245:1 › Independent raw Portal inspection stays neutral while denied durable assistance withholds course bridge instructions and exact resume 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /home/agent/.cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-yiTyuR --remote-debugging-pipe --no-startup-window
+    <launched> pid=16622
+    [pid=16622][err] [1109/091632.192598:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=16622][err] [1109/091632.207479:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=16622][err] [1109/091632.207530:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=16622][err] [1109/091632.207558:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=16622][err] [1109/091632.217106:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+    [pid=16622][err] [1109/091632.217159:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+    [pid=16622][err] [1109/091632.217222:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=16622][err] [1109/091632.223057:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+    [pid=16622][err] [1109/091632.234295:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+    [pid=16622][err] [1109/091632.239070:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+    [pid=16622][err] [1109/091637.148478:INFO:CONSOLE:0] "The resource http://127.0.0.1:3000/_next/static/chunks/3u7cqy9q_ho9w.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3000/portal?area=activity&module=services&topic=overview&mode=learn&id=portal-5&resource=vm-4&compute=vm (0)
+    [pid=16622] <gracefully close start>
+    Call log:
+      - waiting for locator('.portal-training-strip').getByRole('link', { name: 'Tilbake til kurset', exact: true })
+        - locator resolved to <a href="/learn/compute?topic=dependencies">Tilbake til kurset</a>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <a href="/learn">Til læringsoversikten og vurderingen</a> from <header class="portal-header" data-portal-component="header">…</header> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <a href="/learn">Til læringsoversikten og vurderingen</a> from <header class="portal-header" data-portal-component="header">…</header> subtree intercepts pointer events
+      2 × retrying click action
+          - waiting 100ms
+          - waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <input value="" type="search" data-guide="search" aria-label="Search resources, services, and docs" placeholder="Search resources, services, and docs"/> from <header class="portal-header" data-portal-component="header">…</header> subtree intercepts pointer events
+      13 × retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <a href="/learn">Til læringsoversikten og vurderingen</a> from <header class="portal-header" data-portal-component="header">…</header> subtree intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <a href="/learn">Til læringsoversikten og vurderingen</a> from <header class="portal-header" data-portal-component="header">…</header> subtree intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <input value="" type="search" data-guide="search" aria-label="Search resources, services, and docs" placeholder="Search resources, services, and docs"/> from <header class="portal-header" data-portal-component="header">…</header> subtree intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+           - waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <input value="" type="search" data-guide="search" aria-label="Search resources, services, and docs" placeholder="Search resources, services, and docs"/> from <header class="portal-header" data-portal-component="header">…</header> subtree intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - <a href="/learn">Til læringsoversikten og vurderingen</a> from <header class="portal-header" data-portal-component="header">…</header> subtree intercepts pointer events
+      - retrying click action
+        - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+
+
+      279 |   await page.addInitScript(deny, refinedKeys.benefits);
+      280 |   await page.evaluate(deny, refinedKeys.benefits);
+    > 281 |   await returnLink(page).click();
+          |                          ^
+      282 |   await expect(page).toHaveURL(/learn\/compute/);
+      283 |   await expect(page.locator('.inspection-bridge')).toHaveCount(0);
+      284 |   await expect(page.locator('.course-storage').first()).toBeVisible();
+        at /workspace/Azure-learner/tests/e2e/portal-inspection-bridge.spec.ts:281:26
+
+    Error Context: test-results/portal-inspection-bridge-I-55dae-structions-and-exact-resume-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/portal-inspection-bridge-I-55dae-structions-and-exact-resume-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/portal-inspection-bridge-I-55dae-structions-and-exact-resume-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:376:1 › Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable 
+    [desktop-chromium] › tests/e2e/portal-inspection-bridge.spec.ts:245:1 › Independent raw Portal inspection stays neutral while denied durable assistance withholds course bridge instructions and exact resume 

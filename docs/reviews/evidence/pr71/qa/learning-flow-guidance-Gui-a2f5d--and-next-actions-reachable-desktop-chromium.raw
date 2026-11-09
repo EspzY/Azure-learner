@@ -1,0 +1,264 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: learning-flow-guidance.spec.ts >> Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable
+- Location: tests/e2e/learning-flow-guidance.spec.ts:376:1
+
+# Error details
+
+```
+Error: expect(received).toBeGreaterThanOrEqual(expected)
+
+Expected: >= 0
+Received:    -34.125
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f6e1]:
+  - alert [ref=f6e2]
+  - generic [ref=f6e3]:
+    - link "Hopp til innhold" [ref=f6e4] [cursor=pointer]:
+      - /url: "#portal-main"
+    - banner [ref=f6e5]:
+      - button "Åpne eller lukk portalmenyen" [ref=f6e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=f6e8] [cursor=pointer]:
+        - /url: /portal
+      - searchbox "Search resources, services, and docs" [ref=f6e10]
+      - generic [ref=f6e11]:
+        - button "SavvyShark" [expanded] [ref=f6e12] [cursor=pointer]
+        - region "SavvyShark-veiledning" [active] [ref=f6e14]:
+          - generic [ref=f6e15]:
+            - strong [ref=f6e16]: SavvyShark
+            - button "Lukk veiledningsmenyen" [ref=f6e17] [cursor=pointer]: ×
+          - paragraph [ref=f6e18]: Velg lagret arbeid du vil fortsette eller kontrollere.
+          - list [ref=f6e19]:
+            - listitem [ref=f6e20]:
+              - link "Apply Zero Trust Principles · Fortsett veiledning" [ref=f6e21] [cursor=pointer]:
+                - /url: /learn/security?topic=studio&perspective=trust
+      - generic [ref=f6e22]: TRAINING SIMULATOR
+      - button "Notifications (0)" [ref=f6e23] [cursor=pointer]
+      - button "Portal appearance" [ref=f6e26] [cursor=pointer]
+      - button "Modellgrenser" [ref=f6e28] [cursor=pointer]
+      - button "Kunnskapsjournal" [ref=f6e30] [cursor=pointer]
+      - link "Til forsiden" [ref=f6e32] [cursor=pointer]:
+        - /url: /
+    - main [ref=f6e38]:
+      - generic [ref=f6e42]:
+        - heading "Home" [level=1] [ref=f6e43]
+        - generic [ref=f6e44]: AzureLab Directory · Lokalt treningsmiljø · ingen Azure-tilkobling
+      - generic [ref=f6e45]:
+        - generic [ref=f6e46]: Free Sandbox
+        - link "Tilbake til kurset" [ref=f6e47] [cursor=pointer]:
+          - /url: /learn
+        - button "Architecture Explorer" [ref=f6e48] [cursor=pointer]
+        - button "Tilbake til læringen" [ref=f6e50] [cursor=pointer]
+      - generic [ref=f6e53]:
+        - heading "Azure services" [level=2] [ref=f6e54]
+        - generic [ref=f6e55]:
+          - button "Create a resource" [ref=f6e56] [cursor=pointer]
+          - button "Subscriptions" [ref=f6e59] [cursor=pointer]
+          - button "Resource groups" [ref=f6e62] [cursor=pointer]
+          - button "All resources" [ref=f6e65] [cursor=pointer]
+          - button "App Services" [ref=f6e68] [cursor=pointer]
+          - button "App Service plans" [ref=f6e71] [cursor=pointer]
+          - button "Virtual machines" [ref=f6e74] [cursor=pointer]
+          - button "Activity log" [ref=f6e77] [cursor=pointer]
+          - button "More services" [ref=f6e80] [cursor=pointer]
+        - heading "Recently visited resources" [level=2] [ref=f6e83]
+        - paragraph [ref=f6e84]: Ressurser du har åpnet i denne økten. Inventaret gjenopprettes separat fra tekniske kommandoer.
+        - generic [ref=f6e85]:
+          - paragraph [ref=f6e86]: Ingen ressurser er åpnet i denne lokale økten ennå.
+          - button "All resources" [ref=f6e87] [cursor=pointer]
+        - generic [ref=f6e88]:
+          - heading "Navigate" [level=2] [ref=f6e89]
+          - generic [ref=f6e90]:
+            - button "Subscriptions" [ref=f6e91] [cursor=pointer]
+            - button "Resource groups" [ref=f6e93] [cursor=pointer]
+            - button "All resources" [ref=f6e95] [cursor=pointer]
+      - generic [ref=f6e97]: AzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering.
+```
+
+# Test source
+
+```ts
+  319 |   await page
+  320 |     .getByRole('radio', { name: securityItemsNb.sp01.decisions[pair[0]]!, exact: true })
+  321 |     .check();
+  322 |   await page
+  323 |     .getByRole('radio', { name: securityItemsNb.sp01.reasons[pair[1]]!, exact: true })
+  324 |     .check();
+  325 |   await page.getByRole('button', { name: c.assessment.submit, exact: true }).click();
+  326 |   await expect.poll(async () => (await facts(page)).current?.status).toBe('submitted');
+  327 |   expect((await facts(page)).current).toMatchObject({ retry: true, assisted: true });
+  328 |   expect(evaluateSecurityAttempt((await facts(page)).current!).relation).toBe(true);
+  329 |   expect(JSON.stringify((await facts(page)).firsts.find((x) => x.item === 'sp01'))).toBe(first);
+  330 | });
+  331 | 
+  332 | test('Portal stale external context withholds retained guide instructions until scoped recovery', async ({
+  333 |   page,
+  334 |   context,
+  335 | }) => {
+  336 |   await startSecurity(page);
+  337 |   await page.goto('/portal?security=inspect&perspective=trust');
+  338 |   const other = await context.newPage();
+  339 |   await other.goto('/portal');
+  340 |   const replacement = applySecurity(freshSecurity(), { kind: 'mission', mission: 'depth' })!;
+  341 |   await other.evaluate(({ key, raw }) => localStorage.setItem(key, raw), {
+  342 |     key: securityKey,
+  343 |     raw: JSON.stringify(replacement),
+  344 |   });
+  345 |   await page.locator('.portal-guidance-toggle').click();
+  346 |   await expect(page.locator('#portal-guidance-menu')).toContainText('kan ikke bekreftes');
+  347 |   await expect(page.locator('#portal-guidance-menu')).not.toContainText(c.missions.trust.title);
+  348 |   await expect(page.locator('.guided-coach,.compute-portal-guide')).toHaveCount(0);
+  349 |   await other.close();
+  350 | });
+  351 | 
+  352 | test('Learning Flow denied durable start never creates a guide or completion from a briefing', async ({
+  353 |   page,
+  354 | }) => {
+  355 |   await page.goto('/learn/security?topic=missions');
+  356 |   await page.locator('.compute-mission-list article').first().getByRole('link').click();
+  357 |   await page.getByRole('dialog').waitFor();
+  358 |   const before = await raw(page);
+  359 |   await page.evaluate((key) => {
+  360 |     const original = Storage.prototype.setItem;
+  361 |     Storage.prototype.setItem = function (k, v) {
+  362 |       if (k === key) throw Error('write denied');
+  363 |       return original.call(this, k, v);
+  364 |     };
+  365 |   }, securityKey);
+  366 |   await page
+  367 |     .getByRole('dialog')
+  368 |     .getByRole('button', { name: serverlessNb.start, exact: true })
+  369 |     .click();
+  370 |   expect(await raw(page)).toBe(before);
+  371 |   expect((await facts(page)).guided).toEqual([]);
+  372 |   expect((await facts(page)).completed).toEqual([]);
+  373 |   await expect(page.getByRole('status').filter({ hasText: 'unsaved' }).first()).toBeVisible();
+  374 | });
+  375 | 
+  376 | test('Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable', async ({
+  377 |   page,
+  378 | }) => {
+  379 |   await page.emulateMedia({ reducedMotion: 'reduce' });
+  380 |   for (const [width, height] of [
+  381 |     [1920, 1080],
+  382 |     [1440, 900],
+  383 |     [1366, 768],
+  384 |     [1024, 768],
+  385 |     [1024, 500],
+  386 |   ]) {
+  387 |     await page.setViewportSize({ width: width!, height: height! });
+  388 |     await page.goto('/portal');
+  389 |     await page.locator('.portal-guidance-toggle').focus();
+  390 |     await page.keyboard.press('Enter');
+  391 |     const menu = page.locator('#portal-guidance-menu');
+  392 |     await expect(menu).toContainText('Fri Portal-sandbox');
+  393 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+  394 |       true,
+  395 |     );
+  396 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  397 |     await page.keyboard.press('Escape');
+  398 |     await expect(page.locator('.portal-guidance-toggle')).toBeFocused();
+  399 |   }
+  400 |   await startSecurity(page);
+  401 |   await next(page).focus();
+  402 |   await page.keyboard.press('Enter');
+  403 |   await expect(page.locator('#guided-work')).toBeFocused();
+  404 |   const workTop = await page
+  405 |     .locator('#guided-work')
+  406 |     .evaluate((node) => node.getBoundingClientRect().top);
+  407 |   expect(workTop).toBeGreaterThanOrEqual(65);
+  408 |   expect(workTop).toBeLessThan(200);
+  409 |   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  410 |   // Preserve inherited narrow/Arial bounds and the separate two-row Portal header boundary.
+  411 |   await page.goto('/portal');
+  412 |   await page.addStyleTag({ content: '.portal { font-family: Arial, sans-serif; }' });
+  413 |   for (const width of [320, 600, 601, 640, 700, 768, 800, 801, 1024]) {
+  414 |     await page.setViewportSize({ width, height: 500 });
+  415 |     await page.locator('.portal-guidance-toggle').focus();
+  416 |     await page.keyboard.press('Enter');
+  417 |     const bounds = await page.locator('#portal-guidance-menu').boundingBox();
+  418 |     const header = await page.locator('.portal-header').boundingBox();
+> 419 |     expect(bounds!.x).toBeGreaterThanOrEqual(0);
+      |                       ^ Error: expect(received).toBeGreaterThanOrEqual(expected)
+  420 |     expect(bounds!.x + bounds!.width).toBeLessThanOrEqual(width);
+  421 |     expect(bounds!.y).toBeGreaterThanOrEqual(header!.y + header!.height);
+  422 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+  423 |       true,
+  424 |     );
+  425 |     if (width === 320 || width === 800)
+  426 |       expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  427 |     await page.keyboard.press('Escape');
+  428 |     await expect(page.locator('.portal-guidance-toggle')).toBeFocused();
+  429 |   }
+  430 | });
+  431 | 
+  432 | for (const module of ['compute', 'networking'] as const) {
+  433 |   test(`Portal ${module}: native inspection guide survives scope navigation recovery and a wrong technical attempt is not rebound`, async ({
+  434 |     page,
+  435 |   }) => {
+  436 |     await page.goto(`/learn/${module}?topic=missions`);
+  437 |     await page.locator('.compute-mission-list article').first().getByRole('link').click();
+  438 |     await page
+  439 |       .getByRole('dialog')
+  440 |       .getByRole('button', { name: serverlessNb.start, exact: true })
+  441 |       .click();
+  442 |     await page.locator(`a[href^="/portal?"][href*="${module}="]`).first().click();
+  443 |     await page.waitForURL(new RegExp(`${module}=`));
+  444 |     const coach = page.locator('.compute-portal-guide');
+  445 |     await expect(coach).toBeVisible();
+  446 |     const key =
+  447 |       module === 'compute'
+  448 |         ? 'azurelab.learning.compute-hosting.v1'
+  449 |         : 'azurelab.learning.networking-foundations.v1';
+  450 |     const saved = await raw(page, key),
+  451 |       world = await raw(page, sandboxKey);
+  452 |     await coach
+  453 |       .getByRole('button', { name: /Skjul|Minimer/i })
+  454 |       .first()
+  455 |       .click();
+  456 |     await page.locator('.portal-guidance-toggle').click();
+  457 |     await expect(coach).not.toHaveClass(/compute-guide-minimized/);
+  458 |     await page
+  459 |       .getByRole('navigation', { name: nb.portal.navLabel, exact: true })
+  460 |       .getByRole('link', { name: nb.portal.areas.resources, exact: true })
+  461 |       .click();
+  462 |     await expect(page).toHaveURL(new RegExp(`${module}=`));
+  463 |     await page.goto('/portal');
+  464 |     await page.locator('.portal-guidance-toggle').click();
+  465 |     await page
+  466 |       .locator('#portal-guidance-menu')
+  467 |       .getByRole('link', { name: /Fortsett veiledning/ })
+  468 |       .click();
+  469 |     await page.waitForURL(new RegExp(`${module}=${module === 'compute' ? 'vm' : 'inspect'}`));
+  470 |     await page.reload();
+  471 |     await expect(coach).toBeVisible();
+  472 |     expect(await raw(page, key)).toBe(saved);
+  473 |     expect(await raw(page, sandboxKey)).toBe(world);
+  474 |     // An original validated UI start has a pinned technical attempt. Resetting only the technical
+  475 |     // context must not reinterpret that saved guide as belonging to the new attempt.
+  476 |     await page.getByRole('button', { name: nb.portal.limitations, exact: true }).click();
+  477 |     await page.getByRole('button', { name: nb.portal.resetTechnical, exact: true }).click();
+  478 |     await page
+  479 |       .getByRole('dialog')
+  480 |       .getByRole('button', { name: nb.portal.confirmReset, exact: true })
+  481 |       .click();
+  482 |     await page.locator('.portal-guidance-toggle').click();
+  483 |     await expect(page.locator('#portal-guidance-menu')).toContainText(
+  484 |       'Kontroller oppdragskonteksten',
+  485 |     );
+  486 |     await expect(page.locator('#portal-guidance-menu')).not.toContainText('Fortsett veiledning');
+  487 |     expect(await raw(page, key)).toBe(saved);
+  488 |   });
+  489 | }
+  490 | 
+```
