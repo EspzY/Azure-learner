@@ -12,7 +12,7 @@ The header reuses the shared exact brand mark and real, labelled native theme se
 
 Question options remain native radio/checkbox controls with their original IDs, names, order, required rules and keyboard behavior. Selection is purple and does not claim correctness. The Foundations prerequisite check gets an icon and color only inside its already permitted original `last.kind === 'check'` result branch. Both still derive from the original submitted `last.answer` comparison. Selecting a different option retains the previous submitted feedback until the next original Submit action. Other feedback and partial/unknown histories retain their original criteria, text and display rules; no overall success or course completion is inferred.
 
-The original SavvyShark PNG, dimensions, fallback behavior, authored teaching text, durable assistance boundary, independent-mode suppression and Start/Cancel semantics are retained. The panel uses spacing, typography and the shared theme. It never answers, submits, configures or awards on the learner's behalf. No SavvyShark is added to the free Laboratory.
+The original SavvyShark PNG, dimensions, fallback behavior, authored teaching text, durable assistance boundary, independent-mode suppression and Start/Cancel semantics are retained. Existing resident Portal guide islands receive only scoped class/import changes; their complete controller bodies are compared against the audited B base after those exact replacements. The panel uses spacing, typography and the shared theme. It never answers, submits, configures or awards on the learner's behalf. No SavvyShark is added to the free Laboratory.
 
 The shared font policy is documented in [Bifrost provenance](bifrost-source-provenance.json). The Satoshi token uses an installed Satoshi face when available; the repository serves the approved local Open Sans fallback. Proprietary Satoshi binaries are not redistributed. The display hierarchy therefore uses the approved token and weights while retaining this explicit fidelity limitation.
 
@@ -24,12 +24,12 @@ The first production browser pair found real contrast defects: the theme label o
 
 The extended before-Submit checks initially exposed two harness mistakes: a noncanonical Compute query parameter and pointer-driven focus being treated as keyboard focus. They were corrected without a product change. A separate completed production probe then passed light mode and found a real dark-mode Start-dialog defect: the refined assessment title used `#f3f3f6` against the legacy white header, measuring 1.1:1. The [original defect frame](../screenshots/bifrost-course/before-dark-refined-start-dialog.png) is retained separately. The correction skins only dialogs identified by existing pedagogical brief content or the refined assessment parent; the ordinary native Portal dialog skin is excluded. Mission step-number text uses the shared theme contrast token.
 
-The final scoped production batch is pending. Its eight cases cover:
+All eight new cases have passed their relevant production checks. The polished six-case subset passed; the five-case dialog/native-boundary follow-up passed in 42.7s, including the two added before-Submit cases and one unchanged guidance witness. The final resident-island build passed, its unchanged guidance witness passed, and the two expanded native-boundary/island cases passed in 27.6s after a test-only correction to wait for the committed Portal URL before reload. These are targeted author checks, not a claim of complete candidate CI. The eight new cases cover:
 
 - Both themes: the real Hub, original request action, selected-but-unsubmitted question, actual wrong and correct submissions, unchanged technical/XP bytes and Journal focus return.
 - Both themes: all 17 existing module routes and the actual SavvyShark and model-limit warning panels.
 - Both themes: original explicit Start actions for numeric, refined select and Compute two-field assessment forms at 1024×500, 1024×768 and 800×700, with no answers or submissions.
-- Both themes: keyboard focus, Axe, reduced motion and reflow at 1440×900, 1024×768, 1024×500 and 800×700, plus the actual Portal/Laboratory theme boundary. The native Resource group Create blade and Review tab are inspected through the original controls and closed without Create; technical/XP bytes remain unchanged.
+- Both themes: keyboard focus, Axe, reduced motion and reflow at 1440×900, 1024×768, 1024×500 and 800×700, plus the actual Portal/Laboratory theme boundary. The native Resource group Create blade and Review tab are inspected through the original controls and closed without Create; technical/XP bytes remain unchanged. A VM guide is started through its real existing briefing, restored after actual Portal navigation/reload, inspected in both themes and kept absent from the free Laboratory.
 
 The only changed inherited browser expectation replaces the historical sidebar hover literal `rgb(41,73,94)` with a strict equality against the resolved shared `--bfc-neutral-fade` token. The foundation separately pins the exact supplied light/dark token values. The real hover interaction and all behavioral assertions remain. No existing case, assertion, worker, retry, timeout or skip is removed.
 
@@ -47,5 +47,16 @@ The inspected frames below come from the six completed production cases after th
 | Original model assumptions and limits     | [Warning](../screenshots/bifrost-course/light-warning.png)            | [Warning](../screenshots/bifrost-course/dark-warning.png)            |
 | Short desktop                             | [1024×500](../screenshots/bifrost-course/light-hub-1024x500.png)      | [1024×500](../screenshots/bifrost-course/dark-hub-1024x500.png)      |
 | Compact reflow                            | [800×700](../screenshots/bifrost-course/light-hub-800x700.png)        | [800×700](../screenshots/bifrost-course/dark-hub-800x700.png)        |
+
+Additional actual unanswered/native frames:
+
+| Actual surface                              | Light                                                                           | Dark                                                                           |
+| ------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| Original numeric/radio assessment, 1024×500 | [Fields](../screenshots/bifrost-course/light-foundations-before-submit.png)     | [Fields](../screenshots/bifrost-course/dark-foundations-before-submit.png)     |
+| Original refined selects, 1024×768          | [Fields](../screenshots/bifrost-course/light-refined-before-submit.png)         | [Fields](../screenshots/bifrost-course/dark-refined-before-submit.png)         |
+| Original Compute radio groups, 800×700      | [Fields](../screenshots/bifrost-course/light-compute-before-submit.png)         | [Fields](../screenshots/bifrost-course/dark-compute-before-submit.png)         |
+| Corrected original Start dialog             | [Dialog](../screenshots/bifrost-course/light-refined-start-dialog.png)          | [Dialog](../screenshots/bifrost-course/dark-refined-start-dialog.png)          |
+| Real resident guide after reload            | [Guide](../screenshots/bifrost-course/light-resident-savvy.png)                 | [Guide](../screenshots/bifrost-course/dark-resident-savvy.png)                 |
+| Native Review beside the learning island    | [Native Review](../screenshots/bifrost-course/light-resident-native-review.png) | [Native Review](../screenshots/bifrost-course/dark-resident-native-review.png) |
 
 Final base-bound raw preservation, full check, independent post-stamp audit, exact-head complete CI/strict release and anonymous deployed-SHA verification remain separate delivery gates coordinated by the parent track. Human novice/IT learner, Azure SME, UX, screen-reader and measured learning-effect validation are unperformed.

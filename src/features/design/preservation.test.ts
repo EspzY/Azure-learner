@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { readBifrostCourse as readFileSync } from '../../../tests/bifrost-course-preservation';
+import { execBifrostCourse as execFileSync } from '../../../tests/bifrost-course-preservation';
 import { createHash } from 'node:crypto';
 import proof from '../../../docs/reviews/evidence/bifrost-foundation/preservation.json';
 import { boundHistoricalBytes } from '../../../tests/bifrost-foundation-preservation';
