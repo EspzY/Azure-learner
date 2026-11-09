@@ -1,9 +1,11 @@
 import { it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
-import { pr72Base, blobHash72, original72 } from '../tests/pr72-preservation';
+import { pr72Base, original72 } from '../tests/pr72-preservation';
 import proof from '../docs/reviews/evidence/pr72/preservation.json';
 const approved = [
+  '.github/workflows/ci.yml',
+  'docs/DEVELOPMENT_WORKFLOW.md',
   'AGENTS.md',
   'docs/ARCHITECTURE.md',
   'docs/DECISIONS.md',
@@ -16,24 +18,69 @@ const approved = [
   'tests/pr71-preservation.ts',
   'src/laboratory-pr71-preservation.test.ts',
 ];
-it('compares every actual PR71 blob and every locked old proof, with only finite approved presentation/docs/import bindings', () => {
-  expect(proof.base).toBe(pr72Base);
-  expect(Object.keys(proof.files).sort()).toEqual(approved.sort());
-  const entries = execFileSync('git', ['ls-tree', '-r', pr72Base], { encoding: 'utf8' })
+const rows = execFileSync('git', ['ls-tree', '-r', pr72Base], { encoding: 'utf8' })
+  .trim()
+  .split('\n')
+  .map((line) => {
+    const [meta, path] = line.split('\t') as [string, string];
+    return { path, before: meta.split(' ')[2]! };
+  })
+  .filter((r) => r.path !== 'quality/releases/current.json');
+const partitions = [
+  {
+    name: 'technical, course, tests and build authorities',
+    rows: rows.filter((r) => !r.path.startsWith('docs/') && !r.path.startsWith('public/')),
+  },
+  {
+    name: 'public assets and source/quality documentation',
+    rows: rows.filter(
+      (r) =>
+        r.path.startsWith('public/') ||
+        (r.path.startsWith('docs/') &&
+          !r.path.startsWith('docs/screenshots/') &&
+          !r.path.startsWith('docs/reviews/evidence/')),
+    ),
+  },
+  {
+    name: 'original desktop screenshots',
+    rows: rows.filter((r) => r.path.startsWith('docs/screenshots/')),
+  },
+  {
+    name: 'locked historical review evidence',
+    rows: rows.filter((r) => r.path.startsWith('docs/reviews/evidence/')),
+  },
+];
+function actualBlobs(paths: string[]) {
+  // Read-only native raw hashing: no object writes, index/stat shortcut or filters.
+  const hashes = execFileSync('git', ['hash-object', '--no-filters', '--', ...paths], {
+    encoding: 'utf8',
+  })
     .trim()
     .split('\n');
-  for (const line of entries) {
-    const [meta, path] = line.split('\t') as [string, string];
-    if (path === 'quality/releases/current.json') continue;
-    const actual = blobHash72(readFileSync(path)),
-      row = (proof.files as Record<string, { before: string; after: string }>)[path];
-    if (row) {
-      expect(row.before, path).toBe(meta.split(' ')[2]);
-      expect(actual, path).toBe(row.after);
-    } else expect(actual, path).toBe(meta.split(' ')[2]);
+  expect(hashes).toHaveLength(paths.length);
+  return hashes;
+}
+it('pins the finite exceptions and proves every actual PR71 path is covered exactly once', () => {
+  expect(proof.base).toBe(pr72Base);
+  expect(Object.keys(proof.files).sort()).toEqual(approved.sort());
+  const covered = partitions.flatMap((p) => p.rows.map((r) => r.path));
+  expect(covered.sort()).toEqual(rows.map((r) => r.path).sort());
+  expect(new Set(covered).size).toBe(rows.length);
+  for (const [path, row] of Object.entries(proof.files))
+    expect(row.before, path).toBe(rows.find((r) => r.path === path)?.before);
+});
+it.each(partitions)('preserves every raw PR71 blob in $name', ({ rows: group }) => {
+  expect(group.length).toBeGreaterThan(0);
+  const hashes = actualBlobs(group.map((r) => r.path));
+  for (const [i, row] of group.entries()) {
+    const binding = (proof.files as Record<string, { before: string; after: string }>)[row.path];
+    expect(hashes[i], row.path).toBe(binding?.after ?? row.before);
   }
-  for (const [path, sha] of Object.entries(proof.added))
-    expect(blobHash72(readFileSync(path)), path).toBe(sha);
+});
+it('verifies every declared new presentation, contract and evidence file against its actual raw bytes', () => {
+  const entries = Object.entries(proof.added),
+    hashes = actualBlobs(entries.map(([path]) => path));
+  for (const [i, [path, sha]] of entries.entries()) expect(hashes[i], path).toBe(sha);
 });
 it('preserves every inherited assertion body; only import aliases and one explicit compact witness are added', () => {
   expect(readFileSync('tests/pr71-preservation.ts', 'utf8')).toBe(

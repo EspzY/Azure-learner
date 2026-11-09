@@ -5,7 +5,7 @@
   "author": "shared-portal-entry-author",
   "scope": {
     "kind": "pure-shared-presentation-and-architecture-contract",
-    "description": "First shared Portal consolidation: one Home, service catalogue/navigation/directory and subscriptions list/detail in historical course-v2 and free Laboratory adapters. No new engine, schema, SQL, command, migration, course rubric or assessment result. Full motor/course integration remains explicit follow-up.",
+    "description": "First shared Portal consolidation: one Home, service catalogue/navigation/directory and subscriptions list/detail in historical course-v2 and free Laboratory adapters. No new engine, schema, SQL, command, migration, course rubric or assessment result. Full motor/course integration remains explicit follow-up. Bounded serial CI allocation retains every gate, whole468 profile and35-minute job caps with fail-closed prerequisite/actual-SHA validation; total workflow duration may exceed35minutes.",
     "objectives": ["SHARED-PORTAL-ENTRY"]
   },
   "sources": [
@@ -129,7 +129,6 @@
     "docs/quality/PR70",
     "package.json",
     "package-lock.json",
-    ".github/workflows/ci.yml",
     "tests/e2e/access-control.spec.ts",
     "tests/e2e/application-transfer.spec.ts",
     "tests/e2e/architecture-management.spec.ts",
@@ -340,22 +339,42 @@
       "command": "npm run check after CI118 source correction",
       "result": "passed",
       "details": "Exit0;1111 Vitest/94 files,24 Node,503 curriculum, real isolated PostgreSQL integration, required contracts/format/source/legacy/assets and normal production build. Corrected affected original/new native checks passed18 executions without retry across sequential distinct artifact batches. Original red logs retained. New stamp and affected separate renewal precede corrected exact-head complete CI/strict/public."
+    },
+    {
+      "command": "Quality119 unchanged-head complete attempts",
+      "result": "cancelled",
+      "details": "Attempt1:439 passed/no failed attempts,29 incomplete; attempt2:446 completed incl known compact Firewall retry,22 incomplete. Both hit original35-minute job cap, no candidate receipt/strict release. Separate review reproduced distributed slowdown without established cause. Two attempts retained; no arbitrary third rerun."
+    },
+    {
+      "command": "local complete diagnostic before CI allocation maintenance",
+      "result": "interrupted",
+      "details": "135 completed passes/no failed attempts before intentional interruption to implement reviewed CI allocation. No full-profile receipt and no pass credited. Actual prior release record remained byte-identical."
+    },
+    {
+      "command": "actual serial CI and complete raw-preservation targeted controls",
+      "result": "passed",
+      "details": "26/26 across4files without retry: complete actualworkflow gate blocks, real Bash prerequisite/publisher/checkout negatives including blank-line exit0/custom-shell/default/env masks; immutable event/actual/prerequisite SHA; every original PR71 path once across4serial raw-hash categories, allnewbytes and exactruntime/controller/legacyassertion preservation. No timeout/worker/settings change. Fullcheck/newstamp/audit/exactheadCI remain required."
+    },
+    {
+      "command": "npm run check after serial CI allocation and exact raw-preservation maintenance",
+      "result": "passed",
+      "details": "Exit0 on final source:1120 Vitest/95 files,24 Node,503 curriculum, real isolated PostgreSQL, all contracts/format/lint/assets/legacy and normal production build.26 targeted actualworkflow/raw-preservation controls also passed. Browser468 profile/authorities/runtime/script bytes unchanged from8a. Newstamp/affectedreview and actualnewheadserialCI/strict/public stillrequired."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "a69d829e4be738d8ec225ff86f13981240ae2352ecfbeb176625332eb07d7528",
+    "fingerprint": "23e773f3f4600151a2876b0df06906de06837dc03da1a4a9ebfc111aa9eee918",
     "reviewer": {
       "id": "shared_portal_final_audit",
       "kind": "agent"
     },
-    "started": "2026-11-09T12:12:00Z",
+    "started": "2026-11-09T14:03:04Z",
     "report": {
       "path": "docs/quality/PR72_FINAL_AUDIT.md"
     },
     "domains": {
       "content": {
-        "finding": "Source/capability/scope/location explanations and frozen course material unchanged. New Home correction changes controls/layout only; initial actual source-body review remains applicable and exact preservation passes.",
+        "finding": "Product/source/course bytes and claims unchanged from signed8a. Bounded serial-CI documentation accurately preserves full gates/profile and35-minute per-job limits while disclosing combined duration can exceed35minutes, unproven cause and pending delivery.",
         "evidence": [
           {
             "path": "docs/quality/PR72_FINAL_AUDIT.md"
@@ -369,7 +388,7 @@
         ]
       },
       "technical": {
-        "finding": "Pure shared Home presentation fixes preserve both original workspace authorities, engines, SQL, controllers, command/receipt and learning identity. All89 stamped payload hashes/all88 manifest entries match; fresh17 direct-file/projection tests pass. Full one-engine course integration remains deferred.",
+        "finding": "Serial check→verify uses actual checkout/event/prerequisite SHA matching and fail-closed prerequisite status. Original fullcheck/audit/whole468 wrapper/immediate strict, pinned environment and isolated PG setups retained. Independent100payload/99manifest hashes exact; complete raw Git/Python comparison2781paths has zero mismatch. Runtime/API/engines/SQL/scripts unchanged.",
         "evidence": [
           {
             "path": "docs/quality/PR72_FINAL_AUDIT.md"
@@ -379,11 +398,17 @@
           },
           {
             "path": "tests/e2e/portal-consolidation.spec.ts"
+          },
+          {
+            "path": ".github/workflows/ci.yml"
+          },
+          {
+            "path": "src/pr72-ci-workflow.test.ts"
           }
         ]
       },
       "visual": {
-        "finding": "Actual current paired production images inspected. Scoped Home width containment keeps650px table scrolling internally; four exact original narrow/Arial desktop/compact overflow controls pass post-stamp. Native button styling and direct heading restored. SP72-01 remains open MINOR; free320px header and human visual approval are not claimed resolved.",
+        "finding": "Runtime/UI/CSS/assets and browser bodies/configurations are byte-identical8a; earlier signed actual desktop/short/narrow images and8 affected native cases carried forward explicitly, not relabelled reruns. SP72-01 remains open MINOR; human visual review unperformed.",
         "evidence": [
           {
             "path": "docs/quality/PR72_FINAL_AUDIT.md"
@@ -397,7 +422,7 @@
         ]
       },
       "assessment": {
-        "finding": "No bank/rubric/store/first/help/retry/abandon/XP/attestation changes. Fresh actual-filesystem preservation passes; prior actual draft/neutral-inspection/denied-aid evidence is carried forward through unchanged controllers/guards, not relabelled as a fresh human or assessment review.",
+        "finding": "No assessment/store/rubric/first/help/retry/abandon/XP/attestation change. Four logical serial raw partitions cover all2695 original base paths exactly once plus86 added paths; inherited assertions and technical/learning authorities remain protected. Prior actual aid/draft evidence retained through unchanged source.",
         "evidence": [
           {
             "path": "docs/quality/PR72_FINAL_AUDIT.md"
@@ -411,7 +436,7 @@
         ]
       },
       "guidance": {
-        "finding": "Unchanged original guide-menu bounds/keyboard/focus controls pass desktop+compact. Direct Home h2 restores frozen motion readiness without changing animation controller. Course-only guide metadata/free-mode separation and exact course return remain preserved.",
+        "finding": "Guidance/controller/navigation/assistance source unchanged8a; prior actual independent shielding, denied aid, guide recovery and exact return evidence remains applicable. No CI allocation can grant learning evidence or alter free/course isolation.",
         "evidence": [
           {
             "path": "docs/quality/PR72_FINAL_AUDIT.md"
@@ -428,7 +453,7 @@
         ]
       },
       "regression": {
-        "finding": "Renewed independent17/17 preservation and8/8 affected native executions passed without retry, including four original overflow controls, original motion, populated narrow guided Home and both revised keyboard/Axe witnesses. Author fullcheck1111Vitest+24Node+503curriculum/realPG/build and18 successful affected controls inspected. Original assertions/settings unchanged. CI118 failed historical evidence remains; complete corrected-head468CI/strict/public gates pending. Firewall and older unexplained causes remain OPEN.",
+        "finding": "Fresh26/26 affected tests and own prior-masking mutations passed; complete finite workflow template rejects omitted/masked/selected gates, environment/shell/default/blank-line appendices, changed limits and bad SHA/status. Native raw hashing preserves all expected bytes without filters/cache/object writes; no timeout/worker/skip relaxation. Author finalfullcheck1120Vitest/95+24Node+503curriculum/realPG/normalbuild inspected. New-head whole468CI/strict/public pending; old CI119 cancellations/local135-pass interruption supply no receipt; Firewall/global-budget causes OPEN.",
         "evidence": [
           {
             "path": "docs/quality/PR72_FINAL_AUDIT.md"
@@ -438,6 +463,12 @@
           },
           {
             "path": "docs/quality/PR72_QA_REVIEW.md"
+          },
+          {
+            "path": "docs/DEVELOPMENT_WORKFLOW.md"
+          },
+          {
+            "path": "src/pr72-ci-workflow.test.ts"
           }
         ]
       }
@@ -513,15 +544,39 @@
         "id": "SP72-05",
         "severity": "note",
         "status": "open",
-        "description": "CI118 compact Firewall receipt-navigation flake remains undiagnosed. Original local compact passed once; controlled focus hypothesis was not confirmed. No fix claim; original CI log/local traces and rejected diagnostic retained."
+        "description": "CI118 compact Firewall receipt navigation passed on retry; CI119 second attempt marks the same case failed then retry-passed but supplies no assertion detail. Local passing control and rejected hypothesis do not establish a cause. Keep open; no fix claimed."
+      },
+      {
+        "id": "SP72-06",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Pre-adoption CI negative validators accepted masking custom shells/defaults and blank-line script/environment appendices; the actual masked prerequisite could exit0 after failed status.",
+        "fix": "Final actual-file validator requires one complete finite workflow assembled from immutable original blocks and full explicit guards; complete literal extraction and adversarial tests reject all prior attacks. Final workflow itself contains no masking content.",
+        "retests": [
+          {
+            "path": "src/pr72-ci-workflow.test.ts",
+            "result": "Four actual workflow/negative/Bash-guard tests passed independently; own five prior attacks rejected."
+          },
+          {
+            "path": "docs/quality/PR72_FINAL_AUDIT.md"
+          }
+        ]
+      },
+      {
+        "id": "SP72-07",
+        "severity": "note",
+        "status": "open",
+        "description": "Global observed runtime/35-minute budget cause remains unproven. Serial allocation relocates mandatory check/audit with each35-minute cap unchanged and combined duration potentially longer; actual new-head whole468 CI/strict/public verification remains pending. Old cancelled/partial executions are not full passes."
       }
     ]
   },
   "snapshot": {
     "files": {
-      "AGENTS.md": "9b03269a2ab186f7e00802d97ac9fd6b5f9a0b90f41c7780a4c2e4bfb2c2ad13",
+      ".github/workflows/ci.yml": "67980365f0cbdf66ad26b1d2734865f17b17187cf0f6eb8b4cc5ffa53a276ebb",
+      "AGENTS.md": "ae62649e398a799e09367a2b6554dfe62e5e60dd811ff95e6475541ebab98cb1",
       "docs/ARCHITECTURE.md": "3c421985c9d57ad9ee671444e272e59d9ff8aceb01e4d4d795fa70a37f60b9db",
       "docs/DECISIONS.md": "bc0ae739add5f904e2e53e3c2697ae72db8aef84d6f6bcd161466270e8309dbb",
+      "docs/DEVELOPMENT_WORKFLOW.md": "3d55fa41f2701e3d53e79d0fdd40667f5ff1af8e9dcea8579bf0e535d2a097eb",
       "docs/PORTAL_CAPABILITY_MATRIX.md": "898ffd99fdd700642cc98703b0595fb34116ae333fe4781a839d06a26ef016b0",
       "docs/SHARED_PORTAL_CAPABILITY_MATRIX.md": "50acbd205d897b7caac1a80d9566193cf8ab8c006be887a27d7eb7128fc0261a",
       "docs/SHARED_PORTAL_CONSOLIDATION.md": "d02df26b0e9237102743d92032188b41ef163f41fc9b565b640681c1da485f20",
@@ -533,6 +588,9 @@
       "docs/reviews/evidence/pr72/failures/ci118-local-red.log.raw": "d50ff77eb3d493d0cac6377691074c82d6343c4c3051e2682a513dee335bc72d",
       "docs/reviews/evidence/pr72/failures/ci118-new-compact-closed-menu.log.raw": "2140626629902e89b9838af5286003315874501f01b860fbedb829a08391e87d",
       "docs/reviews/evidence/pr72/failures/ci118-overflow-isolation.json.raw": "d49e6e7f7d7d5d12f8415cb14795fd3f378b36e481cb522dc04dc486d6b53741",
+      "docs/reviews/evidence/pr72/failures/ci119-attempt1.log.raw": "04fe2db03507ab0f0654f1c3e6ab3c77337d84dda5bf6ae3d681a6b9175715db",
+      "docs/reviews/evidence/pr72/failures/ci119-attempt2.log.raw": "3bb89383ab3aaf8597aca56bf15f174fc2e2d7febd9f3dfba30452ca8b5c7c87",
+      "docs/reviews/evidence/pr72/failures/ci119-timing-comparison.json.raw": "47350d23457622c93abf8ace7764d9bdab55db103e305886bd7fc4a4182988e2",
       "docs/reviews/evidence/pr72/failures/guided-coach-assumption.md.raw": "1389f65ac3f1b266936abe970105ded1b97f6ff704b6bfdc8afc7b8b24fb8ee8",
       "docs/reviews/evidence/pr72/failures/hybrid-experience-enhanced-f624f-thored-start-middle-and-end-desktop-chromium.md.raw": "cef521089ec9073246e4f6e8818b6f1f08b43f0d1fd788bb0b4bffab261ea1ff",
       "docs/reviews/evidence/pr72/failures/initial-filename-collision.log.raw": "161444dab1f50c34aa6b85ca5f0dd5693592ac01a06e8103945a3edd1d7f00c6",
@@ -542,10 +600,15 @@
       "docs/reviews/evidence/pr72/failures/intermediate-raw-format.log.raw": "e82bf521b681005cf1400bde55a04f0b16490519d77f297c9056eb64b872589b",
       "docs/reviews/evidence/pr72/failures/laboratory-networking-netw-29365-are-one-authoritative-World-desktop-chromium.md.raw": "3c8fea0b55b38a74e1e8a482bb68f6610ca2b9c4cd743e337f67b4b9c333abef",
       "docs/reviews/evidence/pr72/failures/local-artifact-collision.log.raw": "e055162244605c628cf41ff0c62baae4ae2768b992ceff1cd06191f35196f906",
+      "docs/reviews/evidence/pr72/failures/local-full-profile.log.raw": "e54c90972e280b94cbac4f5856122eb1270556170ad8c933160dba5c218146db",
       "docs/reviews/evidence/pr72/failures/model-label-assumption.md.raw": "abbd7e84933d72239e12920183762b4c568f19675858cd7284fbf1372bc838f2",
       "docs/reviews/evidence/pr72/failures/original-fidelity-collision-run.log.raw": "4d5cb84bf3366b9c9057af35e0a8231a57ef93435cacff6264734f5d99510feb",
-      "docs/reviews/evidence/pr72/manifest.json": "562616a8166c4d646b709c3b9696d704e14dceb7eccdae1dc6df41cff0cf5418",
-      "docs/reviews/evidence/pr72/preservation.json": "642f9ec6fcd0fa3983dbaf920f352b1cb0908244e295e2dc97a22b0171f9ca95",
+      "docs/reviews/evidence/pr72/failures/serial-ci-env-parser-prototype.log.raw": "0cb304562d0853afdbfb808c528ba36e5fdd9d85cbcae1509575de5377cb0a0a",
+      "docs/reviews/evidence/pr72/failures/serial-ci-monolithic-preservation-timeout.log.raw": "bcf4e5dcdf9998f3bd673ab7d841947e8d8aa491b77a68e98ff5d676bfd9c53e",
+      "docs/reviews/evidence/pr72/failures/serial-ci-new-test-lint.log.raw": "5914765f82006b60a6c809d0221e211ae986963257615412cfe09b53501c3712",
+      "docs/reviews/evidence/pr72/failures/serial-ci-test-env-typecheck.log.raw": "846be378194eaef8154cb9c72096bc36541fb1b69e13f719cd0968d3d3d2b9a4",
+      "docs/reviews/evidence/pr72/manifest.json": "bd79fdd15ccf60b6a56e18f15494a2d360feead6ca9b9ff35044690e2e373402",
+      "docs/reviews/evidence/pr72/preservation.json": "fe5aeb29ea565a0ea4ed18afad11b7fceffa4e5a15efa193586fa4495fd0dfc5",
       "docs/reviews/evidence/pr72/screens/before-course-home-1440-900.png": "036f98f1c027eb42a08379d79b6b8396091edfedf13b4735cc90de481d68798a",
       "docs/reviews/evidence/pr72/screens/before-free-entry-1440-900.png": "3fb5c91e930c58788f4d5173b9aa4879fc6ea12adee7f76c196c6b84bcf1c66e",
       "docs/reviews/evidence/pr72/screens/course-create-1024-500.png": "8bf91b54726241358b3a9b4a427485e412ae344b075a3ca4c891ca40b82d87d0",
@@ -604,11 +667,12 @@
       "src/features/portal/shared-shell.test.ts": "e191502b0ef849709af7ffcab9b1b139add0d0ec3320603260b800a510bfbc7a",
       "src/features/portal/subscriptions.tsx": "4aa869d5a314a59d5c700d2449aa77ff58ccd2d061d099096cd38e8bd44e2fd4",
       "src/laboratory-pr71-preservation.test.ts": "ac278ad343f9d1213e55805262dc72f209d6417f292cd5c443c290379ef1777c",
-      "src/pr72-shared-portal-preservation.test.ts": "b2d22453405eed4fd1d87dc3f7dc644cc154baaecb14ebb8c5410867582b607c",
+      "src/pr72-ci-workflow.test.ts": "6e4320ec5b287aaaac2797c5c1302209a736af1f4b8f6070e3f765483929afa9",
+      "src/pr72-shared-portal-preservation.test.ts": "a6bce433286f9018b4c355795760600ddd6f6fcfec4154d8afab300a9406c4a8",
       "tests/e2e/portal-consolidation.spec.ts": "a81307f56a707d7911a1611e5643eca1ef510a7f5b75ca297f92f35701b1a0b3",
       "tests/pr71-preservation.ts": "a31551dc71fb124d709aff841e18728667418430f75b66bd56191a2cbf7fb9c5",
       "tests/pr72-preservation.ts": "7ca156a50fec95a513b2cecaf936226afcecc73b014b32bc5d8e38d04ccc61ba"
     }
   },
-  "implementationFinished": "2026-11-09T12:11:35.421Z"
+  "implementationFinished": "2026-11-09T14:02:41.613Z"
 }

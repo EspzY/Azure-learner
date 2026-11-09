@@ -1,9 +1,13 @@
 {
   "base": "0538b40cc51af634e71182014e65bdb932936c70",
   "files": {
+    ".github/workflows/ci.yml": {
+      "before": "407e1218d65d24783227e8925e7e8931a922eb8c",
+      "after": "81c61c13f64f31472e8bc09e443499eb0a2e00cf"
+    },
     "AGENTS.md": {
       "before": "1bdfe1383e522963fac5d26e2f16ce71511aefad",
-      "after": "c73af491c1ccf0de628556d57668be04d3f90788"
+      "after": "5f9455d6d94528d26c9b6ffcffe341d9507921d1"
     },
     "docs/ARCHITECTURE.md": {
       "before": "88828a24573f8e2ac6a5d11998b92902d54df4ae",
@@ -12,6 +16,10 @@
     "docs/DECISIONS.md": {
       "before": "7c4f1ee0715613b7e1358ea66902cd25f0d6d45f",
       "after": "6e1b28c701e5e1010acc890c9271289ecf87781e"
+    },
+    "docs/DEVELOPMENT_WORKFLOW.md": {
+      "before": "2dba255168137a5ba8f8117727fd60b5c4c37cd2",
+      "after": "9757792f2976b28e2ec0149fd82af92c11f36866"
     },
     "docs/PORTAL_CAPABILITY_MATRIX.md": {
       "before": "0211b4635949ad9321494cb9c39afbc238340d4a",
@@ -57,6 +65,9 @@
     "docs/reviews/evidence/pr72/failures/ci118-local-red.log.raw": "cb8252a7d12efcecc4e94e0dc491d2b3a93a7c21",
     "docs/reviews/evidence/pr72/failures/ci118-new-compact-closed-menu.log.raw": "863a255a57ed68b946297e669dce9c988e8cc681",
     "docs/reviews/evidence/pr72/failures/ci118-overflow-isolation.json.raw": "bb5a270325a702497e3c9c7851eb6ec9a16d7953",
+    "docs/reviews/evidence/pr72/failures/ci119-attempt1.log.raw": "52adf092cee547ce1dab93fddeb001ed5c2bf369",
+    "docs/reviews/evidence/pr72/failures/ci119-attempt2.log.raw": "6981374c1950a3e4f03a4e922c47f06eb45d270a",
+    "docs/reviews/evidence/pr72/failures/ci119-timing-comparison.json.raw": "5cacc1e85083027a350a8038dded82321ff4a4e3",
     "docs/reviews/evidence/pr72/failures/guided-coach-assumption.md.raw": "8b679fe00a4080afed9928c3c19d7a0e0d72f4d2",
     "docs/reviews/evidence/pr72/failures/hybrid-experience-enhanced-f624f-thored-start-middle-and-end-desktop-chromium.md.raw": "1ee5ce2e7a8f1785f6d5630204194b0ed79cce05",
     "docs/reviews/evidence/pr72/failures/initial-filename-collision.log.raw": "d2a77f8ea290d27925f6bc110ef37902553715b3",
@@ -66,8 +77,13 @@
     "docs/reviews/evidence/pr72/failures/intermediate-raw-format.log.raw": "bd2f8ab34c8fb20a1a1c2c7d16d3ffdc947dc290",
     "docs/reviews/evidence/pr72/failures/laboratory-networking-netw-29365-are-one-authoritative-World-desktop-chromium.md.raw": "5eb7ce63d5cb33665baf3445e6542beaf5b2d189",
     "docs/reviews/evidence/pr72/failures/local-artifact-collision.log.raw": "e94748a23cd0f9e8c4a5048843d6f2aafe132e39",
+    "docs/reviews/evidence/pr72/failures/local-full-profile.log.raw": "f35f653b29ddd6de61c55be973896239dda98d86",
     "docs/reviews/evidence/pr72/failures/model-label-assumption.md.raw": "428d8f85ae1ba0f5fb75b095466b477169fce1b1",
     "docs/reviews/evidence/pr72/failures/original-fidelity-collision-run.log.raw": "6fd6e41bbb1d5243d57d5152df99dc03d1b55b91",
+    "docs/reviews/evidence/pr72/failures/serial-ci-env-parser-prototype.log.raw": "d55a11dff5f7a33d4bc41572b73ae0ad69e25d47",
+    "docs/reviews/evidence/pr72/failures/serial-ci-monolithic-preservation-timeout.log.raw": "cca07874e29feaf1097a12eab9947bd403d4715e",
+    "docs/reviews/evidence/pr72/failures/serial-ci-new-test-lint.log.raw": "dfc4b281c75af25b40e2cb562d35cf4eee5e764d",
+    "docs/reviews/evidence/pr72/failures/serial-ci-test-env-typecheck.log.raw": "5561b53743ae4c85256981b11b8c80090bab3966",
     "docs/reviews/evidence/pr72/screens/before-course-home-1440-900.png": "1daae3334f517fd4350a366ff0dd5aca3e147a10",
     "docs/reviews/evidence/pr72/screens/before-free-entry-1440-900.png": "45d04ec3d672729248248ed28b1015db5a3f76ab",
     "docs/reviews/evidence/pr72/screens/course-create-1024-500.png": "09fbe365eaba5287c8341daa1ee5f4fe9b68c446",
@@ -121,7 +137,8 @@
     "src/features/portal/service-catalog.ts": "0de32be6785b78c4c7a09cc73e52f0f133ee8d7a",
     "src/features/portal/shared-shell.test.ts": "0b48649736a9cbdc089feb7a558146df80af2077",
     "src/features/portal/subscriptions.tsx": "3637a4a15a0a0e79c4ed76ab209b960996665a51",
-    "src/pr72-shared-portal-preservation.test.ts": "1b693e09efc81bef23205923992313f948cf8a67",
+    "src/pr72-ci-workflow.test.ts": "4ebd0be035a011e6527886984a00ab1343792888",
+    "src/pr72-shared-portal-preservation.test.ts": "5e9befea51f06ad526de3f52745911cd9b87fd28",
     "tests/e2e/portal-consolidation.spec.ts": "38be35503cbf6464b7d0142bdd6aa273992f67c7",
     "tests/pr72-preservation.ts": "18134608acd5ef983856118ac14c30498f3a04d9"
   }

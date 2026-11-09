@@ -1,9 +1,13 @@
 {
   "base": "0538b40cc51af634e71182014e65bdb932936c70",
   "files": {
+    ".github/workflows/ci.yml": {
+      "sha256": "67980365f0cbdf66ad26b1d2734865f17b17187cf0f6eb8b4cc5ffa53a276ebb",
+      "bytes": 5779
+    },
     "AGENTS.md": {
-      "sha256": "9b03269a2ab186f7e00802d97ac9fd6b5f9a0b90f41c7780a4c2e4bfb2c2ad13",
-      "bytes": 81128
+      "sha256": "ae62649e398a799e09367a2b6554dfe62e5e60dd811ff95e6475541ebab98cb1",
+      "bytes": 82038
     },
     "docs/ARCHITECTURE.md": {
       "sha256": "3c421985c9d57ad9ee671444e272e59d9ff8aceb01e4d4d795fa70a37f60b9db",
@@ -12,6 +16,10 @@
     "docs/DECISIONS.md": {
       "sha256": "bc0ae739add5f904e2e53e3c2697ae72db8aef84d6f6bcd161466270e8309dbb",
       "bytes": 65958
+    },
+    "docs/DEVELOPMENT_WORKFLOW.md": {
+      "sha256": "3d55fa41f2701e3d53e79d0fdd40667f5ff1af8e9dcea8579bf0e535d2a097eb",
+      "bytes": 25468
     },
     "docs/PORTAL_CAPABILITY_MATRIX.md": {
       "sha256": "898ffd99fdd700642cc98703b0595fb34116ae333fe4781a839d06a26ef016b0",
@@ -57,6 +65,18 @@
       "sha256": "d49e6e7f7d7d5d12f8415cb14795fd3f378b36e481cb522dc04dc486d6b53741",
       "bytes": 7560
     },
+    "docs/reviews/evidence/pr72/failures/ci119-attempt1.log.raw": {
+      "sha256": "04fe2db03507ab0f0654f1c3e6ab3c77337d84dda5bf6ae3d681a6b9175715db",
+      "bytes": 260426
+    },
+    "docs/reviews/evidence/pr72/failures/ci119-attempt2.log.raw": {
+      "sha256": "3bb89383ab3aaf8597aca56bf15f174fc2e2d7febd9f3dfba30452ca8b5c7c87",
+      "bytes": 261133
+    },
+    "docs/reviews/evidence/pr72/failures/ci119-timing-comparison.json.raw": {
+      "sha256": "47350d23457622c93abf8ace7764d9bdab55db103e305886bd7fc4a4182988e2",
+      "bytes": 3012
+    },
     "docs/reviews/evidence/pr72/failures/guided-coach-assumption.md.raw": {
       "sha256": "1389f65ac3f1b266936abe970105ded1b97f6ff704b6bfdc8afc7b8b24fb8ee8",
       "bytes": 21724
@@ -93,6 +113,10 @@
       "sha256": "e055162244605c628cf41ff0c62baae4ae2768b992ceff1cd06191f35196f906",
       "bytes": 3943
     },
+    "docs/reviews/evidence/pr72/failures/local-full-profile.log.raw": {
+      "sha256": "e54c90972e280b94cbac4f5856122eb1270556170ad8c933160dba5c218146db",
+      "bytes": 29034
+    },
     "docs/reviews/evidence/pr72/failures/model-label-assumption.md.raw": {
       "sha256": "abbd7e84933d72239e12920183762b4c568f19675858cd7284fbf1372bc838f2",
       "bytes": 13405
@@ -101,9 +125,25 @@
       "sha256": "4d5cb84bf3366b9c9057af35e0a8231a57ef93435cacff6264734f5d99510feb",
       "bytes": 20589
     },
+    "docs/reviews/evidence/pr72/failures/serial-ci-env-parser-prototype.log.raw": {
+      "sha256": "0cb304562d0853afdbfb808c528ba36e5fdd9d85cbcae1509575de5377cb0a0a",
+      "bytes": 1604
+    },
+    "docs/reviews/evidence/pr72/failures/serial-ci-monolithic-preservation-timeout.log.raw": {
+      "sha256": "bcf4e5dcdf9998f3bd673ab7d841947e8d8aa491b77a68e98ff5d676bfd9c53e",
+      "bytes": 1225
+    },
+    "docs/reviews/evidence/pr72/failures/serial-ci-new-test-lint.log.raw": {
+      "sha256": "5914765f82006b60a6c809d0221e211ae986963257615412cfe09b53501c3712",
+      "bytes": 894
+    },
+    "docs/reviews/evidence/pr72/failures/serial-ci-test-env-typecheck.log.raw": {
+      "sha256": "846be378194eaef8154cb9c72096bc36541fb1b69e13f719cd0968d3d3d2b9a4",
+      "bytes": 793
+    },
     "docs/reviews/evidence/pr72/preservation.json": {
-      "sha256": "642f9ec6fcd0fa3983dbaf920f352b1cb0908244e295e2dc97a22b0171f9ca95",
-      "bytes": 10516
+      "sha256": "fe5aeb29ea565a0ea4ed18afad11b7fceffa4e5a15efa193586fa4495fd0dfc5",
+      "bytes": 11878
     },
     "docs/reviews/evidence/pr72/screens/before-course-home-1440-900.png": {
       "sha256": "036f98f1c027eb42a08379d79b6b8396091edfedf13b4735cc90de481d68798a",
@@ -337,9 +377,13 @@
       "sha256": "ac278ad343f9d1213e55805262dc72f209d6417f292cd5c443c290379ef1777c",
       "bytes": 3640
     },
+    "src/pr72-ci-workflow.test.ts": {
+      "sha256": "6e4320ec5b287aaaac2797c5c1302209a736af1f4b8f6070e3f765483929afa9",
+      "bytes": 11185
+    },
     "src/pr72-shared-portal-preservation.test.ts": {
-      "sha256": "b2d22453405eed4fd1d87dc3f7dc644cc154baaecb14ebb8c5410867582b607c",
-      "bytes": 3767
+      "sha256": "a6bce433286f9018b4c355795760600ddd6f6fcfec4154d8afab300a9406c4a8",
+      "bytes": 5491
     },
     "tests/e2e/portal-consolidation.spec.ts": {
       "sha256": "a81307f56a707d7911a1611e5643eca1ef510a7f5b75ca297f92f35701b1a0b3",

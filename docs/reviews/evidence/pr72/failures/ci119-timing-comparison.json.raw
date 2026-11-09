@@ -1,0 +1,66 @@
+{
+  "observedPassed118": 457,
+  "observedPassed119": 439,
+  "observedTestFailures119": 0,
+  "browserStep118": [
+    "2026-11-09T11:29:23.4521461Z ##[group]Run node scripts/verify-desktop-ci.mjs"
+  ],
+  "browserStep119": [
+    "2026-11-09T12:19:58.0514511Z ##[group]Run node scripts/verify-desktop-ci.mjs"
+  ],
+  "lastPass119": {
+    "time": "2026-11-09T12:51:00.0765616Z",
+    "key": "compact-chromium|tests/e2e/identity-foundations.spec.ts|Identity desktop and compact keyboard, semantic flows, reduced motion and short native briefing stay readable",
+    "duration": 10.4
+  },
+  "matchedPassedCases": 394,
+  "medianDurationRatio119vs118": 1.417,
+  "nonPortalMatchedCases": 316,
+  "nonPortalMedianRatio": 1.43,
+  "sumPassedDurations119": 1803.6,
+  "matched118Durations": 1279.2,
+  "matched119Durations": 1762.9,
+  "largest119PassedDurations": [
+    {
+      "time": "2026-11-09T12:43:11.0803624Z",
+      "key": "desktop-chromium|tests/e2e/architecture-management.spec.ts|shared Core teaching and Journal shield every active or uncertain independent context",
+      "duration": 47.2
+    },
+    {
+      "time": "2026-11-09T12:26:37.0640566Z",
+      "key": "desktop-chromium|tests/e2e/course-hub.spec.ts|all independent contexts resume their own exact route without metadata help or evidence rewriting",
+      "duration": 26.2
+    },
+    {
+      "time": "2026-11-09T12:45:57.2251410Z",
+      "key": "desktop-chromium|tests/e2e/foundations-v2.spec.ts|ordinary root delivers the whole v2 course, preserved objectives, actual lab, exact return and resume",
+      "duration": 22.1
+    },
+    {
+      "time": "2026-11-09T12:47:24.8709261Z",
+      "key": "desktop-chromium|tests/e2e/portal.spec.ts|source-backed learning, real Portal creation, policy recovery, live graph and changed independent build",
+      "duration": 21.1
+    },
+    {
+      "time": "2026-11-09T12:43:51.8777187Z",
+      "key": "desktop-chromium|tests/e2e/architecture-physical.spec.ts|ordinary root \u2192 full Part A teaching, three causal witnesses, first partial assessment, Journal and resume",
+      "duration": 19.6
+    },
+    {
+      "time": "2026-11-09T12:41:52.4428619Z",
+      "key": "desktop-chromium|tests/e2e/architecture-management.spec.ts|ordinary root \u2192 Part A/B theory \u2192 actual lab \u2192 hierarchy/policy \u2192 independent \u2192 common Journal and resume",
+      "duration": 18.2
+    },
+    {
+      "time": "2026-11-09T12:48:06.9923542Z",
+      "key": "desktop-chromium|tests/e2e/practical-labs.spec.ts|root course to persisted VM, app settings, separate SaaS, exact debrief and resume",
+      "duration": 17.8
+    },
+    {
+      "time": "2026-11-09T12:46:22.0123743Z",
+      "key": "desktop-chromium|tests/e2e/guided-learning-polish.spec.ts|semantic mechanism figures preserve prediction gating and accessible controls",
+      "duration": 17.0
+    }
+  ],
+  "limits": "Observed runtime distribution, not proof of runner/CPU/browser cause; no failed assertion and no full profile/release receipt before cancellation."
+}

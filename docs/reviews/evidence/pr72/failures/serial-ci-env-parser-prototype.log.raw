@@ -1,0 +1,36 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (../azurelab-pr72/serial-ci-proposal/vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ ../azurelab-pr72/serial-ci-proposal/ci-workflow.test.ts (4 tests | 1 failed) 501ms
+   × actual serial workflow retains every original gate, pinned environment, whole profile and immediate strict release 113ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  ../azurelab-pr72/serial-ci-proposal/ci-workflow.test.ts > actual serial workflow retains every original gate, pinned environment, whole profile and immediate strict release
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ ❯ ../azurelab-pr72/serial-ci-proposal/ci-workflow.test.ts:244:27
+    242| }
+    243| it('actual serial workflow retains every original gate, pinned environ…
+    244|   expect(valid(workflow)).toBe(true);
+       |                           ^
+    245|   const settings = readFileSync('playwright.config.ts', 'utf8');
+    246|   expect(settings).toBe(
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  13:43:30
+   Duration  2.56s (tests 47%, transform 27%, import 23%, worker 4%)
+

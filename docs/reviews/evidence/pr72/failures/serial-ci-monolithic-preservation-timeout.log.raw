@@ -1,0 +1,27 @@
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ src/pr72-shared-portal-preservation.test.ts (3 tests | 1 failed) 15802ms
+   × compares every actual PR71 blob and every locked old proof, with only finite approved presentation/docs/import bindings 15143ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/pr72-shared-portal-preservation.test.ts > compares every actual PR71 blob and every locked old proof, with only finite approved presentation/docs/import bindings
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/pr72-shared-portal-preservation.test.ts:21:1
+     19|   'src/laboratory-pr71-preservation.test.ts',
+     20| ];
+     21| it('compares every actual PR71 blob and every locked old proof, with o…
+       | ^
+     22|   expect(proof.base).toBe(pr72Base);
+     23|   expect(Object.keys(proof.files).sort()).toEqual(approved.sort());
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 6 passed (7)
+   Start at  13:51:26
+   Duration  20.08s (tests 89%, transform 8%, import 2%, worker 1%)
+
