@@ -1,0 +1,1232 @@
+﻿2026-11-09T22:32:10.4462763Z Current runner version: '2.338.2'
+2026-11-09T22:32:10.4489192Z ##[group]Runner Image Provisioner
+2026-11-09T22:32:10.4490170Z Hosted Compute Agent
+2026-11-09T22:32:10.4490812Z Version: 20261028.624
+2026-11-09T22:32:10.4491472Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-09T22:32:10.4492332Z Build Date: 2026-10-28T21:51:42Z
+2026-11-09T22:32:10.4493062Z Worker ID: {1cfd43f8-3fe8-4cc3-9d0f-31797b718cab}
+2026-11-09T22:32:10.4493809Z Region: westus3
+2026-11-09T22:32:10.4494964Z Cloud: Azure
+2026-11-09T22:32:10.4495571Z ##[endgroup]
+2026-11-09T22:32:10.4497219Z ##[group]Operating System
+2026-11-09T22:32:10.4497936Z Ubuntu
+2026-11-09T22:32:10.4498450Z 24.04.5
+2026-11-09T22:32:10.4499074Z LTS
+2026-11-09T22:32:10.4499603Z ##[endgroup]
+2026-11-09T22:32:10.4500259Z ##[group]Runner Image
+2026-11-09T22:32:10.4500915Z Image: ubuntu-24.04
+2026-11-09T22:32:10.4501469Z Version: 20261101.360.1
+2026-11-09T22:32:10.4502820Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-09T22:32:10.4504881Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-09T22:32:10.4506138Z ##[endgroup]
+2026-11-09T22:32:10.4507303Z ##[group]GITHUB_TOKEN Permissions
+2026-11-09T22:32:10.4509394Z Contents: read
+2026-11-09T22:32:10.4510029Z Metadata: read
+2026-11-09T22:32:10.4510776Z ##[endgroup]
+2026-11-09T22:32:10.4512992Z Secret source: Actions
+2026-11-09T22:32:10.4514075Z Cache mode: write
+2026-11-09T22:32:10.4515075Z Prepare workflow directory
+2026-11-09T22:32:10.5043041Z Prepare all required actions
+2026-11-09T22:32:10.5092464Z Getting action download info
+2026-11-09T22:32:10.8175668Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-09T22:32:10.9413400Z Download action repository 'actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1' (SHA:949feb2413d6458794dcd2491c4babbbce0c15c1)
+2026-11-09T22:32:11.0334887Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-11-09T22:32:11.2197682Z Complete job name: browser (2)
+2026-11-09T22:32:11.2841494Z ##[group]Checking docker version
+2026-11-09T22:32:11.2854999Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+2026-11-09T22:32:11.4419486Z '1.48'
+2026-11-09T22:32:11.4439804Z Docker daemon API version: '1.48'
+2026-11-09T22:32:11.4440650Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+2026-11-09T22:32:11.4640996Z '1.48'
+2026-11-09T22:32:11.4659262Z Docker client API version: '1.48'
+2026-11-09T22:32:11.4666819Z ##[endgroup]
+2026-11-09T22:32:11.4670631Z ##[group]Clean up resources from previous jobs
+2026-11-09T22:32:11.4677612Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=ef80bf"
+2026-11-09T22:32:11.4859886Z ##[command]/usr/bin/docker network prune --force --filter "label=ef80bf"
+2026-11-09T22:32:11.5049628Z ##[endgroup]
+2026-11-09T22:32:11.5050639Z ##[group]Create local container network
+2026-11-09T22:32:11.5062015Z ##[command]/usr/bin/docker network create --label ef80bf github_network_77e8231d42d0449198a724275d3ea0f9
+2026-11-09T22:32:11.5724800Z b1c26fa163b2c6ee7bcdee4e390498624fcc5ed129637eeddf61f76278e300be
+2026-11-09T22:32:11.5747458Z ##[endgroup]
+2026-11-09T22:32:11.5774589Z ##[group]Starting laboratory-postgres service container
+2026-11-09T22:32:11.5799162Z ##[command]/usr/bin/docker pull postgres:17-bookworm@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T22:32:12.1947651Z docker.io/library/postgres@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994: Pulling from library/postgres
+2026-11-09T22:32:12.4274492Z dd051e1b8c92: Pulling fs layer
+2026-11-09T22:32:12.4276246Z 4fd88e653359: Pulling fs layer
+2026-11-09T22:32:12.4277742Z 41e20cc91088: Pulling fs layer
+2026-11-09T22:32:12.4279138Z cecd59c0f4e8: Pulling fs layer
+2026-11-09T22:32:12.4280486Z fe98381fbf47: Pulling fs layer
+2026-11-09T22:32:12.4282273Z 2c502f9a0399: Pulling fs layer
+2026-11-09T22:32:12.4283362Z 9e6067604731: Pulling fs layer
+2026-11-09T22:32:12.4284622Z 32564e1f6308: Pulling fs layer
+2026-11-09T22:32:12.4285506Z 80ed7b53ecf0: Pulling fs layer
+2026-11-09T22:32:12.4286405Z 46db58682565: Pulling fs layer
+2026-11-09T22:32:12.4287328Z f17bd255b710: Pulling fs layer
+2026-11-09T22:32:12.4288240Z 277e6d734690: Pulling fs layer
+2026-11-09T22:32:12.4289181Z f4368716ea81: Pulling fs layer
+2026-11-09T22:32:12.4290182Z c200e4e2b35b: Pulling fs layer
+2026-11-09T22:32:12.4291199Z cecd59c0f4e8: Waiting
+2026-11-09T22:32:12.4292101Z fe98381fbf47: Waiting
+2026-11-09T22:32:12.4292985Z 2c502f9a0399: Waiting
+2026-11-09T22:32:12.4293741Z 9e6067604731: Waiting
+2026-11-09T22:32:12.4294763Z 32564e1f6308: Waiting
+2026-11-09T22:32:12.4295780Z 80ed7b53ecf0: Waiting
+2026-11-09T22:32:12.4296704Z 46db58682565: Waiting
+2026-11-09T22:32:12.4297710Z f17bd255b710: Waiting
+2026-11-09T22:32:12.4298774Z 277e6d734690: Waiting
+2026-11-09T22:32:12.4299939Z f4368716ea81: Waiting
+2026-11-09T22:32:12.6064874Z 4fd88e653359: Verifying Checksum
+2026-11-09T22:32:12.6066214Z 4fd88e653359: Download complete
+2026-11-09T22:32:12.6263248Z 41e20cc91088: Verifying Checksum
+2026-11-09T22:32:12.6264954Z 41e20cc91088: Download complete
+2026-11-09T22:32:12.7039415Z dd051e1b8c92: Verifying Checksum
+2026-11-09T22:32:12.7040285Z dd051e1b8c92: Download complete
+2026-11-09T22:32:12.8002132Z cecd59c0f4e8: Verifying Checksum
+2026-11-09T22:32:12.8003251Z cecd59c0f4e8: Download complete
+2026-11-09T22:32:12.8620592Z fe98381fbf47: Verifying Checksum
+2026-11-09T22:32:12.8622251Z fe98381fbf47: Download complete
+2026-11-09T22:32:12.9200998Z 2c502f9a0399: Verifying Checksum
+2026-11-09T22:32:12.9201981Z 2c502f9a0399: Download complete
+2026-11-09T22:32:12.9851406Z 9e6067604731: Verifying Checksum
+2026-11-09T22:32:12.9852022Z 9e6067604731: Download complete
+2026-11-09T22:32:13.0499658Z 32564e1f6308: Download complete
+2026-11-09T22:32:13.1929057Z 46db58682565: Verifying Checksum
+2026-11-09T22:32:13.1929778Z 46db58682565: Download complete
+2026-11-09T22:32:13.2510270Z f17bd255b710: Verifying Checksum
+2026-11-09T22:32:13.2511651Z f17bd255b710: Download complete
+2026-11-09T22:32:13.4060282Z 277e6d734690: Verifying Checksum
+2026-11-09T22:32:13.4062795Z 277e6d734690: Download complete
+2026-11-09T22:32:13.4295998Z f4368716ea81: Download complete
+2026-11-09T22:32:13.4933949Z 80ed7b53ecf0: Verifying Checksum
+2026-11-09T22:32:13.4935057Z 80ed7b53ecf0: Download complete
+2026-11-09T22:32:13.6152533Z c200e4e2b35b: Download complete
+2026-11-09T22:32:13.9438312Z dd051e1b8c92: Pull complete
+2026-11-09T22:32:14.2282294Z 4fd88e653359: Pull complete
+2026-11-09T22:32:14.3580468Z 41e20cc91088: Pull complete
+2026-11-09T22:32:14.3924944Z cecd59c0f4e8: Pull complete
+2026-11-09T22:32:14.6907518Z fe98381fbf47: Pull complete
+2026-11-09T22:32:14.7536394Z 2c502f9a0399: Pull complete
+2026-11-09T22:32:14.7626189Z 9e6067604731: Pull complete
+2026-11-09T22:32:14.7722050Z 32564e1f6308: Pull complete
+2026-11-09T22:32:17.7346007Z 80ed7b53ecf0: Pull complete
+2026-11-09T22:32:17.7493213Z 46db58682565: Pull complete
+2026-11-09T22:32:17.7599427Z f17bd255b710: Pull complete
+2026-11-09T22:32:17.7703529Z 277e6d734690: Pull complete
+2026-11-09T22:32:17.7831911Z f4368716ea81: Pull complete
+2026-11-09T22:32:17.7926855Z c200e4e2b35b: Pull complete
+2026-11-09T22:32:17.7966835Z Digest: sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T22:32:17.7976186Z Status: Downloaded newer image for postgres@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T22:32:17.7996003Z docker.io/library/postgres:17-bookworm@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T22:32:17.8063425Z ##[command]/usr/bin/docker create --name 714fb4a3967341b88694710924df8279_postgres17bookwormsha256665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994_85c372 --label ef80bf --network github_network_77e8231d42d0449198a724275d3ea0f9 --network-alias laboratory-postgres -p 5432:5432 --health-cmd "pg_isready -h 127.0.0.1 -U postgres -d azurelab_lab_ci" --health-interval 5s --health-timeout 3s --health-retries 10 -e "POSTGRES_DB=azurelab_lab_ci" -e "POSTGRES_PASSWORD=laboratory_ci_only_fixture" -e GITHUB_ACTIONS=true -e CI=true postgres:17-bookworm@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T22:32:17.8371720Z 27455cdf1483ea85fd7b3d936108b3fa24fba19ee140526f2cbc33746a515e4e
+2026-11-09T22:32:17.8399693Z ##[command]/usr/bin/docker start 27455cdf1483ea85fd7b3d936108b3fa24fba19ee140526f2cbc33746a515e4e
+2026-11-09T22:32:18.1777831Z 27455cdf1483ea85fd7b3d936108b3fa24fba19ee140526f2cbc33746a515e4e
+2026-11-09T22:32:18.1829989Z ##[command]/usr/bin/docker ps --all --filter id=27455cdf1483ea85fd7b3d936108b3fa24fba19ee140526f2cbc33746a515e4e --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+2026-11-09T22:32:18.2010857Z 27455cdf1483ea85fd7b3d936108b3fa24fba19ee140526f2cbc33746a515e4e Up Less than a second (health: starting)
+2026-11-09T22:32:18.2037871Z ##[command]/usr/bin/docker port 27455cdf1483ea85fd7b3d936108b3fa24fba19ee140526f2cbc33746a515e4e
+2026-11-09T22:32:18.2212695Z 5432/tcp -> 0.0.0.0:5432
+2026-11-09T22:32:18.2213957Z 5432/tcp -> [::]:5432
+2026-11-09T22:32:18.2267047Z ##[endgroup]
+2026-11-09T22:32:18.2276746Z ##[group]Waiting for all services to be ready
+2026-11-09T22:32:18.2296406Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 27455cdf1483ea85fd7b3d936108b3fa24fba19ee140526f2cbc33746a515e4e
+2026-11-09T22:32:18.2468780Z starting
+2026-11-09T22:32:18.2579212Z laboratory-postgres service is starting, waiting 2 seconds before checking again.
+2026-11-09T22:32:20.2584811Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 27455cdf1483ea85fd7b3d936108b3fa24fba19ee140526f2cbc33746a515e4e
+2026-11-09T22:32:20.2737995Z starting
+2026-11-09T22:32:20.2757317Z laboratory-postgres service is starting, waiting 4 seconds before checking again.
+2026-11-09T22:32:24.3495312Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 27455cdf1483ea85fd7b3d936108b3fa24fba19ee140526f2cbc33746a515e4e
+2026-11-09T22:32:24.3652035Z healthy
+2026-11-09T22:32:24.3695309Z laboratory-postgres service is healthy.
+2026-11-09T22:32:24.3696225Z ##[endgroup]
+2026-11-09T22:32:24.3961521Z ##[group]Run test "$CHECK_RESULT" = success &&
+2026-11-09T22:32:24.3961973Z [36;1mtest "$CHECK_RESULT" = success &&[0m
+2026-11-09T22:32:24.3962321Z [36;1m[[ "$EXPECTED_REVISION" =~ ^[0-9a-f]{40}$ ]] &&[0m
+2026-11-09T22:32:24.3962666Z [36;1mtest -n "$CHECKED_REVISION" &&[0m
+2026-11-09T22:32:24.3963083Z [36;1mtest "$CHECKED_REVISION" = "$EXPECTED_REVISION" &&[0m
+2026-11-09T22:32:24.3963455Z [36;1m[[ "$GITHUB_RUN_ATTEMPT" =~ ^[1-9][0-9]*$ ]] &&[0m
+2026-11-09T22:32:24.3963796Z [36;1mtest "$CHECKED_ATTEMPT" = "$GITHUB_RUN_ATTEMPT"[0m
+2026-11-09T22:32:24.3989821Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-09T22:32:24.3990479Z env:
+2026-11-09T22:32:24.3991322Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:24.3991964Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:24.3992603Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:24.3993311Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:24.3993652Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:32:24.3993916Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:32:24.3994546Z   CHECK_RESULT: success
+2026-11-09T22:32:24.3994944Z   CHECKED_REVISION: 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:24.3995336Z   EXPECTED_REVISION: 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:24.3995659Z   CHECKED_ATTEMPT: 1
+2026-11-09T22:32:24.3995873Z ##[endgroup]
+2026-11-09T22:32:24.4290710Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-11-09T22:32:24.4291136Z with:
+2026-11-09T22:32:24.4291373Z   ref: 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:24.4291903Z   fetch-depth: 0
+2026-11-09T22:32:24.4292124Z   repository: EspzY/Azure-learner
+2026-11-09T22:32:24.4295327Z   token: ***
+2026-11-09T22:32:24.4295545Z   ssh-strict: true
+2026-11-09T22:32:24.4295760Z   ssh-user: git
+2026-11-09T22:32:24.4295980Z   persist-credentials: true
+2026-11-09T22:32:24.4296342Z   clean: true
+2026-11-09T22:32:24.4296612Z   sparse-checkout-cone-mode: true
+2026-11-09T22:32:24.4296872Z   fetch-tags: false
+2026-11-09T22:32:24.4297087Z   show-progress: true
+2026-11-09T22:32:24.4297298Z   lfs: false
+2026-11-09T22:32:24.4297484Z   submodules: false
+2026-11-09T22:32:24.4297696Z   set-safe-directory: true
+2026-11-09T22:32:24.4297945Z   allow-unsafe-pr-checkout: false
+2026-11-09T22:32:24.4298198Z env:
+2026-11-09T22:32:24.4298744Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:24.4299335Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:24.4299917Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:24.4300558Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:24.4300905Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:32:24.4301181Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:32:24.4301422Z ##[endgroup]
+2026-11-09T22:32:24.7631934Z Syncing repository: EspzY/Azure-learner
+2026-11-09T22:32:24.7633366Z ##[group]Getting Git version info
+2026-11-09T22:32:24.7633803Z Working directory is '/home/runner/work/Azure-learner/Azure-learner'
+2026-11-09T22:32:24.7634835Z [command]/usr/bin/git version
+2026-11-09T22:32:24.7749454Z git version 2.56.0
+2026-11-09T22:32:24.7774006Z ##[endgroup]
+2026-11-09T22:32:24.7787835Z Temporarily overriding HOME='/home/runner/work/_temp/cbf81110-1723-4095-b692-28b4c7120907' before making global git config changes
+2026-11-09T22:32:24.7789665Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-09T22:32:24.7795245Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Azure-learner/Azure-learner
+2026-11-09T22:32:24.7860206Z Deleting the contents of '/home/runner/work/Azure-learner/Azure-learner'
+2026-11-09T22:32:24.7871240Z ##[group]Determining repository object format
+2026-11-09T22:32:24.7872468Z ##[endgroup]
+2026-11-09T22:32:24.7878229Z ##[group]Initializing the repository
+2026-11-09T22:32:24.7882894Z [command]/usr/bin/git init /home/runner/work/Azure-learner/Azure-learner
+2026-11-09T22:32:24.8014670Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-09T22:32:24.8016735Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-09T22:32:24.8017637Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-09T22:32:24.8018308Z hint: call:
+2026-11-09T22:32:24.8018597Z hint:
+2026-11-09T22:32:24.8019078Z hint: 	git config --global init.defaultBranch <name>
+2026-11-09T22:32:24.8019595Z hint:
+2026-11-09T22:32:24.8020460Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-09T22:32:24.8021470Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-09T22:32:24.8022263Z hint:
+2026-11-09T22:32:24.8022642Z hint: 	git branch -m <name>
+2026-11-09T22:32:24.8023075Z hint:
+2026-11-09T22:32:24.8023651Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-09T22:32:24.8035349Z Initialized empty Git repository in /home/runner/work/Azure-learner/Azure-learner/.git/
+2026-11-09T22:32:24.8049128Z [command]/usr/bin/git remote add origin https://github.com/EspzY/Azure-learner
+2026-11-09T22:32:24.8110590Z ##[endgroup]
+2026-11-09T22:32:24.8111210Z ##[group]Disabling automatic garbage collection
+2026-11-09T22:32:24.8116869Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-09T22:32:24.8168690Z ##[endgroup]
+2026-11-09T22:32:24.8169762Z ##[group]Setting up auth
+2026-11-09T22:32:24.8170318Z Removing SSH command configuration
+2026-11-09T22:32:24.8178766Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-09T22:32:24.8230645Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-09T22:32:24.8698400Z Removing HTTP extra header
+2026-11-09T22:32:24.8705729Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-09T22:32:24.8755021Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-09T22:32:24.9012570Z Removing includeIf entries pointing to credentials config files
+2026-11-09T22:32:24.9018547Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-09T22:32:24.9072646Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-09T22:32:24.9352089Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-09ec0ac1-1e25-4a36-81e7-3901018028e4.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-09T22:32:24.9411552Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git.path /home/runner/work/_temp/git-credentials-09ec0ac1-1e25-4a36-81e7-3901018028e4.config
+2026-11-09T22:32:24.9461961Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-09ec0ac1-1e25-4a36-81e7-3901018028e4.config
+2026-11-09T22:32:24.9513864Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-09ec0ac1-1e25-4a36-81e7-3901018028e4.config
+2026-11-09T22:32:24.9567411Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-09ec0ac1-1e25-4a36-81e7-3901018028e4.config
+2026-11-09T22:32:24.9615544Z ##[endgroup]
+2026-11-09T22:32:24.9616194Z ##[group]Fetching the repository
+2026-11-09T22:32:24.9623986Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-11-09T22:32:31.1529332Z From https://github.com/EspzY/Azure-learner
+2026-11-09T22:32:31.1529956Z  * [new branch]      codex/activate-desktop-ci -> origin/codex/activate-desktop-ci
+2026-11-09T22:32:31.1530785Z  * [new branch]      codex/az900-assessment-quality-transfer -> origin/codex/az900-assessment-quality-transfer
+2026-11-09T22:32:31.1532835Z  * [new branch]      codex/az900-assessment-transfer-refinement -> origin/codex/az900-assessment-transfer-refinement
+2026-11-09T22:32:31.1534569Z  * [new branch]      codex/az900-cloud-computing-consolidation -> origin/codex/az900-cloud-computing-consolidation
+2026-11-09T22:32:31.1535932Z  * [new branch]      codex/az900-cloud-concepts-independent-review -> origin/codex/az900-cloud-concepts-independent-review
+2026-11-09T22:32:31.1537135Z  * [new branch]      codex/az900-collapsible-sources -> origin/codex/az900-collapsible-sources
+2026-11-09T22:32:31.1538162Z  * [new branch]      codex/az900-compute-hosting -> origin/codex/az900-compute-hosting
+2026-11-09T22:32:31.1539266Z  * [new branch]      codex/az900-core-architecture-management -> origin/codex/az900-core-architecture-management
+2026-11-09T22:32:31.1540433Z  * [new branch]      codex/az900-core-architecture-physical -> origin/codex/az900-core-architecture-physical
+2026-11-09T22:32:31.1541430Z  * [new branch]      codex/az900-cost-management -> origin/codex/az900-cost-management
+2026-11-09T22:32:31.1542705Z  * [new branch]      codex/az900-curriculum-audit -> origin/codex/az900-curriculum-audit
+2026-11-09T22:32:31.1543990Z  * [new branch]      codex/az900-end-to-end-learning-audit -> origin/codex/az900-end-to-end-learning-audit
+2026-11-09T22:32:31.1545882Z  * [new branch]      codex/az900-entra-identity-foundations -> origin/codex/az900-entra-identity-foundations
+2026-11-09T22:32:31.1546795Z  * [new branch]      codex/az900-file-movement-migration -> origin/codex/az900-file-movement-migration
+2026-11-09T22:32:31.1547605Z  * [new branch]      codex/az900-final-quality-sprint -> origin/codex/az900-final-quality-sprint
+2026-11-09T22:32:31.1548350Z  * [new branch]      codex/az900-governance-compliance -> origin/codex/az900-governance-compliance
+2026-11-09T22:32:31.1548993Z  * [new branch]      codex/az900-learning-sequencing -> origin/codex/az900-learning-sequencing
+2026-11-09T22:32:31.1549651Z  * [new branch]      codex/az900-management-deployment -> origin/codex/az900-management-deployment
+2026-11-09T22:32:31.1550332Z  * [new branch]      codex/az900-monitoring-diagnostics -> origin/codex/az900-monitoring-diagnostics
+2026-11-09T22:32:31.1551019Z  * [new branch]      codex/az900-networking-connectivity -> origin/codex/az900-networking-connectivity
+2026-11-09T22:32:31.1551734Z  * [new branch]      codex/az900-networking-foundations -> origin/codex/az900-networking-foundations
+2026-11-09T22:32:31.1552387Z  * [new branch]      codex/az900-rbac-conditional-access -> origin/codex/az900-rbac-conditional-access
+2026-11-09T22:32:31.1553048Z  * [new branch]      codex/az900-security-principles -> origin/codex/az900-security-principles
+2026-11-09T22:32:31.1553684Z  * [new branch]      codex/az900-serverless-foundations -> origin/codex/az900-serverless-foundations
+2026-11-09T22:32:31.1555104Z  * [new branch]      codex/az900-storage-services -> origin/codex/az900-storage-services
+2026-11-09T22:32:31.1556075Z  * [new branch]      codex/az900-storage-tiers-redundancy -> origin/codex/az900-storage-tiers-redundancy
+2026-11-09T22:32:31.1556749Z  * [new branch]      codex/azure-portal-exact-icons -> origin/codex/azure-portal-exact-icons
+2026-11-09T22:32:31.1557391Z  * [new branch]      codex/azure-portal-high-fidelity -> origin/codex/azure-portal-high-fidelity
+2026-11-09T22:32:31.1558158Z  * [new branch]      codex/azurelab-hybrid-production-foundation -> origin/codex/azurelab-hybrid-production-foundation
+2026-11-09T22:32:31.1558972Z  * [new branch]      codex/azurelab-landing-volatile-laboratory -> origin/codex/azurelab-landing-volatile-laboratory
+2026-11-09T22:32:31.1559677Z  * [new branch]      codex/azurelab-premium-landing -> origin/codex/azurelab-premium-landing
+2026-11-09T22:32:31.1560318Z  * [new branch]      codex/azurelab-visual-excellence -> origin/codex/azurelab-visual-excellence
+2026-11-09T22:32:31.1560962Z  * [new branch]      codex/bifrost-course-experience -> origin/codex/bifrost-course-experience
+2026-11-09T22:32:31.1561578Z  * [new branch]      codex/bifrost-design-foundation -> origin/codex/bifrost-design-foundation
+2026-11-09T22:32:31.1562262Z  * [new branch]      codex/cc01-challenge-return-resume -> origin/codex/cc01-challenge-return-resume
+2026-11-09T22:32:31.1563611Z  * [new branch]      codex/cc02-vm-debrief-diagnostics -> origin/codex/cc02-vm-debrief-diagnostics
+2026-11-09T22:32:31.1565004Z  * [new branch]      codex/cc03-iaas-assessment-validity -> origin/codex/cc03-iaas-assessment-validity
+2026-11-09T22:32:31.1566162Z  * [new branch]      codex/cloud-concepts-transfer-assessment -> origin/codex/cloud-concepts-transfer-assessment
+2026-11-09T22:32:31.1567257Z  * [new branch]      codex/course-hub-redesign -> origin/codex/course-hub-redesign
+2026-11-09T22:32:31.1568237Z  * [new branch]      codex/desktop-quality-workflow -> origin/codex/desktop-quality-workflow
+2026-11-09T22:32:31.1569467Z  * [new branch]      codex/dialog-placement-modal-consistency -> origin/codex/dialog-placement-modal-consistency
+2026-11-09T22:32:31.1570712Z  * [new branch]      codex/guided-learning-visuals -> origin/codex/guided-learning-visuals
+2026-11-09T22:32:31.1572168Z  * [new branch]      codex/laboratory-application-delivery -> origin/codex/laboratory-application-delivery
+2026-11-09T22:32:31.1573534Z  * [new branch]      codex/laboratory-application-platform -> origin/codex/laboratory-application-platform
+2026-11-09T22:32:31.1575383Z  * [new branch]      codex/laboratory-architecture-studio-part-a -> origin/codex/laboratory-architecture-studio-part-a
+2026-11-09T22:32:31.1576838Z  * [new branch]      codex/laboratory-azure-firewall-part-a -> origin/codex/laboratory-azure-firewall-part-a
+2026-11-09T22:32:31.1578055Z  * [new branch]      codex/laboratory-compute-part-a -> origin/codex/laboratory-compute-part-a
+2026-11-09T22:32:31.1579127Z  * [new branch]      codex/laboratory-data-serverless -> origin/codex/laboratory-data-serverless
+2026-11-09T22:32:31.1580480Z  * [new branch]      codex/laboratory-integrated-application-chain -> origin/codex/laboratory-integrated-application-chain
+2026-11-09T22:32:31.1582068Z  * [new branch]      codex/laboratory-network-endpoints-nsg -> origin/codex/laboratory-network-endpoints-nsg
+2026-11-09T22:32:31.1583362Z  * [new branch]      codex/laboratory-networking-part-a -> origin/codex/laboratory-networking-part-a
+2026-11-09T22:32:31.1584808Z  * [new branch]      codex/laboratory-networking-part-b -> origin/codex/laboratory-networking-part-b
+2026-11-09T22:32:31.1585997Z  * [new branch]      codex/laboratory-platform-stage-0 -> origin/codex/laboratory-platform-stage-0
+2026-11-09T22:32:31.1587163Z  * [new branch]      codex/laboratory-platform-storage-stage-1 -> origin/codex/laboratory-platform-storage-stage-1
+2026-11-09T22:32:31.1588561Z  * [new branch]      codex/laboratory-platform-v3-server-storage -> origin/codex/laboratory-platform-v3-server-storage
+2026-11-09T22:32:31.1590029Z  * [new branch]      codex/laboratory-security-remediation-part-a -> origin/codex/laboratory-security-remediation-part-a
+2026-11-09T22:32:31.1591513Z  * [new branch]      codex/laboratory-topology-remediation-part-b -> origin/codex/laboratory-topology-remediation-part-b
+2026-11-09T22:32:31.1592909Z  * [new branch]      codex/learning-flow-guidance-recovery -> origin/codex/learning-flow-guidance-recovery
+2026-11-09T22:32:31.1593969Z  * [new branch]      codex/legacy-cleanup    -> origin/codex/legacy-cleanup
+2026-11-09T22:32:31.1595272Z  * [new branch]      codex/permanent-quality-savvyshark -> origin/codex/permanent-quality-savvyshark
+2026-11-09T22:32:31.1596547Z  * [new branch]      codex/portal-resource-inspection-bridge -> origin/codex/portal-resource-inspection-bridge
+2026-11-09T22:32:31.1597899Z  * [new branch]      codex/practical-mission-expansion -> origin/codex/practical-mission-expansion
+2026-11-09T22:32:31.1599200Z  * [new branch]      codex/shared-azurelab-portal-experience -> origin/codex/shared-azurelab-portal-experience
+2026-11-09T22:32:31.1600344Z  * [new branch]      codex/shared-portal-home-subscriptions -> origin/codex/shared-portal-home-subscriptions
+2026-11-09T22:32:31.1601091Z  * [new branch]      feat/31a-beginner-learning-design -> origin/feat/31a-beginner-learning-design
+2026-11-09T22:32:31.1602216Z  * [new branch]      feat/31b-foundations-integration -> origin/feat/31b-foundations-integration
+2026-11-09T22:32:31.1603195Z  * [new branch]      feat/31b1-ux-refinement -> origin/feat/31b1-ux-refinement
+2026-11-09T22:32:31.1604022Z  * [new branch]      feat/32-cloud-benefits-service-types -> origin/feat/32-cloud-benefits-service-types
+2026-11-09T22:32:31.1605356Z  * [new branch]      feat/321-integrated-practical-labs -> origin/feat/321-integrated-practical-labs
+2026-11-09T22:32:31.1606389Z  * [new branch]      feat/azurelab-portal-reboot -> origin/feat/azurelab-portal-reboot
+2026-11-09T22:32:31.1607324Z  * [new branch]      feat/chapter-01-guided  -> origin/feat/chapter-01-guided
+2026-11-09T22:32:31.1608363Z  * [new branch]      feat/course-first-guided-learning -> origin/feat/course-first-guided-learning
+2026-11-09T22:32:31.1609473Z  * [new branch]      feat/g1-cinematic-dialogue -> origin/feat/g1-cinematic-dialogue
+2026-11-09T22:32:31.1610724Z  * [new branch]      feat/g12-onboarding-journey -> origin/feat/g12-onboarding-journey
+2026-11-09T22:32:31.1611546Z  * [new branch]      feat/g13-living-learning -> origin/feat/g13-living-learning
+2026-11-09T22:32:31.1612835Z  * [new branch]      feat/learning-content-foundations -> origin/feat/learning-content-foundations
+2026-11-09T22:32:31.1613927Z  * [new branch]      feat/phase-0-foundation -> origin/feat/phase-0-foundation
+2026-11-09T22:32:31.1615111Z  * [new branch]      feat/rpg-vertical-slice -> origin/feat/rpg-vertical-slice
+2026-11-09T22:32:31.1615937Z  * [new branch]      main                    -> origin/main
+2026-11-09T22:32:31.1617831Z [command]/usr/bin/git rev-parse --verify --quiet 3c704205a247692a92a36f0a1be0f19f1a9cc9d8^{object}
+2026-11-09T22:32:31.1620117Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules origin 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:31.5217731Z From https://github.com/EspzY/Azure-learner
+2026-11-09T22:32:31.5218653Z  * branch            3c704205a247692a92a36f0a1be0f19f1a9cc9d8 -> FETCH_HEAD
+2026-11-09T22:32:31.5230392Z [command]/usr/bin/git rev-parse --verify --quiet 3c704205a247692a92a36f0a1be0f19f1a9cc9d8^{object}
+2026-11-09T22:32:31.5272781Z 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:31.5277790Z ##[endgroup]
+2026-11-09T22:32:31.5278202Z ##[group]Determining the checkout info
+2026-11-09T22:32:31.5279260Z ##[endgroup]
+2026-11-09T22:32:31.5283705Z [command]/usr/bin/git sparse-checkout disable
+2026-11-09T22:32:31.5357152Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-09T22:32:31.5397395Z ##[group]Checking out the ref
+2026-11-09T22:32:31.5403324Z [command]/usr/bin/git checkout --progress --force 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:32.5620988Z Updating files:  74% (2170/2924)
+2026-11-09T22:32:32.5632601Z Updating files:  75% (2193/2924)
+2026-11-09T22:32:32.5666394Z Updating files:  76% (2223/2924)
+2026-11-09T22:32:32.5688845Z Updating files:  77% (2252/2924)
+2026-11-09T22:32:32.5805385Z Updating files:  78% (2281/2924)
+2026-11-09T22:32:32.5824004Z Updating files:  79% (2310/2924)
+2026-11-09T22:32:32.5844828Z Updating files:  80% (2340/2924)
+2026-11-09T22:32:32.5867006Z Updating files:  81% (2369/2924)
+2026-11-09T22:32:32.5885355Z Updating files:  82% (2398/2924)
+2026-11-09T22:32:32.5905900Z Updating files:  83% (2427/2924)
+2026-11-09T22:32:32.5928456Z Updating files:  84% (2457/2924)
+2026-11-09T22:32:32.5944533Z Updating files:  85% (2486/2924)
+2026-11-09T22:32:32.5967048Z Updating files:  86% (2515/2924)
+2026-11-09T22:32:32.5987136Z Updating files:  87% (2544/2924)
+2026-11-09T22:32:32.6008627Z Updating files:  88% (2574/2924)
+2026-11-09T22:32:32.6027406Z Updating files:  89% (2603/2924)
+2026-11-09T22:32:32.6045090Z Updating files:  90% (2632/2924)
+2026-11-09T22:32:32.6062936Z Updating files:  91% (2661/2924)
+2026-11-09T22:32:32.6083119Z Updating files:  92% (2691/2924)
+2026-11-09T22:32:32.6107595Z Updating files:  93% (2720/2924)
+2026-11-09T22:32:32.6130899Z Updating files:  94% (2749/2924)
+2026-11-09T22:32:32.6149545Z Updating files:  95% (2778/2924)
+2026-11-09T22:32:32.6176022Z Updating files:  96% (2808/2924)
+2026-11-09T22:32:32.6208312Z Updating files:  97% (2837/2924)
+2026-11-09T22:32:32.6233080Z Updating files:  98% (2866/2924)
+2026-11-09T22:32:32.6246680Z Updating files:  99% (2895/2924)
+2026-11-09T22:32:32.6247216Z Updating files: 100% (2924/2924)
+2026-11-09T22:32:32.6247748Z Updating files: 100% (2924/2924), done.
+2026-11-09T22:32:32.6279091Z Note: switching to '3c704205a247692a92a36f0a1be0f19f1a9cc9d8'.
+2026-11-09T22:32:32.6279680Z 
+2026-11-09T22:32:32.6280083Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-09T22:32:32.6280852Z changes and commit them, and you can discard any commits you make in this
+2026-11-09T22:32:32.6281452Z state without impacting any branches by switching back to a branch.
+2026-11-09T22:32:32.6281804Z 
+2026-11-09T22:32:32.6282050Z If you want to create a new branch to retain commits you create, you may
+2026-11-09T22:32:32.6282922Z do so (now or later) by using -c with the switch command. Example:
+2026-11-09T22:32:32.6283274Z 
+2026-11-09T22:32:32.6283404Z   git switch -c <new-branch-name>
+2026-11-09T22:32:32.6283801Z 
+2026-11-09T22:32:32.6283922Z Or undo this operation with:
+2026-11-09T22:32:32.6284508Z 
+2026-11-09T22:32:32.6284672Z   git switch -
+2026-11-09T22:32:32.6284823Z 
+2026-11-09T22:32:32.6285100Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-09T22:32:32.6285562Z 
+2026-11-09T22:32:32.6286011Z HEAD is now at 3c70420 Merge 687e338da697ebe3cb85955aed6453dfdd044ed7 into 7d68b2c40988385c31c1e514e67e5135a1fbe25e
+2026-11-09T22:32:32.6365487Z ##[endgroup]
+2026-11-09T22:32:32.6431611Z [command]/usr/bin/git log -1 --format=%H
+2026-11-09T22:32:32.6476837Z 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:32.6651898Z ##[group]Run candidate_sha="$(git rev-parse HEAD)"
+2026-11-09T22:32:32.6652314Z [36;1mcandidate_sha="$(git rev-parse HEAD)"[0m
+2026-11-09T22:32:32.6652645Z [36;1m[[ "$candidate_sha" =~ ^[0-9a-f]{40}$ ]] &&[0m
+2026-11-09T22:32:32.6652995Z [36;1mtest "$candidate_sha" = "$EXPECTED_REVISION" &&[0m
+2026-11-09T22:32:32.6653350Z [36;1mtest "$candidate_sha" = "$CHECKED_REVISION"[0m
+2026-11-09T22:32:32.6675050Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-09T22:32:32.6699672Z env:
+2026-11-09T22:32:32.6700423Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:32.6701063Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:32.6701739Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:32.6702418Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:32.6702765Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:32:32.6703035Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:32:32.6703388Z   CHECKED_REVISION: 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:32.6703776Z   EXPECTED_REVISION: 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:32.6704357Z   CHECKED_ATTEMPT: 1
+2026-11-09T22:32:32.6704614Z ##[endgroup]
+2026-11-09T22:32:32.6880833Z ##[group]Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+2026-11-09T22:32:32.6881248Z with:
+2026-11-09T22:32:32.6881443Z   node-version: 24
+2026-11-09T22:32:32.6881641Z   cache: npm
+2026-11-09T22:32:32.6881836Z   check-latest: false
+2026-11-09T22:32:32.6884813Z   token: ***
+2026-11-09T22:32:32.6885033Z   package-manager-cache: true
+2026-11-09T22:32:32.6885277Z env:
+2026-11-09T22:32:32.6885738Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:32.6886343Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:32.6886923Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:32.6887548Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:32.6887888Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:32:32.6888156Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:32:32.6888383Z ##[endgroup]
+2026-11-09T22:32:32.8256498Z Found in cache @ /opt/hostedtoolcache/node/24.22.2/x64
+2026-11-09T22:32:32.9231025Z ##[group]Environment details
+2026-11-09T22:32:33.3384773Z node: v24.22.2
+2026-11-09T22:32:33.3385715Z npm: 11.19.1
+2026-11-09T22:32:33.3386036Z yarn: 1.22.22
+2026-11-09T22:32:33.3387206Z ##[endgroup]
+2026-11-09T22:32:33.3412993Z [command]/opt/hostedtoolcache/node/24.22.2/x64/bin/npm config get cache
+2026-11-09T22:32:33.4717696Z /home/runner/.npm
+2026-11-09T22:32:33.7068753Z Cache hit for: node-cache-Linux-x64-npm-263c101c31d7e4f07d3ecd80975928e77b50f1fd54dd29777a008da001236f21
+2026-11-09T22:32:34.9542409Z Received 37748736 of 145643803 (25.9%), 36.0 MBs/sec
+2026-11-09T22:32:35.6905331Z Received 145643803 of 145643803 (100.0%), 80.0 MBs/sec
+2026-11-09T22:32:35.6906412Z Cache Size: ~139 MB (145643803 B)
+2026-11-09T22:32:35.6938618Z [command]/usr/bin/tar -xf /home/runner/work/_temp/ca3ec856-8aad-472f-9f24-8417a7ab8704/cache.tzst -P -C /home/runner/work/Azure-learner/Azure-learner --use-compress-program unzstd
+2026-11-09T22:32:35.9921967Z Cache restored successfully
+2026-11-09T22:32:35.9998412Z Cache restored from key: node-cache-Linux-x64-npm-263c101c31d7e4f07d3ecd80975928e77b50f1fd54dd29777a008da001236f21
+2026-11-09T22:32:36.0279238Z ##[group]Run npm ci
+2026-11-09T22:32:36.0279524Z [36;1mnpm ci[0m
+2026-11-09T22:32:36.0310013Z shell: /usr/bin/bash -e {0}
+2026-11-09T22:32:36.0310272Z env:
+2026-11-09T22:32:36.0310991Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:36.0311609Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:36.0312201Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:36.0312851Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:36.0313205Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:32:36.0313482Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:32:36.0313721Z ##[endgroup]
+2026-11-09T22:32:46.3834938Z 
+2026-11-09T22:32:46.3846056Z added 247 packages, and audited 248 packages in 10s
+2026-11-09T22:32:46.3846586Z 
+2026-11-09T22:32:46.3846954Z 56 packages are looking for funding
+2026-11-09T22:32:46.3847511Z   run `npm fund` for details
+2026-11-09T22:32:46.5255187Z 
+2026-11-09T22:32:46.5256264Z 10 moderate severity vulnerabilities
+2026-11-09T22:32:46.5256705Z 
+2026-11-09T22:32:46.5257275Z To address all issues (including breaking changes), run:
+2026-11-09T22:32:46.5257958Z   npm audit fix --force
+2026-11-09T22:32:46.5258328Z 
+2026-11-09T22:32:46.5258802Z Run `npm audit` for details.
+2026-11-09T22:32:46.6429995Z ##[group]Run npm run lab:db:setup
+2026-11-09T22:32:46.6430330Z [36;1mnpm run lab:db:setup[0m
+2026-11-09T22:32:46.6450631Z shell: /usr/bin/bash -e {0}
+2026-11-09T22:32:46.6450877Z env:
+2026-11-09T22:32:46.6451482Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:46.6452086Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:46.6452674Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:46.6453332Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:46.6453677Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:32:46.6453958Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:32:46.6454491Z ##[endgroup]
+2026-11-09T22:32:46.7450113Z 
+2026-11-09T22:32:46.7450840Z > azurelab@0.1.0 lab:db:setup
+2026-11-09T22:32:46.7451389Z > node scripts/laboratory-db.mjs
+2026-11-09T22:32:46.7451634Z 
+2026-11-09T22:32:46.9207788Z Dedicated local Laboratory schemas/roles initialized. No application resources created.
+2026-11-09T22:32:46.9408545Z ##[group]Run npx playwright install --with-deps chromium
+2026-11-09T22:32:46.9409293Z [36;1mnpx playwright install --with-deps chromium[0m
+2026-11-09T22:32:46.9438829Z shell: /usr/bin/bash -e {0}
+2026-11-09T22:32:46.9439276Z env:
+2026-11-09T22:32:46.9440273Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:46.9441393Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:46.9442574Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:46.9443815Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:46.9444764Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:32:46.9445308Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:32:46.9445755Z ##[endgroup]
+2026-11-09T22:32:47.7140264Z Installing dependencies...
+2026-11-09T22:32:47.7212913Z Switching to root user to install dependencies...
+2026-11-09T22:32:47.8145865Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-09T22:32:47.8462673Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2026-11-09T22:32:47.8464657Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-11-09T22:32:47.8584681Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-11-09T22:32:47.8586170Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-11-09T22:32:47.8587423Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-11-09T22:32:47.9733399Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [747 kB]
+2026-11-09T22:32:47.9926975Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [678 kB]
+2026-11-09T22:32:48.0320104Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1425 kB]
+2026-11-09T22:32:48.0405835Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [313 kB]
+2026-11-09T22:32:48.0420897Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1711 kB]
+2026-11-09T22:32:48.0498262Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [344 kB]
+2026-11-09T22:32:48.0525635Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1839 kB]
+2026-11-09T22:32:48.0615524Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [420 kB]
+2026-11-09T22:32:48.0646345Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [50.7 kB]
+2026-11-09T22:32:48.0675765Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [14.3 kB]
+2026-11-09T22:32:48.1531109Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1158 kB]
+2026-11-09T22:32:48.1589569Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [234 kB]
+2026-11-09T22:32:48.2030761Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1228 kB]
+2026-11-09T22:32:48.2088736Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [248 kB]
+2026-11-09T22:32:48.2109563Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1725 kB]
+2026-11-09T22:32:48.2190197Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [396 kB]
+2026-11-09T22:32:48.2215504Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [45.4 kB]
+2026-11-09T22:32:48.2227054Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse Translation-en [12.4 kB]
+2026-11-09T22:32:51.6121078Z Fetched 13.0 MB in 1s (10.0 MB/s)
+2026-11-09T22:32:52.8299700Z Reading package lists...
+2026-11-09T22:32:52.8625548Z Reading package lists...
+2026-11-09T22:32:53.1053569Z Building dependency tree...
+2026-11-09T22:32:53.1060881Z Reading state information...
+2026-11-09T22:32:53.2634122Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+2026-11-09T22:32:53.2635633Z libasound2t64 set to manually installed.
+2026-11-09T22:32:53.2636724Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-11-09T22:32:53.2637760Z libatk-bridge2.0-0t64 set to manually installed.
+2026-11-09T22:32:53.2638464Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+2026-11-09T22:32:53.2639118Z libatk1.0-0t64 set to manually installed.
+2026-11-09T22:32:53.2639789Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-11-09T22:32:53.2640440Z libatspi2.0-0t64 set to manually installed.
+2026-11-09T22:32:53.2641060Z libcairo2 is already the newest version (1.18.0-3build1).
+2026-11-09T22:32:53.2641872Z libcairo2 set to manually installed.
+2026-11-09T22:32:53.2642512Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+2026-11-09T22:32:53.2643146Z libcups2t64 set to manually installed.
+2026-11-09T22:32:53.2643706Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+2026-11-09T22:32:53.2644445Z libdbus-1-3 set to manually installed.
+2026-11-09T22:32:53.2645400Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+2026-11-09T22:32:53.2646180Z libdrm2 set to manually installed.
+2026-11-09T22:32:53.2646739Z libgbm1 is already the newest version (25.2.8-0ubuntu0.24.04.4).
+2026-11-09T22:32:53.2647229Z libgbm1 set to manually installed.
+2026-11-09T22:32:53.2647737Z libglib2.0-0t64 is already the newest version (2.80.0-6ubuntu3.10).
+2026-11-09T22:32:53.2648364Z libglib2.0-0t64 set to manually installed.
+2026-11-09T22:32:53.2648887Z libnspr4 is already the newest version (2:4.35-1.1build1).
+2026-11-09T22:32:53.2649355Z libnspr4 set to manually installed.
+2026-11-09T22:32:53.2650168Z libnss3 is already the newest version (2:3.98-1ubuntu0.3).
+2026-11-09T22:32:53.2650627Z libnss3 set to manually installed.
+2026-11-09T22:32:53.2651119Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+2026-11-09T22:32:53.2651716Z libpango-1.0-0 set to manually installed.
+2026-11-09T22:32:53.2652228Z libx11-6 is already the newest version (2:1.8.7-1ubuntu0.1).
+2026-11-09T22:32:53.2652739Z libx11-6 set to manually installed.
+2026-11-09T22:32:53.2653178Z libxcb1 is already the newest version (1.15-1ubuntu2).
+2026-11-09T22:32:53.2653613Z libxcb1 set to manually installed.
+2026-11-09T22:32:53.2654452Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+2026-11-09T22:32:53.2655005Z libxcomposite1 set to manually installed.
+2026-11-09T22:32:53.2655444Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+2026-11-09T22:32:53.2655851Z libxdamage1 set to manually installed.
+2026-11-09T22:32:53.2656248Z libxext6 is already the newest version (2:1.3.4-1build2).
+2026-11-09T22:32:53.2656633Z libxext6 set to manually installed.
+2026-11-09T22:32:53.2657035Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+2026-11-09T22:32:53.2657422Z libxfixes3 set to manually installed.
+2026-11-09T22:32:53.2657823Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+2026-11-09T22:32:53.2658228Z libxkbcommon0 set to manually installed.
+2026-11-09T22:32:53.2658736Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+2026-11-09T22:32:53.2659119Z libxrandr2 set to manually installed.
+2026-11-09T22:32:53.2659507Z xvfb is already the newest version (2:21.1.12-1ubuntu1.9).
+2026-11-09T22:32:53.2660067Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+2026-11-09T22:32:53.2660636Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+2026-11-09T22:32:53.2661059Z libfontconfig1 set to manually installed.
+2026-11-09T22:32:53.2661512Z libfreetype6 is already the newest version (2.13.2+dfsg-1ubuntu0.2).
+2026-11-09T22:32:53.2661949Z libfreetype6 set to manually installed.
+2026-11-09T22:32:53.2662367Z fonts-liberation is already the newest version (1:2.1.5-3).
+2026-11-09T22:32:53.2662808Z fonts-liberation set to manually installed.
+2026-11-09T22:32:53.2663210Z The following additional packages will be installed:
+2026-11-09T22:32:53.2663973Z   xfonts-encodings xfonts-utils
+2026-11-09T22:32:53.2664763Z Recommended packages:
+2026-11-09T22:32:53.2665304Z   fonts-ipafont-mincho fonts-tlwg-loma
+2026-11-09T22:32:53.2858153Z The following NEW packages will be installed:
+2026-11-09T22:32:53.2858868Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-11-09T22:32:53.2865477Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+2026-11-09T22:32:53.2866038Z   xfonts-utils
+2026-11-09T22:32:53.3070151Z 0 upgraded, 9 newly installed, 0 to remove and 28 not upgraded.
+2026-11-09T22:32:53.3071160Z Need to get 21.1 MB of archives.
+2026-11-09T22:32:53.3084934Z After this operation, 79.5 MB of additional disk space will be used.
+2026-11-09T22:32:53.3085535Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-09T22:32:53.3736072Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+2026-11-09T22:32:53.4751269Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+2026-11-09T22:32:53.6202567Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+2026-11-09T22:32:53.6670337Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+2026-11-09T22:32:53.7639026Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+2026-11-09T22:32:53.9530079Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+2026-11-09T22:32:54.0027744Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+2026-11-09T22:32:54.0492301Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+2026-11-09T22:32:54.0980670Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+2026-11-09T22:32:54.7927505Z Fetched 21.1 MB in 1s (26.2 MB/s)
+2026-11-09T22:32:55.0364453Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-11-09T22:32:55.1843719Z (Reading database ... 
+2026-11-09T22:32:55.1844501Z (Reading database ... 5%
+2026-11-09T22:32:55.1844974Z (Reading database ... 10%
+2026-11-09T22:32:55.1845486Z (Reading database ... 15%
+2026-11-09T22:32:55.1846085Z (Reading database ... 20%
+2026-11-09T22:32:55.1846559Z (Reading database ... 25%
+2026-11-09T22:32:55.1847006Z (Reading database ... 30%
+2026-11-09T22:32:55.1847433Z (Reading database ... 35%
+2026-11-09T22:32:55.1847794Z (Reading database ... 40%
+2026-11-09T22:32:55.1848045Z (Reading database ... 45%
+2026-11-09T22:32:55.1848351Z (Reading database ... 50%
+2026-11-09T22:32:55.2346937Z (Reading database ... 55%
+2026-11-09T22:32:55.4416699Z (Reading database ... 60%
+2026-11-09T22:32:55.6770548Z (Reading database ... 65%
+2026-11-09T22:32:56.0831012Z (Reading database ... 70%
+2026-11-09T22:32:56.2388479Z (Reading database ... 75%
+2026-11-09T22:32:56.3859550Z (Reading database ... 80%
+2026-11-09T22:32:56.6340303Z (Reading database ... 85%
+2026-11-09T22:32:56.8297266Z (Reading database ... 90%
+2026-11-09T22:32:56.9886480Z (Reading database ... 95%
+2026-11-09T22:32:56.9887204Z (Reading database ... 100%
+2026-11-09T22:32:56.9887835Z (Reading database ... 215960 files and directories currently installed.)
+2026-11-09T22:32:56.9933045Z Preparing to unpack .../0-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+2026-11-09T22:32:57.0081451Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-11-09T22:32:57.2449028Z Selecting previously unselected package fonts-freefont-ttf.
+2026-11-09T22:32:57.2595030Z Preparing to unpack .../1-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+2026-11-09T22:32:57.2601726Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-11-09T22:32:57.3545669Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-11-09T22:32:57.3689309Z Preparing to unpack .../2-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+2026-11-09T22:32:57.3696149Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-11-09T22:32:57.3936022Z Selecting previously unselected package fonts-unifont.
+2026-11-09T22:32:57.4082943Z Preparing to unpack .../3-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+2026-11-09T22:32:57.4090952Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+2026-11-09T22:32:57.5223954Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-11-09T22:32:57.5372498Z Preparing to unpack .../4-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+2026-11-09T22:32:57.5497036Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+2026-11-09T22:32:58.0287176Z Selecting previously unselected package xfonts-encodings.
+2026-11-09T22:32:58.0430225Z Preparing to unpack .../5-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+2026-11-09T22:32:58.0438515Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-11-09T22:32:58.0763747Z Selecting previously unselected package xfonts-utils.
+2026-11-09T22:32:58.0932086Z Preparing to unpack .../6-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+2026-11-09T22:32:58.0940278Z Unpacking xfonts-utils (1:7.7+6build3) ...
+2026-11-09T22:32:58.1346476Z Selecting previously unselected package xfonts-cyrillic.
+2026-11-09T22:32:58.1492968Z Preparing to unpack .../7-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+2026-11-09T22:32:58.1500472Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-11-09T22:32:58.1866144Z Selecting previously unselected package xfonts-scalable.
+2026-11-09T22:32:58.2013031Z Preparing to unpack .../8-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+2026-11-09T22:32:58.2020797Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+2026-11-09T22:32:58.2500890Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+2026-11-09T22:32:58.2623211Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-11-09T22:32:58.2646523Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-11-09T22:32:58.2669534Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-11-09T22:32:58.2692048Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-11-09T22:32:58.2765299Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-11-09T22:32:58.2785399Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+2026-11-09T22:32:58.2810317Z Setting up xfonts-utils (1:7.7+6build3) ...
+2026-11-09T22:32:58.2854516Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-11-09T22:32:58.3178508Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+2026-11-09T22:32:58.3500735Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-11-09T22:32:58.3524311Z Not building database; man-db/auto-update is not 'true'.
+2026-11-09T22:32:58.3538096Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+2026-11-09T22:32:59.1781205Z 
+2026-11-09T22:32:59.1781874Z Running kernel seems to be up-to-date.
+2026-11-09T22:32:59.1782694Z 
+2026-11-09T22:32:59.1783090Z No services need to be restarted.
+2026-11-09T22:32:59.1783324Z 
+2026-11-09T22:32:59.1783536Z No containers need to be restarted.
+2026-11-09T22:32:59.1783755Z 
+2026-11-09T22:32:59.1783969Z No user sessions are running outdated binaries.
+2026-11-09T22:32:59.1784583Z 
+2026-11-09T22:32:59.1784971Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-11-09T22:33:00.3257884Z Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip
+2026-11-09T22:33:00.7818678Z |                                                                                |   0% of 191.1 MiB
+2026-11-09T22:33:00.9542386Z |■■■■■■■■                                                                        |  10% of 191.1 MiB
+2026-11-09T22:33:01.0570883Z |■■■■■■■■■■■■■■■■                                                                |  20% of 191.1 MiB
+2026-11-09T22:33:01.1531665Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 191.1 MiB
+2026-11-09T22:33:01.2147431Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 191.1 MiB
+2026-11-09T22:33:01.2966739Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 191.1 MiB
+2026-11-09T22:33:01.3798608Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 191.1 MiB
+2026-11-09T22:33:01.4444682Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 191.1 MiB
+2026-11-09T22:33:01.5575937Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 191.1 MiB
+2026-11-09T22:33:01.6382974Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 191.1 MiB
+2026-11-09T22:33:01.7369219Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 191.1 MiB
+2026-11-09T22:33:04.9749821Z Chrome for Testing 156.0.8078.4 (playwright chromium v1248) downloaded to /home/runner/.cache/ms-playwright/chromium-1248
+2026-11-09T22:33:04.9756054Z Downloading FFmpeg (playwright ffmpeg v1013) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-linux.zip
+2026-11-09T22:33:05.3815739Z |                                                                                |   0% of 2.2 MiB
+2026-11-09T22:33:05.4012260Z |■■■■■■■■                                                                        |  10% of 2.2 MiB
+2026-11-09T22:33:05.4172522Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.2 MiB
+2026-11-09T22:33:05.4184045Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.2 MiB
+2026-11-09T22:33:05.4250547Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.2 MiB
+2026-11-09T22:33:05.4269553Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.2 MiB
+2026-11-09T22:33:05.4282889Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.2 MiB
+2026-11-09T22:33:05.4323319Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.2 MiB
+2026-11-09T22:33:05.4352875Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.2 MiB
+2026-11-09T22:33:05.4365026Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.2 MiB
+2026-11-09T22:33:05.4377185Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.2 MiB
+2026-11-09T22:33:05.5148464Z FFmpeg (playwright ffmpeg v1013) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1013
+2026-11-09T22:33:05.5152207Z Downloading Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-headless-shell-linux64.zip
+2026-11-09T22:33:05.9755428Z |                                                                                |   0% of 120 MiB
+2026-11-09T22:33:06.1378008Z |■■■■■■■■                                                                        |  10% of 120 MiB
+2026-11-09T22:33:06.2439009Z |■■■■■■■■■■■■■■■■                                                                |  20% of 120 MiB
+2026-11-09T22:33:06.3210232Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 120 MiB
+2026-11-09T22:33:06.4050862Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 120 MiB
+2026-11-09T22:33:06.4542427Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 120 MiB
+2026-11-09T22:33:06.4981340Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 120 MiB
+2026-11-09T22:33:06.5568338Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 120 MiB
+2026-11-09T22:33:06.5976675Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 120 MiB
+2026-11-09T22:33:06.6381306Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 120 MiB
+2026-11-09T22:33:06.6961887Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 120 MiB
+2026-11-09T22:33:09.0908762Z Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1248
+2026-11-09T22:33:09.1291790Z ##[group]Run node scripts/e2e-shard-runner.mjs
+2026-11-09T22:33:09.1292188Z [36;1mnode scripts/e2e-shard-runner.mjs[0m
+2026-11-09T22:33:09.1312538Z shell: /usr/bin/bash -e {0}
+2026-11-09T22:33:09.1312795Z env:
+2026-11-09T22:33:09.1313336Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:33:09.1313980Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:33:09.1314891Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:33:09.1315557Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:33:09.1315918Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:33:09.1316191Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:33:09.1316427Z   LAB_CI_SHARD: 2
+2026-11-09T22:33:09.1316689Z   CHECKED_REVISION: 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:33:09.1317026Z   CHECKED_ATTEMPT: 1
+2026-11-09T22:33:09.1317284Z   LAB_CI_BASE: 7d68b2c40988385c31c1e514e67e5135a1fbe25e
+2026-11-09T22:33:09.1317629Z ##[endgroup]
+2026-11-09T22:34:05.9267580Z ▲ Next.js 16.4.2 (Turbopack)
+2026-11-09T22:34:05.9269368Z ✓ Running next.config.ts took 30ms
+2026-11-09T22:34:05.9270544Z ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+2026-11-09T22:34:05.9271150Z 
+2026-11-09T22:34:05.9271323Z   Creating an optimized production build ...
+2026-11-09T22:34:05.9271757Z ✓ Compiled successfully in 10.0s
+2026-11-09T22:34:05.9272038Z   Running TypeScript ...
+2026-11-09T22:34:05.9272312Z   Finished TypeScript in 26.8s ...
+2026-11-09T22:34:05.9272628Z   Collecting page data using 3 workers ...
+2026-11-09T22:34:05.9273292Z   Generating static pages using 3 workers (0/16) ...
+2026-11-09T22:34:05.9273916Z   Generating static pages using 3 workers (4/16) 
+2026-11-09T22:34:05.9274782Z   Generating static pages using 3 workers (8/16) 
+2026-11-09T22:34:05.9275479Z   Generating static pages using 3 workers (12/16) 
+2026-11-09T22:34:05.9276400Z ✓ Generating static pages using 3 workers (16/16) in 629ms
+2026-11-09T22:34:05.9277065Z   Finalizing page optimization ...
+2026-11-09T22:34:05.9277392Z 
+2026-11-09T22:34:05.9277539Z Route (app)
+2026-11-09T22:34:05.9277902Z ┌ ○ /
+2026-11-09T22:34:05.9278255Z ├ ○ /_not-found
+2026-11-09T22:34:05.9278709Z ├ ƒ /api/laboratory/analysis
+2026-11-09T22:34:05.9279240Z ├ ƒ /api/laboratory/command
+2026-11-09T22:34:05.9279744Z ├ ƒ /api/laboratory/ephemeral
+2026-11-09T22:34:05.9280156Z ├ ƒ /api/laboratory/policy-analysis
+2026-11-09T22:34:05.9280469Z ├ ƒ /api/laboratory/review
+2026-11-09T22:34:05.9280744Z ├ ƒ /api/laboratory/session
+2026-11-09T22:34:05.9281014Z ├ ƒ /api/laboratory/state
+2026-11-09T22:34:05.9281295Z ├ ○ /design/foundations-31a
+2026-11-09T22:34:05.9281563Z ├ ○ /expedition-3d
+2026-11-09T22:34:05.9281806Z ├ ○ /explore
+2026-11-09T22:34:05.9282019Z ├ ○ /icon.svg
+2026-11-09T22:34:05.9282250Z ├ ○ /labs/laboratory
+2026-11-09T22:34:05.9282482Z ├ ○ /labs/saas
+2026-11-09T22:34:05.9282690Z ├ ○ /learn
+2026-11-09T22:34:05.9282944Z ├ ƒ /learn/[module]
+2026-11-09T22:34:05.9295912Z ├ ○ /learn/design-review
+2026-11-09T22:34:05.9306861Z ├ ○ /legacy-expedition
+2026-11-09T22:34:05.9345807Z ├ ○ /legacy/rpg
+2026-11-09T22:34:05.9360399Z ├ ○ /missions
+2026-11-09T22:34:05.9361071Z ├ ○ /portal
+2026-11-09T22:34:05.9361605Z └ ○ /progress
+2026-11-09T22:34:05.9362445Z 
+2026-11-09T22:34:05.9362597Z 
+2026-11-09T22:34:05.9363099Z ○  (Static)   prerendered as static content
+2026-11-09T22:34:05.9363935Z ƒ  (Dynamic)  server-rendered on demand
+2026-11-09T22:34:05.9364767Z 
+2026-11-09T22:34:08.9656343Z 
+2026-11-09T22:34:08.9657438Z Running 121 tests using 1 worker, shard 2 of 4
+2026-11-09T22:34:08.9658255Z 
+2026-11-09T22:34:12.4997067Z   ✓    1 [desktop-chromium] › tests/e2e/cost-management.spec.ts:626:3 › desktop/compact assessment 1024x768, long feedback, keyboard and reduced motion remain readable with no external runtime requests (2.7s)
+2026-11-09T22:34:14.9678442Z   ✓    2 [desktop-chromium] › tests/e2e/cost-management.spec.ts:626:3 › desktop/compact assessment 1024x500, long feedback, keyboard and reduced motion remain readable with no external runtime requests (2.5s)
+2026-11-09T22:34:17.4255289Z   ✓    3 [desktop-chromium] › tests/e2e/cost-management.spec.ts:626:3 › desktop/compact assessment 390x844, long feedback, keyboard and reduced motion remain readable with no external runtime requests (2.4s)
+2026-11-09T22:34:21.7275312Z   ✓    4 [desktop-chromium] › tests/e2e/cost-management.spec.ts:656:3 › estimate workbench preserves readable semantic controls in short and existing compact layouts (4.3s)
+2026-11-09T22:34:28.0636435Z   ✓    5 [desktop-chromium] › tests/e2e/cost-management.spec.ts:656:3 › analysis workbench preserves readable semantic controls in short and existing compact layouts (6.3s)
+2026-11-09T22:34:31.3974029Z   ✓    6 [desktop-chromium] › tests/e2e/cost-management.spec.ts:656:3 › budgets workbench preserves readable semantic controls in short and existing compact layouts (3.3s)
+2026-11-09T22:34:35.1546899Z   ✓    7 [desktop-chromium] › tests/e2e/cost-management.spec.ts:656:3 › tags workbench preserves readable semantic controls in short and existing compact layouts (3.7s)
+2026-11-09T22:34:37.8876770Z   ✓    8 [desktop-chromium] › tests/e2e/course-hub.spec.ts:57:1 › first visit exposes one start, three honest paths and direct modules before teaching (2.7s)
+2026-11-09T22:34:40.0519405Z   ✓    9 [desktop-chromium] › tests/e2e/course-hub.spec.ts:105:1 › saved deep link resumes the exact Core B activity and preserves separate historical records (2.1s)
+2026-11-09T22:35:08.0009780Z   ✓   10 [desktop-chromium] › tests/e2e/course-hub.spec.ts:217:1 › all independent contexts resume their own exact route without metadata help or evidence rewriting (27.9s)
+2026-11-09T22:35:11.1933058Z   ✓   11 [desktop-chromium] › tests/e2e/course-hub.spec.ts:353:1 › corrupt, denied and cross-tab history suppresss invented progress and retains deliberate recovery (3.2s)
+2026-11-09T22:35:12.9216807Z   ✓   12 [desktop-chromium] › tests/e2e/course-hub.spec.ts:445:1 › root Journal durably classifies independent help and withholds teaching when storage denies it (1.7s)
+2026-11-09T22:35:23.7042958Z   ✘   13 [desktop-chromium] › tests/e2e/course-hub.spec.ts:493:1 › desktop compositions, collapsed hierarchy, short windows, keyboard, reduced motion and Sandbox return remain usable (10.3s)
+2026-11-09T22:35:35.7140928Z   ✘   14 [desktop-chromium] › tests/e2e/course-hub.spec.ts:493:1 › desktop compositions, collapsed hierarchy, short windows, keyboard, reduced motion and Sandbox return remain usable (retry #1) (10.7s)
+2026-11-09T22:35:47.5730804Z   ✘   15 [desktop-chromium] › tests/e2e/course-hub.spec.ts:493:1 › desktop compositions, collapsed hierarchy, short windows, keyboard, reduced motion and Sandbox return remain usable (retry #2) (10.7s)
+2026-11-09T22:35:51.3158738Z   ✓   16 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:54:3 › Dialog security: centered native start at desktop and short heights preserves cancel Escape and no attempt (3.1s)
+2026-11-09T22:35:54.1138192Z   ✓   17 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:54:3 › Dialog storage: centered native start at desktop and short heights preserves cancel Escape and no attempt (2.8s)
+2026-11-09T22:35:56.7716985Z   ✓   18 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:54:3 › Dialog identity: centered native start at desktop and short heights preserves cancel Escape and no attempt (2.6s)
+2026-11-09T22:35:59.4995728Z   ✓   19 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:54:3 › Dialog monitoring: centered native start at desktop and short heights preserves cancel Escape and no attempt (2.7s)
+2026-11-09T22:36:04.9776322Z   ✓   20 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:102:1 › Global Journal centered keyboard scrolling title and focus return keep history unchanged (5.5s)
+2026-11-09T22:36:09.4376012Z   ✓   21 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:134:1 › Portal ordinary modal side panels native briefings and guidance menu retain distinct desktop compact placement (4.5s)
+2026-11-09T22:36:12.3653286Z   ✓   22 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:223:1 › Real Chromium browser zoom and doubled text preserve centered scrollable accessible modal actions (2.9s)
+2026-11-09T22:36:14.6054445Z   ✓   23 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:270:1 › Centered start and Journal retain explicit first submission durable aid denial and immutable first evidence (2.2s)
+2026-11-09T22:36:18.2427244Z   ✓   24 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:23:1 › landing launches actual 3.7 Laboratory without a database, then returns to root (3.6s)
+2026-11-09T22:36:24.0092183Z   ✓   25 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:66:1 › memory Networking Compute NSG route and Studio use original resources and invalidate analysis after a real rule correction (5.8s)
+2026-11-09T22:36:28.9010012Z   ✓   26 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:166:1 › memory Firewall policy nested rule Review Update Delete and historical replay keep original identities and receipts (4.9s)
+2026-11-09T22:36:32.8417903Z   ✓   27 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:245:1 › memory lost response retry separate tabs and reset preserve course bytes without database writes or shared session (3.9s)
+2026-11-09T22:36:36.0135492Z   ✓   28 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:313:1 › course navigation keeps guided origins separate while making free Lab discoverable (3.2s)
+2026-11-09T22:36:41.0052619Z   ✓   29 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:351:1 › compact landing is readable with keyboard access and reduced motion (5.0s)
+2026-11-09T22:36:44.8302289Z   ✓   30 [desktop-chromium] › tests/e2e/file-movement-migration.spec.ts:120:1 › Storage Part C retains its three-part catalogue and follows Security with exact source links and active resume (3.8s)
+2026-11-09T22:36:51.5144084Z   ✓   31 [desktop-chromium] › tests/e2e/file-movement-migration.spec.ts:168:1 › Method guide compares valid alternatives automation protocol and fidelity while actual Portal context stays read-only (6.7s)
+2026-11-09T22:36:56.5546405Z   ✓   32 [desktop-chromium] › tests/e2e/file-movement-migration.spec.ts:202:1 › Manifest guide preserves direction explicit deletion unresolved conflict and offline tiered-content boundaries (5.0s)
+2026-11-09T22:37:01.1872376Z   ✓   33 [desktop-chromium] › tests/e2e/file-movement-migration.spec.ts:226:1 › Planning guide separates dependencies stale assessment complete transport budgets and declared cutover validation (4.6s)
+2026-11-09T22:37:03.6897465Z   ✓   34 [desktop-chromium] › tests/e2e/file-movement-migration.spec.ts:253:1 › Independent decisions require compatible reasons and preserve first evidence through assisted retry Journal and exact active shielding (2.5s)
+2026-11-09T22:37:06.1533043Z   ✓   35 [desktop-chromium] › tests/e2e/file-movement-migration.spec.ts:288:1 › Denied durable assistance and already-open cross-tab conflict hold Journal, Summary and Portal guidance without changing a draft (2.5s)
+2026-11-09T22:37:09.4853490Z   ✓   36 [desktop-chromium] › tests/e2e/file-movement-migration.spec.ts:338:1 › File Movement desktop and compact keyboard manifest flows short briefing reduced motion Axe and scoped corrupt recovery stay readable (3.3s)
+2026-11-09T22:37:12.2671374Z   ✓   37 [desktop-chromium] › tests/e2e/file-movement-migration.spec.ts:413:1 › Independent changed workflows distinguish graphical scripted copy hybrid sync and local cache without World credit (2.8s)
+2026-11-09T22:37:14.5372581Z   ✓   38 [desktop-chromium] › tests/e2e/final-quality-sprint.spec.ts:40:1 › final quality current Storage orientation and named build disclosure preserve Journal and keyboard access (2.3s)
+2026-11-09T22:37:16.2731620Z   ✓   39 [desktop-chromium] › tests/e2e/final-quality-sprint.spec.ts:70:1 › final quality current Compute and Cost summaries retain canonical Next Back Forward and reload without technical writes (1.7s)
+2026-11-09T22:37:20.5255870Z   ✓   40 [desktop-chromium] › tests/e2e/final-quality-sprint.spec.ts:100:1 › final quality security and monitoring display copy headings and Journal retain original numeric premises (4.2s)
+2026-11-09T22:37:23.9905439Z   ✓   41 [desktop-chromium] › tests/e2e/final-quality-sprint.spec.ts:142:1 › final quality actual peering and AVD runs explain selected failed premises without assessment or technical credit (3.5s)
+2026-11-09T22:37:26.6906375Z   ✓   42 [desktop-chromium] › tests/e2e/governance-compliance.spec.ts:147:1 › Governance follows Cost in path03 with exact assessment resume, sidebar history and non-completing navigation (2.7s)
+2026-11-09T22:37:30.1425833Z   ✓   43 [desktop-chromium] › tests/e2e/governance-compliance.spec.ts:189:1 › Data governance saves causal curation and separate source-access observations without changing Sandbox or earlier firsts (3.4s)
+2026-11-09T22:37:34.4419707Z   ✓   44 [desktop-chromium] › tests/e2e/governance-compliance.spec.ts:221:1 › Policy investigation uses unchanged real Portal denial, correction and receipts with a precise Governance return (4.3s)
+2026-11-09T22:37:38.4487601Z   ✓   45 [desktop-chromium] › tests/e2e/governance-compliance.spec.ts:295:1 › Lock investigation distinguishes modification, POST, data deletion and whole-group descendants without an operative lock (4.0s)
+2026-11-09T22:37:40.7467093Z   ✓   46 [desktop-chromium] › tests/e2e/governance-compliance.spec.ts:314:1 › Governance first submission, complete reason, durable Journal help and retry retain original classifications (2.3s)
+2026-11-09T22:37:43.1057377Z   ✓   47 [desktop-chromium] › tests/e2e/governance-compliance.spec.ts:341:1 › Governance denied assistance, already-open cross-tab Journal, Summary and Portal shielding stay fail-closed (2.3s)
+2026-11-09T22:37:45.5893072Z   ✓   48 [desktop-chromium] › tests/e2e/governance-compliance.spec.ts:391:1 › Old Policy receipts and corrupt scoped history cannot create new investigation credit or remove technical records (2.5s)
+2026-11-09T22:37:54.6717418Z   ✓   49 [desktop-chromium] › tests/e2e/governance-compliance.spec.ts:460:1 › Governance desktop and compact keyboard, short native briefing, semantic alternatives and reduced motion remain readable (9.1s)
+2026-11-09T22:37:55.6708987Z   ✓   50 [desktop-chromium] › tests/e2e/hybrid-experience.spec.ts:49:1 › hybrid actual Hub preserves three paths seventeen modules and authoritative Start without fictional completion (983ms)
+2026-11-09T22:37:57.3526870Z   ✓   51 [desktop-chromium] › tests/e2e/hybrid-experience.spec.ts:92:1 › Compute reading retains original manuscript examples limits and closed source selection with editorial identity and technical type (1.7s)
+2026-11-09T22:38:00.0252117Z   ✓   52 [desktop-chromium] › tests/e2e/hybrid-experience.spec.ts:117:1 › hybrid Container short-window keyboard result discovery uses accepted stored run and marks changed assumptions without technical writes (2.7s)
+2026-11-09T22:38:01.8461359Z   ✓   53 [desktop-chromium] › tests/e2e/hybrid-experience.spec.ts:170:1 › actual Compute Portal inspection follows original VM dependencies receipt and both course returns without a Designlab frame (1.8s)
+2026-11-09T22:38:04.9189197Z   ✓   54 [desktop-chromium] › tests/e2e/hybrid-experience.spec.ts:210:1 › enhanced normal motion preserves full-opacity text fixed Portal and actionable controls at authored start middle and end (3.1s)
+2026-11-09T22:38:06.8999362Z   ✓   55 [desktop-chromium] › tests/e2e/hybrid-experience.spec.ts:300:1 › hybrid actual Hub and theory retain exact independent resume and denied durable assistance shielding (2.0s)
+2026-11-09T22:38:09.1945167Z   ✓   56 [desktop-chromium] › tests/e2e/hybrid-experience.spec.ts:345:1 › hybrid desktop compact type keyboard native Journal short-height and reduced motion retain usable real course controls (2.3s)
+2026-11-09T22:38:13.1656203Z   ✓   57 [desktop-chromium] › tests/e2e/identity-foundations.spec.ts:97:1 › Identity follows Storage in one existing path with exact sidebar, Back/Forward, reload and non-completing navigation (3.9s)
+2026-11-09T22:38:17.0270647Z   ✓   58 [desktop-chromium] › tests/e2e/identity-foundations.spec.ts:161:1 › directory guide requires capability, credential, source and schema contrasts without a deployment or old-history credit (3.9s)
+2026-11-09T22:38:21.7942004Z   ✓   59 [desktop-chromium] › tests/e2e/identity-foundations.spec.ts:237:1 › sign-in guide separates SSO, different factors, passwordless and a paired app authorization change (4.8s)
+2026-11-09T22:38:26.4003921Z   ✓   60 [desktop-chromium] › tests/e2e/identity-foundations.spec.ts:255:1 › external guide separates home, resource, guest, customer and mutual shared-channel conditions (4.6s)
+2026-11-09T22:38:29.9245290Z   ✓   61 [desktop-chromium] › tests/e2e/identity-foundations.spec.ts:280:1 › paired firsts, Journal assistance, retry, historical feedback and exact independent resume remain distinct (3.5s)
+2026-11-09T22:38:32.1642734Z   ✓   62 [desktop-chromium] › tests/e2e/identity-foundations.spec.ts:324:1 › denied aid, already-open cross-tab Journal, Portal shielding and compare-before-delete recovery remain fail-closed (2.2s)
+2026-11-09T22:38:38.6930504Z   ✘   63 [desktop-chromium] › tests/e2e/identity-foundations.spec.ts:377:1 › Identity desktop and compact keyboard, semantic flows, reduced motion and short native briefing stay readable (6.4s)
+2026-11-09T22:38:46.3676434Z   ✘   64 [desktop-chromium] › tests/e2e/identity-foundations.spec.ts:377:1 › Identity desktop and compact keyboard, semantic flows, reduced motion and short native briefing stay readable (retry #1) (6.7s)
+2026-11-09T22:38:53.7661330Z   ✘   65 [desktop-chromium] › tests/e2e/identity-foundations.spec.ts:377:1 › Identity desktop and compact keyboard, semantic flows, reduced motion and short native briefing stay readable (retry #2) (6.6s)
+2026-11-09T22:38:55.7071945Z 
+2026-11-09T22:38:55.7074772Z   ✓   66 [desktop-chromium] › tests/e2e/laboratory-activation.spec.ts:79:1 › Stage1 BLOCKER: genuine old writer ignores a new Web Lock and separate epoch, while a simple source change is detected (774ms)
+2026-11-09T22:38:56.2226389Z   ✓   67 [desktop-chromium] › tests/e2e/laboratory-activation.spec.ts:134:1 › Stage1 BLOCKER: tombstone fencing can erase a genuine old accepted write between compare and fence (493ms)
+2026-11-09T22:38:57.2217458Z   ✓   68 [desktop-chromium] › tests/e2e/laboratory-activation.spec.ts:162:1 › Stage1 BLOCKER: real old writers produce byte-identical ABA source after candidate reload and defeat full-source comparison (982ms)
+2026-11-09T22:39:02.2277026Z   ✓   69 [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:79:1 › compute native Linux atomic VM NIC disk Properties networking original receipt reload and through preserve authoritative identities (4.9s)
+2026-11-09T22:39:06.2935124Z   ✓   70 [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:153:1 › compute native Windows profile and invalid reserved duplicate IP name and region reviews never create partial bundles (4.1s)
+2026-11-09T22:39:11.0562735Z   ✓   71 [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:205:1 › compute native two-tab stale review and lost response recover original three-resource commit without duplicate VMs (4.7s)
+2026-11-09T22:39:15.7249492Z   ✓   72 [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:249:1 › compute explicit reset retains historical through and course bytes while earlier workspace model stays unchanged (4.7s)
+2026-11-09T22:39:26.3894432Z   ✓   73 [desktop-chromium] › tests/e2e/laboratory-compute.spec.ts:296:1 › compute compact native keyboard Properties networking focus reduced motion Axe and original three-resource receipt remain usable (10.6s)
+2026-11-09T22:39:37.2545116Z   ✓   74 [desktop-chromium] › tests/e2e/laboratory-endpoints.spec.ts:126:1 › endpoint Laboratory native NIC subnet and NIC NSG layers explain1433 allow3389 deny priority alternate source UDP receipts reload and disassociation without course writes (10.8s)
+2026-11-09T22:39:41.4189654Z   ✓   75 [desktop-chromium] › tests/e2e/laboratory-endpoints.spec.ts:216:1 › endpoint Laboratory native invalid reserved duplicate IP incompatible region strict review and original receipts remain atomic (4.2s)
+2026-11-09T22:39:46.5370105Z   ✓   76 [desktop-chromium] › tests/e2e/laboratory-endpoints.spec.ts:253:1 › endpoint Laboratory real same-session tabs concurrent revision idempotency isolated cookie old v2 and read-only stale analysis stay conservative (5.1s)
+2026-11-09T22:39:52.6139875Z   ✓   77 [desktop-chromium] › tests/e2e/laboratory-endpoints.spec.ts:327:1 › endpoint Laboratory compact native keyboard Properties policy focus reduced motion Axe original receipts and short-height controls remain usable (6.1s)
+2026-11-09T22:39:57.6495991Z   ✓   78 [desktop-chromium] › tests/e2e/laboratory-endpoints.spec.ts:356:1 › endpoint Laboratory duplicate NIC IP and parent names in different RGs expose exact scope before selection and preserve distinct policy outcomes (5.0s)
+2026-11-09T22:40:11.2573923Z   ✓   79 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:254:1 › firewall native hub spoke inspection uses actual VM NICs, collection policy, original Firewall Public IP receipt and reload (13.6s)
+2026-11-09T22:40:25.0448470Z   ✓   80 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:303:1 › firewall native source UDR forwarding and return mutations expose the actual incomplete or dropped leg without starting traffic (13.8s)
+2026-11-09T22:40:38.7783994Z   ✓   81 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:356:1 › firewall native hierarchy priority default deny and NSG conflict retain concrete decisive rules and invalidate older analyses (13.7s)
+2026-11-09T22:40:45.0137123Z   ✓   82 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:415:1 › firewall native rejected Review validates subnet name profile scope next hop rule expressions and priority without persisting phantom resources (6.2s)
+2026-11-09T22:40:59.3029844Z   ✓   83 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:460:1 › firewall native same IP in overlapping hubs cannot be resolved by inventory identity or falsely reported as inspected success (14.3s)
+2026-11-09T22:41:07.2357763Z   ✓   84 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:513:1 › firewall compact native Policy Properties Review keyboard focus reduced motion Axe and short desktop keep real controls and evidence readable (7.9s)
+2026-11-09T22:41:11.6010429Z   ✓   85 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:554:1 › firewall native untouched dedicated subnet default matches posted Review and owning scope after an ordinary subnet in another group and region (4.4s)
+2026-11-09T22:41:13.3101345Z   ✓   86 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:625:1 › firewall shared Portal menu uses actual viewport during pending media delivery and Escape closes the drawer without technical writes (1.7s)
+2026-11-09T22:41:17.8847953Z   ✓   87 [desktop-chromium] › tests/e2e/laboratory-networking.spec.ts:73:1 › network Laboratory actual VNet two subnets NSG rule association Storage parent receipts and reload share one authoritative World (4.6s)
+2026-11-09T22:41:21.7888874Z   ✓   88 [desktop-chromium] › tests/e2e/laboratory-networking.spec.ts:132:1 › network Laboratory invalid overlap outside CIDR and duplicate directional priority explain rejection without partial creation (3.9s)
+2026-11-09T22:41:24.7922945Z   ✓   89 [desktop-chromium] › tests/e2e/laboratory-networking.spec.ts:173:1 › network Laboratory two real tabs persist competing commands stale denial and original command redelivery without lost network state (3.0s)
+2026-11-09T22:41:26.0106662Z   ✓   90 [desktop-chromium] › tests/e2e/laboratory-networking.spec.ts:225:1 › network Laboratory existing3.0 cookie retains original Storage history unsupported networking and model through explicit reset (1.2s)
+2026-11-09T22:41:31.6117254Z   ✓   91 [desktop-chromium] › tests/e2e/laboratory-networking.spec.ts:266:1 › network Laboratory short desktop keyboard focus reduced motion Axe resource forms and reset keep historical receipts accessible (5.6s)
+2026-11-09T22:41:35.4211190Z   ✓   92 [desktop-chromium] › tests/e2e/laboratory-networking.spec.ts:309:1 › network Laboratory duplicate parent names expose RG subscription and region before an explicit correct NSG association (3.8s)
+2026-11-09T22:41:39.9171627Z   ✓   93 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:114:1 › remediation Studio observation opens the actual NSG rule and native Review Save narrows policy without changing original identity or course storage (4.5s)
+2026-11-09T22:41:44.7576890Z   ✓   94 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:207:1 › remediation Firewall native edit and delete preserve nested collection action priority and original Create receipt with default deny and remaining rule matching (4.8s)
+2026-11-09T22:41:47.6851517Z   ✓   95 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:272:1 › remediation NSG Delete confirmation exact identity read-only Review historical through reset and original receipt remain verifiable (2.9s)
+2026-11-09T22:41:51.0096895Z   ✓   96 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:337:1 › remediation two native editors preserve pinned revisions reject stale saves and replay identical command IDs without lost updates (3.3s)
+2026-11-09T22:41:52.4694932Z   ✓   97 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:414:1 › remediation explicit new workspace preserves original3.5 rules receipts and course storage while creating empty3.7 only after confirmation (1.4s)
+2026-11-09T22:41:56.6256315Z   ✓   98 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:482:1 › remediation compact native Review keyboard focus reduced motion Axe pinned delete and short desktop preserve readable rule evidence (4.1s)
+2026-11-09T22:42:04.6521403Z   ✓   99 [desktop-chromium] › tests/e2e/laboratory-routing.spec.ts:100:1 › routing Laboratory native hub and spokes reciprocal peering routes association LPM receipts and reload remain one authoritative World (8.0s)
+2026-11-09T22:42:08.9052347Z   ✓  100 [desktop-chromium] › tests/e2e/laboratory-routing.spec.ts:173:1 › routing Laboratory overlapping peering duplicate direction invalid routes and incompatible association fail without partial creation (4.2s)
+2026-11-09T22:42:14.0124694Z   ✓  101 [desktop-chromium] › tests/e2e/laboratory-routing.spec.ts:277:1 › routing Laboratory two tabs stale revisions reset and original through preserve workspace and isolate another anonymous session (5.1s)
+2026-11-09T22:42:19.5662494Z   ✓  102 [desktop-chromium] › tests/e2e/laboratory-routing.spec.ts:333:1 › routing Laboratory compact native analysis keyboard reduced motion Axe properties review and original receipts stay accessible (5.5s)
+2026-11-09T22:42:22.5917877Z   ✓  103 [desktop-chromium] › tests/e2e/laboratory-server.spec.ts:50:1 › server Laboratory actual Storage chain commits escaped text metadata original receipts reload parent history and explicit reset without old-store writes (3.0s)
+2026-11-09T22:42:24.7353117Z   ✓  104 [desktop-chromium] › tests/e2e/laboratory-server.spec.ts:102:1 › server Laboratory two actual tabs with same cookie reject stale writer without lost update and preserve original idempotency (2.1s)
+2026-11-09T22:42:26.2450498Z   ✓  105 [desktop-chromium] › tests/e2e/laboratory-server.spec.ts:176:1 › server Laboratory lost response after real commit remains uncertain then retries same request without duplicate World or receipt (1.5s)
+2026-11-09T22:42:28.8123841Z   ✓  106 [desktop-chromium] › tests/e2e/laboratory-server.spec.ts:205:1 › server Laboratory private sessions cookies Origin and unknown session-ID inputs cannot select another workspace (2.6s)
+2026-11-09T22:42:32.2497145Z   ✓  107 [desktop-chromium] › tests/e2e/laboratory-server.spec.ts:242:1 › server Laboratory compact native keyboard short-height reduced motion Axe and actual Blob read remain usable (3.4s)
+2026-11-09T22:42:34.5586498Z   ✓  108 [desktop-chromium] › tests/e2e/laboratory-server.spec.ts:272:1 › server Laboratory separate v3 workspace leaves actual old v2 Portal writer and historical local records intact (2.3s)
+2026-11-09T22:42:37.3390983Z   ✓  109 [desktop-chromium] › tests/e2e/laboratory-server.spec.ts:306:1 › server Laboratory changed session invalidates reviewed intent and never retargets stale Create or Reset to replacement workspace (2.8s)
+2026-11-09T22:42:40.1675488Z   ✓  110 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:68:1 › Studio live hub topology reuses server Firewall NSG routes and original resource Properties with URL-only return and no inspection writes (2.8s)
+2026-11-09T22:42:43.8243825Z   ✓  111 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:130:1 › Studio refresh invalidates a real changed forwarding path and shows the concrete NSG conflict without manufacturing policy success (3.6s)
+2026-11-09T22:42:45.8666597Z   ✓  112 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:226:1 › Studio duplicate names filters peering status and broad Allow observations retain actual scope and identity (2.0s)
+2026-11-09T22:42:59.9967854Z   ✓  113 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:302:1 › Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes (14.1s)
+2026-11-09T22:43:01.3268366Z   ✓  114 [desktop-chromium] › tests/e2e/laboratory-studio.spec.ts:390:1 › Studio unavailable backend remains empty and historical Storage workspace is inspected without upgrade or new analysis commands (1.3s)
+2026-11-09T22:43:07.7133191Z   ✓  115 [desktop-chromium] › tests/e2e/laboratory-topology.spec.ts:90:1 › topology Studio wrong route opens the actual UDR native Review Save repairs Firewall next hop and LPM with stable identity original receipts and no course credit (6.4s)
+2026-11-09T22:43:10.5663709Z   ✓  116 [desktop-chromium] › tests/e2e/laboratory-topology.spec.ts:159:1 › topology native complete route validation rejects shared-table incompatible subnet prefix duplicate malformed and arbitrary appliance without a partial write (2.8s)
+2026-11-09T22:43:13.4217066Z   ✓  117 [desktop-chromium] › tests/e2e/laboratory-topology.spec.ts:203:1 › topology explicit subnet NSG disassociation retains NSG rules original association history and Studio removes only the actual attachment without a security score (2.8s)
+2026-11-09T22:43:16.9307463Z   ✓  118 [desktop-chromium] › tests/e2e/laboratory-topology.spec.ts:241:1 › topology peering access native edit keeps Connected remote flags and forwarding separate and revises server diagnostics conservatively without writes from inspection (3.5s)
+2026-11-09T22:43:19.8217539Z   ✓  119 [desktop-chromium] › tests/e2e/laboratory-topology.spec.ts:271:1 › topology two native editors reject stale Save idempotent redelivery and changed workspace without lost update or fake success (2.9s)
+2026-11-09T22:43:24.4327075Z   ✓  120 [desktop-chromium] › tests/e2e/laboratory-topology.spec.ts:335:1 › topology native short desktop Review keyboard focus reduced motion Axe and pinned disassociation preserve actual resource evidence (4.6s)
+2026-11-09T22:43:26.1001101Z   ✓  121 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:56:3 › Learning Flow compute: explicit briefing and real active guide control the shared primary action (1.6s)
+2026-11-09T22:43:27.8610889Z   ✓  122 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:56:3 › Learning Flow networking: explicit briefing and real active guide control the shared primary action (1.8s)
+2026-11-09T22:43:29.5527647Z   ✓  123 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:56:3 › Learning Flow connectivity: explicit briefing and real active guide control the shared primary action (1.7s)
+2026-11-09T22:43:31.1861902Z   ✓  124 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:56:3 › Learning Flow storage: explicit briefing and real active guide control the shared primary action (1.6s)
+2026-11-09T22:43:32.8704817Z   ✓  125 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:56:3 › Learning Flow storage-resilience: explicit briefing and real active guide control the shared primary action (1.7s)
+2026-11-09T22:43:33.3982870Z 
+2026-11-09T22:43:33.3990779Z 
+2026-11-09T22:43:33.4005141Z   1) [desktop-chromium] › tests/e2e/course-hub.spec.ts:493:1 › desktop compositions, collapsed hierarchy, short windows, keyboard, reduced motion and Sandbox return remain usable 
+2026-11-09T22:43:33.4006454Z 
+2026-11-09T22:43:33.4006682Z     Error: expect(locator).toBeInViewport() failed
+2026-11-09T22:43:33.4006964Z 
+2026-11-09T22:43:33.4007141Z     Locator:  locator('.learn-hub-path h3').nth(1)
+2026-11-09T22:43:33.4007587Z     Expected: in viewport
+2026-11-09T22:43:33.4008004Z     Received: viewport ratio 0
+2026-11-09T22:43:33.4008353Z     Timeout:  5000ms
+2026-11-09T22:43:33.4008580Z 
+2026-11-09T22:43:33.4008748Z     Call log:
+2026-11-09T22:43:33.4009464Z       - Expect "toBeInViewport" locator('.learn-hub-path h3').nth(1) with timeout 5000ms
+2026-11-09T22:43:33.4010163Z       - waiting for locator('.learn-hub-path h3').nth(1)
+2026-11-09T22:43:33.4011493Z         14 × locator resolved to <h3 id="learn-hub-architecture-title">Azure Architecture & Services</h3>
+2026-11-09T22:43:33.4012372Z            - unexpected value "viewport ratio 0"
+2026-11-09T22:43:33.4012753Z 
+2026-11-09T22:43:33.4012763Z 
+2026-11-09T22:43:33.4013022Z       508 |     if (width >= 1024 && height >= 768) {
+2026-11-09T22:43:33.4013829Z       509 |       for (const title of await page.locator('.learn-hub-path h3').all())
+2026-11-09T22:43:33.4014995Z     > 510 |         await expect(title).toBeInViewport();
+2026-11-09T22:43:33.4015669Z           |                             ^
+2026-11-09T22:43:33.4016109Z       511 |     }
+2026-11-09T22:43:33.4016865Z       512 |     await page.screenshot({ path: info.outputPath(`hub-${width}x${height}.png`) });
+2026-11-09T22:43:33.4017694Z       513 |     await audit(page);
+2026-11-09T22:43:33.4018537Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/course-hub.spec.ts:510:29
+2026-11-09T22:43:33.4019115Z 
+2026-11-09T22:43:33.4020380Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-2/test-results/course-hub-desktop-composi-0fd47-andbox-return-remain-usable-desktop-chromium/error-context.md
+2026-11-09T22:43:33.4021166Z 
+2026-11-09T22:43:33.4021688Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4022672Z     .artifacts/ci-shards/browser-42712267110-1-2/test-results/course-hub-desktop-composi-0fd47-andbox-return-remain-usable-desktop-chromium/trace.zip
+2026-11-09T22:43:33.4023787Z     Usage:
+2026-11-09T22:43:33.4023979Z 
+2026-11-09T22:43:33.4025258Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-2/test-results/course-hub-desktop-composi-0fd47-andbox-return-remain-usable-desktop-chromium/trace.zip
+2026-11-09T22:43:33.4026259Z 
+2026-11-09T22:43:33.4026697Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4027006Z 
+2026-11-09T22:43:33.4027372Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4027668Z 
+2026-11-09T22:43:33.4028028Z     Error: expect(locator).toBeInViewport() failed
+2026-11-09T22:43:33.4028280Z 
+2026-11-09T22:43:33.4028441Z     Locator:  locator('.learn-hub-path h3').nth(1)
+2026-11-09T22:43:33.4028756Z     Expected: in viewport
+2026-11-09T22:43:33.4029028Z     Received: viewport ratio 0
+2026-11-09T22:43:33.4029272Z     Timeout:  5000ms
+2026-11-09T22:43:33.4029421Z 
+2026-11-09T22:43:33.4029500Z     Call log:
+2026-11-09T22:43:33.4029915Z       - Expect "toBeInViewport" locator('.learn-hub-path h3').nth(1) with timeout 5000ms
+2026-11-09T22:43:33.4030442Z       - waiting for locator('.learn-hub-path h3').nth(1)
+2026-11-09T22:43:33.4031279Z         14 × locator resolved to <h3 id="learn-hub-architecture-title">Azure Architecture & Services</h3>
+2026-11-09T22:43:33.4031822Z            - unexpected value "viewport ratio 0"
+2026-11-09T22:43:33.4032036Z 
+2026-11-09T22:43:33.4032042Z 
+2026-11-09T22:43:33.4032245Z       508 |     if (width >= 1024 && height >= 768) {
+2026-11-09T22:43:33.4033049Z       509 |       for (const title of await page.locator('.learn-hub-path h3').all())
+2026-11-09T22:43:33.4033658Z     > 510 |         await expect(title).toBeInViewport();
+2026-11-09T22:43:33.4033983Z           |                             ^
+2026-11-09T22:43:33.4034583Z       511 |     }
+2026-11-09T22:43:33.4035362Z       512 |     await page.screenshot({ path: info.outputPath(`hub-${width}x${height}.png`) });
+2026-11-09T22:43:33.4036252Z       513 |     await audit(page);
+2026-11-09T22:43:33.4036838Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/course-hub.spec.ts:510:29
+2026-11-09T22:43:33.4037199Z 
+2026-11-09T22:43:33.4037956Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-2/test-results/course-hub-desktop-composi-0fd47-andbox-return-remain-usable-desktop-chromium-retry1/error-context.md
+2026-11-09T22:43:33.4038699Z 
+2026-11-09T22:43:33.4039171Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4040188Z     .artifacts/ci-shards/browser-42712267110-1-2/test-results/course-hub-desktop-composi-0fd47-andbox-return-remain-usable-desktop-chromium-retry1/trace.zip
+2026-11-09T22:43:33.4040926Z     Usage:
+2026-11-09T22:43:33.4041038Z 
+2026-11-09T22:43:33.4041794Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-2/test-results/course-hub-desktop-composi-0fd47-andbox-return-remain-usable-desktop-chromium-retry1/trace.zip
+2026-11-09T22:43:33.4042557Z 
+2026-11-09T22:43:33.4042914Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4043198Z 
+2026-11-09T22:43:33.4043553Z     Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4043844Z 
+2026-11-09T22:43:33.4044010Z     Error: expect(locator).toBeInViewport() failed
+2026-11-09T22:43:33.4044557Z 
+2026-11-09T22:43:33.4044719Z     Locator:  locator('.learn-hub-path h3').nth(1)
+2026-11-09T22:43:33.4045039Z     Expected: in viewport
+2026-11-09T22:43:33.4045310Z     Received: viewport ratio 0
+2026-11-09T22:43:33.4045554Z     Timeout:  5000ms
+2026-11-09T22:43:33.4045691Z 
+2026-11-09T22:43:33.4045779Z     Call log:
+2026-11-09T22:43:33.4046186Z       - Expect "toBeInViewport" locator('.learn-hub-path h3').nth(1) with timeout 5000ms
+2026-11-09T22:43:33.4046931Z       - waiting for locator('.learn-hub-path h3').nth(1)
+2026-11-09T22:43:33.4047616Z         14 × locator resolved to <h3 id="learn-hub-architecture-title">Azure Architecture & Services</h3>
+2026-11-09T22:43:33.4048157Z            - unexpected value "viewport ratio 0"
+2026-11-09T22:43:33.4048368Z 
+2026-11-09T22:43:33.4048374Z 
+2026-11-09T22:43:33.4048519Z       508 |     if (width >= 1024 && height >= 768) {
+2026-11-09T22:43:33.4048969Z       509 |       for (const title of await page.locator('.learn-hub-path h3').all())
+2026-11-09T22:43:33.4049425Z     > 510 |         await expect(title).toBeInViewport();
+2026-11-09T22:43:33.4049760Z           |                             ^
+2026-11-09T22:43:33.4050015Z       511 |     }
+2026-11-09T22:43:33.4050562Z       512 |     await page.screenshot({ path: info.outputPath(`hub-${width}x${height}.png`) });
+2026-11-09T22:43:33.4051030Z       513 |     await audit(page);
+2026-11-09T22:43:33.4051506Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/course-hub.spec.ts:510:29
+2026-11-09T22:43:33.4051878Z 
+2026-11-09T22:43:33.4052681Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-2/test-results/course-hub-desktop-composi-0fd47-andbox-return-remain-usable-desktop-chromium-retry2/error-context.md
+2026-11-09T22:43:33.4053967Z 
+2026-11-09T22:43:33.4054980Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4056661Z     .artifacts/ci-shards/browser-42712267110-1-2/test-results/course-hub-desktop-composi-0fd47-andbox-return-remain-usable-desktop-chromium-retry2/trace.zip
+2026-11-09T22:43:33.4057937Z     Usage:
+2026-11-09T22:43:33.4058123Z 
+2026-11-09T22:43:33.4059495Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-2/test-results/course-hub-desktop-composi-0fd47-andbox-return-remain-usable-desktop-chromium-retry2/trace.zip
+2026-11-09T22:43:33.4060299Z 
+2026-11-09T22:43:33.4060734Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4061048Z 
+2026-11-09T22:43:33.4061898Z   2) [desktop-chromium] › tests/e2e/identity-foundations.spec.ts:377:1 › Identity desktop and compact keyboard, semantic flows, reduced motion and short native briefing stay readable 
+2026-11-09T22:43:33.4062643Z 
+2026-11-09T22:43:33.4062822Z     Error: expect(locator).toHaveCSS(expected) failed
+2026-11-09T22:43:33.4063050Z 
+2026-11-09T22:43:33.4063503Z     Locator:  locator('.identity-workbench').getByRole('button', { name: 'Kjør modellen', exact: true })
+2026-11-09T22:43:33.4064009Z     Expected: "rgb(7, 85, 149)"
+2026-11-09T22:43:33.4064613Z     Received: "rgb(89, 25, 184)"
+2026-11-09T22:43:33.4064875Z     Timeout:  5000ms
+2026-11-09T22:43:33.4065026Z 
+2026-11-09T22:43:33.4065106Z     Call log:
+2026-11-09T22:43:33.4066209Z       - Expect "toHaveCSS" locator('.identity-workbench').getByRole('button', { name: 'Kjør modellen', exact: true }) with timeout 5000ms
+2026-11-09T22:43:33.4067370Z       - waiting for locator('.identity-workbench').getByRole('button', { name: 'Kjør modellen', exact: true })
+2026-11-09T22:43:33.4068373Z         14 × locator resolved to <button class="compute-primary">Kjør modellen</button>
+2026-11-09T22:43:33.4068856Z            - unexpected value "rgb(89, 25, 184)"
+2026-11-09T22:43:33.4069061Z 
+2026-11-09T22:43:33.4069068Z 
+2026-11-09T22:43:33.4069188Z       398 |     await button.hover();
+2026-11-09T22:43:33.4069596Z       399 |     await expect(button).toHaveCSS('color', 'rgb(255, 255, 255)');
+2026-11-09T22:43:33.4070127Z     > 400 |     await expect(button).toHaveCSS('background-color', 'rgb(7, 85, 149)');
+2026-11-09T22:43:33.4070543Z           |                          ^
+2026-11-09T22:43:33.4071115Z       401 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+2026-11-09T22:43:33.4071563Z       402 |     await button.focus();
+2026-11-09T22:43:33.4071934Z       403 |     await expect(button).toHaveCSS('outline-width', '3px');
+2026-11-09T22:43:33.4072551Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/identity-foundations.spec.ts:400:26
+2026-11-09T22:43:33.4072953Z 
+2026-11-09T22:43:33.4073659Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-2/test-results/identity-foundations-Ident-4172d-tive-briefing-stay-readable-desktop-chromium/error-context.md
+2026-11-09T22:43:33.4074674Z 
+2026-11-09T22:43:33.4075109Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4076067Z     .artifacts/ci-shards/browser-42712267110-1-2/test-results/identity-foundations-Ident-4172d-tive-briefing-stay-readable-desktop-chromium/trace.zip
+2026-11-09T22:43:33.4076763Z     Usage:
+2026-11-09T22:43:33.4076874Z 
+2026-11-09T22:43:33.4077596Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-2/test-results/identity-foundations-Ident-4172d-tive-briefing-stay-readable-desktop-chromium/trace.zip
+2026-11-09T22:43:33.4078327Z 
+2026-11-09T22:43:33.4078677Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4078975Z 
+2026-11-09T22:43:33.4079325Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4079612Z 
+2026-11-09T22:43:33.4079782Z     Error: expect(locator).toHaveCSS(expected) failed
+2026-11-09T22:43:33.4080011Z 
+2026-11-09T22:43:33.4080436Z     Locator:  locator('.identity-workbench').getByRole('button', { name: 'Kjør modellen', exact: true })
+2026-11-09T22:43:33.4080945Z     Expected: "rgb(7, 85, 149)"
+2026-11-09T22:43:33.4081216Z     Received: "rgb(89, 25, 184)"
+2026-11-09T22:43:33.4081457Z     Timeout:  5000ms
+2026-11-09T22:43:33.4081591Z 
+2026-11-09T22:43:33.4081685Z     Call log:
+2026-11-09T22:43:33.4082355Z       - Expect "toHaveCSS" locator('.identity-workbench').getByRole('button', { name: 'Kjør modellen', exact: true }) with timeout 5000ms
+2026-11-09T22:43:33.4083295Z       - waiting for locator('.identity-workbench').getByRole('button', { name: 'Kjør modellen', exact: true })
+2026-11-09T22:43:33.4084538Z         14 × locator resolved to <button class="compute-primary">Kjør modellen</button>
+2026-11-09T22:43:33.4085052Z            - unexpected value "rgb(89, 25, 184)"
+2026-11-09T22:43:33.4085269Z 
+2026-11-09T22:43:33.4085275Z 
+2026-11-09T22:43:33.4085399Z       398 |     await button.hover();
+2026-11-09T22:43:33.4085811Z       399 |     await expect(button).toHaveCSS('color', 'rgb(255, 255, 255)');
+2026-11-09T22:43:33.4086359Z     > 400 |     await expect(button).toHaveCSS('background-color', 'rgb(7, 85, 149)');
+2026-11-09T22:43:33.4086783Z           |                          ^
+2026-11-09T22:43:33.4087227Z       401 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+2026-11-09T22:43:33.4087667Z       402 |     await button.focus();
+2026-11-09T22:43:33.4088051Z       403 |     await expect(button).toHaveCSS('outline-width', '3px');
+2026-11-09T22:43:33.4088665Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/identity-foundations.spec.ts:400:26
+2026-11-09T22:43:33.4089075Z 
+2026-11-09T22:43:33.4089822Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-2/test-results/identity-foundations-Ident-4172d-tive-briefing-stay-readable-desktop-chromium-retry1/error-context.md
+2026-11-09T22:43:33.4090553Z 
+2026-11-09T22:43:33.4090966Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4091955Z     .artifacts/ci-shards/browser-42712267110-1-2/test-results/identity-foundations-Ident-4172d-tive-briefing-stay-readable-desktop-chromium-retry1/trace.zip
+2026-11-09T22:43:33.4092694Z     Usage:
+2026-11-09T22:43:33.4092799Z 
+2026-11-09T22:43:33.4093703Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-2/test-results/identity-foundations-Ident-4172d-tive-briefing-stay-readable-desktop-chromium-retry1/trace.zip
+2026-11-09T22:43:33.4094762Z 
+2026-11-09T22:43:33.4095146Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4095450Z 
+2026-11-09T22:43:33.4095808Z     Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4096101Z 
+2026-11-09T22:43:33.4096275Z     Error: expect(locator).toHaveCSS(expected) failed
+2026-11-09T22:43:33.4096498Z 
+2026-11-09T22:43:33.4096927Z     Locator:  locator('.identity-workbench').getByRole('button', { name: 'Kjør modellen', exact: true })
+2026-11-09T22:43:33.4097433Z     Expected: "rgb(7, 85, 149)"
+2026-11-09T22:43:33.4097808Z     Received: "rgb(89, 25, 184)"
+2026-11-09T22:43:33.4098058Z     Timeout:  5000ms
+2026-11-09T22:43:33.4098194Z 
+2026-11-09T22:43:33.4098277Z     Call log:
+2026-11-09T22:43:33.4098972Z       - Expect "toHaveCSS" locator('.identity-workbench').getByRole('button', { name: 'Kjør modellen', exact: true }) with timeout 5000ms
+2026-11-09T22:43:33.4099925Z       - waiting for locator('.identity-workbench').getByRole('button', { name: 'Kjør modellen', exact: true })
+2026-11-09T22:43:33.4100680Z         14 × locator resolved to <button class="compute-primary">Kjør modellen</button>
+2026-11-09T22:43:33.4101141Z            - unexpected value "rgb(89, 25, 184)"
+2026-11-09T22:43:33.4101345Z 
+2026-11-09T22:43:33.4101351Z 
+2026-11-09T22:43:33.4101476Z       398 |     await button.hover();
+2026-11-09T22:43:33.4101874Z       399 |     await expect(button).toHaveCSS('color', 'rgb(255, 255, 255)');
+2026-11-09T22:43:33.4102405Z     > 400 |     await expect(button).toHaveCSS('background-color', 'rgb(7, 85, 149)');
+2026-11-09T22:43:33.4102823Z           |                          ^
+2026-11-09T22:43:33.4103262Z       401 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+2026-11-09T22:43:33.4103697Z       402 |     await button.focus();
+2026-11-09T22:43:33.4104069Z       403 |     await expect(button).toHaveCSS('outline-width', '3px');
+2026-11-09T22:43:33.4104947Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/identity-foundations.spec.ts:400:26
+2026-11-09T22:43:33.4105533Z 
+2026-11-09T22:43:33.4106285Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-2/test-results/identity-foundations-Ident-4172d-tive-briefing-stay-readable-desktop-chromium-retry2/error-context.md
+2026-11-09T22:43:33.4107022Z 
+2026-11-09T22:43:33.4107439Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4108427Z     .artifacts/ci-shards/browser-42712267110-1-2/test-results/identity-foundations-Ident-4172d-tive-briefing-stay-readable-desktop-chromium-retry2/trace.zip
+2026-11-09T22:43:33.4109429Z     Usage:
+2026-11-09T22:43:33.4109548Z 
+2026-11-09T22:43:33.4110453Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-2/test-results/identity-foundations-Ident-4172d-tive-briefing-stay-readable-desktop-chromium-retry2/trace.zip
+2026-11-09T22:43:33.4111222Z 
+2026-11-09T22:43:33.4111583Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:43:33.4111883Z 
+2026-11-09T22:43:33.4111964Z   2 failed
+2026-11-09T22:43:33.4112833Z     [desktop-chromium] › tests/e2e/course-hub.spec.ts:493:1 › desktop compositions, collapsed hierarchy, short windows, keyboard, reduced motion and Sandbox return remain usable 
+2026-11-09T22:43:33.4114539Z     [desktop-chromium] › tests/e2e/identity-foundations.spec.ts:377:1 › Identity desktop and compact keyboard, semantic flows, reduced motion and short native briefing stay readable 
+2026-11-09T22:43:33.4115320Z   119 passed (9.4m)
+2026-11-09T22:43:33.8731961Z Shard evidence: /home/runner/work/Azure-learner/Azure-learner/.artifacts/ci-shards/browser-42712267110-1-2; failed
+2026-11-09T22:43:33.8858553Z ##[error]Process completed with exit code 1.
+2026-11-09T22:43:33.8952316Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-09T22:43:33.8952743Z with:
+2026-11-09T22:43:33.8952950Z   name: browser-42712267110-1-2
+2026-11-09T22:43:33.8953263Z   path: .artifacts/ci-shards/browser-42712267110-1-2/
+2026-11-09T22:43:33.8953577Z   include-hidden-files: true
+2026-11-09T22:43:33.8953821Z   if-no-files-found: error
+2026-11-09T22:43:33.8954054Z   retention-days: 7
+2026-11-09T22:43:33.8954608Z   compression-level: 6
+2026-11-09T22:43:33.8954826Z   overwrite: false
+2026-11-09T22:43:33.8955022Z   archive: true
+2026-11-09T22:43:33.8955219Z env:
+2026-11-09T22:43:33.8955744Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:43:33.8956353Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:43:33.8956946Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:43:33.8957582Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:43:33.8957967Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:43:33.8958256Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:43:33.8958499Z ##[endgroup]
+2026-11-09T22:43:34.1041073Z With the provided path, there will be 168 files uploaded
+2026-11-09T22:43:34.1047460Z Artifact name is valid!
+2026-11-09T22:43:34.1048229Z Root directory input is valid!
+2026-11-09T22:43:34.4467868Z Uploading artifact: browser-42712267110-1-2.zip
+2026-11-09T22:43:34.4506825Z Beginning upload of artifact content to blob storage
+2026-11-09T22:43:35.5152028Z Uploaded bytes 8388608
+2026-11-09T22:43:35.8132647Z Uploaded bytes 16777216
+2026-11-09T22:43:35.9758116Z Uploaded bytes 25165824
+2026-11-09T22:43:36.1399990Z Uploaded bytes 33554432
+2026-11-09T22:43:36.2222921Z Uploaded bytes 41943040
+2026-11-09T22:43:36.3224927Z Uploaded bytes 43253757
+2026-11-09T22:43:36.3858620Z Finished uploading artifact content to blob storage!
+2026-11-09T22:43:36.3867060Z SHA256 digest of uploaded artifact is d51b97ed7923bc33bb94ac6eec5c88ea03c9b1c22ab0508dbdb7562153d9b55f
+2026-11-09T22:43:36.3869623Z Finalizing artifact upload
+2026-11-09T22:43:36.8851517Z Artifact browser-42712267110-1-2 successfully finalized. Artifact ID 13716673396
+2026-11-09T22:43:36.8853059Z Artifact browser-42712267110-1-2 has been successfully uploaded! Final size is 43253757 bytes. Artifact ID is 13716673396
+2026-11-09T22:43:36.8858530Z Artifact download URL: https://github.com/EspzY/Azure-learner/actions/runs/42712267110/artifacts/13716673396
+2026-11-09T22:43:36.9163251Z Post job cleanup.
+2026-11-09T22:43:37.0082073Z [command]/usr/bin/git version
+2026-11-09T22:43:37.0133224Z git version 2.56.0
+2026-11-09T22:43:37.0172130Z Temporarily overriding HOME='/home/runner/work/_temp/757b2d87-82d6-4a3f-9b14-fdaa3389bfbf' before making global git config changes
+2026-11-09T22:43:37.0173699Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-09T22:43:37.0179088Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Azure-learner/Azure-learner
+2026-11-09T22:43:37.0219494Z Removing SSH command configuration
+2026-11-09T22:43:37.0226818Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-09T22:43:37.0270316Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-09T22:43:37.0548847Z Removing HTTP extra header
+2026-11-09T22:43:37.0556267Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-09T22:43:37.0600964Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-09T22:43:37.0894473Z Removing includeIf entries pointing to credentials config files
+2026-11-09T22:43:37.0901788Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-09T22:43:37.0939247Z includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git.path
+2026-11-09T22:43:37.0940733Z includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git/worktrees/*.path
+2026-11-09T22:43:37.0942041Z includeif.gitdir:/github/workspace/.git.path
+2026-11-09T22:43:37.0943126Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-09T22:43:37.0951130Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git.path
+2026-11-09T22:43:37.0986134Z /home/runner/work/_temp/git-credentials-09ec0ac1-1e25-4a36-81e7-3901018028e4.config
+2026-11-09T22:43:37.1008879Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-09ec0ac1\-1e25\-4a36\-81e7\-3901018028e4\.config
+2026-11-09T22:43:37.1079763Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git/worktrees/*.path
+2026-11-09T22:43:37.1136855Z /home/runner/work/_temp/git-credentials-09ec0ac1-1e25-4a36-81e7-3901018028e4.config
+2026-11-09T22:43:37.1154815Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-09ec0ac1\-1e25\-4a36\-81e7\-3901018028e4\.config
+2026-11-09T22:43:37.1239004Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-09T22:43:37.1268644Z /github/runner_temp/git-credentials-09ec0ac1-1e25-4a36-81e7-3901018028e4.config
+2026-11-09T22:43:37.1283221Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-09ec0ac1\-1e25\-4a36\-81e7\-3901018028e4\.config
+2026-11-09T22:43:37.1344629Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-09T22:43:37.1381877Z /github/runner_temp/git-credentials-09ec0ac1-1e25-4a36-81e7-3901018028e4.config
+2026-11-09T22:43:37.1391766Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-09ec0ac1\-1e25\-4a36\-81e7\-3901018028e4\.config
+2026-11-09T22:43:37.1444779Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-09T22:43:37.1717380Z Removing credentials config '/home/runner/work/_temp/git-credentials-09ec0ac1-1e25-4a36-81e7-3901018028e4.config'
+2026-11-09T22:43:37.1867256Z Print service container logs: 714fb4a3967341b88694710924df8279_postgres17bookwormsha256665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994_85c372
+2026-11-09T22:43:37.1871910Z ##[command]/usr/bin/docker logs --details 27455cdf1483ea85fd7b3d936108b3fa24fba19ee140526f2cbc33746a515e4e
+2026-11-09T22:43:37.2031135Z  The files belonging to this database system will be owned by user "postgres".
+2026-11-09T22:43:37.2032333Z  This user must also own the server process.
+2026-11-09T22:43:37.2033120Z  
+2026-11-09T22:43:37.2033621Z  The database cluster will be initialized with locale "en_US.utf8".
+2026-11-09T22:43:37.2035572Z  The default database encoding has accordingly been set to "UTF8".
+2026-11-09T22:43:37.2036375Z  The default text search configuration will be set to "english".
+2026-11-09T22:43:37.2036987Z  
+2026-11-09T22:43:37.2037342Z  Data page checksums are disabled.
+2026-11-09T22:43:37.2037801Z  
+2026-11-09T22:43:37.2038448Z  fixing permissions on existing directory /var/lib/postgresql/data ... ok
+2026-11-09T22:43:37.2039163Z  creating subdirectories ... ok
+2026-11-09T22:43:37.2039727Z  selecting dynamic shared memory implementation ... posix
+2026-11-09T22:43:37.2040338Z  selecting default "max_connections" ... 100
+2026-11-09T22:43:37.2040879Z  selecting default "shared_buffers" ... 128MB
+2026-11-09T22:43:37.2041394Z  selecting default time zone ... Etc/UTC
+2026-11-09T22:43:37.2041882Z  creating configuration files ... ok
+2026-11-09T22:43:37.2042360Z  running bootstrap script ... ok
+2026-11-09T22:43:37.2042870Z  performing post-bootstrap initialization ... ok
+2026-11-09T22:43:37.2043419Z  syncing data to disk ... ok
+2026-11-09T22:43:37.2043814Z  
+2026-11-09T22:43:37.2044397Z  
+2026-11-09T22:43:37.2044681Z  Success. You can now start the database server using:
+2026-11-09T22:43:37.2045008Z  
+2026-11-09T22:43:37.2045270Z      pg_ctl -D /var/lib/postgresql/data -l logfile start
+2026-11-09T22:43:37.2045588Z  
+2026-11-09T22:43:37.2046319Z  waiting for server to start....2026-11-09 22:32:18.852 UTC [48] LOG:  starting PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+2026-11-09T22:43:37.2047273Z  2026-11-09 22:32:18.853 UTC [48] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-11-09T22:43:37.2047858Z  2026-11-09 22:32:18.856 UTC [51] LOG:  database system was shut down at 2026-11-09 22:32:18 UTC
+2026-11-09T22:43:37.2048422Z  2026-11-09 22:32:18.860 UTC [48] LOG:  database system is ready to accept connections
+2026-11-09T22:43:37.2048817Z   done
+2026-11-09T22:43:37.2049003Z  server started
+2026-11-09T22:43:37.2049208Z  CREATE DATABASE
+2026-11-09T22:43:37.2049411Z  
+2026-11-09T22:43:37.2049582Z  
+2026-11-09T22:43:37.2049914Z  /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+2026-11-09T22:43:37.2050318Z  
+2026-11-09T22:43:37.2050686Z  waiting for server to shut down...2026-11-09 22:32:19.042 UTC [48] LOG:  received fast shutdown request
+2026-11-09T22:43:37.2052510Z  initdb: warning: enabling "trust" authentication for local connections
+2026-11-09T22:43:37.2054538Z  .2026-11-09 22:32:19.043 UTC [48] LOG:  aborting any active transactions
+2026-11-09T22:43:37.2055755Z  initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+2026-11-09T22:43:37.2056800Z  2026-11-09 22:32:19.174 UTC [1] LOG:  starting PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+2026-11-09T22:43:37.2057605Z  2026-11-09 22:32:19.174 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-11-09T22:43:37.2058470Z  2026-11-09 22:32:19.174 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2026-11-09T22:43:37.2059012Z  2026-11-09 22:32:19.175 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-11-09T22:43:37.2059938Z  2026-11-09 22:32:19.179 UTC [64] LOG:  database system was shut down at 2026-11-09 22:32:19 UTC
+2026-11-09T22:43:37.2060480Z  2026-11-09 22:32:19.184 UTC [1] LOG:  database system is ready to accept connections
+2026-11-09T22:43:37.2060933Z  2026-11-09 22:37:19.278 UTC [62] LOG:  checkpoint starting: time
+2026-11-09T22:43:37.2062023Z  2026-11-09 22:39:06.860 UTC [62] LOG:  checkpoint complete: wrote 1077 buffers (6.6%); 1 WAL file(s) added, 0 removed, 0 recycled; write=107.567 s, sync=0.005 s, total=107.583 s; sync files=392, longest=0.001 s, average=0.001 s; distance=5001 kB, estimate=5001 kB; lsn=0/1DF6EF8, redo lsn=0/1DED008
+2026-11-09T22:43:37.2063124Z  2026-11-09 22:42:19.960 UTC [62] LOG:  checkpoint starting: time
+2026-11-09T22:43:37.2064474Z  2026-11-09 22:42:39.311 UTC [62] LOG:  checkpoint complete: wrote 194 buffers (1.2%); 0 WAL file(s) added, 0 removed, 0 recycled; write=19.346 s, sync=0.003 s, total=19.352 s; sync files=29, longest=0.002 s, average=0.001 s; distance=1971 kB, estimate=4698 kB; lsn=0/2016440, redo lsn=0/1FD9F58
+2026-11-09T22:43:37.2065833Z  2026-11-09 22:32:19.046 UTC [48] LOG:  background worker "logical replication launcher" (PID 54) exited with exit code 1
+2026-11-09T22:43:37.2066392Z  2026-11-09 22:32:19.046 UTC [49] LOG:  shutting down
+2026-11-09T22:43:37.2066797Z  2026-11-09 22:32:19.047 UTC [49] LOG:  checkpoint starting: shutdown immediate
+2026-11-09T22:43:37.2067891Z  2026-11-09 22:32:19.067 UTC [49] LOG:  checkpoint complete: wrote 921 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.015 s, sync=0.005 s, total=0.021 s; sync files=301, longest=0.003 s, average=0.001 s; distance=4238 kB, estimate=4238 kB; lsn=0/190A9C8, redo lsn=0/190A9C8
+2026-11-09T22:43:37.2068959Z  2026-11-09 22:32:19.075 UTC [48] LOG:  database system is shut down
+2026-11-09T22:43:37.2069298Z   done
+2026-11-09T22:43:37.2069486Z  server stopped
+2026-11-09T22:43:37.2069678Z  
+2026-11-09T22:43:37.2069917Z  PostgreSQL init process complete; ready for start up.
+2026-11-09T22:43:37.2070220Z  
+2026-11-09T22:43:37.2076663Z Stop and remove container: 714fb4a3967341b88694710924df8279_postgres17bookwormsha256665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994_85c372
+2026-11-09T22:43:37.2082301Z ##[command]/usr/bin/docker rm --force 27455cdf1483ea85fd7b3d936108b3fa24fba19ee140526f2cbc33746a515e4e
+2026-11-09T22:43:37.3619132Z 27455cdf1483ea85fd7b3d936108b3fa24fba19ee140526f2cbc33746a515e4e
+2026-11-09T22:43:37.3649972Z Remove container network: github_network_77e8231d42d0449198a724275d3ea0f9
+2026-11-09T22:43:37.3655057Z ##[command]/usr/bin/docker network rm github_network_77e8231d42d0449198a724275d3ea0f9
+2026-11-09T22:43:37.4662844Z github_network_77e8231d42d0449198a724275d3ea0f9
+2026-11-09T22:43:37.4743986Z Cleaning up orphan processes

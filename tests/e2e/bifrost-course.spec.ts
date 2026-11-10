@@ -7,6 +7,8 @@ import {
   managementNb,
   refinedAssessmentNb,
   serverlessNb,
+  transferNb,
+  toolsNb,
 } from '../../src/content/nb';
 import { themeCopy } from '../../src/features/design/theme-copy';
 import { sandboxKey } from '../../src/domain/sandbox/store';
@@ -580,3 +582,115 @@ for (const mode of ['light', 'dark'] as const) {
     await expect(page.locator('.bifrost-guide-island, .savvy')).toHaveCount(0);
   });
 }
+
+test('Bifrost activated Transfer scenario and permitted submitted feedback retain contrast in both themes', async ({
+  browser,
+}, info) => {
+  for (const mode of ['light', 'dark'] as const) {
+    const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+    try {
+      const page = await context.newPage();
+      await page.goto(`${info.project.use.baseURL}/learn`);
+      await theme(page, mode);
+      const before = await technical(page);
+      await page.goto(`${info.project.use.baseURL}/learn/computing?topic=transfer`);
+      await expect(page.locator('html')).toHaveAttribute('data-bf-theme', mode);
+      await page
+        .locator('.transfer-workspace')
+        .getByRole('button', { name: transferNb.start, exact: true })
+        .click();
+      await page
+        .getByRole('dialog')
+        .getByRole('button', { name: transferNb.start, exact: true })
+        .click();
+      await expect(page.locator('.transfer-scenario')).toBeVisible();
+      expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+      await page.locator('.transfer-response input[name="decision"][value="0"]').check();
+      await page.locator('.transfer-response input[name="reason"][value="0"]').check();
+      await page.getByRole('button', { name: transferNb.submit, exact: true }).click();
+      await expect(page.locator('.transfer-feedback')).toBeVisible();
+      await expect(page.locator('.transfer-feedback .transfer-selected')).toHaveCount(2);
+      expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+      expect(await technical(page)).toEqual(before);
+      await page.screenshot({ path: info.outputPath(`${mode}-activated-transfer-feedback.png`) });
+    } finally {
+      await context.close();
+    }
+  }
+});
+
+test('Bifrost activated Serverless controls observation and pipeline retain contrast in both themes', async ({
+  browser,
+}, info) => {
+  for (const mode of ['light', 'dark'] as const) {
+    const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+    try {
+      const page = await context.newPage();
+      await page.goto(`${info.project.use.baseURL}/learn`);
+      await theme(page, mode);
+      const before = await technical(page);
+      await page.goto(`${info.project.use.baseURL}/learn/computing?topic=serverless-explorer`);
+      await expect(page.locator('html')).toHaveAttribute('data-bf-theme', mode);
+      await page
+        .locator('.sl-explorer')
+        .getByRole('button', { name: serverlessNb.start, exact: true })
+        .click();
+      await page
+        .getByRole('dialog')
+        .getByRole('button', { name: serverlessNb.start, exact: true })
+        .click();
+      await page.getByRole('spinbutton', { name: serverlessNb.prediction, exact: true }).fill('3');
+      await page.getByRole('button', { name: serverlessNb.run, exact: true }).click();
+      await expect(page.getByRole('dialog')).toContainText(serverlessNb.milestone.title);
+      await page.keyboard.press('Escape');
+      await expect(page.getByRole('button', { name: serverlessNb.run, exact: true })).toBeFocused();
+      await expect(page.locator('.sl-controls')).toBeVisible();
+      await expect(page.locator('.sl-observation')).toContainText(`${serverlessNb.observed}: 4`);
+      await expect(page.locator('.sl-pipeline')).toBeVisible();
+      expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+      expect(await technical(page)).toEqual(before);
+      await page.screenshot({ path: info.outputPath(`${mode}-activated-serverless.png`) });
+    } finally {
+      await context.close();
+    }
+  }
+});
+
+test('Bifrost activated Arc perspective topology and recorded facts retain contrast in both themes', async ({
+  browser,
+}, info) => {
+  for (const mode of ['light', 'dark'] as const) {
+    const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+    try {
+      const page = await context.newPage();
+      await page.goto(`${info.project.use.baseURL}/learn`);
+      await theme(page, mode);
+      const before = await technical(page);
+      await page.goto(
+        `${info.project.use.baseURL}/learn/management-tools?topic=studio&perspective=arc`,
+      );
+      await expect(page.locator('html')).toHaveAttribute('data-bf-theme', mode);
+      const bench = page.locator('.tools-workbench');
+      await bench.getByRole('button', { name: toolsNb.labels.begin, exact: true }).click();
+      await page
+        .getByRole('dialog')
+        .getByRole('button', { name: serverlessNb.start, exact: true })
+        .click();
+      await bench
+        .getByRole('combobox', { name: toolsNb.controls.approach, exact: true })
+        .selectOption('servers');
+      await bench
+        .getByRole('combobox', { name: toolsNb.labels.predict, exact: true })
+        .selectOption('1');
+      await bench.getByRole('button', { name: toolsNb.labels.run, exact: true }).click();
+      await expect(bench.locator('.compute-observation')).toBeVisible();
+      await expect(page.locator('.tools-physical-lanes .tools-active-location')).toHaveCount(1);
+      expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+      expect(await technical(page)).toEqual(before);
+      await page.locator('.tools-arc-map').scrollIntoViewIfNeeded();
+      await page.screenshot({ path: info.outputPath(`${mode}-activated-arc.png`) });
+    } finally {
+      await context.close();
+    }
+  }
+});

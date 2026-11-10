@@ -29,6 +29,9 @@ const approved = [
   'src/features/learning/journal.tsx',
   'src/features/learning/networking-inspection.tsx',
   'tests/e2e/hybrid-experience.spec.ts',
+  'tests/e2e/storage-resilience.spec.ts',
+  'tests/e2e/identity-foundations.spec.ts',
+  'tests/e2e/storage-services.spec.ts',
   'tests/bifrost-foundation-preservation.ts',
   'src/features/design/preservation.test.ts',
   'src/features/course/hybrid-foundation.test.ts',
@@ -103,6 +106,49 @@ const additions = [
   'docs/reviews/evidence/bifrost-course/qa/final-warning-two-cases.txt',
   'docs/reviews/evidence/bifrost-course/qa/final-case-plan.txt',
   'docs/reviews/evidence/bifrost-course/ci-preservation.json',
+  'docs/reviews/evidence/bifrost-course/ci-browser-regressions.json',
+  'docs/screenshots/bifrost-course/ci130-before-dark-transfer-started.png',
+  'docs/screenshots/bifrost-course/ci130-before-dark-transfer-feedback.png',
+  'docs/screenshots/bifrost-course/ci130-before-dark-serverless-controls.png',
+  'docs/screenshots/bifrost-course/ci130-before-dark-arc.png',
+  'docs/screenshots/bifrost-course/ci130-after-light-hub-1024x500.png',
+  'docs/screenshots/bifrost-course/ci130-after-light-hub-800x700.png',
+  'docs/screenshots/bifrost-course/ci130-after-dark-hub-1024x500.png',
+  'docs/screenshots/bifrost-course/ci130-after-dark-hub-800x700.png',
+  'docs/screenshots/bifrost-course/ci130-after-light-transfer-feedback.png',
+  'docs/screenshots/bifrost-course/ci130-after-dark-transfer-feedback.png',
+  ...[1, 2, 3, 4].map(
+    (shard) => `docs/reviews/evidence/bifrost-course/qa/ci130-shard-${shard}.txt`,
+  ),
+  'docs/reviews/evidence/bifrost-course/qa/ci130-before-native.txt',
+  'docs/reviews/evidence/bifrost-course/qa/ci130-first-affected.txt',
+  ...[
+    'desktop-identity',
+    'compact-identity',
+    'desktop-storage-b',
+    'compact-storage-b',
+    'desktop-storage-services',
+  ].map((name) => `docs/screenshots/bifrost-course/ci130-deadline-${name}.png`),
+  ...[
+    'virtualization-1024x500',
+    ...['light', 'dark'].flatMap((mode) =>
+      ['hub-1440x900', 'hub-1024x768', 'transfer', 'journal'].map((name) => `${mode}-${name}`),
+    ),
+    'light-arc',
+    'light-pipeline',
+  ].map((name) => `docs/screenshots/bifrost-course/ci130-before-${name}.png`),
+  ...['light', 'dark'].flatMap((mode) =>
+    [
+      'hub-1440x900',
+      'hub-1024x768',
+      'virtualization-1024x500',
+      'transfer',
+      'transfer-started',
+      'journal',
+      'arc',
+      'pipeline',
+    ].map((name) => `docs/screenshots/bifrost-course/ci130-after-${mode}-${name}.png`),
+  ),
   ...images,
 ];
 const bindings = proof.files as Record<string, { before: string; after: string }>;
@@ -140,6 +186,23 @@ it('pins the exact audited B source base and finite presentation, import and evi
   expect(Object.keys(bindings).sort()).toEqual([...approved].sort());
   expect(Object.keys(proof.added).sort()).toEqual([...additions].sort());
   expect(proof.metadata).toEqual([...courseMetadata]);
+  const spacing = new Set(
+    [
+      ...readFileSync('src/features/design/tokens.css', 'utf8').matchAll(
+        /(--bf-space-[\w-]+)\s*:/g,
+      ),
+    ].map((match) => match[1]),
+  );
+  for (const path of [
+    'src/features/course/bifrost-course.css',
+    'src/features/course/bifrost-guidance.css',
+  ])
+    for (const match of readFileSync(path, 'utf8').matchAll(/var\((--bf-space[\w-]*)/g))
+      expect(spacing.has(match[1]!), `${path}: undefined foundation spacing ${match[1]}`).toBe(
+        true,
+      );
+  expect(spacing.has('--bf-space1')).toBe(false);
+  expect(spacing.has('--bf-space2')).toBe(false);
   const covered = parts.flatMap((part) => part.rows.map((row) => row.path));
   expect(covered.sort()).toEqual(rows.map((row) => row.path).sort());
   expect(new Set(covered).size).toBe(rows.length);
@@ -396,7 +459,7 @@ it('retains every inherited preservation assertion with only finite reader impor
       return expected;
     });
 });
-it('retains every inherited browser assertion and interaction except the exact approved hover expectation', async () => {
+it('retains every inherited browser assertion and interaction except the finite approved hover expectations', async () => {
   await unchangedExcept('tests/e2e/hybrid-experience.spec.ts', (source) =>
     source.replace(
       "    'rgb(41, 73, 94)',",
@@ -412,6 +475,27 @@ it('retains every inherited browser assertion and interaction except the exact a
     }),`,
     ),
   );
+  for (const [path, control] of [
+    ['tests/e2e/storage-resilience.spec.ts', 'primary'],
+    ['tests/e2e/identity-foundations.spec.ts', 'button'],
+    ['tests/e2e/storage-services.spec.ts', 'primary'],
+  ])
+    await unchangedExcept(path!, (source) =>
+      source.replace(
+        `await expect(${control}).toHaveCSS('background-color', 'rgb(7, 85, 149)');`,
+        `await expect(${control}).toHaveCSS(
+      'background-color',
+      await page.locator('.course-shell').evaluate((element) => {
+        const probe = document.createElement('span');
+        probe.style.backgroundColor = 'var(--bfc-theme-2)';
+        element.append(probe);
+        const color = getComputedStyle(probe).backgroundColor;
+        probe.remove();
+        return color;
+      }),
+    );`,
+      ),
+    );
 });
 it('never imports the historical adapter from runtime modules or expands mutable report scope', () => {
   expect(courseMetadata).toEqual([

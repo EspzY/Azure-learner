@@ -1,0 +1,250 @@
+
+Running 2 tests using 1 worker
+
+(node:196436) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/management-tools.spec.ts:283:1 › Arc stored contrasts retain physical location and stale representation without claiming migration, resize or stopped local Flux (17.0s)
+(node:196541) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [desktop-chromium] › tests/e2e/serverless.spec.ts:83:1 › root course → complete serverless teaching, prediction, milestone, independent feedback, Journal and resume (32.7s)
+
+
+  1) [desktop-chromium] › tests/e2e/management-tools.spec.ts:283:1 › Arc stored contrasts retain physical location and stale representation without claiming migration, resize or stopped local Flux 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 58
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#163b56",
+    +               "contrastRatio": 1.68,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#565776",
+    +               "fontSize": "9.0pt (12px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 1.68 (foreground color: #565776, background color: #163b56, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<section class=\"tools-representation\"><small>Deklarert management-representasjon</small><strong>Arc-enabled Servers</strong><p>Azure Resource Manager · Azure-region for representasjonsmetadata: westeurope</p></section>",
+    +                 "target": Array [
+    +                   ".tools-representation",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 1.68 (foreground color: #565776, background color: #163b56, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<small>Deklarert management-representasjon</small>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".tools-representation > small",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      294 |   await expect(bench(page).locator('.tools-result')).toContainText(c.visual.notSupported);
+      295 |   await expect(bench(page).locator('.tools-result')).toContainText(c.visual.arcConnectionBoundary);
+    > 296 |   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+          |                                                                 ^
+      297 |   await page.reload();
+      298 |   expect((await facts(page)).completed).toEqual(['arc']);
+      299 |   expect(await raw(page, sandboxKey)).toBe(before);
+        at /workspace/azurelab-phase2/course/tests/e2e/management-tools.spec.ts:296:65
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-ci130-before/native/results/management-tools-Arc-store-cf2d5-esize-or-stopped-local-Flux-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../tmp/bifrost-course-ci130-before/native/results/management-tools-Arc-store-cf2d5-esize-or-stopped-local-Flux-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-ci130-before/native/results/management-tools-Arc-store-cf2d5-esize-or-stopped-local-Flux-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../tmp/bifrost-course-ci130-before/native/results/management-tools-Arc-store-cf2d5-esize-or-stopped-local-Flux-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/serverless.spec.ts:83:1 › root course → complete serverless teaching, prediction, milestone, independent feedback, Journal and resume 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 93
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#0e2d48",
+    +               "contrastRatio": 2.03,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#565776",
+    +               "fontSize": "9.0pt (12px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 2.03 (foreground color: #565776, background color: #0e2d48, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div class=\"sl-pipeline\" aria-hidden=\"true\">",
+    +                 "target": Array [
+    +                   ".sl-pipeline",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 2.03 (foreground color: #565776, background color: #0e2d48, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<small>Hendelse</small>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".sl-inbox > small",
+    +         ],
+    +       },
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#0e2d48",
+    +               "contrastRatio": 2.03,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#565776",
+    +               "fontSize": "9.0pt (12px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 2.03 (foreground color: #565776, background color: #0e2d48, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div class=\"sl-pipeline\" aria-hidden=\"true\">",
+    +                 "target": Array [
+    +                   ".sl-pipeline",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 2.03 (foreground color: #565776, background color: #0e2d48, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<small>Kodekjøring</small>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".sl-workers > small",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      64 | }
+      65 | async function audit(page: Page) {
+    > 66 |   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+         |                                                                 ^
+      67 |   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+      68 | }
+      69 | async function protectedBytes(page: Page) {
+        at audit (/workspace/azurelab-phase2/course/tests/e2e/serverless.spec.ts:66:65)
+        at /workspace/azurelab-phase2/course/tests/e2e/serverless.spec.ts:189:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-ci130-before/native/results/serverless-root-course-→-c-96d4f-feedback-Journal-and-resume-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-ci130-before/native/results/serverless-root-course-→-c-96d4f-feedback-Journal-and-resume-desktop-chromium/video-3.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #3: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-ci130-before/native/results/serverless-root-course-→-c-96d4f-feedback-Journal-and-resume-desktop-chromium/video-4.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #4: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-ci130-before/native/results/serverless-root-course-→-c-96d4f-feedback-Journal-and-resume-desktop-chromium/video-1.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #5: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-ci130-before/native/results/serverless-root-course-→-c-96d4f-feedback-Journal-and-resume-desktop-chromium/video-2.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #6: video (video/webm) ──────────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-ci130-before/native/results/serverless-root-course-→-c-96d4f-feedback-Journal-and-resume-desktop-chromium/video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../tmp/bifrost-course-ci130-before/native/results/serverless-root-course-→-c-96d4f-feedback-Journal-and-resume-desktop-chromium/error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-ci130-before/native/results/serverless-root-course-→-c-96d4f-feedback-Journal-and-resume-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../../../tmp/bifrost-course-ci130-before/native/results/serverless-root-course-→-c-96d4f-feedback-Journal-and-resume-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop-chromium] › tests/e2e/management-tools.spec.ts:283:1 › Arc stored contrasts retain physical location and stale representation without claiming migration, resize or stopped local Flux 
+    [desktop-chromium] › tests/e2e/serverless.spec.ts:83:1 › root course → complete serverless teaching, prediction, milestone, independent feedback, Journal and resume 

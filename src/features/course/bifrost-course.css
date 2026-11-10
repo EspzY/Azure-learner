@@ -225,7 +225,16 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
 }
 .bifrost-learning.course-shell
   .course-main
-  button:hover:not(:disabled, .primary, .compute-primary, .proof-primary) {
+  button:hover:not(
+    :disabled,
+    .primary,
+    .course-primary,
+    .compute-primary,
+    .proof-primary,
+    .sl-primary,
+    .pa-primary,
+    .cost-primary
+  ) {
   background: var(--bfc-neutral-fade);
   border-color: var(--bfc-theme);
 }
@@ -238,7 +247,15 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
 }
 .bifrost-learning.course-shell
   .course-main
-  button:is(.primary, .compute-primary, .proof-primary, .sl-primary, .pa-primary, .cost-primary) {
+  button:is(
+    .primary,
+    .course-primary,
+    .compute-primary,
+    .proof-primary,
+    .sl-primary,
+    .pa-primary,
+    .cost-primary
+  ):not(:disabled) {
   background: var(--bfc-theme);
   color: var(--bfc-theme-hc);
   border-color: var(--bfc-theme);
@@ -247,6 +264,7 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
   .course-main
   button:is(
     .primary,
+    .course-primary,
     .compute-primary,
     .proof-primary,
     .sl-primary,
@@ -636,6 +654,79 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
 .bifrost-learning.course-shell .course-main a:not(.course-primary) {
   color: var(--bfc-theme-fade-c);
 }
+.bifrost-learning.course-shell .course-main .transfer-cases > a[aria-current] {
+  color: var(--bfc-theme-fade-c);
+  background: var(--bfc-theme-fade);
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell .course-main .transfer-scenario {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-2);
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell .course-main .transfer-scenario aside {
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .course-main .transfer-feedback .transfer-selected {
+  color: var(--bfc-base-c);
+  background: var(--bfc-theme-fade);
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell .course-main .transfer-feedback .transfer-selected small {
+  color: var(--bfc-theme-fade-c);
+}
+.bifrost-learning.course-shell .course-main .tools-perspectives span {
+  color: var(--bfc-base-c-2);
+}
+.bifrost-learning.course-shell .course-main .tools-perspectives a[aria-current] {
+  color: var(--bfc-theme-fade-c);
+  background: var(--bfc-theme-fade);
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell .course-main .tools-perspectives a[aria-current] span {
+  color: var(--bfc-theme-fade-c);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(.tools-arc-map, .tools-physical-lanes > section, .tools-facts > div) {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-2);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .course-main .tools-arc-map figcaption {
+  color: var(--bfc-base-c);
+}
+.bifrost-learning.course-shell .course-main .tools-facts dt {
+  color: var(--bfc-base-c-2);
+}
+.bifrost-learning.course-shell .course-main .tools-physical-lanes .tools-active-location {
+  background: var(--bfc-theme-fade);
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell .course-main .tools-active-location small,
+.bifrost-learning.course-shell .course-main .tools-management-link span {
+  color: var(--bfc-theme-fade-c);
+}
+.bifrost-learning.course-shell .course-main :is(.tools-representation, .sl-pipeline) {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-2);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(.tools-representation, .sl-pipeline)
+  :is(strong, p) {
+  color: var(--bfc-base-c);
+}
+.bifrost-learning.course-shell .course-main :is(.tools-representation, .sl-pipeline) small {
+  color: var(--bfc-base-c-2);
+}
+.bifrost-learning.course-shell .course-main .sl-pipeline :is(.sl-arrow, b) {
+  color: var(--bfc-theme-fade-c);
+}
+.bifrost-learning.course-shell .course-main .sl-workers > div {
+  border-color: var(--bfc-base-dimmed);
+}
 .bifrost-learning.course-shell
   .course-main
   .compute-lesson
@@ -686,7 +777,7 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
 }
 .bifrost-learning.course-shell
   .course-main
-  :is(.compute-lesson, .cost-lesson, .expanded-module, .foundations-v2)
+  :is(.compute-lesson, .cost-lesson, .expanded-module, .foundations-v2, .serverless-lesson)
   :is(table, th, td) {
   background: var(--bfc-base-3);
   color: var(--bfc-base-c);
@@ -825,7 +916,8 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
     .sl-problem,
     .sl-plans,
     .sl-chain li,
-    .sl-ownership > div,
+    .sl-ownership > section,
+    .sl-controls,
     .pa-cutaway,
     .pa-feedback,
     .sl-feedback,
@@ -836,6 +928,9 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
   background: var(--bfc-base-2);
   color: var(--bfc-base-c);
   border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .course-main .serverless-lesson caption {
+  color: var(--bfc-base-c-2);
 }
 .bifrost-learning.course-shell .course-main .transfer-pass {
   color: var(--bfc-success-fade-c);
@@ -878,14 +973,14 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
   .bifrost-learning.course-shell .course-main {
     padding-inline: 24px;
   }
-  .bifrost-learning.course-shell .learn-hub-path-grid {
-    grid-template-columns: 1fr;
-  }
   .bifrost-learning.course-shell .learn-hub-path :is(h3, .learn-hub-path-description) {
     min-height: 0;
   }
 }
 @media (max-width: 800px) {
+  .bifrost-learning.course-shell .learn-hub-path-grid {
+    grid-template-columns: 1fr;
+  }
   .bifrost-learning.course-shell .course-header {
     gap: 8px;
   }
@@ -916,6 +1011,27 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
   .bifrost-learning.course-shell .savvy {
     padding: 16px;
     gap: 14px;
+  }
+}
+@media (max-height: 600px) {
+  .bifrost-learning.course-shell .cloud-chapter-heading {
+    margin-bottom: var(--bf-space-2);
+  }
+  .bifrost-learning.course-shell .cloud-chapter-heading > p {
+    margin-top: var(--bf-space-1);
+  }
+  .bifrost-learning.course-shell .cloud-chapter-guide {
+    margin-block: 0;
+  }
+  .bifrost-learning.course-shell .cloud-chapter > .cloud-chapter-part:first-of-type {
+    margin-top: var(--bf-space-1);
+  }
+  .bifrost-learning.course-shell .cloud-chapter-part .v2-lesson-heading,
+  .bifrost-learning.course-shell .cloud-chapter-part .v2-lesson-heading h3 {
+    margin-bottom: var(--bf-space-2);
+  }
+  .bifrost-learning.course-shell .cloud-chapter-part .v2-teaching {
+    margin-top: var(--bf-space-2);
   }
 }
 @media (prefers-reduced-motion: reduce) {

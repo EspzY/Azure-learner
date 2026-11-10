@@ -1,5 +1,41 @@
 # Bifrost course experience · release QA
 
+## Final local check ·10 November2026
+
+The final155-file implementation is stamped `2026-11-10T00:29:38.198Z`, fingerprint `18ef53dab57a4f65afbecd2b0a2220dd7af98a86092d7f38a7c7e1d8d71c0885`. Its first complete-check attempt ended1 solely at formatting of the existing excluded historical audit report, after TypeScript/ESLint passed. That original red remains `/tmp/bifrost-course-ci130-final-fullcheck.log`. Prettier-only report formatting left all155 implementation hashes and the fingerprint exact.
+
+The corrected complete `npm run check` ended0:1174Vitest/100files,503curriculum/30files,35Node/0skips, all mandatory contracts, real isolated local PostgreSQL integration and normal production build `bmqXZMcYUhLBxgJ9pxG0F`. Actual corrected logSHA256 is `2a577fa8280522443cc5e78b0367277105962b18067a7e0d9a721f95156896f6`; log and explicit exit are retained outside the checkout. Final independent post-stamp native/audit, complete exact-head CI/strict and public journeys remain distinct pending gates. None of the five earlier Identity/Storage whole-case deadlines is causally closed by this pass. No source/UI change followed the155-file freeze; metadata updates record actual results only.
+
+## Current frozen-source preparation ·10 November2026
+
+The corrective implementation now has actual author confirmation of the CI130 color/layout repairs and later activated dark Transfer/Serverless/Arc surfaces. Three new actual-UI both-theme cases passed3/3(32.2s total), all existing485 cases remain, and actual collection is488=439desktop+49compact, legacy878, one worker. The original23-case affected batch remains18pass/5 cumulative deadlines; those five timing observations have no causal closure or new pass credit.
+
+The final token-corrected normal build is `gGkSai5SY_Eraz8UWooI4`. Its entire original composed exposure plus owner-flat desktop/compact cases passed3/3(24.7s). Both actual themes resolve4px/8px spacing and expose74.109375px of the paragraph through the unchanged original scroll and64px criterion. Provisioning remains unvisited and World/XP unchanged. Old86.109375px was measured on invalid-variable/initial-margin source and is not credited as intentional final spacing.
+
+Actual mixed capture lineage is explicit: sixteen height>=768 palette images and the earlier18-surface/three-case palette runs are from `VX_yd9lo3DZoE3g8PNaXe`; only the five variable-name corrections inside the inactive `max-height:600px` block differ in runtime source. Two short virtualization and four short/compact Hub captures are final `gGk…` evidence. This is not a claim that all images use the final build or that whole CSS bytes are identical. The [finite CI130 artifact](../reviews/evidence/bifrost-course/ci-browser-regressions.json) retains all red invocations, full measured audits, actual build/source hashes, four CI logs, download limits and literal per-image lineage.
+
+The implementation is ready for the final source manifest and new stamp. Final full check, post-stamp independent approval, complete exact-head CI/strict and anonymous public final-head journeys remain pending until actually executed. Prior103-file/fullcheck/public results below remain historical. Human validation is unperformed; no merge or production deployment.
+
+## Previous author status and preserved chronology
+
+## CI130 repair candidate — author status
+
+The published `687e338da697ebe3cb85955aed6453dfdd044ed7` remains the failed full-profile baseline: Quality130 reported 462 passed and 23 failed out of485, and did not reach aggregate or strict release. The source below is a presentation-only repair candidate and has not inherited the old103-file approval or its complete-check result.
+
+Confirmed changes use the existing shared Bifrost pairs for selected Transfer links, the actual Start control, global Journal trail, Arc representation and Serverless pipeline. The Hub keeps three desktop columns above800px, and short-height presentation spacing exposes the original virtualization paragraph within the unchanged64px observation criterion. Original observers, course/assessment controllers, stores, content, mascot and histories remain unchanged. Three exact visual expectations in Identity/Storage B/Storage Services compare against the approved shared hover token; every original interaction, white-foreground, keyboard, focus, reflow and Axe assertion remains.
+
+The exact23 affected original browser cases finished18 passed and5 unchanged30-second deadlines. Transfer11, global Journal, Arc, Serverless2, Hub and virtualization passed. Identity desktop/compact, Storage B desktop/compact and Storage Services desktop remain OPEN timing observations; later teardown completions are not pass credit. Read-only trace measurements establish repeated complete accessibility analyses and differing cutoff points, not a CPU, renderer, scheduler or infrastructure cause. No original case is split, removed or given extra time, retries or workers.
+
+An outside-only accessibility result comparison retained equal complete violation/incomplete sets for actual good UI and an explicitly non-learner bad fixture. Its final metadata writer failed and did not save timing/payload rows. Benefit is unmeasured; no Axe option, rule scope or dependency change is implemented. The original failed invocation remains evidence.
+
+Fresh both-theme captures, final finite proof, full check, a new stamp, separate independent audit, complete exact-head CI/strict and public exact-SHA journeys remain pending at this revision. No new full-course or technical delivery approval is inferred.
+
+### Additional actual dark-mode finding — open pending retest
+
+The fresh continuation failed a complete-page Axe assertion after the real Transfer Start confirmation: `.transfer-scenario` still used the legacy pale `#f4f9fc` surface under dark `#f3f3f6` body text1.04:1 and muted `#8a98a8` label2.77:1. This is a new MAJOR contrast finding. A narrow existing-token scenario/aside surface correction is authored; no rebuilt result or closure is claimed yet. The actual failed invocation and the separate missing-Serverless-Start probe error remain preserved outside the checkout. These are not failures of the added technical/XP invariance checks, and no legitimate original Run effect is suppressed.
+
+## Historical verified candidate — superseded by CI130 findings
+
 This is an explicitly stacked presentation successor to audited B foundation `7d68b2c40988385c31c1e514e67e5135a1fbe25e`. [Author evidence](../design/bifrost-course.md) records actual production captures, preserved failures and affected retests. No new teaching, task, rubric, evaluation rule, assessment history, assistance, Journal or XP semantics is introduced.
 
 The final103-file payload binds fifteen finite inherited presentation/import changes and87 additions, including62 actual PNGs. The raw whole-base guard protects all2,834 B-base paths, exact metadata exceptions and original controllers. The inherited hover expectation strictly compares actual hover to the approved shared token; no substantive assertion, timeout, retry, worker or skip is weakened. The collected plan is485cases (436desktop,49compact), retaining all475 B controls and adding ten scoped cases. Collection is not complete CI credit.
@@ -13,3 +49,7 @@ Final `npm run check` explicitly exited0:1174Vitest/100files,35Node,503curriculu
 Human learning, SME, UX and screen-reader validation remains unperformed. No external infrastructure, credentials/Vercel change, migration, merge or production deployment.
 
 The renewed test-only candidate is stamped22:18:45.551Z at `5d3706cdedba209212f6b9afe793b93db2943b1c7a492450a05bad05f6c9b0ba`. OriginalQuality128 on `d17c48e` failed1170/1171 because one new combined guard took9111ms against5000ms; no browser/strict ran. The unchanged local case/profile did not reproduce that delay. Three independent risk cases retain every original statement and fresh native admission; a separate exact archived-body guard prevents assertion loss. No runtime, old test, helper, adapter or configuration changed. The103-file source now passes fullcheck1174/35/503/realPG/build with explicit0. Earlier102-file runtime audit/public8/8 remains historical evidence, not new-head CI/public credit. A separate fourth public diagnostic stopped before course actions on an unproven theme-event/readiness issue; original failures remain open. No CI timing cause is claimed solved.
+
+The bounded old-bundle follow-up reproduced the dark Transfer scenario defect and then used actual native radio choices and Submit to expose permitted feedback. Its selected result panels also retained a pale surface: ordinary text measured1.02:1 and the selected label2.72:1. A fresh Serverless context used its original Start/Confirm/prediction/Run/milestone dismissal. The complete-page audit measured1.04:1 on the controls,1.03:1 on the responsibility section,1.1:1 on semantic execution-table headers and3.17:1 on the caption. Full original audits and three actual before PNGs are retained; diagnostic exit0 means these defects reproduced, not that the product passed.
+
+The additional correction is limited to those confirmed owned surface/text pairs. It corrects the mistaken `.sl-ownership > div` presentation selector to the actual existing `section`, uses the shared pairs for selected Transfer feedback/labels, Serverless controls and execution-table cells/caption, and preserves all original controller and outcome semantics. Two focused actual-UI regression cases are added to the existing new C test file, one for both-theme activated Transfer/actual submission and one for both-theme actual Serverless execution. All485 existing cases remain; the proposed487-case plan requires actual collection and execution. Fixed-build affected verification and independent closure remain pending.

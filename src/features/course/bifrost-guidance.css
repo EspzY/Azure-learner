@@ -83,6 +83,12 @@ dialog.mission-briefing.bifrost-learning .mission-heading :focus-visible {
 .knowledge-journal.bifrost-learning a {
   color: var(--bfc-theme-fade-c);
 }
+.knowledge-journal.bifrost-learning .curriculum-trail {
+  color: var(--bfc-base-c);
+}
+.knowledge-journal.bifrost-learning .curriculum-trail :is(summary, small) {
+  color: var(--bfc-base-c-2);
+}
 .knowledge-journal.bifrost-learning :is(select, button) {
   color: var(--bfc-base-c);
   background: var(--bfc-base-2);
