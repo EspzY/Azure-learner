@@ -223,7 +223,7 @@
     {
       "command": "new actual native course workspace browsers",
       "result": "passed",
-      "details": "Actual7/7 (6desktop+1compact),0retries, normal production build and real local PostgreSQL. Real Storage chain/original receipt/reload/checkpoint/reset/Studio, free memory isolation, stale tabs/idempotence/foreign sessions, active v2 draft preservation, negative503, keyboard/reduced motion/Axe and1440x900/1024x768/1024x500. Complete inherited511-case CI profile still pending."
+      "details": "Actual corrected-source native7/7 (6desktop+1compact),0retry,59.4s,--trace on,normalproductionbuild/realPG. Original Storage/checkpoint/reload/history/reset/Studio/free-isolation/stale/idempotence/foreignownership/v2draft/503/keyboard/Axe/reducedmotion/1440x900/1024x768/1024x500 assertions retained. Original CI136race and corrected successful trace inspected; full518CIstillrequired."
     },
     {
       "command": "initial full npm run check",
@@ -233,22 +233,27 @@
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Actual final-source fullcheck EXIT0:1506/1506Vitest120files,35/35Node,503/503curriculum, real isolated PostgreSQL/011cold+upgrade+repeat+historical models+course authority+rollback+analysis+evidence, mandatory gates and normal production build. Original red1502/1504 and1501/1504 logs and intermediate reader experiments retained. Finite-adapter duplicate-scan correction plus mandatory baseline/Fidelity admission retain all original checks/assertions/limits; fullcheck passes after27/27 affected targeted cases. Independent follow-up43file stamp and complete518caseCI/strict/public still required."
+      "details": "Actual corrected-source fullcheck-fifth EXIT0:1506/1506Vitest120files77.47s,35/35Node,503/503curriculum, real isolatedPG/allmandatorygates/normalproductionbuild. Original reader redruns and fourth excluded-QAformat failure retained. Source4e8f9e43files, runtimeunchanged. Complete current518CI/strict/public still required."
     },
     {
       "command": "npm run test:e2e:plan",
       "result": "passed",
       "details": "Actual518=465desktop+53compact, legacy930;511 inherited cases plus7 bounded new executions, original single worker/retry/timeout settings unchanged. Collection is not full execution."
+    },
+    {
+      "command": "Quality136 complete CI on807a2d0",
+      "result": "failed",
+      "details": "Check1506+35+503/buildpassed,517/518browserspassed; new navigation-isolation helper failed all3existingattempts. All3originaltraces retained and causal test-only fix independently reviewed. Aggregate/strict correctlyrefusedfailedprerequisite. No retries/limits/oldassertions changed; new completeheadCI required."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "3f5e20c0f5fce03292b209e308d33b53148c049d035be81b0b0581335375182e",
+    "fingerprint": "4e8f9e47a3f701a144327fce3172ba70a628104423dd62365d3d1a75413b36c6",
     "reviewer": {
       "id": "course-workspace-independent-final-auditor",
       "kind": "agent"
     },
-    "started": "2026-11-10T09:42:05Z",
+    "started": "2026-11-10T10:12:43Z",
     "domains": {
       "content": {
         "finding": "Preserved original content; revised technical test-boundary appendix reviewed. No new learning task or Azure behavior claim.",
@@ -262,7 +267,7 @@
         ]
       },
       "technical": {
-        "finding": "Independent43file fingerprint/raw union22edits21additions3250preserved paths match. Finite admission and exactly two mandatory initialization calls preserve every original statement. Initial20runtime/SQL/setup hashes unchanged; one original3.9 engine/transaction/receipt/replay authority.",
+        "finding": "Independent43file4e8f9e fingerprint/raw union verified. Runtime/SQL/frozen code unchanged from807. All three original CI136 traces confirm a new helper checking the landing page then collapsing the arriving Portal; corrected successful trace and exact added readiness assertions verified. Prior complete engine/ownership/source-admission audit retained.",
         "evidence": [
           {
             "path": "src/laboratory/v3/repository.ts"
@@ -321,7 +326,7 @@
         ]
       },
       "regression": {
-        "finding": "Actual final local fullcheck1506Vitest120files+35Node+503curriculum/realPG/allgates/normalbuild EXIT0 independently inspected. Final27/27 affected guards and unchanged original bodies justify only CW-AUDIT-01 closure. Seven actual native browser controls pass; complete518CI/strict/public remain delivery gates.",
+        "finding": "Actual fullcheck-fifth1506Vitest120files+35Node+503curriculum/realPG/allgates/normalbuild EXIT0 and native7/7,0retries,59.4s withalltraces independently inspected. CI136failed517/518 evidence retained; CW-AUDIT-05 fixed only for diagnosed helperrace. Current full518CI/aggregate/strict/public remain required.",
         "evidence": [
           {
             "path": "docs/quality/COURSE_WORKSPACE_QA.md"
@@ -371,6 +376,24 @@
         "severity": "note",
         "status": "accepted-limitation",
         "description": "At audit cutoff complete518caseCI/aggregate/strict and exact-head public verification remain delivery gates. Unconfigured public course persistence must return503; no hosted database or main/production approval is inferred."
+      },
+      {
+        "id": "CW-AUDIT-05",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Quality136 new navigation/isolation helper checked absent nav on landing, then auto-waiting menu click collapsed the arriving desktop Portal; test failed in all three original attempts.",
+        "fix": "Only new helper now observes actual visible Laboratory frame and completed loading before deciding whether to toggle the drawer; every original test/assertion and worker/retry/timeout is preserved. Three failure traces and successful corrected trace reviewed independently.",
+        "retests": [
+          {
+            "path": "tests/e2e/course-workspace.spec.ts"
+          },
+          {
+            "path": "docs/quality/COURSE_WORKSPACE_QA.md"
+          },
+          {
+            "path": "docs/quality/COURSE_WORKSPACE_FINAL_AUDIT.md"
+          }
+        ]
       }
     ],
     "report": {
@@ -387,7 +410,7 @@
       "docs/DECISIONS.md": "a12ab9497c317a804fcf606c65b754c1d105b3832b6501f5def141988e40a9cf",
       "docs/DEVELOPMENT_WORKFLOW.md": "57807a8ad2e2e410a57909d09327255355471ddc4442d80c5784f6327778cc1d",
       "docs/reviews/evidence/course-workspace/capture-provenance.json": "c439814ec4985d8581c507fb985cc707e393137d3db82e484b04be0dc8167744",
-      "docs/reviews/evidence/course-workspace/source-manifest.json": "c5c5b1af27c9420d960fb489a87d967c19381e0f60fa228cc607a91a48c86c98",
+      "docs/reviews/evidence/course-workspace/source-manifest.json": "eeca95fb7ac83e180be6c8c991a49782d3345954815aad212fdeee441d3cedf6",
       "docs/screenshots/course-workspace/course-review-1024-500.png": "60b054ca62dbba18f76f218e9d09143a3e87ff93938e893dcddcb406e5431fb9",
       "docs/screenshots/course-workspace/course-review-1024-768.png": "27a3ab40881e56ef75bfa29628555776e1926b92875ebbee00882bd950096eea",
       "docs/screenshots/course-workspace/course-review-1440-900.png": "fd74f37b2029d5efefd7d6b85dd128fa788ec4e01385882d7a46e47ff327e53e",
@@ -420,9 +443,9 @@
       "src/laboratory/v3/server.ts": "19475c362a265c94d5cec6a23dc322487f5a7dbb7006401a382e487b7d17efb3",
       "tests/baseline-preservation.ts": "06e6f9fe80c94f77940ee95bcd6b646d6f11f436013190b399e35c0bf993ce0d",
       "tests/course-workspace-preservation.ts": "ca248423c20c93c70ded1d8e7d30df57e8a7d0464f8a86524a7e02eefae635be",
-      "tests/e2e/course-workspace.spec.ts": "f960fdce8359e27a36afd83f5fa41f07b6167948ad543607da4f562b1d9e49d0",
+      "tests/e2e/course-workspace.spec.ts": "8a7e806d83103d78aa574ec82b10c75fe442281dca048f91aa82e0d3d2b82159",
       "tests/portal-fidelity-preservation.ts": "adbd68d8104555c214fa05a56c558acb8160d2d432a6c087baf4c0c67185b9f5"
     }
   },
-  "implementationFinished": "2026-11-10T09:36:51.839Z"
+  "implementationFinished": "2026-11-10T10:12:08.288Z"
 }

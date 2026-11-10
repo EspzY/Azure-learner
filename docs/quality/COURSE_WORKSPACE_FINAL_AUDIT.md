@@ -120,3 +120,53 @@ Inspected `fullcheck-third.log` from its complete fixed command through successf
 The inspected browser plan validates518 cases (465desktop+53compact),930 legacy cases and1worker; it is collection evidence, not execution. The earlier7/7 actual course browsers remain applicable to the independently verified unchanged runtime, and do not replace the complete candidate profile. The final normal build creates a new build identity; the retained images continue to identify their earlier actual build honestly.
 
 Performed in this follow-up: independent43-file fingerprint/raw union and20-file runtime continuity checks, AST/helper review, image/provenance continuity checks, inspection of actual comparison/profile/targeted/fullcheck/plan evidence and `git diff --check`. No full suite, PostgreSQL mutation or browser run was launched by this reviewer. Earlier baseline timing/Compute/Axe/paint findings, moderate development-tool findings, unestablished PG timing and all human-validation limits remain open as previously documented.
+
+## Affected follow-up — CI136 navigation helper
+
+Same independent reviewer: `course-workspace-independent-final-auditor`, separate agent `/root/course_workspace_final_audit`. New implementation finished: `2026-11-10T10:12:08.288Z`. Actual follow-up start: `2026-11-10T10:12:43Z`. Evidence closed: `2026-11-10T10:19:45Z`.
+
+**Current disposition: bounded source audit complete; CW-AUDIT-01 remains fixed and CW-AUDIT-05 below is fixed for the reviewed test-helper change. No open implementation blocker/major found.** Full current-head518-case CI/aggregate/strict release and exact-head public verification remain pending. The failed CI136 run remains failed; neither targeted success nor the earlier green CI check job replaces that complete delivery gate.
+
+### Candidate identity and exact change
+
+Independently reconstructed native changed/untracked paths, all43 snapshot SHA-256 values and the current fingerprint. File map and fingerprint match the fresh stamp:
+
+```text
+4e8f9e47a3f701a144327fce3172ba70a628104423dd62365d3d1a75413b36c6
+```
+
+Compared actual snapshot hashes against published head `807a2d0beb38699795657aae579b20471cfa7ed5`. Only `tests/e2e/course-workspace.spec.ts` and its source-manifest hash changed. Runtime, original engines/SQL/stores/assessment/guidance, previous reader correction, settings and inspected image/provenance bytes are unchanged. The native finite source union matches c2 plus its22 declared edits/21 additions, with no hash mismatch or unknown actual path.
+
+An independent exact-text comparison proves that removing only three explanatory comment lines and the two new readiness assertions from the new test helper reproduces the complete807 browser file byte-for-byte. Every prior test/helper action and assertion remains. The helper now awaits the visible Laboratory frame and disappearance of its actual loading status before deciding whether the drawer needs toggling. It adds no delay, force-click, retry, timeout or worker change.
+
+### CW-AUDIT-05 — MAJOR, FIXED: new helper mistook an unmounted Portal for a closed drawer
+
+CI136/run `42793589155` checked published head807 through its synthetic merge revision. The inspected check log confirms1506 Vitest,35 Node,503 curriculum and successful build. Browser shard2 then failed the **new** free-memory/course-isolation test in its original attempt and both unchanged retries; its retained raw log records1failed/129passed. Complete CI acceptance was not achieved.
+
+Independently read all three original trace ZIPs and the failure context under the private `evidence/ci136` directory. They establish the same causal sequence, rather than merely three generic timeouts. In the original trace:
+
+- The landing Lab-card click starts at83377.405ms and returns at83444.972ms.
+- `service()` calls navigation `isVisible()` at83446.622ms while frame snapshots still show `/`; it immediately returnsfalse because the Portal has not mounted.
+- The helper then starts an auto-waiting menu click at83450.072ms. The free Portal arrives at83506.826ms with its menu already open and `aria-expanded=true`.
+- That queued click closes it: the83514.005ms snapshot has `portal-collapsed` and `aria-expanded=false`. The following Resource groups link click waits until the unchanged30000ms test timeout.
+
+Both retries independently show the same root-page visibility check followed by closing the newly arrived open Portal. This supports a specific synchronization error in the new test helper; it does not establish a product navigation or ownership defect, or explain earlier unrelated flakes.
+
+The corrected native isolation trace provides the corresponding positive witness: visible-Laboratory expectation27845.782–27875.687ms, loading-status expectation27887.675–27891.796ms, navigation visibilitytrue at27894.870ms, then direct Resource groups click27914.861–27941.867ms. No menu toggle occurs in that return sequence. The original isolation/resource/reset/learning-byte assertions then complete successfully.
+
+### Actual retest and six domains
+
+The fourth fullcheck stopped at formatting in the excluded QA Markdown. That failure remains retained. Following the formatting correction, inspected `fullcheck-fifth.log` confirms the complete unchanged-source command through normal production build: **1506/1506 Vitest in120files,77.47s;35/35 Node;503/503 curriculum**, plus all mandatory source/type/lint/format/docs/quality/assets/legacy gates. The primary captured exit0.
+
+Independently inspected `native-final.log`, `native-final.json` and the corrected isolation trace: **7/7 (6desktop+1compact),59.4s,1worker,all retry0**, with0skipped/0unexpected/0flaky. These are actual normal-build/local-PG executions, including the previously failing isolation journey. Tracing was enabled; this targeted run is not a complete518-case receipt.
+
+| Domain     | Affected follow-up conclusion                                                                                                                                                                                                      |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Content    | Unchanged; reuse the prior bounded audit. No new lesson/source/claim.                                                                                                                                                              |
+| Technical  | Runtime and evidence/ownership bytes unchanged. Trace review supports the precise test-helper cause and correction; no new runtime major found.                                                                                    |
+| Visual     | Runtime and previously inspected images/provenance unchanged. New native accessibility/compact witness passed; no new visual or human-review claim is inferred.                                                                    |
+| Assessment | All original first/help/retry/stores/rubrics/Journal/XP bytes and the technical-workbench/v2-grading boundary remain unchanged.                                                                                                    |
+| Guidance   | No runtime, provider, guide or learning-orchestration change.                                                                                                                                                                      |
+| Regression | New helper race fixed within its observed scope; all original test bytes/assertions retained. Complete local check and actual7-case retest pass. Current-head complete CI/aggregate/strict and public verification still required. |
+
+Performed by this reviewer: native43-file fingerprint/raw-union and published-snapshot comparison; exact test-body preservation check; all three original failure-trace inspections; final positive isolation-trace/JSON inspection; fullcheck/CI-log review and `git diff --check`. No suite or browser was launched by this reviewer. Only this audit report was written. The original CI136 failure, both earlier fullcheck failures and all unrelated/human-validation limitations remain preserved.

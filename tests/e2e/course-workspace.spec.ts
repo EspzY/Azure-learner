@@ -23,6 +23,11 @@ async function start(page: Page) {
   await expect(page.locator('.laboratory-workspace-status')).toContainText('laboratory@3.9.0');
 }
 async function service(page: Page, name: string) {
+  // A card click starts an App Router transition. An absent landing-page nav
+  // must not be mistaken for a collapsed Portal drawer: that would toggle the
+  // arriving desktop Portal closed. Observe its rendered workspace first.
+  await expect(page.locator('.laboratory-v3:visible')).toBeVisible();
+  await expect(page.getByRole('status').filter({ hasText: c.loading })).toHaveCount(0);
   const nav = page.getByRole('navigation', { name: c.navigation, exact: true });
   if (!(await nav.isVisible()))
     await page.getByRole('button', { name: nb.portal.menu, exact: true }).click();
