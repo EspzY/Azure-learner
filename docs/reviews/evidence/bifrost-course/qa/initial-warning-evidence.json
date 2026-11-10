@@ -1,0 +1,164 @@
+{
+  "build": "eXr8HRjSGohEL_4idRDz1",
+  "exitCode": 1,
+  "cases": 5,
+  "failures": 5,
+  "warningFinding": "C-FA-02 original recovery button contrast 2.05:1 after first partial CSS correction",
+  "timingObservations": {
+    "status": "OPEN",
+    "cases": ["light-feedback", "light-boundary", "dark-feedback", "dark-boundary"],
+    "cause": "Unproven. Later green is not attributed to the warning button CSS correction."
+  },
+  "traceEnabled": false,
+  "traceFiles": [],
+  "missingScreenshot": "light-boundary did not produce a screenshot; its original context is retained",
+  "copies": [
+    {
+      "source": "/tmp/bifrost-course-warning-browser.log",
+      "repository": "docs/reviews/evidence/bifrost-course/qa/initial-warning-five-red.txt",
+      "sha256": "f3386ab6b51dcb959177dc019bb6eb3ab89546f42708bc0926ccf6012da7b463"
+    },
+    {
+      "source": "/tmp/bifrost-course-dom-probe.log",
+      "repository": "docs/reviews/evidence/bifrost-course/qa/same-bundle-dom-probe.txt",
+      "sha256": "def706e39e632b809e2db4377de8d825b0a0dc42a7b51d2288ee49dbcbc28260"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/error-context.md",
+      "repository": "docs/reviews/evidence/bifrost-course/qa/initial-warning-storage.txt",
+      "sha256": "4a6b818181f1f0c1d93db4b8ab837cbb0c5221c52734445c969f329d4909393a"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-lig-a4e83--preserve-original-evidence-desktop-chromium/error-context.md",
+      "repository": "docs/reviews/evidence/bifrost-course/qa/initial-warning-light-feedback.txt",
+      "sha256": "7c181cfca65376456cb5ac9e0e2f85185a685458c94f7f985033211eb1f4f169"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-lig-8ea95-heme-boundary-remain-usable-desktop-chromium/error-context.md",
+      "repository": "docs/reviews/evidence/bifrost-course/qa/initial-warning-light-boundary.txt",
+      "sha256": "a2e2faa8d90b7e868de5eab2fca741cc086c15e6ccc4680f52279fb19a28e680"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-30e30--preserve-original-evidence-desktop-chromium/error-context.md",
+      "repository": "docs/reviews/evidence/bifrost-course/qa/initial-warning-dark-feedback.txt",
+      "sha256": "e2e45cf7ebe84950c23e80a1d0703e11b789b8dd2f95cd05fbd6416c9da5f3a9"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-6e93e-heme-boundary-remain-usable-desktop-chromium/error-context.md",
+      "repository": "docs/reviews/evidence/bifrost-course/qa/initial-warning-dark-boundary.txt",
+      "sha256": "80c1bacbba4d7296d4dc3cd248716d586cb6d5c2a1a22ef60869271bfd0a872b"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/test-failed-2.png",
+      "repository": "docs/screenshots/bifrost-course/intermediate-dark-denied-journal-recovery.png",
+      "sha256": "ddef38cfd3fa34697f9d9b7a430ba1c9598632092cf057338a5d8fee740c45c6"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/test-failed-1.png",
+      "repository": "docs/reviews/evidence/bifrost-course/qa/initial-warning-storage-light.png",
+      "sha256": "917eae44c580dbe40834d130664186109e91a691097d027c7cc1f00bf7ce82fb"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-lig-a4e83--preserve-original-evidence-desktop-chromium/test-failed-1.png",
+      "repository": "docs/reviews/evidence/bifrost-course/qa/initial-warning-light-feedback.png",
+      "sha256": "d9a54809abc8c8dc1a2726a44445503f0c83a0ed5cb72d30e2749e9b03705d49"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-30e30--preserve-original-evidence-desktop-chromium/test-failed-1.png",
+      "repository": "docs/reviews/evidence/bifrost-course/qa/initial-warning-dark-feedback.png",
+      "sha256": "bb3a6cc75772e6fb8a974b9ae67133f55287cc77ce859a1794fd7129d9f82de8"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-6e93e-heme-boundary-remain-usable-desktop-chromium/test-failed-1.png",
+      "repository": "docs/reviews/evidence/bifrost-course/qa/initial-warning-dark-boundary-1.png",
+      "sha256": "a86ad88f44279f9bf073b5b29d05d6c7db42592868f951c71b441f15bc5b9c78"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-6e93e-heme-boundary-remain-usable-desktop-chromium/test-failed-2.png",
+      "repository": "docs/reviews/evidence/bifrost-course/qa/initial-warning-dark-boundary-2.png",
+      "sha256": "99db2a93b06fa1bf617f5c495e02dcf6c0b76961108491217e2cf4fed8699d35"
+    }
+  ],
+  "allOriginalArtifactHashes": [
+    {
+      "source": "/tmp/bifrost-course-warning-results/.last-run.json",
+      "sha256": "3b13db0f3e9662b21d3f7fc5999a31c6c36507b73f06dbd156667f98bbb0d15d"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/after-dark-appearance-320.png",
+      "sha256": "f129b0996cfb8b1e824a897d2ca2fdb63b0a346b8917180668a9b8c05f62ad61"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/after-dark-appearance.png",
+      "sha256": "9d7a694536b5edd4bc7159ab7731a8cc4d8c8ed69f025286c9570fb7f8315a08"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/after-light-appearance-320.png",
+      "sha256": "5e2264ce40d7eb93d483c3e0ae07966d68f185b0970ba400eeeae826509089e2"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/after-light-appearance.png",
+      "sha256": "b2b37c5ea719b5451a69a7759051f4b12bb8480cd3ed5bd9b3e63ea61d5720f3"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/after-light-denied-journal.png",
+      "sha256": "897636b3c2b5336595d1fa8e046da5f27c5a691eda22aa0285add3ff5a3af9a8"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/error-context.md",
+      "sha256": "4a6b818181f1f0c1d93db4b8ab837cbb0c5221c52734445c969f329d4909393a"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/test-failed-1.png",
+      "sha256": "917eae44c580dbe40834d130664186109e91a691097d027c7cc1f00bf7ce82fb"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/test-failed-2.png",
+      "sha256": "ddef38cfd3fa34697f9d9b7a430ba1c9598632092cf057338a5d8fee740c45c6"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-30e30--preserve-original-evidence-desktop-chromium/error-context.md",
+      "sha256": "e2e45cf7ebe84950c23e80a1d0703e11b789b8dd2f95cd05fbd6416c9da5f3a9"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-30e30--preserve-original-evidence-desktop-chromium/test-failed-1.png",
+      "sha256": "bb3a6cc75772e6fb8a974b9ae67133f55287cc77ce859a1794fd7129d9f82de8"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-6e93e-heme-boundary-remain-usable-desktop-chromium/dark-hub-1024x500.png",
+      "sha256": "c20ce9f51d241aad1cda9590ff192fd029750d55589296fa956ab35e6ee30941"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-6e93e-heme-boundary-remain-usable-desktop-chromium/dark-hub-1024x768.png",
+      "sha256": "6b55287443f39ad8f667b50eb13fe41993d9b7e746c9c975d23c68ea0267c5ed"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-6e93e-heme-boundary-remain-usable-desktop-chromium/error-context.md",
+      "sha256": "80c1bacbba4d7296d4dc3cd248716d586cb6d5c2a1a22ef60869271bfd0a872b"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-6e93e-heme-boundary-remain-usable-desktop-chromium/test-failed-1.png",
+      "sha256": "a86ad88f44279f9bf073b5b29d05d6c7db42592868f951c71b441f15bc5b9c78"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-6e93e-heme-boundary-remain-usable-desktop-chromium/test-failed-2.png",
+      "sha256": "99db2a93b06fa1bf617f5c495e02dcf6c0b76961108491217e2cf4fed8699d35"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-lig-8ea95-heme-boundary-remain-usable-desktop-chromium/error-context.md",
+      "sha256": "a2e2faa8d90b7e868de5eab2fca741cc086c15e6ccc4680f52279fb19a28e680"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-lig-a4e83--preserve-original-evidence-desktop-chromium/error-context.md",
+      "sha256": "7c181cfca65376456cb5ac9e0e2f85185a685458c94f7f985033211eb1f4f169"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-lig-a4e83--preserve-original-evidence-desktop-chromium/light-hub.png",
+      "sha256": "bf870f9b2bf3052c444700ea2d59e98168f5bf5d5aa3a2e86ffc12973d3e1b53"
+    },
+    {
+      "source": "/tmp/bifrost-course-warning-results/bifrost-course-Bifrost-lig-a4e83--preserve-original-evidence-desktop-chromium/test-failed-1.png",
+      "sha256": "d9a54809abc8c8dc1a2726a44445503f0c83a0ed5cb72d30e2749e9b03705d49"
+    }
+  ]
+}

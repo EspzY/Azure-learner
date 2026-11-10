@@ -23,6 +23,7 @@ import type { Region } from '@/domain/simulation';
 import { SavvyShark } from './savvy-shark';
 import './mission-briefing.css';
 import './guidance-milestones.css';
+import './bifrost-guidance.css';
 function claim(key: string) {
   try {
     return claimMilestone(window.localStorage, key);
@@ -258,7 +259,7 @@ function MilestoneDialogue({
   return (
     <dialog
       ref={ref}
-      className="mission-briefing milestone-dialog"
+      className="mission-briefing milestone-dialog bifrost-learning"
       aria-labelledby={title}
       data-milestone={o.id}
       onCancel={(e) => {

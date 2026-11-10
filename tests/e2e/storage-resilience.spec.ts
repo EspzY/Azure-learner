@@ -371,7 +371,17 @@ test('Storage B desktop and compact keyboard, hover contrast, semantic maps and 
     const primary = bench(page).getByRole('button', { name: c.labels.run, exact: true });
     await primary.hover();
     await expect(primary).toHaveCSS('color', 'rgb(255, 255, 255)');
-    await expect(primary).toHaveCSS('background-color', 'rgb(7, 85, 149)');
+    await expect(primary).toHaveCSS(
+      'background-color',
+      await page.locator('.course-shell').evaluate((element) => {
+        const probe = document.createElement('span');
+        probe.style.backgroundColor = 'var(--bfc-theme-2)';
+        element.append(probe);
+        const color = getComputedStyle(probe).backgroundColor;
+        probe.remove();
+        return color;
+      }),
+    );
     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
     await page.mouse.move(0, 0);
     await primary.focus();

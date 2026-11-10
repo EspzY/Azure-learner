@@ -1,0 +1,171 @@
+/* Existing pedagogical dialogs only; the simulator's native chrome is separate. */
+dialog.mission-briefing.bifrost-learning {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-3);
+  border-color: var(--bfc-base-dimmed);
+  border-radius: var(--bf-radius-lg);
+  font: 14px/1.8 var(--bf-font-open-sans);
+  box-shadow: 0 24px 80px var(--bfc-shadow);
+}
+dialog.mission-briefing.bifrost-learning .mission-heading {
+  color: var(--bfc-theme-hc);
+  background: var(--bfc-theme);
+}
+dialog.mission-briefing.bifrost-learning .mission-heading :is(small, button) {
+  color: var(--bfc-theme-hc);
+}
+dialog.mission-briefing.bifrost-learning :is(h2, h3, h4) {
+  color: var(--bfc-base-c);
+  font-family: var(--bf-font-satoshi);
+  letter-spacing: -0.025em;
+}
+dialog.mission-briefing.bifrost-learning .mission-intro {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-2);
+  border-bottom: 1px solid var(--bfc-base-dimmed);
+}
+dialog.mission-briefing.bifrost-learning :is(p, li, dd) {
+  color: var(--bfc-base-c);
+}
+dialog.mission-briefing.bifrost-learning :is(dt, .savvy small, footer p) {
+  color: var(--bfc-base-c-2);
+}
+dialog.mission-briefing.bifrost-learning .savvy strong {
+  color: var(--bfc-theme-fade-c);
+  font-family: var(--bf-font-satoshi);
+}
+dialog.mission-briefing.bifrost-learning .mission-route li > span {
+  color: var(--bfc-theme-fade-c);
+}
+dialog.mission-briefing.bifrost-learning :is(footer, .milestone-facts > div) {
+  border-color: var(--bfc-base-dimmed);
+  background: var(--bfc-base-2);
+}
+dialog.mission-briefing.bifrost-learning footer button {
+  background: var(--bfc-base-3);
+  color: var(--bfc-base-c);
+  border-color: var(--bfc-base-dimmed);
+  border-radius: var(--bf-radius);
+  min-height: 40px;
+  font-family: var(--bf-font-open-sans);
+}
+dialog.mission-briefing.bifrost-learning footer button.mission-start {
+  background: var(--bfc-theme);
+  color: var(--bfc-theme-hc);
+  border-color: var(--bfc-theme);
+}
+dialog.mission-briefing.bifrost-learning footer button.mission-start:hover:not(:disabled) {
+  background: var(--bfc-theme-2);
+}
+dialog.mission-briefing.bifrost-learning :focus-visible {
+  outline: 3px solid var(--bf-focus-ring);
+  outline-offset: 3px;
+}
+dialog.mission-briefing.bifrost-learning .mission-scroll:focus-visible {
+  outline-offset: -3px;
+}
+dialog.mission-briefing.bifrost-learning .mission-heading :focus-visible {
+  outline-color: var(--bfc-theme-hc);
+}
+.knowledge-journal.bifrost-learning {
+  padding: 20px;
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-3);
+  font: 14px/1.85 var(--bf-font-open-sans);
+}
+.knowledge-journal.bifrost-learning :is(h3, h4, dt) {
+  color: var(--bfc-base-c);
+  font-family: var(--bf-font-satoshi);
+}
+.knowledge-journal.bifrost-learning :is(p, li, dd, label) {
+  color: var(--bfc-base-c);
+}
+.knowledge-journal.bifrost-learning a {
+  color: var(--bfc-theme-fade-c);
+}
+.knowledge-journal.bifrost-learning .curriculum-trail {
+  color: var(--bfc-base-c);
+}
+.knowledge-journal.bifrost-learning .curriculum-trail :is(summary, small) {
+  color: var(--bfc-base-c-2);
+}
+.knowledge-journal.bifrost-learning :is(select, button) {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-2);
+  border: 1px solid var(--bfc-base-dimmed);
+  border-radius: var(--bf-radius);
+  font-family: var(--bf-font-open-sans);
+}
+.knowledge-journal.bifrost-learning :focus-visible {
+  outline: 3px solid var(--bf-focus-ring);
+  outline-offset: 3px;
+}
+
+/* Existing resident pedagogical islands; native Portal forms are siblings. */
+aside.bifrost-learning.bifrost-guide-island {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-3);
+  border-color: var(--bfc-base-dimmed);
+  border-top-color: var(--bfc-theme);
+  border-radius: var(--bf-radius-lg);
+  box-shadow: 0 8px 28px var(--bfc-shadow);
+  font: 13px/1.7 var(--bf-font-open-sans);
+}
+aside.bifrost-learning.bifrost-guide-island :is(h2, h3, h4, strong, p, li, dd) {
+  color: var(--bfc-base-c);
+}
+aside.bifrost-learning.bifrost-guide-island :is(h2, h3, h4) {
+  font-family: var(--bf-font-satoshi);
+  line-height: 1.4;
+}
+aside.bifrost-learning.bifrost-guide-island :is(small, dt, header > span) {
+  color: var(--bfc-base-c-2);
+}
+aside.bifrost-learning.bifrost-guide-island :is(a, summary, .compute-guide-toolbar > strong) {
+  color: var(--bfc-theme-fade-c);
+}
+aside.bifrost-learning.bifrost-guide-island :is(button, select) {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-2);
+  border: 1px solid var(--bfc-base-dimmed);
+  border-radius: var(--bf-radius);
+  font-family: var(--bf-font-open-sans);
+}
+aside.bifrost-learning.bifrost-guide-island button:hover:not(:disabled) {
+  color: var(--bfc-base-c);
+  background: var(--bfc-neutral-fade);
+  border-color: var(--bfc-theme);
+}
+aside.bifrost-learning.bifrost-guide-island button:disabled {
+  color: var(--bfc-base-c-2);
+  background: var(--bfc-base-2);
+  opacity: 1;
+}
+aside.bifrost-learning.bifrost-guide-island .savvy {
+  padding: 14px;
+  margin-block: 14px;
+  background: var(--bfc-theme-fade);
+  color: var(--bfc-base-c);
+  border-radius: var(--bf-radius-lg);
+}
+aside.bifrost-learning.bifrost-guide-island .savvy :is(strong, small) {
+  color: var(--bfc-theme-fade-c);
+}
+aside.bifrost-learning.bifrost-guide-island .coach-missing {
+  color: var(--bfc-warning-fade-c);
+  background: var(--bfc-warning-fade);
+  border-color: var(--bfc-warning-fade-c);
+}
+aside.bifrost-learning.bifrost-guide-island .coach-observed {
+  color: var(--bfc-theme-fade-c);
+  background: var(--bfc-theme-fade);
+  border-color: var(--bfc-theme);
+}
+aside.bifrost-learning.bifrost-guide-island
+  :is(.coach-return, .coach-instruction > div, .compute-guide-toolbar) {
+  border-color: var(--bfc-base-dimmed);
+}
+aside.bifrost-learning.bifrost-guide-island :focus-visible {
+  outline: 3px solid var(--bf-focus-ring);
+  outline-offset: 3px;
+}

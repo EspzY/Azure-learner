@@ -1,0 +1,2171 @@
+﻿2026-11-09T22:32:10.2127756Z Current runner version: '2.338.2'
+2026-11-09T22:32:10.2152310Z ##[group]Runner Image Provisioner
+2026-11-09T22:32:10.2153123Z Hosted Compute Agent
+2026-11-09T22:32:10.2153739Z Version: 20261028.624
+2026-11-09T22:32:10.2154345Z Commit: 54898b74c23fde5556c9b3c3a2290865feef0dfe
+2026-11-09T22:32:10.2155043Z Build Date: 2026-10-28T21:51:42Z
+2026-11-09T22:32:10.2155910Z Worker ID: {8c507382-d9e7-4923-aea2-b62b44ad6785}
+2026-11-09T22:32:10.2156651Z Region: eastus3
+2026-11-09T22:32:10.2157192Z Cloud: Azure
+2026-11-09T22:32:10.2157707Z ##[endgroup]
+2026-11-09T22:32:10.2159151Z ##[group]Operating System
+2026-11-09T22:32:10.2159797Z Ubuntu
+2026-11-09T22:32:10.2160285Z 24.04.5
+2026-11-09T22:32:10.2160821Z LTS
+2026-11-09T22:32:10.2161390Z ##[endgroup]
+2026-11-09T22:32:10.2161945Z ##[group]Runner Image
+2026-11-09T22:32:10.2162601Z Image: ubuntu-24.04
+2026-11-09T22:32:10.2163199Z Version: 20261101.360.1
+2026-11-09T22:32:10.2164424Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261101.360/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-09T22:32:10.2165942Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261101.360
+2026-11-09T22:32:10.2166842Z ##[endgroup]
+2026-11-09T22:32:10.2167893Z ##[group]GITHUB_TOKEN Permissions
+2026-11-09T22:32:10.2170212Z Contents: read
+2026-11-09T22:32:10.2170760Z Metadata: read
+2026-11-09T22:32:10.2171293Z ##[endgroup]
+2026-11-09T22:32:10.2173411Z Secret source: Actions
+2026-11-09T22:32:10.2174311Z Cache mode: write
+2026-11-09T22:32:10.2174995Z Prepare workflow directory
+2026-11-09T22:32:10.2759637Z Prepare all required actions
+2026-11-09T22:32:10.2834176Z Getting action download info
+2026-11-09T22:32:10.5159729Z Download action repository 'actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-11-09T22:32:10.6142857Z Download action repository 'actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1' (SHA:949feb2413d6458794dcd2491c4babbbce0c15c1)
+2026-11-09T22:32:10.6828947Z Download action repository 'actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9' (SHA:cf430e030ddbb5b0abf93d22962f4752f3646cd9)
+2026-11-09T22:32:10.8503702Z Complete job name: browser (3)
+2026-11-09T22:32:10.9189470Z ##[group]Checking docker version
+2026-11-09T22:32:10.9203127Z ##[command]/usr/bin/docker version --format '{{.Server.APIVersion}}'
+2026-11-09T22:32:10.9993245Z '1.48'
+2026-11-09T22:32:11.0002637Z Docker daemon API version: '1.48'
+2026-11-09T22:32:11.0003346Z ##[command]/usr/bin/docker version --format '{{.Client.APIVersion}}'
+2026-11-09T22:32:11.0180472Z '1.48'
+2026-11-09T22:32:11.0191644Z Docker client API version: '1.48'
+2026-11-09T22:32:11.0197656Z ##[endgroup]
+2026-11-09T22:32:11.0201096Z ##[group]Clean up resources from previous jobs
+2026-11-09T22:32:11.0206137Z ##[command]/usr/bin/docker ps --all --quiet --no-trunc --filter "label=6caad5"
+2026-11-09T22:32:11.0362634Z ##[command]/usr/bin/docker network prune --force --filter "label=6caad5"
+2026-11-09T22:32:11.0501587Z ##[endgroup]
+2026-11-09T22:32:11.0502146Z ##[group]Create local container network
+2026-11-09T22:32:11.0512903Z ##[command]/usr/bin/docker network create --label 6caad5 github_network_162f379a268b4a28b229957e79d10154
+2026-11-09T22:32:11.0935482Z d9c7b1aaf3808891872e7f4327ce29ef71758bdbb4e2bceb28745127301e1df0
+2026-11-09T22:32:11.0951679Z ##[endgroup]
+2026-11-09T22:32:11.0977296Z ##[group]Starting laboratory-postgres service container
+2026-11-09T22:32:11.0998715Z ##[command]/usr/bin/docker pull postgres:17-bookworm@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T22:32:11.4091299Z docker.io/library/postgres@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994: Pulling from library/postgres
+2026-11-09T22:32:11.5159487Z dd051e1b8c92: Pulling fs layer
+2026-11-09T22:32:11.5160180Z 4fd88e653359: Pulling fs layer
+2026-11-09T22:32:11.5160716Z 41e20cc91088: Pulling fs layer
+2026-11-09T22:32:11.5161275Z cecd59c0f4e8: Pulling fs layer
+2026-11-09T22:32:11.5161774Z fe98381fbf47: Pulling fs layer
+2026-11-09T22:32:11.5162610Z 2c502f9a0399: Pulling fs layer
+2026-11-09T22:32:11.5163097Z 9e6067604731: Pulling fs layer
+2026-11-09T22:32:11.5163736Z 32564e1f6308: Pulling fs layer
+2026-11-09T22:32:11.5164305Z 80ed7b53ecf0: Pulling fs layer
+2026-11-09T22:32:11.5164773Z 46db58682565: Pulling fs layer
+2026-11-09T22:32:11.5165317Z f17bd255b710: Pulling fs layer
+2026-11-09T22:32:11.5166072Z 277e6d734690: Pulling fs layer
+2026-11-09T22:32:11.5166673Z f4368716ea81: Pulling fs layer
+2026-11-09T22:32:11.5167126Z c200e4e2b35b: Pulling fs layer
+2026-11-09T22:32:11.5167837Z 32564e1f6308: Waiting
+2026-11-09T22:32:11.5168384Z 80ed7b53ecf0: Waiting
+2026-11-09T22:32:11.5168934Z 46db58682565: Waiting
+2026-11-09T22:32:11.5169595Z f17bd255b710: Waiting
+2026-11-09T22:32:11.5170306Z cecd59c0f4e8: Waiting
+2026-11-09T22:32:11.5170986Z 277e6d734690: Waiting
+2026-11-09T22:32:11.5171659Z f4368716ea81: Waiting
+2026-11-09T22:32:11.5172311Z c200e4e2b35b: Waiting
+2026-11-09T22:32:11.5172728Z fe98381fbf47: Waiting
+2026-11-09T22:32:11.5173146Z 2c502f9a0399: Waiting
+2026-11-09T22:32:11.5173528Z 9e6067604731: Waiting
+2026-11-09T22:32:11.5808051Z 4fd88e653359: Verifying Checksum
+2026-11-09T22:32:11.5811457Z 4fd88e653359: Download complete
+2026-11-09T22:32:11.5976904Z 41e20cc91088: Verifying Checksum
+2026-11-09T22:32:11.5977957Z 41e20cc91088: Download complete
+2026-11-09T22:32:11.6548535Z cecd59c0f4e8: Verifying Checksum
+2026-11-09T22:32:11.6550129Z cecd59c0f4e8: Download complete
+2026-11-09T22:32:11.6597953Z dd051e1b8c92: Verifying Checksum
+2026-11-09T22:32:11.6598953Z dd051e1b8c92: Download complete
+2026-11-09T22:32:11.6952723Z fe98381fbf47: Verifying Checksum
+2026-11-09T22:32:11.6953819Z fe98381fbf47: Download complete
+2026-11-09T22:32:11.7250677Z 9e6067604731: Verifying Checksum
+2026-11-09T22:32:11.7252039Z 9e6067604731: Download complete
+2026-11-09T22:32:11.7301980Z 2c502f9a0399: Verifying Checksum
+2026-11-09T22:32:11.7303110Z 2c502f9a0399: Download complete
+2026-11-09T22:32:11.7626030Z 32564e1f6308: Verifying Checksum
+2026-11-09T22:32:11.7627372Z 32564e1f6308: Download complete
+2026-11-09T22:32:11.8018889Z 46db58682565: Verifying Checksum
+2026-11-09T22:32:11.8020904Z 46db58682565: Download complete
+2026-11-09T22:32:11.8344692Z f17bd255b710: Verifying Checksum
+2026-11-09T22:32:11.8346542Z f17bd255b710: Download complete
+2026-11-09T22:32:11.8698464Z 277e6d734690: Verifying Checksum
+2026-11-09T22:32:11.8699977Z 277e6d734690: Download complete
+2026-11-09T22:32:11.9010750Z f4368716ea81: Download complete
+2026-11-09T22:32:11.9348514Z c200e4e2b35b: Verifying Checksum
+2026-11-09T22:32:11.9350878Z c200e4e2b35b: Download complete
+2026-11-09T22:32:12.2665076Z 80ed7b53ecf0: Verifying Checksum
+2026-11-09T22:32:12.2666385Z 80ed7b53ecf0: Download complete
+2026-11-09T22:32:12.6422252Z dd051e1b8c92: Pull complete
+2026-11-09T22:32:13.3152230Z 4fd88e653359: Pull complete
+2026-11-09T22:32:13.4244647Z 41e20cc91088: Pull complete
+2026-11-09T22:32:13.4700705Z cecd59c0f4e8: Pull complete
+2026-11-09T22:32:13.7214802Z fe98381fbf47: Pull complete
+2026-11-09T22:32:13.7716786Z 2c502f9a0399: Pull complete
+2026-11-09T22:32:13.7821846Z 9e6067604731: Pull complete
+2026-11-09T22:32:13.7896329Z 32564e1f6308: Pull complete
+2026-11-09T22:32:16.4276039Z 80ed7b53ecf0: Pull complete
+2026-11-09T22:32:16.4388336Z 46db58682565: Pull complete
+2026-11-09T22:32:16.4471929Z f17bd255b710: Pull complete
+2026-11-09T22:32:16.4572874Z 277e6d734690: Pull complete
+2026-11-09T22:32:16.4655732Z f4368716ea81: Pull complete
+2026-11-09T22:32:16.4722113Z c200e4e2b35b: Pull complete
+2026-11-09T22:32:16.4755333Z Digest: sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T22:32:16.4762908Z Status: Downloaded newer image for postgres@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T22:32:16.4772830Z docker.io/library/postgres:17-bookworm@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T22:32:16.4833034Z ##[command]/usr/bin/docker create --name 5ab32321739b4e35a9ada1a6a7d4b398_postgres17bookwormsha256665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994_a3361d --label 6caad5 --network github_network_162f379a268b4a28b229957e79d10154 --network-alias laboratory-postgres -p 5432:5432 --health-cmd "pg_isready -h 127.0.0.1 -U postgres -d azurelab_lab_ci" --health-interval 5s --health-timeout 3s --health-retries 10 -e "POSTGRES_DB=azurelab_lab_ci" -e "POSTGRES_PASSWORD=laboratory_ci_only_fixture" -e GITHUB_ACTIONS=true -e CI=true postgres:17-bookworm@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+2026-11-09T22:32:16.5076342Z 2925415159c327d6f9f26ad9c14002e07c61e18fefe8d4c2872506237e35b956
+2026-11-09T22:32:16.5098250Z ##[command]/usr/bin/docker start 2925415159c327d6f9f26ad9c14002e07c61e18fefe8d4c2872506237e35b956
+2026-11-09T22:32:16.7052312Z 2925415159c327d6f9f26ad9c14002e07c61e18fefe8d4c2872506237e35b956
+2026-11-09T22:32:16.7076458Z ##[command]/usr/bin/docker ps --all --filter id=2925415159c327d6f9f26ad9c14002e07c61e18fefe8d4c2872506237e35b956 --filter status=running --no-trunc --format "{{.ID}} {{.Status}}"
+2026-11-09T22:32:16.7224586Z 2925415159c327d6f9f26ad9c14002e07c61e18fefe8d4c2872506237e35b956 Up Less than a second (health: starting)
+2026-11-09T22:32:16.7244675Z ##[command]/usr/bin/docker port 2925415159c327d6f9f26ad9c14002e07c61e18fefe8d4c2872506237e35b956
+2026-11-09T22:32:16.7390292Z 5432/tcp -> 0.0.0.0:5432
+2026-11-09T22:32:16.7390772Z 5432/tcp -> [::]:5432
+2026-11-09T22:32:16.7436845Z ##[endgroup]
+2026-11-09T22:32:16.7445475Z ##[group]Waiting for all services to be ready
+2026-11-09T22:32:16.7459440Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 2925415159c327d6f9f26ad9c14002e07c61e18fefe8d4c2872506237e35b956
+2026-11-09T22:32:16.7606589Z starting
+2026-11-09T22:32:16.7626570Z laboratory-postgres service is starting, waiting 2 seconds before checking again.
+2026-11-09T22:32:18.7634705Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 2925415159c327d6f9f26ad9c14002e07c61e18fefe8d4c2872506237e35b956
+2026-11-09T22:32:18.7793309Z starting
+2026-11-09T22:32:18.7805418Z laboratory-postgres service is starting, waiting 3 seconds before checking again.
+2026-11-09T22:32:22.4402910Z ##[command]/usr/bin/docker inspect --format="{{if .Config.Healthcheck}}{{print .State.Health.Status}}{{end}}" 2925415159c327d6f9f26ad9c14002e07c61e18fefe8d4c2872506237e35b956
+2026-11-09T22:32:22.4557924Z healthy
+2026-11-09T22:32:22.4575261Z laboratory-postgres service is healthy.
+2026-11-09T22:32:22.4576427Z ##[endgroup]
+2026-11-09T22:32:22.4807890Z ##[group]Run test "$CHECK_RESULT" = success &&
+2026-11-09T22:32:22.4808372Z [36;1mtest "$CHECK_RESULT" = success &&[0m
+2026-11-09T22:32:22.4808737Z [36;1m[[ "$EXPECTED_REVISION" =~ ^[0-9a-f]{40}$ ]] &&[0m
+2026-11-09T22:32:22.4809058Z [36;1mtest -n "$CHECKED_REVISION" &&[0m
+2026-11-09T22:32:22.4809387Z [36;1mtest "$CHECKED_REVISION" = "$EXPECTED_REVISION" &&[0m
+2026-11-09T22:32:22.4809744Z [36;1m[[ "$GITHUB_RUN_ATTEMPT" =~ ^[1-9][0-9]*$ ]] &&[0m
+2026-11-09T22:32:22.4810099Z [36;1mtest "$CHECKED_ATTEMPT" = "$GITHUB_RUN_ATTEMPT"[0m
+2026-11-09T22:32:22.4828343Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-09T22:32:22.4828984Z env:
+2026-11-09T22:32:22.4829793Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:22.4830384Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:22.4831042Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:22.4831727Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:22.4832060Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:32:22.4832331Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:32:22.4832573Z   CHECK_RESULT: success
+2026-11-09T22:32:22.4832861Z   CHECKED_REVISION: 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:22.4833235Z   EXPECTED_REVISION: 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:22.4833548Z   CHECKED_ATTEMPT: 1
+2026-11-09T22:32:22.4833785Z ##[endgroup]
+2026-11-09T22:32:22.5097493Z ##[group]Run actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+2026-11-09T22:32:22.5097969Z with:
+2026-11-09T22:32:22.5098238Z   ref: 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:22.5098602Z   fetch-depth: 0
+2026-11-09T22:32:22.5098854Z   repository: EspzY/Azure-learner
+2026-11-09T22:32:22.5101811Z   token: ***
+2026-11-09T22:32:22.5102022Z   ssh-strict: true
+2026-11-09T22:32:22.5102229Z   ssh-user: git
+2026-11-09T22:32:22.5102458Z   persist-credentials: true
+2026-11-09T22:32:22.5102696Z   clean: true
+2026-11-09T22:32:22.5102912Z   sparse-checkout-cone-mode: true
+2026-11-09T22:32:22.5103166Z   fetch-tags: false
+2026-11-09T22:32:22.5103372Z   show-progress: true
+2026-11-09T22:32:22.5103583Z   lfs: false
+2026-11-09T22:32:22.5103774Z   submodules: false
+2026-11-09T22:32:22.5103984Z   set-safe-directory: true
+2026-11-09T22:32:22.5104231Z   allow-unsafe-pr-checkout: false
+2026-11-09T22:32:22.5104478Z env:
+2026-11-09T22:32:22.5104989Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:22.5105779Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:22.5106334Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:22.5106939Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:22.5107269Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:32:22.5107537Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:32:22.5107766Z ##[endgroup]
+2026-11-09T22:32:22.7680679Z Syncing repository: EspzY/Azure-learner
+2026-11-09T22:32:22.7682224Z ##[group]Getting Git version info
+2026-11-09T22:32:22.7682634Z Working directory is '/home/runner/work/Azure-learner/Azure-learner'
+2026-11-09T22:32:22.7683220Z [command]/usr/bin/git version
+2026-11-09T22:32:22.7758009Z git version 2.56.0
+2026-11-09T22:32:22.7778115Z ##[endgroup]
+2026-11-09T22:32:22.7791059Z Temporarily overriding HOME='/home/runner/work/_temp/0aaee514-25c1-45c0-bafc-b8c6939a505a' before making global git config changes
+2026-11-09T22:32:22.7792673Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-09T22:32:22.7798828Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Azure-learner/Azure-learner
+2026-11-09T22:32:22.7862292Z Deleting the contents of '/home/runner/work/Azure-learner/Azure-learner'
+2026-11-09T22:32:22.7864637Z ##[group]Determining repository object format
+2026-11-09T22:32:22.7866239Z ##[endgroup]
+2026-11-09T22:32:22.7867105Z ##[group]Initializing the repository
+2026-11-09T22:32:22.7867995Z [command]/usr/bin/git init /home/runner/work/Azure-learner/Azure-learner
+2026-11-09T22:32:22.7977351Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-09T22:32:22.7978703Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-09T22:32:22.7979922Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-09T22:32:22.7980867Z hint: call:
+2026-11-09T22:32:22.7981411Z hint:
+2026-11-09T22:32:22.7982147Z hint: 	git config --global init.defaultBranch <name>
+2026-11-09T22:32:22.7982975Z hint:
+2026-11-09T22:32:22.7984214Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-09T22:32:22.7985176Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-09T22:32:22.7986068Z hint:
+2026-11-09T22:32:22.7986404Z hint: 	git branch -m <name>
+2026-11-09T22:32:22.7986778Z hint:
+2026-11-09T22:32:22.7987287Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-09T22:32:22.7988728Z Initialized empty Git repository in /home/runner/work/Azure-learner/Azure-learner/.git/
+2026-11-09T22:32:22.8000925Z [command]/usr/bin/git remote add origin https://github.com/EspzY/Azure-learner
+2026-11-09T22:32:22.8046019Z ##[endgroup]
+2026-11-09T22:32:22.8046914Z ##[group]Disabling automatic garbage collection
+2026-11-09T22:32:22.8049569Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-09T22:32:22.8086173Z ##[endgroup]
+2026-11-09T22:32:22.8087407Z ##[group]Setting up auth
+2026-11-09T22:32:22.8087955Z Removing SSH command configuration
+2026-11-09T22:32:22.8091899Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-09T22:32:22.8133511Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-09T22:32:22.8485689Z Removing HTTP extra header
+2026-11-09T22:32:22.8492929Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-09T22:32:22.8552874Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-09T22:32:22.8769788Z Removing includeIf entries pointing to credentials config files
+2026-11-09T22:32:22.8776533Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-09T22:32:22.8811256Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-09T22:32:22.9017687Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-a46267bd-44de-4ee8-868d-222650987004.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-09T22:32:22.9059064Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git.path /home/runner/work/_temp/git-credentials-a46267bd-44de-4ee8-868d-222650987004.config
+2026-11-09T22:32:22.9092360Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-a46267bd-44de-4ee8-868d-222650987004.config
+2026-11-09T22:32:22.9125435Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-a46267bd-44de-4ee8-868d-222650987004.config
+2026-11-09T22:32:22.9156374Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-a46267bd-44de-4ee8-868d-222650987004.config
+2026-11-09T22:32:22.9185224Z ##[endgroup]
+2026-11-09T22:32:22.9186011Z ##[group]Fetching the repository
+2026-11-09T22:32:22.9193138Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2026-11-09T22:32:28.7980212Z From https://github.com/EspzY/Azure-learner
+2026-11-09T22:32:28.7981345Z  * [new branch]      codex/activate-desktop-ci -> origin/codex/activate-desktop-ci
+2026-11-09T22:32:28.7982606Z  * [new branch]      codex/az900-assessment-quality-transfer -> origin/codex/az900-assessment-quality-transfer
+2026-11-09T22:32:28.7983987Z  * [new branch]      codex/az900-assessment-transfer-refinement -> origin/codex/az900-assessment-transfer-refinement
+2026-11-09T22:32:28.7985420Z  * [new branch]      codex/az900-cloud-computing-consolidation -> origin/codex/az900-cloud-computing-consolidation
+2026-11-09T22:32:28.7987140Z  * [new branch]      codex/az900-cloud-concepts-independent-review -> origin/codex/az900-cloud-concepts-independent-review
+2026-11-09T22:32:28.7988573Z  * [new branch]      codex/az900-collapsible-sources -> origin/codex/az900-collapsible-sources
+2026-11-09T22:32:28.7989705Z  * [new branch]      codex/az900-compute-hosting -> origin/codex/az900-compute-hosting
+2026-11-09T22:32:28.7990894Z  * [new branch]      codex/az900-core-architecture-management -> origin/codex/az900-core-architecture-management
+2026-11-09T22:32:28.7992270Z  * [new branch]      codex/az900-core-architecture-physical -> origin/codex/az900-core-architecture-physical
+2026-11-09T22:32:28.7993435Z  * [new branch]      codex/az900-cost-management -> origin/codex/az900-cost-management
+2026-11-09T22:32:28.7995045Z  * [new branch]      codex/az900-curriculum-audit -> origin/codex/az900-curriculum-audit
+2026-11-09T22:32:28.7996684Z  * [new branch]      codex/az900-end-to-end-learning-audit -> origin/codex/az900-end-to-end-learning-audit
+2026-11-09T22:32:28.7997984Z  * [new branch]      codex/az900-entra-identity-foundations -> origin/codex/az900-entra-identity-foundations
+2026-11-09T22:32:28.7999370Z  * [new branch]      codex/az900-file-movement-migration -> origin/codex/az900-file-movement-migration
+2026-11-09T22:32:28.8000639Z  * [new branch]      codex/az900-final-quality-sprint -> origin/codex/az900-final-quality-sprint
+2026-11-09T22:32:28.8002014Z  * [new branch]      codex/az900-governance-compliance -> origin/codex/az900-governance-compliance
+2026-11-09T22:32:28.8003347Z  * [new branch]      codex/az900-learning-sequencing -> origin/codex/az900-learning-sequencing
+2026-11-09T22:32:28.8004496Z  * [new branch]      codex/az900-management-deployment -> origin/codex/az900-management-deployment
+2026-11-09T22:32:28.8005825Z  * [new branch]      codex/az900-monitoring-diagnostics -> origin/codex/az900-monitoring-diagnostics
+2026-11-09T22:32:28.8007125Z  * [new branch]      codex/az900-networking-connectivity -> origin/codex/az900-networking-connectivity
+2026-11-09T22:32:28.8007875Z  * [new branch]      codex/az900-networking-foundations -> origin/codex/az900-networking-foundations
+2026-11-09T22:32:28.8008593Z  * [new branch]      codex/az900-rbac-conditional-access -> origin/codex/az900-rbac-conditional-access
+2026-11-09T22:32:28.8009292Z  * [new branch]      codex/az900-security-principles -> origin/codex/az900-security-principles
+2026-11-09T22:32:28.8009994Z  * [new branch]      codex/az900-serverless-foundations -> origin/codex/az900-serverless-foundations
+2026-11-09T22:32:28.8010673Z  * [new branch]      codex/az900-storage-services -> origin/codex/az900-storage-services
+2026-11-09T22:32:28.8011369Z  * [new branch]      codex/az900-storage-tiers-redundancy -> origin/codex/az900-storage-tiers-redundancy
+2026-11-09T22:32:28.8012076Z  * [new branch]      codex/azure-portal-exact-icons -> origin/codex/azure-portal-exact-icons
+2026-11-09T22:32:28.8012793Z  * [new branch]      codex/azure-portal-high-fidelity -> origin/codex/azure-portal-high-fidelity
+2026-11-09T22:32:28.8013672Z  * [new branch]      codex/azurelab-hybrid-production-foundation -> origin/codex/azurelab-hybrid-production-foundation
+2026-11-09T22:32:28.8014554Z  * [new branch]      codex/azurelab-landing-volatile-laboratory -> origin/codex/azurelab-landing-volatile-laboratory
+2026-11-09T22:32:28.8015307Z  * [new branch]      codex/azurelab-premium-landing -> origin/codex/azurelab-premium-landing
+2026-11-09T22:32:28.8016516Z  * [new branch]      codex/azurelab-visual-excellence -> origin/codex/azurelab-visual-excellence
+2026-11-09T22:32:28.8017520Z  * [new branch]      codex/bifrost-course-experience -> origin/codex/bifrost-course-experience
+2026-11-09T22:32:28.8018268Z  * [new branch]      codex/bifrost-design-foundation -> origin/codex/bifrost-design-foundation
+2026-11-09T22:32:28.8019273Z  * [new branch]      codex/cc01-challenge-return-resume -> origin/codex/cc01-challenge-return-resume
+2026-11-09T22:32:28.8020327Z  * [new branch]      codex/cc02-vm-debrief-diagnostics -> origin/codex/cc02-vm-debrief-diagnostics
+2026-11-09T22:32:28.8021262Z  * [new branch]      codex/cc03-iaas-assessment-validity -> origin/codex/cc03-iaas-assessment-validity
+2026-11-09T22:32:28.8021970Z  * [new branch]      codex/cloud-concepts-transfer-assessment -> origin/codex/cloud-concepts-transfer-assessment
+2026-11-09T22:32:28.8022599Z  * [new branch]      codex/course-hub-redesign -> origin/codex/course-hub-redesign
+2026-11-09T22:32:28.8023150Z  * [new branch]      codex/desktop-quality-workflow -> origin/codex/desktop-quality-workflow
+2026-11-09T22:32:28.8023841Z  * [new branch]      codex/dialog-placement-modal-consistency -> origin/codex/dialog-placement-modal-consistency
+2026-11-09T22:32:28.8024474Z  * [new branch]      codex/guided-learning-visuals -> origin/codex/guided-learning-visuals
+2026-11-09T22:32:28.8025333Z  * [new branch]      codex/laboratory-application-delivery -> origin/codex/laboratory-application-delivery
+2026-11-09T22:32:28.8026339Z  * [new branch]      codex/laboratory-application-platform -> origin/codex/laboratory-application-platform
+2026-11-09T22:32:28.8027059Z  * [new branch]      codex/laboratory-architecture-studio-part-a -> origin/codex/laboratory-architecture-studio-part-a
+2026-11-09T22:32:28.8027814Z  * [new branch]      codex/laboratory-azure-firewall-part-a -> origin/codex/laboratory-azure-firewall-part-a
+2026-11-09T22:32:28.8028461Z  * [new branch]      codex/laboratory-compute-part-a -> origin/codex/laboratory-compute-part-a
+2026-11-09T22:32:28.8029044Z  * [new branch]      codex/laboratory-data-serverless -> origin/codex/laboratory-data-serverless
+2026-11-09T22:32:28.8029734Z  * [new branch]      codex/laboratory-integrated-application-chain -> origin/codex/laboratory-integrated-application-chain
+2026-11-09T22:32:28.8030470Z  * [new branch]      codex/laboratory-network-endpoints-nsg -> origin/codex/laboratory-network-endpoints-nsg
+2026-11-09T22:32:28.8031118Z  * [new branch]      codex/laboratory-networking-part-a -> origin/codex/laboratory-networking-part-a
+2026-11-09T22:32:28.8031716Z  * [new branch]      codex/laboratory-networking-part-b -> origin/codex/laboratory-networking-part-b
+2026-11-09T22:32:28.8032312Z  * [new branch]      codex/laboratory-platform-stage-0 -> origin/codex/laboratory-platform-stage-0
+2026-11-09T22:32:28.8032978Z  * [new branch]      codex/laboratory-platform-storage-stage-1 -> origin/codex/laboratory-platform-storage-stage-1
+2026-11-09T22:32:28.8033874Z  * [new branch]      codex/laboratory-platform-v3-server-storage -> origin/codex/laboratory-platform-v3-server-storage
+2026-11-09T22:32:28.8035106Z  * [new branch]      codex/laboratory-security-remediation-part-a -> origin/codex/laboratory-security-remediation-part-a
+2026-11-09T22:32:28.8036509Z  * [new branch]      codex/laboratory-topology-remediation-part-b -> origin/codex/laboratory-topology-remediation-part-b
+2026-11-09T22:32:28.8037625Z  * [new branch]      codex/learning-flow-guidance-recovery -> origin/codex/learning-flow-guidance-recovery
+2026-11-09T22:32:28.8038531Z  * [new branch]      codex/legacy-cleanup    -> origin/codex/legacy-cleanup
+2026-11-09T22:32:28.8039375Z  * [new branch]      codex/permanent-quality-savvyshark -> origin/codex/permanent-quality-savvyshark
+2026-11-09T22:32:28.8040399Z  * [new branch]      codex/portal-resource-inspection-bridge -> origin/codex/portal-resource-inspection-bridge
+2026-11-09T22:32:28.8041532Z  * [new branch]      codex/practical-mission-expansion -> origin/codex/practical-mission-expansion
+2026-11-09T22:32:28.8042767Z  * [new branch]      codex/shared-azurelab-portal-experience -> origin/codex/shared-azurelab-portal-experience
+2026-11-09T22:32:28.8044026Z  * [new branch]      codex/shared-portal-home-subscriptions -> origin/codex/shared-portal-home-subscriptions
+2026-11-09T22:32:28.8045281Z  * [new branch]      feat/31a-beginner-learning-design -> origin/feat/31a-beginner-learning-design
+2026-11-09T22:32:28.8046515Z  * [new branch]      feat/31b-foundations-integration -> origin/feat/31b-foundations-integration
+2026-11-09T22:32:28.8047327Z  * [new branch]      feat/31b1-ux-refinement -> origin/feat/31b1-ux-refinement
+2026-11-09T22:32:28.8048210Z  * [new branch]      feat/32-cloud-benefits-service-types -> origin/feat/32-cloud-benefits-service-types
+2026-11-09T22:32:28.8049360Z  * [new branch]      feat/321-integrated-practical-labs -> origin/feat/321-integrated-practical-labs
+2026-11-09T22:32:28.8050429Z  * [new branch]      feat/azurelab-portal-reboot -> origin/feat/azurelab-portal-reboot
+2026-11-09T22:32:28.8051334Z  * [new branch]      feat/chapter-01-guided  -> origin/feat/chapter-01-guided
+2026-11-09T22:32:28.8052137Z  * [new branch]      feat/course-first-guided-learning -> origin/feat/course-first-guided-learning
+2026-11-09T22:32:28.8053032Z  * [new branch]      feat/g1-cinematic-dialogue -> origin/feat/g1-cinematic-dialogue
+2026-11-09T22:32:28.8054186Z  * [new branch]      feat/g12-onboarding-journey -> origin/feat/g12-onboarding-journey
+2026-11-09T22:32:28.8055232Z  * [new branch]      feat/g13-living-learning -> origin/feat/g13-living-learning
+2026-11-09T22:32:28.8056550Z  * [new branch]      feat/learning-content-foundations -> origin/feat/learning-content-foundations
+2026-11-09T22:32:28.8057628Z  * [new branch]      feat/phase-0-foundation -> origin/feat/phase-0-foundation
+2026-11-09T22:32:28.8058535Z  * [new branch]      feat/rpg-vertical-slice -> origin/feat/rpg-vertical-slice
+2026-11-09T22:32:28.8059275Z  * [new branch]      main                    -> origin/main
+2026-11-09T22:32:28.8061486Z [command]/usr/bin/git rev-parse --verify --quiet 3c704205a247692a92a36f0a1be0f19f1a9cc9d8^{object}
+2026-11-09T22:32:28.8063119Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules origin 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:29.1703033Z From https://github.com/EspzY/Azure-learner
+2026-11-09T22:32:29.1703607Z  * branch            3c704205a247692a92a36f0a1be0f19f1a9cc9d8 -> FETCH_HEAD
+2026-11-09T22:32:29.1714368Z [command]/usr/bin/git rev-parse --verify --quiet 3c704205a247692a92a36f0a1be0f19f1a9cc9d8^{object}
+2026-11-09T22:32:29.1743889Z 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:29.1746934Z ##[endgroup]
+2026-11-09T22:32:29.1747432Z ##[group]Determining the checkout info
+2026-11-09T22:32:29.1748057Z ##[endgroup]
+2026-11-09T22:32:29.1754765Z [command]/usr/bin/git sparse-checkout disable
+2026-11-09T22:32:29.1805841Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-09T22:32:29.1837736Z ##[group]Checking out the ref
+2026-11-09T22:32:29.1842863Z [command]/usr/bin/git checkout --progress --force 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:30.1909872Z Updating files:  77% (2264/2924)
+2026-11-09T22:32:30.2017783Z Updating files:  78% (2281/2924)
+2026-11-09T22:32:30.2033224Z Updating files:  79% (2310/2924)
+2026-11-09T22:32:30.2048406Z Updating files:  80% (2340/2924)
+2026-11-09T22:32:30.2065824Z Updating files:  81% (2369/2924)
+2026-11-09T22:32:30.2078975Z Updating files:  82% (2398/2924)
+2026-11-09T22:32:30.2094343Z Updating files:  83% (2427/2924)
+2026-11-09T22:32:30.2110601Z Updating files:  84% (2457/2924)
+2026-11-09T22:32:30.2123701Z Updating files:  85% (2486/2924)
+2026-11-09T22:32:30.2140671Z Updating files:  86% (2515/2924)
+2026-11-09T22:32:30.2155736Z Updating files:  87% (2544/2924)
+2026-11-09T22:32:30.2172652Z Updating files:  88% (2574/2924)
+2026-11-09T22:32:30.2186717Z Updating files:  89% (2603/2924)
+2026-11-09T22:32:30.2203855Z Updating files:  90% (2632/2924)
+2026-11-09T22:32:30.2217116Z Updating files:  91% (2661/2924)
+2026-11-09T22:32:30.2230295Z Updating files:  92% (2691/2924)
+2026-11-09T22:32:30.2249868Z Updating files:  93% (2720/2924)
+2026-11-09T22:32:30.2269431Z Updating files:  94% (2749/2924)
+2026-11-09T22:32:30.2286250Z Updating files:  95% (2778/2924)
+2026-11-09T22:32:30.2317359Z Updating files:  96% (2808/2924)
+2026-11-09T22:32:30.2345792Z Updating files:  97% (2837/2924)
+2026-11-09T22:32:30.2365635Z Updating files:  98% (2866/2924)
+2026-11-09T22:32:30.2374305Z Updating files:  99% (2895/2924)
+2026-11-09T22:32:30.2375284Z Updating files: 100% (2924/2924)
+2026-11-09T22:32:30.2376259Z Updating files: 100% (2924/2924), done.
+2026-11-09T22:32:30.2409634Z Note: switching to '3c704205a247692a92a36f0a1be0f19f1a9cc9d8'.
+2026-11-09T22:32:30.2410065Z 
+2026-11-09T22:32:30.2410815Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-09T22:32:30.2411297Z changes and commit them, and you can discard any commits you make in this
+2026-11-09T22:32:30.2411748Z state without impacting any branches by switching back to a branch.
+2026-11-09T22:32:30.2412006Z 
+2026-11-09T22:32:30.2412188Z If you want to create a new branch to retain commits you create, you may
+2026-11-09T22:32:30.2412610Z do so (now or later) by using -c with the switch command. Example:
+2026-11-09T22:32:30.2412844Z 
+2026-11-09T22:32:30.2412971Z   git switch -c <new-branch-name>
+2026-11-09T22:32:30.2413383Z 
+2026-11-09T22:32:30.2413585Z Or undo this operation with:
+2026-11-09T22:32:30.2413745Z 
+2026-11-09T22:32:30.2413826Z   git switch -
+2026-11-09T22:32:30.2413948Z 
+2026-11-09T22:32:30.2414148Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-09T22:32:30.2414432Z 
+2026-11-09T22:32:30.2414753Z HEAD is now at 3c70420 Merge 687e338da697ebe3cb85955aed6453dfdd044ed7 into 7d68b2c40988385c31c1e514e67e5135a1fbe25e
+2026-11-09T22:32:30.2460798Z ##[endgroup]
+2026-11-09T22:32:30.2507033Z [command]/usr/bin/git log -1 --format=%H
+2026-11-09T22:32:30.2533860Z 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:30.2663690Z ##[group]Run candidate_sha="$(git rev-parse HEAD)"
+2026-11-09T22:32:30.2664067Z [36;1mcandidate_sha="$(git rev-parse HEAD)"[0m
+2026-11-09T22:32:30.2664374Z [36;1m[[ "$candidate_sha" =~ ^[0-9a-f]{40}$ ]] &&[0m
+2026-11-09T22:32:30.2664708Z [36;1mtest "$candidate_sha" = "$EXPECTED_REVISION" &&[0m
+2026-11-09T22:32:30.2665052Z [36;1mtest "$candidate_sha" = "$CHECKED_REVISION"[0m
+2026-11-09T22:32:30.2679071Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-09T22:32:30.2679414Z env:
+2026-11-09T22:32:30.2680083Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:30.2764135Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:30.2764829Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:30.2765754Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:30.2766102Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:32:30.2766379Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:32:30.2766753Z   CHECKED_REVISION: 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:30.2767129Z   EXPECTED_REVISION: 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:32:30.2767438Z   CHECKED_ATTEMPT: 1
+2026-11-09T22:32:30.2767649Z ##[endgroup]
+2026-11-09T22:32:30.2922910Z ##[group]Run actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+2026-11-09T22:32:30.2923298Z with:
+2026-11-09T22:32:30.2923502Z   node-version: 24
+2026-11-09T22:32:30.2923701Z   cache: npm
+2026-11-09T22:32:30.2923903Z   check-latest: false
+2026-11-09T22:32:30.2926596Z   token: ***
+2026-11-09T22:32:30.2926816Z   package-manager-cache: true
+2026-11-09T22:32:30.2927064Z env:
+2026-11-09T22:32:30.2927518Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:30.2928087Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:30.2928636Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:30.2929243Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:30.2929572Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:32:30.2929830Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:32:30.2930057Z ##[endgroup]
+2026-11-09T22:32:30.4226484Z Found in cache @ /opt/hostedtoolcache/node/24.22.2/x64
+2026-11-09T22:32:30.4941439Z ##[group]Environment details
+2026-11-09T22:32:30.8559220Z node: v24.22.2
+2026-11-09T22:32:30.8559664Z npm: 11.19.1
+2026-11-09T22:32:30.8559972Z yarn: 1.22.22
+2026-11-09T22:32:30.8561405Z ##[endgroup]
+2026-11-09T22:32:30.8577346Z [command]/opt/hostedtoolcache/node/24.22.2/x64/bin/npm config get cache
+2026-11-09T22:32:30.9663298Z /home/runner/.npm
+2026-11-09T22:32:31.1061825Z Cache hit for: node-cache-Linux-x64-npm-263c101c31d7e4f07d3ecd80975928e77b50f1fd54dd29777a008da001236f21
+2026-11-09T22:32:32.1106754Z Received 145643803 of 145643803 (100.0%), 155.7 MBs/sec
+2026-11-09T22:32:32.1129979Z Cache Size: ~139 MB (145643803 B)
+2026-11-09T22:32:32.1196078Z [command]/usr/bin/tar -xf /home/runner/work/_temp/66e75496-7c04-4cb5-9459-f8cba0d18ea0/cache.tzst -P -C /home/runner/work/Azure-learner/Azure-learner --use-compress-program unzstd
+2026-11-09T22:32:32.3266240Z Cache restored successfully
+2026-11-09T22:32:32.3319653Z Cache restored from key: node-cache-Linux-x64-npm-263c101c31d7e4f07d3ecd80975928e77b50f1fd54dd29777a008da001236f21
+2026-11-09T22:32:32.3474335Z ##[group]Run npm ci
+2026-11-09T22:32:32.3474590Z [36;1mnpm ci[0m
+2026-11-09T22:32:32.3496701Z shell: /usr/bin/bash -e {0}
+2026-11-09T22:32:32.3496971Z env:
+2026-11-09T22:32:32.3497709Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:32.3498284Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:32.3498843Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:32.3499453Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:32.3499787Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:32:32.3500064Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:32:32.3500298Z ##[endgroup]
+2026-11-09T22:32:41.0215735Z 
+2026-11-09T22:32:41.0225704Z added 247 packages, and audited 248 packages in 9s
+2026-11-09T22:32:41.0226319Z 
+2026-11-09T22:32:41.0226670Z 56 packages are looking for funding
+2026-11-09T22:32:41.0227239Z   run `npm fund` for details
+2026-11-09T22:32:41.1685452Z 
+2026-11-09T22:32:41.1686491Z 10 moderate severity vulnerabilities
+2026-11-09T22:32:41.1686944Z 
+2026-11-09T22:32:41.1687398Z To address all issues (including breaking changes), run:
+2026-11-09T22:32:41.1688062Z   npm audit fix --force
+2026-11-09T22:32:41.1688344Z 
+2026-11-09T22:32:41.1688576Z Run `npm audit` for details.
+2026-11-09T22:32:41.2358594Z ##[group]Run npm run lab:db:setup
+2026-11-09T22:32:41.2359162Z [36;1mnpm run lab:db:setup[0m
+2026-11-09T22:32:41.2378728Z shell: /usr/bin/bash -e {0}
+2026-11-09T22:32:41.2379189Z env:
+2026-11-09T22:32:41.2380241Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:41.2381375Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:41.2382514Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:41.2383785Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:41.2384444Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:32:41.2384970Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:32:41.2385420Z ##[endgroup]
+2026-11-09T22:32:41.3341806Z 
+2026-11-09T22:32:41.3342654Z > azurelab@0.1.0 lab:db:setup
+2026-11-09T22:32:41.3343411Z > node scripts/laboratory-db.mjs
+2026-11-09T22:32:41.3343786Z 
+2026-11-09T22:32:41.5062308Z Dedicated local Laboratory schemas/roles initialized. No application resources created.
+2026-11-09T22:32:41.5288350Z ##[group]Run npx playwright install --with-deps chromium
+2026-11-09T22:32:41.5289101Z [36;1mnpx playwright install --with-deps chromium[0m
+2026-11-09T22:32:41.5308902Z shell: /usr/bin/bash -e {0}
+2026-11-09T22:32:41.5309352Z env:
+2026-11-09T22:32:41.5310407Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:41.5311554Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:32:41.5312684Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:41.5313933Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:32:41.5314589Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:32:41.5315100Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:32:41.5315660Z ##[endgroup]
+2026-11-09T22:32:42.3338690Z Installing dependencies...
+2026-11-09T22:32:42.3422324Z Switching to root user to install dependencies...
+2026-11-09T22:32:42.4287314Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-09T22:32:42.4568776Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-11-09T22:32:42.4766097Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2026-11-09T22:32:42.4892069Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-11-09T22:32:42.5325462Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [747 kB]
+2026-11-09T22:32:42.5371620Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-11-09T22:32:42.5501940Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-11-09T22:32:42.5557543Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [678 kB]
+2026-11-09T22:32:42.6432710Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1425 kB]
+2026-11-09T22:32:42.6827936Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [313 kB]
+2026-11-09T22:32:42.6947155Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1711 kB]
+2026-11-09T22:32:42.7175374Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [344 kB]
+2026-11-09T22:32:42.7314564Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1839 kB]
+2026-11-09T22:32:42.7514231Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [420 kB]
+2026-11-09T22:32:42.7651892Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Packages [50.7 kB]
+2026-11-09T22:32:42.7769394Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-updates/multiverse Translation-en [14.3 kB]
+2026-11-09T22:32:42.7889522Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1158 kB]
+2026-11-09T22:32:42.8051192Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [234 kB]
+2026-11-09T22:32:42.8721341Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1228 kB]
+2026-11-09T22:32:42.8888061Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [248 kB]
+2026-11-09T22:32:42.9012519Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1725 kB]
+2026-11-09T22:32:42.9207205Z Get:22 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [396 kB]
+2026-11-09T22:32:42.9341384Z Get:23 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse amd64 Packages [45.4 kB]
+2026-11-09T22:32:42.9460927Z Get:24 http://azure.archive.ubuntu.com/ubuntu noble-security/multiverse Translation-en [12.4 kB]
+2026-11-09T22:32:46.2442421Z Fetched 13.0 MB in 1s (9651 kB/s)
+2026-11-09T22:32:47.4269288Z Reading package lists...
+2026-11-09T22:32:47.6258449Z Reading package lists...
+2026-11-09T22:32:47.8840055Z Building dependency tree...
+2026-11-09T22:32:47.8847179Z Reading state information...
+2026-11-09T22:32:48.0919272Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+2026-11-09T22:32:48.0920112Z libasound2t64 set to manually installed.
+2026-11-09T22:32:48.0920820Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-11-09T22:32:48.0921665Z libatk-bridge2.0-0t64 set to manually installed.
+2026-11-09T22:32:48.0922459Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+2026-11-09T22:32:48.0923180Z libatk1.0-0t64 set to manually installed.
+2026-11-09T22:32:48.0923885Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-11-09T22:32:48.0924277Z libatspi2.0-0t64 set to manually installed.
+2026-11-09T22:32:48.0924658Z libcairo2 is already the newest version (1.18.0-3build1).
+2026-11-09T22:32:48.0925035Z libcairo2 set to manually installed.
+2026-11-09T22:32:48.0925446Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+2026-11-09T22:32:48.0926095Z libcups2t64 set to manually installed.
+2026-11-09T22:32:48.0926539Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+2026-11-09T22:32:48.0926933Z libdbus-1-3 set to manually installed.
+2026-11-09T22:32:48.0927337Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+2026-11-09T22:32:48.0927717Z libdrm2 set to manually installed.
+2026-11-09T22:32:48.0928100Z libgbm1 is already the newest version (25.2.8-0ubuntu0.24.04.4).
+2026-11-09T22:32:48.0928574Z libgbm1 set to manually installed.
+2026-11-09T22:32:48.0929232Z libglib2.0-0t64 is already the newest version (2.80.0-6ubuntu3.10).
+2026-11-09T22:32:48.0929970Z libglib2.0-0t64 set to manually installed.
+2026-11-09T22:32:48.0930700Z libnspr4 is already the newest version (2:4.35-1.1build1).
+2026-11-09T22:32:48.0931368Z libnspr4 set to manually installed.
+2026-11-09T22:32:48.0931748Z libnss3 is already the newest version (2:3.98-1ubuntu0.3).
+2026-11-09T22:32:48.0932321Z libnss3 set to manually installed.
+2026-11-09T22:32:48.0932718Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+2026-11-09T22:32:48.0933152Z libpango-1.0-0 set to manually installed.
+2026-11-09T22:32:48.0933557Z libx11-6 is already the newest version (2:1.8.7-1ubuntu0.1).
+2026-11-09T22:32:48.0933927Z libx11-6 set to manually installed.
+2026-11-09T22:32:48.0934270Z libxcb1 is already the newest version (1.15-1ubuntu2).
+2026-11-09T22:32:48.0934610Z libxcb1 set to manually installed.
+2026-11-09T22:32:48.0935003Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+2026-11-09T22:32:48.0935395Z libxcomposite1 set to manually installed.
+2026-11-09T22:32:48.0936002Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+2026-11-09T22:32:48.0936373Z libxdamage1 set to manually installed.
+2026-11-09T22:32:48.0936753Z libxext6 is already the newest version (2:1.3.4-1build2).
+2026-11-09T22:32:48.0937114Z libxext6 set to manually installed.
+2026-11-09T22:32:48.0937493Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+2026-11-09T22:32:48.0937874Z libxfixes3 set to manually installed.
+2026-11-09T22:32:48.0938261Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+2026-11-09T22:32:48.0938647Z libxkbcommon0 set to manually installed.
+2026-11-09T22:32:48.0939048Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+2026-11-09T22:32:48.0939413Z libxrandr2 set to manually installed.
+2026-11-09T22:32:48.0939778Z xvfb is already the newest version (2:21.1.12-1ubuntu1.9).
+2026-11-09T22:32:48.0940290Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+2026-11-09T22:32:48.0940815Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+2026-11-09T22:32:48.0941234Z libfontconfig1 set to manually installed.
+2026-11-09T22:32:48.0941657Z libfreetype6 is already the newest version (2.13.2+dfsg-1ubuntu0.2).
+2026-11-09T22:32:48.0942051Z libfreetype6 set to manually installed.
+2026-11-09T22:32:48.0942440Z fonts-liberation is already the newest version (1:2.1.5-3).
+2026-11-09T22:32:48.0942829Z fonts-liberation set to manually installed.
+2026-11-09T22:32:48.0943208Z The following additional packages will be installed:
+2026-11-09T22:32:48.0943694Z   xfonts-encodings xfonts-utils
+2026-11-09T22:32:48.0943981Z Recommended packages:
+2026-11-09T22:32:48.0944262Z   fonts-ipafont-mincho fonts-tlwg-loma
+2026-11-09T22:32:48.1744291Z The following NEW packages will be installed:
+2026-11-09T22:32:48.1745074Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-11-09T22:32:48.1762655Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+2026-11-09T22:32:48.1763213Z   xfonts-utils
+2026-11-09T22:32:48.2288476Z 0 upgraded, 9 newly installed, 0 to remove and 28 not upgraded.
+2026-11-09T22:32:48.2288918Z Need to get 21.1 MB of archives.
+2026-11-09T22:32:48.2289344Z After this operation, 79.5 MB of additional disk space will be used.
+2026-11-09T22:32:48.2289832Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-09T22:32:48.2924222Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+2026-11-09T22:32:48.4088674Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+2026-11-09T22:32:48.5699894Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+2026-11-09T22:32:48.6533942Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+2026-11-09T22:32:48.7083122Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+2026-11-09T22:32:48.8894157Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+2026-11-09T22:32:48.9521490Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+2026-11-09T22:32:48.9984508Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+2026-11-09T22:32:49.0467498Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+2026-11-09T22:32:49.3324139Z Fetched 21.1 MB in 1s (24.8 MB/s)
+2026-11-09T22:32:49.3589143Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-11-09T22:32:49.3787057Z (Reading database ... 
+2026-11-09T22:32:49.3787581Z (Reading database ... 5%
+2026-11-09T22:32:49.3788342Z (Reading database ... 10%
+2026-11-09T22:32:49.3788688Z (Reading database ... 15%
+2026-11-09T22:32:49.3789048Z (Reading database ... 20%
+2026-11-09T22:32:49.3789448Z (Reading database ... 25%
+2026-11-09T22:32:49.3789879Z (Reading database ... 30%
+2026-11-09T22:32:49.3790144Z (Reading database ... 35%
+2026-11-09T22:32:49.3790392Z (Reading database ... 40%
+2026-11-09T22:32:49.3790637Z (Reading database ... 45%
+2026-11-09T22:32:49.3790884Z (Reading database ... 50%
+2026-11-09T22:32:49.3831693Z (Reading database ... 55%
+2026-11-09T22:32:49.5159763Z (Reading database ... 60%
+2026-11-09T22:32:49.7190683Z (Reading database ... 65%
+2026-11-09T22:32:49.9283159Z (Reading database ... 70%
+2026-11-09T22:32:50.1194624Z (Reading database ... 75%
+2026-11-09T22:32:50.2265104Z (Reading database ... 80%
+2026-11-09T22:32:50.3694768Z (Reading database ... 85%
+2026-11-09T22:32:50.4788897Z (Reading database ... 90%
+2026-11-09T22:32:50.5940342Z (Reading database ... 95%
+2026-11-09T22:32:50.5940781Z (Reading database ... 100%
+2026-11-09T22:32:50.5941282Z (Reading database ... 215960 files and directories currently installed.)
+2026-11-09T22:32:50.5987837Z Preparing to unpack .../0-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+2026-11-09T22:32:50.6073648Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-11-09T22:32:50.8533480Z Selecting previously unselected package fonts-freefont-ttf.
+2026-11-09T22:32:50.8659371Z Preparing to unpack .../1-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+2026-11-09T22:32:50.8669496Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-11-09T22:32:50.9524585Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-11-09T22:32:50.9648235Z Preparing to unpack .../2-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+2026-11-09T22:32:50.9654319Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-11-09T22:32:50.9839772Z Selecting previously unselected package fonts-unifont.
+2026-11-09T22:32:50.9963923Z Preparing to unpack .../3-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+2026-11-09T22:32:50.9971204Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+2026-11-09T22:32:51.0954161Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-11-09T22:32:51.1078307Z Preparing to unpack .../4-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+2026-11-09T22:32:51.1176514Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+2026-11-09T22:32:51.6090219Z Selecting previously unselected package xfonts-encodings.
+2026-11-09T22:32:51.6214769Z Preparing to unpack .../5-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+2026-11-09T22:32:51.6222233Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-11-09T22:32:51.6450832Z Selecting previously unselected package xfonts-utils.
+2026-11-09T22:32:51.6575025Z Preparing to unpack .../6-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+2026-11-09T22:32:51.6583280Z Unpacking xfonts-utils (1:7.7+6build3) ...
+2026-11-09T22:32:51.6870266Z Selecting previously unselected package xfonts-cyrillic.
+2026-11-09T22:32:51.6995931Z Preparing to unpack .../7-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+2026-11-09T22:32:51.7004493Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-11-09T22:32:51.7263325Z Selecting previously unselected package xfonts-scalable.
+2026-11-09T22:32:51.7388740Z Preparing to unpack .../8-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+2026-11-09T22:32:51.7397096Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+2026-11-09T22:32:51.7773775Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+2026-11-09T22:32:51.7874622Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-11-09T22:32:51.7888149Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-11-09T22:32:51.7901862Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-11-09T22:32:51.7919207Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-11-09T22:32:51.7972159Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-11-09T22:32:51.7984658Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+2026-11-09T22:32:51.7998566Z Setting up xfonts-utils (1:7.7+6build3) ...
+2026-11-09T22:32:51.8036207Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-11-09T22:32:51.8297728Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+2026-11-09T22:32:51.8525045Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-11-09T22:32:51.8544841Z Not building database; man-db/auto-update is not 'true'.
+2026-11-09T22:32:51.8556579Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+2026-11-09T22:32:52.5317140Z 
+2026-11-09T22:32:52.5318260Z Running kernel seems to be up-to-date.
+2026-11-09T22:32:52.5319110Z 
+2026-11-09T22:32:52.5324029Z No services need to be restarted.
+2026-11-09T22:32:52.5324539Z 
+2026-11-09T22:32:52.5325150Z No containers need to be restarted.
+2026-11-09T22:32:52.5325415Z 
+2026-11-09T22:32:52.5325790Z No user sessions are running outdated binaries.
+2026-11-09T22:32:52.5326093Z 
+2026-11-09T22:32:52.5326417Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-11-09T22:32:53.6519231Z Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip
+2026-11-09T22:32:54.2700204Z |                                                                                |   0% of 191.1 MiB
+2026-11-09T22:32:54.4303528Z |■■■■■■■■                                                                        |  10% of 191.1 MiB
+2026-11-09T22:32:54.5127154Z |■■■■■■■■■■■■■■■■                                                                |  20% of 191.1 MiB
+2026-11-09T22:32:54.6077930Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 191.1 MiB
+2026-11-09T22:32:54.6855320Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 191.1 MiB
+2026-11-09T22:32:54.7693763Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 191.1 MiB
+2026-11-09T22:32:54.8624862Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 191.1 MiB
+2026-11-09T22:32:54.9343912Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 191.1 MiB
+2026-11-09T22:32:55.0472741Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 191.1 MiB
+2026-11-09T22:32:55.1223938Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 191.1 MiB
+2026-11-09T22:32:55.2317765Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 191.1 MiB
+2026-11-09T22:32:58.2949796Z Chrome for Testing 156.0.8078.4 (playwright chromium v1248) downloaded to /home/runner/.cache/ms-playwright/chromium-1248
+2026-11-09T22:32:58.2954264Z Downloading FFmpeg (playwright ffmpeg v1013) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-linux.zip
+2026-11-09T22:32:58.8205877Z |                                                                                |   0% of 2.2 MiB
+2026-11-09T22:32:58.8560727Z |■■■■■■■■                                                                        |  10% of 2.2 MiB
+2026-11-09T22:32:58.8700269Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.2 MiB
+2026-11-09T22:32:58.8799941Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.2 MiB
+2026-11-09T22:32:58.8846893Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.2 MiB
+2026-11-09T22:32:58.8880777Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.2 MiB
+2026-11-09T22:32:58.8948557Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.2 MiB
+2026-11-09T22:32:58.8973575Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.2 MiB
+2026-11-09T22:32:58.8997355Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.2 MiB
+2026-11-09T22:32:58.9010999Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.2 MiB
+2026-11-09T22:32:58.9031235Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.2 MiB
+2026-11-09T22:32:58.9563232Z FFmpeg (playwright ffmpeg v1013) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1013
+2026-11-09T22:32:58.9566143Z Downloading Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-headless-shell-linux64.zip
+2026-11-09T22:32:59.3502540Z |                                                                                |   0% of 120 MiB
+2026-11-09T22:32:59.4415760Z |■■■■■■■■                                                                        |  10% of 120 MiB
+2026-11-09T22:32:59.5044595Z |■■■■■■■■■■■■■■■■                                                                |  20% of 120 MiB
+2026-11-09T22:32:59.5592434Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 120 MiB
+2026-11-09T22:32:59.6280202Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 120 MiB
+2026-11-09T22:32:59.6725917Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 120 MiB
+2026-11-09T22:32:59.7250915Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 120 MiB
+2026-11-09T22:32:59.7833416Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 120 MiB
+2026-11-09T22:32:59.8273881Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 120 MiB
+2026-11-09T22:32:59.8772764Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 120 MiB
+2026-11-09T22:32:59.9378580Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 120 MiB
+2026-11-09T22:33:02.1744811Z Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1248
+2026-11-09T22:33:02.2017619Z ##[group]Run node scripts/e2e-shard-runner.mjs
+2026-11-09T22:33:02.2017977Z [36;1mnode scripts/e2e-shard-runner.mjs[0m
+2026-11-09T22:33:02.2030456Z shell: /usr/bin/bash -e {0}
+2026-11-09T22:33:02.2030705Z env:
+2026-11-09T22:33:02.2031246Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:33:02.2031827Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:33:02.2032412Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:33:02.2033039Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:33:02.2033383Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:33:02.2033652Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:33:02.2033888Z   LAB_CI_SHARD: 3
+2026-11-09T22:33:02.2034153Z   CHECKED_REVISION: 3c704205a247692a92a36f0a1be0f19f1a9cc9d8
+2026-11-09T22:33:02.2034469Z   CHECKED_ATTEMPT: 1
+2026-11-09T22:33:02.2034720Z   LAB_CI_BASE: 7d68b2c40988385c31c1e514e67e5135a1fbe25e
+2026-11-09T22:33:02.2035059Z ##[endgroup]
+2026-11-09T22:33:56.4995624Z ▲ Next.js 16.4.2 (Turbopack)
+2026-11-09T22:33:56.4996112Z ✓ Running next.config.ts took 24ms
+2026-11-09T22:33:56.4997478Z ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+2026-11-09T22:33:56.4998184Z 
+2026-11-09T22:33:56.4998434Z   Creating an optimized production build ...
+2026-11-09T22:33:56.4999150Z ✓ Compiled successfully in 9.2s
+2026-11-09T22:33:56.4999592Z   Running TypeScript ...
+2026-11-09T22:33:56.5000043Z   Finished TypeScript in 26.4s ...
+2026-11-09T22:33:56.5000591Z   Collecting page data using 3 workers ...
+2026-11-09T22:33:56.5001177Z   Generating static pages using 3 workers (0/16) ...
+2026-11-09T22:33:56.5001763Z   Generating static pages using 3 workers (4/16) 
+2026-11-09T22:33:56.5002291Z   Generating static pages using 3 workers (8/16) 
+2026-11-09T22:33:56.5002843Z   Generating static pages using 3 workers (12/16) 
+2026-11-09T22:33:56.5003656Z ✓ Generating static pages using 3 workers (16/16) in 596ms
+2026-11-09T22:33:56.5004214Z   Finalizing page optimization ...
+2026-11-09T22:33:56.5004484Z 
+2026-11-09T22:33:56.5004631Z Route (app)
+2026-11-09T22:33:56.5005011Z ┌ ○ /
+2026-11-09T22:33:56.5005358Z ├ ○ /_not-found
+2026-11-09T22:33:56.5008133Z ├ ƒ /api/laboratory/analysis
+2026-11-09T22:33:56.5008665Z ├ ƒ /api/laboratory/command
+2026-11-09T22:33:56.5009129Z ├ ƒ /api/laboratory/ephemeral
+2026-11-09T22:33:56.5009650Z ├ ƒ /api/laboratory/policy-analysis
+2026-11-09T22:33:56.5010189Z ├ ƒ /api/laboratory/review
+2026-11-09T22:33:56.5010666Z ├ ƒ /api/laboratory/session
+2026-11-09T22:33:56.5011151Z ├ ƒ /api/laboratory/state
+2026-11-09T22:33:56.5011689Z ├ ○ /design/foundations-31a
+2026-11-09T22:33:56.5012124Z ├ ○ /expedition-3d
+2026-11-09T22:33:56.5012487Z ├ ○ /explore
+2026-11-09T22:33:56.5012827Z ├ ○ /icon.svg
+2026-11-09T22:33:56.5013176Z ├ ○ /labs/laboratory
+2026-11-09T22:33:56.5013515Z ├ ○ /labs/saas
+2026-11-09T22:33:56.5013834Z ├ ○ /learn
+2026-11-09T22:33:56.5014220Z ├ ƒ /learn/[module]
+2026-11-09T22:33:56.5014625Z ├ ○ /learn/design-review
+2026-11-09T22:33:56.5015036Z ├ ○ /legacy-expedition
+2026-11-09T22:33:56.5015430Z ├ ○ /legacy/rpg
+2026-11-09T22:33:56.5026387Z ├ ○ /missions
+2026-11-09T22:33:56.5026784Z ├ ○ /portal
+2026-11-09T22:33:56.5027157Z └ ○ /progress
+2026-11-09T22:33:56.5027366Z 
+2026-11-09T22:33:56.5027377Z 
+2026-11-09T22:33:56.5027792Z ○  (Static)   prerendered as static content
+2026-11-09T22:33:56.5028918Z ƒ  (Dynamic)  server-rendered on demand
+2026-11-09T22:33:56.5029234Z 
+2026-11-09T22:33:59.1118255Z 
+2026-11-09T22:33:59.1119120Z Running 121 tests using 1 worker, shard 3 of 4
+2026-11-09T22:33:59.1119491Z 
+2026-11-09T22:34:01.9444615Z   ✓    1 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:56:3 › Learning Flow identity: explicit briefing and real active guide control the shared primary action (2.1s)
+2026-11-09T22:34:03.6154210Z   ✓    2 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:56:3 › Learning Flow access-control: explicit briefing and real active guide control the shared primary action (1.7s)
+2026-11-09T22:34:05.3213413Z   ✓    3 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:56:3 › Learning Flow security: explicit briefing and real active guide control the shared primary action (1.7s)
+2026-11-09T22:34:06.8988072Z   ✓    4 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:56:3 › Learning Flow cost: explicit briefing and real active guide control the shared primary action (1.6s)
+2026-11-09T22:34:08.5194353Z   ✓    5 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:56:3 › Learning Flow governance: explicit briefing and real active guide control the shared primary action (1.6s)
+2026-11-09T22:34:10.0976578Z   ✓    6 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:56:3 › Learning Flow management-tools: explicit briefing and real active guide control the shared primary action (1.6s)
+2026-11-09T22:34:11.7588117Z   ✓    7 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:56:3 › Learning Flow monitoring: explicit briefing and real active guide control the shared primary action (1.6s)
+2026-11-09T22:34:13.3284456Z   ✓    8 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:56:3 › Learning Flow migration: explicit briefing and real active guide control the shared primary action (1.6s)
+2026-11-09T22:34:17.5035518Z   ✓    9 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:102:1 › Learning Flow complete Security contrasts require explanation before debrief and next guide without new credit (4.2s)
+2026-11-09T22:34:20.5889298Z   ✓   10 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:149:1 › Learning Flow pause resume another perspective and Back Forward preserve the same stored guide (3.1s)
+2026-11-09T22:34:22.8680154Z   ✓   11 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:194:3 › Portal guidance vm: minimized guide recovery and ordinary Portal return preserve the original session (2.3s)
+2026-11-09T22:34:25.4474009Z   ✓   12 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:194:3 › Portal guidance paas: minimized guide recovery and ordinary Portal return preserve the original session (2.6s)
+2026-11-09T22:34:29.7543530Z   ✓   13 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:261:1 › Portal neutral guidance and recommended assessment return preserve unaided drafts and previous firsts (4.3s)
+2026-11-09T22:34:31.3558018Z   ✓   14 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:332:1 › Portal stale external context withholds retained guide instructions until scoped recovery (1.6s)
+2026-11-09T22:34:32.3336697Z   ✓   15 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:352:1 › Learning Flow denied durable start never creates a guide or completion from a briefing (965ms)
+2026-11-09T22:34:40.9347067Z   ✓   16 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:376:1 › Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable (8.6s)
+2026-11-09T22:34:43.0790837Z   ✓   17 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:433:3 › Portal compute: native inspection guide survives scope navigation recovery and a wrong technical attempt is not rebound (2.1s)
+2026-11-09T22:34:45.2548622Z   ✓   18 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:433:3 › Portal networking: native inspection guide survives scope navigation recovery and a wrong technical attempt is not rebound (2.2s)
+2026-11-09T22:34:48.8597258Z   ✓   19 [desktop-chromium] › tests/e2e/learning-sequencing.spec.ts:61:1 › New learner starts Computing and catalogue retains three freely accessible subject paths (3.5s)
+2026-11-09T22:34:53.6798162Z   ✓   20 [desktop-chromium] › tests/e2e/learning-sequencing.spec.ts:95:1 › Infrastructure boundaries introduce Identity and Management before cross-subject applications (4.8s)
+2026-11-09T22:34:58.1288716Z   ✓   21 [desktop-chromium] › tests/e2e/learning-sequencing.spec.ts:118:1 › Closing journey desktop compact short-height keyboard focus and honest ending remain accessible (4.4s)
+2026-11-09T22:35:00.2303337Z   ✓   22 [desktop-chromium] › tests/e2e/learning-sequencing.spec.ts:166:1 › Active and paused guided work still outrank module boundaries without a new session (2.1s)
+2026-11-09T22:35:02.3768415Z   ✓   23 [desktop-chromium] › tests/e2e/learning-sequencing.spec.ts:205:1 › Independent resume immutable first and denied Journal assistance survive the new sequence (2.1s)
+2026-11-09T22:35:04.7008763Z   ✓   24 [desktop-chromium] › tests/e2e/learning-sequencing.spec.ts:259:1 › Historical Computing and Services deep links practical briefing and Portal return remain compatible (2.3s)
+2026-11-09T22:35:04.7933446Z   ✓   25 [desktop-chromium] › tests/e2e/legacy-retirement.spec.ts:37:1 › retired bookmarks are fixed safe redirects into the current product (78ms)
+2026-11-09T22:35:07.1666934Z   ✘   26 [desktop-chromium] › tests/e2e/legacy-retirement.spec.ts:55:1 › current root, Journal and Portal preserve raw historical work without loading the retired game (2.2s)
+2026-11-09T22:35:10.5287940Z   ✘   27 [desktop-chromium] › tests/e2e/legacy-retirement.spec.ts:55:1 › current root, Journal and Portal preserve raw historical work without loading the retired game (retry #1) (2.5s)
+2026-11-09T22:35:13.9096390Z   ✘   28 [desktop-chromium] › tests/e2e/legacy-retirement.spec.ts:55:1 › current root, Journal and Portal preserve raw historical work without loading the retired game (retry #2) (2.5s)
+2026-11-09T22:35:16.1139815Z   ✓   29 [desktop-chromium] › tests/e2e/legacy-retirement.spec.ts:106:1 › historical data deletion stays explicit after renderer providers are retired (1.5s)
+2026-11-09T22:35:17.2942457Z   ✓   30 [desktop-chromium] › tests/e2e/legacy-retirement.spec.ts:134:1 › corrupt progress and denied storage remain usable without a legacy fallback (1.2s)
+2026-11-09T22:35:19.9940034Z   ✓   31 [desktop-chromium] › tests/e2e/management-tools.spec.ts:138:1 › Management follows Governance in path03 with exact assessment resume, sidebar history and non-completing navigation (2.7s)
+2026-11-09T22:35:25.4899619Z   ✓   32 [desktop-chromium] › tests/e2e/management-tools.spec.ts:188:1 › Same Intent uses five distinct tool descriptions and real Portal group, plan, app, receipts and dependency with exact return (5.5s)
+2026-11-09T22:35:30.6466498Z   ✓   33 [desktop-chromium] › tests/e2e/management-tools.spec.ts:243:1 › IaC stored contrasts distinguish reference, ordering, parameter changes, retained resources and unresolved previews without World mutation (5.1s)
+2026-11-09T22:35:35.9386394Z   ✘   34 [desktop-chromium] › tests/e2e/management-tools.spec.ts:283:1 › Arc stored contrasts retain physical location and stale representation without claiming migration, resize or stopped local Flux (4.8s)
+2026-11-09T22:35:42.3956710Z   ✘   35 [desktop-chromium] › tests/e2e/management-tools.spec.ts:283:1 › Arc stored contrasts retain physical location and stale representation without claiming migration, resize or stopped local Flux (retry #1) (5.2s)
+2026-11-09T22:35:48.8114853Z   ✘   36 [desktop-chromium] › tests/e2e/management-tools.spec.ts:283:1 › Arc stored contrasts retain physical location and stale representation without claiming migration, resize or stopped local Flux (retry #2) (5.2s)
+2026-11-09T22:35:53.1043689Z   ✓   37 [desktop-chromium] › tests/e2e/management-tools.spec.ts:301:1 › Structured decisions require a compatible reason and preserve an unaided first through Journal help and retry, including both valid IaC choices (3.6s)
+2026-11-09T22:35:55.5678286Z   ✓   38 [desktop-chromium] › tests/e2e/management-tools.spec.ts:332:1 › Denied durable assistance and already-open cross-tab conflict hold Journal, Summary and Portal guidance without changing a draft (2.4s)
+2026-11-09T22:35:56.9448436Z   ✓   39 [desktop-chromium] › tests/e2e/management-tools.spec.ts:382:1 › Corrupt scoped Tools history recovers without removing original Sandbox or Governance evidence and navigation gives no credit (1.4s)
+2026-11-09T22:36:05.7859034Z   ✓   40 [desktop-chromium] › tests/e2e/management-tools.spec.ts:406:1 › Management desktop and compact keyboard, semantic flows, code focus, short native briefing and reduced motion remain readable (8.8s)
+2026-11-09T22:36:09.8458214Z   ✓   41 [desktop-chromium] › tests/e2e/monitoring-diagnostics.spec.ts:120:1 › Monitoring follows Management in path03 with exact active resume, client Back Forward and non-completing navigation (4.0s)
+2026-11-09T22:36:14.7356218Z   ✓   42 [desktop-chromium] › tests/e2e/monitoring-diagnostics.spec.ts:156:1 › Evidence guide stores source freshness and category contrasts; actual Portal context stays separate and returns exactly (4.9s)
+2026-11-09T22:36:17.5352257Z   ✓   43 [desktop-chromium] › tests/e2e/monitoring-diagnostics.spec.ts:181:1 › Health guide distinguishes scope public gaps Unknown historical records and unsupported checks without confirmed app cause (2.8s)
+2026-11-09T22:36:23.2370110Z   ✓   44 [desktop-chromium] › tests/e2e/monitoring-diagnostics.spec.ts:194:1 › Telemetry guide separates aggregation missing data collection matched rule notification and filtered traces without runtime mutation (5.7s)
+2026-11-09T22:36:25.6269930Z   ✓   45 [desktop-chromium] › tests/e2e/monitoring-diagnostics.spec.ts:218:1 › Independent decisions require compatible reasons and preserve first evidence through assisted retry Journal and exact active shielding (2.4s)
+2026-11-09T22:36:27.9275494Z   ✓   46 [desktop-chromium] › tests/e2e/monitoring-diagnostics.spec.ts:253:1 › Denied durable assistance and already-open cross-tab conflict hold Journal, Summary and Portal guidance without changing a draft (2.3s)
+2026-11-09T22:36:31.4465038Z   ✓   47 [desktop-chromium] › tests/e2e/monitoring-diagnostics.spec.ts:303:1 › Monitoring desktop and compact keyboard short briefing semantic tables reduced motion Axe and scoped corrupt recovery stay readable (3.5s)
+2026-11-09T22:36:34.6588077Z   ✓   48 [desktop-chromium] › tests/e2e/networking-connectivity.spec.ts:136:1 › ordinary root, explicit briefing and three hybrid choices preserve Part A while pause/resume retains work (3.2s)
+2026-11-09T22:36:37.5270933Z   ✓   49 [desktop-chromium] › tests/e2e/networking-connectivity.spec.ts:206:1 › hybrid outage requires a configured usable backup and a route; a laptop mode does not connect a whole site (2.9s)
+2026-11-09T22:36:40.1431921Z   ✓   50 [desktop-chromium] › tests/e2e/networking-connectivity.spec.ts:243:1 › private entry and public network access are independent; application authorization remains a separate gate (2.6s)
+2026-11-09T22:36:43.3768490Z   ✓   51 [desktop-chromium] › tests/e2e/networking-connectivity.spec.ts:291:1 › private DNS investigation separates public selection, resolver visibility, route, approval and authorization (3.2s)
+2026-11-09T22:36:46.2960762Z   ✓   52 [desktop-chromium] › tests/e2e/networking-connectivity.spec.ts:347:1 › a correct independent choice with a wrong cause fails; durable help and retry preserve the first (2.9s)
+2026-11-09T22:36:48.3503711Z   ✓   53 [desktop-chromium] › tests/e2e/networking-connectivity.spec.ts:383:1 › abandonment retains family exposure and never manufactures a first submission or guided credit (2.0s)
+2026-11-09T22:36:51.1366502Z   ✓   54 [desktop-chromium] › tests/e2e/networking-connectivity.spec.ts:406:1 › Part A teaching and feedback durably classify aid for the new context; already-open Journal withdraws on conflict (2.8s)
+2026-11-09T22:36:53.0075431Z   ✓   55 [desktop-chromium] › tests/e2e/networking-connectivity.spec.ts:458:1 › denied durable aid withholds Journal while the student retains their own saved draft and scoped recovery (1.9s)
+2026-11-09T22:36:55.0466156Z   ✓   56 [desktop-chromium] › tests/e2e/networking-connectivity.spec.ts:496:1 › active assisted older missions suppress Part B guidance and keep their own controls accessible (2.0s)
+2026-11-09T22:36:57.7922203Z   ✓   57 [desktop-chromium] › tests/e2e/networking-connectivity.spec.ts:534:1 › active assisted Part B continues to shield earlier automatic teaching without changing the saved first (2.7s)
+2026-11-09T22:36:59.0640672Z   ✓   58 [desktop-chromium] › tests/e2e/networking-connectivity.spec.ts:560:1 › invalid recovery is scoped and a newer valid replacement survives an already-open confirmation (1.3s)
+2026-11-09T22:37:00.6029643Z   ✓   59 [desktop-chromium] › tests/e2e/networking-connectivity.spec.ts:598:1 › at the event bound, saved own answers, durable Journal aid and terminal submit retain their reserved capacity (1.5s)
+2026-11-09T22:37:04.8471362Z   ✓   60 [desktop-chromium] › tests/e2e/networking-connectivity.spec.ts:629:1 › short briefing, keyboard, reduced motion and semantic endpoint stages remain readable across desktop and compact sizes (4.2s)
+2026-11-09T22:37:07.8405912Z   ✓   61 [desktop-chromium] › tests/e2e/networking-foundations.spec.ts:98:1 › ordinary root, original theory, explicit address mission and saved correction (3.0s)
+2026-11-09T22:37:10.9677071Z   ✓   62 [desktop-chromium] › tests/e2e/networking-foundations.spec.ts:146:1 › peering diagnosis distinguishes nontransitivity, explicit sides and overlap with once-only recall (3.1s)
+2026-11-09T22:37:14.8724483Z   ✓   63 [desktop-chromium] › tests/e2e/networking-foundations.spec.ts:184:1 › DNS investigation separates missing visibility, correct answer, path and authorization (3.9s)
+2026-11-09T22:37:19.3062429Z   ✓   64 [desktop-chromium] › tests/e2e/networking-foundations.spec.ts:217:1 › unseeded actual Portal journey keeps correct CreateKind and seven genuine network references (4.4s)
+2026-11-09T22:37:20.6571673Z   ✓   65 [desktop-chromium] › tests/e2e/networking-foundations.spec.ts:306:1 › existing VM is reused only for fresh inspection; no new command or IP allocation (1.3s)
+2026-11-09T22:37:22.9989620Z   ✓   66 [desktop-chromium] › tests/e2e/networking-foundations.spec.ts:370:1 › wrong first, precise feedback, repeat/help and retry preserve historical classification (2.3s)
+2026-11-09T22:37:24.5261801Z   ✓   67 [desktop-chromium] › tests/e2e/networking-foundations.spec.ts:404:1 › all-context preflight records durable aid and blocks historical feedback after a peer conflict (1.5s)
+2026-11-09T22:37:28.4691275Z   ✓   68 [desktop-chromium] › tests/e2e/networking-foundations.spec.ts:432:1 › active assisted Practical Missions shield external guidance while their own independent controls stay usable (3.9s)
+2026-11-09T22:37:29.9315394Z   ✓   69 [desktop-chromium] › tests/e2e/networking-foundations.spec.ts:488:1 › own active controls remain usable while denied aid withholds Journal and old explanations (1.5s)
+2026-11-09T22:37:32.8550440Z   ✓   70 [desktop-chromium] › tests/e2e/networking-foundations.spec.ts:512:1 › keyboard, reduced motion, compact/short desktop and semantic results remain readable (2.9s)
+2026-11-09T22:37:34.8122888Z   ✓   71 [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:53:1 › owner assessment navigation durably aids and abandons without submission while reload and same-assessment routes preserve drafts (1.9s)
+2026-11-09T22:37:38.7717112Z   ✓   72 [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:84:1 › owner browser Back Forward and unsupported-navigation fallback close only intentional exits (3.9s)
+2026-11-09T22:37:41.6172423Z   ✓   73 [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:157:1 › owner denied exit and Journal aid fail closed and stale tabs cannot turn an exit into a new first (2.8s)
+2026-11-09T22:37:44.5644183Z   ✓   74 [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:218:1 › owner guided PaaS resume shares independent safety and SavvyShark returns after explicit assessment exit (2.9s)
+2026-11-09T22:37:49.3278734Z   ✓   75 [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:267:1 › owner progressive feedback uses readable answers and immutable historic first through retry (4.8s)
+2026-11-09T22:37:51.9211632Z   ✓   76 [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:330:1 › owner secondary destinations explain purpose preserve normal next and never begin an assessment (2.6s)
+2026-11-09T22:37:55.4030851Z   ✓   77 [desktop-chromium] › tests/e2e/owner-acceptance.spec.ts:369:1 › owner feedback short desktop keyboard reflow footer clearance Axe and reduced motion preserve readable content (3.5s)
+2026-11-09T22:37:58.2965491Z   ✓   78 [desktop-chromium] › tests/e2e/portal-consolidation.spec.ts:28:1 › free shared Home subscriptions scoped creation Properties resources Studio and recent navigation use real temporary evidence without inspection writes (2.9s)
+2026-11-09T22:38:01.1019272Z   ✓   79 [desktop-chromium] › tests/e2e/portal-consolidation.spec.ts:91:1 › guided course uses the same Home catalogue and subscriptions while actual v2 task and exact return retain original authority (2.8s)
+2026-11-09T22:38:02.4413896Z   ✓   80 [desktop-chromium] › tests/e2e/portal-consolidation.spec.ts:125:1 › persistent shared Home subscriptions reload and isolated sessions read the same committed World without new history (1.3s)
+2026-11-09T22:38:03.3641497Z   ✓   81 [desktop-chromium] › tests/e2e/portal-consolidation.spec.ts:155:1 › historical free 3.0 has common Home and subscription discovery without advertising newer model operations (914ms)
+2026-11-09T22:38:10.1646732Z   ✓   82 [desktop-chromium] › tests/e2e/portal-consolidation.spec.ts:175:1 › shared Home subscriptions compact keyboard focus reduced motion Axe and short desktop stay readable in both modes (6.8s)
+2026-11-09T22:38:12.7656508Z   ✓   83 [desktop-chromium] › tests/e2e/portal-inspection-bridge.spec.ts:53:1 › VM course bridge follows actual dependencies receipt views native guidance and exact return without inspection credit (2.6s)
+2026-11-09T22:38:14.5014727Z   ✓   84 [desktop-chromium] › tests/e2e/portal-inspection-bridge.spec.ts:121:1 › Web App inspection connects actual plan scope and original configuration with filtered history and Back Forward (1.7s)
+2026-11-09T22:38:15.5899981Z   ✓   85 [desktop-chromium] › tests/e2e/portal-inspection-bridge.spec.ts:167:1 › Governance bridge selects original Policy denial and original submitted scope without fabricating a resource (1.1s)
+2026-11-09T22:38:18.3471700Z   ✓   86 [desktop-chromium] › tests/e2e/portal-inspection-bridge.spec.ts:189:1 › Missing deleted invalid and cross-tab stale inspection targets fail honestly while old receipt IDs survive (2.7s)
+2026-11-09T22:38:20.5324151Z   ✓   87 [desktop-chromium] › tests/e2e/portal-inspection-bridge.spec.ts:245:1 › Independent raw Portal inspection stays neutral while denied durable assistance withholds course bridge instructions and exact resume (2.2s)
+2026-11-09T22:38:25.7978798Z   ✓   88 [desktop-chromium] › tests/e2e/portal-inspection-bridge.spec.ts:305:1 › Portal inspection desktop compact short-height keyboard focus reduced motion and Axe preserve accessible source and resource navigation (5.3s)
+2026-11-09T22:38:33.4682427Z   ✓   89 [desktop-chromium] › tests/e2e/practical-missions.spec.ts:319:1 › Benefits diagnosis: root → existing real chain → distinct failure/routing model → causal debrief → immutable resume (7.6s)
+2026-11-09T22:38:43.0193412Z   ✓   90 [desktop-chromium] › tests/e2e/practical-missions.spec.ts:376:1 › Benefits governance: actual denied/corrected receipts, scope and metadata comparison through ordinary course return (9.5s)
+2026-11-09T22:38:50.5715282Z   ✓   91 [desktop-chromium] › tests/e2e/practical-missions.spec.ts:429:1 › Service Types IaaS: new requirement, real bundle/attachments and changed independent scope/profile preserve first (7.5s)
+2026-11-09T22:39:01.2110840Z   ✓   92 [desktop-chromium] › tests/e2e/practical-missions.spec.ts:465:1 › Service Types PaaS: actual draft versus Apply, ordered maintenance/restoration, receipts, reuse and exact resume (10.6s)
+2026-11-09T22:39:04.0564302Z   ✓   93 [desktop-chromium] › tests/e2e/practical-missions.spec.ts:535:1 › mission persistence: stale tabs withhold guidance, reload resumes, abandonment preserves inventory and unsupported recovery is isolated (2.8s)
+2026-11-09T22:39:06.1131942Z   ✓   94 [desktop-chromium] › tests/e2e/practical-missions.spec.ts:577:1 › mission accessibility: keyboard briefing/cancel, short window, reduced motion and denied persistence withhold critical guidance (2.0s)
+2026-11-09T22:39:07.7361854Z   ✓   95 [desktop-chromium] › tests/e2e/practical-missions.spec.ts:623:1 › independent mission Journal requires durable assistance; failed help cannot expose teaching or rewrite the stored attempt (1.6s)
+2026-11-09T22:39:11.5796885Z   ✓   96 [desktop-chromium] › tests/e2e/practical-missions.spec.ts:649:1 › mission recovery names non-Core and technical conflicts, preserves latest data and withholds a different technical attempt (3.8s)
+2026-11-09T22:39:13.0034034Z   ✓   97 [desktop-chromium] › tests/e2e/practical-missions.spec.ts:708:1 › historical mission debrief and entry cannot reveal teaching during another assessment, denied help or an already-open cross-tab conflict (1.4s)
+2026-11-09T22:39:15.5629282Z   ✓   98 [desktop-chromium] › tests/e2e/practical-missions.spec.ts:774:1 › independent graph inspection is operational; Related learning requires durable aid and already-open explanations withhold on conflict (2.5s)
+2026-11-09T22:39:16.7963744Z   ✓   99 [desktop-chromium] › tests/e2e/premium-landing.spec.ts:41:1 › landing actual root has three distinct courses honest planned states and a separate v3 laboratory without storage or session writes (1.1s)
+2026-11-09T22:39:18.6159822Z   ✓  100 [desktop-chromium] › tests/e2e/premium-landing.spec.ts:75:1 › landing delegates actual active independent draft resume to unchanged Course Hub and does not start submit or assist it (1.8s)
+2026-11-09T22:39:21.9858966Z   ✓  101 [desktop-chromium] › tests/e2e/premium-landing.spec.ts:108:1 › landing connects actual independent server workspace and preserves both directions of course versus laboratory reset (3.4s)
+2026-11-09T22:39:24.3564021Z   ✓  102 [desktop-chromium] › tests/e2e/premium-landing.spec.ts:149:1 › landing unavailable backend and corrupt forged or cross-tab course status never create fake completion or fallback World (2.4s)
+2026-11-09T22:39:29.0908318Z   ✓  103 [desktop-chromium] › tests/e2e/premium-landing.spec.ts:198:1 › landing responsive keyboard short desktop status semantics reduced motion and Axe preserve primary choices (4.7s)
+2026-11-09T22:39:32.1229426Z   ✓  104 [desktop-chromium] › tests/e2e/premium-landing.spec.ts:264:1 › landing actual browser zoom at125 and200 percent retains course and Laboratory actions without overflow (3.0s)
+2026-11-09T22:39:35.7403139Z   ✓  105 [desktop-chromium] › tests/e2e/security-principles.spec.ts:126:1 › Security Part C retains path02 and follows Monitoring with exact active resume source URLs and client navigation (3.6s)
+2026-11-09T22:39:41.0812061Z   ✓  106 [desktop-chromium] › tests/e2e/security-principles.spec.ts:167:1 › Zero Trust guide stores explicit verification scope and breach preparation contrasts while actual Portal configuration stays separate (5.3s)
+2026-11-09T22:39:44.7043375Z   ✓  107 [desktop-chromium] › tests/e2e/security-principles.spec.ts:201:1 › Defense guide inspects seven semantic layers failed primary controls complementary protection and residual risk (3.6s)
+2026-11-09T22:39:48.5467420Z   ✓  108 [desktop-chromium] › tests/e2e/security-principles.spec.ts:226:1 › Defender guide distinguishes posture plans workload alerts missing evidence and both score models without scan or remediation claims (3.8s)
+2026-11-09T22:39:50.8352729Z   ✓  109 [desktop-chromium] › tests/e2e/security-principles.spec.ts:255:1 › Independent decisions require compatible reasons and preserve first evidence through assisted retry Journal and exact active shielding (2.3s)
+2026-11-09T22:39:53.1187947Z   ✓  110 [desktop-chromium] › tests/e2e/security-principles.spec.ts:290:1 › Denied durable assistance and already-open cross-tab conflict hold Journal, Summary and Portal guidance without changing a draft (2.3s)
+2026-11-09T22:39:56.2881974Z   ✓  111 [desktop-chromium] › tests/e2e/security-principles.spec.ts:340:1 › Security desktop and compact keyboard seven layers short briefing reduced motion Axe and scoped corrupt recovery stay readable (3.2s)
+2026-11-09T22:39:59.4942397Z   ✓  112 [desktop-chromium] › tests/e2e/shared-portal.spec.ts:53:1 › shared Portal actual course and free RG create list properties receipts and reset use common presentation with isolated original authorities (3.2s)
+2026-11-09T22:40:02.5814875Z   ✓  113 [desktop-chromium] › tests/e2e/shared-portal.spec.ts:149:1 › shared Portal free search filters parent properties Back Forward and reload inspect one World without commands or course credit (3.1s)
+2026-11-09T22:40:05.0721660Z   ✓  114 [desktop-chromium] › tests/e2e/shared-portal.spec.ts:209:1 › shared Portal free mode cannot mount course learning or alter an actual active independent draft and assistance boundary (2.5s)
+2026-11-09T22:40:11.0143582Z   ✓  115 [desktop-chromium] › tests/e2e/shared-portal.spec.ts:237:1 › shared Portal compact native search drawer properties dialogs reduced motion Axe and unavailable server preserve scope and visible controls (5.9s)
+2026-11-09T22:40:13.8498140Z   ✓  116 [desktop-chromium] › tests/e2e/storage-resilience.spec.ts:102:1 › Storage parts share one Hub group and keep exact A links, active sidebar, history and B return (2.8s)
+2026-11-09T22:40:19.7536676Z   ✓  117 [desktop-chromium] › tests/e2e/storage-resilience.spec.ts:153:1 › tier contrasts preserve Cold online, explicit costs, pending Archive and unsupported combinations without technical state (5.9s)
+2026-11-09T22:40:24.0115050Z   ✓  118 [desktop-chromium] › tests/e2e/storage-resilience.spec.ts:211:1 › replica maps separate physical survival, read-only secondary, missing writes, deletion and service support (4.2s)
+2026-11-09T22:40:26.9299017Z   ✓  119 [desktop-chromium] › tests/e2e/storage-resilience.spec.ts:253:1 › new independent decisions keep immutable firsts, family exposure, durable teaching aid and exact resume (2.9s)
+2026-11-09T22:40:28.8884649Z   ✓  120 [desktop-chromium] › tests/e2e/storage-resilience.spec.ts:296:1 › denied assistance, already-open cross-tab Journal and scoped recovery preserve Part A and newer writes (1.9s)
+2026-11-09T22:40:35.3278454Z   ✘  121 [desktop-chromium] › tests/e2e/storage-resilience.spec.ts:351:1 › Storage B desktop and compact keyboard, hover contrast, semantic maps and short native briefing remain readable (6.3s)
+2026-11-09T22:40:42.9552356Z   ✘  122 [desktop-chromium] › tests/e2e/storage-resilience.spec.ts:351:1 › Storage B desktop and compact keyboard, hover contrast, semantic maps and short native briefing remain readable (retry #1) (6.6s)
+2026-11-09T22:40:50.2312826Z   ✘  123 [desktop-chromium] › tests/e2e/storage-resilience.spec.ts:351:1 › Storage B desktop and compact keyboard, hover contrast, semantic maps and short native briefing remain readable (retry #2) (6.5s)
+2026-11-09T22:40:53.9037193Z   ✓  124 [desktop-chromium] › tests/e2e/storage-services.spec.ts:77:1 › ordinary Hub integrates Storage after Networking and client/history navigation retains exact active context (3.0s)
+2026-11-09T22:40:56.6033550Z   ✓  125 [desktop-chromium] › tests/e2e/storage-services.spec.ts:121:1 › four workload contracts and a changed image requirement need saved contrasts and a causal explanation (2.7s)
+2026-11-09T22:40:59.0188184Z   ✓  126 [desktop-chromium] › tests/e2e/storage-services.spec.ts:155:1 › account matrix rejects false premium support and distinguishes SSD NFS from unverified region assumptions (2.4s)
+2026-11-09T22:41:01.0104313Z   ✓  127 [desktop-chromium] › tests/e2e/storage-services.spec.ts:184:1 › message lifecycle preserves two deliveries, changes only declared application effects and rejects oversized payload (2.0s)
+2026-11-09T22:41:01.0906927Z 
+2026-11-09T22:41:01.0914000Z 
+2026-11-09T22:41:01.0932088Z   1) [desktop-chromium] › tests/e2e/legacy-retirement.spec.ts:55:1 › current root, Journal and Portal preserve raw historical work without loading the retired game 
+2026-11-09T22:41:01.0933881Z 
+2026-11-09T22:41:01.0934512Z     Error: expect(received).toEqual(expected) // deep equality
+2026-11-09T22:41:01.0935033Z 
+2026-11-09T22:41:01.0935320Z     - Expected  -   1
+2026-11-09T22:41:01.0935853Z     + Received  + 233
+2026-11-09T22:41:01.0936118Z 
+2026-11-09T22:41:01.0936276Z     - Array []
+2026-11-09T22:41:01.0936586Z     + Array [
+2026-11-09T22:41:01.0936918Z     +   Object {
+2026-11-09T22:41:01.0938333Z     +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+2026-11-09T22:41:01.0939649Z     +     "help": "Elements must meet minimum color contrast ratio thresholds",
+2026-11-09T22:41:01.0940727Z     +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+2026-11-09T22:41:01.0941618Z     +     "id": "color-contrast",
+2026-11-09T22:41:01.0942086Z     +     "impact": "serious",
+2026-11-09T22:41:01.0942522Z     +     "nodes": Array [
+2026-11-09T22:41:01.0942889Z     +       Object {
+2026-11-09T22:41:01.0943294Z     +         "all": Array [],
+2026-11-09T22:41:01.0943701Z     +         "any": Array [
+2026-11-09T22:41:01.0944052Z     +           Object {
+2026-11-09T22:41:01.0944493Z     +             "data": Object {
+2026-11-09T22:41:01.0945015Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.0945872Z     +               "contrastRatio": 1.78,
+2026-11-09T22:41:01.0946496Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.0947281Z     +               "fgColor": "#c4bfd7",
+2026-11-09T22:41:01.0947837Z     +               "fontSize": "9.0pt (12px)",
+2026-11-09T22:41:01.0948400Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.0948937Z     +               "messageKey": null,
+2026-11-09T22:41:01.0949387Z     +             },
+2026-11-09T22:41:01.0949835Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.0950379Z     +             "impact": "serious",
+2026-11-09T22:41:01.0951898Z     +             "message": "Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.0953145Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.0953626Z     +               Object {
+2026-11-09T22:41:01.0954334Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.0955075Z     +                 "target": Array [
+2026-11-09T22:41:01.0956186Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.0956715Z     +                 ],
+2026-11-09T22:41:01.0957093Z     +               },
+2026-11-09T22:41:01.0957482Z     +             ],
+2026-11-09T22:41:01.0957832Z     +           },
+2026-11-09T22:41:01.0958465Z     +         ],
+2026-11-09T22:41:01.0958908Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.0960392Z     +   Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.0962445Z     +         "html": "<summary>Offisiell læringssti · AzureLabs originale undervisning</summary>",
+2026-11-09T22:41:01.0963305Z     +         "impact": "serious",
+2026-11-09T22:41:01.0963812Z     +         "none": Array [],
+2026-11-09T22:41:01.0964314Z     +         "target": Array [
+2026-11-09T22:41:01.0964878Z     +           ".curriculum-trail > summary",
+2026-11-09T22:41:01.0965384Z     +         ],
+2026-11-09T22:41:01.0965887Z     +       },
+2026-11-09T22:41:01.0966233Z     +       Object {
+2026-11-09T22:41:01.0966643Z     +         "all": Array [],
+2026-11-09T22:41:01.0967045Z     +         "any": Array [
+2026-11-09T22:41:01.0967489Z     +           Object {
+2026-11-09T22:41:01.0967933Z     +             "data": Object {
+2026-11-09T22:41:01.0968415Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.0968963Z     +               "contrastRatio": 1.58,
+2026-11-09T22:41:01.0969531Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.0970084Z     +               "fgColor": "#b6d2d9",
+2026-11-09T22:41:01.0970600Z     +               "fontSize": "7.2pt (9.6px)",
+2026-11-09T22:41:01.0971140Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.0971634Z     +               "messageKey": null,
+2026-11-09T22:41:01.0972307Z     +             },
+2026-11-09T22:41:01.0972748Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.0973261Z     +             "impact": "serious",
+2026-11-09T22:41:01.0974736Z     +             "message": "Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.0976319Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.0976780Z     +               Object {
+2026-11-09T22:41:01.0977414Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.0978077Z     +                 "target": Array [
+2026-11-09T22:41:01.0978600Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.0979076Z     +                 ],
+2026-11-09T22:41:01.0979459Z     +               },
+2026-11-09T22:41:01.0979783Z     +             ],
+2026-11-09T22:41:01.0980132Z     +           },
+2026-11-09T22:41:01.0980483Z     +         ],
+2026-11-09T22:41:01.0980978Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.0982498Z     +   Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.0984664Z     +         "html": "<small>Tilgjengelig original undervisning · seks undersøkelser og separat endret oppgave</small>",
+2026-11-09T22:41:01.0985857Z     +         "impact": "serious",
+2026-11-09T22:41:01.0986333Z     +         "none": Array [],
+2026-11-09T22:41:01.0986771Z     +         "target": Array [
+2026-11-09T22:41:01.0987274Z     +           ".curriculum-modules > li:nth-child(1) > small",
+2026-11-09T22:41:01.0987777Z     +         ],
+2026-11-09T22:41:01.0988093Z     +       },
+2026-11-09T22:41:01.0988404Z     +       Object {
+2026-11-09T22:41:01.0988792Z     +         "all": Array [],
+2026-11-09T22:41:01.0989195Z     +         "any": Array [
+2026-11-09T22:41:01.0989588Z     +           Object {
+2026-11-09T22:41:01.0989942Z     +             "data": Object {
+2026-11-09T22:41:01.0990338Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.0990760Z     +               "contrastRatio": 1.58,
+2026-11-09T22:41:01.0991285Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.0991830Z     +               "fgColor": "#b6d2d9",
+2026-11-09T22:41:01.0992577Z     +               "fontSize": "7.2pt (9.6px)",
+2026-11-09T22:41:01.0993104Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.0993555Z     +               "messageKey": null,
+2026-11-09T22:41:01.0993951Z     +             },
+2026-11-09T22:41:01.0994341Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.0994860Z     +             "impact": "serious",
+2026-11-09T22:41:01.0996777Z     +             "message": "Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.0998315Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.0998840Z     +               Object {
+2026-11-09T22:41:01.0999564Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1000282Z     +                 "target": Array [
+2026-11-09T22:41:01.1000844Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1001388Z     +                 ],
+2026-11-09T22:41:01.1001805Z     +               },
+2026-11-09T22:41:01.1002205Z     +             ],
+2026-11-09T22:41:01.1002589Z     +           },
+2026-11-09T22:41:01.1002951Z     +         ],
+2026-11-09T22:41:01.1003469Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1005180Z     +   Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1007664Z     +         "html": "<small>Fem Benefits-undersøkelser og separat endret oppgave i kurset</small>",
+2026-11-09T22:41:01.1008603Z     +         "impact": "serious",
+2026-11-09T22:41:01.1009142Z     +         "none": Array [],
+2026-11-09T22:41:01.1009631Z     +         "target": Array [
+2026-11-09T22:41:01.1010232Z     +           ".curriculum-modules > li:nth-child(2) > small",
+2026-11-09T22:41:01.1010823Z     +         ],
+2026-11-09T22:41:01.1011177Z     +       },
+2026-11-09T22:41:01.1011527Z     +       Object {
+2026-11-09T22:41:01.1011983Z     +         "all": Array [],
+2026-11-09T22:41:01.1012424Z     +         "any": Array [
+2026-11-09T22:41:01.1012836Z     +           Object {
+2026-11-09T22:41:01.1013278Z     +             "data": Object {
+2026-11-09T22:41:01.1013793Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1014350Z     +               "contrastRatio": 1.58,
+2026-11-09T22:41:01.1014950Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1015693Z     +               "fgColor": "#b6d2d9",
+2026-11-09T22:41:01.1016256Z     +               "fontSize": "7.2pt (9.6px)",
+2026-11-09T22:41:01.1017034Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1017556Z     +               "messageKey": null,
+2026-11-09T22:41:01.1018018Z     +             },
+2026-11-09T22:41:01.1018466Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1019010Z     +             "impact": "serious",
+2026-11-09T22:41:01.1020648Z     +             "message": "Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1022155Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1022643Z     +               Object {
+2026-11-09T22:41:01.1023323Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1024026Z     +                 "target": Array [
+2026-11-09T22:41:01.1024581Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1025087Z     +                 ],
+2026-11-09T22:41:01.1025483Z     +               },
+2026-11-09T22:41:01.1026050Z     +             ],
+2026-11-09T22:41:01.1026425Z     +           },
+2026-11-09T22:41:01.1026796Z     +         ],
+2026-11-09T22:41:01.1027309Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1029141Z     +   Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1031487Z     +         "html": "<small>Operativ Service Types-undervisning · fire mål, konfigurasjonsøving, Portal-lab og separat endret oppgave</small>",
+2026-11-09T22:41:01.1032698Z     +         "impact": "serious",
+2026-11-09T22:41:01.1033200Z     +         "none": Array [],
+2026-11-09T22:41:01.1033683Z     +         "target": Array [
+2026-11-09T22:41:01.1034192Z     +           "li:nth-child(3) > small",
+2026-11-09T22:41:01.1034694Z     +         ],
+2026-11-09T22:41:01.1035056Z     +       },
+2026-11-09T22:41:01.1035418Z     +       Object {
+2026-11-09T22:41:01.1035994Z     +         "all": Array [],
+2026-11-09T22:41:01.1036457Z     +         "any": Array [
+2026-11-09T22:41:01.1036904Z     +           Object {
+2026-11-09T22:41:01.1037370Z     +             "data": Object {
+2026-11-09T22:41:01.1037902Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1038460Z     +               "contrastRatio": 1.78,
+2026-11-09T22:41:01.1039073Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1039696Z     +               "fgColor": "#c4bfd7",
+2026-11-09T22:41:01.1040281Z     +               "fontSize": "9.0pt (12px)",
+2026-11-09T22:41:01.1040870Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1041443Z     +               "messageKey": null,
+2026-11-09T22:41:01.1041912Z     +             },
+2026-11-09T22:41:01.1042360Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1043106Z     +             "impact": "serious",
+2026-11-09T22:41:01.1044838Z     +             "message": "Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1046459Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1046974Z     +               Object {
+2026-11-09T22:41:01.1047660Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1048393Z     +                 "target": Array [
+2026-11-09T22:41:01.1048945Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1049442Z     +                 ],
+2026-11-09T22:41:01.1049836Z     +               },
+2026-11-09T22:41:01.1050230Z     +             ],
+2026-11-09T22:41:01.1050603Z     +           },
+2026-11-09T22:41:01.1050975Z     +         ],
+2026-11-09T22:41:01.1051506Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1053131Z     +   Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1055276Z     +         "html": "<summary>Offisielle enheter · flere AzureLab-undersøkelser kan belyse samme enhet</summary>",
+2026-11-09T22:41:01.1056353Z     +         "impact": "serious",
+2026-11-09T22:41:01.1056853Z     +         "none": Array [],
+2026-11-09T22:41:01.1057323Z     +         "target": Array [
+2026-11-09T22:41:01.1057872Z     +           ".curriculum-trail > details > summary",
+2026-11-09T22:41:01.1058392Z     +         ],
+2026-11-09T22:41:01.1058747Z     +       },
+2026-11-09T22:41:01.1059094Z     +       Object {
+2026-11-09T22:41:01.1059513Z     +         "all": Array [],
+2026-11-09T22:41:01.1059937Z     +         "any": Array [
+2026-11-09T22:41:01.1060338Z     +           Object {
+2026-11-09T22:41:01.1060785Z     +             "data": Object {
+2026-11-09T22:41:01.1061286Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1061826Z     +               "contrastRatio": 1.78,
+2026-11-09T22:41:01.1062417Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1062986Z     +               "fgColor": "#c4bfd7",
+2026-11-09T22:41:01.1063531Z     +               "fontSize": "7.2pt (9.6px)",
+2026-11-09T22:41:01.1064286Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1064814Z     +               "messageKey": null,
+2026-11-09T22:41:01.1065259Z     +             },
+2026-11-09T22:41:01.1065817Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1066252Z     +             "impact": "serious",
+2026-11-09T22:41:01.1067641Z     +             "message": "Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1068935Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1069407Z     +               Object {
+2026-11-09T22:41:01.1070009Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1070645Z     +                 "target": Array [
+2026-11-09T22:41:01.1071155Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1071610Z     +                 ],
+2026-11-09T22:41:01.1071994Z     +               },
+2026-11-09T22:41:01.1072339Z     +             ],
+2026-11-09T22:41:01.1072679Z     +           },
+2026-11-09T22:41:01.1073023Z     +         ],
+2026-11-09T22:41:01.1073487Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1074896Z     +   Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1076596Z     +         "html": "<small>Offisielle navn og modulstruktur kontrollert 25. oktober 2026</small>",
+2026-11-09T22:41:01.1077511Z     +         "impact": "serious",
+2026-11-09T22:41:01.1077950Z     +         "none": Array [],
+2026-11-09T22:41:01.1078299Z     +         "target": Array [
+2026-11-09T22:41:01.1078677Z     +           ".curriculum-trail > small",
+2026-11-09T22:41:01.1079047Z     +         ],
+2026-11-09T22:41:01.1079332Z     +       },
+2026-11-09T22:41:01.1079595Z     +     ],
+2026-11-09T22:41:01.1079916Z     +     "tags": Array [
+2026-11-09T22:41:01.1080240Z     +       "cat.color",
+2026-11-09T22:41:01.1080566Z     +       "wcag2aa",
+2026-11-09T22:41:01.1080894Z     +       "wcag143",
+2026-11-09T22:41:01.1081224Z     +       "TTv5",
+2026-11-09T22:41:01.1081524Z     +       "TT13.c",
+2026-11-09T22:41:01.1081939Z     +       "EN-301-549",
+2026-11-09T22:41:01.1082364Z     +       "EN-9.1.4.3",
+2026-11-09T22:41:01.1082800Z     +       "ACT",
+2026-11-09T22:41:01.1083184Z     +       "RGAAv4",
+2026-11-09T22:41:01.1083593Z     +       "RGAA-3.2.1",
+2026-11-09T22:41:01.1084014Z     +     ],
+2026-11-09T22:41:01.1084385Z     +   },
+2026-11-09T22:41:01.1084746Z     + ]
+2026-11-09T22:41:01.1084952Z 
+2026-11-09T22:41:01.1085356Z       85 |   await expect(journal).toContainText(nb.official.path);
+2026-11-09T22:41:01.1086515Z       86 |   await expect(journal).toContainText(nb.official.boundary);
+2026-11-09T22:41:01.1087549Z     > 87 |   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+2026-11-09T22:41:01.1088486Z          |                                                                 ^
+2026-11-09T22:41:01.1089207Z       88 |   await page.keyboard.press('Escape');
+2026-11-09T22:41:01.1089890Z       89 |   await expect(journal).toHaveCount(0);
+2026-11-09T22:41:01.1090588Z       90 |   await page.goto('/portal?area=groups');
+2026-11-09T22:41:01.1091668Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/legacy-retirement.spec.ts:87:65
+2026-11-09T22:41:01.1092422Z 
+2026-11-09T22:41:01.1093844Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-3/test-results/legacy-retirement-current--134e2-ut-loading-the-retired-game-desktop-chromium/error-context.md
+2026-11-09T22:41:01.1095257Z 
+2026-11-09T22:41:01.1096356Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1098250Z     .artifacts/ci-shards/browser-42712267110-1-3/test-results/legacy-retirement-current--134e2-ut-loading-the-retired-game-desktop-chromium/trace.zip
+2026-11-09T22:41:01.1099839Z     Usage:
+2026-11-09T22:41:01.1100053Z 
+2026-11-09T22:41:01.1101506Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-3/test-results/legacy-retirement-current--134e2-ut-loading-the-retired-game-desktop-chromium/trace.zip
+2026-11-09T22:41:01.1102949Z 
+2026-11-09T22:41:01.1103703Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1104274Z 
+2026-11-09T22:41:01.1105014Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1105916Z 
+2026-11-09T22:41:01.1106303Z     Error: expect(received).toEqual(expected) // deep equality
+2026-11-09T22:41:01.1106795Z 
+2026-11-09T22:41:01.1106982Z     - Expected  -   1
+2026-11-09T22:41:01.1107408Z     + Received  + 233
+2026-11-09T22:41:01.1107663Z 
+2026-11-09T22:41:01.1107822Z     - Array []
+2026-11-09T22:41:01.1108206Z     + Array [
+2026-11-09T22:41:01.1108573Z     +   Object {
+2026-11-09T22:41:01.1109762Z     +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+2026-11-09T22:41:01.1111210Z     +     "help": "Elements must meet minimum color contrast ratio thresholds",
+2026-11-09T22:41:01.1112461Z     +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+2026-11-09T22:41:01.1113448Z     +     "id": "color-contrast",
+2026-11-09T22:41:01.1113985Z     +     "impact": "serious",
+2026-11-09T22:41:01.1114459Z     +     "nodes": Array [
+2026-11-09T22:41:01.1114900Z     +       Object {
+2026-11-09T22:41:01.1115341Z     +         "all": Array [],
+2026-11-09T22:41:01.1115955Z     +         "any": Array [
+2026-11-09T22:41:01.1116398Z     +           Object {
+2026-11-09T22:41:01.1116872Z     +             "data": Object {
+2026-11-09T22:41:01.1117421Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1118007Z     +               "contrastRatio": 1.78,
+2026-11-09T22:41:01.1118650Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1119306Z     +               "fgColor": "#c4bfd7",
+2026-11-09T22:41:01.1119895Z     +               "fontSize": "9.0pt (12px)",
+2026-11-09T22:41:01.1120495Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1121089Z     +               "messageKey": null,
+2026-11-09T22:41:01.1121582Z     +             },
+2026-11-09T22:41:01.1122049Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1122638Z     +             "impact": "serious",
+2026-11-09T22:41:01.1124405Z     +             "message": "Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1126117Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1126643Z     +               Object {
+2026-11-09T22:41:01.1127347Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1128102Z     +                 "target": Array [
+2026-11-09T22:41:01.1128686Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1129208Z     +                 ],
+2026-11-09T22:41:01.1129616Z     +               },
+2026-11-09T22:41:01.1130019Z     +             ],
+2026-11-09T22:41:01.1130407Z     +           },
+2026-11-09T22:41:01.1130784Z     +         ],
+2026-11-09T22:41:01.1131256Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1132401Z     +   Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1133938Z     +         "html": "<summary>Offisiell læringssti · AzureLabs originale undervisning</summary>",
+2026-11-09T22:41:01.1134624Z     +         "impact": "serious",
+2026-11-09T22:41:01.1135065Z     +         "none": Array [],
+2026-11-09T22:41:01.1135472Z     +         "target": Array [
+2026-11-09T22:41:01.1136371Z     +           ".curriculum-trail > summary",
+2026-11-09T22:41:01.1136813Z     +         ],
+2026-11-09T22:41:01.1137101Z     +       },
+2026-11-09T22:41:01.1137373Z     +       Object {
+2026-11-09T22:41:01.1137604Z     +         "all": Array [],
+2026-11-09T22:41:01.1137839Z     +         "any": Array [
+2026-11-09T22:41:01.1138068Z     +           Object {
+2026-11-09T22:41:01.1138324Z     +             "data": Object {
+2026-11-09T22:41:01.1138601Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1138989Z     +               "contrastRatio": 1.58,
+2026-11-09T22:41:01.1139622Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1139953Z     +               "fgColor": "#b6d2d9",
+2026-11-09T22:41:01.1140266Z     +               "fontSize": "7.2pt (9.6px)",
+2026-11-09T22:41:01.1140590Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1140962Z     +               "messageKey": null,
+2026-11-09T22:41:01.1141339Z     +             },
+2026-11-09T22:41:01.1141731Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1142199Z     +             "impact": "serious",
+2026-11-09T22:41:01.1143512Z     +             "message": "Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1144732Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1145141Z     +               Object {
+2026-11-09T22:41:01.1145870Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1146513Z     +                 "target": Array [
+2026-11-09T22:41:01.1146983Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1147380Z     +                 ],
+2026-11-09T22:41:01.1147736Z     +               },
+2026-11-09T22:41:01.1148081Z     +             ],
+2026-11-09T22:41:01.1148406Z     +           },
+2026-11-09T22:41:01.1148696Z     +         ],
+2026-11-09T22:41:01.1149111Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1150552Z     +   Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1152539Z     +         "html": "<small>Tilgjengelig original undervisning · seks undersøkelser og separat endret oppgave</small>",
+2026-11-09T22:41:01.1153385Z     +         "impact": "serious",
+2026-11-09T22:41:01.1153860Z     +         "none": Array [],
+2026-11-09T22:41:01.1154283Z     +         "target": Array [
+2026-11-09T22:41:01.1154757Z     +           ".curriculum-modules > li:nth-child(1) > small",
+2026-11-09T22:41:01.1155239Z     +         ],
+2026-11-09T22:41:01.1155794Z     +       },
+2026-11-09T22:41:01.1156093Z     +       Object {
+2026-11-09T22:41:01.1156497Z     +         "all": Array [],
+2026-11-09T22:41:01.1156923Z     +         "any": Array [
+2026-11-09T22:41:01.1157328Z     +           Object {
+2026-11-09T22:41:01.1157755Z     +             "data": Object {
+2026-11-09T22:41:01.1158239Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1158768Z     +               "contrastRatio": 1.58,
+2026-11-09T22:41:01.1159307Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1159836Z     +               "fgColor": "#b6d2d9",
+2026-11-09T22:41:01.1160325Z     +               "fontSize": "7.2pt (9.6px)",
+2026-11-09T22:41:01.1160830Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1161340Z     +               "messageKey": null,
+2026-11-09T22:41:01.1161774Z     +             },
+2026-11-09T22:41:01.1162189Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1162721Z     +             "impact": "serious",
+2026-11-09T22:41:01.1164342Z     +             "message": "Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1166286Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1166733Z     +               Object {
+2026-11-09T22:41:01.1167356Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1167959Z     +                 "target": Array [
+2026-11-09T22:41:01.1168464Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1168929Z     +                 ],
+2026-11-09T22:41:01.1169280Z     +               },
+2026-11-09T22:41:01.1169653Z     +             ],
+2026-11-09T22:41:01.1170048Z     +           },
+2026-11-09T22:41:01.1170619Z     +         ],
+2026-11-09T22:41:01.1171132Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1172695Z     +   Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1174772Z     +         "html": "<small>Fem Benefits-undersøkelser og separat endret oppgave i kurset</small>",
+2026-11-09T22:41:01.1175796Z     +         "impact": "serious",
+2026-11-09T22:41:01.1176324Z     +         "none": Array [],
+2026-11-09T22:41:01.1176811Z     +         "target": Array [
+2026-11-09T22:41:01.1177439Z     +           ".curriculum-modules > li:nth-child(2) > small",
+2026-11-09T22:41:01.1178018Z     +         ],
+2026-11-09T22:41:01.1178357Z     +       },
+2026-11-09T22:41:01.1178716Z     +       Object {
+2026-11-09T22:41:01.1179152Z     +         "all": Array [],
+2026-11-09T22:41:01.1179602Z     +         "any": Array [
+2026-11-09T22:41:01.1180052Z     +           Object {
+2026-11-09T22:41:01.1180512Z     +             "data": Object {
+2026-11-09T22:41:01.1181041Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1181577Z     +               "contrastRatio": 1.58,
+2026-11-09T22:41:01.1182211Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1182836Z     +               "fgColor": "#b6d2d9",
+2026-11-09T22:41:01.1183436Z     +               "fontSize": "7.2pt (9.6px)",
+2026-11-09T22:41:01.1184023Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1184592Z     +               "messageKey": null,
+2026-11-09T22:41:01.1185082Z     +             },
+2026-11-09T22:41:01.1185665Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1186352Z     +             "impact": "serious",
+2026-11-09T22:41:01.1188015Z     +             "message": "Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1189542Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1190042Z     +               Object {
+2026-11-09T22:41:01.1190662Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1191254Z     +                 "target": Array [
+2026-11-09T22:41:01.1191970Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1192503Z     +                 ],
+2026-11-09T22:41:01.1192919Z     +               },
+2026-11-09T22:41:01.1193324Z     +             ],
+2026-11-09T22:41:01.1193695Z     +           },
+2026-11-09T22:41:01.1194061Z     +         ],
+2026-11-09T22:41:01.1194590Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1196357Z     +   Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1198851Z     +         "html": "<small>Operativ Service Types-undervisning · fire mål, konfigurasjonsøving, Portal-lab og separat endret oppgave</small>",
+2026-11-09T22:41:01.1199900Z     +         "impact": "serious",
+2026-11-09T22:41:01.1200413Z     +         "none": Array [],
+2026-11-09T22:41:01.1200906Z     +         "target": Array [
+2026-11-09T22:41:01.1201429Z     +           "li:nth-child(3) > small",
+2026-11-09T22:41:01.1202185Z     +         ],
+2026-11-09T22:41:01.1202512Z     +       },
+2026-11-09T22:41:01.1202854Z     +       Object {
+2026-11-09T22:41:01.1203271Z     +         "all": Array [],
+2026-11-09T22:41:01.1203721Z     +         "any": Array [
+2026-11-09T22:41:01.1204156Z     +           Object {
+2026-11-09T22:41:01.1204619Z     +             "data": Object {
+2026-11-09T22:41:01.1205146Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1205859Z     +               "contrastRatio": 1.78,
+2026-11-09T22:41:01.1206480Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1207181Z     +               "fgColor": "#c4bfd7",
+2026-11-09T22:41:01.1207674Z     +               "fontSize": "9.0pt (12px)",
+2026-11-09T22:41:01.1208167Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1208731Z     +               "messageKey": null,
+2026-11-09T22:41:01.1209214Z     +             },
+2026-11-09T22:41:01.1209685Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1210256Z     +             "impact": "serious",
+2026-11-09T22:41:01.1211883Z     +             "message": "Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1213416Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1213919Z     +               Object {
+2026-11-09T22:41:01.1214619Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1215349Z     +                 "target": Array [
+2026-11-09T22:41:01.1216075Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1216554Z     +                 ],
+2026-11-09T22:41:01.1216960Z     +               },
+2026-11-09T22:41:01.1217369Z     +             ],
+2026-11-09T22:41:01.1217735Z     +           },
+2026-11-09T22:41:01.1218108Z     +         ],
+2026-11-09T22:41:01.1218608Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1220253Z     +   Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1222434Z     +         "html": "<summary>Offisielle enheter · flere AzureLab-undersøkelser kan belyse samme enhet</summary>",
+2026-11-09T22:41:01.1223255Z     +         "impact": "serious",
+2026-11-09T22:41:01.1223749Z     +         "none": Array [],
+2026-11-09T22:41:01.1224236Z     +         "target": Array [
+2026-11-09T22:41:01.1224804Z     +           ".curriculum-trail > details > summary",
+2026-11-09T22:41:01.1225322Z     +         ],
+2026-11-09T22:41:01.1225822Z     +       },
+2026-11-09T22:41:01.1226195Z     +       Object {
+2026-11-09T22:41:01.1226605Z     +         "all": Array [],
+2026-11-09T22:41:01.1227032Z     +         "any": Array [
+2026-11-09T22:41:01.1227423Z     +           Object {
+2026-11-09T22:41:01.1227861Z     +             "data": Object {
+2026-11-09T22:41:01.1228409Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1228907Z     +               "contrastRatio": 1.78,
+2026-11-09T22:41:01.1229505Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1230083Z     +               "fgColor": "#c4bfd7",
+2026-11-09T22:41:01.1230658Z     +               "fontSize": "7.2pt (9.6px)",
+2026-11-09T22:41:01.1231206Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1231863Z     +               "messageKey": null,
+2026-11-09T22:41:01.1232356Z     +             },
+2026-11-09T22:41:01.1232819Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1233390Z     +             "impact": "serious",
+2026-11-09T22:41:01.1235097Z     +             "message": "Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1236750Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1237511Z     +               Object {
+2026-11-09T22:41:01.1238218Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1238938Z     +                 "target": Array [
+2026-11-09T22:41:01.1239514Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1240028Z     +                 ],
+2026-11-09T22:41:01.1240438Z     +               },
+2026-11-09T22:41:01.1240832Z     +             ],
+2026-11-09T22:41:01.1241226Z     +           },
+2026-11-09T22:41:01.1241600Z     +         ],
+2026-11-09T22:41:01.1242212Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1243887Z     +   Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1245867Z     +         "html": "<small>Offisielle navn og modulstruktur kontrollert 25. oktober 2026</small>",
+2026-11-09T22:41:01.1246766Z     +         "impact": "serious",
+2026-11-09T22:41:01.1247270Z     +         "none": Array [],
+2026-11-09T22:41:01.1247758Z     +         "target": Array [
+2026-11-09T22:41:01.1248265Z     +           ".curriculum-trail > small",
+2026-11-09T22:41:01.1248743Z     +         ],
+2026-11-09T22:41:01.1249106Z     +       },
+2026-11-09T22:41:01.1249469Z     +     ],
+2026-11-09T22:41:01.1249832Z     +     "tags": Array [
+2026-11-09T22:41:01.1250255Z     +       "cat.color",
+2026-11-09T22:41:01.1250675Z     +       "wcag2aa",
+2026-11-09T22:41:01.1251074Z     +       "wcag143",
+2026-11-09T22:41:01.1251467Z     +       "TTv5",
+2026-11-09T22:41:01.1251861Z     +       "TT13.c",
+2026-11-09T22:41:01.1252262Z     +       "EN-301-549",
+2026-11-09T22:41:01.1252619Z     +       "EN-9.1.4.3",
+2026-11-09T22:41:01.1253004Z     +       "ACT",
+2026-11-09T22:41:01.1253376Z     +       "RGAAv4",
+2026-11-09T22:41:01.1253786Z     +       "RGAA-3.2.1",
+2026-11-09T22:41:01.1254188Z     +     ],
+2026-11-09T22:41:01.1254552Z     +   },
+2026-11-09T22:41:01.1254912Z     + ]
+2026-11-09T22:41:01.1255111Z 
+2026-11-09T22:41:01.1255500Z       85 |   await expect(journal).toContainText(nb.official.path);
+2026-11-09T22:41:01.1256474Z       86 |   await expect(journal).toContainText(nb.official.boundary);
+2026-11-09T22:41:01.1257462Z     > 87 |   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+2026-11-09T22:41:01.1258388Z          |                                                                 ^
+2026-11-09T22:41:01.1259012Z       88 |   await page.keyboard.press('Escape');
+2026-11-09T22:41:01.1259495Z       89 |   await expect(journal).toHaveCount(0);
+2026-11-09T22:41:01.1260023Z       90 |   await page.goto('/portal?area=groups');
+2026-11-09T22:41:01.1260999Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/legacy-retirement.spec.ts:87:65
+2026-11-09T22:41:01.1261723Z 
+2026-11-09T22:41:01.1263191Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-3/test-results/legacy-retirement-current--134e2-ut-loading-the-retired-game-desktop-chromium-retry1/error-context.md
+2026-11-09T22:41:01.1264643Z 
+2026-11-09T22:41:01.1265729Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1267416Z     .artifacts/ci-shards/browser-42712267110-1-3/test-results/legacy-retirement-current--134e2-ut-loading-the-retired-game-desktop-chromium-retry1/trace.zip
+2026-11-09T22:41:01.1268816Z     Usage:
+2026-11-09T22:41:01.1269034Z 
+2026-11-09T22:41:01.1270513Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-3/test-results/legacy-retirement-current--134e2-ut-loading-the-retired-game-desktop-chromium-retry1/trace.zip
+2026-11-09T22:41:01.1271972Z 
+2026-11-09T22:41:01.1272713Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1273260Z 
+2026-11-09T22:41:01.1273974Z     Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1274832Z 
+2026-11-09T22:41:01.1275176Z     Error: expect(received).toEqual(expected) // deep equality
+2026-11-09T22:41:01.1275688Z 
+2026-11-09T22:41:01.1275856Z     - Expected  -   1
+2026-11-09T22:41:01.1276246Z     + Received  + 233
+2026-11-09T22:41:01.1276495Z 
+2026-11-09T22:41:01.1276657Z     - Array []
+2026-11-09T22:41:01.1277026Z     + Array [
+2026-11-09T22:41:01.1277384Z     +   Object {
+2026-11-09T22:41:01.1278517Z     +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+2026-11-09T22:41:01.1280053Z     +     "help": "Elements must meet minimum color contrast ratio thresholds",
+2026-11-09T22:41:01.1281247Z     +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+2026-11-09T22:41:01.1282184Z     +     "id": "color-contrast",
+2026-11-09T22:41:01.1282705Z     +     "impact": "serious",
+2026-11-09T22:41:01.1283098Z     +     "nodes": Array [
+2026-11-09T22:41:01.1283432Z     +       Object {
+2026-11-09T22:41:01.1283817Z     +         "all": Array [],
+2026-11-09T22:41:01.1284254Z     +         "any": Array [
+2026-11-09T22:41:01.1284699Z     +           Object {
+2026-11-09T22:41:01.1285164Z     +             "data": Object {
+2026-11-09T22:41:01.1285876Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1286456Z     +               "contrastRatio": 1.78,
+2026-11-09T22:41:01.1287038Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1287604Z     +               "fgColor": "#c4bfd7",
+2026-11-09T22:41:01.1288142Z     +               "fontSize": "9.0pt (12px)",
+2026-11-09T22:41:01.1288737Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1289301Z     +               "messageKey": null,
+2026-11-09T22:41:01.1289792Z     +             },
+2026-11-09T22:41:01.1290247Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1290786Z     +             "impact": "serious",
+2026-11-09T22:41:01.1292498Z     +             "message": "Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1293749Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1294170Z     +               Object {
+2026-11-09T22:41:01.1294831Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1295689Z     +                 "target": Array [
+2026-11-09T22:41:01.1296235Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1296737Z     +                 ],
+2026-11-09T22:41:01.1297158Z     +               },
+2026-11-09T22:41:01.1297554Z     +             ],
+2026-11-09T22:41:01.1297926Z     +           },
+2026-11-09T22:41:01.1298315Z     +         ],
+2026-11-09T22:41:01.1298830Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1300210Z     +   Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1302034Z     +         "html": "<summary>Offisiell læringssti · AzureLabs originale undervisning</summary>",
+2026-11-09T22:41:01.1302780Z     +         "impact": "serious",
+2026-11-09T22:41:01.1303235Z     +         "none": Array [],
+2026-11-09T22:41:01.1303723Z     +         "target": Array [
+2026-11-09T22:41:01.1304164Z     +           ".curriculum-trail > summary",
+2026-11-09T22:41:01.1304610Z     +         ],
+2026-11-09T22:41:01.1304893Z     +       },
+2026-11-09T22:41:01.1305183Z     +       Object {
+2026-11-09T22:41:01.1305516Z     +         "all": Array [],
+2026-11-09T22:41:01.1306080Z     +         "any": Array [
+2026-11-09T22:41:01.1306468Z     +           Object {
+2026-11-09T22:41:01.1306963Z     +             "data": Object {
+2026-11-09T22:41:01.1307540Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1308054Z     +               "contrastRatio": 1.58,
+2026-11-09T22:41:01.1308705Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1309221Z     +               "fgColor": "#b6d2d9",
+2026-11-09T22:41:01.1309709Z     +               "fontSize": "7.2pt (9.6px)",
+2026-11-09T22:41:01.1310216Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1310712Z     +               "messageKey": null,
+2026-11-09T22:41:01.1311079Z     +             },
+2026-11-09T22:41:01.1311479Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1311948Z     +             "impact": "serious",
+2026-11-09T22:41:01.1313486Z     +             "message": "Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1314761Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1315191Z     +               Object {
+2026-11-09T22:41:01.1315922Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1316443Z     +                 "target": Array [
+2026-11-09T22:41:01.1316905Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1317314Z     +                 ],
+2026-11-09T22:41:01.1317695Z     +               },
+2026-11-09T22:41:01.1318093Z     +             ],
+2026-11-09T22:41:01.1318461Z     +           },
+2026-11-09T22:41:01.1318771Z     +         ],
+2026-11-09T22:41:01.1319190Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1337642Z     +   Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1340018Z     +         "html": "<small>Tilgjengelig original undervisning · seks undersøkelser og separat endret oppgave</small>",
+2026-11-09T22:41:01.1341068Z     +         "impact": "serious",
+2026-11-09T22:41:01.1341591Z     +         "none": Array [],
+2026-11-09T22:41:01.1342098Z     +         "target": Array [
+2026-11-09T22:41:01.1342722Z     +           ".curriculum-modules > li:nth-child(1) > small",
+2026-11-09T22:41:01.1343309Z     +         ],
+2026-11-09T22:41:01.1343686Z     +       },
+2026-11-09T22:41:01.1344054Z     +       Object {
+2026-11-09T22:41:01.1344491Z     +         "all": Array [],
+2026-11-09T22:41:01.1344936Z     +         "any": Array [
+2026-11-09T22:41:01.1345384Z     +           Object {
+2026-11-09T22:41:01.1347996Z     +             "data": Object {
+2026-11-09T22:41:01.1348545Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1349147Z     +               "contrastRatio": 1.58,
+2026-11-09T22:41:01.1349624Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1350107Z     +               "fgColor": "#b6d2d9",
+2026-11-09T22:41:01.1350669Z     +               "fontSize": "7.2pt (9.6px)",
+2026-11-09T22:41:01.1351180Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1351630Z     +               "messageKey": null,
+2026-11-09T22:41:01.1352282Z     +             },
+2026-11-09T22:41:01.1352731Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1353427Z     +             "impact": "serious",
+2026-11-09T22:41:01.1354999Z     +             "message": "Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1356434Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1356884Z     +               Object {
+2026-11-09T22:41:01.1357546Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1358280Z     +                 "target": Array [
+2026-11-09T22:41:01.1358838Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1359309Z     +                 ],
+2026-11-09T22:41:01.1359709Z     +               },
+2026-11-09T22:41:01.1360097Z     +             ],
+2026-11-09T22:41:01.1360468Z     +           },
+2026-11-09T22:41:01.1360787Z     +         ],
+2026-11-09T22:41:01.1361215Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1362617Z     +   Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1364511Z     +         "html": "<small>Fem Benefits-undersøkelser og separat endret oppgave i kurset</small>",
+2026-11-09T22:41:01.1365338Z     +         "impact": "serious",
+2026-11-09T22:41:01.1365951Z     +         "none": Array [],
+2026-11-09T22:41:01.1366594Z     +         "target": Array [
+2026-11-09T22:41:01.1367117Z     +           ".curriculum-modules > li:nth-child(2) > small",
+2026-11-09T22:41:01.1367612Z     +         ],
+2026-11-09T22:41:01.1367879Z     +       },
+2026-11-09T22:41:01.1368184Z     +       Object {
+2026-11-09T22:41:01.1368734Z     +         "all": Array [],
+2026-11-09T22:41:01.1369266Z     +         "any": Array [
+2026-11-09T22:41:01.1369777Z     +           Object {
+2026-11-09T22:41:01.1370317Z     +             "data": Object {
+2026-11-09T22:41:01.1370926Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1371464Z     +               "contrastRatio": 1.58,
+2026-11-09T22:41:01.1372337Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1372964Z     +               "fgColor": "#b6d2d9",
+2026-11-09T22:41:01.1373552Z     +               "fontSize": "7.2pt (9.6px)",
+2026-11-09T22:41:01.1374151Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1374737Z     +               "messageKey": null,
+2026-11-09T22:41:01.1375227Z     +             },
+2026-11-09T22:41:01.1375839Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1376416Z     +             "impact": "serious",
+2026-11-09T22:41:01.1378102Z     +             "message": "Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1379653Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1380170Z     +               Object {
+2026-11-09T22:41:01.1380866Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1381595Z     +                 "target": Array [
+2026-11-09T22:41:01.1382171Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1382688Z     +                 ],
+2026-11-09T22:41:01.1383101Z     +               },
+2026-11-09T22:41:01.1383438Z     +             ],
+2026-11-09T22:41:01.1383772Z     +           },
+2026-11-09T22:41:01.1384063Z     +         ],
+2026-11-09T22:41:01.1384489Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1385922Z     +   Element has insufficient color contrast of 1.58 (foreground color: #b6d2d9, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1388739Z     +         "html": "<small>Operativ Service Types-undervisning · fire mål, konfigurasjonsøving, Portal-lab og separat endret oppgave</small>",
+2026-11-09T22:41:01.1389835Z     +         "impact": "serious",
+2026-11-09T22:41:01.1390323Z     +         "none": Array [],
+2026-11-09T22:41:01.1390704Z     +         "target": Array [
+2026-11-09T22:41:01.1391154Z     +           "li:nth-child(3) > small",
+2026-11-09T22:41:01.1391634Z     +         ],
+2026-11-09T22:41:01.1392010Z     +       },
+2026-11-09T22:41:01.1392351Z     +       Object {
+2026-11-09T22:41:01.1392776Z     +         "all": Array [],
+2026-11-09T22:41:01.1393211Z     +         "any": Array [
+2026-11-09T22:41:01.1393599Z     +           Object {
+2026-11-09T22:41:01.1393977Z     +             "data": Object {
+2026-11-09T22:41:01.1394436Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1394927Z     +               "contrastRatio": 1.78,
+2026-11-09T22:41:01.1395469Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1396266Z     +               "fgColor": "#c4bfd7",
+2026-11-09T22:41:01.1396760Z     +               "fontSize": "9.0pt (12px)",
+2026-11-09T22:41:01.1397323Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1397842Z     +               "messageKey": null,
+2026-11-09T22:41:01.1398223Z     +             },
+2026-11-09T22:41:01.1398622Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1399105Z     +             "impact": "serious",
+2026-11-09T22:41:01.1400369Z     +             "message": "Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1401128Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1401395Z     +               Object {
+2026-11-09T22:41:01.1401759Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1402524Z     +                 "target": Array [
+2026-11-09T22:41:01.1402973Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1403431Z     +                 ],
+2026-11-09T22:41:01.1403919Z     +               },
+2026-11-09T22:41:01.1404561Z     +             ],
+2026-11-09T22:41:01.1404921Z     +           },
+2026-11-09T22:41:01.1405281Z     +         ],
+2026-11-09T22:41:01.1405902Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1407344Z     +   Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1409282Z     +         "html": "<summary>Offisielle enheter · flere AzureLab-undersøkelser kan belyse samme enhet</summary>",
+2026-11-09T22:41:01.1410245Z     +         "impact": "serious",
+2026-11-09T22:41:01.1410759Z     +         "none": Array [],
+2026-11-09T22:41:01.1411258Z     +         "target": Array [
+2026-11-09T22:41:01.1411832Z     +           ".curriculum-trail > details > summary",
+2026-11-09T22:41:01.1412391Z     +         ],
+2026-11-09T22:41:01.1412763Z     +       },
+2026-11-09T22:41:01.1413131Z     +       Object {
+2026-11-09T22:41:01.1413558Z     +         "all": Array [],
+2026-11-09T22:41:01.1414019Z     +         "any": Array [
+2026-11-09T22:41:01.1414445Z     +           Object {
+2026-11-09T22:41:01.1414903Z     +             "data": Object {
+2026-11-09T22:41:01.1415422Z     +               "bgColor": "#ffffff",
+2026-11-09T22:41:01.1416137Z     +               "contrastRatio": 1.78,
+2026-11-09T22:41:01.1416756Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1417371Z     +               "fgColor": "#c4bfd7",
+2026-11-09T22:41:01.1417949Z     +               "fontSize": "7.2pt (9.6px)",
+2026-11-09T22:41:01.1418537Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1419096Z     +               "messageKey": null,
+2026-11-09T22:41:01.1419581Z     +             },
+2026-11-09T22:41:01.1420034Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1420788Z     +             "impact": "serious",
+2026-11-09T22:41:01.1422054Z     +             "message": "Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1423201Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1423674Z     +               Object {
+2026-11-09T22:41:01.1424404Z     +                 "html": "<div class=\"knowledge-journal bifrost-learning\">",
+2026-11-09T22:41:01.1425295Z     +                 "target": Array [
+2026-11-09T22:41:01.1425972Z     +                   ".knowledge-journal",
+2026-11-09T22:41:01.1426494Z     +                 ],
+2026-11-09T22:41:01.1426890Z     +               },
+2026-11-09T22:41:01.1427191Z     +             ],
+2026-11-09T22:41:01.1427491Z     +           },
+2026-11-09T22:41:01.1427755Z     +         ],
+2026-11-09T22:41:01.1428138Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1429591Z     +   Element has insufficient color contrast of 1.78 (foreground color: #c4bfd7, background color: #ffffff, font size: 7.2pt (9.6px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1431473Z     +         "html": "<small>Offisielle navn og modulstruktur kontrollert 25. oktober 2026</small>",
+2026-11-09T22:41:01.1432279Z     +         "impact": "serious",
+2026-11-09T22:41:01.1432784Z     +         "none": Array [],
+2026-11-09T22:41:01.1433183Z     +         "target": Array [
+2026-11-09T22:41:01.1433834Z     +           ".curriculum-trail > small",
+2026-11-09T22:41:01.1434278Z     +         ],
+2026-11-09T22:41:01.1434593Z     +       },
+2026-11-09T22:41:01.1435029Z     +     ],
+2026-11-09T22:41:01.1435472Z     +     "tags": Array [
+2026-11-09T22:41:01.1436036Z     +       "cat.color",
+2026-11-09T22:41:01.1436399Z     +       "wcag2aa",
+2026-11-09T22:41:01.1436795Z     +       "wcag143",
+2026-11-09T22:41:01.1437210Z     +       "TTv5",
+2026-11-09T22:41:01.1437512Z     +       "TT13.c",
+2026-11-09T22:41:01.1437845Z     +       "EN-301-549",
+2026-11-09T22:41:01.1438224Z     +       "EN-9.1.4.3",
+2026-11-09T22:41:01.1438580Z     +       "ACT",
+2026-11-09T22:41:01.1438913Z     +       "RGAAv4",
+2026-11-09T22:41:01.1439278Z     +       "RGAA-3.2.1",
+2026-11-09T22:41:01.1439645Z     +     ],
+2026-11-09T22:41:01.1439971Z     +   },
+2026-11-09T22:41:01.1440288Z     + ]
+2026-11-09T22:41:01.1440467Z 
+2026-11-09T22:41:01.1440845Z       85 |   await expect(journal).toContainText(nb.official.path);
+2026-11-09T22:41:01.1441687Z       86 |   await expect(journal).toContainText(nb.official.boundary);
+2026-11-09T22:41:01.1442567Z     > 87 |   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+2026-11-09T22:41:01.1443322Z          |                                                                 ^
+2026-11-09T22:41:01.1443887Z       88 |   await page.keyboard.press('Escape');
+2026-11-09T22:41:01.1444347Z       89 |   await expect(journal).toHaveCount(0);
+2026-11-09T22:41:01.1444830Z       90 |   await page.goto('/portal?area=groups');
+2026-11-09T22:41:01.1445798Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/legacy-retirement.spec.ts:87:65
+2026-11-09T22:41:01.1446376Z 
+2026-11-09T22:41:01.1447612Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-3/test-results/legacy-retirement-current--134e2-ut-loading-the-retired-game-desktop-chromium-retry2/error-context.md
+2026-11-09T22:41:01.1448906Z 
+2026-11-09T22:41:01.1449744Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1451668Z     .artifacts/ci-shards/browser-42712267110-1-3/test-results/legacy-retirement-current--134e2-ut-loading-the-retired-game-desktop-chromium-retry2/trace.zip
+2026-11-09T22:41:01.1453073Z     Usage:
+2026-11-09T22:41:01.1453278Z 
+2026-11-09T22:41:01.1454739Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-3/test-results/legacy-retirement-current--134e2-ut-loading-the-retired-game-desktop-chromium-retry2/trace.zip
+2026-11-09T22:41:01.1456429Z 
+2026-11-09T22:41:01.1457170Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1457729Z 
+2026-11-09T22:41:01.1459556Z   2) [desktop-chromium] › tests/e2e/management-tools.spec.ts:283:1 › Arc stored contrasts retain physical location and stale representation without claiming migration, resize or stopped local Flux 
+2026-11-09T22:41:01.1460749Z 
+2026-11-09T22:41:01.1461111Z     Error: expect(received).toEqual(expected) // deep equality
+2026-11-09T22:41:01.1461826Z 
+2026-11-09T22:41:01.1462004Z     - Expected  -  1
+2026-11-09T22:41:01.1462414Z     + Received  + 58
+2026-11-09T22:41:01.1462617Z 
+2026-11-09T22:41:01.1462775Z     - Array []
+2026-11-09T22:41:01.1463112Z     + Array [
+2026-11-09T22:41:01.1463427Z     +   Object {
+2026-11-09T22:41:01.1464522Z     +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+2026-11-09T22:41:01.1465993Z     +     "help": "Elements must meet minimum color contrast ratio thresholds",
+2026-11-09T22:41:01.1467193Z     +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+2026-11-09T22:41:01.1468109Z     +     "id": "color-contrast",
+2026-11-09T22:41:01.1468595Z     +     "impact": "serious",
+2026-11-09T22:41:01.1468972Z     +     "nodes": Array [
+2026-11-09T22:41:01.1469318Z     +       Object {
+2026-11-09T22:41:01.1469662Z     +         "all": Array [],
+2026-11-09T22:41:01.1470043Z     +         "any": Array [
+2026-11-09T22:41:01.1470445Z     +           Object {
+2026-11-09T22:41:01.1470837Z     +             "data": Object {
+2026-11-09T22:41:01.1471219Z     +               "bgColor": "#163b56",
+2026-11-09T22:41:01.1471680Z     +               "contrastRatio": 1.68,
+2026-11-09T22:41:01.1472202Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1472739Z     +               "fgColor": "#565776",
+2026-11-09T22:41:01.1473296Z     +               "fontSize": "9.0pt (12px)",
+2026-11-09T22:41:01.1473846Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1474325Z     +               "messageKey": null,
+2026-11-09T22:41:01.1474754Z     +             },
+2026-11-09T22:41:01.1475139Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1475782Z     +             "impact": "serious",
+2026-11-09T22:41:01.1477105Z     +             "message": "Element has insufficient color contrast of 1.68 (foreground color: #565776, background color: #163b56, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1477871Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1478147Z     +               Object {
+2026-11-09T22:41:01.1479377Z     +                 "html": "<section class=\"tools-representation\"><small>Deklarert management-representasjon</small><strong>Arc-enabled Servers</strong><p>Azure Resource Manager · Azure-region for representasjonsmetadata: westeurope</p></section>",
+2026-11-09T22:41:01.1480357Z     +                 "target": Array [
+2026-11-09T22:41:01.1480662Z     +                   ".tools-representation",
+2026-11-09T22:41:01.1480951Z     +                 ],
+2026-11-09T22:41:01.1481170Z     +               },
+2026-11-09T22:41:01.1481379Z     +             ],
+2026-11-09T22:41:01.1481586Z     +           },
+2026-11-09T22:41:01.1481784Z     +         ],
+2026-11-09T22:41:01.1482057Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1482876Z     +   Element has insufficient color contrast of 1.68 (foreground color: #565776, background color: #163b56, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1483669Z     +         "html": "<small>Deklarert management-representasjon</small>",
+2026-11-09T22:41:01.1484040Z     +         "impact": "serious",
+2026-11-09T22:41:01.1484317Z     +         "none": Array [],
+2026-11-09T22:41:01.1484713Z     +         "target": Array [
+2026-11-09T22:41:01.1485004Z     +           ".tools-representation > small",
+2026-11-09T22:41:01.1485293Z     +         ],
+2026-11-09T22:41:01.1485497Z     +       },
+2026-11-09T22:41:01.1485953Z     +     ],
+2026-11-09T22:41:01.1486251Z     +     "tags": Array [
+2026-11-09T22:41:01.1486587Z     +       "cat.color",
+2026-11-09T22:41:01.1486927Z     +       "wcag2aa",
+2026-11-09T22:41:01.1487297Z     +       "wcag143",
+2026-11-09T22:41:01.1487652Z     +       "TTv5",
+2026-11-09T22:41:01.1487997Z     +       "TT13.c",
+2026-11-09T22:41:01.1488534Z     +       "EN-301-549",
+2026-11-09T22:41:01.1488936Z     +       "EN-9.1.4.3",
+2026-11-09T22:41:01.1489292Z     +       "ACT",
+2026-11-09T22:41:01.1489631Z     +       "RGAAv4",
+2026-11-09T22:41:01.1489993Z     +       "RGAA-3.2.1",
+2026-11-09T22:41:01.1490354Z     +     ],
+2026-11-09T22:41:01.1490684Z     +   },
+2026-11-09T22:41:01.1491000Z     + ]
+2026-11-09T22:41:01.1491175Z 
+2026-11-09T22:41:01.1491755Z       294 |   await expect(bench(page).locator('.tools-result')).toContainText(c.visual.notSupported);
+2026-11-09T22:41:01.1492952Z       295 |   await expect(bench(page).locator('.tools-result')).toContainText(c.visual.arcConnectionBoundary);
+2026-11-09T22:41:01.1494024Z     > 296 |   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+2026-11-09T22:41:01.1494812Z           |                                                                 ^
+2026-11-09T22:41:01.1495384Z       297 |   await page.reload();
+2026-11-09T22:41:01.1496165Z       298 |   expect((await facts(page)).completed).toEqual(['arc']);
+2026-11-09T22:41:01.1496893Z       299 |   expect(await raw(page, sandboxKey)).toBe(before);
+2026-11-09T22:41:01.1497808Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/management-tools.spec.ts:296:65
+2026-11-09T22:41:01.1498404Z 
+2026-11-09T22:41:01.1499547Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-3/test-results/management-tools-Arc-store-cf2d5-esize-or-stopped-local-Flux-desktop-chromium/error-context.md
+2026-11-09T22:41:01.1500697Z 
+2026-11-09T22:41:01.1501462Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1502999Z     .artifacts/ci-shards/browser-42712267110-1-3/test-results/management-tools-Arc-store-cf2d5-esize-or-stopped-local-Flux-desktop-chromium/trace.zip
+2026-11-09T22:41:01.1504126Z     Usage:
+2026-11-09T22:41:01.1504315Z 
+2026-11-09T22:41:01.1505479Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-3/test-results/management-tools-Arc-store-cf2d5-esize-or-stopped-local-Flux-desktop-chromium/trace.zip
+2026-11-09T22:41:01.1506817Z 
+2026-11-09T22:41:01.1507453Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1507914Z 
+2026-11-09T22:41:01.1508516Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1509218Z 
+2026-11-09T22:41:01.1509550Z     Error: expect(received).toEqual(expected) // deep equality
+2026-11-09T22:41:01.1509966Z 
+2026-11-09T22:41:01.1510144Z     - Expected  -  1
+2026-11-09T22:41:01.1510524Z     + Received  + 58
+2026-11-09T22:41:01.1510752Z 
+2026-11-09T22:41:01.1510901Z     - Array []
+2026-11-09T22:41:01.1511240Z     + Array [
+2026-11-09T22:41:01.1511569Z     +   Object {
+2026-11-09T22:41:01.1512546Z     +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+2026-11-09T22:41:01.1513752Z     +     "help": "Elements must meet minimum color contrast ratio thresholds",
+2026-11-09T22:41:01.1514806Z     +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+2026-11-09T22:41:01.1515770Z     +     "id": "color-contrast",
+2026-11-09T22:41:01.1516253Z     +     "impact": "serious",
+2026-11-09T22:41:01.1516673Z     +     "nodes": Array [
+2026-11-09T22:41:01.1517069Z     +       Object {
+2026-11-09T22:41:01.1517478Z     +         "all": Array [],
+2026-11-09T22:41:01.1517885Z     +         "any": Array [
+2026-11-09T22:41:01.1518282Z     +           Object {
+2026-11-09T22:41:01.1518693Z     +             "data": Object {
+2026-11-09T22:41:01.1519171Z     +               "bgColor": "#163b56",
+2026-11-09T22:41:01.1519691Z     +               "contrastRatio": 1.68,
+2026-11-09T22:41:01.1520255Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1520791Z     +               "fgColor": "#565776",
+2026-11-09T22:41:01.1521317Z     +               "fontSize": "9.0pt (12px)",
+2026-11-09T22:41:01.1522014Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1522538Z     +               "messageKey": null,
+2026-11-09T22:41:01.1522969Z     +             },
+2026-11-09T22:41:01.1523380Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1523866Z     +             "impact": "serious",
+2026-11-09T22:41:01.1525309Z     +             "message": "Element has insufficient color contrast of 1.68 (foreground color: #565776, background color: #163b56, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1526760Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1527205Z     +               Object {
+2026-11-09T22:41:01.1529276Z     +                 "html": "<section class=\"tools-representation\"><small>Deklarert management-representasjon</small><strong>Arc-enabled Servers</strong><p>Azure Resource Manager · Azure-region for representasjonsmetadata: westeurope</p></section>",
+2026-11-09T22:41:01.1530891Z     +                 "target": Array [
+2026-11-09T22:41:01.1531360Z     +                   ".tools-representation",
+2026-11-09T22:41:01.1531772Z     +                 ],
+2026-11-09T22:41:01.1532068Z     +               },
+2026-11-09T22:41:01.1532360Z     +             ],
+2026-11-09T22:41:01.1532750Z     +           },
+2026-11-09T22:41:01.1533116Z     +         ],
+2026-11-09T22:41:01.1533634Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1535313Z     +   Element has insufficient color contrast of 1.68 (foreground color: #565776, background color: #163b56, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1537069Z     +         "html": "<small>Deklarert management-representasjon</small>",
+2026-11-09T22:41:01.1537782Z     +         "impact": "serious",
+2026-11-09T22:41:01.1538308Z     +         "none": Array [],
+2026-11-09T22:41:01.1538792Z     +         "target": Array [
+2026-11-09T22:41:01.1539336Z     +           ".tools-representation > small",
+2026-11-09T22:41:01.1539881Z     +         ],
+2026-11-09T22:41:01.1540245Z     +       },
+2026-11-09T22:41:01.1540600Z     +     ],
+2026-11-09T22:41:01.1540980Z     +     "tags": Array [
+2026-11-09T22:41:01.1541398Z     +       "cat.color",
+2026-11-09T22:41:01.1541842Z     +       "wcag2aa",
+2026-11-09T22:41:01.1542245Z     +       "wcag143",
+2026-11-09T22:41:01.1542634Z     +       "TTv5",
+2026-11-09T22:41:01.1543235Z     +       "TT13.c",
+2026-11-09T22:41:01.1543642Z     +       "EN-301-549",
+2026-11-09T22:41:01.1544061Z     +       "EN-9.1.4.3",
+2026-11-09T22:41:01.1544469Z     +       "ACT",
+2026-11-09T22:41:01.1544847Z     +       "RGAAv4",
+2026-11-09T22:41:01.1545241Z     +       "RGAA-3.2.1",
+2026-11-09T22:41:01.1545835Z     +     ],
+2026-11-09T22:41:01.1546191Z     +   },
+2026-11-09T22:41:01.1546532Z     + ]
+2026-11-09T22:41:01.1547021Z 
+2026-11-09T22:41:01.1547654Z       294 |   await expect(bench(page).locator('.tools-result')).toContainText(c.visual.notSupported);
+2026-11-09T22:41:01.1549084Z       295 |   await expect(bench(page).locator('.tools-result')).toContainText(c.visual.arcConnectionBoundary);
+2026-11-09T22:41:01.1550357Z     > 296 |   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+2026-11-09T22:41:01.1551279Z           |                                                                 ^
+2026-11-09T22:41:01.1551928Z       297 |   await page.reload();
+2026-11-09T22:41:01.1552634Z       298 |   expect((await facts(page)).completed).toEqual(['arc']);
+2026-11-09T22:41:01.1553473Z       299 |   expect(await raw(page, sandboxKey)).toBe(before);
+2026-11-09T22:41:01.1554591Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/management-tools.spec.ts:296:65
+2026-11-09T22:41:01.1555310Z 
+2026-11-09T22:41:01.1556884Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-3/test-results/management-tools-Arc-store-cf2d5-esize-or-stopped-local-Flux-desktop-chromium-retry1/error-context.md
+2026-11-09T22:41:01.1558332Z 
+2026-11-09T22:41:01.1559369Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1561309Z     .artifacts/ci-shards/browser-42712267110-1-3/test-results/management-tools-Arc-store-cf2d5-esize-or-stopped-local-Flux-desktop-chromium-retry1/trace.zip
+2026-11-09T22:41:01.1562761Z     Usage:
+2026-11-09T22:41:01.1562959Z 
+2026-11-09T22:41:01.1564464Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-3/test-results/management-tools-Arc-store-cf2d5-esize-or-stopped-local-Flux-desktop-chromium-retry1/trace.zip
+2026-11-09T22:41:01.1566100Z 
+2026-11-09T22:41:01.1566858Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1567430Z 
+2026-11-09T22:41:01.1568164Z     Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1568760Z 
+2026-11-09T22:41:01.1569146Z     Error: expect(received).toEqual(expected) // deep equality
+2026-11-09T22:41:01.1569664Z 
+2026-11-09T22:41:01.1569863Z     - Expected  -  1
+2026-11-09T22:41:01.1570286Z     + Received  + 58
+2026-11-09T22:41:01.1570539Z 
+2026-11-09T22:41:01.1570697Z     - Array []
+2026-11-09T22:41:01.1571078Z     + Array [
+2026-11-09T22:41:01.1571445Z     +   Object {
+2026-11-09T22:41:01.1572582Z     +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+2026-11-09T22:41:01.1574020Z     +     "help": "Elements must meet minimum color contrast ratio thresholds",
+2026-11-09T22:41:01.1575230Z     +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+2026-11-09T22:41:01.1576363Z     +     "id": "color-contrast",
+2026-11-09T22:41:01.1576895Z     +     "impact": "serious",
+2026-11-09T22:41:01.1577356Z     +     "nodes": Array [
+2026-11-09T22:41:01.1577789Z     +       Object {
+2026-11-09T22:41:01.1578234Z     +         "all": Array [],
+2026-11-09T22:41:01.1578689Z     +         "any": Array [
+2026-11-09T22:41:01.1579127Z     +           Object {
+2026-11-09T22:41:01.1579598Z     +             "data": Object {
+2026-11-09T22:41:01.1580133Z     +               "bgColor": "#163b56",
+2026-11-09T22:41:01.1580714Z     +               "contrastRatio": 1.68,
+2026-11-09T22:41:01.1581347Z     +               "expectedContrastRatio": "4.5:1",
+2026-11-09T22:41:01.1581965Z     +               "fgColor": "#565776",
+2026-11-09T22:41:01.1582744Z     +               "fontSize": "9.0pt (12px)",
+2026-11-09T22:41:01.1583335Z     +               "fontWeight": "normal",
+2026-11-09T22:41:01.1583917Z     +               "messageKey": null,
+2026-11-09T22:41:01.1584402Z     +             },
+2026-11-09T22:41:01.1584868Z     +             "id": "color-contrast",
+2026-11-09T22:41:01.1585444Z     +             "impact": "serious",
+2026-11-09T22:41:01.1587396Z     +             "message": "Element has insufficient color contrast of 1.68 (foreground color: #565776, background color: #163b56, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1588969Z     +             "relatedNodes": Array [
+2026-11-09T22:41:01.1589496Z     +               Object {
+2026-11-09T22:41:01.1591934Z     +                 "html": "<section class=\"tools-representation\"><small>Deklarert management-representasjon</small><strong>Arc-enabled Servers</strong><p>Azure Resource Manager · Azure-region for representasjonsmetadata: westeurope</p></section>",
+2026-11-09T22:41:01.1593878Z     +                 "target": Array [
+2026-11-09T22:41:01.1594473Z     +                   ".tools-representation",
+2026-11-09T22:41:01.1595006Z     +                 ],
+2026-11-09T22:41:01.1595427Z     +               },
+2026-11-09T22:41:01.1595931Z     +             ],
+2026-11-09T22:41:01.1596316Z     +           },
+2026-11-09T22:41:01.1596711Z     +         ],
+2026-11-09T22:41:01.1597233Z     +         "failureSummary": "Fix any of the following:
+2026-11-09T22:41:01.1598897Z     +   Element has insufficient color contrast of 1.68 (foreground color: #565776, background color: #163b56, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1",
+2026-11-09T22:41:01.1600179Z     +         "html": "<small>Deklarert management-representasjon</small>",
+2026-11-09T22:41:01.1600683Z     +         "impact": "serious",
+2026-11-09T22:41:01.1601054Z     +         "none": Array [],
+2026-11-09T22:41:01.1601441Z     +         "target": Array [
+2026-11-09T22:41:01.1601939Z     +           ".tools-representation > small",
+2026-11-09T22:41:01.1602380Z     +         ],
+2026-11-09T22:41:01.1602729Z     +       },
+2026-11-09T22:41:01.1603075Z     +     ],
+2026-11-09T22:41:01.1603423Z     +     "tags": Array [
+2026-11-09T22:41:01.1603799Z     +       "cat.color",
+2026-11-09T22:41:01.1604174Z     +       "wcag2aa",
+2026-11-09T22:41:01.1604539Z     +       "wcag143",
+2026-11-09T22:41:01.1604884Z     +       "TTv5",
+2026-11-09T22:41:01.1605246Z     +       "TT13.c",
+2026-11-09T22:41:01.1605770Z     +       "EN-301-549",
+2026-11-09T22:41:01.1606180Z     +       "EN-9.1.4.3",
+2026-11-09T22:41:01.1606589Z     +       "ACT",
+2026-11-09T22:41:01.1606951Z     +       "RGAAv4",
+2026-11-09T22:41:01.1607502Z     +       "RGAA-3.2.1",
+2026-11-09T22:41:01.1608134Z     +     ],
+2026-11-09T22:41:01.1608679Z     +   },
+2026-11-09T22:41:01.1609237Z     + ]
+2026-11-09T22:41:01.1609546Z 
+2026-11-09T22:41:01.1610120Z       294 |   await expect(bench(page).locator('.tools-result')).toContainText(c.visual.notSupported);
+2026-11-09T22:41:01.1611210Z       295 |   await expect(bench(page).locator('.tools-result')).toContainText(c.visual.arcConnectionBoundary);
+2026-11-09T22:41:01.1612157Z     > 296 |   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+2026-11-09T22:41:01.1612912Z           |                                                                 ^
+2026-11-09T22:41:01.1613508Z       297 |   await page.reload();
+2026-11-09T22:41:01.1614166Z       298 |   expect((await facts(page)).completed).toEqual(['arc']);
+2026-11-09T22:41:01.1614957Z       299 |   expect(await raw(page, sandboxKey)).toBe(before);
+2026-11-09T22:41:01.1616425Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/management-tools.spec.ts:296:65
+2026-11-09T22:41:01.1617433Z 
+2026-11-09T22:41:01.1618715Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-3/test-results/management-tools-Arc-store-cf2d5-esize-or-stopped-local-Flux-desktop-chromium-retry2/error-context.md
+2026-11-09T22:41:01.1620066Z 
+2026-11-09T22:41:01.1620852Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1622615Z     .artifacts/ci-shards/browser-42712267110-1-3/test-results/management-tools-Arc-store-cf2d5-esize-or-stopped-local-Flux-desktop-chromium-retry2/trace.zip
+2026-11-09T22:41:01.1624268Z     Usage:
+2026-11-09T22:41:01.1624557Z 
+2026-11-09T22:41:01.1626444Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-3/test-results/management-tools-Arc-store-cf2d5-esize-or-stopped-local-Flux-desktop-chromium-retry2/trace.zip
+2026-11-09T22:41:01.1627507Z 
+2026-11-09T22:41:01.1628092Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1628523Z 
+2026-11-09T22:41:01.1630021Z   3) [desktop-chromium] › tests/e2e/storage-resilience.spec.ts:351:1 › Storage B desktop and compact keyboard, hover contrast, semantic maps and short native briefing remain readable 
+2026-11-09T22:41:01.1631218Z 
+2026-11-09T22:41:01.1631622Z     Error: expect(locator).toHaveCSS(expected) failed
+2026-11-09T22:41:01.1632236Z 
+2026-11-09T22:41:01.1633445Z     Locator:  locator('.resilience-workbench').getByRole('button', { name: 'Kjør modellen', exact: true })
+2026-11-09T22:41:01.1634442Z     Expected: "rgb(7, 85, 149)"
+2026-11-09T22:41:01.1634894Z     Received: "rgb(89, 25, 184)"
+2026-11-09T22:41:01.1635340Z     Timeout:  5000ms
+2026-11-09T22:41:01.1635767Z 
+2026-11-09T22:41:01.1635983Z     Call log:
+2026-11-09T22:41:01.1637016Z       - Expect "toHaveCSS" locator('.resilience-workbench').getByRole('button', { name: 'Kjør modellen', exact: true }) with timeout 5000ms
+2026-11-09T22:41:01.1638576Z       - waiting for locator('.resilience-workbench').getByRole('button', { name: 'Kjør modellen', exact: true })
+2026-11-09T22:41:01.1639962Z         14 × locator resolved to <button class="compute-primary">Kjør modellen</button>
+2026-11-09T22:41:01.1640807Z            - unexpected value "rgb(89, 25, 184)"
+2026-11-09T22:41:01.1641185Z 
+2026-11-09T22:41:01.1641196Z 
+2026-11-09T22:41:01.1641433Z       372 |     await primary.hover();
+2026-11-09T22:41:01.1642055Z       373 |     await expect(primary).toHaveCSS('color', 'rgb(255, 255, 255)');
+2026-11-09T22:41:01.1642875Z     > 374 |     await expect(primary).toHaveCSS('background-color', 'rgb(7, 85, 149)');
+2026-11-09T22:41:01.1643493Z           |                           ^
+2026-11-09T22:41:01.1644200Z       375 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+2026-11-09T22:41:01.1644991Z       376 |     await page.mouse.move(0, 0);
+2026-11-09T22:41:01.1645685Z       377 |     await primary.focus();
+2026-11-09T22:41:01.1646478Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/storage-resilience.spec.ts:374:27
+2026-11-09T22:41:01.1647031Z 
+2026-11-09T22:41:01.1648096Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-3/test-results/storage-resilience-Storage-ecc14-ve-briefing-remain-readable-desktop-chromium/error-context.md
+2026-11-09T22:41:01.1649112Z 
+2026-11-09T22:41:01.1649758Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1651262Z     .artifacts/ci-shards/browser-42712267110-1-3/test-results/storage-resilience-Storage-ecc14-ve-briefing-remain-readable-desktop-chromium/trace.zip
+2026-11-09T22:41:01.1652713Z     Usage:
+2026-11-09T22:41:01.1652904Z 
+2026-11-09T22:41:01.1654086Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-3/test-results/storage-resilience-Storage-ecc14-ve-briefing-remain-readable-desktop-chromium/trace.zip
+2026-11-09T22:41:01.1655264Z 
+2026-11-09T22:41:01.1656100Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1656582Z 
+2026-11-09T22:41:01.1657176Z     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1657916Z 
+2026-11-09T22:41:01.1658205Z     Error: expect(locator).toHaveCSS(expected) failed
+2026-11-09T22:41:01.1658586Z 
+2026-11-09T22:41:01.1659344Z     Locator:  locator('.resilience-workbench').getByRole('button', { name: 'Kjør modellen', exact: true })
+2026-11-09T22:41:01.1660189Z     Expected: "rgb(7, 85, 149)"
+2026-11-09T22:41:01.1660650Z     Received: "rgb(89, 25, 184)"
+2026-11-09T22:41:01.1661062Z     Timeout:  5000ms
+2026-11-09T22:41:01.1661291Z 
+2026-11-09T22:41:01.1661438Z     Call log:
+2026-11-09T22:41:01.1662784Z       - Expect "toHaveCSS" locator('.resilience-workbench').getByRole('button', { name: 'Kjør modellen', exact: true }) with timeout 5000ms
+2026-11-09T22:41:01.1664368Z       - waiting for locator('.resilience-workbench').getByRole('button', { name: 'Kjør modellen', exact: true })
+2026-11-09T22:41:01.1665770Z         14 × locator resolved to <button class="compute-primary">Kjør modellen</button>
+2026-11-09T22:41:01.1666530Z            - unexpected value "rgb(89, 25, 184)"
+2026-11-09T22:41:01.1666877Z 
+2026-11-09T22:41:01.1666889Z 
+2026-11-09T22:41:01.1667102Z       372 |     await primary.hover();
+2026-11-09T22:41:01.1667781Z       373 |     await expect(primary).toHaveCSS('color', 'rgb(255, 255, 255)');
+2026-11-09T22:41:01.1668681Z     > 374 |     await expect(primary).toHaveCSS('background-color', 'rgb(7, 85, 149)');
+2026-11-09T22:41:01.1669368Z           |                           ^
+2026-11-09T22:41:01.1670106Z       375 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+2026-11-09T22:41:01.1670857Z       376 |     await page.mouse.move(0, 0);
+2026-11-09T22:41:01.1671412Z       377 |     await primary.focus();
+2026-11-09T22:41:01.1672280Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/storage-resilience.spec.ts:374:27
+2026-11-09T22:41:01.1672905Z 
+2026-11-09T22:41:01.1674100Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-3/test-results/storage-resilience-Storage-ecc14-ve-briefing-remain-readable-desktop-chromium-retry1/error-context.md
+2026-11-09T22:41:01.1675331Z 
+2026-11-09T22:41:01.1676188Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1677800Z     .artifacts/ci-shards/browser-42712267110-1-3/test-results/storage-resilience-Storage-ecc14-ve-briefing-remain-readable-desktop-chromium-retry1/trace.zip
+2026-11-09T22:41:01.1679004Z     Usage:
+2026-11-09T22:41:01.1679190Z 
+2026-11-09T22:41:01.1680439Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-3/test-results/storage-resilience-Storage-ecc14-ve-briefing-remain-readable-desktop-chromium-retry1/trace.zip
+2026-11-09T22:41:01.1681675Z 
+2026-11-09T22:41:01.1682304Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1682786Z 
+2026-11-09T22:41:01.1683405Z     Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1684124Z 
+2026-11-09T22:41:01.1684388Z     Error: expect(locator).toHaveCSS(expected) failed
+2026-11-09T22:41:01.1684767Z 
+2026-11-09T22:41:01.1685656Z     Locator:  locator('.resilience-workbench').getByRole('button', { name: 'Kjør modellen', exact: true })
+2026-11-09T22:41:01.1686504Z     Expected: "rgb(7, 85, 149)"
+2026-11-09T22:41:01.1686957Z     Received: "rgb(89, 25, 184)"
+2026-11-09T22:41:01.1687395Z     Timeout:  5000ms
+2026-11-09T22:41:01.1687604Z 
+2026-11-09T22:41:01.1687756Z     Call log:
+2026-11-09T22:41:01.1689119Z       - Expect "toHaveCSS" locator('.resilience-workbench').getByRole('button', { name: 'Kjør modellen', exact: true }) with timeout 5000ms
+2026-11-09T22:41:01.1690728Z       - waiting for locator('.resilience-workbench').getByRole('button', { name: 'Kjør modellen', exact: true })
+2026-11-09T22:41:01.1691970Z         14 × locator resolved to <button class="compute-primary">Kjør modellen</button>
+2026-11-09T22:41:01.1692730Z            - unexpected value "rgb(89, 25, 184)"
+2026-11-09T22:41:01.1693082Z 
+2026-11-09T22:41:01.1693092Z 
+2026-11-09T22:41:01.1693324Z       372 |     await primary.hover();
+2026-11-09T22:41:01.1693988Z       373 |     await expect(primary).toHaveCSS('color', 'rgb(255, 255, 255)');
+2026-11-09T22:41:01.1694873Z     > 374 |     await expect(primary).toHaveCSS('background-color', 'rgb(7, 85, 149)');
+2026-11-09T22:41:01.1695694Z           |                           ^
+2026-11-09T22:41:01.1696422Z       375 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+2026-11-09T22:41:01.1697183Z       376 |     await page.mouse.move(0, 0);
+2026-11-09T22:41:01.1697695Z       377 |     await primary.focus();
+2026-11-09T22:41:01.1698373Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/storage-resilience.spec.ts:374:27
+2026-11-09T22:41:01.1699097Z 
+2026-11-09T22:41:01.1700547Z     Error Context: .artifacts/ci-shards/browser-42712267110-1-3/test-results/storage-resilience-Storage-ecc14-ve-briefing-remain-readable-desktop-chromium-retry2/error-context.md
+2026-11-09T22:41:01.1701979Z 
+2026-11-09T22:41:01.1702798Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1704731Z     .artifacts/ci-shards/browser-42712267110-1-3/test-results/storage-resilience-Storage-ecc14-ve-briefing-remain-readable-desktop-chromium-retry2/trace.zip
+2026-11-09T22:41:01.1706149Z     Usage:
+2026-11-09T22:41:01.1706264Z 
+2026-11-09T22:41:01.1706964Z         npx playwright show-trace .artifacts/ci-shards/browser-42712267110-1-3/test-results/storage-resilience-Storage-ecc14-ve-briefing-remain-readable-desktop-chromium-retry2/trace.zip
+2026-11-09T22:41:01.1707656Z 
+2026-11-09T22:41:01.1708010Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-11-09T22:41:01.1708279Z 
+2026-11-09T22:41:01.1708361Z   3 failed
+2026-11-09T22:41:01.1709129Z     [desktop-chromium] › tests/e2e/legacy-retirement.spec.ts:55:1 › current root, Journal and Portal preserve raw historical work without loading the retired game 
+2026-11-09T22:41:01.1710684Z     [desktop-chromium] › tests/e2e/management-tools.spec.ts:283:1 › Arc stored contrasts retain physical location and stale representation without claiming migration, resize or stopped local Flux 
+2026-11-09T22:41:01.1712039Z     [desktop-chromium] › tests/e2e/storage-resilience.spec.ts:351:1 › Storage B desktop and compact keyboard, hover contrast, semantic maps and short native briefing remain readable 
+2026-11-09T22:41:01.1712737Z   118 passed (7.1m)
+2026-11-09T22:41:01.5784600Z Shard evidence: /home/runner/work/Azure-learner/Azure-learner/.artifacts/ci-shards/browser-42712267110-1-3; failed
+2026-11-09T22:41:01.5858289Z ##[error]Process completed with exit code 1.
+2026-11-09T22:41:01.5945217Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9
+2026-11-09T22:41:01.5945848Z with:
+2026-11-09T22:41:01.5946080Z   name: browser-42712267110-1-3
+2026-11-09T22:41:01.5946381Z   path: .artifacts/ci-shards/browser-42712267110-1-3/
+2026-11-09T22:41:01.5946723Z   include-hidden-files: true
+2026-11-09T22:41:01.5946973Z   if-no-files-found: error
+2026-11-09T22:41:01.5947200Z   retention-days: 7
+2026-11-09T22:41:01.5947407Z   compression-level: 6
+2026-11-09T22:41:01.5947621Z   overwrite: false
+2026-11-09T22:41:01.5947821Z   archive: true
+2026-11-09T22:41:01.5948009Z env:
+2026-11-09T22:41:01.5948512Z   LAB_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:41:01.5949071Z   LAB_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_ci
+2026-11-09T22:41:01.5949617Z   LAB_TEST_ADMIN_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:41:01.5950221Z   LAB_TEST_DATABASE_URL: ***127.0.0.1:5432/azurelab_lab_test_ci
+2026-11-09T22:41:01.5950609Z   LAB_ORIGIN: http://127.0.0.1:3000
+2026-11-09T22:41:01.5950870Z   NEXT_TELEMETRY_DISABLED: 1
+2026-11-09T22:41:01.5951101Z ##[endgroup]
+2026-11-09T22:41:01.7669848Z With the provided path, there will be 120 files uploaded
+2026-11-09T22:41:01.7675097Z Artifact name is valid!
+2026-11-09T22:41:01.7675879Z Root directory input is valid!
+2026-11-09T22:41:02.0357109Z Uploading artifact: browser-42712267110-1-3.zip
+2026-11-09T22:41:02.0395085Z Beginning upload of artifact content to blob storage
+2026-11-09T22:41:02.7023019Z Uploaded bytes 8388608
+2026-11-09T22:41:02.9798356Z Uploaded bytes 16777216
+2026-11-09T22:41:03.0484954Z Uploaded bytes 25165824
+2026-11-09T22:41:03.3265122Z Uploaded bytes 33554432
+2026-11-09T22:41:03.6127485Z Uploaded bytes 41943040
+2026-11-09T22:41:03.8836066Z Uploaded bytes 50331648
+2026-11-09T22:41:04.1707073Z Uploaded bytes 58720256
+2026-11-09T22:41:04.3874098Z Uploaded bytes 67108864
+2026-11-09T22:41:04.6322677Z Uploaded bytes 75497472
+2026-11-09T22:41:04.8493975Z Uploaded bytes 81978247
+2026-11-09T22:41:04.8782991Z Finished uploading artifact content to blob storage!
+2026-11-09T22:41:04.8789862Z SHA256 digest of uploaded artifact is fc2fc9a3cf97d1eeda85813cbdf65eb09cdcfd999f5a72420a4a91ed60591614
+2026-11-09T22:41:04.8791906Z Finalizing artifact upload
+2026-11-09T22:41:05.3041259Z Artifact browser-42712267110-1-3 successfully finalized. Artifact ID 13717970003
+2026-11-09T22:41:05.3042320Z Artifact browser-42712267110-1-3 has been successfully uploaded! Final size is 81978247 bytes. Artifact ID is 13717970003
+2026-11-09T22:41:05.3046971Z Artifact download URL: https://github.com/EspzY/Azure-learner/actions/runs/42712267110/artifacts/13717970003
+2026-11-09T22:41:05.3363641Z Post job cleanup.
+2026-11-09T22:41:05.4218735Z [command]/usr/bin/git version
+2026-11-09T22:41:05.4262183Z git version 2.56.0
+2026-11-09T22:41:05.4305043Z Temporarily overriding HOME='/home/runner/work/_temp/171f6475-78c4-4e73-b9f6-b463baac9d33' before making global git config changes
+2026-11-09T22:41:05.4306858Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-09T22:41:05.4325774Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Azure-learner/Azure-learner
+2026-11-09T22:41:05.4346116Z Removing SSH command configuration
+2026-11-09T22:41:05.4353977Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-09T22:41:05.4389111Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-09T22:41:05.4613492Z Removing HTTP extra header
+2026-11-09T22:41:05.4620859Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-09T22:41:05.4657322Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-09T22:41:05.4882928Z Removing includeIf entries pointing to credentials config files
+2026-11-09T22:41:05.4891733Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-09T22:41:05.4923709Z includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git.path
+2026-11-09T22:41:05.4925147Z includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git/worktrees/*.path
+2026-11-09T22:41:05.4926299Z includeif.gitdir:/github/workspace/.git.path
+2026-11-09T22:41:05.4927541Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-09T22:41:05.4933862Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git.path
+2026-11-09T22:41:05.4959940Z /home/runner/work/_temp/git-credentials-a46267bd-44de-4ee8-868d-222650987004.config
+2026-11-09T22:41:05.4971021Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-a46267bd\-44de\-4ee8\-868d\-222650987004\.config
+2026-11-09T22:41:05.5019601Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git/worktrees/*.path
+2026-11-09T22:41:05.5051112Z /home/runner/work/_temp/git-credentials-a46267bd-44de-4ee8-868d-222650987004.config
+2026-11-09T22:41:05.5060066Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Azure-learner/Azure-learner/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-a46267bd\-44de\-4ee8\-868d\-222650987004\.config
+2026-11-09T22:41:05.5100640Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-09T22:41:05.5128841Z /github/runner_temp/git-credentials-a46267bd-44de-4ee8-868d-222650987004.config
+2026-11-09T22:41:05.5137732Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-a46267bd\-44de\-4ee8\-868d\-222650987004\.config
+2026-11-09T22:41:05.5175098Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-09T22:41:05.5206517Z /github/runner_temp/git-credentials-a46267bd-44de-4ee8-868d-222650987004.config
+2026-11-09T22:41:05.5215197Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-a46267bd\-44de\-4ee8\-868d\-222650987004\.config
+2026-11-09T22:41:05.5255072Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-09T22:41:05.5465297Z Removing credentials config '/home/runner/work/_temp/git-credentials-a46267bd-44de-4ee8-868d-222650987004.config'
+2026-11-09T22:41:05.5593530Z Print service container logs: 5ab32321739b4e35a9ada1a6a7d4b398_postgres17bookwormsha256665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994_a3361d
+2026-11-09T22:41:05.5598388Z ##[command]/usr/bin/docker logs --details 2925415159c327d6f9f26ad9c14002e07c61e18fefe8d4c2872506237e35b956
+2026-11-09T22:41:05.5732803Z  The files belonging to this database system will be owned by user "postgres".
+2026-11-09T22:41:05.5735333Z  initdb: warning: enabling "trust" authentication for local connections
+2026-11-09T22:41:05.5736764Z  initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+2026-11-09T22:41:05.5737793Z  2026-11-09 22:32:17.514 UTC [1] LOG:  starting PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+2026-11-09T22:41:05.5738501Z  2026-11-09 22:32:17.514 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-11-09T22:41:05.5739033Z  2026-11-09 22:32:17.514 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+2026-11-09T22:41:05.5739528Z  2026-11-09 22:32:17.515 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-11-09T22:41:05.5740065Z  2026-11-09 22:32:17.518 UTC [65] LOG:  database system was shut down at 2026-11-09 22:32:17 UTC
+2026-11-09T22:41:05.5740548Z  2026-11-09 22:32:17.522 UTC [1] LOG:  database system is ready to accept connections
+2026-11-09T22:41:05.5740985Z  2026-11-09 22:37:17.584 UTC [63] LOG:  checkpoint starting: time
+2026-11-09T22:41:05.5742015Z  2026-11-09 22:39:05.070 UTC [63] LOG:  checkpoint complete: wrote 1077 buffers (6.6%); 1 WAL file(s) added, 0 removed, 0 recycled; write=107.472 s, sync=0.002 s, total=107.486 s; sync files=390, longest=0.001 s, average=0.001 s; distance=5001 kB, estimate=5001 kB; lsn=0/1DEE5C0, redo lsn=0/1DED008
+2026-11-09T22:41:05.5743247Z  This user must also own the server process.
+2026-11-09T22:41:05.5743982Z  
+2026-11-09T22:41:05.5744523Z  The database cluster will be initialized with locale "en_US.utf8".
+2026-11-09T22:41:05.5745265Z  The default database encoding has accordingly been set to "UTF8".
+2026-11-09T22:41:05.5746119Z  The default text search configuration will be set to "english".
+2026-11-09T22:41:05.5746489Z  
+2026-11-09T22:41:05.5746800Z  Data page checksums are disabled.
+2026-11-09T22:41:05.5747112Z  
+2026-11-09T22:41:05.5747412Z  fixing permissions on existing directory /var/lib/postgresql/data ... ok
+2026-11-09T22:41:05.5747825Z  creating subdirectories ... ok
+2026-11-09T22:41:05.5748142Z  selecting dynamic shared memory implementation ... posix
+2026-11-09T22:41:05.5748522Z  selecting default "max_connections" ... 100
+2026-11-09T22:41:05.5748871Z  selecting default "shared_buffers" ... 128MB
+2026-11-09T22:41:05.5749172Z  selecting default time zone ... Etc/UTC
+2026-11-09T22:41:05.5749448Z  creating configuration files ... ok
+2026-11-09T22:41:05.5749719Z  running bootstrap script ... ok
+2026-11-09T22:41:05.5750029Z  performing post-bootstrap initialization ... ok
+2026-11-09T22:41:05.5750336Z  syncing data to disk ... ok
+2026-11-09T22:41:05.5750563Z  
+2026-11-09T22:41:05.5750744Z  
+2026-11-09T22:41:05.5750977Z  Success. You can now start the database server using:
+2026-11-09T22:41:05.5751266Z  
+2026-11-09T22:41:05.5751514Z      pg_ctl -D /var/lib/postgresql/data -l logfile start
+2026-11-09T22:41:05.5751806Z  
+2026-11-09T22:41:05.5752447Z  waiting for server to start....2026-11-09 22:32:17.222 UTC [49] LOG:  starting PostgreSQL 17.11 (Debian 17.11-1.pgdg12+2) on x86_64-pc-linux-gnu, compiled by gcc (Debian 12.2.0-14+deb12u1) 12.2.0, 64-bit
+2026-11-09T22:41:05.5753315Z  2026-11-09 22:32:17.223 UTC [49] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+2026-11-09T22:41:05.5753862Z  2026-11-09 22:32:17.226 UTC [52] LOG:  database system was shut down at 2026-11-09 22:32:17 UTC
+2026-11-09T22:41:05.5754353Z  2026-11-09 22:32:17.229 UTC [49] LOG:  database system is ready to accept connections
+2026-11-09T22:41:05.5755014Z   done
+2026-11-09T22:41:05.5755226Z  server started
+2026-11-09T22:41:05.5755449Z  CREATE DATABASE
+2026-11-09T22:41:05.5755881Z  
+2026-11-09T22:41:05.5756069Z  
+2026-11-09T22:41:05.5756417Z  /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+2026-11-09T22:41:05.5756804Z  
+2026-11-09T22:41:05.5757166Z  waiting for server to shut down....2026-11-09 22:32:17.393 UTC [49] LOG:  received fast shutdown request
+2026-11-09T22:41:05.5757665Z  2026-11-09 22:32:17.393 UTC [49] LOG:  aborting any active transactions
+2026-11-09T22:41:05.5758318Z  2026-11-09 22:32:17.395 UTC [49] LOG:  background worker "logical replication launcher" (PID 55) exited with exit code 1
+2026-11-09T22:41:05.5758831Z  2026-11-09 22:32:17.396 UTC [50] LOG:  shutting down
+2026-11-09T22:41:05.5759236Z  2026-11-09 22:32:17.396 UTC [50] LOG:  checkpoint starting: shutdown immediate
+2026-11-09T22:41:05.5760251Z  2026-11-09 22:32:17.408 UTC [50] LOG:  checkpoint complete: wrote 921 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.008 s, sync=0.003 s, total=0.012 s; sync files=301, longest=0.002 s, average=0.001 s; distance=4238 kB, estimate=4238 kB; lsn=0/190A9C8, redo lsn=0/190A9C8
+2026-11-09T22:41:05.5761246Z  2026-11-09 22:32:17.413 UTC [49] LOG:  database system is shut down
+2026-11-09T22:41:05.5761566Z   done
+2026-11-09T22:41:05.5761761Z  server stopped
+2026-11-09T22:41:05.5761954Z  
+2026-11-09T22:41:05.5762205Z  PostgreSQL init process complete; ready for start up.
+2026-11-09T22:41:05.5762502Z  
+2026-11-09T22:41:05.5769176Z Stop and remove container: 5ab32321739b4e35a9ada1a6a7d4b398_postgres17bookwormsha256665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994_a3361d
+2026-11-09T22:41:05.5774746Z ##[command]/usr/bin/docker rm --force 2925415159c327d6f9f26ad9c14002e07c61e18fefe8d4c2872506237e35b956
+2026-11-09T22:41:05.6918546Z 2925415159c327d6f9f26ad9c14002e07c61e18fefe8d4c2872506237e35b956
+2026-11-09T22:41:05.6948448Z Remove container network: github_network_162f379a268b4a28b229957e79d10154
+2026-11-09T22:41:05.6952863Z ##[command]/usr/bin/docker network rm github_network_162f379a268b4a28b229957e79d10154
+2026-11-09T22:41:05.7754461Z github_network_162f379a268b4a28b229957e79d10154
+2026-11-09T22:41:05.7832021Z Cleaning up orphan processes

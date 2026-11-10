@@ -4,6 +4,7 @@ import { ownerAcceptanceNb as acceptance } from '@/content/nb';
 import { SourceDisclosure } from './source-disclosure';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { CircleCheck, CircleX } from 'lucide-react';
 import { nb } from '@/content/nb';
 import {
   checks,
@@ -343,7 +344,16 @@ function PrerequisiteCheck({ topic }: { topic: CheckId }) {
         {!capacityReady && <p>{nb.foundationsVisuals.compareNote}</p>}
       </fieldset>
       {last?.kind === 'check' && (
-        <p role="status" className="proof-causal">
+        <p
+          role="status"
+          className="proof-causal"
+          data-bf-result={last.answer === checks[topic][0] ? 'correct' : 'incorrect'}
+        >
+          {last.answer === checks[topic][0] ? (
+            <CircleCheck aria-hidden="true" />
+          ) : (
+            <CircleX aria-hidden="true" />
+          )}
           {last.answer === checks[topic][0] ? item.correct : item.wrong}
         </p>
       )}

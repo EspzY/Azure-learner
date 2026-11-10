@@ -1,0 +1,707 @@
+{
+  "sourceCommit": "d17c48ea1d495a8a4e3a68aba221c62efebc99db",
+  "sourcePath": "src/features/course/bifrost-course-preservation.test.ts",
+  "originalCase": {
+    "title": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+    "call": "it('rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration', () => {\n  const snapshot = courseProjectionSnapshot();\n  verifyCourseProjection(snapshot);\n  const path = approved[0]!;\n  expect(() =>\n    verifyCourseProjection({\n      ...snapshot,\n      current: { ...snapshot.current, [path]: Buffer.from('tampered') },\n    }),\n  ).toThrow(/unapproved current/);\n  expect(() =>\n    verifyCourseProjection({\n      ...snapshot,\n      original: { ...snapshot.original, [path]: Buffer.from('wrong base') },\n    }),\n  ).toThrow(/unapproved base/);\n  for (const unknown of [\n    'src/domain/unapproved-course-change.ts',\n    'docs/quality/UNAPPROVED_EXTRA.md',\n  ])\n    expect(() =>\n      verifyCourseProjection({ ...snapshot, paths: [...snapshot.paths, unknown] }),\n    ).toThrow(/changed\\/new course path set/);\n  const before = Buffer.from('original'),\n    after = Buffer.from('approved');\n  expect(\n    boundCourseBytes(after, before, {\n      before: courseBlobHash(before),\n      after: courseBlobHash(after),\n    }),\n  ).toEqual(before);\n  expect(\n    execBifrostCourse('git', ['diff', '--name-only', courseHistoricalBase], { encoding: 'utf8' }),\n  ).toBe(\n    execFileSync('git', ['diff', '--name-only', courseHistoricalBase, courseBase], {\n      encoding: 'utf8',\n    }),\n  );\n  expect(\n    execBifrostCourse('git', ['ls-files', '--others', '--exclude-standard'], { encoding: 'utf8' }),\n  ).toBe('');\n  expect(execBifrostCourse('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' })).toBe(\n    execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }),\n  );\n  expect(execBifrostCourse('git', ['diff', '--name-only', courseBase], { encoding: 'utf8' })).toBe(\n    execFileSync('git', ['diff', '--name-only', courseBase], { encoding: 'utf8' }),\n  );\n});",
+    "gitBlobHash": "01e0113885212713e4d2f5711eaffdf7673c1e33"
+  },
+  "ci": {
+    "runId": 42707415623,
+    "runNumber": 128,
+    "jobId": 129467768634,
+    "url": "https://github.com/EspzY/Azure-learner/actions/runs/42707415623/job/129467768634",
+    "result": "1170 passed,1 failed;5000ms timeout; case reported9111ms",
+    "decodedLogSha256": "f4135629f6d77479664c037847213d5a0aa608b609b6ff835361f3f5c72b74f7",
+    "rawSegments": [
+      {
+        "startLine": 612,
+        "endLine": 625,
+        "text": "2026-11-09T22:00:58.6587366Z  \u001b[31m\u276f\u001b[39m src/features/course/bifrost-course-preservation.test.ts \u001b[2m(\u001b[22m\u001b[2m14 tests\u001b[22m\u001b[2m | \u001b[22m\u001b[31m1 failed\u001b[39m\u001b[2m)\u001b[22m\u001b[33m 14587\u001b[2mms\u001b[22m\u001b[39m\n2026-11-09T22:00:58.6635267Z    \u001b[32m\u2713\u001b[39m pins the exact audited B source base and finite presentation, import and evidence scopes\u001b[32m 21\u001b[2mms\u001b[22m\u001b[39m\n2026-11-09T22:00:58.6658457Z    \u001b[32m\u2713\u001b[39m checks actual raw inherited assets bytes with unaliased native tools\u001b[32m 26\u001b[2mms\u001b[22m\u001b[39m\n2026-11-09T22:00:58.6660436Z    \u001b[33m\u001b[2m\u2713\u001b[22m\u001b[39m checks actual raw inherited locked evidence bytes with unaliased native tools\u001b[33m 757\u001b[2mms\u001b[22m\u001b[39m\n2026-11-09T22:00:58.6662440Z    \u001b[33m\u001b[2m\u2713\u001b[22m\u001b[39m checks actual raw inherited documentation bytes with unaliased native tools\u001b[33m 809\u001b[2mms\u001b[22m\u001b[39m\n2026-11-09T22:00:58.6664269Z    \u001b[32m\u2713\u001b[39m checks actual raw inherited source/config/tests bytes with unaliased native tools\u001b[32m 64\u001b[2mms\u001b[22m\u001b[39m\n2026-11-09T22:00:58.6669233Z    \u001b[33m\u001b[2m\u2713\u001b[22m\u001b[39m checks every actual new file and the exact changed/untracked set before historical projections\u001b[33m 2174\u001b[2mms\u001b[22m\u001b[39m\n2026-11-09T22:00:58.6674540Z \u001b[31m   \u001b[31m\u00d7\u001b[31m rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration\u001b[39m\u001b[33m 9111\u001b[2mms\u001b[22m\u001b[39m\n2026-11-09T22:00:58.6679371Z    \u001b[33m\u001b[2m\u2713\u001b[22m\u001b[39m preserves whole original resident controller bodies after only exact class and CSS-import replacements\u001b[33m 634\u001b[2mms\u001b[22m\u001b[39m\n2026-11-09T22:00:58.6682264Z    \u001b[33m\u001b[2m\u2713\u001b[22m\u001b[39m preserves all original course handlers, authorization and Journal selection after the finite shell wrappers\u001b[33m 408\u001b[2mms\u001b[22m\u001b[39m\n2026-11-09T22:00:58.6684679Z    \u001b[32m\u2713\u001b[39m keeps the original permitted submitted-check branch, comparison, strings and event handler exactly\u001b[32m 190\u001b[2mms\u001b[22m\u001b[39m\n2026-11-09T22:00:58.6686974Z    \u001b[32m\u2713\u001b[39m keeps all original briefing milestone and global Journal bodies after exact presentation changes\u001b[32m 162\u001b[2mms\u001b[22m\u001b[39m\n2026-11-09T22:00:58.6689454Z    \u001b[32m\u2713\u001b[39m retains every inherited preservation assertion with only finite reader import aliases\u001b[32m 92\u001b[2mms\u001b[22m\u001b[39m\n2026-11-09T22:00:58.6691681Z    \u001b[32m\u2713\u001b[39m retains every inherited browser assertion and interaction except the exact approved hover expectation\u001b[32m 102\u001b[2mms\u001b[22m\u001b[39m\n"
+      },
+      {
+        "startLine": 711,
+        "endLine": 739,
+        "text": "2026-11-09T22:01:13.7513990Z \n2026-11-09T22:01:13.7519231Z \u001b[41m\u001b[1m FAIL \u001b[22m\u001b[49m src/features/course/bifrost-course-preservation.test.ts\u001b[2m > \u001b[22mrejects altered current/base bytes and unknown changed or untracked paths before either old enumeration\n2026-11-09T22:01:13.7524379Z \u001b[31m\u001b[1mError\u001b[22m: Test timed out in 5000ms.\n2026-11-09T22:01:13.7525905Z If this is a long-running test, pass a timeout value as the last argument or configure it globally with \"testTimeout\".\u001b[39m\n2026-11-09T22:01:13.7528090Z \u001b[36m \u001b[2m\u276f\u001b[22m src/features/course/bifrost-course-preservation.test.ts:\u001b[2m162:1\u001b[22m\u001b[39m\n2026-11-09T22:01:13.7604440Z     \u001b[90m160|\u001b[39m   verifyCourseProjection(courseProjectionSnapshot());\n2026-11-09T22:01:13.7605018Z \n2026-11-09T22:01:13.7608412Z \u001b[2m Test Files \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m99 passed\u001b[39m\u001b[22m\u001b[90m (100)\u001b[39m\n2026-11-09T22:01:13.7618653Z     \u001b[90m161|\u001b[39m });\n2026-11-09T22:01:13.7619586Z     \u001b[90m162|\u001b[39m it('rejects altered current/base bytes and unknown changed or untracke\u2026\n2026-11-09T22:01:13.7620402Z     \u001b[90m   |\u001b[39m \u001b[31m^\u001b[39m\n2026-11-09T22:01:13.7621096Z     \u001b[90m163|\u001b[39m   const snapshot = courseProjectionSnapshot();\n2026-11-09T22:01:13.7621895Z     \u001b[90m164|\u001b[39m   verifyCourseProjection(snapshot);\n2026-11-09T22:01:13.7622260Z \n2026-11-09T22:01:13.7622607Z \u001b[31m\u001b[2m\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af\u23af[1/1]\u23af\u001b[22m\u001b[39m\n2026-11-09T22:01:13.7622832Z \n2026-11-09T22:01:13.7635093Z \u001b[2m      Tests \u001b[22m \u001b[1m\u001b[31m1 failed\u001b[39m\u001b[22m\u001b[2m | \u001b[22m\u001b[1m\u001b[32m1170 passed\u001b[39m\u001b[22m\u001b[90m (1171)\u001b[39m\n2026-11-09T22:01:13.7636382Z \u001b[2m   Start at \u001b[22m 22:00:42\n2026-11-09T22:01:13.7641802Z \u001b[2m   Duration \u001b[22m 31.65s\u001b[2m (tests 81%, import 12%, transform 6%, worker 1%)\u001b[22m\n2026-11-09T22:01:13.7658848Z \n2026-11-09T22:01:13.7660478Z \u001b[2m    Isolate \u001b[22m \u001b[33m100 workers spawned\u001b[39m\u001b[2m \u00b7 ~136ms startup each (spawn + environment, per file)\u001b[22m\n2026-11-09T22:01:13.7662654Z \u001b[2m            \u001b[22m \u001b[2mat least ~4.38s faster with \u001b[22m\u001b[33misolate: false\u001b[39m\u001b[2m \u2014 reuses workers across files instead of one per file\u001b[22m\n2026-11-09T22:01:13.7663706Z \n2026-11-09T22:01:13.7681519Z \n2026-11-09T22:01:13.7705543Z ##[error]Error: Test timed out in 5000ms.\nIf this is a long-running test, pass a timeout value as the last argument or configure it globally with \"testTimeout\".\n \u276f src/features/course/bifrost-course-preservation.test.ts:162:1\n\n\n"
+      }
+    ]
+  },
+  "localOriginalProfile": {
+    "exitCode": 0,
+    "testsPassed": 14,
+    "fileDurationSeconds": 5.9,
+    "sourceBefore": {
+      "head": "d17c48ea1d495a8a4e3a68aba221c62efebc99db",
+      "instrumentation": "Outside-repository Vite in-memory try/finally timing wrappers; native fs/Git delegates retain args/returns/errors. Original on-disk source and default timeout/config workers unchanged.",
+      "sourceSha256": {
+        "src/features/course/bifrost-course-preservation.test.ts": "24ceef3b9771294695133c7d6deda13d2f7c96f91eca918471d4d574a2ffe02d",
+        "tests/bifrost-course-preservation.ts": "345aea570e812d73dfc24fa5a6da40d8bd7718c6bf69902ab7babed5ef823c15",
+        "docs/reviews/evidence/bifrost-course/preservation.json": "e55463af41e061f810bc1d8ac79cc3cc8ce18c76ca86fd9b168f49e229a55159"
+      }
+    },
+    "instrumentationSha256": {
+      "setup.mjs": "070dd2ee46de29ba717cfb67c61d050fc3c48b2932e1340345231d190e9e651b",
+      "vitest.config.mjs": "db4fbf0b52d2d308fcbd0b6a1c30200196a534e24c6b50189d78a2a56a978d15"
+    },
+    "caseSummary": {
+      "test": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+      "testState": "pass",
+      "gitSpawnCount": 12,
+      "gitDurationMs": 117.97610800000075,
+      "gitSpawns": [
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4123.282374,
+          "kind": "spawn",
+          "file": "git",
+          "args": ["diff", "--name-only", "7d68b2c40988385c31c1e514e67e5135a1fbe25e"],
+          "argumentCount": 3,
+          "durationMs": 10.53944599999977,
+          "resultBytes": 5996,
+          "threw": false
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4138.238801,
+          "kind": "spawn",
+          "file": "git",
+          "args": ["ls-files", "--others", "--exclude-standard"],
+          "argumentCount": 3,
+          "durationMs": 14.860766000000694,
+          "resultBytes": 0,
+          "threw": false
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4187.965509,
+          "kind": "spawn",
+          "file": "git",
+          "args": ["diff", "--name-only", "7d68b2c40988385c31c1e514e67e5135a1fbe25e"],
+          "argumentCount": 3,
+          "durationMs": 9.90139199999976,
+          "resultBytes": 5996,
+          "threw": false
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4197.758717,
+          "kind": "spawn",
+          "file": "git",
+          "args": ["ls-files", "--others", "--exclude-standard"],
+          "argumentCount": 3,
+          "durationMs": 9.769690000000082,
+          "resultBytes": 0,
+          "threw": false
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4219.298621,
+          "kind": "spawn",
+          "file": "git",
+          "args": [
+            "diff",
+            "--name-only",
+            "249833f7cb7ea41d3e411444ec3c4f83805d3a5f",
+            "7d68b2c40988385c31c1e514e67e5135a1fbe25e"
+          ],
+          "argumentCount": 4,
+          "durationMs": 6.169590999999855,
+          "resultBytes": 2480,
+          "threw": false
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4226.479682,
+          "kind": "spawn",
+          "file": "git",
+          "args": [
+            "diff",
+            "--name-only",
+            "249833f7cb7ea41d3e411444ec3c4f83805d3a5f",
+            "7d68b2c40988385c31c1e514e67e5135a1fbe25e"
+          ],
+          "argumentCount": 4,
+          "durationMs": 6.710364000000482,
+          "resultBytes": 2480,
+          "threw": false
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4236.81062,
+          "kind": "spawn",
+          "file": "git",
+          "args": ["diff", "--name-only", "7d68b2c40988385c31c1e514e67e5135a1fbe25e"],
+          "argumentCount": 3,
+          "durationMs": 10.285116000000016,
+          "resultBytes": 5996,
+          "threw": false
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4248.050008,
+          "kind": "spawn",
+          "file": "git",
+          "args": ["ls-files", "--others", "--exclude-standard"],
+          "argumentCount": 3,
+          "durationMs": 11.216797000000042,
+          "resultBytes": 0,
+          "threw": false
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4276.719286,
+          "kind": "spawn",
+          "file": "git",
+          "args": ["rev-parse", "HEAD"],
+          "argumentCount": 2,
+          "durationMs": 7.022789999999986,
+          "resultBytes": 41,
+          "threw": false
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4281.10654,
+          "kind": "spawn",
+          "file": "git",
+          "args": ["rev-parse", "HEAD"],
+          "argumentCount": 2,
+          "durationMs": 4.336983000000146,
+          "resultBytes": 41,
+          "threw": false
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4292.612006,
+          "kind": "spawn",
+          "file": "git",
+          "args": ["diff", "--name-only", "7d68b2c40988385c31c1e514e67e5135a1fbe25e"],
+          "argumentCount": 3,
+          "durationMs": 11.420584999999846,
+          "resultBytes": 5996,
+          "threw": false
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4308.406317,
+          "kind": "spawn",
+          "file": "git",
+          "args": ["diff", "--name-only", "7d68b2c40988385c31c1e514e67e5135a1fbe25e"],
+          "argumentCount": 3,
+          "durationMs": 15.742588000000069,
+          "resultBytes": 5996,
+          "threw": false
+        }
+      ],
+      "snapshots": [
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4160.873295,
+          "kind": "phase",
+          "name": "courseProjectionSnapshot",
+          "durationMs": 48.137666999999965,
+          "threw": false,
+          "args": null
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4205.458938,
+          "kind": "phase",
+          "name": "courseProjectionSnapshot",
+          "durationMs": 27.40628899999956,
+          "threw": false,
+          "args": null
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4263.150286,
+          "kind": "phase",
+          "name": "courseProjectionSnapshot",
+          "durationMs": 36.630537000000004,
+          "threw": false,
+          "args": null
+        }
+      ],
+      "verifications": [
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4167.53578,
+          "kind": "phase",
+          "name": "verifyCourseProjection",
+          "durationMs": 6.655285999999251,
+          "threw": false,
+          "args": null
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4174.397135,
+          "kind": "phase",
+          "name": "verifyCourseProjection",
+          "durationMs": 5.774686000000656,
+          "threw": true,
+          "args": null
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4175.284176,
+          "kind": "phase",
+          "name": "verifyCourseProjection",
+          "durationMs": 0.5579580000003261,
+          "threw": true,
+          "args": null
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4176.723157,
+          "kind": "phase",
+          "name": "verifyCourseProjection",
+          "durationMs": 1.31221000000005,
+          "threw": true,
+          "args": null
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4177.520325,
+          "kind": "phase",
+          "name": "verifyCourseProjection",
+          "durationMs": 0.7038510000002134,
+          "threw": true,
+          "args": null
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4213.119516,
+          "kind": "phase",
+          "name": "verifyCourseProjection",
+          "durationMs": 7.653435000000172,
+          "threw": false,
+          "args": null
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4269.628346,
+          "kind": "phase",
+          "name": "verifyCourseProjection",
+          "durationMs": 6.442266000000018,
+          "threw": false,
+          "args": null
+        }
+      ],
+      "delegatedCalls": [
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4219.538707,
+          "kind": "phase",
+          "name": "execBifrostCourse",
+          "durationMs": 41.477694000000156,
+          "threw": false,
+          "args": ["git", "diff", "--name-only", "249833f7cb7ea41d3e411444ec3c4f83805d3a5f"]
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4269.655561,
+          "kind": "phase",
+          "name": "execBifrostCourse",
+          "durationMs": 43.12845399999969,
+          "threw": false,
+          "args": ["git", "ls-files", "--others", "--exclude-standard"]
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4276.736838,
+          "kind": "phase",
+          "name": "execBifrostCourse",
+          "durationMs": 7.034687000000304,
+          "threw": false,
+          "args": ["git", "rev-parse", "HEAD"]
+        },
+        {
+          "task": "rejects altered current/base bytes and unknown changed or untracked paths before either old enumeration",
+          "at": 4292.629984,
+          "kind": "phase",
+          "name": "execBifrostCourse",
+          "durationMs": 11.433907999999974,
+          "threw": false,
+          "args": ["git", "diff", "--name-only", "7d68b2c40988385c31c1e514e67e5135a1fbe25e"]
+        }
+      ],
+      "nativeReadCount": 303,
+      "nativeReadDurationMs": 44.03035100000034
+    },
+    "fullCaseRowsSha256": "68a15751d78cfbb8f1de917af39ca2d1a9504302169ad73ade3aa419e1d595a2",
+    "scope": "Outside-only in-memory timing wrappers. Default5000ms deadline unchanged. CI9111ms was not locally reproduced; cause remains OPEN."
+  },
+  "decomposition": {
+    "reason": "Separate the new adversarial, exact-projection and unrelated-delegation responsibilities while retaining every original statement and every fresh native admission. No claim of an infrastructure or runtime fix.",
+    "oldGitSpawns": 12,
+    "oldCurrentReads": 303,
+    "freshSnapshots": 3,
+    "newGitSpawnsByCase": [2, 6, 4],
+    "newCurrentReadsByCase": [102, 204, 0],
+    "newEvidenceReadExplanation": "The single newly protected evidence file increases each native snapshot from101 to102 current-file reads. All3 fresh snapshots remain, so aggregate reads increase303\u2192306; none are cached or omitted."
+  },
+  "localAfterProfile": {
+    "exitCode": 0,
+    "testsPassed": 17,
+    "fileDurationSeconds": 4.51,
+    "cases": [
+      {
+        "summary": {
+          "test": "rejects altered snapshots and unknown changed or untracked paths",
+          "testState": "pass",
+          "gitSpawnCount": 2,
+          "gitDurationMs": 19.21436100000028,
+          "gitSpawns": [
+            {
+              "task": "rejects altered snapshots and unknown changed or untracked paths",
+              "at": 2774.450369,
+              "kind": "spawn",
+              "file": "git",
+              "args": ["diff", "--name-only", "7d68b2c40988385c31c1e514e67e5135a1fbe25e"],
+              "argumentCount": 3,
+              "durationMs": 11.386139000000185,
+              "resultBytes": 5996,
+              "threw": false
+            },
+            {
+              "task": "rejects altered snapshots and unknown changed or untracked paths",
+              "at": 2782.304115,
+              "kind": "spawn",
+              "file": "git",
+              "args": ["ls-files", "--others", "--exclude-standard"],
+              "argumentCount": 3,
+              "durationMs": 7.828222000000096,
+              "resultBytes": 58,
+              "threw": false
+            }
+          ],
+          "snapshots": [
+            {
+              "task": "rejects altered snapshots and unknown changed or untracked paths",
+              "at": 2818.153299,
+              "kind": "phase",
+              "name": "courseProjectionSnapshot",
+              "durationMs": 55.096338999999716,
+              "threw": false,
+              "args": null
+            }
+          ],
+          "verifications": [
+            {
+              "task": "rejects altered snapshots and unknown changed or untracked paths",
+              "at": 2828.335751,
+              "kind": "phase",
+              "name": "verifyCourseProjection",
+              "durationMs": 10.175905000000057,
+              "threw": false,
+              "args": null
+            },
+            {
+              "task": "rejects altered snapshots and unknown changed or untracked paths",
+              "at": 2836.002483,
+              "kind": "phase",
+              "name": "verifyCourseProjection",
+              "durationMs": 6.552548999999999,
+              "threw": true,
+              "args": null
+            },
+            {
+              "task": "rejects altered snapshots and unknown changed or untracked paths",
+              "at": 2836.661604,
+              "kind": "phase",
+              "name": "verifyCourseProjection",
+              "durationMs": 0.4266299999999319,
+              "threw": true,
+              "args": null
+            },
+            {
+              "task": "rejects altered snapshots and unknown changed or untracked paths",
+              "at": 2838.168253,
+              "kind": "phase",
+              "name": "verifyCourseProjection",
+              "durationMs": 1.402878000000328,
+              "threw": true,
+              "args": null
+            },
+            {
+              "task": "rejects altered snapshots and unknown changed or untracked paths",
+              "at": 2838.958593,
+              "kind": "phase",
+              "name": "verifyCourseProjection",
+              "durationMs": 0.7005730000000767,
+              "threw": true,
+              "args": null
+            }
+          ],
+          "delegatedCalls": [],
+          "nativeReadCount": 102,
+          "nativeReadDurationMs": 35.21972399999913
+        },
+        "sampledSpanMs": 76.02185599999984,
+        "rawProfileSha256": "0003ebc4fb0635f4a5b9f4eaea93da5e706312d01947a0ba73ce07babee864b0"
+      },
+      {
+        "summary": {
+          "test": "validates actual bytes before exact historical Git projections",
+          "testState": "pass",
+          "gitSpawnCount": 6,
+          "gitDurationMs": 49.558550000000196,
+          "gitSpawns": [
+            {
+              "task": "validates actual bytes before exact historical Git projections",
+              "at": 2850.252598,
+              "kind": "spawn",
+              "file": "git",
+              "args": ["diff", "--name-only", "7d68b2c40988385c31c1e514e67e5135a1fbe25e"],
+              "argumentCount": 3,
+              "durationMs": 9.605930000000171,
+              "resultBytes": 5996,
+              "threw": false
+            },
+            {
+              "task": "validates actual bytes before exact historical Git projections",
+              "at": 2858.312861,
+              "kind": "spawn",
+              "file": "git",
+              "args": ["ls-files", "--others", "--exclude-standard"],
+              "argumentCount": 3,
+              "durationMs": 8.037374,
+              "resultBytes": 58,
+              "threw": false
+            },
+            {
+              "task": "validates actual bytes before exact historical Git projections",
+              "at": 2875.095926,
+              "kind": "spawn",
+              "file": "git",
+              "args": [
+                "diff",
+                "--name-only",
+                "249833f7cb7ea41d3e411444ec3c4f83805d3a5f",
+                "7d68b2c40988385c31c1e514e67e5135a1fbe25e"
+              ],
+              "argumentCount": 4,
+              "durationMs": 6.446899999999914,
+              "resultBytes": 2480,
+              "threw": false
+            },
+            {
+              "task": "validates actual bytes before exact historical Git projections",
+              "at": 2881.069114,
+              "kind": "spawn",
+              "file": "git",
+              "args": [
+                "diff",
+                "--name-only",
+                "249833f7cb7ea41d3e411444ec3c4f83805d3a5f",
+                "7d68b2c40988385c31c1e514e67e5135a1fbe25e"
+              ],
+              "argumentCount": 4,
+              "durationMs": 5.913155000000188,
+              "resultBytes": 2480,
+              "threw": false
+            },
+            {
+              "task": "validates actual bytes before exact historical Git projections",
+              "at": 2889.895615,
+              "kind": "spawn",
+              "file": "git",
+              "args": ["diff", "--name-only", "7d68b2c40988385c31c1e514e67e5135a1fbe25e"],
+              "argumentCount": 3,
+              "durationMs": 8.78143799999998,
+              "resultBytes": 5996,
+              "threw": false
+            },
+            {
+              "task": "validates actual bytes before exact historical Git projections",
+              "at": 2900.692718,
+              "kind": "spawn",
+              "file": "git",
+              "args": ["ls-files", "--others", "--exclude-standard"],
+              "argumentCount": 3,
+              "durationMs": 10.773752999999942,
+              "resultBytes": 58,
+              "threw": false
+            }
+          ],
+          "snapshots": [
+            {
+              "task": "validates actual bytes before exact historical Git projections",
+              "at": 2862.922266,
+              "kind": "phase",
+              "name": "courseProjectionSnapshot",
+              "durationMs": 22.2892139999999,
+              "threw": false,
+              "args": null
+            },
+            {
+              "task": "validates actual bytes before exact historical Git projections",
+              "at": 2937.778901,
+              "kind": "phase",
+              "name": "courseProjectionSnapshot",
+              "durationMs": 56.670578000000205,
+              "threw": false,
+              "args": null
+            }
+          ],
+          "verifications": [
+            {
+              "task": "validates actual bytes before exact historical Git projections",
+              "at": 2868.639682,
+              "kind": "phase",
+              "name": "verifyCourseProjection",
+              "durationMs": 5.712601000000177,
+              "threw": false,
+              "args": null
+            },
+            {
+              "task": "validates actual bytes before exact historical Git projections",
+              "at": 2945.462735,
+              "kind": "phase",
+              "name": "verifyCourseProjection",
+              "durationMs": 7.679705000000013,
+              "threw": false,
+              "args": null
+            }
+          ],
+          "delegatedCalls": [
+            {
+              "task": "validates actual bytes before exact historical Git projections",
+              "at": 2875.122527,
+              "kind": "phase",
+              "name": "execBifrostCourse",
+              "durationMs": 34.48369700000012,
+              "threw": false,
+              "args": ["git", "diff", "--name-only", "249833f7cb7ea41d3e411444ec3c4f83805d3a5f"]
+            },
+            {
+              "task": "validates actual bytes before exact historical Git projections",
+              "at": 2945.488098,
+              "kind": "phase",
+              "name": "execBifrostCourse",
+              "durationMs": 64.37381600000026,
+              "threw": false,
+              "args": ["git", "ls-files", "--others", "--exclude-standard"]
+            }
+          ],
+          "nativeReadCount": 204,
+          "nativeReadDurationMs": 40.949002999998356
+        },
+        "sampledSpanMs": 104.85504599999967,
+        "rawProfileSha256": "ecb9646a55d352588345a92f35cba34ccd9608c82800b51a7ebd67f318f3ba33"
+      },
+      {
+        "summary": {
+          "test": "delegates unrelated Git commands and arguments unchanged",
+          "testState": "pass",
+          "gitSpawnCount": 4,
+          "gitDurationMs": 38.78989000000092,
+          "gitSpawns": [
+            {
+              "task": "delegates unrelated Git commands and arguments unchanged",
+              "at": 2952.78118,
+              "kind": "spawn",
+              "file": "git",
+              "args": ["rev-parse", "HEAD"],
+              "argumentCount": 2,
+              "durationMs": 4.8184110000001965,
+              "resultBytes": 41,
+              "threw": false
+            },
+            {
+              "task": "delegates unrelated Git commands and arguments unchanged",
+              "at": 2959.68137,
+              "kind": "spawn",
+              "file": "git",
+              "args": ["rev-parse", "HEAD"],
+              "argumentCount": 2,
+              "durationMs": 6.8531010000001515,
+              "resultBytes": 41,
+              "threw": false
+            },
+            {
+              "task": "delegates unrelated Git commands and arguments unchanged",
+              "at": 2970.673293,
+              "kind": "spawn",
+              "file": "git",
+              "args": ["diff", "--name-only", "7d68b2c40988385c31c1e514e67e5135a1fbe25e"],
+              "argumentCount": 3,
+              "durationMs": 10.874461000000338,
+              "resultBytes": 5996,
+              "threw": false
+            },
+            {
+              "task": "delegates unrelated Git commands and arguments unchanged",
+              "at": 2986.966586,
+              "kind": "spawn",
+              "file": "git",
+              "args": ["diff", "--name-only", "7d68b2c40988385c31c1e514e67e5135a1fbe25e"],
+              "argumentCount": 3,
+              "durationMs": 16.243917000000238,
+              "resultBytes": 5996,
+              "threw": false
+            }
+          ],
+          "snapshots": [],
+          "verifications": [],
+          "delegatedCalls": [
+            {
+              "task": "delegates unrelated Git commands and arguments unchanged",
+              "at": 2952.79757,
+              "kind": "phase",
+              "name": "execBifrostCourse",
+              "durationMs": 4.833490999999867,
+              "threw": false,
+              "args": ["git", "rev-parse", "HEAD"]
+            },
+            {
+              "task": "delegates unrelated Git commands and arguments unchanged",
+              "at": 2970.690485,
+              "kind": "phase",
+              "name": "execBifrostCourse",
+              "durationMs": 10.887558999999783,
+              "threw": false,
+              "args": ["git", "diff", "--name-only", "7d68b2c40988385c31c1e514e67e5135a1fbe25e"]
+            }
+          ],
+          "nativeReadCount": 0,
+          "nativeReadDurationMs": 0
+        },
+        "sampledSpanMs": 39.003817000000254,
+        "rawProfileSha256": "3f8a6b39e858774390f43305f29875e28fd98a827ef82ed31959ebcd732f72c5"
+      },
+      {
+        "summary": {
+          "test": "retains every original combined-case statement across the three risk cases",
+          "testState": "pass",
+          "gitSpawnCount": 1,
+          "gitDurationMs": 8.12308800000028,
+          "gitSpawns": [
+            {
+              "task": "retains every original combined-case statement across the three risk cases",
+              "at": 2996.452877,
+              "kind": "spawn",
+              "file": "git",
+              "args": [
+                "show",
+                "d17c48ea1d495a8a4e3a68aba221c62efebc99db:src/features/course/bifrost-course-preservation.test.ts"
+              ],
+              "argumentCount": 2,
+              "durationMs": 8.12308800000028,
+              "resultBytes": 16753,
+              "threw": false
+            }
+          ],
+          "snapshots": [],
+          "verifications": [],
+          "delegatedCalls": [],
+          "nativeReadCount": 1,
+          "nativeReadDurationMs": 0.06481100000019069
+        },
+        "sampledSpanMs": 8.52467200000001,
+        "rawProfileSha256": "660fcf9740ec15dd5cae7c7970d48c483490d81b7c0af1a16e2b780d4e686a8d"
+      }
+    ],
+    "runtimeHelperSha256": "345aea570e812d73dfc24fa5a6da40d8bd7718c6bf69902ab7babed5ef823c15",
+    "interpretation": "The exact original statements pass as3 independent cases plus the added retention test.12 original Git spawns and3 fresh snapshots remain; protected current reads total306. CI9.111s was not locally reproduced, so infrastructure/timing cause remains OPEN."
+  }
+}

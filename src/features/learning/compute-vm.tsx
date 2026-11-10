@@ -1,4 +1,5 @@
 'use client';
+import '@/features/course/bifrost-guidance.css';
 import { OtherGuideNotice } from '@/features/course/guided-mission-link';
 import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
 import { useGuideBriefing } from '@/features/course/guide-briefing-request';
@@ -249,14 +250,14 @@ export function ComputePortalMission({
     g = t.facts.guide?.mission === 'vm' ? t.facts.guide : undefined;
   if (!g)
     return (
-      <aside className="compute-portal-guide">
+      <aside className="compute-portal-guide bifrost-learning bifrost-guide-island">
         <Link href={returnHref}>{c.labels.return}</Link>
       </aside>
     );
   const f = computeVmFacts(g, technical.attempt.engine, technical.attemptNumber);
   if (!safe || independent || !f.verifiable)
     return (
-      <aside className="compute-portal-guide">
+      <aside className="compute-portal-guide bifrost-learning bifrost-guide-island">
         <p>{c.storage.unsafe}</p>
         <Link href={returnHref}>{c.labels.return}</Link>
         <MissionSafetyRecovery />
@@ -276,7 +277,7 @@ export function ComputePortalMission({
   return (
     <aside
       tabIndex={-1}
-      className={`compute-portal-guide ${minimized ? 'compute-guide-minimized' : ''}`}
+      className={`compute-portal-guide bifrost-learning bifrost-guide-island ${minimized ? 'compute-guide-minimized' : ''}`}
       aria-label={c.missions.vm.title}
     >
       <div className="compute-guide-toolbar">

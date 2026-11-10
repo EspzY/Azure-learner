@@ -142,6 +142,8 @@ import {
 import { PortalDialog } from '@/features/portal/shared';
 import { ArchitectureExplorer } from '@/features/portal/architecture';
 import { SavvyShark } from './savvy-shark';
+import { ThemeToggle } from '@/features/design/theme';
+import { BifrostBrandMark } from '@/features/design/brand-mark';
 import { MissionBriefing } from './mission-briefing';
 import { useCourse } from './provider';
 import { CourseNavigation } from './course-navigation';
@@ -1203,7 +1205,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
     <div
       data-course-module={module ?? 'hub'}
       data-course-topic={topic}
-      className={`portal course-shell course-hybrid ${module === 'migration' || module === 'security' || module === 'monitoring' || module === 'management-tools' || module === 'governance' || module === 'access-control' || module === 'identity' || module === 'storage-resilience' || module === 'storage' || module === 'connectivity' || module === 'networking' || module === 'compute' || module === 'cost' || module === 'architecture' || currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
+      className={`portal course-shell course-hybrid bifrost-learning ${module === 'migration' || module === 'security' || module === 'monitoring' || module === 'management-tools' || module === 'governance' || module === 'access-control' || module === 'identity' || module === 'storage-resilience' || module === 'storage' || module === 'connectivity' || module === 'networking' || module === 'compute' || module === 'cost' || module === 'architecture' || currentV2 || module === 'benefits' || (module === 'services' && !legacyServices) ? 'course-v2' : ''}`}
     >
       <ExpansionAssistance />
       <PracticalAssistance />
@@ -1212,9 +1214,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
       </a>
       <header className="course-header">
         <Link className="course-brand" href="/learn">
-          <svg className="course-brand-mark" viewBox="0 0 32 32" aria-hidden="true">
-            <path d="M5 25L16 5l11 20M9 19h14M5 28h22" />
-          </svg>
+          <BifrostBrandMark className="course-brand-mark" />
           {c.brand}
           <small>AZ-900</small>
         </Link>
@@ -1237,6 +1237,7 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
           {c.journal}
         </button>
         <AzureLabHomeLink className="course-home-link" />
+        <ThemeToggle />
       </header>
       <div className="course-layout">
         <aside className={`course-navigation ${menu ? 'course-menu-open' : ''}`}>
@@ -2152,71 +2153,76 @@ function CourseWorkspace({ module }: { module?: CourseModule }) {
       </div>
       {journal && (
         <PortalDialog title={c.journal} onClose={() => setJournal(false)}>
-          <ManagementTeachingBoundary identity="course-journal">
-            <Challenge2History />
-            <ApplicationHistory />
-            {!module && (
-              <>
-                <RefinedHistory track="benefits" legacy />
-                <RefinedHistory track="services" legacy />
-              </>
-            )}
-            {module === 'migration' || (!module && preferredResume?.module === 'migration') ? (
-              <MigrationLesson topic="introduction" journal />
-            ) : module === 'security' || (!module && preferredResume?.module === 'security') ? (
-              <SecurityLesson topic="introduction" journal />
-            ) : module === 'monitoring' || (!module && preferredResume?.module === 'monitoring') ? (
-              <MonitoringLesson topic="introduction" journal />
-            ) : module === 'management-tools' ||
-              (!module && preferredResume?.module === 'management-tools') ? (
-              <ToolsLesson topic="introduction" journal />
-            ) : module === 'governance' || (!module && preferredResume?.module === 'governance') ? (
-              <GovernanceLesson topic="introduction" journal />
-            ) : module === 'access-control' ||
-              (!module && preferredResume?.module === 'access-control') ? (
-              <AccessLesson topic="introduction" journal />
-            ) : module === 'identity' || (!module && preferredResume?.module === 'identity') ? (
-              <IdentityLesson topic="introduction" journal />
-            ) : module === 'storage-resilience' ||
-              (!module && preferredResume?.module === 'storage-resilience') ? (
-              <ResilienceLesson topic="introduction" journal />
-            ) : module === 'storage' || (!module && preferredResume?.module === 'storage') ? (
-              <StorageLesson topic="introduction" journal />
-            ) : module === 'connectivity' ||
-              (!module && preferredResume?.module === 'connectivity') ? (
-              <ConnectivityLesson topic="introduction" journal />
-            ) : module === 'networking' || (!module && preferredResume?.module === 'networking') ? (
-              <NetworkingLesson topic="introduction" journal />
-            ) : module === 'compute' || (!module && preferredResume?.module === 'compute') ? (
-              <ComputeLesson topic="introduction" journal />
-            ) : module === 'cost' || (!module && preferredResume?.module === 'cost') ? (
-              <CostLesson topic="introduction" journal />
-            ) : module === 'architecture' ||
-              (!module && preferredResume?.module === 'architecture') ? (
-              <CoreArchitectureJournal />
-            ) : module === 'benefits' ? (
-              <>
-                <RefinedHistory track="benefits" legacy />
-                <ExpansionReference track="benefits" topic={topic} />
-              </>
-            ) : module === 'services' && !legacyServices ? (
-              <>
-                <RefinedHistory track="services" legacy />
-                <ExpansionReference track="services" topic={topic} />
-              </>
-            ) : isServerlessTopic(topic) ? (
-              <ServerlessLesson topic={topic} journal />
-            ) : currentV2 ? (
-              <FoundationsV2
-                topic={['v2-assessment', 'v2-summary'].includes(topic) ? 'intro-request' : topic}
-                journal
-              />
-            ) : module === 'computing' || (!module && preferredResume?.module === 'computing') ? (
-              <FoundationsReference topic={topic} />
-            ) : (
-              <ServiceReference topic={topic} />
-            )}
-          </ManagementTeachingBoundary>
+          <div className="bifrost-course-journal">
+            <ManagementTeachingBoundary identity="course-journal">
+              <Challenge2History />
+              <ApplicationHistory />
+              {!module && (
+                <>
+                  <RefinedHistory track="benefits" legacy />
+                  <RefinedHistory track="services" legacy />
+                </>
+              )}
+              {module === 'migration' || (!module && preferredResume?.module === 'migration') ? (
+                <MigrationLesson topic="introduction" journal />
+              ) : module === 'security' || (!module && preferredResume?.module === 'security') ? (
+                <SecurityLesson topic="introduction" journal />
+              ) : module === 'monitoring' ||
+                (!module && preferredResume?.module === 'monitoring') ? (
+                <MonitoringLesson topic="introduction" journal />
+              ) : module === 'management-tools' ||
+                (!module && preferredResume?.module === 'management-tools') ? (
+                <ToolsLesson topic="introduction" journal />
+              ) : module === 'governance' ||
+                (!module && preferredResume?.module === 'governance') ? (
+                <GovernanceLesson topic="introduction" journal />
+              ) : module === 'access-control' ||
+                (!module && preferredResume?.module === 'access-control') ? (
+                <AccessLesson topic="introduction" journal />
+              ) : module === 'identity' || (!module && preferredResume?.module === 'identity') ? (
+                <IdentityLesson topic="introduction" journal />
+              ) : module === 'storage-resilience' ||
+                (!module && preferredResume?.module === 'storage-resilience') ? (
+                <ResilienceLesson topic="introduction" journal />
+              ) : module === 'storage' || (!module && preferredResume?.module === 'storage') ? (
+                <StorageLesson topic="introduction" journal />
+              ) : module === 'connectivity' ||
+                (!module && preferredResume?.module === 'connectivity') ? (
+                <ConnectivityLesson topic="introduction" journal />
+              ) : module === 'networking' ||
+                (!module && preferredResume?.module === 'networking') ? (
+                <NetworkingLesson topic="introduction" journal />
+              ) : module === 'compute' || (!module && preferredResume?.module === 'compute') ? (
+                <ComputeLesson topic="introduction" journal />
+              ) : module === 'cost' || (!module && preferredResume?.module === 'cost') ? (
+                <CostLesson topic="introduction" journal />
+              ) : module === 'architecture' ||
+                (!module && preferredResume?.module === 'architecture') ? (
+                <CoreArchitectureJournal />
+              ) : module === 'benefits' ? (
+                <>
+                  <RefinedHistory track="benefits" legacy />
+                  <ExpansionReference track="benefits" topic={topic} />
+                </>
+              ) : module === 'services' && !legacyServices ? (
+                <>
+                  <RefinedHistory track="services" legacy />
+                  <ExpansionReference track="services" topic={topic} />
+                </>
+              ) : isServerlessTopic(topic) ? (
+                <ServerlessLesson topic={topic} journal />
+              ) : currentV2 ? (
+                <FoundationsV2
+                  topic={['v2-assessment', 'v2-summary'].includes(topic) ? 'intro-request' : topic}
+                  journal
+                />
+              ) : module === 'computing' || (!module && preferredResume?.module === 'computing') ? (
+                <FoundationsReference topic={topic} />
+              ) : (
+                <ServiceReference topic={topic} />
+              )}
+            </ManagementTeachingBoundary>
+          </div>
         </PortalDialog>
       )}
     </div>

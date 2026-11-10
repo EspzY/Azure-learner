@@ -1,4 +1,5 @@
 'use client';
+import '@/features/course/bifrost-guidance.css';
 import { OtherGuideNotice } from '@/features/course/guided-mission-link';
 import { usePortalGuideVisibility } from '@/features/course/portal-guide-visibility';
 import { useGuideBriefing } from '@/features/course/guide-briefing-request';
@@ -326,14 +327,14 @@ export function NetworkingPortalMission({
     setMilestone(false);
   if (!g)
     return (
-      <aside className="compute-portal-guide">
+      <aside className="compute-portal-guide bifrost-learning bifrost-guide-island">
         <Link href={networkingHref('dependencies')}>{c.labels.return}</Link>
       </aside>
     );
   const f = networkingInspection(g, technical.attempt.engine, technical.attemptNumber);
   if (!safe || independent || !f.verifiable)
     return (
-      <aside className="compute-portal-guide">
+      <aside className="compute-portal-guide bifrost-learning bifrost-guide-island">
         <p>{c.storage.unsafe}</p>
         <p>{c.inspection.missing}</p>
         <Link href={networkingHref('dependencies')}>{c.labels.return}</Link>
@@ -419,7 +420,7 @@ export function NetworkingPortalMission({
   return (
     <aside
       tabIndex={-1}
-      className={`compute-portal-guide network-portal-guide ${minimized ? 'compute-guide-minimized' : ''}`}
+      className={`compute-portal-guide bifrost-learning bifrost-guide-island network-portal-guide ${minimized ? 'compute-guide-minimized' : ''}`}
       aria-label={c.missions.inspect.title}
     >
       <div className="compute-guide-toolbar">

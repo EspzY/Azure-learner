@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "id": "bifrost-foundation-and-landing",
-  "baseCommit": "249833f7cb7ea41d3e411444ec3c4f83805d3a5f",
-  "author": "bifrost-foundation-author",
+  "id": "bifrost-course-experience-and-savvyshark",
+  "baseCommit": "7d68b2c40988385c31c1e514e67e5135a1fbe25e",
+  "author": "bifrost-course-presentation-author",
   "scope": {
-    "kind": "presentation-and-design-foundation",
-    "description": "Scoped Bifrost Purple light/dark/system theme, cleared local Open Sans, exact owner-reference logo and minimalist whole-card landing. Actual Azure Portal and all existing learning/technical authorities remain unchanged. No Satoshi redistribution or exact Satoshi typography claim. Reuse the separately verified generic four-shard CI with exact full-profile aggregation; no test/assertion/retry/worker/timeout reduction or Laboratory code dependency.",
-    "objectives": ["BIFROST-FOUNDATION", "PORTAL-PRESERVATION"]
+    "kind": "existing-course-presentation",
+    "description": "Apply the shared Bifrost Purple foundation to existing Course Hub, shell, teaching panels, native question/answer presentation, permitted feedback, Journal and existing SavvyShark pedagogical islands. Retain all original content/controller/assessment/storage semantics, exact mascot and true Azure Portal controls. No competing theme, course engine, activity or completion policy. Confirmed320px Serverless reflow is corrected with narrow owned CSS and exactly one tabIndex attribute on the existing labelled execution section; a whole-original-file transform pins every other controller byte. One historical test import uses the existing hash-validated reader for that single presentation attribute; every original assertion/body and the reader behavior remain unchanged.",
+    "objectives": ["BIFROST-COURSE", "PORTAL-PRESERVATION"]
   },
   "sources": [
     {
@@ -19,7 +19,7 @@
       "objectives": ["PORTAL-PRESERVATION"],
       "claims": ["portal.entry-and-scope"],
       "availability": "AVAILABLE",
-      "limits": "Inherited PR72 Microsoft source for preserved Azure Portal discovery/scope only. It is not authority for Bifrost design, colors, fonts or licenses; those come from the actual owner attachment and official Bifrost/Fontshare/Google Fonts provenance in the source gate.",
+      "limits": "Inherited official Portal discovery/scope reference for the preserved native Azure Portal only. Bifrost visual direction and font/license authority come from the supplied owner HTML and the separately recorded official Bifrost/Fontshare/Google Fonts provenance. No teaching or Azure factual claim is changed.",
       "discovery": [
         {
           "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
@@ -31,24 +31,57 @@
   ],
   "activities": [
     {
-      "id": "bifrost-visual-and-portal-preservation-evidence",
+      "id": "existing-course-visual-and-portal-boundary-evidence",
       "objectives": ["PORTAL-PRESERVATION"],
       "claims": ["portal.entry-and-scope"],
-      "limits": "Technical visual QA binding, not a new course activity. Presentation only; no course/domain/assessment/receipt/World/schema change. Owner attachment and official Bifrost pages govern visual direction. Satoshi is not redistributed because its FFL2.0 forbids repository redistribution; actual local licensed Open Sans fallback is documented. Human visual/learning validation unperformed; complete exact-head CI/strict/public gates pending until actual execution.",
-      "theory": [{ "path": "docs/design/AZURELAB_BIFROST_DESIGN.md" }],
-      "mechanism": [{ "path": "src/features/design/tokens.css" }],
-      "practice": [{ "path": "tests/e2e/bifrost-landing.spec.ts" }],
-      "feedback": [{ "path": "src/features/design/theme.tsx" }],
-      "visual": [{ "path": "src/features/landing/landing.tsx" }],
-      "accessible": [{ "path": "tests/e2e/bifrost-landing.spec.ts" }],
-      "assessment": [{ "path": "src/features/design/preservation.test.ts" }],
-      "savvyshark": [{ "path": "src/features/portal/portal.tsx" }],
+      "limits": "Technical visual QA evidence binding, not a new learner activity. Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution.",
+      "theory": [
+        {
+          "path": "docs/design/bifrost-course.md"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/features/course/bifrost-course.css"
+        }
+      ],
+      "practice": [
+        {
+          "path": "tests/e2e/bifrost-course.spec.ts"
+        }
+      ],
+      "feedback": [
+        {
+          "path": "src/features/learning/foundations-v2.tsx"
+        }
+      ],
+      "visual": [
+        {
+          "path": "src/features/course/course.tsx"
+        }
+      ],
+      "accessible": [
+        {
+          "path": "tests/e2e/bifrost-course.spec.ts"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/features/course/bifrost-course-preservation.test.ts"
+        }
+      ],
+      "savvyshark": [
+        {
+          "path": "src/features/course/guided-coach.tsx"
+        }
+      ],
       "assessmentStatus": "unchanged-existing"
     }
   ],
   "modules": [],
   "preservedPaths": [
     ".gitattributes",
+    ".github/workflows/ci.yml",
     ".gitignore",
     ".prettierignore",
     ".prettierrc.json",
@@ -192,7 +225,34 @@
     "docs/VISUAL_LEARNING_SYSTEM.md",
     "docs/VM_LAB_TECHNICAL_DESIGN.md",
     "docs/audits/az900-2026-07-20.json",
+    "docs/design/AZURELAB_BIFROST_DESIGN.md",
+    "docs/design/BIFROST_AUTHOR_QA.md",
+    "docs/design/BIFROST_CI_VERIFICATION.md",
+    "docs/design/bifrost-ci-port-provenance.json",
+    "docs/design/bifrost-demo-reference.json",
+    "docs/design/bifrost-source-provenance.json",
+    "docs/design/evidence/bifrost-before-hydration-fonts-blocked-dark.png",
+    "docs/design/evidence/bifrost-before-hydration-fonts-blocked-light.png",
+    "docs/design/evidence/bifrost-boundary-course.png",
+    "docs/design/evidence/bifrost-boundary-free.png",
+    "docs/design/evidence/bifrost-dark-1024-500.png",
+    "docs/design/evidence/bifrost-dark-1440-900.png",
+    "docs/design/evidence/bifrost-dark-800-700.png",
+    "docs/design/evidence/bifrost-light-1024-500.png",
+    "docs/design/evidence/bifrost-light-1440-900.png",
+    "docs/design/evidence/bifrost-light-800-700.png",
+    "docs/design/evidence/bifrost-native-zoom-dark-1.25.png",
+    "docs/design/evidence/bifrost-native-zoom-dark-2.png",
+    "docs/design/evidence/bifrost-native-zoom-light-1.25.png",
+    "docs/design/evidence/bifrost-native-zoom-light-2.png",
+    "docs/design/evidence/initial-landmark-error.md",
+    "docs/design/evidence/owner-demo-dark.png",
+    "docs/design/evidence/owner-demo-light.png",
+    "docs/design/evidence/production-measurements.json",
+    "docs/design/evidence/visual-provenance.json",
     "docs/licenses/lucide-react-1.61.0.txt",
+    "docs/quality/BIFROST_FOUNDATION_FINAL_AUDIT.md",
+    "docs/quality/BIFROST_FOUNDATION_QA_REVIEW.md",
     "docs/quality/PR20_FINAL_AUDIT.md",
     "docs/quality/PR21_FINAL_AUDIT.md",
     "docs/quality/PR22_FINAL_AUDIT.md",
@@ -288,6 +348,9 @@
     "docs/reviews/evidence/assessment46-heuristics.json",
     "docs/reviews/evidence/audit42-assessment.json",
     "docs/reviews/evidence/audit42.json",
+    "docs/reviews/evidence/bifrost-foundation/check-initial.json",
+    "docs/reviews/evidence/bifrost-foundation/check-initial.redacted.txt",
+    "docs/reviews/evidence/bifrost-foundation/preservation.json",
     "docs/reviews/evidence/cc01/after-computing-completed.png",
     "docs/reviews/evidence/cc01/after-neutral-1024-500.png",
     "docs/reviews/evidence/cc01/after-neutral-1440.png",
@@ -2095,6 +2158,7 @@
     "eslint.config.mjs",
     "next.config.ts",
     "package-lock.json",
+    "package.json",
     "playwright.config.ts",
     "playwright.desktop.config.ts",
     "postcss.config.mjs",
@@ -2113,6 +2177,8 @@
     "public/design-review/fonts/manrope.woff2",
     "public/design-review/fonts/source-serif-4-OFL.txt",
     "public/design-review/fonts/source-serif-4.woff2",
+    "public/design/bifrost/fonts/OFL-Open-Sans.txt",
+    "public/design/bifrost/fonts/open-sans-latin-variable.woff2",
     "public/icons/azure/00007-icon-service-Activity-Log.svg",
     "public/icons/azure/00046-icon-service-App-Service-Plans.svg",
     "public/icons/azure/00272-icon-service-Azure-Firewall-Policy.svg",
@@ -2171,9 +2237,15 @@
     "scripts/e2e-plan-check.mjs",
     "scripts/e2e-preview-build.mjs",
     "scripts/e2e-preview-build.test.mjs",
+    "scripts/e2e-shard-aggregate.mjs",
+    "scripts/e2e-shard-plan.mjs",
+    "scripts/e2e-shard-runner.mjs",
+    "scripts/e2e-shard.test.mjs",
     "scripts/laboratory-db.mjs",
     "scripts/legacy-check.mjs",
     "scripts/next.mjs",
+    "scripts/quality-check.mjs",
+    "scripts/quality-check.test.mjs",
     "scripts/verify-desktop-ci.mjs",
     "src/app/api/laboratory/analysis/route.ts",
     "src/app/api/laboratory/command/route.ts",
@@ -2189,6 +2261,7 @@
     "src/app/icon.svg",
     "src/app/labs/laboratory/page.tsx",
     "src/app/labs/saas/page.tsx",
+    "src/app/layout.tsx",
     "src/app/learn/[module]/page.tsx",
     "src/app/learn/design-review/page.tsx",
     "src/app/learn/layout.tsx",
@@ -2390,7 +2463,6 @@
     "src/features/course/audit-review.test.ts",
     "src/features/course/audit-review.ts",
     "src/features/course/challenge-return.tsx",
-    "src/features/course/cloud-computing-chapters.test.ts",
     "src/features/course/cloud-computing-chapters.ts",
     "src/features/course/course-hub.tsx",
     "src/features/course/course-journey-context.tsx",
@@ -2399,30 +2471,22 @@
     "src/features/course/course-sequence.test.ts",
     "src/features/course/course-sequence.ts",
     "src/features/course/course-sidebar.tsx",
-    "src/features/course/course.css",
-    "src/features/course/course.tsx",
     "src/features/course/experience-motion.tsx",
     "src/features/course/final-route-structure.test.ts",
     "src/features/course/guidance-milestones.css",
-    "src/features/course/guidance-milestones.tsx",
-    "src/features/course/guidance-window.tsx",
     "src/features/course/guide-briefing-request.ts",
-    "src/features/course/guided-coach.tsx",
     "src/features/course/guided-learning.tsx",
     "src/features/course/guided-mission-link.tsx",
     "src/features/course/highlight.ts",
     "src/features/course/hybrid-foundation.css",
-    "src/features/course/hybrid-foundation.test.ts",
     "src/features/course/learning-flow.css",
     "src/features/course/learning-flow.test.ts",
     "src/features/course/learning-flow.ts",
     "src/features/course/learning-fonts.ts",
     "src/features/course/mission-briefing.css",
-    "src/features/course/mission-briefing.tsx",
     "src/features/course/mission-context.ts",
     "src/features/course/mission-diagnosis.tsx",
     "src/features/course/mission-observations.tsx",
-    "src/features/course/mission-portal.tsx",
     "src/features/course/mission-provider.tsx",
     "src/features/course/missions.css",
     "src/features/course/missions.tsx",
@@ -2444,6 +2508,13 @@
     "src/features/design-review/preservation.test.ts",
     "src/features/design-review/visual-review.css",
     "src/features/design-review/visual-review.tsx",
+    "src/features/design/brand-mark.tsx",
+    "src/features/design/fonts.ts",
+    "src/features/design/foundation.test.ts",
+    "src/features/design/theme-copy.ts",
+    "src/features/design/theme-init.tsx",
+    "src/features/design/theme.tsx",
+    "src/features/design/tokens.css",
     "src/features/laboratory/capabilities.ts",
     "src/features/laboratory/compute.tsx",
     "src/features/laboratory/endpoints.tsx",
@@ -2464,9 +2535,12 @@
     "src/features/laboratory/studio.tsx",
     "src/features/laboratory/topology-access.tsx",
     "src/features/laboratory/topology-target.ts",
+    "src/features/landing/bifrost-presentation.test.ts",
     "src/features/landing/course-status-badge.tsx",
     "src/features/landing/course-status.ts",
+    "src/features/landing/landing.css",
     "src/features/landing/landing.test.ts",
+    "src/features/landing/landing.tsx",
     "src/features/landing/preservation.test.ts",
     "src/features/learning/access-control-assessment.tsx",
     "src/features/learning/access-control-controls.tsx",
@@ -2485,7 +2559,6 @@
     "src/features/learning/compute-assessment.tsx",
     "src/features/learning/compute-provider.tsx",
     "src/features/learning/compute-visuals.tsx",
-    "src/features/learning/compute-vm.tsx",
     "src/features/learning/compute-workbench.tsx",
     "src/features/learning/compute.css",
     "src/features/learning/compute.tsx",
@@ -2512,7 +2585,6 @@
     "src/features/learning/final-quality-feedback.ts",
     "src/features/learning/final-quality-preservation.test.ts",
     "src/features/learning/foundations-v2.css",
-    "src/features/learning/foundations-v2.tsx",
     "src/features/learning/foundations-visuals.css",
     "src/features/learning/foundations-visuals.tsx",
     "src/features/learning/governance-assessment.tsx",
@@ -2530,7 +2602,6 @@
     "src/features/learning/identity-foundations.css",
     "src/features/learning/identity-foundations.tsx",
     "src/features/learning/investigation.tsx",
-    "src/features/learning/journal.tsx",
     "src/features/learning/learning-visuals.css",
     "src/features/learning/learning.css",
     "src/features/learning/management-access.tsx",
@@ -2563,7 +2634,6 @@
     "src/features/learning/monitoring.css",
     "src/features/learning/monitoring.tsx",
     "src/features/learning/networking-assessment.tsx",
-    "src/features/learning/networking-inspection.tsx",
     "src/features/learning/networking-provider.tsx",
     "src/features/learning/networking-visuals.tsx",
     "src/features/learning/networking-workbench.tsx",
@@ -2592,7 +2662,6 @@
     "src/features/learning/serverless-provider.tsx",
     "src/features/learning/serverless-recovery.tsx",
     "src/features/learning/serverless.css",
-    "src/features/learning/serverless.tsx",
     "src/features/learning/source-disclosure.css",
     "src/features/learning/source-disclosure.test.ts",
     "src/features/learning/source-disclosure.tsx",
@@ -2717,6 +2786,9 @@
     "src/laboratory/v37/contract.ts",
     "src/laboratory/v37/domain.ts",
     "src/laboratory/v37/projection.ts",
+    "src/pr72-ci-workflow.test.ts",
+    "src/pr72-shared-portal-preservation.test.ts",
+    "src/resource-platform-ci-workflow.test.ts",
     "src/shared-portal-preservation.test.ts",
     "tests/cc01-preservation.ts",
     "tests/cc02-fixture.ts",
@@ -2728,6 +2800,7 @@
     "tests/e2e/architecture-physical.spec.ts",
     "tests/e2e/assessment-refinement.spec.ts",
     "tests/e2e/az900-audit.spec.ts",
+    "tests/e2e/bifrost-landing.spec.ts",
     "tests/e2e/challenge-return.spec.ts",
     "tests/e2e/challenge-v2-actions.ts",
     "tests/e2e/challenge-validity.spec.ts",
@@ -2750,8 +2823,6 @@
     "tests/e2e/foundations-v2.spec.ts",
     "tests/e2e/governance-compliance.spec.ts",
     "tests/e2e/guided-learning-polish.spec.ts",
-    "tests/e2e/hybrid-experience.spec.ts",
-    "tests/e2e/identity-foundations.spec.ts",
     "tests/e2e/laboratory-actions.ts",
     "tests/e2e/laboratory-activation.spec.ts",
     "tests/e2e/laboratory-compute.spec.ts",
@@ -2778,12 +2849,11 @@
     "tests/e2e/portal.spec.ts",
     "tests/e2e/practical-labs.spec.ts",
     "tests/e2e/practical-missions.spec.ts",
+    "tests/e2e/premium-landing.spec.ts",
     "tests/e2e/quality-system.spec.ts",
     "tests/e2e/security-principles.spec.ts",
     "tests/e2e/serverless.spec.ts",
     "tests/e2e/shared-portal.spec.ts",
-    "tests/e2e/storage-resilience.spec.ts",
-    "tests/e2e/storage-services.spec.ts",
     "tests/e2e/ux-refinement.spec.ts",
     "tests/e2e/visual-excellence.spec.ts",
     "tests/e2e/vm-debrief-actions.ts",
@@ -2820,262 +2890,688 @@
     "tests/pr69-preservation.ts",
     "tests/pr70-preservation.ts",
     "tests/pr71-preservation.ts",
+    "tests/pr72-preservation.ts",
     "tsconfig.json",
     "vitest.config.ts"
   ],
   "gates": {
     "source": {
-      "checks": [{ "path": "docs/design/bifrost-source-provenance.json" }],
-      "limits": "Presentation only; no course/domain/assessment/receipt/World/schema change. Owner attachment and official Bifrost pages govern visual direction. Satoshi is not redistributed because its FFL2.0 forbids repository redistribution; actual local licensed Open Sans fallback is documented. Human visual/learning validation unperformed; complete exact-head CI/strict/public gates pending until actual execution."
+      "checks": [
+        {
+          "path": "docs/design/bifrost-source-provenance.json"
+        }
+      ],
+      "limits": "Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution."
     },
     "curriculum": {
-      "checks": [{ "path": "src/features/design/preservation.test.ts" }],
-      "limits": "Presentation only; no course/domain/assessment/receipt/World/schema change. Owner attachment and official Bifrost pages govern visual direction. Satoshi is not redistributed because its FFL2.0 forbids repository redistribution; actual local licensed Open Sans fallback is documented. Human visual/learning validation unperformed; complete exact-head CI/strict/public gates pending until actual execution."
+      "checks": [
+        {
+          "path": "src/features/course/bifrost-course-preservation.test.ts"
+        }
+      ],
+      "limits": "Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution."
     },
     "simulation": {
-      "checks": [{ "path": "src/features/design/preservation.test.ts" }],
-      "limits": "Presentation only; no course/domain/assessment/receipt/World/schema change. Owner attachment and official Bifrost pages govern visual direction. Satoshi is not redistributed because its FFL2.0 forbids repository redistribution; actual local licensed Open Sans fallback is documented. Human visual/learning validation unperformed; complete exact-head CI/strict/public gates pending until actual execution."
+      "checks": [
+        {
+          "path": "src/features/course/bifrost-course-preservation.test.ts"
+        }
+      ],
+      "limits": "Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution."
     },
     "savvyshark": {
-      "checks": [{ "path": "tests/e2e/bifrost-landing.spec.ts" }],
-      "limits": "Presentation only; no course/domain/assessment/receipt/World/schema change. Owner attachment and official Bifrost pages govern visual direction. Satoshi is not redistributed because its FFL2.0 forbids repository redistribution; actual local licensed Open Sans fallback is documented. Human visual/learning validation unperformed; complete exact-head CI/strict/public gates pending until actual execution."
+      "checks": [
+        {
+          "path": "tests/e2e/bifrost-course.spec.ts"
+        }
+      ],
+      "limits": "Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution."
+    },
+    "visual-accessibility": {
+      "checks": [
+        {
+          "path": "tests/e2e/bifrost-course.spec.ts"
+        }
+      ],
+      "limits": "Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution."
+    },
+    "independent-final-audit": {
+      "checks": [
+        {
+          "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md"
+        }
+      ],
+      "limits": "Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution."
     },
     "delivery": {
       "checks": [
-        { "path": "docs/quality/BIFROST_FOUNDATION_QA_REVIEW.md" },
-        { "path": "src/resource-platform-ci-workflow.test.ts" },
-        { "path": "docs/design/BIFROST_CI_VERIFICATION.md" }
+        {
+          "path": "docs/quality/BIFROST_COURSE_QA_REVIEW.md"
+        }
       ],
-      "limits": "Presentation only; no course/domain/assessment/receipt/World/schema change. Owner attachment and official Bifrost pages govern visual direction. Satoshi is not redistributed because its FFL2.0 forbids repository redistribution; actual local licensed Open Sans fallback is documented. Human visual/learning validation unperformed; complete exact-head CI/strict/public gates pending until actual execution."
-    },
-    "visual-accessibility": {
-      "checks": [{ "path": "tests/e2e/bifrost-landing.spec.ts" }],
-      "limits": "Presentation only; no course/domain/assessment/receipt/World/schema change. Owner attachment and official Bifrost pages govern visual direction. Satoshi is not redistributed because its FFL2.0 forbids repository redistribution; actual local licensed Open Sans fallback is documented. Human visual/learning validation unperformed; complete exact-head CI/strict/public gates pending until actual execution."
-    },
-    "independent-final-audit": {
-      "checks": [{ "path": "docs/quality/BIFROST_FOUNDATION_FINAL_AUDIT.md" }],
-      "limits": "Presentation only; no course/domain/assessment/receipt/World/schema change. Owner attachment and official Bifrost pages govern visual direction. Satoshi is not redistributed because its FFL2.0 forbids repository redistribution; actual local licensed Open Sans fallback is documented. Human visual/learning validation unperformed; complete exact-head CI/strict/public gates pending until actual execution."
+      "limits": "Presentation of existing course material and original authorized results only. No new topic, course task, assessment, rubric, assistance, retry, abandon, first, progress, Journal, XP or technical history semantics. Existing native Azure Portal forms/chrome stay original; only separately scoped pedagogical guide/dialog islands receive the theme. Source remains stacked on the B foundation. Satoshi remains uncleared for repository redistribution; actual local Open Sans is disclosed. Human quality/learning validation and complete candidate CI/strict/public gates remain unperformed or pending until actual execution."
     }
   },
-  "humanReview": { "sme": "unperformed", "learning": "unperformed" },
+  "humanReview": {
+    "sme": "unperformed",
+    "learning": "unperformed"
+  },
   "visualEvidence": [
     {
-      "path": "docs/design/evidence/bifrost-light-1440-900.png",
+      "path": "docs/screenshots/bifrost-course/light-question-wrong.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual production light landing inspected: exact original layered logo, restrained purple background, balanced three cards and broad separate Lab; full-card links and planned labels clear. Open Sans fallback visible, not claimed Satoshi."
+      "observation": "Actual permitted wrong-answer feedback inspected: native selected radio remains purple, original explanatory feedback is independently red with icon/text, no selected answer is called correct. Existing course/footer/lesson remain intact in light mode."
     },
     {
-      "path": "docs/design/evidence/bifrost-dark-1024-500.png",
+      "path": "docs/screenshots/bifrost-course/dark-refined-start-dialog.png",
+      "viewport": "1024x768",
+      "inspected": true,
+      "observation": "Actual corrected original Start dialog inspected: dark header/body and legible title retain original explicit Start/Cancel controls. The recorded prior white-header contrast defect is preserved separately; no assessment starts implicitly."
+    },
+    {
+      "path": "docs/screenshots/bifrost-course/dark-resident-native-review.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual Azure Resource group Review stays white/Segoe with original Azure controls, while the separate existing SavvyShark island uses Purple/dark presentation. Real original guide content, hierarchy and actions are preserved."
+    },
+    {
+      "path": "docs/screenshots/bifrost-course/after-dark-denied-journal.png",
       "viewport": "1024x500",
       "inspected": true,
-      "observation": "Actual production short dark desktop inspected: all three courses, separate Laboratory and appearance select remain visible, calm contrast and no unnecessary scroll. Original reference identity retained."
+      "observation": "Root inspected real denied-assistance Journal: entire warning including explanatory paragraphs and recovery controls uses legible dark amber/yellow pair; original fail-closed copy, buttons and visible focus retained. No fabricated assessment state."
     },
     {
-      "path": "docs/design/evidence/bifrost-boundary-free.png",
+      "path": "docs/screenshots/bifrost-course/after-dark-appearance-320.png",
+      "viewport": "320px width",
+      "inspected": true,
+      "observation": "Root inspected visual preference storage warning at320px: visible text wraps within its amber surface, native selection and product navigation fit without horizontal overflow. Warning is informational and does not change learning state."
+    },
+    {
+      "path": "docs/screenshots/bifrost-course/ci130-after-dark-transfer-feedback.png",
       "viewport": "1440x900",
       "inspected": true,
-      "observation": "Actual started free Laboratory under dark learning wrapper inspected: original blue header, white Azure service/resource surface, Segoe UI and memory disclosure remain intact. No Bifrost theme leakage or free-Lab SavvyShark."
+      "observation": "Actual VX permitted submitted feedback: selected-result surfaces and labels remain legible on dark Bifrost pairs, with original wrong/assisted text and no fabricated outcome. Exact per-image prior-build lineage is explicit."
+    },
+    {
+      "path": "docs/screenshots/bifrost-course/ci130-after-light-transfer-feedback.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual VX permitted native submission uses legible light theme fade/foreground pairs. Original result and assistance semantics are unchanged. Explicit prior palette-build evidence."
+    },
+    {
+      "path": "docs/screenshots/bifrost-course/ci130-after-dark-arc.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual VX Arc Run representation visibly separates physical location from management representation, with readable selected tabs, topology labels and recorded facts. No Azure runtime/migration claim; explicit prior palette-build evidence."
+    },
+    {
+      "path": "docs/screenshots/bifrost-course/ci130-after-dark-pipeline.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual VX Serverless Run controls, execution table, pipeline and explanatory responsibility section use paired dark surfaces. Native original synthetic outcome is retained; explicit prior palette-build evidence."
+    },
+    {
+      "path": "docs/screenshots/bifrost-course/ci130-after-dark-hub-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Actual final gG dark compact Hub retains real SavvyShark, native theme selector, readable course start/navigation and natural vertical content flow. Final valid-token source, not an all-content-without-scrolling claim."
+    },
+    {
+      "path": "docs/screenshots/bifrost-course/ci130-after-light-virtualization-1024x500.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "Actual final gG light virtualization page retains focused heading, original paragraph and sticky course footer. Native original exposure measured74.109375px under unchanged64px observer, with valid4px/8px tokens; no added scroll/focus action or fake visit state."
+    },
+    {
+      "path": "docs/screenshots/bifrost-course/ci130-after-light-serverless-320.png",
+      "viewport": "320x700",
+      "inspected": true,
+      "observation": "Actual final snFG light execution region after real keyboard ArrowRight: visible named-region focus surrounds the readable semantic trace, with locally scrollable columns rather than document overflow or font shrinking. The image intentionally shows a positive local horizontal scroll offset; all content remains reachable through the native region. Actual full-page Axe/document-fit checks passed. Original synthetic Run state is preserved."
+    },
+    {
+      "path": "docs/screenshots/bifrost-course/ci130-after-dark-serverless-320.png",
+      "viewport": "320x700",
+      "inspected": true,
+      "observation": "Actual final snFG dark execution region after real keyboard ArrowRight: visible named-region focus surrounds the readable semantic trace, with locally scrollable columns rather than document overflow or font shrinking. The image intentionally shows a positive local horizontal scroll offset; all content remains reachable through the native region. Actual full-page Axe/document-fit checks passed. Original synthetic Run state is preserved."
     }
   ],
   "verification": [
     {
-      "command": "targeted production native browser",
+      "command": "Historical pre-CI130 repair: targeted native production author QA",
       "result": "passed",
-      "details": "Author final WOFF2 production batch8/8 (seven new plus inherited responsive/Axe)33.1s, zero retries. Both themes, five desktop sizes, native125/200 browser zoom,320pxreflow, keyboard/Axe/reducedmotion, prehydration/fontfailure/system/crosstab/blockedstorage and real course/free Portal styling boundary. Earlier three inherited journeys also passed; actual images and initial red Axe landmark evidence retained."
+      "details": "All eight scoped cases have passed their affected production checks: six polished journeys; five-case dialog/native follow-up42.7s; final resident-guide pair27.6s and original guidance witness. Both themes, actual submitted wrong/correct feedback, seventeen module routes, original unanswered assessment families, Journal, keyboard/Axe/reduced motion, compact windows, real guided islands and native Create/Review alongside them. These selected runs are not complete candidate CI. Real contrast failures and outside harness corrections are retained."
     },
     {
-      "command": "targeted unit and production build",
+      "command": "Historical pre-CI130 repair: true B-base preservation and inherited assertions",
       "result": "passed",
-      "details": "Author27 foundation/status/token/SVG/license cases passed; normal production build/standalone TypeScript/scopedlint/format passed. No complete candidateCI implied."
+      "details": "Current frozenpayload:15finiteinheritedpresentation/importchanges,87additionsincluding62actualPNGs,103snapshotfilesincludingproof. WholeBbase2834paths andexactmetadataexceptions protected. CItest-onlydecompositionretainsalloriginalassertions/runtime; original17-casefullproofpassed underunchangedlimits."
     },
     {
-      "command": "initial npm run check",
+      "command": "Historical pre-CI130 repair: previous-source npm run check",
+      "result": "passed",
+      "details": "Final warning-fix source a63a48f5f35e8e810d14e8f86f43116be1e80403; explicit exit0 in /tmp/bifrost-course-post-warning-fullcheck.exit.1171Vitest/100files,35Node,503curriculum/30files,real isolated PostgreSQL,mandatory contracts and normalproductionbuild. LogSHA256 ce24e5f75fc6005d12c684c464951a1bc9f9d672677aafcc63e3abc5584bb06c. Prior failures retained; completecandidateCI/strict/public remain separate."
+    },
+    {
+      "command": "Historical pre-CI130 repair: Quality128 original candidate CI",
       "result": "failed",
-      "details": "1148/1148 tests in98files passed, but unhandled PostgreSQL57P01 in historical topology008 migration cleanup caused nonzero; redacted output/original hash preserved, exact cleanup cause remains OPEN. No old test/assertion or database logic changed. New sourceCI maintenance requires fresh complete check."
+      "details": "Exactd17c48ea1d495a8a4e3a68aba221c62efebc99db, run42707415623 attempt1:1170/1171Vitest, oneNEWcombinedpreservationcase9111ms>unchanged5000ms; Node/build/browser/aggregate/strictnotreached. OriginalrawlogSHA256f4135629f6d77479664c037847213d5a0aa608b609b6ff835361f3f5c72b74f7; retainedoutsidepr77-ci and boundexcerpt/profileprovenance in ci-preservation.json. Localunchangedprofile196mscase14/14; CIcauseUNRESOLVED."
     },
     {
-      "command": "finite raw preservation and actual CI gates",
+      "command": "Historical pre-CI130 repair: new preservation case isolation and exact statement retention",
       "result": "passed",
-      "details": "30/30 targeted Vitest controls across fourfiles, including true whole-base raw hashes, finite11 authorized inherited paths, original assertion bodies and actual shardedworkflow negative mutations.20/20 focused Node shard/quality tests passed. Every nine CI source files is exact verified5b provenance; no Laboratory code dependency."
+      "details": "Onlynewcombinedcase decomposed into3naturalrisks, everyoriginalstatement retainedbyte-for-byte and separatelycomparedagainstnativeGitd17source. No helpers/adapter/runtime/CSS/controller/config or oldtest changes.17guardcases passed4.51s; per-caseGitspawns2/6/4, protectedreads102/204/0 withfreshactualadmission. No cachedcurrentbytes/timeout/worker/retrychange. AddedoneboundCI/profileartifact; finalsource103files=15finite+87added+self,62PNGs. Full1174-test check currentlyrunning; no credituntilterminal."
     },
     {
-      "command": "npm run test:e2e:plan",
+      "command": "Historical pre-CI130 repair: npm run check",
       "result": "passed",
-      "details": "Actual475=426desktop+49compact; all468 inherited controls retained. Four native Playwright collections119/119/119/118 prove exact disjoint union; this is collection only, not full browser execution."
+      "details": "Currenttest-onlysource38453e1dbb3a62d9382ba8bb0b95a89f8bbca88c,103-file5d3706cdedba209212f6b9afe793b93db2943b1c7a492450a05bad05f6c9b0ba. Actualterminal0 /tmp/bifrost-course-preservation-fullcheck.exit:1174/1174Vitest100files,35Node,503curriculum30files,realPG,allmandatorycontracts andnormalproductionbuild. LogSHA25633add0340691180c1e94e7fb43f7f207ecb8559e38c26fd3437bb13ef695a558. No runtime/helper/config changes. OriginalCI128delayunreproduced/causeOPEN; freshcompleteCI/strict/newexactSHApublicremainrequired."
     },
     {
-      "command": "post-CI-port fullcheck attempt",
-      "result": "interrupted",
-      "details": "Execution context interruption: log reached typecheck then lint, no terminal outcome; process defunct after environment/turn resumption. No pass credited. Unchanged-source fullcheck restarted with explicit durable exit-status capture."
+      "command": "CI130 exact published baseline full browser profile",
+      "result": "failed",
+      "details": "Quality130/run42712267110 on 687e338da697ebe3cb85955aed6453dfdd044ed7 executed485 cases:462passed/23failed; aggregate/strict not reached. Original four shard logs, actual failure identities and archive download limits are retained in ci-browser-regressions.json. This failed source is not the final repair candidate."
+    },
+    {
+      "command": "CI130 original23 affected author cases",
+      "result": "failed",
+      "details": "Actual unchanged original23-case affected run finished18passed/5 whole-case30s deadlines. Identity desktop/compact, StorageB desktop/compact and Storage Services desktop remain OPEN timing observations. Actual trace measurements show repeated full Axe analyses and varying cutoff points; no common causal closure, timing/performance benefit or retry credit is claimed. Original assertions/settings retained."
+    },
+    {
+      "command": "Final palette three activated-state native regressions",
+      "result": "passed",
+      "details": "Actual normalVX_yd9lo3DZoE3g8PNaXe build:3/3 new both-theme Transfer actual Start/Submit, Serverless actual Start/Run and Arc actual Start/config/Run cases passed32.2s total; full-page Axe, original learning effects and technical/XP boundaries retained. Actual source/provenance/report are embedded in ci-browser-regressions.json. The only subsequent runtime delta is five valid spacing-variable corrections inside max-height600px; these >=768px states do not activate that block. This is scoped evidence, not complete CI."
+    },
+    {
+      "command": "Final valid-token original exposure and owner navigation",
+      "result": "passed",
+      "details": "Normal gGkSai5SY_Eraz8UWooI4: all3 ENTIRE original composed-exposure and owner-flat desktop/compact cases passed24.7s. Original paragraph scroll exposes74.109375px in both themes against unchanged64px criterion, actual shared spacing resolves4px/8px, provisioning stays unvisited and technical/XP bytes unchanged. Four additional short/compact Hub full-Axe checks and actual photos passed. Old86.109375px was invalid-variable/initial-margin evidence, not intentional final spacing."
+    },
+    {
+      "command": "Historical155 source: Final finite preservation and full case collection",
+      "result": "passed",
+      "details": "Final declared source155files=18finite inherited modifications+136exact additions+proof;104actual PNGs. Three exact old hover expectations use resolved approved theme token, preserving every original substantive assertion/control. Actual plan488=439desktop+49compact, legacy878, one worker. Only three new focused activated-state cases are added to original485. Proof/current stamp bind actual files; collection is not execution credit."
+    },
+    {
+      "command": "Historical155 source: Actual author visual capture lineage",
+      "result": "passed",
+      "details": "18-surface palette probe passed on VX.16actual images with heights>=768 remain that palette-build evidence; only five variable-name fixes inside inactive max-height600px differ in runtime.2short virtualization images and4short/compact Hub images are final gG actual evidence. Per-image source/build/viewport/hash lineage is explicit in ci-browser-regressions.json; whole CSS bytes are not claimed identical."
+    },
+    {
+      "command": "Outside Axe equivalence-only investigation",
+      "result": "failed",
+      "details": "Eight actual paired analyses retained equal complete violation/incomplete sets, but final outside metadata writer failed and timing/payload rows were lost. Equivalence only is recovered; benefit is unmeasured. No Axe option, reduced rule scope, timeout/retry/worker/dependency change or new performance claim is implemented."
+    },
+    {
+      "command": "Final source first npm run check",
+      "result": "failed",
+      "details": "Actual terminal1 after TypeScript and full ESLint passed: format:check found only the existing excluded historical docs/quality/BIFROST_COURSE_FINAL_AUDIT.md. Original logSHA256 d53b0e25f1ed179822d280d8cef25a7d0f84268726b498332efb91eeab5d8745 retained at /tmp/bifrost-course-ci130-final-fullcheck.log. Only Prettier formatting of that excluded report followed; all155 implementation hashes and18ef fingerprint remained exact. No tests/build success credited to this invocation."
+    },
+    {
+      "command": "Historical18ef source npm run check",
+      "result": "passed",
+      "fingerprint": "18ef53dab57a4f65afbecd2b0a2220dd7af98a86092d7f38a7c7e1d8d71c0885",
+      "details": "Historical passing c0257db/bmq source; the later confirmed320 Serverless reflow correction requires new final-source validation. Actual corrected complete command terminal0 on frozen155-file source 18ef53dab57a4f65afbecd2b0a2220dd7af98a86092d7f38a7c7e1d8d71c0885. All1174Vitest/100files,503curriculum/30files and35Node/0skips passed; real isolated local PostgreSQL integration envs were loaded and all9 mandatory PG integration families ran within the suite. TypeScript, ESLint, formatting, docs,quality,AZ900,assets and legacy checks passed, then normal production build bmqXZMcYUhLBxgJ9pxG0F. LogSHA256 2a577fa8280522443cc5e78b0367277105962b18067a7e0d9a721f95156896f6 retained at /tmp/bifrost-course-ci130-final-fullcheck-corrected.log with explicit.exit0. This complete local check does not replace fresh independent audit, exact-head complete CI/strict or public journeys; the five original timing observations remain OPEN."
+    },
+    {
+      "command": "Final320 Serverless measured defect and initial correction",
+      "result": "failed",
+      "details": "Fresh independent18ef/bmq actual320 diagnostic measured document350/client320, table332 in execution region284 and native control track311 in284. First scoped CSS-only normal5YGX build corrected document fit and actual Chromium keyboard scrolling, but full Axe retained serious scrollable-region-focusable on the existing section without explicit tabIndex. Both original diagnostic and failed1-case report/log/private trace are retained in ci-browser-regressions.json. No actual Safari execution is inferred."
+    },
+    {
+      "command": "Final320 Serverless explicit keyboard and complete Axe regression",
+      "result": "passed",
+      "details": "Normal snFGcSyEWXTbbLRRJMXC-, actual14runtime source hashes stable:1/1 strengthened existing new case passed14.0s/16.3s invocation. Both themes1440x900+320x700, actual original Start/Run/milestone, document fit, named execution-region focus and ArrowRight actual horizontal scrolling, full-page Axe, original technical/XP invariance. Only scoped<=760CSS and exactly tabIndex0 added to existing labelled section; whole-original-file transform proves all other controller bytes unchanged. No new case/limit/retry/worker change."
+    },
+    {
+      "command": "Final158 finite source proof and actual capture lineage",
+      "result": "passed",
+      "details": "Exact158source paths=19finite inherited+138additions+proof;106actual PNGs. New19th inherited path is only one Serverless section tabIndex attribute, with whole-file exact replacement guard. Two real320 photographs bind actual snFG14-file runtime map. Previous16VX+6gG images retain original13-file source maps, actual build/role/viewport/hash fields; later derived historical Serverless hash is explicitly reconstructed from native c025Git and is not claimed originally captured. Actual existing488-case plan remains, with all485 prior cases and settings preserved. Fresh independent audit and complete exact-head CI/strict remain pending."
+    },
+    {
+      "command": "Actual final158 mandatory fullcheck",
+      "result": "failed",
+      "details": "Terminal1 after passed TypeScript,ESLint,formatting,mandatory contracts and503curriculum.1173/1174Vitest passed; one old Cloud Computing manuscript assertion failed200ms on the exact tabIndex attribute, not timing. Node/build not reached. Original full logSHA256 a342b4b1c3bba878004896ed424f3de49213b56851594b0dbaa9b6c5d7c911ae retained. The final159 correction is one import alias to the unchanged real-byte-validated historical reader, with exact whole-original-test/body guard and original single-tabIndex guard retained; no old assertion/limit change."
     },
     {
       "command": "npm run check",
       "result": "passed",
-      "details": "Final frozen source after genericCIreuse: explicitexit0 at2026-11-09T20:48UTC;1157Vitest/99files,35Node,503curriculum,realisolatedPostgreSQL,allrequiredtypes/lint/format/docs/quality/assets/legacy and normalproductionbuild (3.2scompile/15.7sTypeScript). Original1148pass+unhandled57P01failedcheck and interruptedattempts preserved; the oldcleanupcause remains OPEN, not fixed by this green run."
+      "fingerprint": "197a28384f8600c2971f8df2a2780ae03eb29270dbd98291959b23fff8d5d844",
+      "details": "Actual final159 source197a28384f8600c2971f8df2a2780ae03eb29270dbd98291959b23fff8d5d844 literal fullcheck terminal0.1174/1174Vitest100files,503/503curriculum30files,35Node/0skips,all mandatory TypeScript/ESLint/format/docs/quality/AZ900/assets/legacy checks,real isolated local PostgreSQL integration and normal production build qfMnw8ABwrREwt9yDcE7R passed. LogSHA256 3fde16ab05efe986d2a748eab7ec91cbed51cb59a4f79ec5e4e302e8483439e8 retained at /tmp/bifrost-course-ci130-final159-fullcheck.log with explicit.exit0. Targeted21case causal prerequisite also passed7.20s. All159 frozen implementation hashes rechecked exact after execution. Original158 manuscript-attribute failure and earlier format/CI/browser reds remain preserved. Independent poststamp review, exact-head complete488browser CI/strict and public delivery are separate gates; prior five timing observations remain OPEN."
     }
   ],
   "review": {
     "status": "complete",
-    "fingerprint": "9442fb548b4f851abbc259f4fe862decd898320fc6d548e4d28234361f277ae8",
+    "fingerprint": "197a28384f8600c2971f8df2a2780ae03eb29270dbd98291959b23fff8d5d844",
     "reviewer": {
-      "kind": "agent",
-      "id": "/root/bifrost_foundation_final_audit"
+      "id": "/root/course_repair_final_audit",
+      "kind": "agent"
     },
-    "started": "2026-11-09T20:42:26Z",
+    "started": "2026-11-10T00:57:55.000Z",
     "domains": {
       "content": {
-        "finding": "All 2785 inherited paths independently checked: 2774 unchanged plus exact 11 finite exceptions; all 45 additions bound. Original course copy, domain/assessment/history/source/mascot authorities remain byte-identical. Available course and free Laboratory stay distinct; planned courses have no operative links.",
+        "finding": "No content/model/rubric/store/history/XP or completion-policy changes. All protected authorities and locale remain byte-preserved; prior PARTIAL and human learning/SME limitations remain. Actual original explanations/feedback were inspected without injected completion or answer state.",
         "evidence": [
-          { "path": "docs/quality/BIFROST_FOUNDATION_FINAL_AUDIT.md" },
-          { "path": "src/features/design/preservation.test.ts" },
-          { "path": "src/features/landing/landing.tsx" },
           {
-            "path": "docs/reviews/evidence/bifrost-foundation/preservation.json"
+            "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md",
+            "marker": "## Repair content"
+          },
+          {
+            "path": "src/content/nb.ts"
+          },
+          {
+            "path": "docs/reviews/evidence/bifrost-course/preservation.json"
           }
         ]
       },
       "technical": {
-        "finding": "All 57 snapshot hashes and fingerprint recomputed exactly. Supplied 61 light tokens/52 dark overrides and no-JS fallback match; production SVG matches all 15 owner path/use nodes. Actual course/free Portals retain identical Segoe UI light Azure style arrays across both remembered themes. No engine, SQL, API, World or evidence authority changed.",
+        "finding": "Current159 hashes/fingerprint, all2834 B blobs,2813 unchanged inherited bytes,20 finite bindings,138 additions/106 PNGs and six adversarial cases independently verify. Complete Serverless body changes only one tabIndex; the fourth historical test changes only its reader import, retaining all other statements/four complete tests. Reader remains unchanged and all14runtime hashes match executed native UI.",
         "evidence": [
-          { "path": "docs/quality/BIFROST_FOUNDATION_FINAL_AUDIT.md" },
-          { "path": "src/features/design/tokens.css" },
-          { "path": "src/features/design/theme.tsx" },
-          { "path": "src/features/design/brand-mark.tsx" },
-          { "path": "src/features/design/preservation.test.ts" }
+          {
+            "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md",
+            "marker": "## Repair technical"
+          },
+          {
+            "path": "src/features/course/bifrost-course-preservation.test.ts"
+          },
+          {
+            "path": "src/features/course/cloud-computing-chapters.test.ts"
+          },
+          {
+            "path": "tests/bifrost-course-preservation.ts"
+          }
         ]
       },
       "visual": {
-        "finding": "Personally inspected actual reference and production captures. Independent native production probe passes both themes at 1920x1080,1440x900,1366x768,1024x500,320px keyboard/reduced-motion/Axe and font/hydration failure. Actual Open Sans confirmed by CDP; exact Satoshi remains a documented cleared-font limitation.",
+        "finding": "Confirmed CI130 and later activated-state contrast/exposure findings close with existing paired tokens, actual both-theme states and explicit mixed source lineage. Fresh77bf seven groups plus retained18ef five unchanged-page light groups cover the risks; final159 runtime14 is identical. Both320 documents fit and labelled native keyboard scrolling/3pxfocus/Axe pass. Literal24 image producers16VX/6gG/2snFG remain truthful; Satoshi/human visual approval remains open.",
         "evidence": [
-          { "path": "docs/quality/BIFROST_FOUNDATION_FINAL_AUDIT.md" },
-          { "path": "docs/design/evidence/owner-demo-light.png" },
-          { "path": "docs/design/evidence/owner-demo-dark.png" },
-          { "path": "docs/design/evidence/bifrost-light-1440-900.png" },
-          { "path": "docs/design/evidence/bifrost-dark-1024-500.png" },
-          { "path": "public/design/bifrost/fonts/OFL-Open-Sans.txt" }
+          {
+            "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md",
+            "marker": "## Repair visual"
+          },
+          {
+            "path": "docs/reviews/evidence/bifrost-course/ci-browser-regressions.json"
+          },
+          {
+            "path": "docs/screenshots/bifrost-course/ci130-after-light-serverless-320.png"
+          },
+          {
+            "path": "docs/screenshots/bifrost-course/ci130-after-dark-serverless-320.png"
+          }
         ]
       },
       "assessment": {
-        "finding": "Frozen assessment/rubric/first/help/retry/abandon/history bytes remain intact. Theme cycling leaves all other AzureLab local-storage bytes unchanged; current status projection cannot issue Complete. No new blind-bank, human learning or psychometric approval claimed.",
+        "finding": "Original first/help/retry/abandon, fields, ordering, requirements, submitted comparison and permitted feedback branch remain exact. Actual native selection shows no feedback before Submit and real wrong feedback after Submit, with technical/XP bytes unchanged. All485 prior substantive browser cases remain; three approved strict hover-background replacements and three new cases give488 without settings changes.",
         "evidence": [
-          { "path": "docs/quality/BIFROST_FOUNDATION_FINAL_AUDIT.md" },
-          { "path": "src/features/design/preservation.test.ts" },
-          { "path": "src/features/landing/course-status.ts" },
-          { "path": "src/features/landing/course-status-badge.tsx" }
+          {
+            "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md",
+            "marker": "## Repair assessment"
+          },
+          {
+            "path": "src/features/learning/foundations-v2.tsx"
+          },
+          {
+            "path": "tests/e2e/bifrost-course.spec.ts"
+          }
         ]
       },
       "guidance": {
-        "finding": "Guidance/controller/mascot bytes are unchanged. Inspected real course Portal retains canonical SavvyShark while explicitly started free Portal retains memory-only disclosure without course guidance. No new implicit help, Start, receipt or XP mechanism.",
+        "finding": "No mascot, guidance, Journal authorization, assistance or independent-mode controller change. Actual Start/Run/milestone Escape and expanded Journal remain native; the one labelled tab stop is exact presentation. Prior denied-assistance evidence remains historical/source-bound. No command, reward or new guidance authority is introduced.",
         "evidence": [
-          { "path": "docs/quality/BIFROST_FOUNDATION_FINAL_AUDIT.md" },
-          { "path": "src/features/design/preservation.test.ts" },
-          { "path": "docs/design/evidence/bifrost-boundary-course.png" },
-          { "path": "docs/design/evidence/bifrost-boundary-free.png" }
+          {
+            "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md",
+            "marker": "## Repair guidance"
+          },
+          {
+            "path": "src/features/course/guided-coach.tsx"
+          },
+          {
+            "path": "src/features/learning/serverless.tsx"
+          }
         ]
       },
       "regression": {
-        "finding": "Independently passed 20 Node negative gates and 18 actual-file/preservation controls. Fresh target collection proves 475=426desktop+49compact and exact 119/119/119/118 union; all 468 inherited bodies/settings preserved. Nine CI files match actual verified PR75 Git objects. Fullcheck explicit exit0 observed (1157 Vitest/99files,35Node,503curriculum,realPG,normalbuild); original57P01 and interrupted invocation remain open. Complete B candidate CI/strict/public delivery is pending.",
+        "finding": "Final159 literal fullcheck actual0:1174Vitest/503curriculum/35Node0skips/realPG/build. Independent current21/21 (17preservation+4unchanged-body historical tests), raw six negatives, original485 source retention and actual scoped native continuation0 pass. Original158 mismatch and all older failures remain; five30s cumulative affected deadlines have no causal closure. Complete exact-head488CI/strict/public gates remain pending.",
         "evidence": [
-          { "path": "docs/quality/BIFROST_FOUNDATION_FINAL_AUDIT.md" },
-          { "path": "src/resource-platform-ci-workflow.test.ts" },
-          { "path": "scripts/e2e-shard.test.mjs" },
-          { "path": "scripts/quality-check.test.mjs" },
-          { "path": "docs/design/bifrost-ci-port-provenance.json" },
           {
-            "path": "docs/reviews/evidence/bifrost-foundation/check-initial.json"
+            "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md",
+            "marker": "## Repair regression and delivery boundary"
+          },
+          {
+            "path": "docs/quality/BIFROST_COURSE_QA_REVIEW.md"
+          },
+          {
+            "path": "docs/reviews/evidence/bifrost-course/ci-browser-regressions.json"
           }
         ]
       }
     },
     "findings": [
       {
-        "id": "BF-FINAL-01",
-        "severity": "minor",
-        "status": "accepted-limitation",
-        "description": "Satoshi repository redistribution is not cleared and its font is absent. Actual Open Sans is correctly identified; exact Satoshi900 typography remains incomplete and must not be claimed."
+        "id": "C-FA-01",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Historical blocked-appearance warning had contrast/reflow defects.",
+        "fix": "Prior owned warning pairs/header wrapping remain preserved.",
+        "retests": [
+          "Earlier actual warning/320 retests remain source-bound and retained; current repairs do not replace that history."
+        ]
       },
       {
-        "id": "BF-FINAL-02",
-        "severity": "note",
-        "status": "open",
-        "description": "Original unhandled PostgreSQL57P01 cleanup cause remains undiagnosed. Initial failed invocation and hashes are preserved; the later explicit0 run is not a causal fix."
+        "id": "C-FA-02",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Historical denied-Journal warning/recovery button had dark contrast defects.",
+        "fix": "Prior warning subtree/button/focus correction remains preserved.",
+        "retests": [
+          "Earlier denied-assistance native retests remain historical; original authorization/controller bodies remain protected."
+        ]
       },
       {
-        "id": "BF-FINAL-03",
+        "id": "C-FA-03",
         "severity": "note",
         "status": "open",
-        "description": "Interrupted post-port fullcheck has no terminal result and is not credited as passed. The later successful invocation is separate evidence."
+        "description": "Exact Satoshi fidelity remains unavailable under redistribution restrictions; actual local Open Sans and optional installed Satoshi remain disclosed. Human typography acceptance is unperformed."
       },
       {
-        "id": "BF-FINAL-04",
+        "id": "C-FA-04",
         "severity": "note",
         "status": "open",
-        "description": "Actual final-head complete B candidate475-case CI, aggregate, immediate strict release and anonymous full-SHA preview journey remain pending root-owned delivery gates; sourcePR75 and focused local checks do not substitute."
+        "description": "Earlier CI128/browser/Compute/Axe/landing/PG uncertainty and five cumulative30s affected native deadlines have no proven causal closure. Eight Axe equivalence analyses saved failure sets but the writer failed without timing data; no Axe option or performance fix was implemented. New-head complete CI/strict/public remain delivery requirements."
+      },
+      {
+        "id": "C-FA-05",
+        "severity": "note",
+        "status": "open",
+        "description": "Earlier d17 public dark-theme application stopped before course actions. No hydration/event/storage cause or provider fix is established; fresh local mode passes do not causally close that observation."
+      },
+      {
+        "id": "C-FA-06",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Selected Transfer links and primary Start had actual failing contrast.",
+        "fix": "Existing selected/primary paired tokens.",
+        "retests": [
+          "Independent actual light/dark links5.681/5.363 and Start8.115/6.813, full Axe/native Start/Submit pass with honest execution lineage."
+        ]
+      },
+      {
+        "id": "C-FA-07",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Global Journal trail summary/module small text failed contrast.",
+        "fix": "Owned global trail body/muted pairs.",
+        "retests": [
+          "Expanded actual Journal min6.952light/5.552dark; full Axe0, original authorization preserved."
+        ]
+      },
+      {
+        "id": "C-FA-08",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Stored Arc representation small text failed contrast.",
+        "fix": "Owned conceptual surface and descendant pairs.",
+        "retests": [
+          "Actual original unsupported-operation Arc state/reload and representation min6.608light/5.858dark, Axe0, technical bytes unchanged."
+        ]
+      },
+      {
+        "id": "C-FA-09",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Original short virtualization scroll exposed60.109375px below unchanged64px criterion.",
+        "fix": "Owned short-height spacing uses valid4/8px shared tokens; observer/event/store unchanged.",
+        "retests": [
+          "Actual initial and original-scroll exposure74.109375px; correct visit, provisioning false, World/XP unchanged."
+        ]
+      },
+      {
+        "id": "C-FA-10",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Serverless pipeline small text failed contrast on legacy navy.",
+        "fix": "Owned pipeline and descendant paired colors.",
+        "retests": [
+          "Actual original Start/Run pipeline min6.608light/5.858dark; full1440/800/320 Axe0."
+        ]
+      },
+      {
+        "id": "C-FA-11",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Original1024x768 Hub second path heading had viewport ratio0.",
+        "fix": "Owned one-column breakpoint starts at800px.",
+        "retests": [
+          "Original affected author case and independent desktop heading exposure, compact reflow/keyboard/Axe pass."
+        ]
+      },
+      {
+        "id": "C-FA-12",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Activated dark Transfer scenario and selected submitted feedback retained pale surfaces.",
+        "fix": "Owned scenario/selected-feedback pairs and separator.",
+        "retests": [
+          "Actual no-feedback-before-Submit, real wrong Submit and complete-page Axe pass in both themes; original controllers/content preserved."
+        ]
+      },
+      {
+        "id": "C-FA-13",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Activated dark Serverless controls/responsibility/table/caption retained incompatible colors.",
+        "fix": "Existing paired surfaces and actual section selector; no content or model change.",
+        "retests": [
+          "Both-theme original Start/Run/milestone Escape, observation4, full1440/800/320 Axe0 and technical/XP invariance."
+        ]
+      },
+      {
+        "id": "C-FA-14",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Activated Arc perspective/topology/facts exposed additional mixed legacy colors.",
+        "fix": "Owned perspective/map/fact/active-location pairs.",
+        "retests": [
+          "Actual Arc native Run, physical/representation/unsupported-operation statements, reload and full-page Axe pass; no World change."
+        ]
+      },
+      {
+        "id": "C-FA-15",
+        "severity": "note",
+        "status": "fixed",
+        "description": "Five new spacing references omitted the token hyphens and resolved to initial margins.",
+        "fix": "Use actual --bf-space-1/--bf-space-2; source guard reads real definitions.",
+        "retests": [
+          "Original exposure/owner-navigation cases pass with resolved4/8px and74.109375px; old86.109375px remains invalid-variable history."
+        ]
+      },
+      {
+        "id": "C-FA-16",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Independent320 Serverless page measured350px/client320:332px table and311px controls escaped284px containers. CSS-only repair then failed full Axe focusability.",
+        "fix": "Owned<=760px minmax control track/local overflow:auto plus exactly one explicit tabIndex on original labelled section; all source handlers remain exact.",
+        "retests": [
+          "Both-theme actual document320, region284/table332, ArrowRight40, labelled focus/3pxoutline, five column/seven row headers and full Axe0. No actual Safari run or generic overflow masking is claimed."
+        ]
+      },
+      {
+        "id": "C-FA-17",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Final158 mandatory check failed1173/1174 because an old whole-manuscript assertion read the approved new tabIndex as raw original bytes.",
+        "fix": "Exactly one old test import now uses the existing unchanged real-byte-validated historical reader. Whole old file/body and original B/older Serverless bytes remain exact after finite transforms.",
+        "retests": [
+          "TypeScript AST and whole-file proof retain all four original test calls/statements. Independent final21/21 and literal159 fullcheck1174/1174/503/35/realPG/build exit0."
+        ]
       }
     ],
-    "report": { "path": "docs/quality/BIFROST_FOUNDATION_FINAL_AUDIT.md" }
+    "report": {
+      "path": "docs/quality/BIFROST_COURSE_FINAL_AUDIT.md"
+    }
   },
   "snapshot": {
     "files": {
-      ".github/workflows/ci.yml": "819039b3cc80a602866c4e50297c8b4d0622d5b8eb29d7079a66700eb49af949",
-      "docs/design/AZURELAB_BIFROST_DESIGN.md": "8329c25c114fbd47857096970031e26421c281b192c41b7d3cce1fb3c6d776a0",
-      "docs/design/BIFROST_AUTHOR_QA.md": "2fb53cbaa2b749c147b55aba139190370fda39ded1fe1d717024e35f21894b84",
-      "docs/design/BIFROST_CI_VERIFICATION.md": "4abc1816720f6df9dbb4c3bb2bb1fc49fe882e6822b048ef979d7114060c3e28",
-      "docs/design/bifrost-ci-port-provenance.json": "049fb64f2c61c0862d6924043dc8d67a3236b343f1f72ff13d265bc45b12712e",
-      "docs/design/bifrost-demo-reference.json": "7405e2ac44d10ba29204316ac2653a7691c17d03e0b6ac5bcea8116ba909a8c0",
-      "docs/design/bifrost-source-provenance.json": "6790c2db43f1d2d8064c6741762c42a40cec25b5f89d8b99a82ebb2d26e6d22b",
-      "docs/design/evidence/bifrost-before-hydration-fonts-blocked-dark.png": "9bdefbfb79e96a3349fc53080e0b85390adee56a018eb94527e4279317f6274a",
-      "docs/design/evidence/bifrost-before-hydration-fonts-blocked-light.png": "eceb2506f5a14985cee62db295e12c7b0d1218379d88493c78e7f989a2cc06ea",
-      "docs/design/evidence/bifrost-boundary-course.png": "0fa2d465cfa21c53324199fed51513cfe1bc13389610470504dcbaf1e0ea1b16",
-      "docs/design/evidence/bifrost-boundary-free.png": "578df7a49f83bf9d6ea3877f28b98b290c2834ed707790944255b64984198d1e",
-      "docs/design/evidence/bifrost-dark-1024-500.png": "c784195ad60222acf372986598eabda23913f6b965c16d671222de4eb83e8bac",
-      "docs/design/evidence/bifrost-dark-1440-900.png": "5307539c6633e888449562f9b495ba9165ea105c839c8204dfbf6e99f0700994",
-      "docs/design/evidence/bifrost-dark-800-700.png": "06eab97f006d5dde78c54f334446f2cfb37a625fc5f34bdf304d21def9e0af68",
-      "docs/design/evidence/bifrost-light-1024-500.png": "dc4eae0549d44d451ae36cf6f8cc77f5c65c458e732568f0bb1c2c72e8f9fa3f",
-      "docs/design/evidence/bifrost-light-1440-900.png": "b2d3d76a60985bdb59834b752b4549742455ef74be9c8d6785faae8d743864ef",
-      "docs/design/evidence/bifrost-light-800-700.png": "d42780cf97305f5cc5b32e3af1ab9786316766705579953fa8b0e6dd045291c1",
-      "docs/design/evidence/bifrost-native-zoom-dark-1.25.png": "64ddd22f2b7113bc548f719d65b84839ebb0b982efe6fece2d6a7b14e8a5b976",
-      "docs/design/evidence/bifrost-native-zoom-dark-2.png": "491ebff0fc9081a5820d726b9e2fe460b9e236efe26a804072fab35cffc7d1b2",
-      "docs/design/evidence/bifrost-native-zoom-light-1.25.png": "cfb8db4ed2b7737380f981fea89f6b501b6321612e8fc78e59e942587ef86387",
-      "docs/design/evidence/bifrost-native-zoom-light-2.png": "9d7edbebd1fcf71e79e0e627048acdcafd90ed4e2268dcdd6353462434b0fdca",
-      "docs/design/evidence/initial-landmark-error.md": "5e87d7185e5969418c387881e364829ddd8241c14214896b1566a564f92bfba6",
-      "docs/design/evidence/owner-demo-dark.png": "49695e3183882fc76327fecae2013ec95bc70b77804f181a8b2f3164d5ee7f70",
-      "docs/design/evidence/owner-demo-light.png": "a60120a918be3a4e9f3d751e8e81dbdbef0082abd2edcb377c8c0bcbad792bce",
-      "docs/design/evidence/production-measurements.json": "9379cacc482727b916c82a2a2a21aecb4ed6a78174118ebe77174f16dfaafec6",
-      "docs/design/evidence/visual-provenance.json": "ec55f8d4790e81197b3c279d2d0054bb4ad35b5d5dc0f80d5c71b6560564ad59",
-      "docs/reviews/evidence/bifrost-foundation/check-initial.json": "90a6ebfa5fe322f6a921ca9a5765c59b221d4b81de7b68556e8b5c038839ba79",
-      "docs/reviews/evidence/bifrost-foundation/check-initial.redacted.txt": "c033b25527be2db09b6aa9bdaf12fa377d561a9e8203e7570233a6fcb984ce03",
-      "docs/reviews/evidence/bifrost-foundation/preservation.json": "c441c0af0371de77525575fa811490de9f0f545f4205c2af53cfd8923dd2d403",
-      "package.json": "92ef85d3dcf8ff682f823f8f02b55c010c7d87d681cd7e53ed8b184d71484b79",
-      "public/design/bifrost/fonts/OFL-Open-Sans.txt": "fbbbcfef55318de350562559b671360de6d597112ecc5c73881b05092db89602",
-      "public/design/bifrost/fonts/open-sans-latin-variable.woff2": "d8e4fe0452aa2076429a9bb5d8757d00a994dd95986cf950e9a1a371b9a072a0",
-      "scripts/e2e-shard-aggregate.mjs": "026143cbec2a1d916a86a0474cee41276a8d338ba8ed86c593d84f7ad0d12dc8",
-      "scripts/e2e-shard-plan.mjs": "0f14f463f44138b932d8d7fdb6792e06e1fdc13714fcb40eec4b12330988c905",
-      "scripts/e2e-shard-runner.mjs": "56919b9530c4c4292394470047c3523188e4e87751b98794a35a8b57bc300e11",
-      "scripts/e2e-shard.test.mjs": "3656ec6aa422c693590a5aceadbe4c52afee5079f1162b6d538bea06bc70bbc1",
-      "scripts/quality-check.mjs": "3a7584190c2d3c9b97aab41df43ce9caa98d84cdee40415bc000816fca7d8961",
-      "scripts/quality-check.test.mjs": "06eecc3f349d48eaf8c06e791f4f37c6c7b2e44979e9c30de0f88c95244c446b",
-      "src/app/layout.tsx": "1ef59f7349c8810399ec5e668a3dd89644bbd0696644429db4029f29cbf98fba",
-      "src/features/design/brand-mark.tsx": "dd5222f088ee72e0c35e6ad2cc0408676180a20c9021e5ce62cfa65de97dda02",
-      "src/features/design/fonts.ts": "0970144a58eb0fba5358c51fb4fc6cf5e33e7fa5235b43ea97e8f999cf39bbac",
-      "src/features/design/foundation.test.ts": "0489644b41341ec022572fc71a44782f72d1d3e6660e7a8fdf11c20911a281e2",
-      "src/features/design/preservation.test.ts": "7f1a211d30d39695316159a7291eefe375ffdc0b918e4a3f895dd354cb7f37f3",
-      "src/features/design/theme-copy.ts": "f3b49ed39af4bbf7cd9aaf2031fb461578175b17f4624f4ec595c78391090dd9",
-      "src/features/design/theme-init.tsx": "b80fb1397e23614f261fa402b48f4a19c9a3cecf6b550c5c0f7fb49278f0273f",
-      "src/features/design/theme.tsx": "f50290aead40ab149d05ab51e5952432fd31574b32e9c574d95895f9f74edb37",
-      "src/features/design/tokens.css": "135b641b05b55b91667bac0b4b1a4022886c74e16974396d340cef1ccb32dece",
-      "src/features/landing/bifrost-presentation.test.ts": "0e747c65585733ef7889a6c1626592daf82347d3cbc03a50cf639ef24e8e9df9",
-      "src/features/landing/landing.css": "fca172cf3a04a15e72ed5f1244f9f37d1cc35bf08cfb870fd93eb7bbe2ab1461",
-      "src/features/landing/landing.tsx": "ca31c655012c97fa275681a79dd1776e8f9bd9d58f77d12e218c69ec1b6566fd",
-      "src/pr72-ci-workflow.test.ts": "43a56005db7744c268e6a73de76400808173b7fc12be510d899cdb7bc3baedaa",
-      "src/pr72-shared-portal-preservation.test.ts": "1076ff674df6ed57e66afb2b7da30e5cbd3d5cba6a9cbe5c3f88e725bcd8ba6f",
-      "src/resource-platform-ci-workflow.test.ts": "cc0bfbbe6bd4a63d910847408fdd2e3648107d4e928a8ff392a61f51e300a302",
-      "tests/bifrost-foundation-preservation.ts": "d24a20731213058fcc685901090fd71750d1b1ce11b37afee6fc1f4c001b452b",
-      "tests/e2e/bifrost-landing.spec.ts": "817d05b8e7b5c869aa6301d9075a9bdf75514916934fdffbdc95adc4712b9173",
-      "tests/e2e/premium-landing.spec.ts": "b2f886ca3a5b541b48991afb451ea9ce99b0d09de6f897c799fa38865e9606ca",
-      "tests/pr72-preservation.ts": "2b15072d3f1f40d97f458a3507450eb424c95084d5afe0d716e84c225884ae6b"
+      "docs/design/bifrost-course.md": "b4be7dea626912761681a60e24449169b5d691818c5000fddd26ebc1c9b5e348",
+      "docs/reviews/evidence/bifrost-course/before-appearance-result.json": "08b64c608daf9b9fa2400da17f2a74a066a9f516eb0cdce0846fc1d964434f78",
+      "docs/reviews/evidence/bifrost-course/before-denial-result.json": "c7715b462a6a09766cd3b9367a3c4031592c62731d5628880b685ba6d9971638",
+      "docs/reviews/evidence/bifrost-course/ci-browser-regressions.json": "27c9deae5bfc83a3568c43fb77e9ae63d85cf4bb1ba3aca44d0594e4619974be",
+      "docs/reviews/evidence/bifrost-course/ci-preservation.json": "19486ec5606b1ed23658bd6bc204089c5f291a852cb32edc019a103d87286def",
+      "docs/reviews/evidence/bifrost-course/intermediate-warning-failure.json": "81e9d1dd5f90eb717f7858779d9948b86eadd323801803d6df534149e03e28a7",
+      "docs/reviews/evidence/bifrost-course/preservation.json": "d649d98e9dccd7d62511a651a35fba6e1e92ff6a20b4755fa4d5c1a181e326d3",
+      "docs/reviews/evidence/bifrost-course/qa/before-appearance-result.json.raw": "48a3bfeedf568fb76ea2c283dd558a2f11974c25c2785655d16f6e7c4d54b580",
+      "docs/reviews/evidence/bifrost-course/qa/ci130-before-native.txt": "9c1b67df2a1754e963319c003b3a46e0369be050baeff527dd3917ececf876c8",
+      "docs/reviews/evidence/bifrost-course/qa/ci130-first-affected.txt": "b68a5b08f01292f906ebb9b56006af828ba2cd341d6a233d2c4f284fe91f8e08",
+      "docs/reviews/evidence/bifrost-course/qa/ci130-shard-1.txt": "adec622fbd85ff0e36dbccbb0785f45dea0168bd293ba775a90be4080c859b90",
+      "docs/reviews/evidence/bifrost-course/qa/ci130-shard-2.txt": "e6467031483985e2cc75680ae9032ecc7974feabfe096c60d520a4acf2728558",
+      "docs/reviews/evidence/bifrost-course/qa/ci130-shard-3.txt": "357930cf2bdc3c7ab9f5565490d032d419eb8d8157f8045695be8b61f952a2d7",
+      "docs/reviews/evidence/bifrost-course/qa/ci130-shard-4.txt": "de8b9e39679eda8dc5220a3af6405de0f52f41ffd39901733c48d5e5e6a2d6f6",
+      "docs/reviews/evidence/bifrost-course/qa/combined-warning-deadline-1.png": "f129b0996cfb8b1e824a897d2ca2fdb63b0a346b8917180668a9b8c05f62ad61",
+      "docs/reviews/evidence/bifrost-course/qa/combined-warning-deadline-2.png": "917eae44c580dbe40834d130664186109e91a691097d027c7cc1f00bf7ce82fb",
+      "docs/reviews/evidence/bifrost-course/qa/combined-warning-deadline-context.txt": "c1b7094a422fe527e70245af1e2fd4418b533589958d300b3ed4a81975f2349b",
+      "docs/reviews/evidence/bifrost-course/qa/combined-warning-deadline.json": "3e95d778dd8f8f3877df585bfc4214a003a0743015934a640cebd1d3042051e8",
+      "docs/reviews/evidence/bifrost-course/qa/combined-warning-deadline.txt": "78822ee378e198775f6ea1496a122623c53b2b33f1258dbe6232c3fb63e5c97f",
+      "docs/reviews/evidence/bifrost-course/qa/final-case-plan.txt": "8d542935c539c3b6f4c1f0bd03f0af7c40f3e06ec4d132c1ad3d0a890489abba",
+      "docs/reviews/evidence/bifrost-course/qa/final-warning-two-cases.txt": "7cae4eaffc9e1193218545bc6f33d0f7aabc951884997cb48bd9f97961385898",
+      "docs/reviews/evidence/bifrost-course/qa/initial-warning-dark-boundary-1.png": "a86ad88f44279f9bf073b5b29d05d6c7db42592868f951c71b441f15bc5b9c78",
+      "docs/reviews/evidence/bifrost-course/qa/initial-warning-dark-boundary-2.png": "99db2a93b06fa1bf617f5c495e02dcf6c0b76961108491217e2cf4fed8699d35",
+      "docs/reviews/evidence/bifrost-course/qa/initial-warning-dark-boundary.txt": "80c1bacbba4d7296d4dc3cd248716d586cb6d5c2a1a22ef60869271bfd0a872b",
+      "docs/reviews/evidence/bifrost-course/qa/initial-warning-dark-feedback.png": "bb3a6cc75772e6fb8a974b9ae67133f55287cc77ce859a1794fd7129d9f82de8",
+      "docs/reviews/evidence/bifrost-course/qa/initial-warning-dark-feedback.txt": "e2e45cf7ebe84950c23e80a1d0703e11b789b8dd2f95cd05fbd6416c9da5f3a9",
+      "docs/reviews/evidence/bifrost-course/qa/initial-warning-evidence.json": "7c586a1dc1cbe2abd935594d8e92653a72588ca295816113a6074a7946d15978",
+      "docs/reviews/evidence/bifrost-course/qa/initial-warning-five-red.txt": "f3386ab6b51dcb959177dc019bb6eb3ab89546f42708bc0926ccf6012da7b463",
+      "docs/reviews/evidence/bifrost-course/qa/initial-warning-light-boundary.txt": "a2e2faa8d90b7e868de5eab2fca741cc086c15e6ccc4680f52279fb19a28e680",
+      "docs/reviews/evidence/bifrost-course/qa/initial-warning-light-feedback.png": "d9a54809abc8c8dc1a2726a44445503f0c83a0ed5cb72d30e2749e9b03705d49",
+      "docs/reviews/evidence/bifrost-course/qa/initial-warning-light-feedback.txt": "7c181cfca65376456cb5ac9e0e2f85185a685458c94f7f985033211eb1f4f169",
+      "docs/reviews/evidence/bifrost-course/qa/initial-warning-storage-light.png": "917eae44c580dbe40834d130664186109e91a691097d027c7cc1f00bf7ce82fb",
+      "docs/reviews/evidence/bifrost-course/qa/initial-warning-storage.txt": "4a6b818181f1f0c1d93db4b8ab837cbb0c5221c52734445c969f329d4909393a",
+      "docs/reviews/evidence/bifrost-course/qa/same-bundle-dom-probe.txt": "def706e39e632b809e2db4377de8d825b0a0dc42a7b51d2288ee49dbcbc28260",
+      "docs/reviews/evidence/bifrost-course/warning-regression-result.json": "c53846ebe4ae80210fe7ae74a1dc51dc42b33304b416be2cc096cb3494e0cc9c",
+      "docs/screenshots/bifrost-course/after-dark-appearance-320.png": "f129b0996cfb8b1e824a897d2ca2fdb63b0a346b8917180668a9b8c05f62ad61",
+      "docs/screenshots/bifrost-course/after-dark-appearance.png": "9d7a694536b5edd4bc7159ab7731a8cc4d8c8ed69f025286c9570fb7f8315a08",
+      "docs/screenshots/bifrost-course/after-dark-denied-journal.png": "620d7a6de8bfad8c114b00d9208409eac969a3a036d8f45b19efce28aa459502",
+      "docs/screenshots/bifrost-course/after-light-appearance-320.png": "5e2264ce40d7eb93d483c3e0ae07966d68f185b0970ba400eeeae826509089e2",
+      "docs/screenshots/bifrost-course/after-light-appearance.png": "b2b37c5ea719b5451a69a7759051f4b12bb8480cd3ed5bd9b3e63ea61d5720f3",
+      "docs/screenshots/bifrost-course/after-light-denied-journal.png": "296c1bcbaa852375220d10032e044d7f9346415549f76dc8a70a2e606853c4a0",
+      "docs/screenshots/bifrost-course/before-appearance-dark-320.png": "bfca5a308757231ac07b2e5bbcb5c66466a01b33cf7d5e45b980394a66c7bf65",
+      "docs/screenshots/bifrost-course/before-appearance-dark.png": "b530662eb8f762b811274312cbb5119cf29bda7c7d06d4798c10ff456012aecb",
+      "docs/screenshots/bifrost-course/before-appearance-light-320.png": "85d353db962a9870e4ca3e6e7423908478a435c7c1562c3113cce51f13c81b69",
+      "docs/screenshots/bifrost-course/before-appearance-light.png": "674e0ef975298313f091961ba379dda74be9b6726b11b3b66fab45fa8f301066",
+      "docs/screenshots/bifrost-course/before-dark-denied-journal.png": "e430b8d29458c4a9765ffa84c9b38e802c956ff309c0fb6548c3b8059542a27c",
+      "docs/screenshots/bifrost-course/before-dark-refined-start-dialog.png": "601a7ebf99f7070a3ff9d96cb146c84e8e01d9ea8500e157ae2a680a8dce50f3",
+      "docs/screenshots/bifrost-course/ci130-after-dark-arc.png": "74eaa232dd2c7dd56d9cd70aea1893261d4306c55638ebdf455320998c9b5ae9",
+      "docs/screenshots/bifrost-course/ci130-after-dark-hub-1024x500.png": "43bcbbe361985b3a9b1029de187a7ade1ba7b8740242953ac5ad81eb5d17c96d",
+      "docs/screenshots/bifrost-course/ci130-after-dark-hub-1024x768.png": "55fd0d9f2abd4ea39c84fe880f3576318132387d8b0884fb9ef3c36432480968",
+      "docs/screenshots/bifrost-course/ci130-after-dark-hub-1440x900.png": "b0a7de70b189b2a821d698055dfd983251cb548276e99ed30658d51844b3a08c",
+      "docs/screenshots/bifrost-course/ci130-after-dark-hub-800x700.png": "b80eee560edcbc1f5ae489101d68919c9b12f629db14e344befbc7a07c24b38e",
+      "docs/screenshots/bifrost-course/ci130-after-dark-journal.png": "778579173f8f54a7a54b7e6f0dce5609d26df469f82c293d61e86695ee35f33c",
+      "docs/screenshots/bifrost-course/ci130-after-dark-pipeline.png": "a9b717eae87b59b723af1469741029319a159460192fa7b24ffb800e7aa49e35",
+      "docs/screenshots/bifrost-course/ci130-after-dark-serverless-320.png": "dd9d79bb482e4762af8a14ed2664369fa449187a0d8956d8e0683f40346da7a3",
+      "docs/screenshots/bifrost-course/ci130-after-dark-transfer-feedback.png": "15728c5e692b1ac0abd7f3a3a04bcafd3fbd4c0f1802210e5454fcdb0ffb8e31",
+      "docs/screenshots/bifrost-course/ci130-after-dark-transfer-started.png": "4f770251e7f9b181eaa5cc01f5a21980cb3f0d05ff892f84f3ce17ad797405fe",
+      "docs/screenshots/bifrost-course/ci130-after-dark-transfer.png": "b912f62e2764e4940044ce5ce15c0e0b432a1f0717d5bb0eee303d1736da3bae",
+      "docs/screenshots/bifrost-course/ci130-after-dark-virtualization-1024x500.png": "8232bae4a9033db49b3020349c9798959323a81fbb59b4a91d2a1a2d2e2ff0c9",
+      "docs/screenshots/bifrost-course/ci130-after-light-arc.png": "5428dd616b6d45d59867de75dcedc2585a097f36a9ab0c01cd9dd8d252364ee7",
+      "docs/screenshots/bifrost-course/ci130-after-light-hub-1024x500.png": "5abe361b562c607509c0d1f759fded38f14d935aec9e286e066f5c1ef143159d",
+      "docs/screenshots/bifrost-course/ci130-after-light-hub-1024x768.png": "4bf85533c854fe92059290b5bef336c4773dc16ad7ef720c587d913a62861720",
+      "docs/screenshots/bifrost-course/ci130-after-light-hub-1440x900.png": "bf870f9b2bf3052c444700ea2d59e98168f5bf5d5aa3a2e86ffc12973d3e1b53",
+      "docs/screenshots/bifrost-course/ci130-after-light-hub-800x700.png": "05f34df8939a365e9a616aa19d7336bc51a49ded193a963fe5383206c692bd7d",
+      "docs/screenshots/bifrost-course/ci130-after-light-journal.png": "c2506e5eef047b029b7be7a5cd9873404748a981a06d0c7263145e60ccfd563f",
+      "docs/screenshots/bifrost-course/ci130-after-light-pipeline.png": "091202614aa5b86db709d4781b1262b0d9f74ec2af144977964637075d069963",
+      "docs/screenshots/bifrost-course/ci130-after-light-serverless-320.png": "2c451fa35ebadf4756659dad01331582ee017de45c2cb3a15d832a978ffbd6dc",
+      "docs/screenshots/bifrost-course/ci130-after-light-transfer-feedback.png": "4b8c3161ccab26b65b85d608049d2c172a3418424741202929ea9bc4b3417a03",
+      "docs/screenshots/bifrost-course/ci130-after-light-transfer-started.png": "e7f79fdb8d0e6a4d59841ddb9c5c18f17e6d94771d5be1966ea4c422bf31ccf8",
+      "docs/screenshots/bifrost-course/ci130-after-light-transfer.png": "14a8d7cbc53151448ec5e3646b6e0cfdfae10c4e54ad2dec3ec73c30b03ea1da",
+      "docs/screenshots/bifrost-course/ci130-after-light-virtualization-1024x500.png": "c3488bfeb8935dd3465924fbdfa313972c3dc851fea04f82430e0963b638d930",
+      "docs/screenshots/bifrost-course/ci130-before-dark-arc.png": "cfc7da769c30b4fe3c618c97b9aa7a55b9be5d04fa80913fbaffda7a9a4c4c10",
+      "docs/screenshots/bifrost-course/ci130-before-dark-hub-1024x768.png": "c8df5a9133e67136d3c97b73a776c7894640c4c7d8d8539bf43f227b13266c2a",
+      "docs/screenshots/bifrost-course/ci130-before-dark-hub-1440x900.png": "698f5e3987059c755d121d6a6cca53c49b00f9cab8088e4b145d650fe0ec983f",
+      "docs/screenshots/bifrost-course/ci130-before-dark-journal.png": "49a671482cb6917a866bfab13916b47bd0ee08a9a95595c577d596653256c0b4",
+      "docs/screenshots/bifrost-course/ci130-before-dark-serverless-controls.png": "0156ec1d8f3da5dbc2f42a239f6acbef0572755275042d02af9f7fcee218efb9",
+      "docs/screenshots/bifrost-course/ci130-before-dark-transfer-feedback.png": "7e574d1c7070aa693802eaaed90cadfcaa9569426999b5454b8d71f84aae0ca1",
+      "docs/screenshots/bifrost-course/ci130-before-dark-transfer-started.png": "e4cdf5032d40a18ea000c141487613a215338b8c822f148e1537621cfdb915da",
+      "docs/screenshots/bifrost-course/ci130-before-dark-transfer.png": "91e485c42097bcbc2a30df420c471282977d530a91d989f75a8f0a11d00bd129",
+      "docs/screenshots/bifrost-course/ci130-before-light-arc.png": "4e9bd4bf45ef3b1f3f2216c92cfda885ae03279fea830f5acf636e24973bb0cb",
+      "docs/screenshots/bifrost-course/ci130-before-light-hub-1024x768.png": "4f5fd690ab76fdfc994da8c31e43c9645ecf22a1b2daeae10ad7bc8a56b73eaa",
+      "docs/screenshots/bifrost-course/ci130-before-light-hub-1440x900.png": "bf870f9b2bf3052c444700ea2d59e98168f5bf5d5aa3a2e86ffc12973d3e1b53",
+      "docs/screenshots/bifrost-course/ci130-before-light-journal.png": "c52118084b3702fd34b5b99277bd1da61a66759b49e8a9f2295c3c43a52acb0e",
+      "docs/screenshots/bifrost-course/ci130-before-light-pipeline.png": "22661ac9e270b1a9b8910c705b83663704d2e44013527a3d5a1f4ea78e465fea",
+      "docs/screenshots/bifrost-course/ci130-before-light-transfer.png": "a1c761db3f015eae5614b295fbb865950b7f1a4175be348aced5be57cdfb66b4",
+      "docs/screenshots/bifrost-course/ci130-before-virtualization-1024x500.png": "5a341b1bf87a3106e3630b4bfb6f2922314050dae8e12d560dd2eb15d80ebac3",
+      "docs/screenshots/bifrost-course/ci130-deadline-compact-identity.png": "42c986d8ae74700780040c5f8d3bda7882848c071b2a1ff83066d0cb922a4e4a",
+      "docs/screenshots/bifrost-course/ci130-deadline-compact-storage-b.png": "0f34e1e093c9980c76cf0d600dbcb96d40e1012002f995f6709fe8688f4a8dde",
+      "docs/screenshots/bifrost-course/ci130-deadline-desktop-identity.png": "98647906a02f135d6b65c8d8168e0a087c75c27d971d230270cf3974118851e1",
+      "docs/screenshots/bifrost-course/ci130-deadline-desktop-storage-b.png": "21fb8df240c969a4c8825e1e5ea9b1562ab70a5929622bf79a2e47f84b86d420",
+      "docs/screenshots/bifrost-course/ci130-deadline-desktop-storage-services.png": "d640a7e52cd107d14860bdba12b918e527477cf0a3aacea241241c84e3e3db7d",
+      "docs/screenshots/bifrost-course/dark-compute-before-submit.png": "380c6465b594c547bd8f6754edc1d8e6c015c53087148ca4b0eba742b98e0fc9",
+      "docs/screenshots/bifrost-course/dark-compute-start-dialog.png": "5eb733dd69f833488ebef9ab98f691c40bb1896308bb527dc7ecb1c2314fb2b6",
+      "docs/screenshots/bifrost-course/dark-foundations-before-submit.png": "102eaf8d8ef9cc05ecce565f4d19c8df1b2902eb8a9087107e5e6a25d045e7b1",
+      "docs/screenshots/bifrost-course/dark-hub-1024x500.png": "c20ce9f51d241aad1cda9590ff192fd029750d55589296fa956ab35e6ee30941",
+      "docs/screenshots/bifrost-course/dark-hub-1024x768.png": "6b55287443f39ad8f667b50eb13fe41993d9b7e746c9c975d23c68ea0267c5ed",
+      "docs/screenshots/bifrost-course/dark-hub-800x700.png": "a86ad88f44279f9bf073b5b29d05d6c7db42592868f951c71b441f15bc5b9c78",
+      "docs/screenshots/bifrost-course/dark-hub.png": "b0a7de70b189b2a821d698055dfd983251cb548276e99ed30658d51844b3a08c",
+      "docs/screenshots/bifrost-course/dark-journal.png": "54a9dd74609167cce43a87be2dc146799dbd76d715a38963a0fb29ce8ea0e90d",
+      "docs/screenshots/bifrost-course/dark-native-create.png": "de391e92bf27d8008c10bca7d23a3bfa1a3627476d9eebf31c7031e3670b0e66",
+      "docs/screenshots/bifrost-course/dark-native-review.png": "c6b9012456442501d4b59319b9f77bd3043c02955f127f6f419aab40b2d4d159",
+      "docs/screenshots/bifrost-course/dark-question-correct.png": "5d23bfb2bf91da9dab8df83965eeccdf83ed84c27d671c8d57df0ee5e59ab72b",
+      "docs/screenshots/bifrost-course/dark-question-selected.png": "4b5bd12e5e8d14d5c28a613cf3219c15f0cb3d4d382f5e3bbd66f3d5c445e308",
+      "docs/screenshots/bifrost-course/dark-question-wrong.png": "e770c7e3e30311e78bb280ef95fa7364af96bff1dd0e16daa3d42f406e40f548",
+      "docs/screenshots/bifrost-course/dark-refined-before-submit.png": "44f78775061231f55d5537bf06be6e5d4ab0780bd6e910ff050c970050dd587e",
+      "docs/screenshots/bifrost-course/dark-refined-start-dialog.png": "235807eb20de8e2fe5bff70c90203b408825c74d2f26e4cb9c65ea933bb41265",
+      "docs/screenshots/bifrost-course/dark-resident-native-create.png": "55c0830eb7ebeda018ff8f33265adb0ec8772c9e2682a25529c528fab222da74",
+      "docs/screenshots/bifrost-course/dark-resident-native-review.png": "2a6e312c0f0258cda8b806fa0d2920e821775eb915ee5c6c9b82ed19da22912e",
+      "docs/screenshots/bifrost-course/dark-resident-savvy.png": "4005aba29c044da3f7d57fae10c5ff8e77deece90d18004882a4e29f946e05db",
+      "docs/screenshots/bifrost-course/dark-savvy.png": "7f09d7d97b11ca67d445997eb5fd64257a457a23cb8a759026bbfea00b1cebb4",
+      "docs/screenshots/bifrost-course/dark-teaching-info.png": "d28bf9e9295ca4fd5f5bb7b0becbcf6e00de91202c88090fb9bb2f3322b6c3ae",
+      "docs/screenshots/bifrost-course/dark-warning.png": "84f41d6c5eaed5863214d07221ccba3106dbd29655de3c2fa0ebadcf2b7ac7a3",
+      "docs/screenshots/bifrost-course/intermediate-dark-denied-journal-recovery.png": "ddef38cfd3fa34697f9d9b7a430ba1c9598632092cf057338a5d8fee740c45c6",
+      "docs/screenshots/bifrost-course/light-compute-before-submit.png": "4a21b1ff556194196e506938238ee80d926057e1c14b87f2703d9f34e7cc58c2",
+      "docs/screenshots/bifrost-course/light-compute-start-dialog.png": "b77fbc5a159759bac182c18fe5a12043ed7310b4f7fd30a3c969ddf1244758a5",
+      "docs/screenshots/bifrost-course/light-foundations-before-submit.png": "a88412e02989ac0766bfcf7ab8c9b337af85c6608cf82fb016fd97ca6d606a86",
+      "docs/screenshots/bifrost-course/light-hub-1024x500.png": "a27c440ec254a258bc61c5da2ea9b261f2cafe6c3f1cea3bdf92dc067b1d28c2",
+      "docs/screenshots/bifrost-course/light-hub-1024x768.png": "726a4c14d67d8765051b7957288746b23c385bbd1254b735a5fdce6b263719d2",
+      "docs/screenshots/bifrost-course/light-hub-800x700.png": "aa2b6d22648d34e884470f1b65dff9a7ab7cf2cb1d989a869c1eeac65c123d8d",
+      "docs/screenshots/bifrost-course/light-hub.png": "bf870f9b2bf3052c444700ea2d59e98168f5bf5d5aa3a2e86ffc12973d3e1b53",
+      "docs/screenshots/bifrost-course/light-journal.png": "91ab6eed8e761ec6eb7927c3962feb79712f7e3c9bbf404fc4bfe99817fc9497",
+      "docs/screenshots/bifrost-course/light-native-create.png": "2a7e2b5ec5f8249be7efabe2dc8a7da479103e187f2d6fc0ddde4dc8db0622dd",
+      "docs/screenshots/bifrost-course/light-native-review.png": "c6b9012456442501d4b59319b9f77bd3043c02955f127f6f419aab40b2d4d159",
+      "docs/screenshots/bifrost-course/light-question-correct.png": "06433b5d3b412414b241e959e59a7f6792af33a34d6886d7ca9d9b152d00ee25",
+      "docs/screenshots/bifrost-course/light-question-selected.png": "21022e4c492592275728f24b4bf43790f53dbe9062ffb8fa93775e01fc8c96e6",
+      "docs/screenshots/bifrost-course/light-question-wrong.png": "133bb2338c44ec33facf35751324cd5dec43db7a0d395920d68fce7247ab4a5b",
+      "docs/screenshots/bifrost-course/light-refined-before-submit.png": "3f98807ab513f4c2031b4067aac1c1e831d6bd4891de178bb2a5f3d515f8315f",
+      "docs/screenshots/bifrost-course/light-refined-start-dialog.png": "91a29cddbf868c3a8fa6d526ffb6d541b93e520b91a9df18f2ba42e1d93cb4da",
+      "docs/screenshots/bifrost-course/light-resident-native-create.png": "ac6195ed224f7d01d8b1c2e5a3240c1ef66cf43062cf64524c6e8ad286294c84",
+      "docs/screenshots/bifrost-course/light-resident-native-review.png": "409767dfe32230ab8197e6ef7952ce1ebe3557cc15597579a64958d738f92bb8",
+      "docs/screenshots/bifrost-course/light-resident-savvy.png": "53868d2f836c99feea2331c57b05dd2b1e63f4f23ff9ff73b60a0fef4ba3dbcf",
+      "docs/screenshots/bifrost-course/light-savvy.png": "721965420ab592a51e8e803b503d09963dd30d7f9ad2c94be58174e9dc4d475c",
+      "docs/screenshots/bifrost-course/light-teaching-info.png": "e6c68cf04662171b452aa3afaf4ccf0bcbb4a5c9420bc84b0b2b48b9f6ef3a7d",
+      "docs/screenshots/bifrost-course/light-warning.png": "a26e969db5a0d200a42d93bdff30f3eb95846e14071ce5758ef2367d45bdf33e",
+      "src/features/course/bifrost-course-preservation.test.ts": "01178592f5d90a29a634fcb7117af76e79ef4c4508af21cd0b90a2e0cf65da9c",
+      "src/features/course/bifrost-course.css": "b65a787f1f87e555390ca1b673773673f41d1814937cd3345e103436f211153c",
+      "src/features/course/bifrost-guidance.css": "ce26f45dbf7f8aa039406a489aac6a552b416d5c9bd17fa862477a34819c0568",
+      "src/features/course/cloud-computing-chapters.test.ts": "988109cb1f988835cbb84d5dabfbda29e77a96d9413bd01ab8b0fedc03df2bd3",
+      "src/features/course/course.css": "9ad839664d2395d20ab5193640579995235bab6713f49fb12632ca4348987d0a",
+      "src/features/course/course.tsx": "aa62b5ca73bacc1398563adc483f47aef935fbd4bb23d4669444d6c18f62a7a4",
+      "src/features/course/guidance-milestones.tsx": "e3b75795ff90c3628595be1d791d4a5910f2b8143a54693b921d9662a0cd350e",
+      "src/features/course/guidance-window.tsx": "2b471c00a4f64f12cc4ca62a8e45818f65552f94482319fc35b01947195daee4",
+      "src/features/course/guided-coach.tsx": "dc77ca369c6d402eb116fb594f52080d5fae4bc297f1a73838013b3c6ac3498b",
+      "src/features/course/hybrid-foundation.test.ts": "14f51262521b1b58e84699540ac7541f535ef64bdf4ee327c3ba9b580b2f6287",
+      "src/features/course/mission-briefing.tsx": "c4641a0689eeed96ffdd33802d6d1d008df7d5d13bef78aac6d5669586c89f4b",
+      "src/features/course/mission-portal.tsx": "c4e386a2c92d1f2d69ea79bd7eae14489c9deca26dcd9d815b97da009a607206",
+      "src/features/design/preservation.test.ts": "20071389e6d81d3fd4249db52dd557a518e843288b5cda5c9442d1c658ca8a06",
+      "src/features/learning/compute-vm.tsx": "3f0b7a8ae814f1ee835db06fb7b46d6560dc0375a3145b2dd6f1cc1fe5ebee97",
+      "src/features/learning/foundations-v2.tsx": "2a2dc3499517758504af7c5ed223c1e03f4c801a20aed466775c472a6c57db2f",
+      "src/features/learning/journal.tsx": "1565cdad0265b2c572b5084d52e4cfc5d1a76b7b5891a9ab08f3d58054c7ff0f",
+      "src/features/learning/networking-inspection.tsx": "9e9acca2f08ad2ea1a5bb7a42a290187f89ec250cfcc4ea2c8cd8d6f4ff29af5",
+      "src/features/learning/serverless.tsx": "60c2e1b61f2f70b44c1a7f9c87aa536cb4a424c0119952a0e91627a2a373b431",
+      "tests/bifrost-course-preservation.ts": "345aea570e812d73dfc24fa5a6da40d8bd7718c6bf69902ab7babed5ef823c15",
+      "tests/bifrost-foundation-preservation.ts": "a7e846277e4cee2cfd3d88d6ca7dc47448df069314f08a76694756bf2893c742",
+      "tests/e2e/bifrost-course.spec.ts": "ef1aafba12c7e840124bc9d74e3c307d0a49bb39d8a15a34180c5fe85c81bbf4",
+      "tests/e2e/hybrid-experience.spec.ts": "226f82f442c59c11f3b6031fa3a9052e6b357e04cd3f3f6223061a5e3d108461",
+      "tests/e2e/identity-foundations.spec.ts": "44294fb6441b1db9bd8435d36ee9c253f4f7d4d6b8e5955d6ee8888515f067a8",
+      "tests/e2e/storage-resilience.spec.ts": "e3423cf4cd6dcb49634e88eb78c5079ddc590a21ecd7ac3b55cb51e830bb259e",
+      "tests/e2e/storage-services.spec.ts": "e236a17bc3ed963604e1a77e99f9984aa575a768fcd06647fd3cdab0b309bd86"
     }
   },
-  "implementationFinished": "2026-11-09T20:41:45.672Z"
+  "implementationFinished": "2026-11-10T00:57:15.723Z"
 }
