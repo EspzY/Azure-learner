@@ -30,6 +30,21 @@ test('integrated3.9 default native Portal forms commit the actual app PostgreSQL
     app = integratedWorld(base.app).webApps[0]!;
   const expectedIcons = integratedFamilyKinds;
   await service(page, nb.portal.areas.services);
+  await expect
+    .poll(() =>
+      page
+        .locator('[data-portal-component="service-directory"] img[data-icon-source="azure"]')
+        .evaluateAll(
+          (images) =>
+            images.length > 0 &&
+            images.every(
+              (image) =>
+                (image as HTMLImageElement).complete &&
+                (image as HTMLImageElement).naturalWidth > 0,
+            ),
+        ),
+    )
+    .toBe(true);
   const actualIcons = await page
     .locator('[data-portal-component="service-directory"]')
     .locator('a')

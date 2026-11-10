@@ -3,6 +3,7 @@ import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { createHash } from 'node:crypto';
 import { laboratoryV3Nb as c, nb } from '../../src/content/nb';
+import { portalResourceContextNb as fidelity } from '../../src/content/portal-resource-context-nb';
 async function start(page: Page) {
   await page.goto('/learn');
   await page.getByRole('link', { name: c.entry, exact: true }).click();
@@ -11,15 +12,22 @@ async function start(page: Page) {
   await expect(page.getByRole('button', { name: c.newGroup, exact: true })).toBeVisible();
 }
 async function commit(page: Page, name: string) {
-  await page.getByRole('button', { name: c.review, exact: true }).click();
+  const nativeGroup = (await page.locator('.lab-group-create:visible').count()) > 0;
+  await page
+    .getByRole('button', { name: nativeGroup ? fidelity.reviewCreate : c.review, exact: true })
+    .click();
   const review = page.getByRole('region', { name: c.review, exact: true });
-  await expect(review).toContainText(c.reviewNote);
+  await expect(review).toContainText(nativeGroup ? fidelity.validationNote : c.reviewNote);
   await review.getByRole('button', { name: c.create, exact: true }).click();
   await expect(page.getByRole('heading', { name, exact: true })).toBeVisible();
 }
 async function group(page: Page, name = 'rg-v3') {
   await page.getByRole('button', { name: c.newGroup, exact: true }).click();
-  await page.getByRole('textbox', { name: /^Name/ }).fill(name);
+  await expect(page.locator('.lab-form')).toBeVisible();
+  const nativeGroup = (await page.locator('.lab-group-create:visible').count()) > 0;
+  await page
+    .getByRole('textbox', { name: nativeGroup ? fidelity.groupName : /^Name/, exact: nativeGroup })
+    .fill(name);
   await commit(page, name);
 }
 async function storage(page: Page, text = 'Synthetic Å report <script>window.__labXss=1</script>') {
@@ -53,8 +61,14 @@ test('server Laboratory actual Storage chain commits escaped text metadata origi
   await start(page);
   const before = await oldBytes(page);
   await page.getByRole('button', { name: c.newGroup, exact: true }).click();
-  await page.getByRole('textbox', { name: /^Name/ }).fill('!invalid');
-  await page.getByRole('button', { name: c.review, exact: true }).click();
+  await expect(page.locator('.lab-form')).toBeVisible();
+  const nativeGroup = (await page.locator('.lab-group-create:visible').count()) > 0;
+  await page
+    .getByRole('textbox', { name: nativeGroup ? fidelity.groupName : /^Name/, exact: nativeGroup })
+    .fill('!invalid');
+  await page
+    .getByRole('button', { name: nativeGroup ? fidelity.reviewCreate : c.review, exact: true })
+    .click();
   await expect(page.locator('.lab-review')).toContainText(c.codes['invalid-name']);
   await expect(
     page.locator('.lab-review').getByRole('button', { name: c.create, exact: true }),
@@ -112,8 +126,17 @@ test('server Laboratory two actual tabs with same cookie reject stale writer wit
     [other, 'rg-beta'],
   ] as const) {
     await p.getByRole('button', { name: c.newGroup, exact: true }).click();
-    await p.getByRole('textbox', { name: /^Name/ }).fill(name);
-    await p.getByRole('button', { name: c.review, exact: true }).click();
+    await expect(p.locator('.lab-form')).toBeVisible();
+    const nativeGroup = (await p.locator('.lab-group-create:visible').count()) > 0;
+    await p
+      .getByRole('textbox', {
+        name: nativeGroup ? fidelity.groupName : /^Name/,
+        exact: nativeGroup,
+      })
+      .fill(name);
+    await p
+      .getByRole('button', { name: nativeGroup ? fidelity.reviewCreate : c.review, exact: true })
+      .click();
     await expect(
       p
         .getByRole('region', { name: c.review })
@@ -188,8 +211,14 @@ test('server Laboratory lost response after real commit remains uncertain then r
     } else await route.continue();
   });
   await page.getByRole('button', { name: c.newGroup, exact: true }).click();
-  await page.getByRole('textbox', { name: /^Name/ }).fill('rg-uncertain');
-  await page.getByRole('button', { name: c.review, exact: true }).click();
+  await expect(page.locator('.lab-form')).toBeVisible();
+  const nativeGroup = (await page.locator('.lab-group-create:visible').count()) > 0;
+  await page
+    .getByRole('textbox', { name: nativeGroup ? fidelity.groupName : /^Name/, exact: nativeGroup })
+    .fill('rg-uncertain');
+  await page
+    .getByRole('button', { name: nativeGroup ? fidelity.reviewCreate : c.review, exact: true })
+    .click();
   await page
     .getByRole('region', { name: c.review })
     .getByRole('button', { name: c.create, exact: true })
@@ -318,8 +347,17 @@ test('server Laboratory changed session invalidates reviewed intent and never re
   };
   const reviewGroup = async (name: string) => {
     await page.getByRole('button', { name: c.newGroup, exact: true }).click();
-    await page.getByRole('textbox', { name: /^Name/ }).fill(name);
-    await page.getByRole('button', { name: c.review, exact: true }).click();
+    await expect(page.locator('.lab-form')).toBeVisible();
+    const nativeGroup = (await page.locator('.lab-group-create:visible').count()) > 0;
+    await page
+      .getByRole('textbox', {
+        name: nativeGroup ? fidelity.groupName : /^Name/,
+        exact: nativeGroup,
+      })
+      .fill(name);
+    await page
+      .getByRole('button', { name: nativeGroup ? fidelity.reviewCreate : c.review, exact: true })
+      .click();
     await expect(page.locator('.lab-review')).toBeVisible();
   };
   const refresh = page.getByRole('button', { name: c.refresh, exact: true });

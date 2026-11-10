@@ -43,6 +43,10 @@ const approved = [
   'tests/e2e/integrated-data.spec.ts',
   'tests/e2e/integrated-delivery.spec.ts',
   'tests/e2e/laboratory-actions.ts',
+  'tests/e2e/laboratory-server.spec.ts',
+  'tests/e2e/portal-consolidation.spec.ts',
+  'tests/e2e/premium-landing.spec.ts',
+  'tests/e2e/shared-portal.spec.ts',
 ];
 const rows = execFileSync('git', ['ls-tree', '-r', base], {
   encoding: 'utf8',
