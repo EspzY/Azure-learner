@@ -20,6 +20,13 @@ import {
 import Link from 'next/link';
 import { AzureLabHomeLink } from '@/features/portal/azurelab-home-link';
 import { ephemeralApi, ephemeralActive, startEphemeral } from './ephemeral-client';
+import { courseApi } from './course-client';
+import { CourseEvidencePanel } from './course-evidence';
+import {
+  PortalWorkspaceContext,
+  useWorkspaceNavigation,
+  type PortalWorkspaceMode,
+} from './workspace-context';
 import { laboratoryEphemeralNb as temp } from '@/content/laboratory-ephemeral-nb';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { laboratoryV3Nb as c } from '@/content/nb';
@@ -83,11 +90,6 @@ import {
   portalDisplayValue,
 } from '@/features/portal/resource-details';
 import { portalResourceContextNb as fidelityCopy } from '@/content/portal-resource-context-nb';
-const base = '/labs/laboratory';
-const baseHref = (view: string, id?: string, receipt?: string) =>
-  base +
-  '?' +
-  new URLSearchParams({ view, ...(id ? { id } : {}), ...(receipt ? { receipt } : {}) });
 const message = (code: string, operation?: string) =>
   code === 'resource-in-use'
     ? applicationCopy.resourceInUse
@@ -149,7 +151,7 @@ const operation = (key: string) =>
                   : Object.hasOwn(c.operations, key)
                     ? c.operations[key as keyof typeof c.operations]
                     : key;
-async function api(action: string, request?: unknown, workspace?: string) {
+async function freeApi(action: string, request?: unknown, workspace?: string) {
   if (ephemeralActive()) return ephemeralApi(action, request, workspace);
   let response: Response, value;
   try {
@@ -174,7 +176,23 @@ async function api(action: string, request?: unknown, workspace?: string) {
   if (value.error) throw Error(value.error);
   return value;
 }
-export function Laboratory() {
+export function Laboratory({
+  workspaceMode = 'free',
+}: { workspaceMode?: PortalWorkspaceMode } = {}) {
+  return (
+    <PortalWorkspaceContext mode={workspaceMode}>
+      <LaboratoryController key={workspaceMode} workspaceMode={workspaceMode} />
+    </PortalWorkspaceContext>
+  );
+}
+function LaboratoryController({ workspaceMode }: { workspaceMode: PortalWorkspaceMode }) {
+  const course = workspaceMode === 'course-technical';
+  const { base } = useWorkspaceNavigation();
+  const api = course ? courseApi : freeApi;
+  const baseHref = (view: string, id?: string, receipt?: string) =>
+    base +
+    '?' +
+    new URLSearchParams({ view, ...(id ? { id } : {}), ...(receipt ? { receipt } : {}) });
   const query = useSearchParams(),
     router = useRouter();
   const href = (view: string, id?: string, receipt?: string) =>
@@ -284,7 +302,7 @@ export function Laboratory() {
     } finally {
       if (v === version.current) setLoading(false);
     }
-  }, [accept, updatePending]);
+  }, [accept, updatePending, api]);
   useEffect(() => {
     queueMicrotask(() => {
       void load();
@@ -295,10 +313,12 @@ export function Laboratory() {
     window.addEventListener('focus', refresh);
     document.addEventListener('visibilitychange', refresh);
     if ('BroadcastChannel' in window) {
-      const bc = new BroadcastChannel('azurelab.laboratory.v3.invalidate');
+      const bc = new BroadcastChannel(
+        course ? 'azurelab.course-lab.v1.invalidate' : 'azurelab.laboratory.v3.invalidate',
+      );
       channel.current = bc;
       bc.onmessage = () => {
-        if (!ephemeralActive()) void load();
+        if (course || !ephemeralActive()) void load();
       };
     }
     return () => {
@@ -307,7 +327,7 @@ export function Laboratory() {
       document.removeEventListener('visibilitychange', refresh);
       channel.current?.close();
     };
-  }, [load]);
+  }, [load, course]);
   const run = async (request: LabRequest, workspace: string): Promise<boolean> => {
     let committed = false;
     if (snapshotRef.current?.workspace !== workspace) {
@@ -426,7 +446,7 @@ export function Laboratory() {
                             ? href(kind, target)
                             : href('history', undefined, result.receipt.commandId),
         );
-        if (!ephemeralActive()) channel.current?.postMessage('changed');
+        if (course || !ephemeralActive()) channel.current?.postMessage('changed');
       } else {
         updatePending(null);
         setForm(null);
@@ -458,23 +478,26 @@ export function Laboratory() {
     setBusy(true);
     try {
       if (!navigator.locks) throw Error('backend-unavailable');
-      await navigator.locks.request('azurelab.laboratory.v3.session', async () => {
-        const incoming = await api('session', {
-          model: replace ? replacementModel : startModel,
-          ...(replace ? { newWorkspace: true } : {}),
-        });
-        updatePending(null);
-        setForm(null);
-        setPreview(null);
-        setReset(null);
-        setNewWorkspace(false);
-        setNewApplicationWorkspace(false);
-        setNewIntegratedWorkspace(false);
-        ++version.current;
-        accept(incoming);
-        setError('');
-        if (!ephemeralActive()) channel.current?.postMessage('changed');
-      });
+      await navigator.locks.request(
+        course ? 'azurelab.course-lab.v1.session' : 'azurelab.laboratory.v3.session',
+        async () => {
+          const incoming = await api('session', {
+            model: replace ? replacementModel : startModel,
+            ...(replace ? { newWorkspace: true } : {}),
+          });
+          updatePending(null);
+          setForm(null);
+          setPreview(null);
+          setReset(null);
+          setNewWorkspace(false);
+          setNewApplicationWorkspace(false);
+          setNewIntegratedWorkspace(false);
+          ++version.current;
+          accept(incoming);
+          setError('');
+          if (course || !ephemeralActive()) channel.current?.postMessage('changed');
+        },
+      );
     } catch (e) {
       setError(e instanceof Error ? e.message : 'server-result-unavailable');
     } finally {
@@ -483,6 +506,7 @@ export function Laboratory() {
     }
   };
   const startTemporary = async () => {
+    if (course) return;
     setBusy(true);
     try {
       const incoming = await startEphemeral(startModel);
@@ -500,8 +524,14 @@ export function Laboratory() {
       setLoading(false);
     }
   };
-  const temporary = ephemeralActive();
-  const modeNote = temporary ? temp.mode : snapshot ? w.modeNote : temp.mode;
+  const temporary = !course && ephemeralActive();
+  const modeNote = course
+    ? 'AZ-900 · serverlagret teknisk kursarbeidsområde · ingen vurdering eller XP'
+    : temporary
+      ? temp.mode
+      : snapshot
+        ? w.modeNote
+        : temp.mode;
   const world = snapshot?.world,
     network = world && world.model !== 'laboratory@3.0.0' ? world : undefined,
     routing =
@@ -1432,9 +1462,9 @@ export function Laboratory() {
   );
   return (
     <PortalFrame
-      mode="laboratory"
+      mode={course ? 'course' : 'laboratory'}
       className={`portal laboratory-v3 ${collapsed ? 'portal-collapsed' : ''}`}
-      training="free"
+      training={course ? 'course-technical' : 'free'}
       area={form ? 'create' : view}
       mainId="lab-main"
       titleId="lab-page-title"
@@ -1517,7 +1547,7 @@ export function Laboratory() {
             </PortalSearch>
           }
         >
-          <span className="portal-simulation">{w.free}</span>
+          <span className="portal-simulation">{course ? 'Kursarbeidsområde' : w.free}</span>
           <button type="button" aria-label={c.history} onClick={() => visit('history')}>
             <ServiceIcon kind="notifications" size={19} />
           </button>
@@ -1671,7 +1701,7 @@ export function Laboratory() {
       </PortalBreadcrumbs>
       {query.get('studio') === '1' && view !== 'studio' && (
         <p className="studio-return">
-          <Link href={studioReturn(query)}>{studioCopy.back}</Link>
+          <Link href={studioReturn(query, base)}>{studioCopy.back}</Link>
         </p>
       )}
       {!form && (
@@ -1685,6 +1715,15 @@ export function Laboratory() {
       )}
       <div className="portal-content">
         <div className="portal-view">
+          {course && (
+            <div className="lab-course-context" style={{ paddingBottom: 24 }}>
+              <p>
+                Teknisk integrasjon. Eksisterende AZ-900-oppgaver og resultater bruker fortsatt
+                original Portal.
+              </p>
+              {snapshot && <CourseEvidencePanel snapshot={snapshot} />}
+            </div>
+          )}
           {loading && <p role="status">{c.loading}</p>}
           {error &&
             (!snapshot && ['backend-unavailable', 'server-result-unavailable'].includes(error) ? (
@@ -1719,51 +1758,57 @@ export function Laboratory() {
                 Service, databases, Functions and application delivery. Existing workspaces keep
                 their original model.
               </p>
-              <div className="lab-temporary-entry">
-                <button type="button" disabled={busy} onClick={() => void startTemporary()}>
-                  {temp.start}
-                </button>
-                <p>{temp.entry}</p>
-              </div>
+              {!course && (
+                <div className="lab-temporary-entry">
+                  <button type="button" disabled={busy} onClick={() => void startTemporary()}>
+                    {temp.start}
+                  </button>
+                  <p>{temp.entry}</p>
+                </div>
+              )}
               {!['backend-unavailable', 'server-result-unavailable'].includes(error) && (
                 <p>{c.startNote}</p>
               )}
-              <details className="lab-model-choice">
-                <summary>Tidligere arbeidsområdemodeller</summary>
-                <label>
-                  Arbeidsområdemodell
-                  <select
-                    value={startModel}
-                    onChange={(e) => setStartModel(e.target.value as Model)}
-                  >
-                    <option value={integratedModel}>
-                      3.9 · Integrated Application Chain (recommended)
-                    </option>
-                    <option value={applicationModel}>3.8 · Application Platform</option>
-                    <option value={remediationModel}>3.6 · Security Rule Lifecycle</option>
-                    <option value={topologyModel}>3.7 · Topology Remediation</option>
-                    <option value={laboratoryModel}>
-                      3.5 · Storage, Networking, Compute og Firewall A
-                    </option>
-                    <option value="laboratory@3.4.0">3.4 · Storage, Networking og Compute A</option>
-                    <option value="laboratory@3.3.0">3.3 · Storage og Networking A/B/C</option>
-                    <option value="laboratory@3.2.0">3.2 · Storage og Networking A/B</option>
-                    <option value="laboratory@3.1.0">3.1 · Storage og Networking A</option>
-                    <option value="laboratory@3.0.0">3.0 · Storage</option>
-                  </select>
-                </label>
-                <p>
-                  Valget gjelder bare et nytt arbeidsområde. Eksisterende sesjon gjenopptas uten
-                  oppgradering.
-                </p>
-              </details>
+              {!course && (
+                <details className="lab-model-choice">
+                  <summary>Tidligere arbeidsområdemodeller</summary>
+                  <label>
+                    Arbeidsområdemodell
+                    <select
+                      value={startModel}
+                      onChange={(e) => setStartModel(e.target.value as Model)}
+                    >
+                      <option value={integratedModel}>
+                        3.9 · Integrated Application Chain (recommended)
+                      </option>
+                      <option value={applicationModel}>3.8 · Application Platform</option>
+                      <option value={remediationModel}>3.6 · Security Rule Lifecycle</option>
+                      <option value={topologyModel}>3.7 · Topology Remediation</option>
+                      <option value={laboratoryModel}>
+                        3.5 · Storage, Networking, Compute og Firewall A
+                      </option>
+                      <option value="laboratory@3.4.0">
+                        3.4 · Storage, Networking og Compute A
+                      </option>
+                      <option value="laboratory@3.3.0">3.3 · Storage og Networking A/B/C</option>
+                      <option value="laboratory@3.2.0">3.2 · Storage og Networking A/B</option>
+                      <option value="laboratory@3.1.0">3.1 · Storage og Networking A</option>
+                      <option value="laboratory@3.0.0">3.0 · Storage</option>
+                    </select>
+                  </label>
+                  <p>
+                    Valget gjelder bare et nytt arbeidsområde. Eksisterende sesjon gjenopptas uten
+                    oppgradering.
+                  </p>
+                </details>
+              )}
               <button
                 disabled={busy || error === 'backend-unavailable'}
                 onClick={() => {
                   void start();
                 }}
               >
-                {c.start}
+                {course ? 'Start serverlagret kursarbeidsområde' : c.start}
               </button>
             </section>
           )}
@@ -2567,8 +2612,8 @@ export function Laboratory() {
         </div>
       </div>
       <footer className="portal-footer laboratory-workspace-status">
-        <span>{w.free}</span>
-        {ephemeralActive() && (
+        <span>{course ? 'Kursarbeidsområde · PostgreSQL' : w.free}</span>
+        {temporary && (
           <span className="lab-ephemeral-status" role="status">
             {temp.status}
           </span>

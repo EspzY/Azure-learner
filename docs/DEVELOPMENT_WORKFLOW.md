@@ -1,3 +1,7 @@
+## Next sequential delivery: course technical engine adapter
+
+PR80 is frozen baseline acceptance, with no merge approval. The one active implementation PR is based explicitly on its verified c2 head until main can be approved; retarget only after verified owner-approved baseline merge. Implement the bounded [course adapter](COURSE_LABORATORY_ADAPTER_V1.md), preserve all old sources/assertions/evidence and test against a dedicated local PostgreSQL database plus existing isolated CI. No new missions/assessments or external infrastructure. The full unchanged sharded Quality pipeline and strict release apply to the new exact candidate; prior green PR80 evidence is provenance only. Separate final audit is a quality gate, not a parallel implementation stream. [Owner production checks](BASELINE_OWNER_ACCEPTANCE.md) must be confirmed, never inferred from403.
+
 # Current default after the first main integration
 
 One main agent, sequential work, one active implementation PR. Start from verified current main; define one bounded objective, reuse existing architecture/status/results, run targeted checks during development, then full mandatory check/browser profile, independent post-stamp review, actual preview and strict release before requesting merge approval. Merge approved bounded deliveries regularly. Parallel implementation requires a documented technical gain that outweighs token and integration cost; it is not the default. Independent review is separate from implementation, and the approved four-shard CI strategy remains unchanged.

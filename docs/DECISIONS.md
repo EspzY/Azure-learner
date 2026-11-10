@@ -1,3 +1,7 @@
+## Course adapter v1: persistent technical authority without historical migration
+
+The owner authorizes a bounded course-scoped Laboratory3.9 technical workbench before any pedagogical pilot. Reuse the same controller/engine/repository command path with a versioned server-owned binding, immutable purpose, separate cookie and replayed original-event checkpoints. Course evidence resolves only under server ownership; client-owned free temporary history cannot be assessment proof. No new model version or receipt fields; additive011 extends storage/access only. Existing AZ-900 tasks and v2 first/help/retry/abandon/rubrics/Journal/XP stay untouched. Anonymous technical ownership is not authenticated learner/graded identity. [Contract](COURSE_LABORATORY_ADAPTER_V1.md). PR80 production-control confirmation and explicit merge/deploy approval remain separate gates.
+
 # First main baseline and sequential delivery
 
 Owner decision: integrate exact technical95d9e5b and full Bifrost50e90f3 using a real merge that retains both histories, independently verify the combined tree against actual main d87fa85, then stop for owner approval. Do not individually squash the historical stack. New baseline quality evidence must cover the actual combined source; preserve old proof manifests and assertion bodies through finite test-only parent views plus a native actual-source guard. Main merge may trigger Vercel production; provider configuration is unknown and must be confirmed before merge.

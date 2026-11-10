@@ -1,8 +1,11 @@
 /** Test-only pinned parent views. Runtime never imports this module. Actual
  * integrated bytes and the exact path union are checked before a historical read.
  * The independent baseline test uses native fs/Git, never either parent view. */
-import { readFileSync as nativeRead, realpathSync } from 'node:fs';
-import { execFileSync as nativeExec } from 'node:child_process';
+import { realpathSync } from 'node:fs';
+import {
+  readCourseParent as nativeRead,
+  execCourseParent as nativeExec,
+} from './course-workspace-preservation';
 import { createHash } from 'node:crypto';
 import { strict as assert } from 'node:assert';
 import { dirname, isAbsolute, relative, sep } from 'node:path';
@@ -249,3 +252,7 @@ export const readPortalBaseline = portal.read;
 export const execPortalBaseline = portal.exec;
 export const readCourseBaseline = course.read;
 export const execCourseBaseline = course.exec;
+
+// Admit the pinned baseline before historical assertions execute. Failures are
+// import failures for the whole suite; no assertion or validation is omitted.
+readPortalBaseline('AGENTS.md');

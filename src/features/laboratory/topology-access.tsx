@@ -1,3 +1,5 @@
+'use client';
+import { useWorkspaceNavigation } from './workspace-context';
 import Link from 'next/link';
 import { PortalTable } from '@/features/portal/presentation';
 import { laboratoryTopologyNb as t } from '@/content/laboratory-topology-nb';
@@ -8,6 +10,7 @@ export function TopologyAccess({
 }: {
   analysis: { accessChecks: AccessCheck[]; accessEvaluation: string };
 }) {
+  const { href } = useWorkspaceNavigation();
   if (!analysis.accessChecks.length) return null;
   return (
     <section className="lab-topology-access" aria-label={t.accessTitle}>
@@ -26,15 +29,7 @@ export function TopologyAccess({
             {
               key: 'id',
               label: t.identity,
-              cell: (p) => (
-                <Link
-                  href={
-                    '/labs/laboratory?' + new URLSearchParams({ view: 'peering', id: p.peeringId })
-                  }
-                >
-                  {p.peeringId}
-                </Link>
-              ),
+              cell: (p) => <Link href={href('peering', p.peeringId)}>{p.peeringId}</Link>,
             },
             { key: 'local', label: t.localVnet, cell: (p) => p.localVnetId },
             { key: 'remote', label: t.remoteVnet, cell: (p) => p.remoteVnetId },

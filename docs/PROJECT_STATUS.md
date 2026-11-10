@@ -1,3 +1,7 @@
+## Current continuation — course technical authority
+
+PR80 c2bce3efa2ed4a56c96b594a6731662663e597d1 is the verified development base; main merge is owner-pending, and Vercel production controls are unconfirmed403. See [owner checklist](BASELINE_OWNER_ACCEPTANCE.md). One active implementation branch `codex/course-laboratory-engine-adapter` adds the bounded [workspace/command/evidence vertical](COURSE_LABORATORY_ADAPTER_V1.md), not a new course task. Existing AZ-900/v2 remains original; new technical course work uses the same Laboratory3.9 engine with persistent isolated authority. Local/CI verification and remaining gates: [QA](quality/COURSE_WORKSPACE_QA.md). No merge, production or infrastructure changes.
+
 # First integrated main baseline — candidate
 
 Technical parent95d9e5b and full Bifrost parent50e90f3 are being integrated with an ordinary history-preserving merge against actual main d87fa85. Product code is reused; no new Azure service, learning task, model, SQL migration or assessment rule. Current combined fullcheck,510-browser collection/execution, new independent audit, strict release and exact-SHA preview remain pending; old green inputs do not approve this build. Vercel production settings are inaccessible: treat main merge as a possible production trigger and require owner verification before approval. See [contract](FIRST_MAIN_BASELINE.md) and [sequential priority roadmap](BASELINE_ROADMAP.md). Older sections retain their historical scope.

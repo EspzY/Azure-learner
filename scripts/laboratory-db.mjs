@@ -51,6 +51,7 @@ try {
         '001.sql',
         '002-networking.sql',
         '010-integrated-application-chain.sql',
+        '011-course-workspaces.sql',
       ])
         await client.query(readFileSync('database/laboratory-v3/' + migration, 'utf8'));
       const db = new URL(target).pathname.slice(1);

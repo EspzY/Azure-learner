@@ -1,4 +1,5 @@
 'use client';
+import { useWorkspaceNavigation } from './workspace-context';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
@@ -32,6 +33,7 @@ export function ArchitectureStudio({
   snapshot: Snapshot;
   accept: (s: Snapshot) => void;
 }) {
+  const { base } = useWorkspaceNavigation();
   const query = useSearchParams(),
     parsed = readStudio(query, snapshot.workspace);
   const [list, setList] = useState(false),
@@ -64,7 +66,7 @@ export function ArchitectureStudio({
       if (v) p.set(k, v);
       else p.delete(k);
     }
-    window.history.replaceState(null, '', '/labs/laboratory?' + p);
+    window.history.replaceState(null, '', base + '?' + p);
   };
   const select = (id: string) => update({ sselected: id });
   const open = (view: string, id?: string, receipt?: string) => {
@@ -76,7 +78,7 @@ export function ArchitectureStudio({
       ...(receipt ? { receipt } : {}),
     });
     for (const [k, v] of studioParameters(query)) p.set(k, v);
-    return '/labs/laboratory?' + p;
+    return base + '?' + p;
   };
   useEffect(() => {
     if (!diagnostics || !diagnosticPanel.current) return;

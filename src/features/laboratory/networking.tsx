@@ -1,4 +1,5 @@
 'use client';
+import { useWorkspaceNavigation } from './workspace-context';
 import Link from 'next/link';
 import { laboratoryEndpointsNb as e } from '@/content/laboratory-endpoints-nb';
 import type { ReactNode, RefObject } from 'react';
@@ -28,8 +29,6 @@ export const networkFields: Record<string, string[]> = {
   ],
   AssociateSubnetNsg: ['subnetId', 'nsgId'],
 };
-const href = (view: string, id?: string) =>
-  '/labs/laboratory?' + new URLSearchParams({ view, ...(id ? { id } : {}) });
 
 type Props = {
   world:
@@ -64,6 +63,7 @@ export function NetworkViews({
   headings = true,
   actions = true,
 }: Props) {
+  const { href } = useWorkspaceNavigation();
   const vnet = w.vnets.find((x) => x.id === id),
     subnet = w.subnets.find((x) => x.id === id),
     nsg = w.nsgs.find((x) => x.id === id),

@@ -1,4 +1,5 @@
 'use client';
+import { useWorkspaceNavigation } from './workspace-context';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import type { World, Command } from '@/laboratory/v34/contract';
@@ -22,8 +23,6 @@ export const computeFields: Record<string, string[]> = {
     'osDiskSizeGiB',
   ],
 };
-const href = (view: string, id?: string) =>
-  '/labs/laboratory?' + new URLSearchParams({ view, ...(id ? { id } : {}) });
 export function ComputeViews({
   world,
   view,
@@ -49,6 +48,8 @@ export function ComputeViews({
   receipt: (origin: string) => ReactNode;
   networking: boolean;
 }) {
+  const { href } = useWorkspaceNavigation();
+
   const vm = world.vms.find((x) => x.id === id),
     disk = world.disks.find((x) => x.id === id);
   const owner = world.vms.find((x) => x.nicId === id || x.osDiskId === id);

@@ -1,4 +1,5 @@
 'use client';
+import { useWorkspaceNavigation } from './workspace-context';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 import type { World as PreviousWorld, Command } from '@/laboratory/v35/contract';
@@ -19,8 +20,6 @@ type PolicyAnalysis =
   | import('@/laboratory/v37/analysis').PolicyAnalysis
   | import('@/laboratory/v38/analysis').PolicyAnalysis
   | import('@/laboratory/v39/analysis').PolicyAnalysis;
-const href = (view: string, id?: string) =>
-  '/labs/laboratory?' + new URLSearchParams({ view, ...(id ? { id } : {}) });
 export function firewallDefaults(
   world: World,
   id: string | null,
@@ -139,6 +138,8 @@ export function FirewallViews({
   list: (type: string, rows: { id: string; name: string; origin: string }[]) => ReactNode;
   receipt: (id: string) => ReactNode;
 }) {
+  const { href } = useWorkspaceNavigation();
+
   const fw = world.firewalls.find((x) => x.id === id),
     policy = world.firewallPolicies.find((x) => x.id === id),
     group = world.firewallGroups.find((x) => x.id === id),
@@ -426,6 +427,8 @@ export function FirewallPathDetails({
   world: World;
   analysis: PolicyAnalysis;
 }) {
+  const { href } = useWorkspaceNavigation();
+
   const path = analysis.firewallPath,
     fw = world.firewalls.find((x) => x.id === path.firewallId),
     decision = path.decision;
