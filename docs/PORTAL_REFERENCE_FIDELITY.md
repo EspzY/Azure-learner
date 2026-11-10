@@ -1,3 +1,7 @@
+# Integrated family hierarchy correction — 9 November 2026
+
+The separate current [resource fidelity contract](PORTAL_RESOURCE_FIDELITY.md) and [complete family matrix](PORTAL_RESOURCE_FAMILY_MATRIX.md) refine global versus contextual navigation, standalone versus local configuration, human-readable Overview/Review and scoped supported CRUD. Fresh public source/image versions and actual captured hashes are recorded there. Historical comparisons below remain their original dated evidence; none establishes live current Portal or pixel parity.
+
 # Portal reference and fidelity checklist
 
 ## Corrective icon/reference pass — 2026-10-26

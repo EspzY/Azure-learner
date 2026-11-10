@@ -417,16 +417,26 @@ export function PortalResourceMenu({
 export function PortalResourceLayout({
   menu,
   contentRef,
+  pending = false,
   children,
 }: {
   menu: ReactNode;
   contentRef?: Ref<HTMLDivElement>;
+  pending?: boolean;
   children: ReactNode;
 }) {
   return (
     <div className="portal-resource-overview" data-portal-component="resource-layout">
       {menu}
-      <div className="portal-resource-main" ref={contentRef} tabIndex={-1}>
+      <div
+        className="portal-resource-main"
+        ref={contentRef}
+        tabIndex={-1}
+        aria-busy={pending || undefined}
+        inert={pending || undefined}
+        style={pending ? { visibility: 'hidden' } : undefined}
+        data-resource-navigation-pending={pending ? 'true' : undefined}
+      >
         {children}
       </div>
     </div>

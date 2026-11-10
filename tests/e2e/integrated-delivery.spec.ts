@@ -8,9 +8,11 @@ import { create } from './ephemeral-actions';
 import {
   courseBytes,
   integratedApp,
+  startIntegrated,
   expectIntegratedTitleIcon,
   expectIntegratedRowIcon,
   integratedOperation,
+  integratedResponse,
   integratedWorld,
   service,
   storage,
@@ -167,6 +169,7 @@ test('integrated Front Door native WAF Prevention and Detection changes affect t
   await expect(page.getByText(d.analysisLimit, { exact: true })).toBeVisible();
   expect(commands).toHaveLength(afterChange);
   await page.screenshot({ path: info.outputPath('front-door-detection-analysis.png') });
+  await page.locator('[data-portal-component="technical-evidence"] > summary').click();
   const originalReceipt = page.getByRole('link', { name: storage.receipt, exact: true });
   const originalLocation = new URL((await originalReceipt.getAttribute('href'))!, page.url());
   expect(originalLocation.pathname).toBe('/labs/laboratory');
@@ -290,6 +293,7 @@ test('integrated private Application Gateway native configuration uses real subn
   await expect(page.locator('.studio-inspector')).toContainText(subnet.name);
   await page.getByRole('link', { name: studio.open, exact: true }).click();
   await expect(page.locator('.portal-title h1')).toHaveText(gateway.name);
+  await page.locator('[data-portal-component="technical-evidence"] > summary').click();
   const originalReceipt = page.getByRole('link', { name: storage.receipt, exact: true });
   const originalLocation = new URL((await originalReceipt.getAttribute('href'))!, page.url());
   expect(originalLocation.pathname).toBe('/labs/laboratory');
@@ -302,4 +306,95 @@ test('integrated private Application Gateway native configuration uses real subn
   await expect(page.locator('[data-portal-component="receipt"]')).toContainText(gateway.origin);
   expect(commands).toHaveLength(afterChange);
   expect(await courseBytes(page)).toBe(ready.before);
+});
+
+test('Portal fidelity native WAF association retains its pinned policy after a cross-subscription profile callback without committing rejected Review', async ({
+  page,
+}) => {
+  await startIntegrated(page);
+  const before = await courseBytes(page),
+    commands = committedCommands(page);
+  await create(page, storage.newGroup, { name: 'rg-policy-original' });
+  await service(page, 'Front Door WAF policies');
+  const original = await integratedOperation(page, d.operations.CreateFrontDoorWafPolicy, {
+    [d.fields.name]: 'OriginalPinnedWaf',
+    [d.fields.mode]: 'Prevention',
+  });
+  const waf = integratedWorld(original).delivery.wafPolicies[0]!;
+  await service(page, 'Front Door profiles');
+  const originalProfile = await integratedOperation(page, d.operations.CreateFrontDoor, {
+    [d.fields.name]: 'original-pinned-profile',
+  });
+  await page
+    .locator('[data-portal-component="resource-menu"]')
+    .getByRole('button', { name: 'Endpoints', exact: true })
+    .click();
+  await integratedOperation(page, d.operations.CreateFrontDoorEndpoint, {
+    [d.fields.name]: 'original-pinned-endpoint',
+  });
+
+  // A policy-context create must not silently switch its pinned WAF policy when
+  // the original profile-change callback chooses another subscription's options.
+  await service(page, nb.portal.areas.groups);
+  const otherGroup = await create(page, storage.newGroup, {
+    name: 'rg-other-waf-scope',
+    subscriptionId: 'sub-app',
+  });
+  await service(page, 'Front Door profiles');
+  const otherProfile = await integratedOperation(page, d.operations.CreateFrontDoor, {
+    [d.fields.groupId]: otherGroup.receipt.addedIds[0]!,
+    [d.fields.name]: 'other-waf-profile',
+  });
+  const otherProfileId = otherProfile.receipt.addedIds[0]!;
+  await page
+    .locator('[data-portal-component="resource-menu"]')
+    .getByRole('button', { name: 'Endpoints', exact: true })
+    .click();
+  const otherEndpoint = await integratedOperation(page, d.operations.CreateFrontDoorEndpoint, {
+    [d.fields.profileId]: otherProfileId,
+    [d.fields.name]: 'other-waf-endpoint',
+  });
+  await service(page, 'Front Door WAF policies');
+  await integratedOperation(page, d.operations.CreateFrontDoorWafPolicy, {
+    [d.fields.groupId]: otherGroup.receipt.addedIds[0]!,
+    [d.fields.name]: 'OtherScopeWaf',
+    [d.fields.mode]: 'Prevention',
+  });
+  await openDelivery(page, 'Front Door WAF policies', waf.name);
+  await page
+    .locator('[data-portal-component="resource-menu"]')
+    .getByRole('button', { name: 'Front Door associations', exact: true })
+    .click();
+  await page
+    .getByRole('button', { name: d.operations.CreateFrontDoorSecurityPolicy, exact: true })
+    .click();
+  const form = page.locator('.lab-integrated-form');
+  await form.getByLabel(d.fields.name, { exact: true }).fill('pinned-policy-attempt');
+  await expect(form.getByLabel(d.fields.profileId, { exact: true })).toHaveValue(
+    originalProfile.receipt.addedIds[0]!,
+  );
+  await form.getByLabel(d.fields.profileId, { exact: true }).selectOption(otherProfileId);
+  await expect(form.getByLabel(d.fields.wafPolicyId, { exact: true })).toBeDisabled();
+  await expect(form.getByLabel(d.fields.wafPolicyId, { exact: true })).toHaveValue(waf.id);
+  await expect(form.getByLabel(d.fields.endpointId, { exact: true })).toHaveValue(
+    otherEndpoint.receipt.addedIds[0]!,
+  );
+  const beforePinnedReview = commands.length,
+    reviewed = integratedResponse(page, 'review');
+  await form.getByRole('button', { name: 'Review + create', exact: true }).click();
+  const reviewResponse = await reviewed,
+    envelope = reviewResponse.request().postDataJSON();
+  expect(envelope.request.command).toMatchObject({
+    profileId: otherProfileId,
+    endpointId: otherEndpoint.receipt.addedIds[0]!,
+    wafPolicyId: waf.id,
+  });
+  expect((await reviewResponse.json()).preview).toMatchObject({
+    outcome: 'rejected',
+    code: 'incompatible-association',
+  });
+  await expect(form.getByRole('button', { name: 'Create', exact: true })).toBeDisabled();
+  await form.getByRole('button', { name: 'Cancel', exact: true }).click();
+  expect(commands).toHaveLength(beforePinnedReview);
+  expect(await courseBytes(page)).toBe(before);
 });

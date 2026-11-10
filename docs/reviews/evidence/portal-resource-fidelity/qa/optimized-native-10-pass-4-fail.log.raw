@@ -1,0 +1,201 @@
+tests/e2e/portal-resource-fidelity.spec.ts 720ms
+[WebServer] (node:202225) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 14 tests using 1 worker
+
+(node:202242) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:25:1 › integrated3.9 default native Portal forms commit the actual app PostgreSQL binding FrontDoor chain and one Studio authority (29.4s)
+  ✘   2 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:180:1 › integrated3.9 compact native Review keyboard focus reduced motion Axe and short desktop keep typed configuration readable (1.0m)
+(node:202381) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   3 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:251:1 › integrated3.9 native empty Storage deletion blocks Function dependencies and lands on original committed delete receipts (17.5s)
+  ✓   4 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:324:1 › integrated3.9 PostgreSQL native reload and same-value Function Review preserve verifiable JSONB history before a real configuration change (13.9s)
+  ✓   5 [desktop-chromium] › tests/e2e/integrated-data.spec.ts:45:1 › integrated Function App uses actual Storage and FC1 parents for HTTP and blob configuration analysis and rejects dependent deletion (19.3s)
+  ✓   6 [desktop-chromium] › tests/e2e/integrated-data.spec.ts:179:1 › integrated SQL binding distinguishes unknown hypothetical IP firewall allowance and changed server configuration without runtime claims (22.9s)
+  ✘   7 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:66:1 › integrated Front Door native WAF Prevention and Detection changes affect the actual configured delivery chain (42.4s)
+(node:202744) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   8 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:189:1 › integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references (31.9s)
+(node:202838) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   9 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:311:1 › Portal fidelity native WAF association retains its pinned policy after a cross-subscription profile callback without committing rejected Review (17.9s)
+  ✓  10 [desktop-chromium] › tests/e2e/portal-navigation-pending.spec.ts:72:1 › resource navigation actual old and current presentation under a real React transition suspension excludes stale fixture actions (7.2s)
+  ✓  11 [desktop-chromium] › tests/e2e/portal-navigation-pending.spec.ts:195:1 › native cached resource section navigation commits focus before original receipt keyboard activation and Back Forward without writes (20.3s)
+  ✓  12 [desktop-chromium] › tests/e2e/portal-resource-fidelity.spec.ts:32:1 › Portal fidelity scopes same-named profile children by actual IDs and preserves direct historical links original receipts and neutral navigation (17.6s)
+  ✘  13 [desktop-chromium] › tests/e2e/portal-resource-fidelity.spec.ts:187:1 › Portal fidelity native Review readable Overview keyboard reduced motion Axe and compact parent menus retain real configuration boundaries (9.8s)
+(node:203041) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  14 [desktop-chromium] › tests/e2e/portal-fidelity.spec.ts:341:1 › guided coach minimization restores the actual operational workspace without losing the mission (20.5s)
+
+
+  1) [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:180:1 › integrated3.9 compact native Review keyboard focus reduced motion Axe and short desktop keep typed configuration readable 
+
+    Test timeout of 30000ms exceeded.
+
+    Tearing down "context" exceeded the test timeout of 30000ms.
+
+    Error: page.screenshot: Test ended.
+    Call log:
+      - taking page screenshot
+      - waiting for fonts to load...
+      - fonts loaded
+
+
+      231 |       await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
+      232 |     ).toBe(true);
+    > 233 |     await page.screenshot({
+          |                ^
+      234 |       path: info.outputPath(`integrated-review-${viewport.width}x${viewport.height}.png`),
+      235 |     });
+      236 |   }
+        at /workspace/azurelab-phase2/portal-fidelity/tests/e2e/integrated-chain.spec.ts:233:16
+
+    Error: browserContext.close: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /home/agent/.cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-7XbnDQ --remote-debugging-pipe --no-startup-window
+    <launched> pid=202255
+    [pid=202255][err] [1109/231917.765530:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=202255][err] [1109/231917.765893:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=202255][err] [1109/231917.804710:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=202255][err] [1109/231917.811903:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=202255][err] [1109/231917.853102:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+    [pid=202255][err] [1109/231917.853333:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+    [pid=202255][err] [1109/231917.854174:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=202255][err] [1109/231917.892359:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+    [pid=202255][err] [1109/231918.226218:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+    [pid=202255][err] [1109/231918.263472:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+    [pid=202255][err] [1109/231959.262845:INFO:CONSOLE:0] "The resource http://127.0.0.1:3006/_next/static/chunks/1vj7kg3u1mmh9.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3006/labs/laboratory?view=postgresServer (0)
+    [pid=202255][err] [1109/231959.263027:INFO:CONSOLE:0] "The resource http://127.0.0.1:3006/_next/static/chunks/3q-hgjrxdyynh.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3006/labs/laboratory?view=postgresServer (0)
+    [pid=202255][err] [1109/231959.270056:INFO:CONSOLE:0] "The resource http://127.0.0.1:3006/_next/static/chunks/0jlklt-6pxg45.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3006/labs/laboratory?view=postgresServer (0)
+    [pid=202255][err] [1109/231959.274407:INFO:CONSOLE:0] "The resource http://127.0.0.1:3006/_next/static/chunks/2q_2ezgytxbtv.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3006/labs/laboratory?view=postgresServer (0)
+    [pid=202255][err] [1109/231959.276434:INFO:CONSOLE:0] "The resource http://127.0.0.1:3006/_next/static/chunks/0cnpuj6hwp1yo.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3006/labs/laboratory?view=postgresServer (0)
+    [pid=202255][err] [1109/231959.276974:INFO:CONSOLE:0] "The resource http://127.0.0.1:3006/_next/static/chunks/3nn68zmi9bcd1.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3006/labs/laboratory?view=postgresServer (0)
+    [pid=202255] <gracefully close start>
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .artifacts/optimized-native-results/integrated-chain-integrate-0a50b-yped-configuration-readable-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .artifacts/optimized-native-results/integrated-chain-integrate-0a50b-yped-configuration-readable-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .artifacts/optimized-native-results/integrated-chain-integrate-0a50b-yped-configuration-readable-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace .artifacts/optimized-native-results/integrated-chain-integrate-0a50b-yped-configuration-readable-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:66:1 › integrated Front Door native WAF Prevention and Detection changes affect the actual configured delivery chain 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: response.json: Test timeout of 30000ms exceeded.
+
+       at integrated-actions.ts:215
+
+      213 |   const committed = integratedResponse(page, 'command');
+      214 |   await page.locator('.lab-form').getByRole('button', { name: action, exact: true }).click();
+    > 215 |   const result: CommandResult = await (await committed).json();
+          |                                                         ^
+      216 |   expect(result.receipt.outcome, JSON.stringify(result.receipt)).toBe('accepted');
+      217 |   await expect(page.locator('.lab-integrated-form')).toHaveCount(0);
+      218 |   const suffix = result.receipt.operation.replace(/^(Create|Update)/, '');
+        at integratedOperation (/workspace/azurelab-phase2/portal-fidelity/tests/e2e/integrated-actions.ts:215:57)
+        at /workspace/azurelab-phase2/portal-fidelity/tests/e2e/integrated-delivery.spec.ts:74:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .artifacts/optimized-native-results/integrated-delivery-integr-47222-l-configured-delivery-chain-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .artifacts/optimized-native-results/integrated-delivery-integr-47222-l-configured-delivery-chain-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .artifacts/optimized-native-results/integrated-delivery-integr-47222-l-configured-delivery-chain-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace .artifacts/optimized-native-results/integrated-delivery-integr-47222-l-configured-delivery-chain-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:189:1 › integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.evaluate: Test timeout of 30000ms exceeded.
+
+       at integrated-actions.ts:192
+
+      190 |       continue;
+      191 |     }
+    > 192 |     if (await input.evaluate((element) => element.tagName === 'SELECT'))
+          |                     ^
+      193 |       await input.selectOption(value);
+      194 |     else await input.fill(value);
+      195 |   }
+        at fillIntegrated (/workspace/azurelab-phase2/portal-fidelity/tests/e2e/integrated-actions.ts:192:21)
+        at integratedOperation (/workspace/azurelab-phase2/portal-fidelity/tests/e2e/integrated-actions.ts:204:3)
+        at /workspace/azurelab-phase2/portal-fidelity/tests/e2e/integrated-delivery.spec.ts:225:22
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .artifacts/optimized-native-results/integrated-delivery-integr-bc471-ener-and-routing-references-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .artifacts/optimized-native-results/integrated-delivery-integr-bc471-ener-and-routing-references-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .artifacts/optimized-native-results/integrated-delivery-integr-bc471-ener-and-routing-references-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace .artifacts/optimized-native-results/integrated-delivery-integr-bc471-ener-and-routing-references-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [desktop-chromium] › tests/e2e/portal-resource-fidelity.spec.ts:187:1 › Portal fidelity native Review readable Overview keyboard reduced motion Axe and compact parent menus retain real configuration boundaries 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('.portal-breadcrumbs').getByRole('button', { name: 'Home', exact: true })
+    Expected: 1
+    Received: 0
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('.portal-breadcrumbs').getByRole('button', { name: 'Home', exact: true }) with timeout 5000ms
+      - waiting for locator('.portal-breadcrumbs').getByRole('button', { name: 'Home', exact: true })
+        13 × locator resolved to 0 elements
+           - unexpected value "0"
+
+
+      195 |   await expect(
+      196 |     breadcrumbs.getByRole('button', { name: nb.portal.areas.home, exact: true }),
+    > 197 |   ).toHaveCount(1);
+          |     ^
+      198 |   await expect(breadcrumbs.getByRole('link')).toHaveCount(0);
+      199 |
+      200 |   await page.getByRole('button', { name: storage.newGroup, exact: true }).click();
+        at /workspace/azurelab-phase2/portal-fidelity/tests/e2e/portal-resource-fidelity.spec.ts:197:5
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .artifacts/optimized-native-results/portal-resource-fidelity-P-232f5-al-configuration-boundaries-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .artifacts/optimized-native-results/portal-resource-fidelity-P-232f5-al-configuration-boundaries-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .artifacts/optimized-native-results/portal-resource-fidelity-P-232f5-al-configuration-boundaries-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace .artifacts/optimized-native-results/portal-resource-fidelity-P-232f5-al-configuration-boundaries-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4 failed
+    [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:180:1 › integrated3.9 compact native Review keyboard focus reduced motion Axe and short desktop keep typed configuration readable 
+    [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:66:1 › integrated Front Door native WAF Prevention and Detection changes affect the actual configured delivery chain 
+    [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:189:1 › integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references 
+    [desktop-chromium] › tests/e2e/portal-resource-fidelity.spec.ts:187:1 › Portal fidelity native Review readable Overview keyboard reduced motion Axe and compact parent menus retain real configuration boundaries 
+  10 passed (6.8m)

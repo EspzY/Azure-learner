@@ -6,6 +6,7 @@ import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { landingNb as t, laboratoryV3Nb as lab, nb, challenge2Nb } from '../../src/content/nb';
+import { portalResourceContextNb as fidelity } from '../../src/content/portal-resource-context-nb';
 import { CourseStatusBadge } from '../../src/features/landing/course-status-badge';
 import { startUpdated, servicesNew, updatedKey } from './challenge-v2-actions';
 const az900 = (page: Page) => page.getByRole('link', { name: t.az900Link, exact: true });
@@ -30,8 +31,17 @@ async function root(page: Page) {
 }
 async function createGroup(page: Page) {
   await page.getByRole('button', { name: lab.newGroup, exact: true }).click();
-  await page.getByRole('textbox', { name: /^Name/ }).fill('rg-independent-landing');
-  await page.getByRole('button', { name: lab.review, exact: true }).click();
+  await expect(page.locator('.lab-form')).toBeVisible();
+  const nativeGroup = (await page.locator('.lab-group-create:visible').count()) > 0;
+  await page
+    .getByRole('textbox', {
+      name: nativeGroup ? fidelity.groupName : /^Name/,
+      exact: nativeGroup,
+    })
+    .fill('rg-independent-landing');
+  await page
+    .getByRole('button', { name: nativeGroup ? fidelity.reviewCreate : lab.review, exact: true })
+    .click();
   await page.locator('.lab-review').getByRole('button', { name: lab.create, exact: true }).click();
   await expect(
     page.getByRole('heading', { name: 'rg-independent-landing', exact: true }),

@@ -1,5 +1,6 @@
 'use client';
 import { integratedResourceIcon } from './integrated-icons';
+import { portalResourceFamilies, portalResourceParent } from '@/features/portal/resource-context';
 import { deliveryInventory } from './integrated-delivery';
 import { dataFamilies } from './integrated-data';
 import { isFirewallWorld } from './capabilities';
@@ -204,7 +205,11 @@ export function laboratoryInventory(world: World): readonly LaboratoryResource[]
       rows[rows.length - 1] = {
         ...row,
         kind: integratedResourceIcon(resource.view, resource.type) ?? resource.view,
-        category: 'resource',
+        parentId: portalResourceParent(row),
+        category:
+          portalResourceFamilies[resource.view]?.classification === 'resource'
+            ? 'resource'
+            : 'subresource',
       };
     }
   }

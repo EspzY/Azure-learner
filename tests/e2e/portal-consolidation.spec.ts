@@ -2,6 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 import Axe from '@axe-core/playwright';
 import { startTemporary, service, create, courseBytes, c, n } from './ephemeral-actions';
 import { nb } from '../../src/content/nb';
+import { portalResourceContextNb as fidelity } from '../../src/content/portal-resource-context-nb';
 import { architectureStudioNb as studio } from '../../src/content/architecture-studio-nb';
 import { start as missionStart, create as courseCreate, returnCourse } from './vm-debrief-actions';
 import { revealPortalLink } from './portal-actions';
@@ -130,8 +131,14 @@ test('persistent shared Home subscriptions reload and isolated sessions read the
   await page.getByRole('button', { name: c.start, exact: true }).click();
   await expect(page.locator('[data-portal-component="home"]')).toBeVisible();
   await page.getByRole('button', { name: c.newGroup, exact: true }).click();
-  await page.getByLabel(c.name, { exact: true }).fill('rg-shared-persistent');
-  await page.getByRole('button', { name: c.review, exact: true }).click();
+  await expect(page.locator('.lab-form')).toBeVisible();
+  const nativeGroup = (await page.locator('.lab-group-create:visible').count()) > 0;
+  await page
+    .getByLabel(nativeGroup ? fidelity.groupName : c.name, { exact: true })
+    .fill('rg-shared-persistent');
+  await page
+    .getByRole('button', { name: nativeGroup ? fidelity.reviewCreate : c.review, exact: true })
+    .click();
   await page
     .getByRole('region', { name: c.review, exact: true })
     .getByRole('button', { name: c.create, exact: true })
@@ -205,7 +212,13 @@ test('shared Home subscriptions compact keyboard focus reduced motion Axe and sh
   await expect(page.locator('[data-portal-component="subscriptions"]')).toBeVisible();
   expect((await new Axe({ page }).analyze()).violations).toEqual([]);
   await page.screenshot({ path: info.outputPath('free-subscriptions-short.png') });
-  await service(page, p.areas.services);
+  const allServices = page
+    .locator('.portal-nav nav')
+    .getByRole('link', { name: p.areas.services, exact: true });
+  await revealLaboratoryLink(page, allServices);
+  await allServices.click();
+  await closeLaboratoryDrawer(page);
+  await expect(page.locator('.portal-title h1')).toHaveText(p.areas.services);
   expect(
     await page
       .locator('[data-portal-component="service-directory"] [data-icon]')

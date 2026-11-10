@@ -35,7 +35,7 @@ async function deniedDelete(page: Page, label: string, targetLabel: string, targ
   await expect(form.getByLabel(targetLabel, { exact: true })).toBeDisabled();
   await expect(form.getByLabel(targetLabel, { exact: true })).toHaveValue(targetId);
   const response = memoryResponse(page, 'review');
-  await form.getByRole('button', { name: 'Review', exact: true }).click();
+  await form.getByRole('button', { name: /^Review \+ (?:create|save|delete)$/ }).click();
   const review = await (await response).json();
   expect(review.preview).toMatchObject({ outcome: 'rejected', code: 'cascade-delete-unsupported' });
   await expect(form.getByRole('button', { name: 'Delete', exact: true })).toBeDisabled();
@@ -124,7 +124,7 @@ test('integrated Function App uses actual Storage and FC1 parents for HTTP and b
   const noopReview = memoryResponse(page, 'review');
   await page
     .locator('.lab-integrated-form')
-    .getByRole('button', { name: 'Review', exact: true })
+    .getByRole('button', { name: /^Review \+ (?:create|save|delete)$/ })
     .click();
   expect((await (await noopReview).json()).preview.code).toBe('no-change');
   await expect(
@@ -166,9 +166,14 @@ test('integrated Function App uses actual Storage and FC1 parents for HTTP and b
   await service(page, nb.portal.areas.resources);
   await expectIntegratedRowIcon(page, app.name, 'functionApp');
   await expectIntegratedRowIcon(page, 'integratedfunctions', 'account');
+  await expectIntegratedRowIcon(page, plan.name, 'plan');
   await page.screenshot({
     path: info.outputPath('integrated-function-and-storage-family-row-icons.png'),
   });
+  await service(page, nb.portal.areas.plans);
+  await expect(
+    page.getByRole('table').getByRole('link', { name: plan.name, exact: true }),
+  ).toBeVisible();
 });
 
 test('integrated SQL binding distinguishes unknown hypothetical IP firewall allowance and changed server configuration without runtime claims', async ({

@@ -2,6 +2,7 @@ import { test, expect, type Page } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { nb, laboratoryV3Nb as c, challenge2Nb } from '../../src/content/nb';
 import { portalWorkspaceNb as w } from '../../src/content/portal-workspace-nb';
+import { portalResourceContextNb as fidelity } from '../../src/content/portal-resource-context-nb';
 import { laboratoryNetworkNb as n } from '../../src/content/laboratory-networking-nb';
 import { revealPortalLink } from './portal-actions';
 import { revealLaboratoryLink, closeLaboratoryDrawer } from './laboratory-actions';
@@ -30,7 +31,10 @@ async function start(page: Page) {
   await expect(page.getByRole('button', { name: c.newGroup, exact: true })).toBeVisible();
 }
 async function commit(page: Page, name: string) {
-  await page.getByRole('button', { name: c.review, exact: true }).click();
+  const nativeGroup = (await page.locator('.lab-group-create:visible').count()) > 0;
+  await page
+    .getByRole('button', { name: nativeGroup ? fidelity.reviewCreate : c.review, exact: true })
+    .click();
   await page
     .getByRole('region', { name: c.review, exact: true })
     .getByRole('button', { name: c.create, exact: true })
@@ -39,7 +43,11 @@ async function commit(page: Page, name: string) {
 }
 async function group(page: Page, name = 'rg-shared-portal') {
   await page.getByRole('button', { name: c.newGroup, exact: true }).click();
-  await page.getByRole('textbox', { name: c.name, exact: true }).fill(name);
+  await expect(page.locator('.lab-form')).toBeVisible();
+  const nativeGroup = (await page.locator('.lab-group-create:visible').count()) > 0;
+  await page
+    .getByRole('textbox', { name: nativeGroup ? fidelity.groupName : c.name, exact: true })
+    .fill(name);
   await commit(page, name);
 }
 async function nav(page: Page, name: string) {
@@ -276,13 +284,23 @@ test('shared Portal compact native search drawer properties dialogs reduced moti
   await expect(help).toBeFocused();
   await nav(page, c.groups);
   await page.getByRole('button', { name: c.newGroup, exact: true }).click();
-  await page.getByRole('textbox', { name: c.name, exact: true }).fill('rg-reviewed-only');
-  await page.getByRole('button', { name: c.review, exact: true }).click();
+  await expect(page.locator('.lab-form')).toBeVisible();
+  const nativeGroup = (await page.locator('.lab-group-create:visible').count()) > 0;
+  await page
+    .getByRole('textbox', { name: nativeGroup ? fidelity.groupName : c.name, exact: true })
+    .fill('rg-reviewed-only');
+  await page
+    .getByRole('button', { name: nativeGroup ? fidelity.reviewCreate : c.review, exact: true })
+    .click();
   const review = page.getByRole('region', { name: c.review, exact: true });
   await expect(
-    review.getByRole('heading', { name: c.review, level: 2, exact: true }),
+    review.getByRole('heading', {
+      name: nativeGroup ? fidelity.reviewCreate : c.review,
+      level: 2,
+      exact: true,
+    }),
   ).toBeFocused();
-  await expect(review).toContainText(w.reviewAccepted);
+  await expect(review).toContainText(nativeGroup ? fidelity.validationPassed : w.reviewAccepted);
   await expect(review).not.toContainText(c.codes.created);
   const create = review.getByRole('button', { name: c.create, exact: true });
   await expect(create).toBeInViewport({ ratio: 1 });
@@ -296,6 +314,12 @@ test('shared Portal compact native search drawer properties dialogs reduced moti
   await page.screenshot({ path: info.outputPath('shared-review-focus-1024-500.png') });
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   await page.keyboard.press('Tab');
+  if (nativeGroup) {
+    const technical = review.locator('details.portal-technical-evidence > summary');
+    await expect(technical).toHaveCount(1);
+    await expect(technical).toBeFocused();
+    await page.keyboard.press('Tab');
+  }
   await expect(create).toBeFocused();
   await page.screenshot({ path: info.outputPath('shared-review-1024-500.png') });
   await page.getByRole('button', { name: c.cancel, exact: true }).click();

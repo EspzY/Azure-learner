@@ -1,0 +1,1834 @@
+{
+  "reviewedAt": "2026-11-09",
+  "baselineImplementation": "c4119f3f770d6767881dc5ee455686cbae0150d7",
+  "familyCount": 47,
+  "deliveryOperationCount": 40,
+  "dataOperationCount": 22,
+  "authority": "Read-only presentation matrix; not runtime resource or capability registration.",
+  "families": [
+    {
+      "view": "group",
+      "icon": "groups",
+      "armOrLocalType": "Microsoft.Resources/resourceGroups",
+      "classification": "scope",
+      "parentField": "subscriptionId",
+      "globalService": "groups",
+      "globalServiceEntry": true,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateGroup; inspect. No individual delete/move.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["resource-groups"],
+      "status": "PARTIAL:3.9 create form has actual Basics/Review presentation; older create forms and all historical Overview/Properties remain preserved. Exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["metadataRegion"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ],
+      "createPresentation": "laboratory@3.9.0 only: Project details Subscription then resource-group name, Resource details Region; actual Basics → Review + create → Validation; original typed read-only Review/explicit Create. No Tags or unsupported stages. Earlier model create flows unchanged.",
+      "creationPresentationAppliedModels": ["laboratory@3.9.0"]
+    },
+    {
+      "view": "account",
+      "icon": "account",
+      "armOrLocalType": "Microsoft.Storage/storageAccounts",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "accounts",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [
+        {
+          "key": "containers",
+          "label": "Containers",
+          "icon": "container",
+          "views": ["container"]
+        }
+      ],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateStorageAccount;3.9 DeleteStorageAccount only when empty/unreferenced.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["storage-create", "storage-blobs"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["kind", "sku"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "container",
+      "icon": "container",
+      "armOrLocalType": "Local data-plane container projection",
+      "classification": "data",
+      "parentField": "accountId",
+      "globalService": "accounts",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [
+        {
+          "key": "blobs",
+          "label": "Blobs",
+          "icon": "blob",
+          "views": ["blob"]
+        }
+      ],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateBlobContainer;3.9 DeleteBlobContainer only when empty/unreferenced.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["storage-create", "storage-blobs"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["access"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "blob",
+      "icon": "blob",
+      "armOrLocalType": "Local synthetic blob data",
+      "classification": "data",
+      "parentField": "containerId",
+      "globalService": "accounts",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateTextBlob; inspect only; no overwrite/delete.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["storage-create", "storage-blobs"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["contentType", "sizeBytes", "text"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "vnet",
+      "icon": "vnet",
+      "armOrLocalType": "Microsoft.Network/virtualNetworks",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "vnets",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [
+        {
+          "key": "subnets",
+          "label": "Subnets",
+          "icon": "subnet",
+          "views": ["subnet"]
+        },
+        {
+          "key": "peering-resources",
+          "label": "Peerings",
+          "icon": "peering",
+          "views": ["peering"]
+        }
+      ],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateVirtualNetwork; inspect only.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["virtual-network"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["addressSpace"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "subnet",
+      "icon": "subnet",
+      "armOrLocalType": "Microsoft.Network/virtualNetworks/subnets",
+      "classification": "child",
+      "parentField": "vnetId",
+      "globalService": "vnets",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateSubnet; Associate/Disassociate NSG and Route Table; no CIDR edit/delete.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["subnets"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["addressPrefix", "nsgId", "routeTableId"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "nsg",
+      "icon": "nsg",
+      "armOrLocalType": "Microsoft.Network/networkSecurityGroups",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "nsgs",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [
+        {
+          "key": "security-rules",
+          "label": "Security rules",
+          "icon": "rule",
+          "views": ["rule"]
+        }
+      ],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateNetworkSecurityGroup; inspect; built-in rules read-only.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["nsg"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": [],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "rule",
+      "icon": "properties",
+      "armOrLocalType": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "classification": "child",
+      "parentField": "nsgId",
+      "globalService": "nsgs",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateSecurityRule, UpdateSecurityRule, DeleteSecurityRule; built-ins read-only.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["nsg"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": [
+        "direction",
+        "priority",
+        "access",
+        "protocol",
+        "source",
+        "sourcePort",
+        "destination",
+        "destinationPort"
+      ],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "routeTable",
+      "icon": "routeTable",
+      "armOrLocalType": "Microsoft.Network/routeTables",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "routeTables",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [
+        {
+          "key": "routes",
+          "label": "Routes",
+          "icon": "route",
+          "views": ["route"]
+        }
+      ],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateRouteTable; inspect; subnet association.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["routes"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": [],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "route",
+      "icon": "properties",
+      "armOrLocalType": "Microsoft.Network/routeTables/routes",
+      "classification": "child",
+      "parentField": "routeTableId",
+      "globalService": "routeTables",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateRoute, UpdateRoute, DeleteRoute.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["routes"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["addressPrefix", "nextHopType", "nextHopIpAddress"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "peering",
+      "icon": "peering",
+      "armOrLocalType": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "classification": "child",
+      "parentField": "vnetId",
+      "globalService": "vnets",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreatePeering; supported access/forwarding changes; no delete.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["peerings"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": [
+        "remoteVnetId",
+        "allowVirtualNetworkAccess",
+        "allowForwardedTraffic"
+      ],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "nic",
+      "icon": "nic",
+      "armOrLocalType": "Microsoft.Network/networkInterfaces",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "nics",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateNetworkInterface; AssociateNicNsg/DisassociateNicNsg; no IP edit/delete.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["nic"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["subnetId", "privateIpAddress", "allocation", "nsgId"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "vm",
+      "icon": "vm",
+      "armOrLocalType": "Microsoft.Compute/virtualMachines",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "vms",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "Atomic CreateVirtualMachine plus NIC/OS disk; inspect; no runtime/update/delete.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["vm-create"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["image", "size", "osDiskId", "nicId"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "disk",
+      "icon": "disk",
+      "armOrLocalType": "Microsoft.Compute/disks",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "disks",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "Created only atomically with VM; inspect; no independent Create/Delete.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["managed-disks"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["sku", "sizeGiB", "vmId"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "publicIp",
+      "icon": "publicIp",
+      "armOrLocalType": "Microsoft.Network/publicIPAddresses (synthetic configuration)",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "publicIps",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "Created atomically with Firewall; inspect; no independent allocation/update/delete.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["public-ip", "firewall-create"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["sku", "allocation", "ipAddress", "firewallId"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "firewall",
+      "icon": "firewall",
+      "armOrLocalType": "Microsoft.Network/azureFirewalls",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "firewalls",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateAzureFirewall plus Public IP; inspect; no generic Update/Delete.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["firewall-create", "firewall-rules"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["sku", "subnetId", "publicIpId", "policyId", "privateIp"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "firewallPolicy",
+      "icon": "firewallPolicy",
+      "armOrLocalType": "Microsoft.Network/firewallPolicies",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "firewallPolicies",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [
+        {
+          "key": "rule-collection-groups",
+          "label": "Rule collection groups",
+          "icon": "firewallGroup",
+          "views": ["firewallGroup"]
+        }
+      ],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateFirewallPolicy; inspect.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["firewall-create", "firewall-rules"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["sku"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "firewallGroup",
+      "icon": "firewallGroup",
+      "armOrLocalType": "Microsoft.Network/firewallPolicies/ruleCollectionGroups",
+      "classification": "child",
+      "parentField": "policyId",
+      "globalService": "firewallPolicies",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [
+        {
+          "key": "rule-collections",
+          "label": "Rule collections",
+          "icon": "firewallCollection",
+          "views": ["firewallCollection"]
+        }
+      ],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateFirewallRuleCollectionGroup; inspect.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["firewall-create", "firewall-rules"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["priority"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "firewallCollection",
+      "icon": "firewallCollection",
+      "armOrLocalType": "Nested rule-collection configuration",
+      "classification": "configuration",
+      "parentField": "collectionGroupId",
+      "globalService": "firewallPolicies",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [
+        {
+          "key": "network-rules",
+          "label": "Network rules",
+          "icon": "firewallRule",
+          "views": ["firewallRule"]
+        }
+      ],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateFirewallNetworkRuleCollection; inspect.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["firewall-create", "firewall-rules"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["priority", "action"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "firewallRule",
+      "icon": "firewallRule",
+      "armOrLocalType": "Nested network-rule configuration",
+      "classification": "configuration",
+      "parentField": "collectionId",
+      "globalService": "firewallPolicies",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateFirewallNetworkRule, UpdateFirewallNetworkRule, DeleteFirewallNetworkRule.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["firewall-create", "firewall-rules"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["protocol", "source", "destination", "destinationPort"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "appPlan",
+      "icon": "plan",
+      "armOrLocalType": "Microsoft.Web/serverfarms",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "plans",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateAppServicePlan, UpdateAppServicePlan SKU, DeleteAppServicePlan blocked while referenced.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["app-plan"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["os", "sku"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "webApp",
+      "icon": "apps",
+      "armOrLocalType": "Microsoft.Web/sites",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "apps",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [
+        {
+          "key": "deployments",
+          "label": "Deployment configuration",
+          "icon": "settings",
+          "views": ["appDeployment"]
+        },
+        {
+          "key": "environment",
+          "label": "Environment variables",
+          "icon": "settings",
+          "views": ["appSetting"]
+        },
+        {
+          "key": "database-bindings",
+          "label": "Database bindings",
+          "icon": "settings",
+          "views": ["databaseConnection"]
+        }
+      ],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "CreateWebApp, UpdateWebApp supported fields, DeleteWebApp blocked by external references.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["app-settings", "web-app", "app-plan"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["planId", "enabled", "publicNetworkAccess", "httpsOnly"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "appDeployment",
+      "icon": "settings",
+      "armOrLocalType": "Local synthetic deployment configuration",
+      "classification": "configuration",
+      "parentField": "webAppId",
+      "globalService": "apps",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "DeploySyntheticApplication; local declared profile only.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["app-settings", "web-app", "app-plan"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["healthPath", "responseStatus", "responseText"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "appSetting",
+      "icon": "settings",
+      "armOrLocalType": "Local individual setting configuration",
+      "classification": "configuration",
+      "parentField": "webAppId",
+      "globalService": "apps",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Preserved original model-specific Overview. New shared Essentials/property renderer is not applied to this historical family."
+      ],
+      "operations": [],
+      "preservedOperations": "SetApplicationSetting/DeleteApplicationSetting; bounded non-secret configuration.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original existing receipt and Properties presentation preserved. New closed technical-evidence disclosure applies only to the integrated family renderer, not this historical UI.",
+      "references": ["app-settings", "web-app", "app-plan"],
+      "status": "PRESERVED: existing model-specific UI and operations, with shared global menu correction. Broader historic UX not rewritten.",
+      "presentationMetadataApplied": false,
+      "configurationMetadata": ["key", "value"],
+      "settings": [
+        "Preserved existing Properties and supported settings UI; raw model metadata may remain primary in historical Properties."
+      ]
+    },
+    {
+      "view": "frontDoor",
+      "icon": "frontDoor",
+      "armOrLocalType": "Microsoft.Cdn/profiles",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "frontDoor",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [
+        {
+          "key": "endpoints",
+          "label": "Endpoints",
+          "icon": "frontDoor",
+          "views": ["frontDoorEndpoint"]
+        },
+        {
+          "key": "origin-groups",
+          "label": "Origin groups",
+          "icon": "frontDoor",
+          "views": ["originGroup"]
+        },
+        {
+          "key": "origins",
+          "label": "Origins",
+          "icon": "frontDoor",
+          "views": ["frontDoorOrigin"]
+        },
+        {
+          "key": "front-door-routes",
+          "label": "Routes",
+          "icon": "frontDoor",
+          "views": ["frontDoorRoute"]
+        },
+        {
+          "key": "security-policies",
+          "label": "Security policies",
+          "icon": "waf",
+          "views": ["frontDoorSecurityPolicy"]
+        }
+      ],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "sku"
+      ],
+      "settings": ["sku"],
+      "operations": [
+        {
+          "type": "CreateFrontDoor",
+          "fields": ["groupId", "name", "sku"]
+        },
+        {
+          "type": "DeleteFrontDoor",
+          "fields": ["profileId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Existing read-only delivery configuration analysis, never measured connectivity or health.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["front-door-manager", "front-door-endpoints", "front-door-origins"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "frontDoorEndpoint",
+      "icon": "frontDoor",
+      "armOrLocalType": "Microsoft.Cdn/profiles/afdEndpoints",
+      "classification": "child",
+      "parentField": "profileId",
+      "globalService": "frontDoor",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [
+        {
+          "key": "front-door-routes",
+          "label": "Routes",
+          "icon": "frontDoor",
+          "views": ["frontDoorRoute"]
+        }
+      ],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "enabled"
+      ],
+      "settings": ["enabled"],
+      "operations": [
+        {
+          "type": "CreateFrontDoorEndpoint",
+          "fields": ["profileId", "name", "enabled"]
+        },
+        {
+          "type": "UpdateFrontDoorEndpoint",
+          "fields": ["endpointId", "profileId", "enabled"]
+        },
+        {
+          "type": "DeleteFrontDoorEndpoint",
+          "fields": ["endpointId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Existing read-only delivery configuration analysis, never measured connectivity or health.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["front-door-manager", "front-door-endpoints", "front-door-origins"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "originGroup",
+      "icon": "frontDoor",
+      "armOrLocalType": "Microsoft.Cdn/profiles/originGroups",
+      "classification": "child",
+      "parentField": "profileId",
+      "globalService": "frontDoor",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [
+        {
+          "key": "origins",
+          "label": "Origins",
+          "icon": "frontDoor",
+          "views": ["frontDoorOrigin"]
+        }
+      ],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "probePath",
+        "probeProtocol",
+        "probeMethod"
+      ],
+      "settings": ["probePath", "probeProtocol", "probeMethod"],
+      "operations": [
+        {
+          "type": "CreateOriginGroup",
+          "fields": ["profileId", "name", "probePath"]
+        },
+        {
+          "type": "UpdateOriginGroup",
+          "fields": ["originGroupId", "profileId", "probePath"]
+        },
+        {
+          "type": "DeleteOriginGroup",
+          "fields": ["originGroupId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["front-door-manager", "front-door-endpoints", "front-door-origins"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "frontDoorOrigin",
+      "icon": "frontDoor",
+      "armOrLocalType": "Microsoft.Cdn/profiles/originGroups/origins",
+      "classification": "child",
+      "parentField": "originGroupId",
+      "globalService": "frontDoor",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "webAppId",
+        "enabled",
+        "priority"
+      ],
+      "settings": ["webAppId", "enabled", "priority"],
+      "operations": [
+        {
+          "type": "CreateFrontDoorOrigin",
+          "fields": ["originGroupId", "name", "webAppId", "enabled", "priority"]
+        },
+        {
+          "type": "UpdateFrontDoorOrigin",
+          "fields": ["originId", "originGroupId", "webAppId", "enabled", "priority"]
+        },
+        {
+          "type": "DeleteFrontDoorOrigin",
+          "fields": ["originId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["front-door-manager", "front-door-endpoints", "front-door-origins"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "frontDoorRoute",
+      "icon": "frontDoor",
+      "armOrLocalType": "Microsoft.Cdn/profiles/afdEndpoints/routes",
+      "classification": "child",
+      "parentField": "endpointId",
+      "globalService": "frontDoor",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "originGroupId",
+        "pattern",
+        "enabled",
+        "supportedProtocol",
+        "forwardingProtocol"
+      ],
+      "settings": [
+        "originGroupId",
+        "pattern",
+        "enabled",
+        "supportedProtocol",
+        "forwardingProtocol"
+      ],
+      "operations": [
+        {
+          "type": "CreateFrontDoorRoute",
+          "fields": ["endpointId", "name", "originGroupId", "pattern", "enabled"]
+        },
+        {
+          "type": "UpdateFrontDoorRoute",
+          "fields": ["routeId", "endpointId", "originGroupId", "pattern", "enabled"]
+        },
+        {
+          "type": "DeleteFrontDoorRoute",
+          "fields": ["routeId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["front-door-manager", "front-door-endpoints", "front-door-origins"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "frontDoorWafPolicy",
+      "icon": "waf",
+      "armOrLocalType": "Microsoft.Network/frontDoorWebApplicationFirewallPolicies",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "frontDoorWafPolicy",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [
+        {
+          "key": "custom-rules",
+          "label": "Custom rules",
+          "icon": "waf",
+          "views": ["frontDoorWafRule"]
+        },
+        {
+          "key": "associations",
+          "label": "Front Door associations",
+          "icon": "frontDoor",
+          "views": ["frontDoorSecurityPolicy"],
+          "relationship": "association"
+        }
+      ],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "mode",
+        "sku"
+      ],
+      "settings": ["mode", "sku"],
+      "operations": [
+        {
+          "type": "CreateFrontDoorWafPolicy",
+          "fields": ["groupId", "name", "mode"]
+        },
+        {
+          "type": "UpdateFrontDoorWafPolicy",
+          "fields": ["policyId", "groupId", "mode"]
+        },
+        {
+          "type": "DeleteFrontDoorWafPolicy",
+          "fields": ["policyId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["front-door-waf", "front-door-manager"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "frontDoorWafRule",
+      "icon": "waf",
+      "armOrLocalType": "local/front-door-waf-rule (nested configuration)",
+      "classification": "configuration",
+      "parentField": "policyId",
+      "globalService": "frontDoorWafPolicy",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "priority",
+        "matchVariable",
+        "operator",
+        "value",
+        "action",
+        "enabled"
+      ],
+      "settings": ["priority", "matchVariable", "operator", "value", "action", "enabled"],
+      "operations": [
+        {
+          "type": "CreateFrontDoorWafRule",
+          "fields": ["policyId", "name", "priority", "operator", "value", "action", "enabled"]
+        },
+        {
+          "type": "UpdateFrontDoorWafRule",
+          "fields": ["ruleId", "policyId", "priority", "operator", "value", "action", "enabled"]
+        },
+        {
+          "type": "DeleteFrontDoorWafRule",
+          "fields": ["ruleId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["front-door-waf", "front-door-manager"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "frontDoorSecurityPolicy",
+      "icon": "frontDoor",
+      "armOrLocalType": "Microsoft.Cdn/profiles/securityPolicies",
+      "classification": "child",
+      "parentField": "profileId",
+      "globalService": "frontDoor",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "endpointId",
+        "wafPolicyId",
+        "pattern"
+      ],
+      "settings": ["endpointId", "wafPolicyId", "pattern"],
+      "operations": [
+        {
+          "type": "CreateFrontDoorSecurityPolicy",
+          "fields": ["profileId", "endpointId", "wafPolicyId", "name"]
+        },
+        {
+          "type": "UpdateFrontDoorSecurityPolicy",
+          "fields": ["securityPolicyId", "profileId", "endpointId", "wafPolicyId"]
+        },
+        {
+          "type": "DeleteFrontDoorSecurityPolicy",
+          "fields": ["securityPolicyId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["front-door-manager", "front-door-endpoints", "front-door-origins"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "applicationGateway",
+      "icon": "applicationGateway",
+      "armOrLocalType": "Microsoft.Network/applicationGateways",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "applicationGateway",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [
+        {
+          "key": "backends",
+          "label": "Backend pools",
+          "icon": "applicationGateway",
+          "views": ["gatewayBackendPool"]
+        },
+        {
+          "key": "listeners",
+          "label": "Listeners",
+          "icon": "applicationGateway",
+          "views": ["gatewayListener"]
+        },
+        {
+          "key": "probes",
+          "label": "Health probes",
+          "icon": "applicationGateway",
+          "views": ["gatewayProbe"]
+        },
+        {
+          "key": "backend-settings",
+          "label": "Backend settings",
+          "icon": "applicationGateway",
+          "views": ["gatewayBackendSetting"]
+        },
+        {
+          "key": "routing-rules",
+          "label": "Rules",
+          "icon": "applicationGateway",
+          "views": ["gatewayRoutingRule"]
+        }
+      ],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "sku",
+        "subnetId",
+        "privateIp",
+        "networkIsolation"
+      ],
+      "settings": ["sku", "subnetId", "privateIp", "networkIsolation"],
+      "operations": [
+        {
+          "type": "CreateApplicationGateway",
+          "fields": ["groupId", "name", "region", "subnetId", "sku"]
+        },
+        {
+          "type": "DeleteApplicationGateway",
+          "fields": ["gatewayId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Existing read-only delivery configuration analysis, never measured connectivity or health.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": [
+        "gateway-create",
+        "gateway-components",
+        "gateway-backend-settings",
+        "gateway-routing"
+      ],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "gatewayBackendPool",
+      "icon": "applicationGateway",
+      "armOrLocalType": "Microsoft.Network/applicationGateways/backendAddressPools",
+      "classification": "child",
+      "parentField": "gatewayId",
+      "globalService": "applicationGateway",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "webAppId"
+      ],
+      "settings": ["webAppId"],
+      "operations": [
+        {
+          "type": "CreateGatewayBackendPool",
+          "fields": ["gatewayId", "name", "webAppId"]
+        },
+        {
+          "type": "UpdateGatewayBackendPool",
+          "fields": ["poolId", "gatewayId", "webAppId"]
+        },
+        {
+          "type": "DeleteGatewayBackendPool",
+          "fields": ["poolId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": [
+        "gateway-create",
+        "gateway-components",
+        "gateway-backend-settings",
+        "gateway-routing"
+      ],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "gatewayListener",
+      "icon": "applicationGateway",
+      "armOrLocalType": "Microsoft.Network/applicationGateways/httpListeners",
+      "classification": "child",
+      "parentField": "gatewayId",
+      "globalService": "applicationGateway",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "protocol",
+        "port"
+      ],
+      "settings": ["protocol", "port"],
+      "operations": [
+        {
+          "type": "CreateGatewayListener",
+          "fields": ["gatewayId", "name", "port"]
+        },
+        {
+          "type": "UpdateGatewayListener",
+          "fields": ["listenerId", "gatewayId", "port"]
+        },
+        {
+          "type": "DeleteGatewayListener",
+          "fields": ["listenerId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": [
+        "gateway-create",
+        "gateway-components",
+        "gateway-backend-settings",
+        "gateway-routing"
+      ],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "gatewayBackendSetting",
+      "icon": "applicationGateway",
+      "armOrLocalType": "Microsoft.Network/applicationGateways/backendHttpSettingsCollection",
+      "classification": "child",
+      "parentField": "gatewayId",
+      "globalService": "applicationGateway",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "protocol",
+        "port",
+        "probeId",
+        "pickHostNameFromBackendAddress"
+      ],
+      "settings": ["protocol", "port", "probeId", "pickHostNameFromBackendAddress"],
+      "operations": [
+        {
+          "type": "CreateGatewayBackendSetting",
+          "fields": ["gatewayId", "name", "probeId"]
+        },
+        {
+          "type": "UpdateGatewayBackendSetting",
+          "fields": ["settingId", "gatewayId", "probeId"]
+        },
+        {
+          "type": "DeleteGatewayBackendSetting",
+          "fields": ["settingId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": [
+        "gateway-create",
+        "gateway-components",
+        "gateway-backend-settings",
+        "gateway-routing"
+      ],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "gatewayProbe",
+      "icon": "applicationGateway",
+      "armOrLocalType": "Microsoft.Network/applicationGateways/probes",
+      "classification": "child",
+      "parentField": "gatewayId",
+      "globalService": "applicationGateway",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "protocol",
+        "path",
+        "pickHostNameFromBackendHttpSettings"
+      ],
+      "settings": ["protocol", "path", "pickHostNameFromBackendHttpSettings"],
+      "operations": [
+        {
+          "type": "CreateGatewayProbe",
+          "fields": ["gatewayId", "name", "path"]
+        },
+        {
+          "type": "UpdateGatewayProbe",
+          "fields": ["probeId", "gatewayId", "path"]
+        },
+        {
+          "type": "DeleteGatewayProbe",
+          "fields": ["probeId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": [
+        "gateway-create",
+        "gateway-components",
+        "gateway-backend-settings",
+        "gateway-routing"
+      ],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "gatewayRoutingRule",
+      "icon": "applicationGateway",
+      "armOrLocalType": "Microsoft.Network/applicationGateways/requestRoutingRules",
+      "classification": "child",
+      "parentField": "gatewayId",
+      "globalService": "applicationGateway",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "listenerId",
+        "poolId",
+        "settingId",
+        "priority",
+        "ruleType"
+      ],
+      "settings": ["listenerId", "poolId", "settingId", "priority", "ruleType"],
+      "operations": [
+        {
+          "type": "CreateGatewayRoutingRule",
+          "fields": ["gatewayId", "name", "listenerId", "poolId", "settingId", "priority"]
+        },
+        {
+          "type": "UpdateGatewayRoutingRule",
+          "fields": ["ruleId", "gatewayId", "listenerId", "poolId", "settingId", "priority"]
+        },
+        {
+          "type": "DeleteGatewayRoutingRule",
+          "fields": ["ruleId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": [
+        "gateway-create",
+        "gateway-components",
+        "gateway-backend-settings",
+        "gateway-routing"
+      ],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "postgresServer",
+      "icon": "postgresServer",
+      "armOrLocalType": "Microsoft.DBforPostgreSQL/flexibleServers",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "postgresServer",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [
+        {
+          "key": "databases",
+          "label": "Databases",
+          "icon": "postgresServer",
+          "views": ["postgresDatabase"]
+        },
+        {
+          "key": "networking",
+          "label": "Networking",
+          "icon": "settings",
+          "views": ["databaseFirewallRule"]
+        }
+      ],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "version",
+        "sku",
+        "storageGiB",
+        "publicNetworkAccess",
+        "minimumTls"
+      ],
+      "settings": ["version", "sku", "storageGiB", "publicNetworkAccess", "minimumTls"],
+      "operations": [
+        {
+          "type": "CreatePostgresServer",
+          "fields": [
+            "groupId",
+            "name",
+            "region",
+            "version",
+            "sku",
+            "storageGiB",
+            "publicNetworkAccess"
+          ]
+        },
+        {
+          "type": "UpdatePostgresServer",
+          "fields": ["serverId", "storageGiB", "publicNetworkAccess"]
+        },
+        {
+          "type": "DeletePostgresServer",
+          "fields": ["serverId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["postgres-create", "postgres-network", "postgres-firewall"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "postgresDatabase",
+      "icon": "postgresServer",
+      "armOrLocalType": "Microsoft.DBforPostgreSQL/flexibleServers/databases",
+      "classification": "child",
+      "parentField": "serverId",
+      "globalService": "postgresServer",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "charset"
+      ],
+      "settings": ["charset"],
+      "operations": [
+        {
+          "type": "CreatePostgresDatabase",
+          "fields": ["serverId", "name", "charset"]
+        },
+        {
+          "type": "DeletePostgresDatabase",
+          "fields": ["databaseId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["postgres-create", "postgres-network", "postgres-firewall"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "sqlServer",
+      "icon": "sqlServer",
+      "armOrLocalType": "Microsoft.Sql/servers",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "sqlServer",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [
+        {
+          "key": "sql-databases",
+          "label": "SQL databases",
+          "icon": "sqlDatabase",
+          "views": ["sqlDatabase"]
+        },
+        {
+          "key": "networking",
+          "label": "Networking",
+          "icon": "settings",
+          "views": ["databaseFirewallRule"]
+        }
+      ],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "version",
+        "publicNetworkAccess",
+        "minimumTls"
+      ],
+      "settings": ["version", "publicNetworkAccess", "minimumTls"],
+      "operations": [
+        {
+          "type": "CreateSqlServer",
+          "fields": ["groupId", "name", "region", "version", "publicNetworkAccess"]
+        },
+        {
+          "type": "UpdateSqlServer",
+          "fields": ["serverId", "publicNetworkAccess"]
+        },
+        {
+          "type": "DeleteSqlServer",
+          "fields": ["serverId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["sql-servers", "sql-create"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "sqlDatabase",
+      "icon": "sqlDatabase",
+      "armOrLocalType": "Microsoft.Sql/servers/databases",
+      "classification": "resource",
+      "parentField": "serverId",
+      "globalService": "sqlDatabase",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource. SQL database remains included despite its logical-server ARM parent.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "sku",
+        "maxSizeGiB"
+      ],
+      "settings": ["sku", "maxSizeGiB"],
+      "operations": [
+        {
+          "type": "CreateSqlDatabase",
+          "fields": ["serverId", "name", "sku", "maxSizeGiB"]
+        },
+        {
+          "type": "DeleteSqlDatabase",
+          "fields": ["databaseId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["sql-servers", "sql-create"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "databaseFirewallRule",
+      "icon": "postgresServer or sqlServer, according to exact typed server",
+      "armOrLocalType": "Typed PostgreSQL or SQL server/firewallRules",
+      "classification": "child",
+      "parentField": "server.id",
+      "globalService": "postgresServer or sqlServer, resolved from actual typed parent ID",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "startIp",
+        "endIp"
+      ],
+      "settings": ["startIp", "endIp"],
+      "operations": [
+        {
+          "type": "CreateDatabaseFirewallRule",
+          "fields": ["serverId", "name", "startIp", "endIp"]
+        },
+        {
+          "type": "UpdateDatabaseFirewallRule",
+          "fields": ["ruleId", "startIp", "endIp"]
+        },
+        {
+          "type": "DeleteDatabaseFirewallRule",
+          "fields": ["ruleId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["postgres-network", "postgres-firewall", "sql-servers"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "functionPlan",
+      "icon": "plan",
+      "armOrLocalType": "Microsoft.Web/serverfarms",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "plans",
+      "globalServiceEntry": false,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "sku",
+        "os",
+        "ownerAppId"
+      ],
+      "settings": ["sku", "os", "ownerAppId"],
+      "operations": [],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["functions-flex", "functions-create", "functions-settings"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "functionApp",
+      "icon": "functionApp",
+      "armOrLocalType": "Microsoft.Web/sites",
+      "classification": "resource",
+      "parentField": "groupId",
+      "globalService": "functionApp",
+      "globalServiceEntry": true,
+      "allResources": "Standalone configured resource.",
+      "contextualMenus": [
+        {
+          "key": "functions",
+          "label": "Functions",
+          "icon": "functionApp",
+          "views": ["function"]
+        },
+        {
+          "key": "database-bindings",
+          "label": "Database bindings",
+          "icon": "settings",
+          "views": ["databaseConnection"]
+        }
+      ],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "planId",
+        "storageAccountId",
+        "deploymentContainerId",
+        "runtime",
+        "functionsVersion",
+        "instanceMemoryMB",
+        "enabled",
+        "publicNetworkAccess",
+        "httpsOnly"
+      ],
+      "settings": [
+        "planId",
+        "storageAccountId",
+        "deploymentContainerId",
+        "runtime",
+        "functionsVersion",
+        "instanceMemoryMB",
+        "enabled",
+        "publicNetworkAccess",
+        "httpsOnly"
+      ],
+      "operations": [
+        {
+          "type": "CreateFunctionApp",
+          "fields": [
+            "groupId",
+            "name",
+            "region",
+            "planName",
+            "storageAccountId",
+            "deploymentContainerId",
+            "runtime",
+            "publicNetworkAccess"
+          ]
+        },
+        {
+          "type": "UpdateFunctionApp",
+          "fields": ["appId", "enabled", "publicNetworkAccess"]
+        },
+        {
+          "type": "DeleteFunctionApp",
+          "fields": ["appId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Original applicable inspection/Studio analysis remains read-only; no invented per-resource runtime analysis.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["functions-flex", "functions-create", "functions-settings"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "function",
+      "icon": "functionApp",
+      "armOrLocalType": "Microsoft.Web/sites/functions",
+      "classification": "child",
+      "parentField": "appId",
+      "globalService": "functionApp",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "enabled",
+        "trigger.kind",
+        "trigger.method",
+        "trigger.route",
+        "trigger.containerId",
+        "behavior",
+        "responseText"
+      ],
+      "settings": [
+        "enabled",
+        "trigger.kind",
+        "trigger.method",
+        "trigger.route",
+        "trigger.containerId",
+        "behavior",
+        "responseText"
+      ],
+      "operations": [
+        {
+          "type": "CreateFunction",
+          "fields": [
+            "appId",
+            "name",
+            "trigger",
+            "method",
+            "route",
+            "containerId",
+            "behavior",
+            "responseText"
+          ]
+        },
+        {
+          "type": "UpdateFunction",
+          "fields": [
+            "functionId",
+            "enabled",
+            "method",
+            "route",
+            "containerId",
+            "behavior",
+            "responseText"
+          ]
+        },
+        {
+          "type": "DeleteFunction",
+          "fields": ["functionId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Existing read-only synthetic invocation analysis; no function runtime.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["functions-flex", "functions-create", "functions-settings"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    },
+    {
+      "view": "databaseConnection",
+      "icon": "settings",
+      "armOrLocalType": "local/application-database-bindings",
+      "classification": "configuration",
+      "parentField": "source.id",
+      "globalService": "apps or functionApp, resolved from actual source application ID",
+      "globalServiceEntry": false,
+      "allResources": "Kept in parent context, search and Studio; not advertised as standalone All resources item.",
+      "contextualMenus": [],
+      "overview": [
+        "Readable resource group, subscription, location and configuration state",
+        "database.id",
+        "settingName",
+        "tls"
+      ],
+      "settings": ["database.id", "settingName", "tls"],
+      "operations": [
+        {
+          "type": "CreateDatabaseConnection",
+          "fields": ["appId", "databaseId", "databaseType", "settingName", "tls"]
+        },
+        {
+          "type": "UpdateDatabaseConnection",
+          "fields": ["connectionId", "databaseId", "databaseType", "tls"]
+        },
+        {
+          "type": "DeleteDatabaseConnection",
+          "fields": ["connectionId"]
+        }
+      ],
+      "preservedOperations": "Exact existing typed operations listed in operations; no extra capability.",
+      "analysis": "Existing read-only database configuration analysis; no database/authentication/query.",
+      "evidence": "Original Create origin and actual same-resource operation receipts; opaque IDs/source JSON secondary in closed technical evidence. Navigation/inspection emits no command or course event.",
+      "references": ["functions-settings", "app-settings", "sql-servers", "postgres-network"],
+      "status": "PARTIAL: supported documented hierarchy; bounded simulator fields; exact current Portal variant UNVERIFIED.",
+      "presentationMetadataApplied": true
+    }
+  ],
+  "serviceSurfaces": [
+    {
+      "view": "home",
+      "kind": "global entry",
+      "behavior": "Existing shared services/recents; no resource or learning creation.",
+      "writes": "None from navigation/inspection"
+    },
+    {
+      "view": "services",
+      "kind": "global catalog",
+      "behavior": "Supported top-level service families; Create a resource uses this bounded catalog, no fake Marketplace.",
+      "writes": "None from navigation/inspection"
+    },
+    {
+      "view": "subscriptions",
+      "kind": "read-only scope service",
+      "behavior": "Two existing local subscriptions and actual group/resource membership; no subscription provisioning.",
+      "writes": "None from navigation/inspection"
+    },
+    {
+      "view": "resources",
+      "kind": "read-only inventory service",
+      "behavior": "Actual standalone resource projection including SQL databases and owned FC1 plans; children/configurations remain searchable/parent-scoped.",
+      "writes": "None from navigation/inspection"
+    },
+    {
+      "view": "history",
+      "kind": "read-only ledger",
+      "behavior": "Original accepted/rejected command receipts and historical identities.",
+      "writes": "None from navigation/inspection"
+    },
+    {
+      "view": "azurePolicy",
+      "kind": "course-only policy surface",
+      "behavior": "Original fixed course Web-deny projection; no generic Laboratory policy editor.",
+      "writes": "None from navigation/inspection"
+    },
+    {
+      "view": "studio",
+      "kind": "AzureLab tool",
+      "behavior": "Original read-only actual-world graph and existing analyses; no commands or course evidence.",
+      "writes": "None from navigation/inspection"
+    },
+    {
+      "view": "analysis",
+      "kind": "AzureLab tool",
+      "behavior": "Original route configuration analysis, model-gated.",
+      "writes": "None from navigation/inspection"
+    },
+    {
+      "view": "policy",
+      "kind": "AzureLab tool",
+      "behavior": "Original NSG/Firewall configuration analysis, model-gated.",
+      "writes": "None from navigation/inspection"
+    }
+  ],
+  "finalParentBase": "c4119f3f770d6767881dc5ee455686cbae0150d7"
+}

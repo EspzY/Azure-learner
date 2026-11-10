@@ -1,0 +1,346 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: portal-resource-fidelity.spec.ts >> Portal fidelity native Review readable Overview keyboard reduced motion Axe and compact parent menus retain real configuration boundaries
+- Location: tests/e2e/portal-resource-fidelity.spec.ts:141:1
+
+# Error details
+
+```
+Error: expect(locator).toHaveCount(expected) failed
+
+Locator:  locator('[data-portal-component="breadcrumbs"]').getByRole('button', { name: 'Home', exact: true })
+Expected: 1
+Received: 0
+Timeout:  5000ms
+
+Call log:
+  - Expect "toHaveCount" locator('[data-portal-component="breadcrumbs"]').getByRole('button', { name: 'Home', exact: true }) with timeout 5000ms
+  - waiting for locator('[data-portal-component="breadcrumbs"]').getByRole('button', { name: 'Home', exact: true })
+    14 × locator resolved to 0 elements
+       - unexpected value "0"
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - alert [ref=e2]
+  - generic [ref=e3]:
+    - link "Hopp til innhold" [ref=e4] [cursor=pointer]:
+      - /url: "#lab-main"
+    - banner [ref=e5]:
+      - button "Åpne eller lukk portalmenyen" [expanded] [ref=e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=e8] [cursor=pointer]:
+        - /url: /labs/laboratory
+      - searchbox "Search resources and services" [ref=e10]
+      - generic [ref=e11]: Fri Laboratory
+      - button "Originale kvitteringer" [ref=e12] [cursor=pointer]
+      - button "Modellgrenser" [ref=e14] [cursor=pointer]
+      - link "Kursarbeidsområde" [ref=e16] [cursor=pointer]:
+        - /url: /portal
+      - link "Til kurset" [ref=e17] [cursor=pointer]:
+        - /url: /learn
+      - link "Til forsiden" [ref=e18] [cursor=pointer]:
+        - /url: /
+    - generic [ref=e23]:
+      - complementary "Laboratory v3 navigasjon" [ref=e24]:
+        - navigation "Laboratory v3 navigasjon" [ref=e25]:
+          - link "Create a resource" [ref=e26] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - link "Home" [ref=e28] [cursor=pointer]:
+            - /url: /labs/laboratory?view=home
+          - link "All services" [ref=e30] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - generic [ref=e32]: FAVORITES
+          - link "Subscriptions" [ref=e34] [cursor=pointer]:
+            - /url: /labs/laboratory?view=subscriptions
+          - link "Resource groups" [ref=e36] [cursor=pointer]:
+            - /url: /labs/laboratory?view=groups
+          - link "All resources" [ref=e38] [cursor=pointer]:
+            - /url: /labs/laboratory?view=resources
+          - link "App Services" [ref=e40] [cursor=pointer]:
+            - /url: /labs/laboratory?view=apps
+          - link "App Service plans" [ref=e42] [cursor=pointer]:
+            - /url: /labs/laboratory?view=plans
+          - link "Virtual machines" [ref=e44] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vms
+          - link "Storage accounts" [ref=e46] [cursor=pointer]:
+            - /url: /labs/laboratory?view=accounts
+          - link "Virtual networks" [ref=e48] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vnets
+          - link "Function App" [ref=e50] [cursor=pointer]:
+            - /url: /labs/laboratory?view=functionApp
+          - link "Front Door profiles" [ref=e52] [cursor=pointer]:
+            - /url: /labs/laboratory?view=frontDoor
+          - link "Application Gateways" [ref=e54] [cursor=pointer]:
+            - /url: /labs/laboratory?view=applicationGateway
+          - link "SQL database" [ref=e56] [cursor=pointer]:
+            - /url: /labs/laboratory?view=sqlDatabase
+          - group [ref=e58]:
+            - generic "AzureLab tools" [ref=e59] [cursor=pointer]
+            - link "Architecture Studio" [ref=e61] [cursor=pointer]:
+              - /url: /labs/laboratory?view=studio
+            - link "Ruteanalyse" [ref=e63] [cursor=pointer]:
+              - /url: /labs/laboratory?view=analysis
+            - link "Network Policy Analysis" [ref=e65] [cursor=pointer]:
+              - /url: /labs/laboratory?view=policy
+        - generic [ref=e67]: Støttede tjenester i dette arbeidsområdet
+      - main [ref=e68]:
+        - generic [ref=e72]:
+          - heading "Home" [active] [level=1] [ref=e73]
+          - generic [ref=e74]: Midlertidig Sandbox · nullstilles ved ny innlasting · ingen kursresultater eller XP
+        - generic [ref=e76]:
+          - heading "Azure services" [level=2] [ref=e77]
+          - generic [ref=e78]:
+            - generic [ref=e79]:
+              - button "Create a resource" [ref=e80] [cursor=pointer]
+              - button "Subscriptions" [ref=e83] [cursor=pointer]
+              - button "Resource groups" [ref=e86] [cursor=pointer]
+              - button "All resources" [ref=e89] [cursor=pointer]
+              - button "App Services" [ref=e92] [cursor=pointer]
+              - button "App Service plans" [ref=e95] [cursor=pointer]
+              - button "Virtual machines" [ref=e98] [cursor=pointer]
+              - button "Storage accounts" [ref=e101] [cursor=pointer]
+              - button "More services" [ref=e104] [cursor=pointer]
+            - button "Create resource group" [ref=e108] [cursor=pointer]
+            - heading "Recently visited resources" [level=2] [ref=e109]
+            - paragraph [ref=e110]: Ressurser du har åpnet i denne økten. Inventaret gjenopprettes separat fra tekniske kommandoer.
+            - table [ref=e112]:
+              - caption [ref=e113]: Resources
+              - rowgroup [ref=e114]:
+                - row [ref=e115]:
+                  - columnheader "Name" [ref=e116]
+                  - columnheader "Type" [ref=e117]
+                  - columnheader "Resource group" [ref=e118]
+                  - columnheader "Subscription" [ref=e119]
+              - rowgroup [ref=e120]:
+                - row [ref=e121]:
+                  - cell "Ingen ressurser er åpnet i denne økten ennå." [ref=e122]
+            - generic [ref=e123]:
+              - heading "Navigate" [level=2] [ref=e124]
+              - generic [ref=e125]:
+                - button "Subscriptions" [ref=e126] [cursor=pointer]
+                - button "Resource groups" [ref=e128] [cursor=pointer]
+                - button "All resources" [ref=e130] [cursor=pointer]
+                - button "Architecture Studio" [ref=e132] [cursor=pointer]
+        - generic [ref=e134]:
+          - generic [ref=e135]: Fri Laboratory
+          - status [ref=e136]: Midlertidig – ingen lagring · nullstilles ved ny innlasting
+          - button "Oppdater visningen" [ref=e137] [cursor=pointer]
+          - generic [ref=e139]: "World-revisjon: 0 · Arbeidsforsøk: 1 · Arbeidsområdets modell: laboratory@3.9.0"
+          - button "Nullstill eget arbeidsområde" [ref=e140] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  51  |   });
+  52  |   const firstEndpoint = integratedWorld(result).delivery.frontDoorEndpoints[0]!;
+  53  |   await globalService(page, nb.portal.areas.groups);
+  54  |   const secondGroup = await create(
+  55  |     page,
+  56  |     storage.newGroup,
+  57  |     {
+  58  |       name: 'same-scope-name',
+  59  |       subscriptionId: 'sub-app',
+  60  |     },
+  61  |     false,
+  62  |     'persistent',
+  63  |   );
+  64  |   await globalService(page, 'Front Door profiles');
+  65  |   result = await integratedOperation(page, delivery.operations.CreateFrontDoor, {
+  66  |     [delivery.fields.name]: 'same-profile-name',
+  67  |     [delivery.fields.groupId]: secondGroup.receipt.addedIds[0]!,
+  68  |   });
+  69  |   const secondProfile = integratedWorld(result).delivery.frontDoors.find(
+  70  |     (profile) => profile.groupId === secondGroup.receipt.addedIds[0],
+  71  |   )!;
+  72  |   await globalService(page, 'Front Door profiles');
+  73  |   await expect(byId(page, secondProfile.id)).toHaveCount(1);
+  74  |   await byId(page, secondProfile.id).click();
+  75  |   await page
+  76  |     .locator('[data-portal-component="resource-menu"]')
+  77  |     .getByRole('button', { name: 'Endpoints', exact: true })
+  78  |     .click();
+  79  |   await expect(page.getByText(copy.empty, { exact: true })).toBeVisible();
+  80  |   await expect(byId(page, firstEndpoint.id)).toHaveCount(0);
+  81  |   await page
+  82  |     .getByRole('button', { name: delivery.operations.CreateFrontDoorEndpoint, exact: true })
+  83  |     .click();
+  84  |   const form = page.locator('.lab-integrated-form');
+  85  |   await expect(form.getByLabel(delivery.fields.profileId, { exact: true })).toBeDisabled();
+  86  |   await expect(form.getByLabel(delivery.fields.profileId, { exact: true })).toHaveValue(
+  87  |     secondProfile.id,
+  88  |   );
+  89  |   await form.getByLabel(delivery.fields.name, { exact: true }).fill('other-endpoint-name');
+  90  |   const checked = integratedResponse(page, 'review');
+  91  |   await form.getByRole('button', { name: copy.reviewCreate, exact: true }).click();
+  92  |   expect((await (await checked).json()).preview.outcome).toBe('accepted');
+  93  |   await expect(form.locator('.portal-properties')).toContainText('App Sandbox');
+  94  |   const created = integratedResponse(page, 'command');
+  95  |   await form.getByRole('button', { name: 'Create', exact: true }).click();
+  96  |   result = await (await created).json();
+  97  |   expect(result.receipt.outcome).toBe('accepted');
+  98  |   await expect(form).toHaveCount(0);
+  99  |   const secondEndpoint = integratedWorld(result).delivery.frontDoorEndpoints.find(
+  100 |     (endpoint) => endpoint.profileId === secondProfile.id,
+  101 |   )!;
+  102 |   expect(secondEndpoint.id).not.toBe(firstEndpoint.id);
+  103 |   const count = commands.length;
+  104 |   await globalService(page, nb.portal.areas.resources);
+  105 |   await expect(byId(page, firstProfile.id)).toHaveCount(1);
+  106 |   await expect(byId(page, secondProfile.id)).toHaveCount(1);
+  107 |   await expect(byId(page, firstEndpoint.id)).toHaveCount(0);
+  108 |   await expect(byId(page, secondEndpoint.id)).toHaveCount(0);
+  109 |   const search = page.locator('.portal-header input[type="search"]');
+  110 |   await search.fill('same-profile-name');
+  111 |   const firstHit = page.locator(`.portal-search-results a[href$="id=${firstProfile.id}"]`),
+  112 |     secondHit = page.locator(`.portal-search-results a[href$="id=${secondProfile.id}"]`);
+  113 |   await expect(firstHit).toHaveCount(1);
+  114 |   await expect(secondHit).toHaveCount(1);
+  115 |   await expect(firstHit).toContainText('Shared Sandbox');
+  116 |   await expect(secondHit).toContainText('App Sandbox');
+  117 |   await search.press('Escape');
+  118 |   await page.goto(`/labs/laboratory?view=frontDoorEndpoint&id=${firstEndpoint.id}`);
+  119 |   await expect(page.locator('.portal-title h1')).toHaveText(firstEndpoint.name);
+  120 |   await expect(page.locator('[data-portal-component="essentials"]')).toContainText(
+  121 |     'Shared Sandbox',
+  122 |   );
+  123 |   await expect(page.locator('pre:visible')).toHaveCount(0);
+  124 |   await page.locator('[data-portal-component="technical-evidence"] > summary').click();
+  125 |   const original = page.getByRole('link', { name: storage.receipt, exact: true });
+  126 |   expect(
+  127 |     new URL((await original.getAttribute('href'))!, page.url()).searchParams.get('receipt'),
+  128 |   ).toBe(firstEndpoint.origin);
+  129 |   await original.click();
+  130 |   await expect(page.locator('[data-portal-component="receipt"]')).toContainText(
+  131 |     firstEndpoint.origin,
+  132 |   );
+  133 |   await expect(page.locator('[data-portal-component="receipt"]')).toContainText(
+  134 |     'CreateFrontDoorEndpoint',
+  135 |   );
+  136 |   expect(commands).toHaveLength(count);
+  137 |   expect(await courseBytes(page)).toBe(before);
+  138 |   await page.screenshot({ path: info.outputPath('same-name-parent-and-original-receipt.png') });
+  139 | });
+  140 | 
+  141 | test('Portal fidelity native Review readable Overview keyboard reduced motion Axe and compact parent menus retain real configuration boundaries', async ({
+  142 |   page,
+  143 | }, info) => {
+  144 |   await page.emulateMedia({ reducedMotion: 'reduce' });
+  145 |   await startIntegrated(page);
+  146 |   const before = await courseBytes(page);
+  147 |   const initialViewport = page.viewportSize()!;
+  148 |   const breadcrumbs = page.locator('[data-portal-component="breadcrumbs"]');
+  149 |   await expect(
+  150 |     breadcrumbs.getByRole('button', { name: nb.portal.areas.home, exact: true }),
+> 151 |   ).toHaveCount(1);
+      |     ^ Error: expect(locator).toHaveCount(expected) failed
+  152 |   await expect(breadcrumbs.getByRole('link')).toHaveCount(0);
+  153 | 
+  154 |   await page.getByRole('button', { name: storage.newGroup, exact: true }).click();
+  155 |   const groupForm = page.locator('.lab-group-create');
+  156 |   await expect(
+  157 |     breadcrumbs.getByRole('link', { name: nb.portal.areas.groups, exact: true }),
+  158 |   ).toHaveAttribute('href', '/labs/laboratory?view=groups');
+  159 |   await expect(breadcrumbs.locator('[aria-current="page"]')).toHaveText(copy.groupTitle);
+  160 | 
+  161 |   await expect(groupForm.locator('fieldset > label')).toHaveCount(3);
+  162 |   expect(
+  163 |     await groupForm
+  164 |       .locator('fieldset > label')
+  165 |       .evaluateAll((labels) => labels.map((label) => label.childNodes[0]?.textContent?.trim())),
+  166 |   ).toEqual([storage.subscription, copy.groupName, storage.region]);
+  167 |   await groupForm.getByLabel(copy.groupName, { exact: true }).fill('rg-readable-review');
+  168 |   await page.screenshot({
+  169 |     path: info.outputPath(
+  170 |       `resource-group-basics-${initialViewport.width}x${initialViewport.height}.png`,
+  171 |     ),
+  172 |   });
+  173 |   const groupChecked = integratedResponse(page, 'review');
+  174 |   await groupForm.getByRole('button', { name: copy.reviewCreate, exact: true }).click();
+  175 |   expect((await (await groupChecked).json()).preview.outcome).toBe('accepted');
+  176 |   const groupReview = page.getByRole('region', { name: storage.review, exact: true });
+  177 |   await expect(groupReview.getByRole('status')).toHaveText(copy.validationPassed);
+  178 |   await expect(groupReview.locator('pre:visible')).toHaveCount(0);
+  179 |   for (const viewport of [
+  180 |     initialViewport,
+  181 |     { width: 1440, height: 900 },
+  182 |     { width: 1024, height: 500 },
+  183 |   ]) {
+  184 |     await page.setViewportSize(viewport);
+  185 |     await groupReview.getByRole('button', { name: 'Create', exact: true }).scrollIntoViewIfNeeded();
+  186 |     await page.screenshot({
+  187 |       path: info.outputPath(`resource-group-review-${viewport.width}x${viewport.height}.png`),
+  188 |     });
+  189 |   }
+  190 |   await page.setViewportSize(initialViewport);
+  191 |   const groupCreated = integratedResponse(page, 'command');
+  192 |   await groupReview.getByRole('button', { name: 'Create', exact: true }).click();
+  193 |   const group = await (await groupCreated).json();
+  194 |   expect(group.receipt.outcome).toBe('accepted');
+  195 |   await expect(groupForm).toHaveCount(0);
+  196 |   await globalService(page, data.types.postgresServer);
+  197 |   await page
+  198 |     .getByRole('button', { name: data.operations.CreatePostgresServer, exact: true })
+  199 |     .click();
+  200 |   const form = page.locator('.lab-integrated-form');
+  201 |   await expect(form.locator('h2')).toBeFocused();
+  202 |   await form.getByLabel(data.fields.name, { exact: true }).fill('readable-server');
+  203 |   const reviewed = integratedResponse(page, 'review');
+  204 |   await form.getByRole('button', { name: copy.reviewCreate, exact: true }).click();
+  205 |   const review = await (await reviewed).json();
+  206 |   expect(review.preview.outcome).toBe('accepted');
+  207 |   await expect(form.getByRole('heading', { name: copy.reviewCreate, exact: true })).toBeFocused();
+  208 |   await expect(form.getByRole('status')).toHaveText(copy.validationPassed);
+  209 |   await expect(form).toContainText('rg-readable-review');
+  210 |   await expect(form.locator('pre:visible')).toHaveCount(0);
+  211 |   await expect(form.locator('details[open]')).toHaveCount(0);
+  212 |   await expect(form.locator('fieldset')).not.toBeVisible();
+  213 |   await form.getByRole('button', { name: copy.previous, exact: true }).click();
+  214 |   await expect(form.getByLabel(data.fields.name, { exact: true })).toHaveValue('readable-server');
+  215 |   const secondReview = integratedResponse(page, 'review');
+  216 |   await form.getByRole('button', { name: copy.reviewCreate, exact: true }).click();
+  217 |   expect((await (await secondReview).json()).preview.outcome).toBe('accepted');
+  218 |   const committed = integratedResponse(page, 'command');
+  219 |   await form.getByRole('button', { name: 'Create', exact: true }).click();
+  220 |   const result = await (await committed).json();
+  221 |   expect(result.receipt.addedIds).toHaveLength(1);
+  222 |   expect(result.world.revision).toBe(group.world.revision + 1);
+  223 |   await expect(page.locator('.portal-title h1')).toHaveText('readable-server');
+  224 |   await expect(page.locator('[data-portal-component="essentials"]')).toContainText(copy.localState);
+  225 |   await expect(page.locator('pre:visible')).toHaveCount(0);
+  226 |   const menu = page.locator('[data-portal-component="resource-menu"]');
+  227 |   for (const name of ['Databases', 'Networking', 'Configuration', 'Properties'])
+  228 |     await expect(menu.getByRole('button', { name, exact: true })).toBeVisible();
+  229 |   for (const name of ['Identity', 'Access control (IAM)', 'Tags', 'Metrics'])
+  230 |     await expect(menu.getByRole('button', { name, exact: true })).toHaveCount(0);
+  231 |   for (const viewport of [
+  232 |     { width: 1920, height: 1080 },
+  233 |     { width: 1440, height: 900 },
+  234 |     { width: 1366, height: 768 },
+  235 |     { width: 1024, height: 768 },
+  236 |     { width: 1024, height: 500 },
+  237 |   ]) {
+  238 |     await page.setViewportSize(viewport);
+  239 |     await expect(page.locator('[data-portal-component="essentials"]')).toBeVisible();
+  240 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+  241 |       true,
+  242 |     );
+  243 |     await page.screenshot({
+  244 |       path: info.outputPath(`readable-overview-${viewport.width}x${viewport.height}.png`),
+  245 |     });
+  246 |   }
+  247 |   await menu.getByRole('button', { name: 'Networking', exact: true }).focus();
+  248 |   await page.keyboard.press('Enter');
+  249 |   await expect(
+  250 |     page.getByRole('heading', { level: 2, name: 'Networking', exact: true }),
+  251 |   ).toBeVisible();
+```

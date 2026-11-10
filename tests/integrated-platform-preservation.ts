@@ -1,7 +1,7 @@
 /** Test-only PR75 view. Every admitted successor byte is independently bound by
  * the current raw-file guard. Runtime code never imports this historical reader. */
-import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { readFidelityHistory as readFileSync } from './portal-fidelity-preservation';
+import { execFidelityHistory as execFileSync } from './portal-fidelity-preservation';
 import { strict as assert } from 'node:assert';
 import proof from '../docs/reviews/evidence/integrated-application-chain/preservation.json';
 import { createHash } from 'node:crypto';

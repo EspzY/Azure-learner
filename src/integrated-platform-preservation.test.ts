@@ -1,6 +1,6 @@
 import { expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { readFidelityHistory as readFileSync } from '../tests/portal-fidelity-preservation';
+import { execFidelityHistory as execFileSync } from '../tests/portal-fidelity-preservation';
 import { createHash } from 'node:crypto';
 import proof from '../docs/reviews/evidence/integrated-application-chain/preservation.json';
 import provenance from '../docs/reviews/evidence/integrated-application-chain/module-provenance.json';

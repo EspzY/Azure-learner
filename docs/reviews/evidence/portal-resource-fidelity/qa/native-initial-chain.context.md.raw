@@ -1,0 +1,264 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: integrated-chain.spec.ts >> integrated3.9 default native Portal forms commit the actual app PostgreSQL binding FrontDoor chain and one Studio authority
+- Location: tests/e2e/integrated-chain.spec.ts:25:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.click: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for locator('main').getByRole('link', { name: 'Architecture Studio', exact: true })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - alert [ref=e2]: AzureLab — Lær Azure ved å bruke det
+  - generic [ref=e3]:
+    - link "Hopp til innhold" [ref=e4] [cursor=pointer]:
+      - /url: "#lab-main"
+    - banner [ref=e5]:
+      - button "Åpne eller lukk portalmenyen" [expanded] [ref=e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=e8] [cursor=pointer]:
+        - /url: /labs/laboratory
+      - searchbox "Search resources and services" [ref=e10]
+      - generic [ref=e11]: Fri Laboratory
+      - button "Originale kvitteringer" [ref=e12] [cursor=pointer]
+      - button "Modellgrenser" [ref=e14] [cursor=pointer]
+      - link "Kursarbeidsområde" [ref=e16] [cursor=pointer]:
+        - /url: /portal
+      - link "Til kurset" [ref=e17] [cursor=pointer]:
+        - /url: /learn
+      - link "Til forsiden" [ref=e18] [cursor=pointer]:
+        - /url: /
+    - generic [ref=e23]:
+      - complementary "Laboratory v3 navigasjon" [ref=e24]:
+        - navigation "Laboratory v3 navigasjon" [ref=e25]:
+          - link "Create a resource" [ref=e26] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - link "Home" [ref=e28] [cursor=pointer]:
+            - /url: /labs/laboratory?view=home
+          - link "All services" [ref=e30] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - generic [ref=e32]: FAVORITES
+          - link "Subscriptions" [ref=e34] [cursor=pointer]:
+            - /url: /labs/laboratory?view=subscriptions
+          - link "Resource groups" [ref=e36] [cursor=pointer]:
+            - /url: /labs/laboratory?view=groups
+          - link "All resources" [ref=e38] [cursor=pointer]:
+            - /url: /labs/laboratory?view=resources
+          - link "App Services" [ref=e40] [cursor=pointer]:
+            - /url: /labs/laboratory?view=apps
+          - link "App Service plans" [ref=e42] [cursor=pointer]:
+            - /url: /labs/laboratory?view=plans
+          - link "Virtual machines" [ref=e44] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vms
+          - link "Storage accounts" [ref=e46] [cursor=pointer]:
+            - /url: /labs/laboratory?view=accounts
+          - link "Virtual networks" [ref=e48] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vnets
+          - link "Function App" [ref=e50] [cursor=pointer]:
+            - /url: /labs/laboratory?view=functionApp
+          - link "Front Door profiles" [ref=e52] [cursor=pointer]:
+            - /url: /labs/laboratory?view=frontDoor
+          - link "Application Gateways" [ref=e54] [cursor=pointer]:
+            - /url: /labs/laboratory?view=applicationGateway
+          - link "SQL database" [ref=e56] [cursor=pointer]:
+            - /url: /labs/laboratory?view=sqlDatabase
+          - group [ref=e58]:
+            - generic "AzureLab learning tools" [ref=e59] [cursor=pointer]
+        - generic [ref=e61]: Støttede tjenester i dette arbeidsområdet
+      - main [ref=e62]:
+        - generic [ref=e63]:
+          - button "Home" [ref=e64] [cursor=pointer]
+          - button "All services" [ref=e66] [cursor=pointer]
+        - generic [ref=e70]:
+          - heading "All services" [active] [level=1] [ref=e71]
+          - generic [ref=e72]: Midlertidig Sandbox · nullstilles ved ny innlasting · ingen kursresultater eller XP
+        - generic [ref=e74]:
+          - paragraph [ref=e75]: Støttede tjenester i dette arbeidsområdet
+          - generic [ref=e76]:
+            - link "Front Door profiles" [ref=e77] [cursor=pointer]:
+              - /url: /labs/laboratory?view=frontDoor
+            - link "Front Door WAF policies" [ref=e81] [cursor=pointer]:
+              - /url: /labs/laboratory?view=frontDoorWafPolicy
+            - link "Application Gateways" [ref=e85] [cursor=pointer]:
+              - /url: /labs/laboratory?view=applicationGateway
+            - link "Azure Database for PostgreSQL flexible server" [ref=e89] [cursor=pointer]:
+              - /url: /labs/laboratory?view=postgresServer
+            - link "SQL logical server" [ref=e93] [cursor=pointer]:
+              - /url: /labs/laboratory?view=sqlServer
+            - link "SQL database" [ref=e97] [cursor=pointer]:
+              - /url: /labs/laboratory?view=sqlDatabase
+            - link "Function App" [ref=e101] [cursor=pointer]:
+              - /url: /labs/laboratory?view=functionApp
+            - link "Subscriptions" [ref=e105] [cursor=pointer]:
+              - /url: /labs/laboratory?view=subscriptions
+            - link "Resource groups" [ref=e109] [cursor=pointer]:
+              - /url: /labs/laboratory?view=groups
+            - link "All resources" [ref=e113] [cursor=pointer]:
+              - /url: /labs/laboratory?view=resources
+            - link "App Services" [ref=e117] [cursor=pointer]:
+              - /url: /labs/laboratory?view=apps
+            - link "App Service plans" [ref=e121] [cursor=pointer]:
+              - /url: /labs/laboratory?view=plans
+            - link "Virtual machines" [ref=e125] [cursor=pointer]:
+              - /url: /labs/laboratory?view=vms
+            - link "Managed disks" [ref=e129] [cursor=pointer]:
+              - /url: /labs/laboratory?view=disks
+            - link "Network interfaces" [ref=e133] [cursor=pointer]:
+              - /url: /labs/laboratory?view=nics
+            - link "Storage accounts" [ref=e137] [cursor=pointer]:
+              - /url: /labs/laboratory?view=accounts
+            - link "Virtual networks" [ref=e141] [cursor=pointer]:
+              - /url: /labs/laboratory?view=vnets
+            - link "Network security groups" [ref=e145] [cursor=pointer]:
+              - /url: /labs/laboratory?view=nsgs
+            - link "Route tables" [ref=e149] [cursor=pointer]:
+              - /url: /labs/laboratory?view=routeTables
+            - link "Azure Firewalls" [ref=e153] [cursor=pointer]:
+              - /url: /labs/laboratory?view=firewalls
+            - link "Firewall Policies" [ref=e157] [cursor=pointer]:
+              - /url: /labs/laboratory?view=firewallPolicies
+            - link "Public IP addresses" [ref=e161] [cursor=pointer]:
+              - /url: /labs/laboratory?view=publicIps
+            - link "Originale kvitteringer" [ref=e165] [cursor=pointer]:
+              - /url: /labs/laboratory?view=history
+          - group [ref=e169]:
+            - generic "AzureLab learning tools" [ref=e170] [cursor=pointer]
+        - generic [ref=e172]:
+          - generic [ref=e173]: Fri Laboratory
+          - status [ref=e174]: Midlertidig – ingen lagring · nullstilles ved ny innlasting
+          - button "Oppdater visningen" [ref=e175] [cursor=pointer]
+          - generic [ref=e177]: "World-revisjon: 12 · Arbeidsforsøk: 1 · Arbeidsområdets modell: laboratory@3.9.0"
+          - button "Nullstill eget arbeidsområde" [ref=e178] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  1   | import { expect, type Page } from '@playwright/test';
+  2   | import { nb, landingNb as t, laboratoryV3Nb as c } from '../../src/content/nb';
+  3   | import { laboratoryEphemeralNb as temp } from '../../src/content/laboratory-ephemeral-nb';
+  4   | import { laboratoryNetworkNb as n } from '../../src/content/laboratory-networking-nb';
+  5   | import { laboratoryRoutingNb as r } from '../../src/content/laboratory-routing-nb';
+  6   | import { laboratoryEndpointsNb as e } from '../../src/content/laboratory-endpoints-nb';
+  7   | import { laboratoryComputeNb as m } from '../../src/content/laboratory-compute-nb';
+  8   | import { laboratoryFirewallNb as f } from '../../src/content/laboratory-firewall-nb';
+  9   | import { revealLaboratoryLink, closeLaboratoryDrawer } from './laboratory-actions';
+  10  | import type { CommandResult, Snapshot } from '../../src/laboratory/engine';
+  11  | export { t, c, temp, n, r, e, m, f };
+  12  | export const memoryResponse = (page: Page, action: string) =>
+  13  |   page.waitForResponse(
+  14  |     (response) =>
+  15  |       response.url().endsWith('/api/laboratory/ephemeral') &&
+  16  |       response.request().method() === 'POST' &&
+  17  |       response.request().postDataJSON().action === action,
+  18  |   );
+  19  | export const courseBytes = (page: Page) =>
+  20  |   page.evaluate(() =>
+  21  |     JSON.stringify(
+  22  |       Object.fromEntries(
+  23  |         Object.entries(localStorage)
+  24  |           .filter(([k]) => k.startsWith('azurelab.'))
+  25  |           .sort(([a], [b]) => a.localeCompare(b)),
+  26  |       ),
+  27  |     ),
+  28  |   );
+  29  | export async function startTemporary(page: Page) {
+  30  |   await page.goto('/');
+  31  |   await page.getByRole('link', { name: t.labLink, exact: true }).click();
+  32  |   // These inherited journeys intentionally replay the original3.7 workspace.
+  33  |   await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();
+  34  |   await page
+  35  |     .getByRole('combobox', { name: 'Arbeidsområdemodell', exact: true })
+  36  |     .selectOption('laboratory@3.7.0');
+  37  |   const started = memoryResponse(page, 'session');
+  38  |   await page.getByRole('button', { name: temp.start, exact: true }).click();
+  39  |   const result = await started,
+  40  |     s: Snapshot = await result.json();
+  41  |   expect(result.status()).toBe(201);
+  42  |   expect(s.world.model).toBe('laboratory@3.7.0');
+  43  |   await expect(page.getByRole('button', { name: c.newGroup, exact: true })).toBeVisible();
+  44  |   await expect(page.locator('.laboratory-workspace-status')).toContainText(temp.status);
+  45  |   return s;
+  46  | }
+  47  | export async function service(page: Page, name: string) {
+  48  |   const nav = page.getByRole('navigation', { name: c.navigation, exact: true });
+  49  |   const favorite = nav.getByRole('link', { name, exact: true });
+  50  |   if (await favorite.count()) {
+  51  |     await revealLaboratoryLink(
+  52  |       page,
+  53  |       nav.getByRole('link', { name: nb.portal.areas.home, exact: true }),
+  54  |     );
+  55  |     const disclosure = favorite.locator('xpath=ancestor::details[1]');
+  56  |     if ((await disclosure.count()) && (await disclosure.getAttribute('open')) === null)
+  57  |       await disclosure.locator('summary').click();
+  58  |     await favorite.click();
+  59  |   } else {
+  60  |     const directory = nav.getByRole('link', { name: nb.portal.areas.services, exact: true });
+  61  |     await revealLaboratoryLink(page, directory);
+  62  |     await directory.click();
+  63  |     await closeLaboratoryDrawer(page);
+  64  |     const link = page.locator('main').getByRole('link', { name, exact: true });
+  65  |     const disclosure = link.locator('xpath=ancestor::details[1]');
+  66  |     if ((await disclosure.count()) && (await disclosure.getAttribute('open')) === null)
+  67  |       await disclosure.locator('summary').click();
+> 68  |     await link.click();
+      |                ^ Error: locator.click: Test timeout of 30000ms exceeded.
+  69  |   }
+  70  |   await closeLaboratoryDrawer(page);
+  71  |   await expect(page.locator('.portal-title h1')).toHaveText(name);
+  72  | }
+  73  | export async function openResource(page: Page, name: string) {
+  74  |   await page.getByRole('link', { name, exact: true }).click();
+  75  |   await expect(page.locator('.portal-title h1')).toHaveText(name);
+  76  | }
+  77  | const label = (key: string) =>
+  78  |   [f.fields, m.fields, e.fields, r.fields, n.fields, c.fields]
+  79  |     .map((map) => (map as Record<string, string>)[key])
+  80  |     .find(Boolean) ?? key;
+  81  | export async function fill(page: Page, fields: Record<string, string>, selector = '.lab-form') {
+  82  |   for (const [key, value] of Object.entries(fields)) {
+  83  |     const input = page
+  84  |       .locator(selector)
+  85  |       .getByLabel(key === 'name' ? c.name : key === 'text' ? c.text : label(key), { exact: true });
+  86  |     if (await input.evaluate((el) => el.tagName === 'SELECT')) await input.selectOption(value);
+  87  |     else await input.fill(value);
+  88  |   }
+  89  | }
+  90  | export async function create(
+  91  |   page: Page,
+  92  |   button: string,
+  93  |   fields: Record<string, string>,
+  94  |   apply = false,
+  95  | ) {
+  96  |   await page.getByRole('button', { name: button, exact: true }).click();
+  97  |   await fill(page, fields);
+  98  |   await page.getByRole('button', { name: c.review, exact: true }).click();
+  99  |   const review = page.getByRole('region', { name: c.review, exact: true });
+  100 |   await expect(review).toContainText('Konfigurasjonen er validert');
+  101 |   const response = memoryResponse(page, 'command');
+  102 |   await review.getByRole('button', { name: apply ? n.apply : c.create, exact: true }).click();
+  103 |   const res = await response;
+  104 |   const result: CommandResult = await res.json();
+  105 |   expect(result.receipt.outcome).toBe('accepted');
+  106 |   await expect(page.locator('.lab-form')).toHaveCount(0);
+  107 |   if (fields.name) await expect(page.locator('.portal-title h1')).toHaveText(fields.name);
+  108 |   return result;
+  109 | }
+  110 | 
+```
