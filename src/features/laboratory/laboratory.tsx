@@ -1842,7 +1842,7 @@ export function Laboratory() {
                             ['sub-app', 'App Sandbox'],
                           ])}
                           {field('name', fidelityCopy.groupName)}
-                          <h3 className="portal-form-section">{fidelityCopy.resourceDetails}</h3>
+                          <h2 className="portal-form-section">{fidelityCopy.resourceDetails}</h2>
                           {field(
                             'metadataRegion',
                             c.region,

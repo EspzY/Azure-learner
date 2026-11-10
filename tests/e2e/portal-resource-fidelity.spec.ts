@@ -210,6 +210,10 @@ test('Portal fidelity native Review readable Overview keyboard reduced motion Ax
       .locator('fieldset > label')
       .evaluateAll((labels) => labels.map((label) => label.childNodes[0]?.textContent?.trim())),
   ).toEqual([storage.subscription, copy.groupName, storage.region]);
+  await expect(
+    groupForm.getByRole('heading', { level: 2, name: copy.resourceDetails, exact: true }),
+  ).toBeVisible();
+  expect((await new Axe({ page }).analyze()).violations).toEqual([]);
   await groupForm.getByLabel(copy.groupName, { exact: true }).fill('rg-readable-review');
   await page.screenshot({
     path: info.outputPath(
