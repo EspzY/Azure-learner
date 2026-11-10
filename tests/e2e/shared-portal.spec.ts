@@ -314,6 +314,12 @@ test('shared Portal compact native search drawer properties dialogs reduced moti
   await page.screenshot({ path: info.outputPath('shared-review-focus-1024-500.png') });
   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
   await page.keyboard.press('Tab');
+  if (nativeGroup) {
+    const technical = review.locator('details.portal-technical-evidence > summary');
+    await expect(technical).toHaveCount(1);
+    await expect(technical).toBeFocused();
+    await page.keyboard.press('Tab');
+  }
   await expect(create).toBeFocused();
   await page.screenshot({ path: info.outputPath('shared-review-1024-500.png') });
   await page.getByRole('button', { name: c.cancel, exact: true }).click();
