@@ -99,7 +99,7 @@ it('keeps the normal runtime and SQL merge with only the exact demonstrated cont
     if (path === 'src/features/course/bifrost-course.css') {
       const before = original('course', path).toString();
       const old =
-        '  background: var(--bfc-theme);\n  color: var(--bfc-theme-hc);\n  border-color: var(--bfc-theme);\n';
+        '  ):not(:disabled) {\n  background: var(--bfc-theme);\n  color: var(--bfc-theme-hc);\n  border-color: var(--bfc-theme);\n';
       const next =
         old +
         '  /* State color pairs change together; interpolated backgrounds lose contrast. */\n  transition-property: border-color, box-shadow;\n';
