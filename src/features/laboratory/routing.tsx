@@ -1,9 +1,9 @@
 'use client';
+import { useWorkspaceNavigation } from './workspace-context';
 import { isFirewallWorld } from './capabilities';
 import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
-import { requestLaboratoryAnalysis } from './ephemeral-client';
 import { TopologyAccess } from './topology-access';
 import type { World, Command } from '@/laboratory/v32/contract';
 import type { Snapshot } from '@/laboratory/engine';
@@ -20,8 +20,6 @@ export const routingFields: Record<string, string[]> = {
   AssociateSubnetRouteTable: ['subnetId', 'routeTableId'],
   DisassociateSubnetRouteTable: ['subnetId'],
 };
-const href = (view: string, id?: string) =>
-  '/labs/laboratory?' + new URLSearchParams({ view, ...(id ? { id } : {}) });
 export function RoutingViews({
   world: w,
   view,
@@ -47,6 +45,8 @@ export function RoutingViews({
   receipt: (id: string) => ReactNode;
   list: (type: string, rows: { id: string; name: string; origin: string }[]) => ReactNode;
 }) {
+  const { href } = useWorkspaceNavigation();
+
   const table = w.routeTables.find((x) => x.id === id),
     route = w.routes.find((x) => x.id === id),
     peering = w.peerings.find((x) => x.id === id),
@@ -216,6 +216,8 @@ export function RouteAnalysis({
   initialDestination?: string | null;
   accept: (s: Snapshot) => void;
 }) {
+  const { href, analysis: requestLaboratoryAnalysis } = useWorkspaceNavigation();
+
   const [source, setSource] = useState(initialSource ?? ''),
     [destination, setDestination] = useState(initialDestination ?? '10.20.1.5'),
     [busy, setBusy] = useState(false),

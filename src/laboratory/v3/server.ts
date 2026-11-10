@@ -32,13 +32,14 @@ import 'server-only';
 import { Pool } from 'pg';
 import { Repository, LabError } from './repository';
 import { parseRequest, models, type Model } from '../engine';
+import { courseModel, courseUuid, parseCapture, type WorkspacePurpose } from '../course/contract';
 import { laboratoryModel as routingModel } from '../v32/contract';
 import { analyseRoutes } from '../v32/analysis';
 import { laboratoryModel as endpointModel } from '../v33/contract';
 import { analyseRoutes as analyseEndpointRoutes } from '../v33/route';
 import { analysePolicy } from '../v33/policy';
 let pool: Pool | undefined;
-function config() {
+function config(purpose: WorkspacePurpose) {
   const connectionString = process.env.LAB_DATABASE_URL,
     raw = process.env.LAB_ORIGIN;
   if (!connectionString || !raw) throw new LabError('backend-unavailable', 503);
@@ -63,7 +64,14 @@ function config() {
     connectionString,
     origin: origin.origin,
     secure: origin.protocol === 'https:',
-    cookie: origin.protocol === 'https:' ? '__Host-azurelab_lab_v3' : 'azurelab_lab_v3',
+    cookie:
+      purpose === 'course-technical'
+        ? origin.protocol === 'https:'
+          ? '__Host-azurelab_course_lab_v1'
+          : 'azurelab_course_lab_v1'
+        : origin.protocol === 'https:'
+          ? '__Host-azurelab_lab_v3'
+          : 'azurelab_lab_v3',
   };
 }
 function token(req: Request, name: string) {
@@ -115,10 +123,11 @@ async function body(req: Request) {
 }
 export async function handle(
   req: Request,
-  action: 'session' | 'state' | 'review' | 'command' | 'analysis' | 'policy-analysis',
+  action: 'session' | 'state' | 'review' | 'command' | 'analysis' | 'policy-analysis' | 'evidence',
+  purpose: WorkspacePurpose = 'free',
 ) {
   try {
-    const cfg = config(),
+    const cfg = config(purpose),
       origin = req.headers.get('origin'),
       site = req.headers.get('sec-fetch-site');
     if (
@@ -135,7 +144,9 @@ export async function handle(
           ? ['subnetId', 'destination']
           : action === 'policy-analysis'
             ? ['sourceNicId', 'destinationNicId', 'protocol', 'sourcePort', 'destinationPort']
-            : [];
+            : action === 'evidence' && req.method === 'GET'
+              ? ['id']
+              : [];
     if (
       [...url.searchParams.keys()].some((k) => !queryKeys.includes(k)) ||
       queryKeys.some((k) => url.searchParams.getAll(k).length > 1)
@@ -153,7 +164,7 @@ export async function handle(
         console.error('Laboratory database connection unavailable');
       });
     }
-    const repo = new Repository(pool);
+    const repo = new Repository(pool, undefined, purpose);
     const session = token(req, cfg.cookie);
     if (action === 'session') {
       const value = await body(req);
@@ -166,6 +177,11 @@ export async function handle(
         ('model' in value && !models.includes(value.model as Model))
       )
         throw new LabError('invalid-request', 400);
+      if (
+        purpose === 'course-technical' &&
+        (('model' in value && value.model !== courseModel) || 'newWorkspace' in value)
+      )
+        throw new LabError('unsupported-course-context', 422);
       if (session && !('newWorkspace' in value)) {
         try {
           return json(await repo.read(session));
@@ -174,7 +190,11 @@ export async function handle(
         }
       }
       const created = await repo.createSession(
-        'model' in value ? (value.model as Model) : undefined,
+        purpose === 'course-technical'
+          ? courseModel
+          : 'model' in value
+            ? (value.model as Model)
+            : undefined,
       );
       return json(
         created.snapshot,
@@ -287,6 +307,19 @@ export async function handle(
             ? { ...result.analysis, workspace: snapshot.workspace }
             : result.analysis,
       });
+    }
+    if (action === 'evidence') {
+      if (purpose !== 'course-technical') throw new LabError('course-authority-required', 403);
+      const workspace = req.headers.get('If-Laboratory-Workspace');
+      if (!courseUuid(workspace)) throw new LabError('workspace-precondition-required', 400);
+      if (req.method === 'GET') {
+        const id = url.searchParams.get('id');
+        if (!courseUuid(id)) throw new LabError('invalid-evidence-id', 400);
+        return json(await repo.readEvidence(session, id, workspace));
+      }
+      const capture = parseCapture(await body(req));
+      if (!capture) throw new LabError('invalid-evidence-request', 400);
+      return json(await repo.captureEvidence(session, capture, workspace));
     }
     const request = parseRequest(await body(req));
     if (!request) throw new LabError('invalid-request', 400);

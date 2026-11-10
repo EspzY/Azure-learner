@@ -165,3 +165,7 @@ export function execFidelityHistory(
   }
   return result;
 }
+
+// Validate the complete pinned view before entering any historical assertion.
+// Import failures fail the suite; all original validation/assertions still run.
+readFidelityHistory('AGENTS.md');

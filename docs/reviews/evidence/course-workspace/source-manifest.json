@@ -1,0 +1,117 @@
+{
+  "schema": 1,
+  "base": "c2bce3efa2ed4a56c96b594a6731662663e597d1",
+  "edits": {
+    "AGENTS.md": {
+      "before": "e3ddd1d335f06dce00224e99e590889a4263e55e",
+      "after": "fbf434b1b27fc164989f90b5a82ca6b6dac0e438"
+    },
+    "README.md": {
+      "before": "6682a46fe9b55ac4a22743643c67247d3d6a5aed",
+      "after": "3da3881caa506f8916991bac0a3eb15eb562f0ee"
+    },
+    "docs/DECISIONS.md": {
+      "before": "1d758236762402e383c46784614656803c201de0",
+      "after": "6bf8847c5a04a8a4ca1f2dfda3e4c2f87ba2c37b"
+    },
+    "docs/DEVELOPMENT_WORKFLOW.md": {
+      "before": "be8df01fea8aee439e6d002f2093c5f2f3220617",
+      "after": "2a5aac96670284932828f2dda6535c480261fca5"
+    },
+    "docs/PROJECT_STATUS.md": {
+      "before": "87376889c83ff8ef329158fa983bde4ffb7d8323",
+      "after": "27872fd9f0e2a9b0da7e8ca8a699300e1d0ec136"
+    },
+    "playwright.desktop.config.ts": {
+      "before": "a990321f66bc6bfcb1720d245e60d7c79453fdfe",
+      "after": "f8eff49961bcb7d024ff15da3312a55f1d58492a"
+    },
+    "scripts/laboratory-db.mjs": {
+      "before": "670e2e04194b03cda9f0d89d65cf85689d5ddece",
+      "after": "5644c5a84cd0562cfc97922901806a336397575e"
+    },
+    "src/features/course/course-hub.tsx": {
+      "before": "970ff721a7fce3a532dcc69aa88fc885e97ac8e6",
+      "after": "038babe93054e6eebe74beba2f728c6ef3ba75ef"
+    },
+    "src/features/laboratory/compute.tsx": {
+      "before": "82c4a2c0d72b4409e3f51f3c5516dc1397fff756",
+      "after": "d30183e60d995d7f5b484ac169bc1c6b481073d8"
+    },
+    "src/features/laboratory/endpoints.tsx": {
+      "before": "d10de9041aafea3238f882fafa89004570918ecd",
+      "after": "fd3889ea41360b30ebb6e3c54e7a9880b81270ac"
+    },
+    "src/features/laboratory/firewall.tsx": {
+      "before": "98b7d0018434e1adf3684e7d5442b84219cd62eb",
+      "after": "46053d42fe8182e891865a323842e0d79c6121de"
+    },
+    "src/features/laboratory/laboratory.tsx": {
+      "before": "040275391bc71b48c1e5308afb16f48bcfb79740",
+      "after": "f289e4b01331fb646918d3c5b1ea6c06b91cfb0d"
+    },
+    "src/features/laboratory/networking.tsx": {
+      "before": "ff6935a4305e7d5cff02ffd153e2271e83e20a1e",
+      "after": "c75f1f863864a741da11f81c19a88cef1b71006f"
+    },
+    "src/features/laboratory/routing.tsx": {
+      "before": "f446b711c8c8a2470e51c2b36b6af18e884e8e54",
+      "after": "3159f96a7f1065477c6c5e6590d1cb81d4a1eb0a"
+    },
+    "src/features/laboratory/studio-location.ts": {
+      "before": "7a0e1d87231d3347bdbfdaa8865c83df05c3c8ec",
+      "after": "fa234fff96610a1cc2cd8c8e47278cdb87435759"
+    },
+    "src/features/laboratory/studio.tsx": {
+      "before": "bd6430e6194ecbdbca10e0b88d9724df6e7df703",
+      "after": "499d57d69a67b6939cb9915030951904b214df5b"
+    },
+    "src/features/laboratory/topology-access.tsx": {
+      "before": "3dda5843a389aba8a0ec5dd0946e60dbf4d47def",
+      "after": "fae3eacc98f9d1463cc9600717a4703c8a7aa970"
+    },
+    "src/first-main-baseline-preservation.test.ts": {
+      "before": "e2b98cabc6311e9edff283fab935183a56bc473c",
+      "after": "4a1669ca38de70ed6adf94a722c0c850e446d0f7"
+    },
+    "src/laboratory/v3/repository.ts": {
+      "before": "f2f8751ccd0a66895e992aa4461feabf3098dac6",
+      "after": "717f172b1e3df3905d892f41b5946d1d0d221fd5"
+    },
+    "src/laboratory/v3/server.ts": {
+      "before": "1516cb2cb760d949940cf81da9b08b0f271f44ab",
+      "after": "b054f5dadf63636740e1ba56252c6122e79a3c5c"
+    },
+    "tests/baseline-preservation.ts": {
+      "before": "c830fe4ad15ed48dc636cd69d69bd45b2e5561bb",
+      "after": "70866dd79c09bfa86d22d201c777e1b81cf9231a"
+    },
+    "tests/portal-fidelity-preservation.ts": {
+      "before": "413c54c3dca33ee1fda882c678be146f5508b65b",
+      "after": "bdf5754f6505f456366e707a303b0a9ca5c822d4"
+    }
+  },
+  "additions": {
+    "database/laboratory-v3/011-course-workspaces.sql": "717a674dd6e6073449ef3b09e9a89a187fff75e6",
+    "docs/BASELINE_OWNER_ACCEPTANCE.md": "d5999da1f09df7f6141fa12ea6682b16dc340bc5",
+    "docs/COURSE_LABORATORY_ADAPTER_V1.md": "0d8335bc50b6f3e2a9e14402781109d49ca80de6",
+    "docs/reviews/evidence/course-workspace/capture-provenance.json": "063238c9e68bba7fc08a03006588899f5b0d83ac",
+    "docs/screenshots/course-workspace/course-review-1024-500.png": "71fe7fb20fcba54636a73fb424bce112222532e9",
+    "docs/screenshots/course-workspace/course-review-1024-768.png": "9b41951e4305fcc7893658790797bb4cd8d4d15d",
+    "docs/screenshots/course-workspace/course-review-1440-900.png": "ee373229c20c14991ef06ae302d619dcafec21d7",
+    "docs/screenshots/course-workspace/course-shared-studio.png": "21e13ec6383b820bead20bbcc1083cf71dcc8782",
+    "docs/screenshots/course-workspace/persistent-course-blob-evidence.png": "1ee91b6fd300f8515ed658702ed7c2070acc4e1a",
+    "src/app/api/course-laboratory/[action]/route.ts": "e5d531e477b6b6bd07d5e87fbbdb0951c6803b77",
+    "src/app/labs/course-workspace/page.tsx": "79c4dfc56e49bd362cd1127ad4c22f355f428da5",
+    "src/course-workspace-preservation.test.ts": "2cfa24e0c0e587637a65c55797face8f9dab4833",
+    "src/features/laboratory/course-client.ts": "ce632ff1c71a8f96619b355cdb63768afb238c3d",
+    "src/features/laboratory/course-evidence.tsx": "8bf4a162301647ca17f7ac55087484a4f24958c5",
+    "src/features/laboratory/workspace-context.tsx": "0f35e64b6fc98a8de5c1b1bf988abd867bacd897",
+    "src/laboratory-course-client.test.ts": "f1b17c2fe332b5c0a75986987190144250b733a8",
+    "src/laboratory-course-contract.test.ts": "87786520516575be6dc6c3fc472ac83447f82225",
+    "src/laboratory-course.integration.test.ts": "e0733c1606748c21b1f5eb97a725c861ecd5483e",
+    "src/laboratory/course/contract.ts": "189e594c00bfd1b028f19dd9e6e0e2616860103e",
+    "tests/course-workspace-preservation.ts": "9aeb7a5e2f06b17ccd47b139803f08c50bbf1fd7",
+    "tests/e2e/course-workspace.spec.ts": "659bb9e1f5f3ebfb77d14eb4856d79cc192d2124"
+  }
+}

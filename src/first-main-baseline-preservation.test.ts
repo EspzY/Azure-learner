@@ -1,6 +1,8 @@
 import { expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import {
+  readCourseParent as readFileSync,
+  execCourseParent as execFileSync,
+} from '../tests/course-workspace-preservation';
 import ts from 'typescript';
 import {
   baselineParents,

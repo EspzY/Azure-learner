@@ -244,6 +244,7 @@ export function CourseHub({
           <ArrowRight size={15} aria-hidden="true" />
         </Link>
         <Link href="/labs/laboratory">{laboratoryV3Nb.entry}</Link>
+        <Link href="/labs/course-workspace">Serverlagret kursarbeidsområde · teknisk</Link>
       </footer>
     </div>
   );

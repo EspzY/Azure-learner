@@ -5,6 +5,10 @@ import baseline from './playwright.config';
 // names. No test body, assertion, title, timeout or skip is modified.
 const compactCases = [
   [
+    'course-workspace.spec.ts',
+    'course workspace compact persistent Review evidence keyboard focus reduced motion and Axe retain readable isolated Portal controls',
+  ],
+  [
     'portal-resource-fidelity.spec.ts',
     'Portal fidelity native Review readable Overview keyboard reduced motion Axe and compact parent menus retain real configuration boundaries',
   ],

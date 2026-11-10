@@ -16,8 +16,11 @@ export function studioContext(href: string, query: { get: (key: string) => strin
   for (const [k, v] of studioParameters(query)) p.set(k, v);
   return base + '?' + p;
 }
-export function studioReturn(query: { get: (key: string) => string | null }) {
-  return '/labs/laboratory?view=studio&' + studioParameters(query);
+export function studioReturn(
+  query: { get: (key: string) => string | null },
+  base = '/labs/laboratory',
+) {
+  return base + '?view=studio&' + studioParameters(query);
 }
 export function readStudio(query: { get: (key: string) => string | null }, workspace: string) {
   const p = studioParameters(query),

@@ -1,3 +1,7 @@
+## Pending baseline acceptance and course engine adapter
+
+PR80 remains the verified, unmerged baseline. [Owner Vercel checks](docs/BASELINE_OWNER_ACCEPTANCE.md) precede any merge/production approval. The next bounded [technical adapter](docs/COURSE_LABORATORY_ADAPTER_V1.md) reuses Laboratory3.9 through an optional persistent `/labs/course-workspace`, separate from free Sandbox and original AZ-900/v2. It does not migrate old attempts or introduce grading/XP. Local setup includes additive011; no external database/configuration change is authorized. Verification status is recorded in [current adapter QA](docs/quality/COURSE_WORKSPACE_QA.md).
+
 # First integrated main candidate
 
 The isolated baseline combines Laboratory3.9/Portal Fidelity and the complete Bifrost course/design stack. See [integration, validation and merge boundaries](docs/FIRST_MAIN_BASELINE.md) and [sequential roadmap](docs/BASELINE_ROADMAP.md). Actual main is still the original initialization; combined QA is pending. No merge or production deployment is authorized. Historical status sections below retain their original versioned context.

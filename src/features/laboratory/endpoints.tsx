@@ -1,10 +1,10 @@
 'use client';
+import { useWorkspaceNavigation } from './workspace-context';
 import { isFirewallWorld } from './capabilities';
 import { FirewallPathDetails } from './firewall';
 import { laboratoryFirewallNb as f } from '@/content/laboratory-firewall-nb';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import Link from 'next/link';
-import { requestLaboratoryAnalysis } from './ephemeral-client';
 import { TopologyAccess } from './topology-access';
 import type { World, Command } from '@/laboratory/v33/contract';
 import type { PolicyAnalysis } from '@/laboratory/v33/policy';
@@ -16,8 +16,6 @@ import { laboratoryNetworkNb as n } from '@/content/laboratory-networking-nb';
 import { laboratoryV3Nb as c } from '@/content/nb';
 import { PropertyList } from '@/features/portal/shared';
 import { PortalTable } from '@/features/portal/presentation';
-const href = (view: string, id?: string) =>
-  '/labs/laboratory?' + new URLSearchParams({ view, ...(id ? { id } : {}) });
 export const endpointFields: Record<string, string[]> = {
   CreateNetworkInterface: [
     'groupId',
@@ -55,6 +53,7 @@ export function EndpointViews({
   list: (type: string, rows: { id: string; name: string; origin: string }[]) => ReactNode;
   receipt: (id: string) => ReactNode;
 }) {
+  const { href } = useWorkspaceNavigation();
   const nic = world.nics.find((x) => x.id === id),
     subnet = world.subnets.find((x) => x.id === nic?.subnetId),
     vnet = world.vnets.find((x) => x.id === subnet?.vnetId);
@@ -161,6 +160,7 @@ export function PolicyAnalysisView({
   accept: (s: Snapshot) => void;
   onAnalysis?: (result: LaboratoryPolicyResult | null) => void;
 }) {
+  const { href, analysis: requestLaboratoryAnalysis } = useWorkspaceNavigation();
   const [input, setInput] = useState({
       sourceNicId: initialSource ?? '',
       destinationNicId: '',
