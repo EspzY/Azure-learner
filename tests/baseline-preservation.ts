@@ -156,13 +156,10 @@ function parentView(kind: keyof typeof baselineParents) {
     const key = relative(root, canonical).split(sep).join('/');
     assert(tree.has(key), 'unapproved read: not a pinned parent path: ' + key);
     const actual = nativeRead(path);
+    const actualHash = baselineBlob(actual);
     if (!metadata.has(key))
-      assert.equal(
-        baselineBlob(actual),
-        expectedMerged.get(key),
-        'unapproved current read: ' + key,
-      );
-    const bytes = baselineBlob(actual) === tree.get(key) ? actual : old(key);
+      assert.equal(actualHash, expectedMerged.get(key), 'unapproved current read: ' + key);
+    const bytes = actualHash === tree.get(key) ? actual : old(key);
     const encoding = typeof options === 'string' ? options : options?.encoding;
     return encoding ? bytes.toString(encoding) : bytes;
   }) as typeof nativeRead;
