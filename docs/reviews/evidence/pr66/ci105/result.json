@@ -1,0 +1,38 @@
+{
+  "run": 42425573414,
+  "job": 128563008636,
+  "head": "a625756e6bfdb3686b10e09a9f8d95380f7911d4",
+  "syntheticMerge": "e1b24f0b30868c8a0f84b2f80f733d0f28554aeb",
+  "tree": "d484870f19ae0011bd31618fe2cc93eda3cf54fc",
+  "passed": 425,
+  "failed": 1,
+  "flaky": 0,
+  "skipped": 0,
+  "browserDuration": "29.9m",
+  "failure": "Original shared-portal.spec.ts:149, line167 expected1 Properties link; received2 due to new vnetId link. Repeated identically in both original CI retries.",
+  "strictRelease": "not executed after browser failure",
+  "rawLogSha256": "d01e8ed670f90dade83e143319f6e1a02952863990e2bcf99f4ffcd263345d88",
+  "artifact": 13596376442,
+  "artifactBytes": 654602450,
+  "artifactDownloaded": false,
+  "reason": "Connector512MiB limit; no existing local API credential for safe fallback.",
+  "correction": "Clickable Properties references are now restricted to3.4 VM/disk only. Original shared-portal.spec.ts and all previous assertions/settings remain byte-identical.",
+  "targetedRetest": {
+    "passed": 8,
+    "failed": 0,
+    "flaky": 0,
+    "skipped": 0,
+    "duration": "1.1m",
+    "scope": "All original shared-Portal desktop/compact journeys plus new VM Properties/NIC/disk/diagnostic desktop/compact witnesses. Actual local PostgreSQL."
+  },
+  "fullCheckAfterCorrection": {
+    "exit": 0,
+    "vitest": 933,
+    "files": 77,
+    "node": 24,
+    "curriculum": 503,
+    "objectives": 57,
+    "facets": 126,
+    "productionBuild": true
+  }
+}

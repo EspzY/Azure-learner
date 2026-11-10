@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-05T14:19:43.108Z",
+  "route": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/management-tools?topic=assessment&case=mt07",
+  "case": "mt07",
+  "premises": "Both teams competent and authorized; Git review, explicit inputs, repeatable setup with errors/result checked. No declarative-only condition.",
+  "decision": "Versjoner et parameterstyrt PowerShell-oppsett med feilhåndtering, review og kontroll av etablert konfigurasjon.",
+  "reason": "Gjennomgått kode, eksplisitte inndata og etterprøving kan støtte begge tilnærminger; imperativ handling må skilles fra deklarativ ønsket tilstand.",
+  "ownReason": "Both the ARM/Bicep and parameterized PowerShell plans satisfy the stated workflow. Select the imperative option to test whether the assessment accepts this visible alternative. Screenshots of manual clicks are not repeatable versioned execution; Git does not prove deployed state.",
+  "counterfactual": "A declarative-only requirement would exclude the offered imperative plan, but is expressly absent.",
+  "feedbackSeen": false
+}

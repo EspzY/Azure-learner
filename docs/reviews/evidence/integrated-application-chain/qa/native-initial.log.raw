@@ -1,0 +1,47 @@
+
+Running 7 tests using 1 worker
+
+(node:141205) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:18:1 › integrated3.9 default native Portal forms commit the actual app PostgreSQL binding FrontDoor chain and one Studio authority (9.0s)
+  ✓  2 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:102:1 › integrated3.9 compact native Review keyboard focus reduced motion Axe and short desktop keep typed configuration readable (3.9s)
+  ✓  3 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:164:1 › integrated3.9 native empty Storage deletion blocks Function dependencies and lands on original committed delete receipts (5.3s)
+  ✘  4 [desktop-chromium] › tests/e2e/integrated-data.spec.ts:42:1 › integrated Function App uses actual Storage and FC1 parents for HTTP and blob configuration analysis and rejects dependent deletion (30.4s)
+(node:141526) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [desktop-chromium] › tests/e2e/integrated-data.spec.ts:147:1 › integrated SQL binding distinguishes unknown hypothetical IP firewall allowance and changed server configuration without runtime claims (7.3s)
+  ✓  6 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:60:1 › integrated Front Door native WAF Prevention and Detection changes affect the actual configured delivery chain (8.9s)
+  ✓  7 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:173:1 › integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references (9.0s)
+
+
+  1) [desktop-chromium] › tests/e2e/integrated-data.spec.ts:42:1 › integrated Function App uses actual Storage and FC1 parents for HTTP and blob configuration analysis and rejects dependent deletion 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.selectOption: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for getByRole('region', { name: 'Synthetic function analysis', exact: true }).getByLabel('Modeled input blob', { exact: true })
+
+
+      131 |   const blobAnalysis = page.getByRole('region', { name: d.invocation, exact: true });
+      132 |   const writesBeforeBlob = commands();
+    > 133 |   await blobAnalysis.getByLabel(d.blob, { exact: true }).selectOption(blobId);
+          |                                                          ^
+      134 |   await blobAnalysis.getByRole('button', { name: d.evaluate, exact: true }).click();
+      135 |   await expect(blobAnalysis.getByRole('status')).toHaveText(d.status['configuration-consistent']);
+      136 |   await expect(blobAnalysis.locator('pre')).toHaveText(blobText);
+        at /workspace/azurelab-phase2/integration/tests/e2e/integrated-data.spec.ts:133:58
+
+    Error Context: ../a-native-results/integrated-data-integrated-68e02--rejects-dependent-deletion-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../a-native-results/integrated-data-integrated-68e02--rejects-dependent-deletion-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../a-native-results/integrated-data-integrated-68e02--rejects-dependent-deletion-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › tests/e2e/integrated-data.spec.ts:42:1 › integrated Function App uses actual Storage and FC1 parents for HTTP and blob configuration analysis and rejects dependent deletion 
+  6 passed (1.3m)

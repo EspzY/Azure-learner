@@ -1,0 +1,134 @@
+[WebServer] (node:51392) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:51419) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:108:1 › remediation Studio observation opens the actual NSG rule and native Review Save narrows policy without changing original identity or course storage (4.3s)
+(node:51522) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  2 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:182:1 › remediation Firewall native edit and delete preserve nested collection action priority and original Create receipt with default deny and remaining rule matching (7.7s)
+  ✓  3 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:246:1 › remediation NSG Delete confirmation exact identity read-only Review historical through reset and original receipt remain verifiable (4.8s)
+  ✘  4 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:300:1 › remediation two native editors preserve pinned revisions reject stale saves and replay identical command IDs without lost updates (30.3s)
+(node:51662) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:346:1 › remediation compact native Review keyboard focus reduced motion Axe pinned delete and short desktop preserve readable rule evidence (7.5s)
+
+
+  1) [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:108:1 › remediation Studio observation opens the actual NSG rule and native Review Save narrows policy without changing original identity or course storage 
+
+    Error: locator.fill: Error: strict mode violation: getByRole('textbox') resolved to 6 elements:
+        1) <input value="" required="" maxlength="90" aria-label="Name"/> aka getByRole('textbox', { name: 'Name' })
+        2) <input required="" value="100" maxlength="120" aria-label="Priority"/> aka getByRole('textbox', { name: 'Priority' })
+        3) <input value="*" required="" maxlength="120" aria-label="Source IPv4/CIDR"/> aka getByRole('textbox', { name: 'Source IPv4/CIDR' })
+        4) <input value="*" required="" maxlength="120" aria-label="Source port"/> aka getByRole('textbox', { name: 'Source port' })
+        5) <input value="*" required="" maxlength="120" aria-label="Destination IPv4/CIDR"/> aka getByRole('textbox', { name: 'Destination IPv4/CIDR' })
+        6) <input required="" value="443" maxlength="120" aria-label="Destination port"/> aka getByRole('textbox', { name: 'Destination port' })
+
+    Call log:
+      - waiting for getByRole('textbox')
+
+
+      128 |   await page.goto('/labs/laboratory?view=nsg&id=' + a.appNsg);
+      129 |   await page.getByRole('button', { name: n.operations.CreateSecurityRule, exact: true }).click();
+    > 130 |   await page.getByRole('textbox', { name: n.fields.name, exact: true }).fill('broad-remediation');
+          |                                                                         ^
+      131 |   await page
+      132 |     .getByRole('combobox', { name: n.fields.direction, exact: true })
+      133 |     .selectOption('Outbound');
+        at /workspace/Azure-learner/tests/e2e/laboratory-remediation.spec.ts:130:73
+
+    Error Context: test-results/laboratory-remediation-rem-e966a--identity-or-course-storage-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/laboratory-remediation-rem-e966a--identity-or-course-storage-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/laboratory-remediation-rem-e966a--identity-or-course-storage-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:300:1 › remediation two native editors preserve pinned revisions reject stale saves and replay identical command IDs without lost updates 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.click: Test timeout of 30000ms exceeded.
+    Browser logs:
+
+    <launching> /home/agent/.cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell --disable-field-trial-config --disable-background-networking --disable-background-timer-throttling --disable-backgrounding-occluded-windows --disable-back-forward-cache --disable-breakpad --disable-client-side-phishing-detection --disable-component-extensions-with-background-pages --disable-component-update --no-default-browser-check --disable-default-apps --disable-dev-shm-usage --disable-edgeupdater --disable-extensions --disable-features=AvoidUnnecessaryBeforeUnloadCheckSync,DestroyProfileOnBrowserClose,DialMediaRouteProvider,GlobalMediaControls,HttpsUpgrades,LensOverlay,MediaRouter,PaintHolding,ThirdPartyStoragePartitioning,BlockOriginHeaderModificationOnRedirect,AvoidCorsURLLoaderRestartOnRedirect,Translate,AutoDeElevate,OptimizationHints,NetworkTimeServiceQuerying,AimEnabled,msForceBrowserSignIn,msEdgeUpdateLaunchServicesPreferredVersion --enable-features=CDPScreenshotNewSurface --allow-pre-commit-input --disable-hang-monitor --disable-ipc-flooding-protection --disable-popup-blocking --disable-prompt-on-repost --disable-renderer-backgrounding --disable-updater-scheduler --force-color-profile=srgb --metrics-recording-only --no-first-run --password-store=basic --use-mock-keychain --no-service-autorun --export-tagged-pdf --disable-search-engine-choice-screen --unsafely-disable-devtools-self-xss-warnings --edge-skip-compat-layer-relaunch --disable-infobars --disable-search-engine-choice-screen --disable-sync --enable-unsafe-swiftshader --headless --hide-scrollbars --mute-audio --blink-settings=primaryHoverType=2,availableHoverTypes=2,primaryPointerType=4,availablePointerTypes=4 --no-sandbox --user-data-dir=/tmp/playwright_chromiumdev_profile-2LfPmX --remote-debugging-pipe --no-startup-window
+    <launched> pid=51534
+    [pid=51534][err] [1108/180640.825140:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=51534][err] [1108/180640.825247:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=51534][err] [1108/180640.833693:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=51534][err] [1108/180640.833786:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+    [pid=51534][err] [1108/180640.840420:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+    [pid=51534][err] [1108/180640.840512:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+    [pid=51534][err] [1108/180640.840769:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+    [pid=51534][err] [1108/180640.843644:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+    [pid=51534][err] [1108/180640.902979:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+    [pid=51534][err] [1108/180640.905388:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+    [pid=51534][err] [1108/180659.536649:INFO:CONSOLE:0] "The resource http://127.0.0.1:3000/_next/static/chunks/0cnpuj6hwp1yo.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3000/labs/laboratory?view=rule&id=rule-31 (0)
+    [pid=51534][err] [1108/180659.536769:INFO:CONSOLE:0] "The resource http://127.0.0.1:3000/_next/static/chunks/3nn68zmi9bcd1.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3000/labs/laboratory?view=rule&id=rule-31 (0)
+    [pid=51534][err] [1108/180659.536830:INFO:CONSOLE:0] "The resource http://127.0.0.1:3000/_next/static/chunks/05fsp6-s8-kz9.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3000/labs/laboratory?view=rule&id=rule-31 (0)
+    [pid=51534][err] [1108/180659.536876:INFO:CONSOLE:0] "The resource http://127.0.0.1:3000/_next/static/chunks/3q-hgjrxdyynh.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3000/labs/laboratory?view=rule&id=rule-31 (0)
+    [pid=51534][err] [1108/180659.536922:INFO:CONSOLE:0] "The resource http://127.0.0.1:3000/_next/static/chunks/0jlklt-6pxg45.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3000/labs/laboratory?view=rule&id=rule-31 (0)
+    [pid=51534][err] [1108/180659.536983:INFO:CONSOLE:0] "The resource http://127.0.0.1:3000/_next/static/chunks/1vj7kg3u1mmh9.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3000/labs/laboratory?view=rule&id=rule-31 (0)
+    [pid=51534][err] [1108/180659.565396:INFO:CONSOLE:0] "The resource http://127.0.0.1:3000/_next/static/chunks/0cnpuj6hwp1yo.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3000/labs/laboratory?view=rule&id=rule-31 (0)
+    [pid=51534][err] [1108/180659.565474:INFO:CONSOLE:0] "The resource http://127.0.0.1:3000/_next/static/chunks/3nn68zmi9bcd1.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3000/labs/laboratory?view=rule&id=rule-31 (0)
+    [pid=51534][err] [1108/180659.565764:INFO:CONSOLE:0] "The resource http://127.0.0.1:3000/_next/static/chunks/05fsp6-s8-kz9.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3000/labs/laboratory?view=rule&id=rule-31 (0)
+    [pid=51534][err] [1108/180659.565816:INFO:CONSOLE:0] "The resource http://127.0.0.1:3000/_next/static/chunks/0jlklt-6pxg45.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3000/labs/laboratory?view=rule&id=rule-31 (0)
+    [pid=51534][err] [1108/180659.565958:INFO:CONSOLE:0] "The resource http://127.0.0.1:3000/_next/static/chunks/3q-hgjrxdyynh.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3000/labs/laboratory?view=rule&id=rule-31 (0)
+    [pid=51534][err] [1108/180659.566006:INFO:CONSOLE:0] "The resource http://127.0.0.1:3000/_next/static/chunks/1vj7kg3u1mmh9.css was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:3000/labs/laboratory?view=rule&id=rule-31 (0)
+    [pid=51534] <gracefully close start>
+    Call log:
+      - waiting for getByRole('button', { name: 'Oppdater fra serveren', exact: true })
+        - locator resolved to <button type="button">…</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <dialog open="" class="portal-dialog " aria-labelledby="_r_0_">…</dialog> from <div class="portal-content">…</div> subtree intercepts pointer events
+        - retrying click action
+        - waiting 20ms
+        2 × waiting for element to be visible, enabled and stable
+          - element is visible, enabled and stable
+          - scrolling into view if needed
+          - done scrolling
+          - <dialog open="" class="portal-dialog " aria-labelledby="_r_0_">…</dialog> from <div class="portal-content">…</div> subtree intercepts pointer events
+        - retrying click action
+          - waiting 100ms
+        51 × waiting for element to be visible, enabled and stable
+           - element is visible, enabled and stable
+           - scrolling into view if needed
+           - done scrolling
+           - <dialog open="" class="portal-dialog " aria-labelledby="_r_0_">…</dialog> from <div class="portal-content">…</div> subtree intercepts pointer events
+         - retrying click action
+           - waiting 500ms
+        - waiting for element to be visible, enabled and stable
+
+
+      315 |   const command = (await sent).postDataJSON(),
+      316 |     winner = await state(page);
+    > 317 |   await second.getByRole('button', { name: c.refresh, exact: true }).click();
+          |                                                                      ^
+      318 |   await expect(d2).toContainText(t.stale);
+      319 |   await expect(d2.getByRole('button', { name: t.save, exact: true })).toBeDisabled();
+      320 |   await expect(
+        at /workspace/Azure-learner/tests/e2e/laboratory-remediation.spec.ts:317:70
+
+    Error Context: test-results/laboratory-remediation-rem-fd0c9-nd-IDs-without-lost-updates-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/laboratory-remediation-rem-fd0c9-nd-IDs-without-lost-updates-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/laboratory-remediation-rem-fd0c9-nd-IDs-without-lost-updates-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:108:1 › remediation Studio observation opens the actual NSG rule and native Review Save narrows policy without changing original identity or course storage 
+    [desktop-chromium] › tests/e2e/laboratory-remediation.spec.ts:300:1 › remediation two native editors preserve pinned revisions reject stale saves and replay identical command IDs without lost updates 
+  3 passed (1.1m)

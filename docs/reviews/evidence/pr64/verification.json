@@ -1,0 +1,122 @@
+{
+  "base": "33065cb3cf69f6c9ba5e3d04496e386a2f7f92be",
+  "status": "Post-audit correction fullcheck and affected browser controls passed; renewed independent sign-off/full candidate CI/external SHA checks pending.",
+  "initialFailures": [
+    {
+      "command": "new domain tests",
+      "result": "failed",
+      "reason": "Incorrect through8 expected zero peerings; corrected to actual pre-peering through7, no engine change."
+    },
+    {
+      "command": "new PostgreSQL analysis test",
+      "result": "failed",
+      "reason": "Test expected409 for corrupt replay; original repository correctly uses503. Assertion corrected to original contract."
+    },
+    {
+      "command": "new routing browser run1",
+      "result": "2 passed +2 failed",
+      "reason": "Unscoped new service-link helper matched contextual and global analysis links; scoped to actual navigation."
+    },
+    {
+      "command": "new routing browser run2",
+      "result": "3 passed +1 failed",
+      "reason": "Axe exposed real link-in-text-block contrast/underline failure; scoped analysis receipt underline added. No QA setting changed."
+    },
+    {
+      "command": "platform browser sweep before final focus correction",
+      "result": "new focus assertion failed",
+      "reason": "requestAnimationFrame could run before the result heading mounted. Replaced with a result-bound React effect, explicit instant scroll and focus. Existing old platform controls passed up to the observed checkpoint. Final scoped retest pending."
+    },
+    {
+      "command": "initial platform browser sweep",
+      "result": "20passed +5failed,6.8m,0retry",
+      "reason": "Two new result-focus failures corrected in effect. Three inherited compact tests timed out at read/Axe/cleanup; a separate lint process overlapped part of the sweep. Causality is not proven; all9 scoped controls passed71.1s after serializing heavy work. No retry/timeout/worker/assertion changes."
+    },
+    {
+      "command": "initial npm run check",
+      "result": "failed:861passed +3failed of864Vitest; build not reached",
+      "reason": "New architecture/decisions documentation headers missing from the explicit historical reader projection. Added only those2 SHA-bound paths; same27 historical assertions passed after correction, followed by full864pass check."
+    }
+  ],
+  "publicPersistentLaboratory": "DEFERRED by owner; no external database. Public503 is expected, not functional Gate7.",
+  "knownHistoricalInstabilities": "Compute/Axe/earlier landing or local artifact stalls not considered root-caused by a later green run.",
+  "passed": [
+    {
+      "command": "npm run check",
+      "result": "passed",
+      "details": "864Vitest/71files;24Node;503curriculum;57objectives/126facets;179Markdown;41registeredicons/39originalSVGs; types/lint/format/docs/quality/legacy/build exit0. Real isolated local PostgreSQL included."
+    },
+    {
+      "command": "targeted platform browser sweep after actual fixes",
+      "result": "passed",
+      "details": "9passed71.1s,0retry/0flaky/0skip: actual hub/app/data native creation, original receipts/reload/LPM/UDR tie; old networking/Storage/shared Portal compact controls in both desktop and compact."
+    },
+    {
+      "command": "final held-server-response analysis guard browser test",
+      "result": "passed",
+      "details": "2passed,21.1s,0retry/0flaky/0skip; holds original real server response, disables input while pending, focuses mounted result, actual1440x900/1024x768/1024x500 keyboard/Axe0/reduced-motion/overflow/no technical writes."
+    },
+    {
+      "command": "npm run test:e2e:plan",
+      "result": "passed",
+      "details": "414=373desktop+41compact; all409 prior executions retained. One added compact witness, no existing assertions or QA settings weakened."
+    },
+    {
+      "command": "preservation correction subset",
+      "result": "passed",
+      "details": "27tests/6files; all original authorities, frozen models/SQL/course content and locked reviews remain physical originals outside the exact17-path delta; old assertion bodies retained."
+    },
+    {
+      "command": "post-audit npm run check and affected Playwright",
+      "result": "passed",
+      "details": "Full864Vitest/24Node/503curriculum/build exit0 then4browser controls passed31.2s with0retry/0flaky/0skip. No settings or previous assertions changed."
+    }
+  ],
+  "logs": [
+    {
+      "path": "/workspace/azurelab-pr64/check-first.log",
+      "sha256": "966632606947a0db3eb11e9f55e40747294f796c4a72e116a5b410b0938c9656"
+    },
+    {
+      "path": "/workspace/azurelab-pr64/check-final.log",
+      "sha256": "fb3fa0e993bbdad9f11ecaba5b9d13596c1804b0f818bb27cddf9772e867404f"
+    },
+    {
+      "path": "/workspace/azurelab-pr64/browser-platform.log",
+      "sha256": "98787460fc9bd6370c6d7d5a5a1c14ae6c9f0d5f5dba4c3683d7e5c4645bc0b0"
+    },
+    {
+      "path": "/workspace/azurelab-pr64/browser-final-targeted.json",
+      "sha256": "4aea9f240d7fb9ce638c1fd93c145923d7e358049a7f05485ac4f88f6d46c1f7"
+    },
+    {
+      "path": "/workspace/azurelab-pr64/browser-input-guard.json",
+      "sha256": "7d9dfb632fd241dcc49346e1064a1f8d217e4e7c740ab231dbdfd5d12d4214d8"
+    },
+    {
+      "path": "/workspace/azurelab-pr64/routing-expanded.log",
+      "sha256": "cd4784f1541a4bf9c22fe26fae2784e19190bdc82bca7cf873adeed8bddbe067"
+    },
+    {
+      "path": "/workspace/azurelab-pr64/preservation-corrected.log",
+      "sha256": "575192e2c7d61018a1d42b79e2d6d1725673ae90c20c46eae8fe8256513b80ce"
+    },
+    {
+      "path": "/workspace/azurelab-pr64/check-post-audit.log",
+      "sha256": "c5d9b6c52d13917d1de4ec75bfb86d65a65a13ce38d3246209c6db14143272a3"
+    },
+    {
+      "path": "/workspace/azurelab-pr64/browser-post-audit.json",
+      "sha256": "858c034b31b4b9c6c66897eee16c8a6ea677e9a35c53372bab18ee911dd6edea"
+    }
+  ],
+  "independentCorrections": [
+    {
+      "id": "PR64-IFA-01",
+      "severity": "minor",
+      "originalObservation": "Incompatible Route Table preflight/receipt inherited NSG wording although domain validation and form guidance were correct.",
+      "fix": "Operation-specific presenter wording in Review and original receipt; old NSG text, domain codes and all evaluators remain unchanged.",
+      "actualRetest": "New native incompatible region/Route Table Review disabled Apply/no-write, then actual rejected command plus native Refresh/History and exact original raw-entry equality; original NSG parent/scope witness and final short-window/held-response guards passed4/4."
+    }
+  ]
+}

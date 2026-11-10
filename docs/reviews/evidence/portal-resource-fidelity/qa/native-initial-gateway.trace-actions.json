@@ -1,0 +1,595 @@
+{
+  "derived": true,
+  "transformation": "Only action identity/timing/selector/key and failure messages retained. All network collections, request/response bodies, headers, cookies, tokens, resource blobs and frame-snapshots excluded. Original error-context DOM output is a separate original safe artifact.",
+  "actions": [
+    {
+      "type": "after",
+      "callId": "cpxs@5772",
+      "endTime": 107552.669
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5774",
+      "class": "Frame",
+      "method": "waitForSelector",
+      "startTime": 107557.186,
+      "selectorOrKey": {
+        "selector": ".lab-form >> internal:label=\"Synthetic health probe path\"s"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5774",
+      "endTime": 107572.891
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5778",
+      "class": "Frame",
+      "method": "fill",
+      "startTime": 107579.442,
+      "selectorOrKey": {
+        "selector": ".lab-form >> internal:label=\"Synthetic health probe path\"s"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5778",
+      "endTime": 107592.682
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5780",
+      "class": "Page",
+      "method": "__waitInfo__",
+      "startTime": 107598.167,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5783",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 107598.506,
+      "selectorOrKey": {
+        "selector": ".lab-form >> internal:role=button[name=/^Review(?: \\+ (?:create|save|delete))?$/]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5783",
+      "endTime": 107646.042
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5780",
+      "endTime": 107653.68
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5788",
+      "class": "Response",
+      "method": "body",
+      "startTime": 107654.575,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5788",
+      "endTime": 107656.873
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5791",
+      "class": "Page",
+      "method": "__waitInfo__",
+      "startTime": 107659.516,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5794",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 107659.888,
+      "selectorOrKey": {
+        "selector": ".lab-form >> internal:role=button[name=\"Save\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5794",
+      "endTime": 107732.087
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5791",
+      "endTime": 107747.955
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5799",
+      "class": "Response",
+      "method": "body",
+      "startTime": 107748.138,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5799",
+      "endTime": 107750.87
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5802",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 107754.201,
+      "selectorOrKey": {
+        "selector": ".lab-integrated-form"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5802",
+      "endTime": 107773.945
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5806",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 107787.271,
+      "selectorOrKey": {
+        "selector": ".portal-title img[data-icon=\"applicationGateway\"]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5806",
+      "endTime": 107818.522
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5808",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 107865.675,
+      "selectorOrKey": {
+        "selector": ".portal-title img[data-icon=\"applicationGateway\"]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5808",
+      "endTime": 107893.716
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5811",
+      "class": "Frame",
+      "method": "waitForSelector",
+      "startTime": 107898.873,
+      "selectorOrKey": {
+        "selector": ".portal-title img[data-icon=\"applicationGateway\"]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5811",
+      "endTime": 107911.251
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5817",
+      "class": "Frame",
+      "method": "queryCount",
+      "startTime": 107917.743,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"Application Gateways\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5817",
+      "endTime": 107922.226
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5819",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 107925.173,
+      "selectorOrKey": {
+        "selector": "[data-portal-mode=\"laboratory\"]:visible"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5819",
+      "endTime": 107929.038
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5821",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 107932.867,
+      "selectorOrKey": {
+        "selector": "internal:role=status >> internal:has-text=\"Henter bekreftet tilstand fra serveren \u2026\"i"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5821",
+      "endTime": 107936.725
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5823",
+      "class": "Frame",
+      "method": "isVisible",
+      "startTime": 107938.729,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5823",
+      "endTime": 107941.491
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5825",
+      "class": "Frame",
+      "method": "queryCount",
+      "startTime": 107943.971,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"Home\"s] >> xpath=ancestor::details[1]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5825",
+      "endTime": 107948.341
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5827",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 107951.327,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"Home\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5827",
+      "endTime": 107954.838
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5829",
+      "class": "Frame",
+      "method": "queryCount",
+      "startTime": 107959.342,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"Application Gateways\"s] >> xpath=ancestor::details[1]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5829",
+      "endTime": 107962.656
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5831",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 107965.177,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"Application Gateways\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5831",
+      "endTime": 107995.284
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5833",
+      "class": "Frame",
+      "method": "evaluateExpression",
+      "startTime": 108001.479,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5833",
+      "endTime": 108013.511
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5835",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 108020.328,
+      "selectorOrKey": {
+        "selector": ".portal-title h1"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5835",
+      "endTime": 108024.116
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5837",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 108027.514,
+      "selectorOrKey": {
+        "selector": "internal:role=table >> internal:role=link[name=\"gateway-delivery\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5837",
+      "endTime": 108054.475
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5839",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 108056.582,
+      "selectorOrKey": {
+        "selector": ".portal-title h1"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5839",
+      "endTime": 108090.318
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5841",
+      "class": "Frame",
+      "method": "fill",
+      "startTime": 108100.382,
+      "selectorOrKey": {
+        "selector": "internal:role=region[name=\"Delivery configuration analysis\"s] >> internal:role=textbox[name=\"Request path\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5841",
+      "endTime": 108114.217
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5843",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 108120.156,
+      "selectorOrKey": {
+        "selector": "internal:role=region[name=\"Delivery configuration analysis\"s] >> internal:role=button[name=\"Analyse configuration\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5843",
+      "endTime": 108165.09
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5845",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 108175.538,
+      "selectorOrKey": {
+        "selector": "internal:role=region[name=\"Delivery configuration analysis\"s] >> internal:role=region[name=\"Configuration analysis result\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5845",
+      "endTime": 108183.25
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5847",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 108186.422,
+      "selectorOrKey": {
+        "selector": "internal:role=region[name=\"Delivery configuration analysis\"s] >> internal:role=region[name=\"Configuration analysis result\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5847",
+      "endTime": 108193.069
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5849",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 108198.097,
+      "selectorOrKey": {
+        "selector": "internal:role=region[name=\"Delivery configuration analysis\"s] >> internal:role=region[name=\"Configuration analysis result\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5849",
+      "endTime": 108202.961
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5851",
+      "class": "Page",
+      "method": "screenshot",
+      "startTime": 108206.435,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5851",
+      "endTime": 108288.885
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5853",
+      "class": "Frame",
+      "method": "queryCount",
+      "startTime": 108298.574,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"Architecture Studio\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5853",
+      "endTime": 108303.083
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5855",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 108311.063,
+      "selectorOrKey": {
+        "selector": "[data-portal-mode=\"laboratory\"]:visible"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5855",
+      "endTime": 108316.915
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5857",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 108322.897,
+      "selectorOrKey": {
+        "selector": "internal:role=status >> internal:has-text=\"Henter bekreftet tilstand fra serveren \u2026\"i"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5857",
+      "endTime": 108352.547
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5859",
+      "class": "Frame",
+      "method": "isVisible",
+      "startTime": 108358.976,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5859",
+      "endTime": 108369.538
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5861",
+      "class": "Frame",
+      "method": "queryCount",
+      "startTime": 108378.166,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"All services\"s] >> xpath=ancestor::details[1]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5861",
+      "endTime": 108392.697
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5863",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 108402.157,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"All services\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5863",
+      "endTime": 108414.909
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5865",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 108418.567,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"All services\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5865",
+      "endTime": 108460.187
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5867",
+      "class": "Frame",
+      "method": "evaluateExpression",
+      "startTime": 108462.637,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5867",
+      "endTime": 108466.676
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5869",
+      "class": "Frame",
+      "method": "queryCount",
+      "startTime": 108477.347,
+      "selectorOrKey": {
+        "selector": "main >> internal:role=link[name=\"Architecture Studio\"s] >> xpath=ancestor::details[1]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "cpxs@5869",
+      "endTime": 108517.708
+    },
+    {
+      "type": "before",
+      "callId": "cpxs@5871",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 108550.484,
+      "selectorOrKey": {
+        "selector": "main >> internal:role=link[name=\"Architecture Studio\"s]"
+      }
+    }
+  ],
+  "originalActionCount": 2069,
+  "retainedActionCount": 80,
+  "omission": "Only the final80 action events are retained in this safe diagnostic excerpt; the complete exact original remains private."
+}

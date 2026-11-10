@@ -1,0 +1,215 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: portal-navigation-pending.spec.ts >> resource navigation actual old and current presentation under a real React transition suspension excludes stale fixture actions
+- Location: tests/e2e/portal-navigation-pending.spec.ts:72:1
+
+# Error details
+
+```
+Error: Command failed: git show c4119f3f770d6767881dc5ee455686cbae0150d7:src/features/portal/resource-context.css
+fatal: path 'src/features/portal/resource-context.css' exists on disk, but not in 'c4119f3f770d6767881dc5ee455686cbae0150d7'
+
+```
+
+# Test source
+
+```ts
+  1   | import { test, expect, type Page } from '@playwright/test';
+  2   | import { readFileSync } from 'node:fs';
+  3   | import { execFileSync } from 'node:child_process';
+  4   | import { createHash } from 'node:crypto';
+  5   | import { createRequire } from 'node:module';
+  6   | import { dirname, join } from 'node:path';
+  7   | import ts from 'typescript';
+  8   | import { nb } from '../../src/content/nb';
+  9   | import { create, service } from './ephemeral-actions';
+  10  | import { startIntegrated, storage, integratedWorld, courseBytes } from './integrated-actions';
+  11  | 
+  12  | const base = 'c4119f3f770d6767881dc5ee455686cbae0150d7';
+  13  | const require = createRequire(import.meta.url);
+  14  | const sha = (text: string) => createHash('sha256').update(text).digest('hex');
+  15  | function fixtureScript(source: (path: string) => string) {
+  16  |   const transpile = (path: string) =>
+  17  |     ts.transpileModule(source(path), {
+  18  |       compilerOptions: {
+  19  |         module: ts.ModuleKind.CommonJS,
+  20  |         jsx: ts.JsxEmit.ReactJSX,
+  21  |         target: ts.ScriptTarget.ES2022,
+  22  |         esModuleInterop: true,
+  23  |       },
+  24  |       fileName: path,
+  25  |     }).outputText;
+  26  |   const packageRoot = (name: string) => dirname(require.resolve(name + '/package.json'));
+  27  |   const modules: Record<string, string> = {
+  28  |     react: readFileSync(join(packageRoot('react'), 'cjs/react.production.js'), 'utf8'),
+  29  |     'react/jsx-runtime': readFileSync(
+  30  |       join(packageRoot('react'), 'cjs/react-jsx-runtime.production.js'),
+  31  |       'utf8',
+  32  |     ),
+  33  |     'react-dom': readFileSync(
+  34  |       join(packageRoot('react-dom'), 'cjs/react-dom.production.js'),
+  35  |       'utf8',
+  36  |     ),
+  37  |     'react-dom/client': readFileSync(
+  38  |       join(packageRoot('react-dom'), 'cjs/react-dom-client.production.js'),
+  39  |       'utf8',
+  40  |     ),
+  41  |     scheduler: readFileSync(join(packageRoot('scheduler'), 'cjs/scheduler.production.js'), 'utf8'),
+  42  |     layout: transpile('src/features/portal/presentation.tsx'),
+  43  |     './service-icon': transpile('src/features/portal/service-icon.tsx'),
+  44  |     '@/content/nb': transpile('src/content/nb.ts'),
+  45  |     '../../../public/icons/manifest.json':
+  46  |       'module.exports=' + source('public/icons/manifest.json') + ';',
+  47  |     './presentation.css': 'module.exports={};',
+  48  |   };
+  49  |   return `(() => {
+  50  |     const sources = ${JSON.stringify(modules)}, cache = {};
+  51  |     const process = { env: { NODE_ENV: 'development' } };
+  52  |     function require(name) { if (cache[name]) return cache[name].exports; const module = { exports: {} }; cache[name] = module; new Function('module', 'exports', 'require', 'process', sources[name])(module, module.exports, require, process); return module.exports; }
+  53  |     const React = require('react'), { createRoot } = require('react-dom/client'), { PortalResourceLayout } = require('layout');
+  54  |     let released = false, release;
+  55  |     const gate = new Promise(resolve => { release = () => { released = true; resolve(); }; });
+  56  |     window.releasePresentationFixture = release;
+  57  |     function DeferredProperties() { if (!released) throw gate; return React.createElement('a', { href: '#fixture-new-target' }, 'Fixture new action'); }
+  58  |     function Fixture() {
+  59  |       const [section, setSection] = React.useState('overview'), [pending, start] = React.useTransition();
+  60  |       return React.createElement(React.Fragment, null,
+  61  |         React.createElement('h1', null, 'Controlled presentation fixture — no World or receipt'),
+  62  |         React.createElement('output', { id: 'fixture-pending' }, pending ? 'pending' : 'settled'),
+  63  |         React.createElement(React.Suspense, { fallback: React.createElement('p', null, 'Fixture suspension') },
+  64  |           React.createElement(PortalResourceLayout, { pending, menu: React.createElement('button', { onClick: () => start(() => setSection('properties')) }, 'Fixture Properties') },
+  65  |             section === 'properties' ? React.createElement(DeferredProperties) : React.createElement('a', { href: '#fixture-stale-target' }, 'Fixture stale action'))),
+  66  |         React.createElement('button', { id: 'fixture-outside' }, 'Fixture outside action'));
+  67  |     }
+  68  |     createRoot(document.getElementById('fixture-root')).render(React.createElement(Fixture));
+  69  |   })();`;
+  70  | }
+  71  | 
+  72  | test('resource navigation actual old and current presentation under a real React transition suspension excludes stale fixture actions', async ({
+  73  |   page,
+  74  | }, info) => {
+  75  |   const old = execFileSync('git', ['show', base + ':src/features/portal/presentation.tsx'], {
+  76  |     encoding: 'utf8',
+  77  |   });
+  78  |   const current = readFileSync('src/features/portal/presentation.tsx', 'utf8');
+  79  |   const css = [
+  80  |     'src/features/portal/portal.css',
+  81  |     'src/features/portal/presentation.css',
+  82  |     'src/features/portal/resource-context.css',
+  83  |   ].map((path) => ({ path, text: readFileSync(path, 'utf8') }));
+  84  |   const observations = [];
+  85  |   for (const [version, source] of [
+  86  |     ['parent', old],
+  87  |     ['candidate', current],
+  88  |   ] as const) {
+  89  |     const actualSource = (path: string) =>
+  90  |       version === 'parent'
+> 91  |         ? execFileSync('git', ['show', base + ':' + path], {
+      |           ^ Error: Command failed: git show c4119f3f770d6767881dc5ee455686cbae0150d7:src/features/portal/resource-context.css
+  92  |             encoding: 'utf8',
+  93  |             maxBuffer: 16 * 1024 * 1024,
+  94  |           })
+  95  |         : readFileSync(path, 'utf8');
+  96  |     await page.goto('about:blank');
+  97  |     await page.setContent(
+  98  |       '<div class="portal"><div class="portal-content" id="fixture-root"></div></div>',
+  99  |     );
+  100 |     await page.addStyleTag({ content: css.map((item) => actualSource(item.path)).join('\n') });
+  101 |     await page.addScriptTag({ content: fixtureScript(actualSource) });
+  102 |     await page.getByRole('button', { name: 'Fixture Properties', exact: true }).click();
+  103 |     await expect(page.locator('#fixture-pending')).toHaveText('pending');
+  104 |     const stale = page.getByRole('link', { name: 'Fixture stale action', exact: true });
+  105 |     if (version === 'parent') await expect(stale).toBeVisible();
+  106 |     else {
+  107 |       await expect(stale).toHaveCount(0);
+  108 |       await expect(page.locator('.portal-resource-main')).toHaveAttribute('aria-busy', 'true');
+  109 |       await expect(page.locator('.portal-resource-main')).toHaveAttribute('inert', '');
+  110 |     }
+  111 |     await page.keyboard.press('Tab');
+  112 |     await page.keyboard.press('Enter');
+  113 |     const staleReached = new URL(page.url()).hash === '#fixture-stale-target';
+  114 |     expect(staleReached).toBe(version === 'parent');
+  115 |     observations.push({ version, staleReached, sourceSha256: sha(source), pending: true });
+  116 |     await page.screenshot({ path: info.outputPath(`controlled-${version}-pending.png`) });
+  117 |     await page.evaluate(() =>
+  118 |       (
+  119 |         window as unknown as { releasePresentationFixture: () => void }
+  120 |       ).releasePresentationFixture(),
+  121 |     );
+  122 |     await expect(page.getByRole('link', { name: 'Fixture new action', exact: true })).toBeVisible();
+  123 |     await expect(page.locator('#fixture-pending')).toHaveText('settled');
+  124 |   }
+  125 |   await info.attach('controlled-presentation-evidence', {
+  126 |     body: JSON.stringify(
+  127 |       {
+  128 |         fixtureOnly: true,
+  129 |         authority:
+  130 |           'Actual full old/current PortalResourceLayout module and dependencies with installed React/ReactDOM; no World, receipt, application route, fetch or runtime claims.',
+  131 |         reactVersion: JSON.parse(
+  132 |           readFileSync(
+  133 |             join(dirname(require.resolve('react/package.json')), 'package.json'),
+  134 |             'utf8',
+  135 |           ),
+  136 |         ).version,
+  137 |         css: css.map((item) => ({ path: item.path, sha256: sha(item.text) })),
+  138 |         observations,
+  139 |       },
+  140 |       null,
+  141 |       2,
+  142 |     ),
+  143 |     contentType: 'application/json',
+  144 |   });
+  145 | });
+  146 | 
+  147 | async function observeNavigation(page: Page) {
+  148 |   await page.evaluate(() => {
+  149 |     const record: Record<string, unknown>[] = [];
+  150 |     const capture = (event: string, key?: string, target?: EventTarget | null) => {
+  151 |       const main = document.querySelector('.portal-resource-main'),
+  152 |         active = document.activeElement;
+  153 |       record.push({
+  154 |         event,
+  155 |         key,
+  156 |         at: performance.now(),
+  157 |         location: location.search,
+  158 |         pending: main?.getAttribute('data-resource-navigation-pending'),
+  159 |         visibility: main ? getComputedStyle(main).visibility : null,
+  160 |         activeTag: active?.tagName,
+  161 |         activeHref: active?.getAttribute('href'),
+  162 |         activeConnected: active?.isConnected,
+  163 |         targetTag: target instanceof Element ? target.tagName : undefined,
+  164 |         targetHref: target instanceof Element ? target.getAttribute('href') : undefined,
+  165 |       });
+  166 |     };
+  167 |     new MutationObserver(() => capture('mutation')).observe(
+  168 |       document.querySelector('.portal-body')!,
+  169 |       {
+  170 |         subtree: true,
+  171 |         childList: true,
+  172 |         attributes: true,
+  173 |         attributeFilter: ['style', 'inert', 'aria-busy', 'data-resource-navigation-pending'],
+  174 |       },
+  175 |     );
+  176 |     document.addEventListener('focusin', (event) => capture('focusin', undefined, event.target));
+  177 |     document.addEventListener('keydown', (event) => capture('keydown', event.key, event.target));
+  178 |     (
+  179 |       window as unknown as { portalNavigationObservations: Record<string, unknown>[] }
+  180 |     ).portalNavigationObservations = record;
+  181 |   });
+  182 | }
+  183 | 
+  184 | test('native cached resource section navigation commits focus before original receipt keyboard activation and Back Forward without writes', async ({
+  185 |   page,
+  186 | }, info) => {
+  187 |   await startIntegrated(page);
+  188 |   const before = await courseBytes(page);
+  189 |   await create(page, storage.newGroup, { name: 'rg-pending-navigation' });
+  190 |   await service(page, storage.accounts);
+  191 |   const created = await create(page, storage.newAccount, { name: 'pendingnavigation' });
+```

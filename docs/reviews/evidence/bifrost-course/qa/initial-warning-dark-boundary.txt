@@ -1,0 +1,390 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: bifrost-course.spec.ts >> Bifrost dark compact keyboard reduced motion and native Portal Laboratory theme boundary remain usable
+- Location: tests/e2e/bifrost-course.spec.ts:432:3
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: page.screenshot: Test timeout of 30000ms exceeded.
+Call log:
+  - taking page screenshot
+  - waiting for fonts to load...
+  - fonts loaded
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - link "Hopp til innhold" [ref=e5] [cursor=pointer]:
+        - /url: "#course-main"
+      - banner [ref=e6]:
+        - link "AzureLab AZ-900" [ref=e7] [cursor=pointer]:
+          - /url: /learn
+          - text: AzureLab
+          - generic [ref=e23]: AZ-900
+        - navigation "Læringsreisen" [ref=e24]:
+          - link "Læringsreisen" [ref=e25] [cursor=pointer]:
+            - /url: /learn
+          - link "Fri Portal-sandbox" [ref=e26] [cursor=pointer]:
+            - /url: /portal
+        - button "Knowledge Journal" [ref=e29] [cursor=pointer]
+        - link "Til forsiden" [ref=e30] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e34]:
+          - generic [ref=e35]: Utseende
+          - combobox "Utseende" [active] [ref=e36] [cursor=pointer]:
+            - option "Følg systemet"
+            - option "Lyst"
+            - option "Mørkt" [selected]
+      - generic [ref=e37]:
+        - complementary [ref=e38]:
+          - button "Kursinnhold" [ref=e39] [cursor=pointer]
+        - main [ref=e41]:
+          - generic [ref=e42]:
+            - region [ref=e43]:
+              - generic [ref=e44]:
+                - generic [ref=e45]: AZ-900
+                - text: AZURE FUNDAMENTALS
+              - heading "Forstå skyen. Bygg med innsikt." [level=1] [ref=e46]
+              - paragraph [ref=e47]: Lær Microsoft Azure gjennom teori, interaktive modeller og praktiske oppdrag i en simulert Azure Portal.
+              - generic [ref=e48]:
+                - link "Begynn med cloud computing" [ref=e49] [cursor=pointer]:
+                  - /url: /learn/computing?topic=intro-request
+                - generic [ref=e52]: Begynn i sti 01 · Cloud computing
+              - paragraph [ref=e53]: Lokal simulator · Ingen Azure-konto eller skykostnader.
+              - complementary [ref=e57]:
+                - paragraph [ref=e58]: Lær et konsept. Undersøk mekanismen. Prøv det i den lokale simulatoren.
+            - region [ref=e59]:
+              - generic [ref=e60]:
+                - generic [ref=e61]:
+                  - text: LÆRINGSREISEN DIN
+                  - heading "Tre stier. Ett solid grunnlag." [level=2] [ref=e62]
+                - paragraph [ref=e63]: Åpne et tema direkte, eller bruk Neste for den anbefalte reisen.
+              - paragraph [ref=e64]: Faggruppene er et oppslagskart. Start/Fortsett og Neste følger en anbefalt læringsreise på tvers av stiene.
+              - generic [ref=e65]:
+                - article [ref=e66]:
+                  - generic [ref=e67]:
+                    - generic [ref=e68]: "01"
+                    - generic [ref=e69]: 3 moduler tilgjengelig
+                  - heading "Cloud Concepts" [level=3] [ref=e70]
+                  - paragraph [ref=e71]: "Bygg grunnlaget: skyens prinsipper, fordeler og tjenestemodeller."
+                  - list [ref=e72]:
+                    - listitem [ref=e73]:
+                      - generic [ref=e74]:
+                        - 'link "Åpne modul: Cloud computing" [ref=e75] [cursor=pointer]':
+                          - /url: /learn/computing?topic=intro-request
+                          - generic [ref=e76]: Cloud computing
+                        - generic [ref=e79]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e80]:
+                      - generic [ref=e81]:
+                        - 'link "Åpne modul: Benefits of cloud services" [ref=e82] [cursor=pointer]':
+                          - /url: /learn/benefits?topic=availability
+                          - generic [ref=e83]: Benefits of cloud services
+                        - generic [ref=e86]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e87]:
+                      - generic [ref=e88]:
+                        - 'link "Åpne modul: Cloud service types" [ref=e89] [cursor=pointer]':
+                          - /url: /learn/services?topic=overview
+                          - generic [ref=e90]: Cloud service types
+                        - generic [ref=e93]: "Veiledede observasjoner: 0"
+                  - group [ref=e94]:
+                    - generic "Oppdrag og vurderinger · Cloud Concepts" [ref=e95] [cursor=pointer]: Oppdrag og vurderinger
+                - article [ref=e96]:
+                  - generic [ref=e97]:
+                    - generic [ref=e98]: "02"
+                    - generic [ref=e99]: 5 moduler tilgjengelig
+                  - heading "Azure Architecture & Services" [level=3] [ref=e100]
+                  - paragraph [ref=e101]: Utforsk Azure fra infrastruktur til compute, nettverk, lagring og identitet.
+                  - list [ref=e102]:
+                    - listitem [ref=e103]:
+                      - generic [ref=e104]:
+                        - link "Åpne Core Architecture" [ref=e105] [cursor=pointer]:
+                          - /url: /learn/architecture?topic=datacenters
+                          - generic [ref=e106]: Core Architecture
+                        - generic [ref=e109]: "Veiledede observasjoner · A: 0 · B: 0"
+                    - listitem [ref=e110]:
+                      - generic [ref=e111]:
+                        - 'link "Åpne modul: Compute & Hosting" [ref=e112] [cursor=pointer]':
+                          - /url: /learn/compute?topic=introduction
+                          - generic [ref=e113]: Compute & Hosting
+                        - generic [ref=e116]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e117]:
+                      - strong [ref=e118]: Networking
+                      - generic [ref=e119]:
+                        - 'link "Åpne modul: Del A · Nettverksgrunnlag" [ref=e120] [cursor=pointer]':
+                          - /url: /learn/networking?topic=introduction
+                          - generic [ref=e121]: Del A · Nettverksgrunnlag
+                        - generic [ref=e124]: "Veiledede observasjoner: 0"
+                      - generic [ref=e125]:
+                        - 'link "Åpne modul: Del B · Hybrid og endpoints" [ref=e126] [cursor=pointer]':
+                          - /url: /learn/connectivity?topic=introduction
+                          - generic [ref=e127]: Del B · Hybrid og endpoints
+                        - generic [ref=e130]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e131]:
+                      - strong [ref=e132]: Storage
+                      - generic [ref=e133]:
+                        - 'link "Åpne modul: Storage Accounts & Services · Part A" [ref=e134] [cursor=pointer]':
+                          - /url: /learn/storage?topic=introduction
+                          - generic [ref=e135]: Storage Accounts & Services · Part A
+                        - generic [ref=e138]: "Veiledede observasjoner: 0"
+                      - generic [ref=e139]:
+                        - 'link "Åpne modul: Part B — Tiers & Redundancy" [ref=e140] [cursor=pointer]':
+                          - /url: /learn/storage-resilience?topic=introduction
+                          - generic [ref=e141]: Part B — Tiers & Redundancy
+                        - generic [ref=e144]: "Veiledede observasjoner: 0"
+                      - generic [ref=e145]:
+                        - 'link "Åpne modul: Part C — File Movement & Migration" [ref=e146] [cursor=pointer]':
+                          - /url: /learn/migration?topic=introduction
+                          - generic [ref=e147]: Part C — File Movement & Migration
+                        - generic [ref=e150]: Avsluttende anvendelse
+                        - generic [ref=e151]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e152]:
+                      - strong [ref=e153]: Identity, Access & Security
+                      - generic [ref=e154]:
+                        - 'link "Åpne modul: Part A — Identity Foundations" [ref=e155] [cursor=pointer]':
+                          - /url: /learn/identity?topic=introduction
+                          - generic [ref=e156]: Part A — Identity Foundations
+                        - generic [ref=e159]: "Veiledede observasjoner: 0"
+                      - generic [ref=e160]:
+                        - 'link "Åpne modul: Part B — RBAC & Conditional Access" [ref=e161] [cursor=pointer]':
+                          - /url: /learn/access-control?topic=introduction
+                          - generic [ref=e162]: Part B — RBAC & Conditional Access
+                        - generic [ref=e165]: "Veiledede observasjoner: 0"
+                      - generic [ref=e166]:
+                        - 'link "Åpne modul: Part C — Security Principles & Defender for Cloud" [ref=e167] [cursor=pointer]':
+                          - /url: /learn/security?topic=introduction
+                          - generic [ref=e168]: Part C — Security Principles & Defender for Cloud
+                        - generic [ref=e171]: Avsluttende anvendelse
+                        - generic [ref=e172]: "Veiledede observasjoner: 0"
+                  - group [ref=e173]:
+                    - generic "Oppdrag og vurderinger · Azure Architecture & Services" [ref=e174] [cursor=pointer]: Oppdrag og vurderinger
+                - article [ref=e175]:
+                  - generic [ref=e176]:
+                    - generic [ref=e177]: "03"
+                    - generic [ref=e178]: 4 moduler tilgjengelig
+                  - heading "Azure Management & Governance" [level=3] [ref=e179]
+                  - paragraph [ref=e180]: Forstå kostnader, styring og verktøy for et Azure-miljø.
+                  - list [ref=e181]:
+                    - listitem [ref=e182]:
+                      - generic [ref=e183]:
+                        - 'link "Åpne modul: Cost Management" [ref=e184] [cursor=pointer]':
+                          - /url: /learn/cost?topic=introduction
+                          - generic [ref=e185]: Cost Management
+                        - generic [ref=e188]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e189]:
+                      - generic [ref=e190]:
+                        - 'link "Åpne modul: Governance & Compliance" [ref=e191] [cursor=pointer]':
+                          - /url: /learn/governance?topic=introduction
+                          - generic [ref=e192]: Governance & Compliance
+                        - generic [ref=e195]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e196]:
+                      - generic [ref=e197]:
+                        - 'link "Åpne modul: Management & Deployment Tools" [ref=e198] [cursor=pointer]':
+                          - /url: /learn/management-tools?topic=introduction
+                          - generic [ref=e199]: Management & Deployment Tools
+                        - generic [ref=e202]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e203]:
+                      - generic [ref=e204]:
+                        - 'link "Åpne modul: Monitoring & Diagnostic Tools" [ref=e205] [cursor=pointer]':
+                          - /url: /learn/monitoring?topic=introduction
+                          - generic [ref=e206]: Monitoring & Diagnostic Tools
+                        - generic [ref=e209]: "Veiledede observasjoner: 0"
+                  - group [ref=e210]:
+                    - generic "Oppdrag og vurderinger · Azure Management & Governance" [ref=e211] [cursor=pointer]: Oppdrag og vurderinger
+            - generic [ref=e212]:
+              - paragraph [ref=e216]:
+                - strong [ref=e217]: Din progresjon, med tydelige skiller
+                - generic [ref=e218]: Veiledet praksis og selvstendige besvarelser registreres hver for seg. Å åpne en modul betyr ikke at den er fullført.
+              - link "Utforsk Sandbox fritt" [ref=e219] [cursor=pointer]:
+                - /url: /portal
+              - link "Laboratory v3 · separat" [ref=e224] [cursor=pointer]:
+                - /url: /labs/laboratory
+          - generic [ref=e225]: AzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering.
+    - complementary "Bygginformasjon · forhåndsvisning" [ref=e226]:
+      - group [ref=e227]:
+        - generic "Bygginformasjon · forhåndsvisning" [ref=e228] [cursor=pointer]
+  - alert [ref=e229]
+```
+
+# Test source
+
+```ts
+  350 |   test(`Bifrost ${mode} original numeric refined select and Compute assessment fields remain neutral and readable before Submit`, async ({
+  351 |     browser,
+  352 |   }, info) => {
+  353 |     for (const family of ['foundations', 'refined', 'compute'] as const) {
+  354 |       const viewport =
+  355 |         family === 'foundations'
+  356 |           ? { width: 1024, height: 500 }
+  357 |           : family === 'refined'
+  358 |             ? { width: 1024, height: 768 }
+  359 |             : { width: 800, height: 700 };
+  360 |       const context = await browser.newContext({ viewport });
+  361 |       try {
+  362 |         const page = await context.newPage();
+  363 |         await page.goto(`${info.project.use.baseURL}/learn`);
+  364 |         await theme(page, mode);
+  365 |         const before = await technical(page);
+  366 |         const route =
+  367 |           family === 'foundations'
+  368 |             ? '/learn/computing?topic=v2-assessment'
+  369 |             : family === 'refined'
+  370 |               ? '/learn/benefits?topic=assessment&assessment=updated'
+  371 |               : '/learn/compute?topic=assessment&case=cp01';
+  372 |         await page.goto(`${info.project.use.baseURL}${route}`);
+  373 |         if (family === 'foundations') {
+  374 |           await page
+  375 |             .getByRole('button', { name: nb.foundationsV2.beginAssessment, exact: true })
+  376 |             .click();
+  377 |         } else if (family === 'refined') {
+  378 |           await page
+  379 |             .getByRole('button', { name: refinedAssessmentNb.ui.start, exact: true })
+  380 |             .click();
+  381 |           await page.screenshot({ path: info.outputPath(`${mode}-${family}-start-dialog.png`) });
+  382 |           await accessible(page);
+  383 |           await page
+  384 |             .getByRole('dialog')
+  385 |             .getByRole('button', { name: refinedAssessmentNb.ui.confirm, exact: true })
+  386 |             .click();
+  387 |         } else {
+  388 |           await page.getByRole('button', { name: computeNb.assessment.start, exact: true }).click();
+  389 |           await page.screenshot({ path: info.outputPath(`${mode}-${family}-start-dialog.png`) });
+  390 |           await accessible(page);
+  391 |           await page
+  392 |             .getByRole('dialog')
+  393 |             .getByRole('button', { name: computeNb.assessment.start, exact: true })
+  394 |             .click();
+  395 |         }
+  396 |         const form = page.locator(
+  397 |           family === 'foundations'
+  398 |             ? '.v2-assessment form'
+  399 |             : family === 'refined'
+  400 |               ? '.expanded-assessment form'
+  401 |               : '.compute-assessment form',
+  402 |         );
+  403 |         await expect(form).toBeVisible();
+  404 |         if (family === 'foundations')
+  405 |           await expect(form.locator('input[type="number"]')).toHaveCount(1);
+  406 |         if (family === 'refined') await expect(form.locator('select')).toHaveCount(12);
+  407 |         if (family === 'compute') await expect(form.locator('fieldset')).toHaveCount(2);
+  408 |         await expect(page.locator('[data-bf-result], .v2-feedback, .compute-feedback')).toHaveCount(
+  409 |           0,
+  410 |         );
+  411 |         const control = form.locator('input, select').nth(0);
+  412 |         if (family === 'compute')
+  413 |           await expect(page.locator('.compute-assessment > header h3')).toBeFocused();
+  414 |         await control.focus();
+  415 |         await page.keyboard.press('Shift+Tab');
+  416 |         await page.keyboard.press('Tab');
+  417 |         await expect(control).toBeFocused();
+  418 |         expect(await control.evaluate((el) => getComputedStyle(el).outlineStyle)).toBe('solid');
+  419 |         await accessible(page);
+  420 |         await form
+  421 |           .locator('fieldset')
+  422 |           .nth(0)
+  423 |           .evaluate((el) => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
+  424 |         await page.screenshot({ path: info.outputPath(`${mode}-${family}-before-submit.png`) });
+  425 |         expect(await technical(page)).toEqual(before);
+  426 |       } finally {
+  427 |         await context.close();
+  428 |       }
+  429 |     }
+  430 |   });
+  431 | 
+  432 |   test(`Bifrost ${mode} compact keyboard reduced motion and native Portal Laboratory theme boundary remain usable`, async ({
+  433 |     page,
+  434 |   }, info) => {
+  435 |     await page.emulateMedia({ reducedMotion: 'reduce' });
+  436 |     await page.goto('/learn');
+  437 |     await theme(page, mode);
+  438 |     for (const viewport of [
+  439 |       { width: 1024, height: 768 },
+  440 |       { width: 1024, height: 500 },
+  441 |       { width: 800, height: 700 },
+  442 |     ]) {
+  443 |       await page.setViewportSize(viewport);
+  444 |       await expect(page.locator('.learn-hub-start .course-primary')).toBeVisible();
+  445 |       const select = page.getByLabel(themeCopy.label, { exact: true });
+  446 |       await select.focus();
+  447 |       await expect(select).toBeFocused();
+  448 |       expect(await select.evaluate((el) => getComputedStyle(el).outlineStyle)).toBe('solid');
+  449 |       await accessible(page);
+> 450 |       await page.screenshot({
+      |                  ^ Error: page.screenshot: Test timeout of 30000ms exceeded.
+  451 |         path: info.outputPath(`${mode}-hub-${viewport.width}x${viewport.height}.png`),
+  452 |       });
+  453 |     }
+  454 |     for (const path of ['/portal', '/labs/laboratory']) {
+  455 |       await page.goto(path);
+  456 |       await expect(page.locator('.portal-header')).toBeVisible();
+  457 |       await expect(
+  458 |         page
+  459 |           .locator('.portal-header')
+  460 |           .locator('xpath=ancestor::*[contains(@class,"bifrost-learning")]'),
+  461 |       ).toHaveCount(0);
+  462 |       expect(
+  463 |         await page.locator('.portal-header').evaluate((el) => getComputedStyle(el).fontFamily),
+  464 |       ).toMatch(/Segoe UI/);
+  465 |       expect(
+  466 |         await page.locator('.portal-header').evaluate((el) => getComputedStyle(el).backgroundColor),
+  467 |       ).toBe('rgb(0, 120, 212)');
+  468 |       await expect(page.locator('.bifrost-theme-control')).toHaveCount(0);
+  469 |       if (path === '/portal') await nativeReview(page, mode, info);
+  470 |     }
+  471 |     await page.setViewportSize({ width: 1440, height: 900 });
+  472 |     await page.goto('/learn/compute?topic=dependencies');
+  473 |     const beforeGuide = await technical(page);
+  474 |     await page
+  475 |       .locator('.compute-workbench')
+  476 |       .getByRole('button', { name: computeNb.labels.begin, exact: true })
+  477 |       .click();
+  478 |     await accessible(page);
+  479 |     await page
+  480 |       .getByRole('dialog')
+  481 |       .getByRole('button', { name: serverlessNb.start, exact: true })
+  482 |       .click();
+  483 |     await page
+  484 |       .locator('.compute-workbench .compute-actions')
+  485 |       .getByRole('link', { name: `${computeNb.labels.portal} · Resource groups`, exact: true })
+  486 |       .click();
+  487 |     await expect(page).toHaveURL(/\/portal\?.*compute=vm/);
+  488 |     await page.reload();
+  489 |     const guide = page.locator('.compute-portal-guide');
+  490 |     await expect(guide).toHaveClass(/bifrost-guide-island/);
+  491 |     const toggle = guide.locator('.compute-guide-toolbar button');
+  492 |     if ((await toggle.getAttribute('aria-expanded')) !== 'true') await toggle.click();
+  493 |     await expect(
+  494 |       guide.getByRole('heading', { name: computeNb.missions.vm.title, exact: true }),
+  495 |     ).toBeVisible();
+  496 |     await expect(guide).toContainText(computeNb.vmCopy.noCommands);
+  497 |     expect(await guide.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe(
+  498 |       mode === 'light' ? 'rgb(255, 255, 255)' : 'rgb(15, 33, 51)',
+  499 |     );
+  500 |     expect(
+  501 |       await page.locator('.portal-header').evaluate((el) => getComputedStyle(el).backgroundColor),
+  502 |     ).toBe('rgb(0, 120, 212)');
+  503 |     await accessible(page);
+  504 |     await page.screenshot({ path: info.outputPath(`${mode}-resident-savvy.png`) });
+  505 |     await nativeReview(page, mode, info, 'resident-native');
+  506 |     expect(await technical(page)).toEqual(beforeGuide);
+  507 |     await page.goto('/labs/laboratory');
+  508 |     await expect(page.locator('.bifrost-guide-island, .savvy')).toHaveCount(0);
+  509 |   });
+  510 | }
+  511 | 
+```

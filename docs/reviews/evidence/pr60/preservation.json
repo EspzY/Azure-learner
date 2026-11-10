@@ -1,0 +1,158 @@
+{
+  "base": "cb99705b1b0650d2099f6c95f5c7e32776448483",
+  "purpose": "Exact PR60-only projections for earlier immutable-file assertions. Every current delta is separately verified; no historical assertion or proof is removed.",
+  "files": {
+    "package.json": {
+      "before": "c40d001e7dd2e2e1e068a0b2074173660e11a68c58d75bc46dec7cd846161c84",
+      "after": "519cd5af55712e76d19ee0c54bca578522865ef24030e0a79512f66640129db7",
+      "replacements": [
+        {
+          "before": "    \"build:e2e:review\": \"node scripts/e2e-preview-build.mjs\"\n",
+          "after": "    \"build:e2e:review\": \"node scripts/e2e-preview-build.mjs\",\n    \"lab:db:setup\": \"node scripts/laboratory-db.mjs\"\n",
+          "at": 2890
+        },
+        {
+          "before": "",
+          "after": "    \"pg\": \"8.23.1\",\n",
+          "at": 3060
+        },
+        {
+          "before": "    \"react-dom\": \"19.3.1\"\n",
+          "after": "    \"react-dom\": \"19.3.1\",\n    \"server-only\": \"0.0.1\"\n",
+          "at": 3083
+        },
+        {
+          "before": "",
+          "after": "    \"@types/pg\": \"8.20.0\",\n",
+          "at": 3303
+        }
+      ]
+    },
+    "package-lock.json": {
+      "before": "b4a6ad2d50fa56269007ed66b78ad8883f44330033cf91140e4aada52dbd3f0e",
+      "after": "19bc93a14aaf2384bc857b8f17acded389d7e1b1b86a8a1cd8093024f281f3ff",
+      "replacements": [
+        {
+          "before": "",
+          "after": "        \"pg\": \"8.23.1\",\n",
+          "at": 288
+        },
+        {
+          "before": "        \"react-dom\": \"19.3.1\"\n",
+          "after": "        \"react-dom\": \"19.3.1\",\n        \"server-only\": \"0.0.1\"\n",
+          "at": 315
+        },
+        {
+          "before": "",
+          "after": "        \"@types/pg\": \"8.20.0\",\n",
+          "at": 567
+        },
+        {
+          "before": "",
+          "after": "    \"node_modules/@types/pg\": {\n      \"version\": \"8.20.0\",\n      \"resolved\": \"https://registry.npmjs.org/@types/pg/-/pg-8.20.0.tgz\",\n      \"integrity\": \"sha512-bEPFOaMAHTEP1EzpvHTbmwR8UsFyHSKsRisLIHVMXnpNefSbGA1bD6CVy+qKjGSqmZqNqBDV2azOBo8TgkcVow==\",\n      \"dev\": true,\n      \"license\": \"MIT\",\n      \"dependencies\": {\n        \"@types/node\": \"*\",\n        \"pg-protocol\": \"*\",\n        \"pg-types\": \"^2.2.0\"\n      }\n    },\n",
+          "at": 68011
+        },
+        {
+          "before": "",
+          "after": "    \"node_modules/pg\": {\n      \"version\": \"8.23.1\",\n      \"resolved\": \"https://registry.npmjs.org/pg/-/pg-8.23.1.tgz\",\n      \"integrity\": \"sha512-aL96AHANtWjPLDOLqnhx+ngp9+UK7ETEU8VJrDCGvsSSi/mGLcWYsS6Herg7lmaBJe4uwrfqsa7gTEFaSizDoQ==\",\n      \"license\": \"MIT\",\n      \"dependencies\": {\n        \"pg-connection-string\": \"^2.14.1\",\n        \"pg-pool\": \"^3.14.0\",\n        \"pg-protocol\": \"^1.16.1\",\n        \"pg-types\": \"2.2.0\",\n        \"pgpass\": \"1.0.5\"\n      },\n      \"engines\": {\n        \"node\": \">= 16.0.0\"\n      },\n      \"optionalDependencies\": {\n        \"pg-cloudflare\": \"^1.4.1\"\n      },\n      \"peerDependencies\": {\n        \"pg-native\": \">=3.0.1\"\n      },\n      \"peerDependenciesMeta\": {\n        \"pg-native\": {\n          \"optional\": true\n        }\n      }\n    },\n    \"node_modules/pg-cloudflare\": {\n      \"version\": \"1.4.1\",\n      \"resolved\": \"https://registry.npmjs.org/pg-cloudflare/-/pg-cloudflare-1.4.1.tgz\",\n      \"integrity\": \"sha512-6PQbsFWZcp9EmJEwy5cGQ2La+AMWpP46lgbb8X+U/XsHIUweYDNCpeuKck5RxL2MdVFi7krbbEi5nX4Zh7JhrQ==\",\n      \"license\": \"MIT\",\n      \"optional\": true\n    },\n    \"node_modules/pg-connection-string\": {\n      \"version\": \"2.14.1\",\n      \"resolved\": \"https://registry.npmjs.org/pg-connection-string/-/pg-connection-string-2.14.1.tgz\",\n      \"integrity\": \"sha512-qR3kGNPBLpCNtz0evbKA0Y/MRFXwSSdT+pTJvYp/bXTcReZbvX1kzF0IyTc1QnxqF7AZbOeBhNL8R5mYQZV/MA==\",\n      \"license\": \"MIT\"\n    },\n    \"node_modules/pg-int8\": {\n      \"version\": \"1.0.1\",\n      \"resolved\": \"https://registry.npmjs.org/pg-int8/-/pg-int8-1.0.1.tgz\",\n      \"integrity\": \"sha512-WCtabS6t3c8SkpDBUlb1kjOs7l66xsGdKpIPZsg4wR+B3+u9UAum2odSsF9tnvxg80h4ZxLWMy4pRjOsFIqQpw==\",\n      \"license\": \"ISC\",\n      \"engines\": {\n        \"node\": \">=4.0.0\"\n      }\n    },\n    \"node_modules/pg-pool\": {\n      \"version\": \"3.14.0\",\n      \"resolved\": \"https://registry.npmjs.org/pg-pool/-/pg-pool-3.14.0.tgz\",\n      \"integrity\": \"sha512-gKtPkFdQPU3DksooVLi9LsjZxrsBUZIpa+7aVx+LV5pNh0KzP4Zleud2po+ConrxbuXGBJ6Hfer6hdgpIBpBaw==\",\n      \"license\": \"MIT\",\n      \"peerDependencies\": {\n        \"pg\": \">=8.0\"\n      }\n    },\n    \"node_modules/pg-protocol\": {\n      \"version\": \"1.16.1\",\n      \"resolved\": \"https://registry.npmjs.org/pg-protocol/-/pg-protocol-1.16.1.tgz\",\n      \"integrity\": \"sha512-p9VOFMiHB/ZbJATetbg+99PxssTVSQRnyuPSQ67mN1+1KBOjZaZ83ZQzltnxPhJwSsC3nwVjJ10DVJlerbFzLg==\",\n      \"license\": \"MIT\"\n    },\n    \"node_modules/pg-types\": {\n      \"version\": \"2.2.0\",\n      \"resolved\": \"https://registry.npmjs.org/pg-types/-/pg-types-2.2.0.tgz\",\n      \"integrity\": \"sha512-qTAAlrEsl8s4OiEQY69wDvcMIdQN6wdz5ojQiOy6YRMuynxenON0O5oCpJI6lshc6scgAY8qvJ2On/p+CXY0GA==\",\n      \"license\": \"MIT\",\n      \"dependencies\": {\n        \"pg-int8\": \"1.0.1\",\n        \"postgres-array\": \"~2.0.0\",\n        \"postgres-bytea\": \"~1.0.0\",\n        \"postgres-date\": \"~1.0.4\",\n        \"postgres-interval\": \"^1.1.0\"\n      },\n      \"engines\": {\n        \"node\": \">=4\"\n      }\n    },\n    \"node_modules/pgpass\": {\n      \"version\": \"1.0.5\",\n      \"resolved\": \"https://registry.npmjs.org/pgpass/-/pgpass-1.0.5.tgz\",\n      \"integrity\": \"sha512-FdW9r/jQZhSeohs1Z3sI1yxFQNFvMcnmfuj4WBMUTxOrAyLMaTcE1aAMBiTlbMNaXvBCQuVi0R7hd8udDSP7ug==\",\n      \"license\": \"MIT\",\n      \"dependencies\": {\n        \"split2\": \"^4.1.0\"\n      }\n    },\n",
+          "at": 131113
+        },
+        {
+          "before": "",
+          "after": "      }\n    },\n    \"node_modules/postgres-array\": {\n      \"version\": \"2.0.0\",\n      \"resolved\": \"https://registry.npmjs.org/postgres-array/-/postgres-array-2.0.0.tgz\",\n      \"integrity\": \"sha512-VpZrUqU5A69eQyW2c5CA1jtLecCsN2U/bD6VilrFDWq5+5UIEVO7nazS3TEcHf1zuPYO/sqGvUvW62g86RXZuA==\",\n      \"license\": \"MIT\",\n      \"engines\": {\n        \"node\": \">=4\"\n      }\n    },\n    \"node_modules/postgres-bytea\": {\n      \"version\": \"1.0.1\",\n      \"resolved\": \"https://registry.npmjs.org/postgres-bytea/-/postgres-bytea-1.0.1.tgz\",\n      \"integrity\": \"sha512-5+5HqXnsZPE65IJZSMkZtURARZelel2oXUEO8rH83VS/hxH5vv1uHquPg5wZs8yMAfdv971IU+kcPUczi7NVBQ==\",\n      \"license\": \"MIT\",\n      \"engines\": {\n        \"node\": \">=0.10.0\"\n      }\n    },\n    \"node_modules/postgres-date\": {\n      \"version\": \"1.0.7\",\n      \"resolved\": \"https://registry.npmjs.org/postgres-date/-/postgres-date-1.0.7.tgz\",\n      \"integrity\": \"sha512-suDmjLVQg78nMK2UZ454hAG+OAW+HQPZ6n++TNDUX+L0+uUlLywnoxJKDou51Zm+zTCjrCl0Nq6J9C5hP9vK/Q==\",\n      \"license\": \"MIT\",\n      \"engines\": {\n        \"node\": \">=0.10.0\"\n      }\n    },\n    \"node_modules/postgres-interval\": {\n      \"version\": \"1.2.0\",\n      \"resolved\": \"https://registry.npmjs.org/postgres-interval/-/postgres-interval-1.2.0.tgz\",\n      \"integrity\": \"sha512-9ZhXKM/rw350N1ovuWHbGxnGh/SNJ4cnxHiM0rxE4VN41wsg8P8zWn9hv/buK00RP4WvlOyr/RBDiptyxVbkZQ==\",\n      \"license\": \"MIT\",\n      \"dependencies\": {\n        \"xtend\": \"^4.0.0\"\n      },\n      \"engines\": {\n        \"node\": \">=0.10.0\"\n",
+          "at": 133188
+        },
+        {
+          "before": "",
+          "after": "    \"node_modules/server-only\": {\n      \"version\": \"0.0.1\",\n      \"resolved\": \"https://registry.npmjs.org/server-only/-/server-only-0.0.1.tgz\",\n      \"integrity\": \"sha512-qepMx2JxAa5jjfzxG79yPPq+8BuFToHd1hm7kI+Z4zAq1ftQiP7HcxMhDDItrbtwVeLg/cY2JnKnrcFkmiswNA==\",\n      \"license\": \"MIT\"\n    },\n",
+          "at": 137977
+        },
+        {
+          "before": "",
+          "after": "      }\n    },\n    \"node_modules/split2\": {\n      \"version\": \"4.2.0\",\n      \"resolved\": \"https://registry.npmjs.org/split2/-/split2-4.2.0.tgz\",\n      \"integrity\": \"sha512-UcjcJOWknrNkF6PLX83qcHM6KHgVKNkV62Y8a5uYDVv9ydGQVwAHMKqHdJje1VTWpljG0WYpCDhrCdAOYH4TWg==\",\n      \"license\": \"ISC\",\n      \"engines\": {\n        \"node\": \">= 10.x\"\n",
+          "at": 141458
+        },
+        {
+          "before": "",
+          "after": "    \"node_modules/xtend\": {\n      \"version\": \"4.0.2\",\n      \"resolved\": \"https://registry.npmjs.org/xtend/-/xtend-4.0.2.tgz\",\n      \"integrity\": \"sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==\",\n      \"license\": \"MIT\",\n      \"engines\": {\n        \"node\": \">=0.4\"\n      }\n    },\n",
+          "at": 165713
+        }
+      ]
+    },
+    ".github/workflows/ci.yml": {
+      "before": "3acf8709c62983bbf232d2b54fe6ba2fe264d34b48a80537f9ef55ac1eaf30c8",
+      "after": "5ef8bb6144ca32ce5cd54e44ef1535a935bde3920efbffad1651726229c891bf",
+      "replacements": [
+        {
+          "before": "",
+          "after": "    services:\n      laboratory-postgres:\n        image: postgres:17-bookworm@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994\n        env:\n          POSTGRES_DB: azurelab_lab_ci\n          POSTGRES_PASSWORD: laboratory_ci_only_fixture\n        ports:\n          - 5432:5432\n        options: >-\n          --health-cmd \"pg_isready -h 127.0.0.1 -U postgres -d azurelab_lab_ci\"\n          --health-interval 5s --health-timeout 3s --health-retries 10\n",
+          "at": 215
+        },
+        {
+          "before": "",
+          "after": "      # Disposable, isolated CI-only credentials; never use for a hosted database.\n      LAB_ADMIN_DATABASE_URL: postgresql://postgres:laboratory_ci_only_fixture@127.0.0.1:5432/azurelab_lab_ci\n      LAB_DATABASE_URL: postgresql://laboratory_v3_app:laboratory_runtime_ci_only@127.0.0.1:5432/azurelab_lab_ci\n      LAB_TEST_ADMIN_DATABASE_URL: postgresql://postgres:laboratory_ci_only_fixture@127.0.0.1:5432/azurelab_lab_test_ci\n      LAB_TEST_DATABASE_URL: postgresql://laboratory_v3_app:laboratory_runtime_ci_only@127.0.0.1:5432/azurelab_lab_test_ci\n      LAB_ORIGIN: http://127.0.0.1:3000\n",
+          "at": 224
+        },
+        {
+          "before": "",
+          "after": "      - run: npm run lab:db:setup # Explicit initialization of only the isolated local service.\n",
+          "at": 621
+        }
+      ]
+    },
+    "playwright.desktop.config.ts": {
+      "before": "c526c04c88a0e720c0c6f65c9e537bf8fbc9405199d9b6fe84eb2e6083ecc09f",
+      "after": "9a77a4a64f78ed2150a5d483622a9eaed82a27d065724864ac8e58d6742d5878",
+      "replacements": [
+        {
+          "before": "",
+          "after": "  [\n    'laboratory-server.spec.ts',\n    'server Laboratory compact native keyboard short-height reduced motion Axe and actual Blob read remain usable',\n  ],\n",
+          "at": 274
+        }
+      ]
+    },
+    "src/features/course/course-hub.tsx": {
+      "before": "80c23baa01be50bc6ebc2bdba89e845f24d82c49bf35766ef1a5f93e6a59a597",
+      "after": "a210128c1c0420f2a4b6532811e1e12387afd0e7e63d58f1f4d76d92039d25bd",
+      "replacements": [
+        {
+          "before": "",
+          "after": "import { laboratoryV3Nb } from '@/content/nb';\n",
+          "at": 124
+        },
+        {
+          "before": "",
+          "after": "        <Link href=\"/labs/laboratory\">{laboratoryV3Nb.entry}</Link>\n",
+          "at": 9964
+        }
+      ]
+    },
+    "src/content/nb.ts": {
+      "before": "1240a26f1e72dcf9d266011a8821ce0bca2f587d4a3a3d9f8be3009470e95f90",
+      "prefixBytes": 1507622,
+      "after": "eec03f15df95c4d9df746009c6b407d56d9c5f908554f59a0653428810413b31"
+    },
+    "docs/ARCHITECTURE.md": {
+      "before": "2d43f58c6660b4cc51cb91400c73eb64c5116b84ae05e77f68e8d4ab0099bdc1",
+      "after": "8b01e684c0309c711d4b941c88f8c0e55c84abdc6d620ed26b023e2f537fe62f",
+      "replacements": [
+        {
+          "before": "",
+          "after": "\n## Laboratory v3 \u2014 eksplisitt separat serverautoritet (PR60)\n\nDen nye ruten `/labs/laboratory` bruker Next.js Node Route Handlers og dedikert PostgreSQL-schema `laboratory_v3`. \u00c9n radl\u00e5st transaksjon validerer cookie-scope, original replay, commandId og expectedRevision, og lagrer World + original receipt atomisk f\u00f8r svar. Den isolerte modellen er `laboratory@3.0.0`, med RG/Storage Account/privat container/tekstblob. Token lagres kun hashet; frontend f\u00e5r ingen databasehemmeligheter. Det eksisterende kurset og `/portal` bruker fortsatt frosset Chapter01/sandbox2 og egne historiske learner stores. Ingen import, ny vurderingsautoritet eller erstatning av v2 skjer. Se [serverkontrakten](LABORATORY_V3_SERVER.md) for protokoll, SQL-eierskap, anonyme sesjoner og offentlig DB-blocker.\n",
+          "at": 15
+        }
+      ]
+    },
+    "docs/DECISIONS.md": {
+      "before": "78baa69e39174771c9a7249b136cd5c78c54386a012bf25ed561a4d1cce7f265",
+      "after": "00242609c8381f9d9b975fd55ae4b3197f1021599b5f5ca898a71598dd7909e1",
+      "replacements": [
+        {
+          "before": "",
+          "after": "\n## PR60 \u2014 nytt serverarbeidsomr\u00e5de fremfor lokal cutover\n\nEieren autoriserer eksplisitt en ny isolert Laboratory v3 med Next Route Handlers/PostgreSQL. PR59s p\u00e5viste gamle-writer/ABA-problem repareres ikke: v2-localStorage og v3-databasen deler ingen write-autoritet, og det utf\u00f8res ingen migrering/import. Nye anonyme sesjoner begynner ved eksplisitt handling. Databasens radl\u00e5s/commit gir konsistent World/receipt; en ny browserl\u00e5s brukes bare ved opprettelse av cookie, aldri som generell konsistensgaranti. Den f\u00f8rste operative kjeden begrenses til RG/account/private container/create-only tekstblob, uten kursintegrasjon eller Azure-kall. Ingen ekstern betalt/gjenbrukt database provisioneres; lokal funksjonalitet og faktisk CI leveres mens offentlig persistent Storage Gate7 forblir blokkert uten eierkonfigurert database. [Detaljer og grenser](LABORATORY_V3_SERVER.md).\n",
+          "at": 12
+        }
+      ]
+    }
+  }
+}

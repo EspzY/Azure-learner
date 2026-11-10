@@ -1,0 +1,36 @@
+{
+  "at": "2026-11-07T15:40:19.743Z",
+  "choices": [
+    {
+      "value": "",
+      "label": "Velg NIC"
+    },
+    {
+      "value": "nic-4",
+      "label": "nic-duplicate · 10.90.1.10 · subnet-duplicate"
+    },
+    {
+      "value": "nic-8",
+      "label": "nic-duplicate · 10.90.1.10 · subnet-duplicate"
+    },
+    {
+      "value": "nic-9",
+      "label": "nic-source · 10.90.1.11 · subnet-duplicate"
+    }
+  ],
+  "results": [
+    {
+      "id": "nic-4",
+      "group": "rg-audit-a",
+      "result": "Tillatt av modellert nettverkspolicy",
+      "visibleDestination": []
+    },
+    {
+      "id": "nic-8",
+      "group": "rg-audit-b",
+      "result": "Uavklart / ikke støttet",
+      "visibleDestination": []
+    }
+  ],
+  "noAnalysisWrites": true
+}

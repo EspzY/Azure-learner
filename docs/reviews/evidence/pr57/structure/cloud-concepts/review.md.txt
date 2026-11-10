@@ -1,0 +1,93 @@
+# PR57 – struktur-etterkontroll: Benefits og Service Types
+
+Kontrollert anonymt 2026-11-05T15:47:53.859947+00:00 fra [vanlig offentlig rot](https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app). Roten åpnet Course Hub; synlig bygginformasjon viste full SHA `a3f1b575b2eb5b257fd455fec1a73b30a38706f4` og deploygrenen `codex/cc02-vm-debrief-diagnostics`. Oppdragets arbeidsgren er `codex/az900-final-quality-sprint`. [Rot-snapshot](evidence/00-root.snapshot.txt), [rotbilde](evidence/00-root.png), [vist bygginformasjon](evidence/01-build-info.snapshot.txt) og [byggbilde](evidence/01-build-info.png) er bevart.
+
+**Anbefaling: behold 7 av 7 Benefits-aktiviteter og 8 av 8 Service Types-aktiviteter som selvstendige økter (A).** Ingen sammenslåing, integrering, flytting eller valgfrihetsendring foreslås. Ingen vesentlig strukturhindring er dokumentert som MÅ før RC. Dette er en separat struktur-etterkontroll, ikke et nytt kaldt audit, full PR53, implementering eller menneskelig fag-/novice-validering.
+
+## Faktisk dekning og metode
+
+Alle 15 anbefalte sider ble åpnet gjennom synlige modul-/sidemenylenker i den faktiske offentlige appen ved 1440×900. For hver side er hele faktiske elevtekst, overskrifter, kontroller, lenker, navigasjonsopphav, ARIA-snapshot og fullsidebilde bevart. Alle 15 fullsidebilder er visuelt inspisert. [Capture-manifest](evidence/capture-manifest.json) angir rekkefølge, viewport og scope. Første modulåpning fulgte shellens synlige moduloppføring fra ordinær Hub; senere temaer fulgte synlig sidemeny. Overgangen til Service Types fulgte synlig moduloppføring i samme shell.
+
+Ingen modellkjøringer, vurderinger eller laber ble startet. Den viste tekst og kontrollene var tilstrekkelige til å vurdere sidens egen funksjon. Begge transfer-sider er lest som faktiske prestart-/historikkflater; skjulte vurderingsprompter og rubrics er ikke vurdert på nytt. «Alle sider lest» betyr ikke alle underliggende oppgaver gjennomført eller alle parametervalg prøvd. Eksisterende gjennomgått praktisk/domain-kontrakt brukes som avgrenset bakgrunn, særlig dokumenterte PR53-Portal/SaaS-observasjoner og PR56/CC02s bevarte mission-debrief. Disse er ikke presentert som nye målinger.
+
+Repoets AGENTS, workflow, kvalitets-/innholdsregler og integritetskontroll er lest. Etter elevvisningen ble relevante manuskript-/progresjons-/guidekontrakter og presise topic-/navigasjonsgrenser kontrollert i source. Ingen repo-/Git-/cold-/solve-/lock-filer er endret. Bare denne outputmappen er brukt til nye filer. Miljøtilgang ble kontrollert med `cloud-environment-runtime`; nettpolicy var enforced/unrestricted, ingen auth-bypass. Playwright ble lastet med `createRequire('/workspace/Azure-learner/package.json')`. Ingen lokal build/server, store-injeksjon eller Azure ble brukt.
+
+## Moduler og anbefalte økter
+
+Tellingene er bekreftet både gjennom faktisk synlig sidemeny/footer og etterfølgende `navigationTopics`-innsyn. Historiske `assessment`-ruter finnes fortsatt, men er ikke ekstra anbefalte sidebaroppføringer. Oppdatert vurdering og terminal transfer er forskjellige spor.
+
+| Modul | Nå | Etter | Innhold i ettertallet | Klassifisering |
+|---|---:|---:|---|---|
+| Benefits of cloud services | 7 | 7 | 5 forklarings-/modelløkter + summary + transfer | 7 A |
+| Cloud service types | 8 | 8 | overview + IaaS + PaaS + SaaS + selection + faktisk practice + summary + transfer | 8 A |
+
+Eksakte økter og topic-medlemmer beholdes én til én:
+
+### Benefits of cloud services
+
+- `benefits-availability` – Kapasitet er ikke det samme som tilgjengelighet; topic-medlem: `availability`.
+- `benefits-reliability` – Finn årsaken før du velger tiltak; topic-medlem: `reliability`.
+- `benefits-governance` – Tillatelse, policy og sikkerhet er forskjellige spørsmål; topic-medlem: `governance`.
+- `benefits-management` – Gjenta en konfigurasjon — også feil kan gjentas; topic-medlem: `management`.
+- `benefits-sustainability` – Reduser unødvendig ressursbruk uten å fjerne funksjonen; topic-medlem: `sustainability`.
+- `benefits-summary` – Observasjoner og neste steg; topic-medlem: `summary`.
+- `benefits-transfer` – Prøv kunnskapen i nye situasjoner; topic-medlem: `transfer`.
+
+### Cloud service types
+
+- `services-overview` – Fra ansvarsoversikt til operativt valg; topic-medlem: `overview`.
+- `services-iaas` – Bygg en forståelig VM-konfigurasjon; topic-medlem: `iaas`.
+- `services-paas` – Kode, runtime og hosting er ulike deler; topic-medlem: `paas`.
+- `services-saas` – Administrer en ferdig tjeneste, ikke en gjesteplattform; topic-medlem: `saas`.
+- `services-selection` – Velg en løsning ut fra krav og driftsarbeid; topic-medlem: `selection`.
+- `services-practice` – Bruk og forklar den faktiske hostingkonfigurasjonen; topic-medlem: `practice`.
+- `services-summary` – Observasjoner og neste steg; topic-medlem: `summary`.
+- `services-transfer` – Prøv kunnskapen i nye situasjoner; topic-medlem: `transfer`.
+
+## Hvorfor dagens skiller har pedagogisk funksjon
+
+Benefits er fem forskjellige årsaksrom. Availability lar eleven forutsi arbeid etter feil og rutevalg; reliability krever diagnose av kapasitet, instans, felles avhengighet eller trend. Governance sammenligner scoped regelvurdering med tilgang og sikkerhet. Management viser at én feil malverdi kan gjentas konsekvent. Sustainability sammenligner aktive timer mot funksjonsbehov og avgrenser kapasitetstimer fra CO₂. Hver har forklaring, konkret figur, eksplisitt Kjør, flere påkrevde observasjoner og en egen begrunnet kontroll. Samme ord om kapasitet eller kundeansvar får nye funksjoner; de er ikke alene grunnlag for sammenslåing.
+
+Service Types-overview har et selvstendig sammenligningsverktøy på tvers av tre konkrete tjenester og ni lag. IaaS krever komponent-/gjesteavklaring; PaaS krever plattformstøtte og kundens appvalg; SaaS krever separate konto-, lisens-, rolle- og delingsvalg. Selection er guidet syntese med parvis begrunnelse og en åpen situasjon med flere rimelige løsninger. Practice krever faktisk replaybar lab og ny forklaring. Dette er seks forskjellige økter, selv om noen tekniske ord og ansvar settes opp igjen.
+
+De to korte summary-sidene har en egen funksjon: faktisk status/gjenfinning og historikkversjoner. Etter rene sidebesøk viste Benefits fem introduserte og null bekreftede aktiviteter, Services seks introduserte og null bekreftede. De to transfer-inngangene har egen eksplisitt Start, hjelp/retry/abandon og førsteinnleveringshistorikk. Korthet gjør ikke disse sidene til tom navigasjon. Summary, undervisning, guided selection, praktisk mission/lab og independent skal holdes atskilt.
+
+## Konkret repetisjon og avgrenset oppfølging
+
+Det finnes reell lokal repetisjon: Services viser original teori og operativ utvidelse etter hverandre, slik at blant annet OS-ansvar og kundens kode/data/tilgang forklares på nytt før den nye undersøkelsen. Flere Benefits-sider tilbyr samme VM- eller PaaS-grunnlab, og Services PaaS har både egen vedlikeholdsmisson og en tidligere grunnlabinngang. Sidene merker de tidligere grunnlabene som separat kontrakt; den gjentatte inngangen betyr ikke et nytt obligatorisk labkrav per side.
+
+Anbefalt senere samlet redaksjonell oppfølging: se på komposisjon av original/operativ forklaring og hierarkiet mellom praktiske innganger **innen dagens sider**. Målet må være tydeligere lesing og valgt aktivitet, uten tap av essensiell undervisning, moteksempler, kilder eller kontrollkrav. Bevis for mulig forbedring er konkret dobbeltforklaring og lang vei til modeller/Start, ikke en ordterskel eller et reduksjonstall. Det er ikke dokumentert at dette blokkerer en ordinær elevreise. Oppfølgingen er derfor P2/P3, ikke MÅ før RC, og ingen ny struktur implementeres i PR57.
+
+En samleside ville samtidig gi lengre skrolling, flere uavhengige modelltilstander og potensielt flere praktiske/vurderingsgrenser på samme flate. En senere prototype måtte bevise at den ikke skjuler aktivt arbeid, introduserer offscreen topics ved montering, godskriver alle deltopics ved åpning eller eksponerer undervisning under independent. Det finnes ikke slik gevinst-/risikobevis her som begrunner å endre dagens sider.
+
+## Telling er ikke klikkmåling
+
+15 statiske anbefalte oppføringer dokumenterer ingen 15 unødvendige klikk. I disse ferske, inaktive visningene viste footer normal forrige/neste-sekvens. Source viser at `CourseNavigation` velger `recommended ?? next`, med generell aktiv independent-/recovery-prioritet. PR43s guided-projeksjon kan gå direkte til aktivt arbeid, manglende årsaksforklaring eller neste guide i sine 13 nyere moduler; Benefits/Services er ikke egne projected-guided-moduler i den listen. Ingen aktiv tilstand ble opprettet for å måle klikk på nytt. Anbefalingen endrer ingen oppføringer og sparer **0 dokumenterte klikk**. Ingen læringseffekt utledes av nå-/ettertellingene.
+
+## Bevaringsgrenser og begrensninger
+
+Historiske topic-IDer, direkte URLs, resume/origin, kilder, visit/practice-visit og assessment-identiteter beholdes. All eventuell senere komposisjon må registrere faktisk eksponert originalt innhold og kreve de samme modell-/praktiske observasjonene og begrunnelsene; åpning av en samleside kan ikke kreditere alle medlemmer. Eksplisitte Start-/attempt-grenser, first/help/retry/abandon og gamle immutable innleveringer må bestå. World, receipts og XP er uendret. Cloud Computing sine seks økter berøres ikke.
+
+Dette er AI-basert analyse av struktur og faktisk elevvisning. Ingen menneskelig novice-/SME-/skjermleser-/psykometrisk eller målt læringsvalidering er utført. Ingen nye fullføringer, mestringspåstander eller RC-gater krediteres.
+
+## Sporbar aktivitetsklassifisering
+
+Fullt register med selvstendig læringsmål, ny forståelse, kvalitativ substans, handling/kontroll/evidens, avhengighet, repetisjon, sidebegrunnelse, risiko, prioritet, korte sitater og faktisk snapshot/bilde: [activities.json](activities.json). Modulnivå med eksakte topic-medlemmer, telling inklusive summary/transfer/practice og oppfølgingsgrenser: [modules.json](modules.json).
+
+| Modul/topic | Klasse | Pedagogisk grunn | Faktisk bevis |
+|---|---|---|---|
+| `benefits/availability` | A | En samlet modell med selvstendig prediksjon og tre kontraster begrunner egen økt. Sammenslåing med reliability ville gjøre to forskjellige årsaksrom og to kontrollsett til én allerede lang side. | [snapshot](evidence/02-benefits-availability.snapshot.txt) · [bilde](evidence/02-benefits-availability.png)<br>«En større maskin og en ekstra kopi løser forskjellige problemer.» |
+| `benefits/reliability` | A | Diagnostisk valg av årsak/tiltak er et eget læringsmål og observasjonsrom. Det passer ikke som kort recap under availability. | [snapshot](evidence/03-benefits-reliability.snapshot.txt) · [bilde](evidence/03-benefits-reliability.png)<br>«Et tiltak må påvirke den delen som faktisk begrenser flyten.» |
+| `benefits/governance` | A | Et eget kontrollspørsmål og observerbar evalueringsmekanisme skiller denne fra kapasitet, recovery og konfigurasjonsgjentakelse. | [snapshot](evidence/04-benefits-governance.snapshot.txt) · [bilde](evidence/04-benefits-governance.png)<br>«Ett grønt resultat kan ikke svare på alle tre spørsmålene.» |
+| `benefits/management` | A | Den selvstendige feilpropageringskontrasten og skillet mellom verktøy, deklarasjon og signal gir en hel økt. Ingen tom mellomside. | [snapshot](evidence/05-benefits-management.snapshot.txt) · [bilde](evidence/05-benefits-management.png)<br>«Et program kan gjenta en feil mer konsekvent enn et menneske.» |
+| `benefits/sustainability` | A | Et nytt sammenligningsrom og vesentlig moteksempel begrunner egen side, selv om kapasitetsbegrepene gjenbrukes. | [snapshot](evidence/06-benefits-sustainability.snapshot.txt) · [bilde](evidence/06-benefits-sustainability.png)<br>«En effektiv plan må både unngå unødvendig allokering og dekke riktig tilgjengelighetsvindu.» |
+| `benefits/summary` | A | Den korte siden har en selvstendig oversikts- og historikkfunksjon. Lengde alene er ingen grunn til å fjerne den. | [snapshot](evidence/07-benefits-summary.snapshot.txt) · [bilde](evidence/07-benefits-summary.png)<br>«Introduksjon, guided practice og første uavhengige svar er separate.» |
+| `benefits/transfer` | A | Eksplisitt assessment-grense, tilfellevalg og historikk begrunner egen side selv om prestart-teksten er kort. | [snapshot](evidence/08-benefits-transfer.snapshot.txt) · [bilde](evidence/08-benefits-transfer.png)<br>«Velg et tilfelle. Ingen vurdering starter ved sidebesøk.» |
+| `services/overview` | A | Sammenligning på tvers av tjenestegrenser bør være en egen refererbar økt; å integrere den i IaaS ville gjøre de andre modellene til vedheng og øke sidens lengde. | [snapshot](evidence/09-services-overview.snapshot.txt) · [bilde](evidence/09-services-overview.png)<br>«Å kjenne eieren av OS er ikke nok til å velge en komplett løsning.» |
+| `services/iaas` | A | VM-komponentavklaring har et annet resultatrom og annen kundekontroll enn PaaS og SaaS; egen økt hindrer en stor modellblanding. | [snapshot](evidence/10-services-iaas.snapshot.txt) · [bilde](evidence/10-services-iaas.png)<br>«Mer vCPU løser ikke feil OS eller manglende runtime. RAM er ikke en erstatning for varig lagring.» |
+| `services/paas` | A | Et selvstendig kompatibilitetsproblem med feil- og komplett kontrast begrunner egen side. Å slå den sammen med practice ville blande konseptuell egnethet med faktisk kommando-/receipt-evidens. | [snapshot](evidence/11-services-paas.snapshot.txt) · [bilde](evidence/11-services-paas.png)<br>«En større hosting-plan gjør ikke en usupportert runtime støttet.» |
+| `services/saas` | A | SaaS trenger eget produktadministrativt beslutningsrom. Det kan ikke reduseres til én rad i ansvarsmatrisen uten å miste mekanismen. | [snapshot](evidence/12-services-saas.snapshot.txt) · [bilde](evidence/12-services-saas.png)<br>«Tilgang, myndighet og deling er tre ulike relasjoner. En lisens gjør ikke en bruker til administrator.» |
+| `services/selection` | A | Syntese har en egen pedagogisk handling. Den er ikke bare en tekstlig oppsummering og bør ikke blandes med independent-start eller én av modellene. | [snapshot](evidence/13-services-selection.snapshot.txt) · [bilde](evidence/13-services-selection.png)<br>«En riktig etikett med feil begrunnelse er ikke et godt løsningsforslag.» |
+| `services/practice` | A | Praktisk anvendelse fortjener egen økt selv om flere forklaringer er kjent. Den tekniske gate gjør siden funksjonelt forskjellig fra paas. | [snapshot](evidence/14-services-practice.snapshot.txt) · [bilde](evidence/14-services-practice.png)<br>«Teknisk arbeid og ny faglig begrunnelse er ulike evidenskilder.» |
+| `services/summary` | A | Kort statusflate har egen verdi for gjenfinning og ærlig evidenstolkning, selv uten ny teori. Den bør beholdes selvstendig. | [snapshot](evidence/15-services-summary.snapshot.txt) · [bilde](evidence/15-services-summary.png)<br>«Introduksjon, guided practice og første uavhengige svar er separate.» |
+| `services/transfer` | A | Egen prestart-/historikkside gjør vurderingskontrakten synlig uten automatisk Start. Kort introduksjon kan derfor fortjene egen side. | [snapshot](evidence/16-services-transfer.snapshot.txt) · [bilde](evidence/16-services-transfer.png)<br>«Velg et tilfelle. Ingen vurdering starter ved sidebesøk.» |

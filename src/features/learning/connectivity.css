@@ -1,0 +1,372 @@
+.connectivity-lesson {
+  --connectivity-ink: #173849;
+  --connectivity-blue: #126bb1;
+  --connectivity-teal: #087d85;
+  --connectivity-line: #c4d8e6;
+}
+.connectivity-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1.5rem;
+  border-left: 5px solid #087d85;
+  background: #edf7f7;
+  padding: 1.5rem 1.8rem;
+  margin: 1.5rem 0;
+  color: #17324e;
+}
+.connectivity-entry p {
+  max-width: 100ch;
+  line-height: 1.65;
+}
+.connectivity-entry h2 {
+  margin: 0.4rem 0;
+}
+.connectivity-entry small {
+  font-weight: 600;
+}
+.connectivity-part-a,
+.connectivity-actual-context {
+  padding: 1.1rem 1.3rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid #087d85;
+  border-radius: 0 8px 8px 0;
+  background: #edf7f7;
+}
+.connectivity-part-a p,
+.connectivity-actual-context p {
+  margin: 0.7rem 0;
+}
+.connectivity-actual-context code {
+  overflow-wrap: anywhere;
+}
+.connectivity-result {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  border: 1px solid var(--connectivity-line);
+  border-radius: 14px;
+  background: #fff;
+  color: var(--connectivity-ink);
+  min-width: 0;
+}
+.connectivity-hybrid-figure {
+  padding: 1rem;
+  margin: 0;
+  border: 1px solid #d5e4ed;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #f1f8fd 0%, #fff 55%, #edf7f7 100%);
+}
+.connectivity-hybrid-figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.connectivity-hybrid-figure svg text {
+  fill: #173849;
+  font-size: 16px;
+  font-weight: 650;
+}
+.connectivity-cloud-boundary {
+  fill: #edf6fd;
+  stroke: #126bb1;
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+}
+.connectivity-office path {
+  fill: #eef5fa;
+  stroke: #285a7a;
+  stroke-width: 2.5;
+}
+.connectivity-route {
+  opacity: 1;
+}
+.connectivity-route > path {
+  fill: none;
+  stroke: #647e90;
+  stroke-width: 3;
+  stroke-dasharray: 6 5;
+}
+.connectivity-route > circle {
+  fill: #fff;
+  stroke: #647e90;
+  stroke-width: 2;
+}
+.connectivity-route .connectivity-globe-lines {
+  stroke-width: 1.5;
+  stroke-dasharray: none;
+}
+.connectivity-route .connectivity-gateway,
+.connectivity-route .connectivity-provider {
+  fill: #fff;
+  stroke-width: 2;
+  stroke-dasharray: none;
+}
+.connectivity-route .connectivity-lock {
+  fill: #eaf6f4;
+  stroke: #087d85;
+  stroke-width: 2;
+  stroke-dasharray: none;
+}
+.connectivity-route.is-selected {
+  opacity: 1;
+}
+.connectivity-route.is-selected > path {
+  stroke: #087d85;
+  stroke-width: 4;
+  stroke-dasharray: none;
+}
+.connectivity-route.is-selected > circle {
+  stroke: #087d85;
+  fill: #ecf8f6;
+}
+.connectivity-route.is-selected.is-broken > path {
+  stroke: #a9531d;
+  stroke-dasharray: 8 5;
+}
+.connectivity-vnet {
+  fill: #fff;
+  stroke: #126bb1;
+  stroke-width: 3;
+}
+.connectivity-vnet-mark {
+  fill: none;
+  stroke: #126bb1;
+  stroke-width: 4;
+}
+.connectivity-failure path {
+  fill: none;
+  stroke: #b04d1b;
+  stroke-width: 6;
+}
+.connectivity-hybrid-figure figcaption {
+  margin: 1rem 0 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+.connectivity-hybrid-figure figcaption span {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 400;
+}
+.connectivity-checks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.7rem;
+  margin: 1.5rem 0;
+}
+.connectivity-checks > div {
+  min-width: 0;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-left: 4px solid #a9531d;
+  border-radius: 4px;
+  background: #fff5ec;
+}
+.connectivity-checks dt {
+  font-weight: 650;
+}
+.connectivity-checks dd {
+  margin: 0;
+  text-align: right;
+}
+.connectivity-checks [data-state='yes'] {
+  background: #edf7f5;
+  border-left-color: #087d85;
+}
+.connectivity-checks [data-state='unknown'] {
+  background: #f2f4f6;
+  border-left-color: #64798a;
+}
+.connectivity-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  margin: 1.2rem 0;
+}
+.connectivity-table caption {
+  text-align: left;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+}
+.connectivity-table th,
+.connectivity-table td {
+  text-align: left;
+  border-bottom: 1px solid #c6d8e4;
+  padding: 0.7rem;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.connectivity-table thead {
+  background: #eef5fa;
+}
+.connectivity-verdict {
+  padding: 1rem;
+  border: 1px solid #bfd4e3;
+  border-radius: 8px;
+  background: #eff7fc;
+  line-height: 1.7;
+  font-weight: 650;
+}
+.connectivity-entry-figure {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1.3fr) 28px minmax(0, 1fr);
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0 0 1.5rem;
+  padding: 1.2rem;
+  border: 1px solid #c6dce8;
+  border-radius: 12px;
+  background: #f1f8fc;
+}
+.connectivity-entry-client,
+.connectivity-entry-service {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1rem;
+  border: 1px solid #b7cddd;
+  border-radius: 8px;
+  background: #fff;
+  overflow-wrap: anywhere;
+}
+.connectivity-entry-client span,
+.connectivity-entry-service span {
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+.connectivity-entry-lanes {
+  display: grid;
+  gap: 1rem;
+}
+.connectivity-entry-lanes > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 0.8rem;
+  border: 2px dashed #9bb0bf;
+  border-radius: 8px;
+  background: #f7fafc;
+  font-size: 0.84rem;
+}
+.connectivity-entry-lanes > div[data-selected='true'] {
+  border-style: solid;
+  border-color: #087d85;
+  background: #e8f6f3;
+}
+.connectivity-entry-choice {
+  text-align: center;
+  color: #325f7b;
+  font-size: 1.6rem;
+}
+.connectivity-entry-figure figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  grid-column: 1 / -1;
+  margin-top: 0.8rem;
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+.connectivity-pipeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  list-style: none;
+  padding: 0;
+  gap: 0.9rem;
+  margin: 1.5rem 0;
+}
+.connectivity-pipeline li {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 0.65rem;
+  padding: 1rem;
+  border-top: 4px solid #a9531d;
+  border-radius: 8px;
+  background: #fff5ec;
+  overflow-wrap: anywhere;
+}
+.connectivity-pipeline li[data-state='yes'] {
+  border-top-color: #087d85;
+  background: #edf7f5;
+}
+.connectivity-pipeline li[data-state='unknown'],
+.connectivity-pipeline li[data-state='assumed'] {
+  border-top-color: #64798a;
+  background: #f2f4f6;
+}
+.connectivity-stage-number {
+  font-size: 1.35rem;
+  font-weight: 750;
+  color: #315b70;
+}
+.connectivity-pipeline h5 {
+  margin: 0;
+  font-size: 0.93rem;
+}
+.connectivity-pipeline strong {
+  font-size: 0.84rem;
+}
+.connectivity-pipeline span:last-child {
+  margin-top: auto;
+  font-size: 0.8rem;
+}
+.connectivity-lesson button.compute-primary:hover:not(:disabled) {
+  background: #075591;
+  border-color: #075591;
+  color: #fff;
+}
+@media (min-width: 1700px) {
+  .connectivity-pipeline {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+}
+@media (max-width: 1200px) {
+  .connectivity-checks {
+    grid-template-columns: 1fr;
+  }
+  .connectivity-pipeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .connectivity-entry {
+    grid-template-columns: 1fr;
+  }
+  .connectivity-entry > .course-primary {
+    justify-self: start;
+  }
+  .connectivity-entry-figure {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .connectivity-entry-choice {
+    transform: rotate(90deg);
+  }
+}
+@media (max-width: 700px) {
+  .connectivity-result {
+    padding: 0.9rem;
+  }
+  .connectivity-hybrid-figure {
+    padding: 0.3rem;
+  }
+  .connectivity-pipeline {
+    grid-template-columns: 1fr;
+  }
+  .connectivity-table th,
+  .connectivity-table td {
+    padding: 0.5rem 0.3rem;
+    font-size: 0.78rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .connectivity-lesson * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}

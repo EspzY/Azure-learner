@@ -1,0 +1,115 @@
+# PR57 — etter-lås kildevalidering, Management & Governance
+
+Dato: 5. november 2026. Kildeinnsyn startet først etter at den kalde rapporten ble låst **2026-11-05T14:34:13.806381Z**, og etter eksplisitt ny autorisasjon fra eier via hovedagenten. Dette er en kildeforklaring og en avgrenset rettingsskisse, ikke en ny blindgjennomgang, implementering eller endelig audit.
+
+Checkout HEAD ved innsyn: `a3f1b575b2eb5b257fd455fec1a73b30a38706f4`, samme som full SHA vist i den offentlige nettleserpasseringen. Ingen repository-fil er endret. Alle originale kaldrapport-, solve-, screenshot- og lock-bytes beholdes. Denne nye filen ligger utenfor det opprinnelige manifestet og erstatter ingenting i det.
+
+## Kontrakter og historikk som forklarer avgrensningen
+
+- [AGENTS.md:3](/workspace/Azure-learner/AGENTS.md:3), [AGENTS.md:7](/workspace/Azure-learner/AGENTS.md:7) og [AGENTS.md:11](/workspace/Azure-learner/AGENTS.md:11) krever bevaring av eksisterende domene-/store-/locale-/rubric-/evidensbytes i de seneste presentasjonsarbeidene. Den aktuelle eierinstruksjonen begrenser denne oppgaven ytterligere til kildeforklaring, uten repoendringer.
+- [QUALITY_CONTRACT.md:3](/workspace/Azure-learner/docs/QUALITY_CONTRACT.md:3), [QUALITY_CONTRACT.md:25](/workspace/Azure-learner/docs/QUALITY_CONTRACT.md:25) og [QUALITY_CONTRACT.md:31](/workspace/Azure-learner/docs/QUALITY_CONTRACT.md:31) skiller nye eierinstruksjoner, historisk vurdering og presentasjonskvalitet. Et heading- eller tekstproblem gir ingen tillatelse til å endre vurderingsbetydning eller elevhistorikk.
+- [LEARNING_SEQUENCE.md:9](/workspace/Azure-learner/docs/LEARNING_SEQUENCE.md:9) angir dagens anbefalte rekkefølge: Cost → Governance → Management Tools → Monitoring → Security → Migration. [Linje 27](/workspace/Azure-learner/docs/LEARNING_SEQUENCE.md:27) beholder anbefalingsprioriteten fra eksisterende historikk og guider. [Linje 29](/workspace/Azure-learner/docs/LEARNING_SEQUENCE.md:29) dokumenterer at bare tre bestemte gamle tilgjengelighetsstrenger ble endret i PR45; annen gammel `nb.ts`-tekst ble bevart. Ny orientering ble lagt separat i `content/learning-journey.ts`.
+- [COST_MANAGEMENT.md:80](/workspace/Azure-learner/docs/COST_MANAGEMENT.md:80) og [COST_MANAGEMENT.md:84](/workspace/Azure-learner/docs/COST_MANAGEMENT.md:84) beskriver den tidligere fasen der bare Cost var implementert i tredje sti. Git-historikken fører den gamle Summary-strengen tilbake til `7e35e1d` fra 28. oktober. Dette forklarer restteksten; det gjør den ikke riktig som nåværende elevorientering. Også den daterte PR26-seksjonen i [README.md:47](/workspace/Azure-learner/README.md:47) har denne gamle faseteksten.
+- [MONITORING_DIAGNOSTICS.md:11](/workspace/Azure-learner/docs/MONITORING_DIAGNOSTICS.md:11) beskriver uttrykkelig den avgrensede stateless-modellen, kildeavhengig NULL-håndtering og skillet mellom alarmstatus og operatøroppfølging. [Linje 19](/workspace/Azure-learner/docs/MONITORING_DIAGNOSTICS.md:19) beskriver tolv aktiviteter, ni undervisningsseksjoner og tre undersøkelser. Disse mekanismene trenger ingen endring for de tre P2-funnene.
+- Tidligere [PR39_FINAL_AUDIT.md:7](/workspace/Azure-learner/docs/quality/PR39_FINAL_AUDIT.md:7) dokumenterer et rettet kilde-URL/tittel-problem og en avgrenset Axe-kontroll. [Linje 9](/workspace/Azure-learner/docs/quality/PR39_FINAL_AUDIT.md:9) dokumenterer rettet milepæltekst før årsaksbesvarelse. Ingen av disse er gjenfunnet som samme feil i den kalde passeringen. Tidligere kontroll er historisk evidence, ikke et motbevis mot det konkrete nåværende H3→H5-funnet. [PR26_FINAL_AUDIT.md:13](/workspace/Azure-learner/docs/quality/PR26_FINAL_AUDIT.md:13) avgrenser på samme måte Cost-gjennomgangen fra full Management & Governance-dekning.
+
+## MG-01 — Cost Summary: gammel tekst, riktig nåværende navigasjon
+
+Eksakt opprinnelse er `costNb.summary.next` i [src/content/nb.ts:7847](/workspace/Azure-learner/src/content/nb.ts:7847):
+
+> Neste planlagte fagområde er Compute & Hosting. Øvrig Management & Governance er fortsatt planlagt.
+
+`CostSummary()` viser denne verdien direkte i et avsnitt på [src/features/learning/cost.tsx:307](/workspace/Azure-learner/src/features/learning/cost.tsx:307). Teksten er ikke avledet fra aktuell modulrekkefølge. Resten av komponenten viser de eksisterende besøks-, guided- og førsteinnleveringsfakta; ingen av dem trenger endring.
+
+Den virkelige footer-destinasjonen kommer fra en annen vei:
+
+1. `recommendedModules` har Cost, Governance, Management Tools og Monitoring i denne rekkefølgen i [course-sequence.ts:16](/workspace/Azure-learner/src/features/course/course-sequence.ts:16).
+2. `recommendedBoundary()` velger nabo og dens introduksjon ved Neste i [course-sequence.ts:54](/workspace/Azure-learner/src/features/course/course-sequence.ts:54).
+3. `Course` bruker denne grensen ved siste aktivitet i [course.tsx:2126](/workspace/Azure-learner/src/features/course/course.tsx:2126).
+4. `CourseNavigation` viser `recommended ?? next` i [course-navigation.tsx:34](/workspace/Azure-learner/src/features/course/course-navigation.tsx:34).
+
+**Minste anbefalte presentasjonsretting:** fjern kun det foreldede `<p>{c.summary.next}</p>` fra `CostSummary`, og la den allerede eksisterende footer-knappen angi neste destinasjon. Da forsvinner motsigelsen uten ny tekst, ny lenke, ny orienteringsseksjon eller endring av gammel locale. Dette avsnittet er en produktfase-/roadmapmelding, ikke den økonomiske undervisningen eller en vurderingsregel. Hvis eier senere ønsker en forklarende setning i brødteksten, bør den være separat ny presentasjonskopi; den gamle locale-strengen skal ikke overskrives innen den foreslåtte avgrensningen.
+
+## MG-02 — tekstflettingen er literal tekst, ikke tapte JSX-mellomrom
+
+De observerte sammenløpene finnes allerede som sammenhengende tegn i `monitoringNb`. De oppstår ikke ved at React setter et tall og et ord inntil hverandre uten `{' '}`. Derfor vil en CSS-endring eller mellomrom mellom JSX-noder ikke rette dem.
+
+De følgende relevante feltene er lokalisert. Tabellen foreslår kun mellomrom og tegnsetting; tall, betingelser og betydning beholdes.
+
+| Eksakt kilde/felt | Frosset synlig del | Foreslått presentasjon |
+|---|---|---|
+| [nb.ts:17246](/workspace/Azure-learner/src/content/nb.ts:17246), `monitoringNb.available` | `læringssti02` | `læringssti 02` |
+| [nb.ts:17309](/workspace/Azure-learner/src/content/nb.ts:17309), `sections.health.example` | `klokken08:00–08:10` | `klokken 08:00–08:10` |
+| [nb.ts:17347](/workspace/Azure-learner/src/content/nb.ts:17347), `sections.signals.example` | `er40,70,90,80,50prosent`; `er66prosent, maksimum90`; `enn70` | `er 40, 70, 90, 80, 50 prosent`; `er 66 prosent, maksimum 90`; `enn 70` |
+| [nb.ts:17356](/workspace/Azure-learner/src/content/nb.ts:17356), `sections.logs.paragraphs[2]` | `på90dager` | `på 90 dager` |
+| [nb.ts:17377](/workspace/Azure-learner/src/content/nb.ts:17377), `sections.alerts.paragraphs[0]` | `enn70`; `lik70` | `enn 70`; `lik 70` |
+| [nb.ts:17391](/workspace/Azure-learner/src/content/nb.ts:17391), `sections.alerts.example` | `gir90mot terskelen70` | `gir 90 mot terskelen 70` |
+| [nb.ts:17412](/workspace/Azure-learner/src/content/nb.ts:17412), `sections.insights.example` | `er650ms` | `er 650 ms` |
+| [nb.ts:17495](/workspace/Azure-learner/src/content/nb.ts:17495), `missions.telemetry.where` | `klokken08:05` | `klokken 08:05` |
+| [nb.ts:17504](/workspace/Azure-learner/src/content/nb.ts:17504), `missions.telemetry.steps[2]` | `over5punkt. Forklar66mot90og den strenge terskelen70.` | `over 5 punkt. Forklar 66 mot 90 og den strenge terskelen 70.` |
+
+Renderveiene som må dekkes sammen:
+
+- `MonitoringTheory()` setter avsnitt inn direkte på [monitoring.tsx:218](/workspace/Azure-learner/src/features/learning/monitoring.tsx:218) og worked example på [linje 236](/workspace/Azure-learner/src/features/learning/monitoring.tsx:236). Samme funksjon brukes av den ordinære siden og Journal; Journal går gjennom alle seksjonene på [linje 79](/workspace/Azure-learner/src/features/learning/monitoring.tsx:79).
+- `available` vises på [monitoring.tsx:78](/workspace/Azure-learner/src/features/learning/monitoring.tsx:78), [linje 120](/workspace/Azure-learner/src/features/learning/monitoring.tsx:120) og i `MonitoringSummary()` på [linje 174](/workspace/Azure-learner/src/features/learning/monitoring.tsx:174).
+- `MonitoringWorkbench()` velger `copy = c.missions[mission]` på [monitoring-workbench.tsx:37](/workspace/Azure-learner/src/features/learning/monitoring-workbench.tsx:37). Den aktuelle trinnteksten vises på [linje 166](/workspace/Azure-learner/src/features/learning/monitoring-workbench.tsx:166), kontrollstedet på [linje 171](/workspace/Azure-learner/src/features/learning/monitoring-workbench.tsx:171), hele trinnlisten på [linje 196](/workspace/Azure-learner/src/features/learning/monitoring-workbench.tsx:196), og samme liste i briefingdialogen på [linje 298](/workspace/Azure-learner/src/features/learning/monitoring-workbench.tsx:298). Bare å rette listen på siden ville etterlate dårlig tekst i SavvyShark og briefing.
+- `projectGuides()` tar bare `title` fra manuskriptet på [learning-flow.ts:144](/workspace/Azure-learner/src/features/course/learning-flow.ts:144) og [linje 164](/workspace/Azure-learner/src/features/course/learning-flow.ts:164). Det projiserer ikke disse problematiske avsnittene/trinnene. Det er derfor ikke nødvendig å endre felles guideprioritet eller prosjeksjon.
+
+**Minste anbefalte presentasjonsretting uten gamle locale-endringer:** en liten, modulavgrenset, ren tekstadapter med eksakt allowlist over de ni feltene ovenfor, plassert i en ny presentasjonskopifil under `src/content/` (samme prinsipielle skille som eksisterende `learning-journey.ts`). La kun de navngitte elevtekst-renderstedene bruke adapterens resultat. Adapteren skal returnere originalen for alle andre strenger, ikke mutere `monitoringNb`, og ikke brukes i evaluering, lagring, item-ID-er, årsaksalternativer eller feedback.
+
+Behold opprinnelige React-keys (`p`/`s`) og gi bare tekstnoden den korrigerte visningen. Unngå en global «bokstav ved siden av siffer»-regex: den kan skade `md07`, versjoner, ressurs-ID-er, klokkeslett og instruksjonenes bevisste kontrollverdier som `morning/CPU/full/Maximum/5min/70`. Ikke endre `5min` i denne kontrollverdistrengen som en sideeffekt.
+
+## MG-03 — riktig nivå er H4 for de tre kontrollgruppene
+
+`MonitoringLesson` eier aktivitetens H2 på [monitoring.tsx:92](/workspace/Azure-learner/src/features/learning/monitoring.tsx:92). `MonitoringWorkbench` har oppdragets H3 på [monitoring-workbench.tsx:124](/workspace/Azure-learner/src/features/learning/monitoring-workbench.tsx:124). Den eksisterende parameter-`fieldset` og `legend` ligger på [linje 200](/workspace/Azure-learner/src/features/learning/monitoring-workbench.tsx:200); `legend` oppretter ikke et mellomliggende H4-nivå.
+
+`MonitoringControls` bruker H5 direkte for alle tre gruppene:
+
+- [monitoring-controls.tsx:84](/workspace/Azure-learner/src/features/learning/monitoring-controls.tsx:84): `c.visual.metricControls`.
+- [monitoring-controls.tsx:93](/workspace/Azure-learner/src/features/learning/monitoring-controls.tsx:93): `c.visual.alertControls`.
+- [monitoring-controls.tsx:99](/workspace/Azure-learner/src/features/learning/monitoring-controls.tsx:99): `c.visual.logControls`.
+
+**Minste anbefalte retting:** endre disse tre elementene fra H5 til **H4**, og oppdater den tilhørende selektoren `.monitoring-control-group h5` til `.monitoring-control-group h4` i [monitoring.css:142](/workspace/Azure-learner/src/features/learning/monitoring.css:142). Behold de eksisterende stilverdiene og gridplasseringen. Dette retter semantikken uten å endre visuelt hierarki eller kontroller.
+
+Ikke erstatt alle H5 i Monitoring globalt. Eksempelvis er H5-kategorien i [monitoring-visuals.tsx:62](/workspace/Azure-learner/src/features/learning/monitoring-visuals.tsx:62) et annet tilfelle under observasjonens H4; den inngår ikke i den målte H3→H5-feilen. En ombygging til flere nestede fieldsets/legends er mulig, men større enn nødvendig for dette funnet.
+
+## Faktiske nåværende Neste-destinasjoner
+
+Disse modulgrensene er både bekreftet i den låste nettleserevidensen og forklart av `recommendedBoundary`. De gjelder ordinær statisk fortsettelse når ingen autoritativ gjenopptakelses-/guidehandling har prioritet.
+
+| Fra siste aktivitet | Nåværende Neste-href | Faktisk mål |
+|---|---|---|
+| `/learn/cost?topic=summary` | `/learn/governance?topic=introduction` | Governance & Compliance |
+| `/learn/governance?topic=summary` | `/learn/management-tools?topic=introduction` | Management & Deployment Tools |
+| `/learn/management-tools?topic=summary` | `/learn/monitoring?topic=introduction` | Monitoring & Diagnostic Tools |
+| `/learn/monitoring?topic=summary` | `/learn/security?topic=introduction` | Security Principles & Defender for Cloud |
+
+Forrige fra de fire introduksjonene peker henholdsvis til Access Summary, Cost Summary, Governance Summary og Management Tools Summary. Ingen av disse grensene skal endres for å få gammel Cost-tekst til å stemme.
+
+På undervisningssidene følger statisk Neste den eksisterende topic-rekkefølgen, men den primære knappen er uttrykkelig dynamisk:
+
+- [course.tsx:1058](/workspace/Azure-learner/src/features/course/course.tsx:1058): usikker historikk prioriterer recovery; deretter aktiv independent-kontekst; deretter `guidedNext()`.
+- [learning-flow.ts:93](/workspace/Azure-learner/src/features/course/learning-flow.ts:93): nytt oppdrag peker til opprinnelig Studio-/benkerute med `brief=...`. Å åpne briefing er ikke Start.
+- [learning-flow.ts:95](/workspace/Azure-learner/src/features/course/learning-flow.ts:95): ferdig guide peker til neste ufullførte guide, eller assessment når alle er fullført.
+- [learning-flow.ts:106](/workspace/Azure-learner/src/features/course/learning-flow.ts:106): aktivt arbeid og manglende årsak peker til samme opprinnelige rute med `#guided-work` eller `#guided-cause`; pauset arbeid har egen eksplisitt resume på linje 85.
+- [course-navigation.tsx:34](/workspace/Azure-learner/src/features/course/course-navigation.tsx:34): dette autoritative `recommended`-målet overstyrer bare primærknappen. Det erstatter ikke sidemenyens anbefalte aktiviteter.
+
+I den kalde passeringen viste fullførte Studio-/Cost-benker derfor korrekt **Fortsett til selvstendig anvendelse**, med mål `?topic=assessment`, selv om missions-listen eller neste teoriside fortsatt finnes i sidemenyen. Dette er ikke en manglende rute. `route-inventory.json` bevarer alle 50 besøkte aktiviteter og observerte state-avhengige CTA-varianter; den skal ikke omskrives etter kildeinnsynet.
+
+## MG-04 og faglige grenser
+
+Det valgfrie P3-funnet har konkrete tekstkilder: `costNb.sections.optimization.limit` på [nb.ts:7506](/workspace/Azure-learner/src/content/nb.ts:7506) inneholder `P04 kjøper...`; `monitoringNb.sections.studio.terms` på [nb.ts:17424](/workspace/Azure-learner/src/content/nb.ts:17424) inneholder `Syntetisk fixture` og `faktisk runtime`. Dette er redaksjonell terminologi. Det er ingen grunn til å endre domenets fixture-ID-er eller historiske lagrede referanser. Anbefalt minste leveranse lar P3 stå dokumentert; eventuell senere forbedring må være rene synlige etiketter, uten omdøping av IDs.
+
+Ingen av de tre P2-rettingene krever en ny Azure-påstand. Derfor ble ingen bred ekstern kildegjennomgang eller ny Microsoft-kildeinnhenting utført i denne etter-lås-fasen. Tidligere kildehenvisninger/audits er lest som historikk og regnes ikke som fersk fagverifisering. Den kalde rapportens grenser for menneskelig SME-, novice-, skjermleser-, psykometrisk og læringseffektvalidering står uendret.
+
+## Avgrenset verifikasjon etter en eventuell implementering
+
+Dette er forslag til målrettet kontroll, ikke tester som er kjørt i denne kildefasen:
+
+1. Bekreft uendrede opprinnelige `nb.ts`-, domain-, rubric-, item-, store-/provider- og evidensbytes med prosjektets eksisterende bevaringskontroll; ikke svekk den for å få rettingen gjennom.
+2. Besøk Cost Summary via ordinær meny: den gamle «planlagt»-meldingen skal være borte; eksisterende Neste skal fortsatt gå til Governance-introduksjon.
+3. Se de navngitte Monitoring-avsnittene i ordinær side og Journal, og telemetry-trinnet i både resident SavvyShark, full liste og briefing. Tallverdier, streng `>`-betingelse og modellresultat skal være identiske; bare mellomrom er endret.
+4. Kjør den målrettede Axe-/headingkontrollen på aktiv telemetry-visning: H1→H2→H3→H4 for de tre kontrollgruppene. Inspiser 1440×900 og 1024×500 for samme grid, footer-klaring, fokus og scroll.
+5. Følg eksisterende krav til relevant check, uavhengig review og faktisk eksakt-SHA preview før en eventuell senere leveranse. Denne forklaringen godkjenner ingen endring, merge, deploy eller endelig RC.
+
+Kildevalideringen har ikke endret alvorlighetsgradene i den kalde rapporten og lukker ingen funn. Original `lock.json` og de fem pre-feedback-låsene er fortsatt de autoritative originalene.

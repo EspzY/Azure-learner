@@ -1,0 +1,168 @@
+.architecture-studio {
+  min-width: 0;
+}
+.studio-boundary,
+.studio-caption,
+.studio-legend {
+  font-size: 12px;
+  color: #425768;
+  max-width: 90ch;
+}
+.studio-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: end;
+  margin: 16px 0;
+}
+.studio-filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 150px;
+  max-width: 300px;
+  flex: 1;
+}
+.studio-filters select {
+  width: 100%;
+  min-width: 0;
+}
+.studio-workbench {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 310px);
+  gap: 18px;
+  align-items: start;
+}
+.studio-diagram-pane,
+.studio-inspector {
+  min-width: 0;
+}
+.studio-graph {
+  height: clamp(240px, calc(100dvh - 330px), 640px);
+}
+.studio-inspector {
+  border-left: 1px solid #d8e0e6;
+  padding-left: 16px;
+  max-height: 75vh;
+  overflow: auto;
+  overflow-wrap: anywhere;
+}
+.studio-inspector h2 {
+  margin-top: 0;
+  font-size: 18px;
+}
+.studio-inspector ul,
+.studio-relations {
+  list-style: none;
+  padding: 0;
+}
+.studio-inspector li {
+  margin: 12px 0;
+}
+.studio-inspector small {
+  display: block;
+  color: #425768;
+}
+.studio-inspector .portal-properties {
+  grid-template-columns: 1fr;
+}
+.studio-inspector .portal-properties > div {
+  padding: 8px 0;
+}
+.studio-node-control {
+  border: 0 !important;
+  background: transparent !important;
+  display: flex !important;
+  gap: 13px;
+  align-items: center;
+  padding: 0 !important;
+  text-align: left;
+  min-width: 0;
+  width: 100%;
+}
+.studio-node-control > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+.studio-node-control span {
+  overflow-wrap: anywhere;
+}
+.architecture-studio .portal-graph-node {
+  min-height: 110px;
+}
+.studio-analysed .portal-graph-node {
+  border-left: 5px solid #8764b8;
+}
+.studio-legend span {
+  border-left: 5px solid #8764b8;
+  padding-left: 6px;
+}
+.studio-diagnostics {
+  margin: 20px 0;
+  padding: 12px 0;
+  border-top: 1px solid #d8e0e6;
+}
+.studio-diagnostics summary {
+  font-weight: 600;
+}
+.studio-observations {
+  margin-top: 20px;
+  max-width: 100ch;
+}
+.studio-observations li {
+  margin: 18px 0;
+}
+.studio-open {
+  display: inline-block;
+  margin: 10px 0;
+}
+@media (max-width: 1250px) {
+  .studio-workbench {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .studio-inspector {
+    border-left: 0;
+    border-top: 1px solid #d8e0e6;
+    padding: 16px 0;
+    max-height: none;
+  }
+}
+.portal[data-portal-mode='laboratory'][data-area='studio'] .portal-title {
+  padding-bottom: 8px;
+}
+.portal[data-portal-mode='laboratory'][data-area='studio'] .portal-content {
+  padding-top: 6px;
+}
+.architecture-studio .studio-boundary {
+  margin: 0 0 8px;
+}
+.architecture-studio .studio-filters {
+  margin: 8px 0;
+}
+.architecture-studio .portal-graph-toolbar {
+  margin-bottom: 8px;
+}
+.architecture-studio .studio-caption {
+  margin: 6px 0;
+}
+.studio-help {
+  margin: 8px 0;
+  font-size: 12px;
+}
+.studio-graph .react-flow__edge-text {
+  font-size: 12px;
+}
+.studio-inspector h2 {
+  scroll-margin-block: 60px;
+}
+.studio-analysis-summary {
+  border-left: 3px solid #69797e;
+  background: #f2f5f7;
+  padding: 8px 12px;
+  max-width: 100ch;
+}
+.studio-diagnostics {
+  scroll-margin-top: 55px;
+}

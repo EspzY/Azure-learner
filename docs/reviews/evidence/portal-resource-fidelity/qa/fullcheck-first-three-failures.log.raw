@@ -1,0 +1,149 @@
+
+> azurelab@0.1.0 check
+> npm run typecheck && npm run lint && npm run format:check && npm run docs:check && npm run quality:check && npm run az900:audit:check && npm run curriculum:check && npm run assets:check && npm run legacy:check && npm test && npm run build
+
+
+> azurelab@0.1.0 typecheck
+> node scripts/next.mjs typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+
+> azurelab@0.1.0 lint
+> eslint . --max-warnings 0
+
+
+> azurelab@0.1.0 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> azurelab@0.1.0 docs:check
+> node scripts/docs-check.mjs
+
+Documentation OK: 239 Markdown files; required files and local links verified.
+
+> azurelab@0.1.0 quality:check
+> node scripts/quality-check.mjs
+
+Seven-gate quality contracts/source/activity references valid; no final or human approval inferred.
+
+> azurelab@0.1.0 az900:audit:check
+> node scripts/az900-audit-check.mjs
+
+AZ-900 audit: 57 objectives / 126 facets, evidence references and generated matrix valid; no educational approval inferred.
+
+> azurelab@0.1.0 curriculum:check
+> vitest run src/domain/curriculum/integrity.test.ts src/domain/curriculum/official.test.ts src/domain/curriculum/responsibility.test.ts src/domain/portal/portal.test.ts src/domain/course/course.test.ts src/domain/curriculum/foundations-v2.test.ts src/domain/curriculum/expansion.test.ts src/domain/sandbox/practical.test.ts src/domain/guidance/milestones.test.ts src/domain/curriculum/serverless.test.ts src/domain/curriculum/architecture-physical.test.ts src/domain/curriculum/architecture-management.test.ts src/domain/curriculum/teaching-access.test.ts src/domain/sandbox/missions.test.ts src/domain/curriculum/transfer.test.ts src/domain/curriculum/cost.test.ts src/domain/curriculum/compute.test.ts src/domain/curriculum/networking.test.ts src/domain/curriculum/connectivity.test.ts src/domain/curriculum/storage.test.ts src/domain/curriculum/storage-resilience.test.ts src/domain/curriculum/identity-foundations.test.ts src/domain/curriculum/access-control.test.ts src/domain/curriculum/governance.test.ts src/domain/curriculum/management-tools.test.ts src/domain/curriculum/monitoring.test.ts src/domain/curriculum/security.test.ts src/domain/curriculum/migration.test.ts src/domain/curriculum/refined-assessment.test.ts src/domain/curriculum/application-transfer.test.ts
+
+
+ RUN  v5.0.5 /workspace/azurelab-phase2/portal-fidelity
+
+
+ Test Files  30 passed (30)
+      Tests  503 passed (503)
+   Start at  23:44:34
+   Duration  11.12s (tests 47%, import 31%, transform 20%, worker 2%)
+
+    Isolate  30 workers spawned · ~293ms startup each (spawn + environment, per file)
+             at least ~2.64s faster with isolate: false — reuses workers across files instead of one per file
+
+
+> azurelab@0.1.0 assets:check
+> node scripts/assets-check.mjs && node scripts/design-assets-check.mjs
+
+Assets: owner-authorized local SavvyShark PNG, 76509 bytes; signature, hash, size and registration valid. Retired game assets are not shipped.
+Portal icons: 51 explicit identities, 49 source SVGs / 61710 bytes, original hashes, local paths, safe SVG and provenance validated. No generic fallback.
+{"produced":3,"approved":0,"planned":19,"fontBytes":146892}
+
+> azurelab@0.1.0 legacy:check
+> node scripts/legacy-check.mjs
+
+Legacy boundary: 590 current source/style files; no retired imports, renderer dependencies or game assets.
+
+> azurelab@0.1.0 test
+> vitest run && node --test scripts/docs-check.test.mjs scripts/az900-audit-check.test.mjs scripts/quality-check.test.mjs scripts/design-assets-check.test.mjs scripts/e2e-preview-build.test.mjs scripts/e2e-shard.test.mjs
+
+
+ RUN  v5.0.5 /workspace/azurelab-phase2/portal-fidelity
+
+ ❯ src/laboratory-remediation-preservation.test.ts (3 tests | 1 failed) 5731ms
+   × preserves actual old engines SQL assessments fixtures course authorities and locked PR68 evidence with finite reviewed adapters only 5702ms
+ ❯ src/laboratory-integrated.test.ts (12 tests | 1 failed) 648ms
+   ❯ explicit staged integrated Laboratory3.9 host (12)
+     × projects every actual record and typed dependency into the same Portal and Studio without confusing hosting with ARM ancestry 76ms
+ ❯ src/pr72-ci-workflow.test.ts (4 tests | 1 failed) 244ms
+   × executes actual publisher and checkout guards; missing or mismatched revisions never attest a successful candidate 61ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/laboratory-integrated.test.ts > explicit staged integrated Laboratory3.9 host > projects every actual record and typed dependency into the same Portal and Studio without confusing hosting with ARM ancestry
+AssertionError: expected { id: 'postgres-database-6', …(14) } to match object { parentId: 'postgres-server-5', …(1) }
+(21 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+-   "category": "resource",
++   "category": "subresource",
+    "parentId": "postgres-server-5",
+  }
+
+ ❯ src/laboratory-integrated.test.ts:215:52
+    213|       origin = f.world.delivery.origins[0]!;
+    214|     expect(rows.find((r) => r.id === app.id)?.parentId).toBe(app.group…
+    215|     expect(rows.find((r) => r.id === database.id)).toMatchObject({
+       |                                                    ^
+    216|       parentId: database.serverId,
+    217|       category: 'resource',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/laboratory-remediation-preservation.test.ts > preserves actual old engines SQL assessments fixtures course authorities and locked PR68 evidence with finite reviewed adapters only
+Error: Test timed out in 5000ms.
+If this is a long-running test, pass a timeout value as the last argument or configure it globally with "testTimeout".
+ ❯ src/laboratory-remediation-preservation.test.ts:8:1
+      6| import proof from '../docs/reviews/evidence/pr69/preservation.json';
+      7|
+      8| it('preserves actual old engines SQL assessments fixtures course autho…
+       | ^
+      9|   const allowed = [
+     10|     'AGENTS.md',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/pr72-ci-workflow.test.ts > executes actual publisher and checkout guards; missing or mismatched revisions never attest a successful candidate
+AssertionError: unapproved read: /tmp/azurelab-ci-guard-rKoc09/output
++ actual - expected
+
++ 'af3fffb7cf554e031485c7e9cd5d2db2bee700ee'
+- undefined
+
+
+simple
+
+ ❯ readFidelityHistory tests/portal-fidelity-preservation.ts:79:12
+     77|     binding = Object.hasOwn(bindings, path) ? bindings[path] : undefin…
+     78|   if (!fidelityMutable.has(path))
+     79|     assert.equal(
+       |            ^
+     80|       fidelityBlobHash(actual),
+     81|       binding?.after ?? added[path] ?? baseRows.get(path),
+ ❯ readIntegratedHistory tests/integrated-platform-preservation.ts:35:18
+ ❯ readPlatformHistory tests/resource-platform-preservation.ts:30:18
+ ❯ execute src/pr72-ci-workflow.test.ts:158:36
+ ❯ src/pr72-ci-workflow.test.ts:296:5
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  3 failed | 108 passed (111)
+      Tests  3 failed | 1390 passed (1393)
+   Start at  23:44:47
+   Duration  78.75s (tests 76%, import 16%, transform 7%, worker 1%)
+
+    Isolate  111 workers spawned · ~300ms startup each (spawn + environment, per file)
+             at least ~10.79s faster with isolate: false — reuses workers across files instead of one per file
+

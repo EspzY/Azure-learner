@@ -1,0 +1,39 @@
+# Fundamentals qualitative coverage review
+
+## Scope of this matrix versus the exam audit
+
+The15 selected Learn-path objectives below are a qualitative lab/content crosswalk, not the full57-bullet AZ-900 syllabus or a claim of complete A–F assessment. The dated [full exam matrix](AZ900_COVERAGE_MATRIX.md) and [gap analysis](AZ900_GAP_ANALYSIS.md) record actual independent-evidence/feedback gaps, composite technologies and missing serverless. Sustainability remains useful Learn material without an extra exam bullet. A working VM/plan/app/SaaS lab does not establish VMSS/AVD/containers/Functions, Storage, identity or monitoring coverage. No lab predicate or stored result is changed by this audit.
+
+## Instructional presentation review — 2026-10-26
+
+Guided VM/PaaS/SaaS entry now explains the learning bridge before session start; Benefits also has an inspection-specific brief. Existing coverage and limitations in the matrix below remain unchanged. Configuration and inspection are not availability, traffic, security, carbon or independent mastery evidence. No objective was added or declared complete by this presentation change. [Audit and Portal-reference comparison](GUIDED_LEARNING_REFINEMENT.md).
+
+Review date 2026-10-25. Sources: [official path](https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/), [cloud computing](https://learn.microsoft.com/en-us/training/modules/describe-cloud-compute/), [benefits](https://learn.microsoft.com/en-us/training/modules/describe-benefits-use-cloud-services/), [service types](https://learn.microsoft.com/en-us/training/modules/describe-cloud-service-types/), [AZ-900 objectives](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900). Objective list is metadata, not copied lesson text. Technical facts are checked against sources; qualified human SME and novice review have not occurred.
+
+| Official objective         | Actual teaching/prerequisites                                    | Practice and observable result                                     | Assessment / counterexample / gap                                  |
+| -------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
+| Define cloud computing     | M1 browser/server→host/OS→virtualization→provisioning manuscript | Request/capacity models; explicit units                            | Original changed demand tasks; not real provisioning               |
+| Shared responsibility      | M1 ownership; M3 service-specific matrix                         | Layer inspection; VM versus app configuration                      | Customer data/access remain; no universal responsibility guarantee |
+| Public/private/hybrid      | M1 deployment-model investigation                                | Select ownership/connectivity arrangement                          | Private is not merely on-premises; conceptual only                 |
+| Model use cases            | M1 changed organization scenarios                                | Reason about constraints                                           | Hybrid connection/security not operationally configured            |
+| Consumption                | M1 allocated/useful work and meters                              | Predict then run bounded allocation                                | Allocated unused work can cost; synthetic units                    |
+| Pricing models             | M1 usage/commitment/interruption                                 | Compare authored demand assumptions                                | No real Azure quote or recommendation                              |
+| Availability/scalability   | M2 instance/failure/routing model                                | Change copies/size, observe residual work; bridge actual inventory | Extra VM does not implement HA; independent model task only        |
+| Reliability/predictability | M2 dependency/recovery/trend                                     | Diagnose modeled bottleneck; inspect real relations                | Graph is not telemetry/failover; no measured reliability           |
+| Security/governance        | M2 authorization/policy/protection distinction                   | Conceptual policy fork; actual Web denial/receipt inspection       | Accepted configuration is not secure/compliant                     |
+| Manageability              | M2 management in/of cloud                                        | Inspect real settings/operation history                            | No monitoring or remote guest management                           |
+| Sustainability             | M2 resource-hour waste assumptions                               | Compare bounded allocation; inspect selected profiles              | No measured emissions or carbon claim                              |
+| IaaS                       | M3 full manuscript, OS/RAM/disk/NIC prerequisites                | New persisted VM bundle in real Portal, graph and receipt          | Changed Windows task; configuration does not run an application    |
+| PaaS                       | M3 full manuscript and hosting model                             | Existing policy/plan/app plus persisted app settings               | Changed app task; no deployment/restart/runtime execution          |
+| SaaS                       | M3 full manuscript, licenses/roles/data duties                   | Separate persisted fictional administration                        | Changed departure task; not Microsoft 365 or ARM parity            |
+| Service-model use cases    | M3 control/support/operating burden                              | Compare original requirements and investigate lab results          | Independent conceptual decisions retained; no universal best model |
+
+The current official three-module order is unchanged. Existing conceptual first attempts are not upgraded by the new labs. Serverless is an AZ-900 study-guide bullet beyond the selected path's current module objective list: wider coverage remains incomplete. Governance/networking/storage/operations depth remains in the professional 30-unit proposal; one competency can require many modules. Full exam coverage/readiness is not claimed.
+
+Each implemented lab must satisfy the learner decision → validated command → persisted consequence → causal inspection → changed-task evidence contract. See [technical plans](INTEGRATED_LABS_ARCHITECTURE.md) and [executed versus pending gates](PRACTICAL_LABS_QA.md).
+
+# PR24 applied mission delta
+
+[The implemented-start audit and new missions](PRACTICAL_MISSION_EXPANSION.md) distinguish five conceptual Benefits experiments, inspection-only bridges and the three existing operational labs. New A/CB01–02 connects real VM attachments to a declared failure/routing comparison. New B/CB03–04 requires a fresh denied/corrected Web sequence, actual scope/metadata inspection and acceptance qualification. New C/ST01/ST04 builds to a changed guest/profile/disk/scope requirement. New D/ST02/ST04 observes a real changed draft and ordered maintenance/restoration Apply receipts on the same app. These are different learning tasks, not four entries to one lab. Existing SaaS already covers seats/least privilege/sharing/offboarding and is preserved; no superficial duplicate added.
+
+The57-objective A–F audit statuses remain unchanged. New bounded applied evidence does not resolve the eight broader PARTIAL Cloud Concepts transfer/feedback findings or imply Microsoft completion. PR25 is the next separate assessment refinement. Human review is outstanding.

@@ -1,0 +1,45 @@
+[WebServer] (node:6180) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:6196) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:246:1 › firewall native hub spoke inspection uses actual VM NICs, collection policy, original Firewall Public IP receipt and reload (21.6s)
+
+
+  1) [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:246:1 › firewall native hub spoke inspection uses actual VM NICs, collection policy, original Firewall Public IP receipt and reload 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.portal-main')
+    Expected substring: "10.0.0.4"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" locator('.portal-main') with timeout 5000ms
+      - waiting for locator('.portal-main')
+
+
+      267 |   await service(page, f.firewalls);
+      268 |   await open(page, 'fw-hub');
+    > 269 |   await expect(page.locator('.portal-main')).toContainText('10.0.0.4');
+          |                                              ^
+      270 |   await page.screenshot({ path: info.outputPath('firewall-overview.png') });
+      271 |   await page.getByRole('link', { name: c.receipt, exact: true }).click();
+      272 |   await expect(page.locator('.lab-receipt')).toContainText(s.firewall);
+        at /workspace/Azure-learner/tests/e2e/laboratory-firewall.spec.ts:269:46
+
+    Error Context: ../azurelab-pr67/native-first/laboratory-firewall-firewa-f983c-ublic-IP-receipt-and-reload-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr67/native-first/laboratory-firewall-firewa-f983c-ublic-IP-receipt-and-reload-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr67/native-first/laboratory-firewall-firewa-f983c-ublic-IP-receipt-and-reload-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:246:1 › firewall native hub spoke inspection uses actual VM NICs, collection policy, original Firewall Public IP receipt and reload 

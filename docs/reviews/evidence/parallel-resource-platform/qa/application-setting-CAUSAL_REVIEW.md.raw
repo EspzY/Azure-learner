@@ -1,0 +1,47 @@
+# Public App Setting navigation readiness — read-only causal review
+
+Reviewed the actual additional public combined probe on candidate `c3ae5adbc06eea2740aba3d62492ea001c1c0da0`. This was an additional imported original test plus an external afterEach Storage journey. The original imported first case failed at application-platform.spec.ts:111. The afterEach continued after the failure, so its final page/error-context is not evidence of the DOM at the failing assertion.
+
+**Confirmed cause in this trace:** the new test's Save helper considers the removed form sufficient readiness for the destination resource page. The form can correctly close after accepted command processing while the normal asynchronous Next router navigation is still pending. The immediate strict `.portal-properties` assertion therefore runs on the legitimate Web App Overview, which intentionally contains two distinct definition lists: configuration and configuration analysis. This is not evidence of duplicated pages or a hydration duplicate.
+
+## Immutable inputs
+
+Original actual ZIP: `/workspace/azurelab-parallel/public-A-combined/combined-application-platf-32a39-ships-without-course-writes-desktop-chromium/trace.zip`.
+
+ZIP SHA-256: `140dca65c51db060a4027f4ce71eadff37c45c496d252b334761f07b72829a86`.
+
+Original run log: `/workspace/azurelab-parallel/public-A-combined.log`.
+
+`provenance.json` binds exact source commit and Git blobs. Source copies are read from `git show c3ae5ad…:<path>`, not mutable current files. Normalized DOM is reconstructed from the actual trace's subtree references using the same post-order indexing/reference-delta algorithm as installed Playwright's snapshotNodes/SnapshotRenderer. The expanded DOM files and summary expose the actual assertion-time snapshots.
+
+## Timeline — monotonic milliseconds from actual trace
+
+| Actual event | Time | Evidence |
+| --- | --- | --- |
+| Save click `fjbl@255` | 14668.657–14741.711 | Original Review → Save button. |
+| Command HTTP request | 14734.894 +151.418 duration, ending14886.312 |200 accepted `SetWebAppSetting`, original command `022fb89c-19e5-4c4a-af09-8a1c40c290b5`, revision4→5, sequence5, added ID`app-setting-5`. |
+| Actual target RSC navigation |14888.457–14954.535 |200 text/x-component; requested `?view=appSetting&id=app-setting-5`. This is the route request, distinct from the separate prefetch request. |
+| Save helper `.lab-form` count0 `fjbl@263` |14901.693–14909.275 | Passes before the target navigation response completes. |
+| Snapshot144, after263 |14911.406 | One Portal, one main, one h1`web-vertical`; URL/data-area`webApp`; no form; two distinct legitimate properties lists. The actual App Overview already includes newly created APP_MODE in its child table, and analysis revision5. |
+| Original line111 strict assertion `fjbl@265` |14913.087–14925.252 | Asserts unchanged `.portal-properties` contains`synthetic`. It immediately encounters the two legitimate old-page lists. |
+| Snapshots145/146, before/after265 |14915.155 /14927.357 | Still exactly one Portal/main/h1`web-vertical`, no form; configuration list plus analysis list. No duplicated Portal or main. Only hidden subtree is an empty DIV, containing no Portal descendants. |
+| First recorded correct target snapshot153, before275 |14974.351 | Same page/frame, URL`view=appSetting&id=app-setting-5`, one Portal/main/h1`APP_MODE`, one properties list containing`Web App web-vertical / Name APP_MODE / Synthetic value synthetic`. This is49.099ms after assertion failure, and about19.816ms after the route response completed. |
+
+The first destination snapshot occurs during the external afterEach's service-navigation preparation. Its presence proves that the requested destination did arrive without a source change or retry; it does not make the earlier original assertion a pass. Later Storage pages must not be substituted for these snapshots.
+
+The actual accepted receipt and the new row in revision5 rule out a fabricated success or lost resource in this case. This is temporary client-owned/replay-checked simulation evidence, not a persistent PostgreSQL commit claim.
+
+## Source order at c3ae5ad
+
+- tests/e2e/application-platform.spec.ts:42–51 awaits the accepted original command response and `.lab-form` count0, then returns. It does not await the destination's actual title/identity.
+- src/features/laboratory/laboratory.tsx:300–308 accepts the result and clears parent form/preview state; lines309–355 derive the real created ID and call `router.push` to `appSetting` for the actual new setting. Next router.push is asynchronous and does not return a destination-render promise.
+- src/features/laboratory/application.tsx:288–292 closes the editor after the accepted commit promise resolves. That promise confirms accepted processing, not completion of the later client route.
+- The Web App Overview intentionally renders its configuration PropertyList and its separate model/workspace/revision-bound analysis PropertyList. On the actual setting destination, exactly one setting PropertyList is rendered.
+
+## Bounded correction recommendation
+
+Before the existing first case's unchanged line111 assertion, assert the actual destination heading `APP_MODE` with the original `.portal-title h1` locator. Retain the strict original `.portal-properties` assertion and its expected`synthetic` value byte-for-byte. This adds missing destination-readiness coverage without choosing a first match, narrowing away duplicates, adding sleeps, changing timeouts/retries or changing product behavior. The destination ID and original receipt in this trace independently confirm that APP_MODE is the actual created setting, not an arbitrary convenient heading.
+
+The corrected control still fails if the destination never arrives, the wrong resource arrives, two title nodes remain, the setting value is absent, or duplicate properties lists remain on the setting page. It does not mask a duplicated UI.
+
+This review makes no claim that older unrelated Compute/Back/Axe/landing failures are fixed. It explains only this concrete new additional-public-probe failure. The original red execution and ZIP must remain recorded; a subsequent pass cannot be relabelled as an original pass. No product, test, documentation, release record, stamp, server or Git ref was changed by this investigation.

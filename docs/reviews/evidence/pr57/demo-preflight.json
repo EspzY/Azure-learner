@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "stage": "Phase A actual anonymous baseline preflight, not candidate Gate7",
+  "base": "a3f1b575b2eb5b257fd455fec1a73b30a38706f4",
+  "ordinaryRoot": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/",
+  "observedUTC": "2026-11-05T14:06:44Z through2026-11-05T14:26:22Z",
+  "freshContext": true,
+  "capacity": {
+    "initialUnmet": 2,
+    "after10PackagesPerHourUnmet": 0,
+    "modelOnly": true
+  },
+  "actualOperations": [
+    {
+      "receipt": "portal-1",
+      "operation": "CreateResourceGroup",
+      "name": "rg-demo57-web",
+      "result": "accepted",
+      "subscription": "App Sandbox",
+      "metadataLocation": "Norway East"
+    },
+    {
+      "receipt": "portal-2",
+      "operation": "CreateAppServicePlan",
+      "name": "plan-demo57-web",
+      "location": "North Europe",
+      "result": "denied",
+      "revisionBefore": 1,
+      "revisionAfter": 1,
+      "objectsBefore": 6,
+      "objectsAfter": 6
+    },
+    {
+      "receipt": "portal-3",
+      "operation": "CreateAppServicePlan",
+      "name": "plan-demo57-web",
+      "location": "West Europe",
+      "result": "accepted"
+    },
+    {
+      "receipt": "portal-4",
+      "operation": "CreateWebApp",
+      "name": "app-demo57-web",
+      "plan": "plan-demo57-web",
+      "result": "accepted"
+    },
+    {
+      "receipt": "portal-5",
+      "operation": "CreateResourceGroup",
+      "name": "rg-demo57-vm",
+      "subscription": "Shared Sandbox",
+      "result": "accepted"
+    },
+    {
+      "receipt": "portal-6",
+      "operation": "CreateVmBundle",
+      "name": "vm-demo57-bad",
+      "image": "Ubuntu22.04",
+      "profile": "Small",
+      "dataDiskGiB": 32,
+      "technical": "accepted",
+      "guidedMission": "incomplete - only profile mismatch"
+    },
+    {
+      "receipt": "portal-7",
+      "operation": "CreateVmBundle",
+      "name": "vm-demo57-good",
+      "image": "Ubuntu22.04",
+      "profile": "Standard",
+      "dataDiskGiB": 32,
+      "technical": "accepted",
+      "guidedMission": "complete after explicit new guided Start"
+    }
+  ],
+  "actualInvestigation": [
+    "Policy scope/type, original denied receipt, corrected plan and app hosting, group/subscription, causal answers:9/9 original governance requirements.",
+    "VM, OS/data disk, NIC, subnet and original receipt selected in original UI. Small incomplete first and later Standard complete result both remain available in submitted history after reload.",
+    "Read-only Web bridge returned to original Benefits governance practical context; Journal and reload preserved Sandbox/receipt bytes.",
+    "Global Journal exposes original teaching and versioned Benefits/Services history. Mission results inspected through actual mission debrief history; not falsely claimed a global Journal mission-history feature."
+  ],
+  "navigationPreservation": {
+    "at": "2026-11-05T14:15:02.301Z",
+    "equal": true,
+    "beforeHash": "7879b8982389f77fb5c36e30ccf9b22b79df8ea68a0219795e328c9e5896c6d3",
+    "afterHash": "7879b8982389f77fb5c36e30ccf9b22b79df8ea68a0219795e328c9e5896c6d3"
+  },
+  "limits": [
+    "Author preflight, not cold or human user study.",
+    "No injected learner fixtures or real Azure calls. Only synthetic normal local UI operations.",
+    "Current final candidate anonymous fullSHA Gate7 still required; baseline success cannot substitute.",
+    "Own selector/hydration/short-window automation errors retained in original actions; not counted as product defects."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "acceptedPairs": {
+    "wv2-01": [
+      [
+        "iaas",
+        "guest-lifecycle"
+      ]
+    ],
+    "wv2-02": [
+      [
+        "paas",
+        "supported-platform"
+      ]
+    ]
+  },
+  "feedback": {
+    "os": "Her er kundestyrt OS-image og vedlikehold uttrykkelig påkrevd. IaaS gir dette gjesteansvaret. PaaS ville vært aktuelt dersom en støttet plattform kunne eie OS-livssyklusen. Dette følger ikke av Windows, COM, registry eller MSI alene.",
+    "platform": "Støtten er verifisert, kundestyrt OS-image er ikke nødvendig, og teamet ønsker mindre OS-arbeid. Derfor passer PaaS med plattformbegrunnelsen. IaaS gir kontroll, men oppfyller ikke ønsket om minst mulig gjestedrift like godt. SaaS ville krevd at ferdig programvare kunne erstatte egen kode. Kunden vedlikeholder fortsatt egen kode og komponenter installert med konfigurasjonsskript; plattformdrift fjerner ikke dette ansvaret.",
+    "service": "Egen HTTP-kode uten kundestyrt gjeste-OS passer administrert appplattform. En begrunnelse om OS-kontroll eller ferdig programvare beskriver et annet behov.",
+    "ready": "En ferdig samarbeidstjeneste er SaaS når brukerne administrerer kontoer og innstillinger fremfor egen applikasjonskode.",
+    "scope": "Kvitteringene må vise en ny gruppe etter denne forsøksgrensen i Shared Sandbox med metadata i Norway East. Tidligere ressurser er ikke ny gjennomføring.",
+    "hosting": "Kvitteringer og replay må vise en ny App Service Plan og Web App, samme gruppe, North Europe og appens faktiske planreferanse. Dette beviser konfigurasjon, ikke applikasjonsruntime.",
+    "cause": "Gruppens metadata er ikke plasseringen til alle dens ressurser. Appens hosting følger planen. Den lokale Web-policyen er avgrenset, ikke en universell Azure-regel."
+  },
+  "criteria": {
+    "service": "Egen HTTP-kode på administrert appplattform med kompatibel begrunnelse.",
+    "os": "Kundestyrt OS-livssyklus med kompatibel begrunnelse.",
+    "platform": "Verifisert plattformstøtte og minst mulig gjeste-OS-arbeid med kompatibel begrunnelse.",
+    "ready": "Ferdig samarbeidstjeneste som SaaS.",
+    "scope": "Ny gruppe i Shared Sandbox med metadata i Norway East.",
+    "hosting": "Ny plan og app i samme gruppe, North Europe og faktisk hostingreferanse.",
+    "cause": "Hosting følger planen, ikke Resource Groups metadata."
+  },
+  "uiDisclosure": "The rendered questions do not show item IDs. Option values are internal IDs; client-side source is not a secure exam boundary. New history presents first within updated version and documents prior legacy attempt exposure. Synthetic scenario compatibility is stipulated, not an actually tested Azure app."
+}

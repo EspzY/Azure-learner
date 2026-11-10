@@ -1,0 +1,57 @@
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ src/laboratory-remediation-preservation.test.ts (3 tests | 2 failed) 148ms
+   × preserves actual old engines SQL assessments fixtures course authorities and locked PR68 evidence with finite reviewed adapters only 81ms
+   × changes inherited preservation readers by imports only and extends only the current registry expectation 30ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/laboratory-remediation-preservation.test.ts > preserves actual old engines SQL assessments fixtures course authorities and locked PR68 evidence with finite reviewed adapters only
+AssertionError: expected 1357 to be greater than 2300
+ ❯ src/laboratory-remediation-preservation.test.ts:62:24
+     60|     .trim()
+     61|     .split('\n');
+     62|   expect(paths.length).toBeGreaterThan(2300);
+       |                        ^
+     63|   for (const line of paths) {
+     64|     const [meta, path] = line.split('\t') as [string, string],
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  src/laboratory-remediation-preservation.test.ts > changes inherited preservation readers by imports only and extends only the current registry expectation
+AssertionError: expected 'import { describe, it, expect } from …' to be 'import { describe, it, expect } from …' // Object.is equality
+
+- Expected
++ Received
+
+@@ -277,11 +277,11 @@
+        'laboratory@3.1.0',
+        'laboratory@3.2.0',
+        'laboratory@3.3.0',
+        'laboratory@3.4.0',
+        'laboratory@3.5.0',
+-     'laboratory@3.6.0',
++       'laboratory@3.6.0',
+      ]);
+    });
+    it('counts VM and disk resources in delegated shared capacity checks and never commits beyond96', () => {
+      const { s, command, group, vnet } = ready();
+      expect(s.run(command).code).toBe('created');
+
+ ❯ src/laboratory-remediation-preservation.test.ts:107:66
+    105|         ),
+    106|     );
+    107|   expect(readFileSync('src/laboratory-compute.test.ts', 'utf8')).toBe(
+       |                                                                  ^
+    108|     original69('src/laboratory-compute.test.ts')
+    109|       .toString()
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  2 failed | 31 passed (33)
+   Start at  18:08:21
+   Duration  1.43s (tests 62%, transform 27%, import 9%, worker 2%)
+

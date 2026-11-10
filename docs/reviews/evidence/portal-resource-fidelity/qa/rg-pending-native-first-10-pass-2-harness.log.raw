@@ -1,0 +1,97 @@
+[WebServer] (node:191479) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 12 tests using 1 worker
+
+(node:191497) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:25:1 › integrated3.9 default native Portal forms commit the actual app PostgreSQL binding FrontDoor chain and one Studio authority (22.1s)
+  ✓   2 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:180:1 › integrated3.9 compact native Review keyboard focus reduced motion Axe and short desktop keep typed configuration readable (6.3s)
+  ✓   3 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:251:1 › integrated3.9 native empty Storage deletion blocks Function dependencies and lands on original committed delete receipts (8.9s)
+  ✘   4 [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:324:1 › integrated3.9 PostgreSQL native reload and same-value Function Review preserve verifiable JSONB history before a real configuration change (30.5s)
+(node:191866) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   5 [desktop-chromium] › tests/e2e/integrated-data.spec.ts:45:1 › integrated Function App uses actual Storage and FC1 parents for HTTP and blob configuration analysis and rejects dependent deletion (15.9s)
+  ✓   6 [desktop-chromium] › tests/e2e/integrated-data.spec.ts:179:1 › integrated SQL binding distinguishes unknown hypothetical IP firewall allowance and changed server configuration without runtime claims (18.2s)
+  ✓   7 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:65:1 › integrated Front Door native WAF Prevention and Detection changes affect the actual configured delivery chain (29.8s)
+  ✓   8 [desktop-chromium] › tests/e2e/integrated-delivery.spec.ts:249:1 › integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references (21.2s)
+fatal: path 'src/features/portal/resource-context.css' exists on disk, but not in 'c4119f3f770d6767881dc5ee455686cbae0150d7'
+  ✘   9 [desktop-chromium] › tests/e2e/portal-navigation-pending.spec.ts:72:1 › resource navigation actual old and current presentation under a real React transition suspension excludes stale fixture actions (449ms)
+(node:192264) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  10 [desktop-chromium] › tests/e2e/portal-navigation-pending.spec.ts:184:1 › native cached resource section navigation commits focus before original receipt keyboard activation and Back Forward without writes (6.1s)
+  ✓  11 [desktop-chromium] › tests/e2e/portal-resource-fidelity.spec.ts:21:1 › Portal fidelity scopes same-named profile children by actual IDs and preserves direct historical links original receipts and neutral navigation (11.5s)
+  ✓  12 [desktop-chromium] › tests/e2e/portal-resource-fidelity.spec.ts:141:1 › Portal fidelity native Review readable Overview keyboard reduced motion Axe and compact parent menus retain real configuration boundaries (8.2s)
+
+
+  1) [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:324:1 › integrated3.9 PostgreSQL native reload and same-value Function Review preserve verifiable JSONB history before a real configuration change 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: locator.isEditable: Test timeout of 30000ms exceeded.
+    Call log:
+      - waiting for locator('.lab-form').getByLabel('Name', { exact: true })
+
+
+       at integrated-actions.ts:172
+
+      170 |   for (const [label, value] of Object.entries(fields)) {
+      171 |     const input = page.locator('.lab-form').getByLabel(label, { exact: true });
+    > 172 |     if (!(await input.isEditable())) {
+          |                       ^
+      173 |       await expect(input).toHaveValue(value);
+      174 |       continue;
+      175 |     }
+        at fillIntegrated (/workspace/azurelab-phase2/portal-fidelity/tests/e2e/integrated-actions.ts:172:23)
+        at integratedOperation (/workspace/azurelab-phase2/portal-fidelity/tests/e2e/integrated-actions.ts:188:9)
+        at /workspace/azurelab-phase2/portal-fidelity/tests/e2e/integrated-chain.spec.ts:329:3
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .artifacts/native-results/integrated-chain-integrate-a9f31-a-real-configuration-change-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .artifacts/native-results/integrated-chain-integrate-a9f31-a-real-configuration-change-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .artifacts/native-results/integrated-chain-integrate-a9f31-a-real-configuration-change-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace .artifacts/native-results/integrated-chain-integrate-a9f31-a-real-configuration-change-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [desktop-chromium] › tests/e2e/portal-navigation-pending.spec.ts:72:1 › resource navigation actual old and current presentation under a real React transition suspension excludes stale fixture actions 
+
+    Error: Command failed: git show c4119f3f770d6767881dc5ee455686cbae0150d7:src/features/portal/resource-context.css
+    fatal: path 'src/features/portal/resource-context.css' exists on disk, but not in 'c4119f3f770d6767881dc5ee455686cbae0150d7'
+
+
+      89 |     const actualSource = (path: string) =>
+      90 |       version === 'parent'
+    > 91 |         ? execFileSync('git', ['show', base + ':' + path], {
+         |           ^
+      92 |             encoding: 'utf8',
+      93 |             maxBuffer: 16 * 1024 * 1024,
+      94 |           })
+        at actualSource (/workspace/azurelab-phase2/portal-fidelity/tests/e2e/portal-navigation-pending.spec.ts:91:11)
+        at map (/workspace/azurelab-phase2/portal-fidelity/tests/e2e/portal-navigation-pending.spec.ts:100:57)
+        at /workspace/azurelab-phase2/portal-fidelity/tests/e2e/portal-navigation-pending.spec.ts:100:43
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    .artifacts/native-results/portal-navigation-pending--d2388-ludes-stale-fixture-actions-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: .artifacts/native-results/portal-navigation-pending--d2388-ludes-stale-fixture-actions-desktop-chromium/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    .artifacts/native-results/portal-navigation-pending--d2388-ludes-stale-fixture-actions-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace .artifacts/native-results/portal-navigation-pending--d2388-ludes-stale-fixture-actions-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2 failed
+    [desktop-chromium] › tests/e2e/integrated-chain.spec.ts:324:1 › integrated3.9 PostgreSQL native reload and same-value Function Review preserve verifiable JSONB history before a real configuration change 
+    [desktop-chromium] › tests/e2e/portal-navigation-pending.spec.ts:72:1 › resource navigation actual old and current presentation under a real React transition suspension excludes stale fixture actions 
+  10 passed (3.2m)

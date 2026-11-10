@@ -1,0 +1,288 @@
+.management-lesson {
+  --ma-blue: #0078d4;
+}
+.ma-concept-chain {
+  list-style: none;
+  padding: 0;
+  border-left: 3px solid #99c6e4;
+}
+.ma-concept-chain li {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 16px;
+  border-bottom: 1px solid #d9e2e9;
+}
+.ma-concept-chain small {
+  font-size: 11px;
+  color: #4a5c6a;
+}
+.ma-hierarchy {
+  margin: 24px 0;
+}
+.ma-hierarchy header {
+  border-bottom: 1px solid #cbd6df;
+  margin-bottom: 14px;
+}
+.ma-hierarchy-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: 24px;
+  border: 1px solid #ccd8e2;
+  background: #fff;
+}
+.ma-hierarchy-layout nav {
+  padding: 18px;
+  overflow: auto;
+  max-height: 660px;
+}
+.ma-tree,
+.ma-tree ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 22px;
+}
+.ma-tree {
+  padding-left: 0;
+}
+.ma-tree ul {
+  border-left: 1px solid #9bb3c4;
+  margin-left: 12px;
+}
+.ma-tree li {
+  margin: 8px 0;
+  min-width: 0;
+}
+.ma-node-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 5px;
+  background: #f3f7fa;
+}
+.ma-node-row button {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+.ma-node-row small {
+  font-size: 11px;
+  color: #465766;
+}
+.ma-tree button[aria-pressed='true'] {
+  border-color: #0078d4;
+  background: #deeffb;
+}
+.ma-inspector {
+  padding: 20px;
+  background: #f7fafc;
+  border-left: 1px solid #ccd8e2;
+  overflow-wrap: anywhere;
+}
+.ma-inspector code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.ma-inspector h4 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.ma-table-scroll {
+  overflow: auto;
+  max-width: 100%;
+}
+.ma-scope table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.ma-scope th,
+.ma-scope td {
+  padding: 10px;
+  border-bottom: 1px solid #cbd5df;
+  text-align: left;
+}
+.ma-scope th {
+  background: #eff5f9;
+}
+.ma-bridge {
+  border-top: 2px solid #a5bdd0;
+  padding-top: 24px;
+  margin-top: 32px;
+}
+.ma-scope .pa-controls {
+  margin: 20px 0;
+}
+.management-lesson fieldset {
+  min-width: 0;
+}
+@media (max-width: 1100px) {
+  .ma-hierarchy-layout {
+    grid-template-columns: 1fr;
+  }
+  .ma-inspector {
+    border-left: 0;
+    border-top: 1px solid #ccd8e2;
+  }
+  .ma-hierarchy-layout nav {
+    max-height: 470px;
+  }
+}
+
+.ma-node-row .ma-toggle {
+  min-width: 28px;
+  padding: 2px 6px;
+  font-size: 18px;
+}
+.ma-node-row > button:not(.ma-toggle) {
+  flex: 1;
+}
+.ma-node-row small {
+  font-size: 11px;
+  color: #465766;
+}
+
+.ma-scope-structure {
+  margin: 22px 0;
+  padding: 22px;
+  background: #f6f9fc;
+  border: 1px solid #c3d2df;
+}
+.ma-scope-structure figcaption {
+  font-size: 12px;
+  color: #465766;
+  margin-bottom: 16px;
+}
+.ma-scope-parent {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 2px solid #5b8daf;
+}
+.ma-scope-branches {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.ma-scope-branches section {
+  border-top: 2px solid #5b8daf;
+  padding: 8px 12px;
+}
+.ma-scope-branches h4,
+.ma-scope-branches h5 {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 12px 0;
+}
+.ma-scope-branches ul {
+  list-style: none;
+  padding: 0;
+}
+.ma-scope-branches li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 5px 8px;
+  border-left: 2px solid #a8bfd0;
+  padding: 12px;
+  margin: 10px 0;
+  background: white;
+}
+.ma-scope-branches li span,
+.ma-scope-branches li em {
+  grid-column: 2;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+.ma-scope-branches li em {
+  font-style: normal;
+  font-weight: 600;
+  color: #245873;
+}
+@media (max-width: 700px) {
+  .ma-scope-branches {
+    grid-template-columns: 1fr;
+  }
+  .ma-scope-structure {
+    padding: 12px;
+  }
+}
+
+/* Course typography is explicit: shared Portal styles must not inflate questions. */
+.course-shell .management-lesson {
+  font-size: 16px;
+}
+.course-shell .management-lesson > header h2 {
+  font-size: 27px;
+  line-height: 1.3;
+}
+.course-shell .management-lesson h3 {
+  font-size: 22px;
+}
+.course-shell .management-lesson .pa-question legend {
+  font-size: 18px;
+  line-height: 1.5;
+}
+.course-shell .management-lesson .pa-question [role='status'] {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.65;
+}
+.course-shell .management-lesson .ma-hierarchy header p {
+  max-width: 106ch;
+}
+.course-shell .management-lesson .ma-hierarchy,
+.course-shell .management-lesson .ma-scope-structure {
+  font-size: 14px;
+}
+.course-shell .management-lesson .ma-node-row button {
+  min-height: 32px;
+}
+.course-shell .management-lesson .ma-node-row > button:not(.ma-toggle) {
+  border: 1px solid transparent;
+  background: transparent;
+  padding: 4px 8px;
+}
+.course-shell .management-lesson .ma-node-row > button[aria-pressed='true'] {
+  border-color: #0078d4;
+  background: #ddecf8;
+}
+.course-shell .management-lesson .pa-controls legend {
+  font-size: 18px;
+}
+.management-lesson .ma-bridge {
+  scroll-margin-top: 90px;
+}
+.management-lesson .ma-scope-structure strong {
+  font-weight: 600;
+}
+
+.course-shell .management-lesson .pa-question p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+.ma-snapshot {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 14px;
+  background: #edf5fa;
+}
+.ma-snapshot dt {
+  font-size: 12px;
+  color: #435d72;
+}
+.ma-snapshot dd {
+  margin: 4px 0;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 600px) {
+  .ma-snapshot {
+    grid-template-columns: 1fr;
+  }
+}

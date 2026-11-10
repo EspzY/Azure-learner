@@ -1,0 +1,44 @@
+
+Running 1 test using 1 worker
+
+(node:96603) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/application-platform.spec.ts:79:5 › application platform creates actual plan app synthetic deployment settings receipts and Studio relationships without course writes (12.2s)
+
+
+  1) [desktop-chromium] › tests/e2e/application-platform.spec.ts:79:5 › application platform creates actual plan app synthetic deployment settings receipts and Studio relationships without course writes 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('.portal-properties')
+    Expected substring: "synthetic"
+    Error: strict mode violation: locator('.portal-properties') resolved to 2 elements:
+        1) <dl class="portal-properties">…</dl> aka getByText('TypeMicrosoft.Web/sitesApp')
+        2) <dl class="portal-properties">…</dl> aka getByText('Workspace54fc0155-5089-4639-8af6-035e9cc8a8afModellaboratory@3.8.')
+
+    Call log:
+      - Expect "toContainText" locator('.portal-properties') with timeout 5000ms
+      - waiting for locator('.portal-properties')
+
+
+      109 |     a.save,
+      110 |   );
+    > 111 |   await expect(page.locator('.portal-properties')).toContainText('synthetic');
+          |                                                    ^
+      112 |   await page.locator('.lab-evidence-link').click();
+      113 |   await expect(page.locator('[data-portal-component="receipt"]')).toContainText('SetWebAppSetting');
+      114 |   await page.getByText(c.details, { exact: true }).click();
+        at /workspace/azurelab-parallel/application/tests/e2e/application-platform.spec.ts:111:52
+
+    Error Context: ../public-A-combined/combined-application-platf-32a39-ships-without-course-writes-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../public-A-combined/combined-application-platf-32a39-ships-without-course-writes-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../public-A-combined/combined-application-platf-32a39-ships-without-course-writes-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › tests/e2e/application-platform.spec.ts:79:5 › application platform creates actual plan app synthetic deployment settings receipts and Studio relationships without course writes 

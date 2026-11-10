@@ -1,0 +1,1657 @@
+
+			
+		
+			
+				
+				
+ Table of contents 
+			
+			
+				
+				
+Exit editor mode
+			
+		
+	
+		
+	
+				
+					
+			
+				
+			
+				
+					
+				
+			
+			
+		
+		
+	 
+			
+			
+				
+			
+		
+		
+			
+				
+			
+			
+Ask Learn
+		
+		
+			
+				
+			
+			
+Ask Learn
+		
+	 
+			
+				
+					
+						
+					
+				
+				
+					
+			
+				
+			
+			
+Reading mode
+		
+	 
+			
+			
+Table of contents
+		
+	 
+			
+				
+			
+			
+Read in English
+		
+	
+		
+			
+				
+			
+			
+Add
+		
+	 
+			
+				
+			
+			
+Add to Plans
+		
+	 
+		
+			
+				
+			
+			
+Edit
+		
+	  
+		
+					
+						
+						
+						
+					
+					
+Copy Markdown
+				
+		   
+					
+						
+					
+					
+Print
+				
+		  
+				
+			
+		
+	
+		
+	  
+		
+			
+			
+				
+					
+						
+						
+Note
+					
+					
+						Access to this page requires authorization. You can try 
+signing in
+ or 
+changing directories
+.
+					
+						Access to this page requires authorization. You can try 
+changing directories
+.
+				
+			
+		
+	
+Microsoft.Network firewallPolicies/ruleCollectionGroups
+					
+			 
+					
+			
+				
+			
+			
+Feedback
+		
+	
+		  
+	 
+			
+				
+					
+				
+				
+					
+						Summarize this article for me
+				
+			
+			
+			
+		
+	 
+			
+				In this article
+		
+	 
+Latest
+2026-03-01
+2026-01-01
+2025-09-01
+2025-07-01
+2025-05-01
+2025-03-01
+2025-01-01
+2024-10-01
+2024-07-01
+2024-05-01
+2024-03-01
+2024-01-01
+2023-11-01
+2023-09-01
+2023-06-01
+2023-05-01
+2023-04-01
+2023-02-01
+2022-11-01
+2022-09-01
+2022-07-01
+2022-05-01
+2022-01-01
+2021-08-01
+2021-05-01
+2021-03-01
+2021-02-01
+2020-11-01
+2020-08-01
+2020-07-01
+2020-06-01
+2020-05-01
+Bicep resource definition
+The firewallPolicies/ruleCollectionGroups resource type can be deployed with operations that target:
+Resource groups
+ - See 
+resource group deployment commands
+For a list of changed properties in each API version, see 
+change log
+.
+Usage Examples
+Bicep Samples
+A basic example of deploying Firewall Policy Rule Collection Group.
+param resourceName string = 'acctest0001'
+param location string = 'westeurope'
+resource firewallPolicy 'Microsoft.Network/firewallPolicies@2022-07-01' = {
+  name: resourceName
+  location: location
+  properties: {
+    threatIntelMode: 'Alert'
+  }
+}
+resource ruleCollectionGroup 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2022-07-01' = {
+  name: resourceName
+  parent: firewallPolicy
+  properties: {
+    priority: 500
+    ruleCollections: []
+  }
+}
+Azure Verified Modules
+The following 
+Azure Verified Modules
+ can be used to deploy this resource type.
+Module
+Description
+Firewall Policy - Rule Collection Group
+AVM Child Module for Firewall Policy - Rule Collection Group
+Azure Quickstart Samples
+The following 
+Azure Quickstart templates
+ contain Bicep samples for deploying this resource type.
+Bicep File
+Description
+Create a Firewall and FirewallPolicy with Rules and Ipgroups
+This template deploys an Azure Firewall with Firewall Policy (including multiple application and network rules) referencing IP Groups in application and network rules.
+Hub-Spoke Network with NAT Gateway and Azure Firewall
+Deploy a hub-spoke network topology with NAT gateway, Azure Firewall, and virtual machine
+Secured virtual hubs
+This template creates a secured virtual hub using Azure Firewall to secure your cloud network traffic destined to the Internet.
+Testing environment for Azure Firewall Premium
+This template creates an Azure Firewall Premium and Firewall Policy with premium features such as Intrusion Inspection Detection (IDPS), TLS inspection and Web Category filtering
+Use Azure Firewall as a DNS Proxy in a Hub & Spoke topology
+This sample show how to deploy a hub-spoke topology in Azure using the Azure Firewall. The hub virtual network acts as a central point of connectivity to many spoke virtual networks that are connected to hub virtual network via virtual network peering.
+Resource format
+To create a Microsoft.Network/firewallPolicies/ruleCollectionGroups resource, add the following Bicep to your template.
+resource symbolicname 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2026-03-01' = {
+  parent: resourceSymbolicName
+  name: 'string'
+  properties: {
+    priority: int
+    ruleCollections: [
+      {
+        name: 'string'
+        priority: int
+        ruleCollectionType: 'string'
+        // For remaining properties, see FirewallPolicyRuleCollection objects
+      }
+    ]
+  }
+}
+FirewallPolicyRuleCollection objects
+Set the 
+ruleCollectionType
+ property to specify the type of object.
+For 
+FirewallPolicyFilterRuleCollection
+, use:
+{
+  action: {
+    type: 'string'
+  }
+  ruleCollectionType: 'FirewallPolicyFilterRuleCollection'
+  rules: [
+    {
+      description: 'string'
+      name: 'string'
+      ruleType: 'string'
+      // For remaining properties, see FirewallPolicyRule objects
+    }
+  ]
+}
+For 
+FirewallPolicyNatRuleCollection
+, use:
+{
+  action: {
+    type: 'string'
+  }
+  ruleCollectionType: 'FirewallPolicyNatRuleCollection'
+  rules: [
+    {
+      description: 'string'
+      name: 'string'
+      ruleType: 'string'
+      // For remaining properties, see FirewallPolicyRule objects
+    }
+  ]
+}
+FirewallPolicyRule objects
+Set the 
+ruleType
+ property to specify the type of object.
+For 
+ApplicationRule
+, use:
+{
+  destinationAddresses: [
+    'string'
+  ]
+  fqdnTags: [
+    'string'
+  ]
+  httpHeadersToInsert: [
+    {
+      headerName: 'string'
+      headerValue: 'string'
+    }
+  ]
+  protocols: [
+    {
+      port: int
+      protocolType: 'string'
+    }
+  ]
+  ruleType: 'ApplicationRule'
+  sourceAddresses: [
+    'string'
+  ]
+  sourceIpGroups: [
+    'string'
+  ]
+  sourceKubeSelectorGroups: [
+    'string'
+  ]
+  targetFqdns: [
+    'string'
+  ]
+  targetUrls: [
+    'string'
+  ]
+  terminateTLS: bool
+  webCategories: [
+    'string'
+  ]
+}
+For 
+NatRule
+, use:
+{
+  destinationAddresses: [
+    'string'
+  ]
+  destinationPorts: [
+    'string'
+  ]
+  ipProtocols: [
+    'string'
+  ]
+  ruleType: 'NatRule'
+  sourceAddresses: [
+    'string'
+  ]
+  sourceIpGroups: [
+    'string'
+  ]
+  translatedAddress: 'string'
+  translatedFqdn: 'string'
+  translatedPort: 'string'
+}
+For 
+NetworkRule
+, use:
+{
+  destinationAddresses: [
+    'string'
+  ]
+  destinationFqdns: [
+    'string'
+  ]
+  destinationGeoLocations: [
+    'string'
+  ]
+  destinationIpGroups: [
+    'string'
+  ]
+  destinationPorts: [
+    'string'
+  ]
+  ipProtocols: [
+    'string'
+  ]
+  ruleType: 'NetworkRule'
+  sourceAddresses: [
+    'string'
+  ]
+  sourceGeoLocations: [
+    'string'
+  ]
+  sourceIpGroups: [
+    'string'
+  ]
+  sourceKubeSelectorGroups: [
+    'string'
+  ]
+}
+Property Values
+Microsoft.Network/firewallPolicies/ruleCollectionGroups
+Name
+Description
+Value
+name
+The resource name
+string (required)
+parent
+In Bicep, you can specify the parent resource for a child resource. You only need to add this property when the child resource is declared outside of the parent resource.
+For more information, see 
+Child resource outside parent resource
+.
+Symbolic name for resource of type: 
+firewallPolicies
+properties
+The properties of the firewall policy rule collection group.
+FirewallPolicyRuleCollectionGroupProperties
+ApplicationRule
+Name
+Description
+Value
+destinationAddresses
+List of destination IP addresses or Service Tags.
+string[]
+fqdnTags
+List of FQDN Tags for this rule.
+string[]
+httpHeadersToInsert
+List of HTTP/S headers to insert.
+FirewallPolicyHttpHeaderToInsert
+[]
+protocols
+Array of Application Protocols.
+FirewallPolicyRuleApplicationProtocol
+[]
+ruleType
+Rule Type.
+'ApplicationRule' (required)
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+sourceKubeSelectorGroups
+List of source Kubernetes Selector Groups for this rule.
+string[]
+targetFqdns
+List of FQDNs for this rule.
+string[]
+targetUrls
+List of Urls for this rule condition.
+string[]
+terminateTLS
+Terminate TLS connections for this rule.
+bool
+webCategories
+List of destination azure web categories.
+string[]
+FirewallPolicyFilterRuleCollection
+Name
+Description
+Value
+action
+The action type of a Filter rule collection.
+FirewallPolicyFilterRuleCollectionAction
+ruleCollectionType
+The type of the rule collection.
+'FirewallPolicyFilterRuleCollection' (required)
+rules
+List of rules included in a rule collection.
+FirewallPolicyRule
+[]
+FirewallPolicyFilterRuleCollectionAction
+Name
+Description
+Value
+type
+The type of action.
+'Allow'
+'Deny'
+FirewallPolicyHttpHeaderToInsert
+Name
+Description
+Value
+headerName
+Contains the name of the header
+string
+headerValue
+Contains the value of the header
+string
+FirewallPolicyNatRuleCollection
+Name
+Description
+Value
+action
+The action type of a Nat rule collection.
+FirewallPolicyNatRuleCollectionAction
+ruleCollectionType
+The type of the rule collection.
+'FirewallPolicyNatRuleCollection' (required)
+rules
+List of rules included in a rule collection.
+FirewallPolicyRule
+[]
+FirewallPolicyNatRuleCollectionAction
+Name
+Description
+Value
+type
+The type of action.
+'DNAT'
+FirewallPolicyRule
+Name
+Description
+Value
+description
+Description of the rule.
+string
+name
+Name of the rule.
+string
+ruleType
+Set to 'ApplicationRule' for type 
+ApplicationRule
+. Set to 'NatRule' for type 
+NatRule
+. Set to 'NetworkRule' for type 
+NetworkRule
+.
+'ApplicationRule'
+'NatRule'
+'NetworkRule' (required)
+FirewallPolicyRuleApplicationProtocol
+Name
+Description
+Value
+port
+Port number for the protocol, cannot be greater than 64000.
+int 
+Constraints:
+Min value = 0
+Max value = 64000
+protocolType
+Protocol type.
+'Http'
+'Https'
+FirewallPolicyRuleCollection
+Name
+Description
+Value
+name
+The name of the rule collection.
+string
+priority
+Priority of the Firewall Policy Rule Collection resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+ruleCollectionType
+Set to 'FirewallPolicyFilterRuleCollection' for type 
+FirewallPolicyFilterRuleCollection
+. Set to 'FirewallPolicyNatRuleCollection' for type 
+FirewallPolicyNatRuleCollection
+.
+'FirewallPolicyFilterRuleCollection'
+'FirewallPolicyNatRuleCollection' (required)
+FirewallPolicyRuleCollectionGroupProperties
+Name
+Description
+Value
+priority
+Priority of the Firewall Policy Rule Collection Group resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+ruleCollections
+Group of Firewall Policy rule collections.
+FirewallPolicyRuleCollection
+[]
+NatRule
+Name
+Description
+Value
+destinationAddresses
+List of destination IP addresses or Service Tags.
+string[]
+destinationPorts
+List of destination ports.
+string[]
+ipProtocols
+Array of FirewallPolicyRuleNetworkProtocols.
+String array containing any of:
+'Any'
+'ICMP'
+'TCP'
+'UDP'
+ruleType
+Rule Type.
+'NatRule' (required)
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+translatedAddress
+The translated address for this NAT rule.
+string
+translatedFqdn
+The translated FQDN for this NAT rule.
+string
+translatedPort
+The translated port for this NAT rule.
+string
+NetworkRule
+Name
+Description
+Value
+destinationAddresses
+List of destination IP addresses or Service Tags.
+string[]
+destinationFqdns
+List of destination FQDNs.
+string[]
+destinationGeoLocations
+List of destination geographic location filters (ISO 3166-1 alpha-2 country codes, e.g. "US", "CA") for this rule.
+string[]
+destinationIpGroups
+List of destination IpGroups for this rule.
+string[]
+destinationPorts
+List of destination ports.
+string[]
+ipProtocols
+Array of FirewallPolicyRuleNetworkProtocols.
+String array containing any of:
+'Any'
+'ICMP'
+'TCP'
+'UDP'
+ruleType
+Rule Type.
+'NetworkRule' (required)
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceGeoLocations
+List of source geographic location filters (ISO 3166-1 alpha-2 country codes, e.g. "US", "CA") for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+sourceKubeSelectorGroups
+List of source Kubernetes Selector Groups for this rule.
+string[]
+ARM template resource definition
+The firewallPolicies/ruleCollectionGroups resource type can be deployed with operations that target:
+Resource groups
+ - See 
+resource group deployment commands
+For a list of changed properties in each API version, see 
+change log
+.
+Usage Examples
+Azure Quickstart Templates
+The following 
+Azure Quickstart templates
+ deploy this resource type.
+Template
+Description
+Create a Firewall and FirewallPolicy with Rules and Ipgroups
+This template deploys an Azure Firewall with Firewall Policy (including multiple application and network rules) referencing IP Groups in application and network rules.
+Hub-Spoke Network with NAT Gateway and Azure Firewall
+Deploy a hub-spoke network topology with NAT gateway, Azure Firewall, and virtual machine
+Secured virtual hubs
+This template creates a secured virtual hub using Azure Firewall to secure your cloud network traffic destined to the Internet.
+Testing environment for Azure Firewall Premium
+This template creates an Azure Firewall Premium and Firewall Policy with premium features such as Intrusion Inspection Detection (IDPS), TLS inspection and Web Category filtering
+Use Azure Firewall as a DNS Proxy in a Hub & Spoke topology
+This sample show how to deploy a hub-spoke topology in Azure using the Azure Firewall. The hub virtual network acts as a central point of connectivity to many spoke virtual networks that are connected to hub virtual network via virtual network peering.
+Resource format
+To create a Microsoft.Network/firewallPolicies/ruleCollectionGroups resource, add the following JSON to your template.
+{
+  "type": "Microsoft.Network/firewallPolicies/ruleCollectionGroups",
+  "apiVersion": "2026-03-01",
+  "name": "string",
+  "properties": {
+    "priority": "int",
+    "ruleCollections": [ {
+      "name": "string",
+      "priority": "int",
+      "ruleCollectionType": "string"
+      // For remaining properties, see FirewallPolicyRuleCollection objects
+    } ]
+  }
+}
+FirewallPolicyRuleCollection objects
+Set the 
+ruleCollectionType
+ property to specify the type of object.
+For 
+FirewallPolicyFilterRuleCollection
+, use:
+{
+  "action": {
+    "type": "string"
+  },
+  "ruleCollectionType": "FirewallPolicyFilterRuleCollection",
+  "rules": [ {
+    "description": "string",
+    "name": "string",
+    "ruleType": "string"
+    // For remaining properties, see FirewallPolicyRule objects
+  } ]
+}
+For 
+FirewallPolicyNatRuleCollection
+, use:
+{
+  "action": {
+    "type": "string"
+  },
+  "ruleCollectionType": "FirewallPolicyNatRuleCollection",
+  "rules": [ {
+    "description": "string",
+    "name": "string",
+    "ruleType": "string"
+    // For remaining properties, see FirewallPolicyRule objects
+  } ]
+}
+FirewallPolicyRule objects
+Set the 
+ruleType
+ property to specify the type of object.
+For 
+ApplicationRule
+, use:
+{
+  "destinationAddresses": [ "string" ],
+  "fqdnTags": [ "string" ],
+  "httpHeadersToInsert": [
+    {
+      "headerName": "string",
+      "headerValue": "string"
+    }
+  ],
+  "protocols": [
+    {
+      "port": "int",
+      "protocolType": "string"
+    }
+  ],
+  "ruleType": "ApplicationRule",
+  "sourceAddresses": [ "string" ],
+  "sourceIpGroups": [ "string" ],
+  "sourceKubeSelectorGroups": [ "string" ],
+  "targetFqdns": [ "string" ],
+  "targetUrls": [ "string" ],
+  "terminateTLS": "bool",
+  "webCategories": [ "string" ]
+}
+For 
+NatRule
+, use:
+{
+  "destinationAddresses": [ "string" ],
+  "destinationPorts": [ "string" ],
+  "ipProtocols": [ "string" ],
+  "ruleType": "NatRule",
+  "sourceAddresses": [ "string" ],
+  "sourceIpGroups": [ "string" ],
+  "translatedAddress": "string",
+  "translatedFqdn": "string",
+  "translatedPort": "string"
+}
+For 
+NetworkRule
+, use:
+{
+  "destinationAddresses": [ "string" ],
+  "destinationFqdns": [ "string" ],
+  "destinationGeoLocations": [ "string" ],
+  "destinationIpGroups": [ "string" ],
+  "destinationPorts": [ "string" ],
+  "ipProtocols": [ "string" ],
+  "ruleType": "NetworkRule",
+  "sourceAddresses": [ "string" ],
+  "sourceGeoLocations": [ "string" ],
+  "sourceIpGroups": [ "string" ],
+  "sourceKubeSelectorGroups": [ "string" ]
+}
+Property Values
+Microsoft.Network/firewallPolicies/ruleCollectionGroups
+Name
+Description
+Value
+apiVersion
+The api version
+'2026-03-01'
+name
+The resource name
+string (required)
+properties
+The properties of the firewall policy rule collection group.
+FirewallPolicyRuleCollectionGroupProperties
+type
+The resource type
+'Microsoft.Network/firewallPolicies/ruleCollectionGroups'
+ApplicationRule
+Name
+Description
+Value
+destinationAddresses
+List of destination IP addresses or Service Tags.
+string[]
+fqdnTags
+List of FQDN Tags for this rule.
+string[]
+httpHeadersToInsert
+List of HTTP/S headers to insert.
+FirewallPolicyHttpHeaderToInsert
+[]
+protocols
+Array of Application Protocols.
+FirewallPolicyRuleApplicationProtocol
+[]
+ruleType
+Rule Type.
+'ApplicationRule' (required)
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+sourceKubeSelectorGroups
+List of source Kubernetes Selector Groups for this rule.
+string[]
+targetFqdns
+List of FQDNs for this rule.
+string[]
+targetUrls
+List of Urls for this rule condition.
+string[]
+terminateTLS
+Terminate TLS connections for this rule.
+bool
+webCategories
+List of destination azure web categories.
+string[]
+FirewallPolicyFilterRuleCollection
+Name
+Description
+Value
+action
+The action type of a Filter rule collection.
+FirewallPolicyFilterRuleCollectionAction
+ruleCollectionType
+The type of the rule collection.
+'FirewallPolicyFilterRuleCollection' (required)
+rules
+List of rules included in a rule collection.
+FirewallPolicyRule
+[]
+FirewallPolicyFilterRuleCollectionAction
+Name
+Description
+Value
+type
+The type of action.
+'Allow'
+'Deny'
+FirewallPolicyHttpHeaderToInsert
+Name
+Description
+Value
+headerName
+Contains the name of the header
+string
+headerValue
+Contains the value of the header
+string
+FirewallPolicyNatRuleCollection
+Name
+Description
+Value
+action
+The action type of a Nat rule collection.
+FirewallPolicyNatRuleCollectionAction
+ruleCollectionType
+The type of the rule collection.
+'FirewallPolicyNatRuleCollection' (required)
+rules
+List of rules included in a rule collection.
+FirewallPolicyRule
+[]
+FirewallPolicyNatRuleCollectionAction
+Name
+Description
+Value
+type
+The type of action.
+'DNAT'
+FirewallPolicyRule
+Name
+Description
+Value
+description
+Description of the rule.
+string
+name
+Name of the rule.
+string
+ruleType
+Set to 'ApplicationRule' for type 
+ApplicationRule
+. Set to 'NatRule' for type 
+NatRule
+. Set to 'NetworkRule' for type 
+NetworkRule
+.
+'ApplicationRule'
+'NatRule'
+'NetworkRule' (required)
+FirewallPolicyRuleApplicationProtocol
+Name
+Description
+Value
+port
+Port number for the protocol, cannot be greater than 64000.
+int 
+Constraints:
+Min value = 0
+Max value = 64000
+protocolType
+Protocol type.
+'Http'
+'Https'
+FirewallPolicyRuleCollection
+Name
+Description
+Value
+name
+The name of the rule collection.
+string
+priority
+Priority of the Firewall Policy Rule Collection resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+ruleCollectionType
+Set to 'FirewallPolicyFilterRuleCollection' for type 
+FirewallPolicyFilterRuleCollection
+. Set to 'FirewallPolicyNatRuleCollection' for type 
+FirewallPolicyNatRuleCollection
+.
+'FirewallPolicyFilterRuleCollection'
+'FirewallPolicyNatRuleCollection' (required)
+FirewallPolicyRuleCollectionGroupProperties
+Name
+Description
+Value
+priority
+Priority of the Firewall Policy Rule Collection Group resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+ruleCollections
+Group of Firewall Policy rule collections.
+FirewallPolicyRuleCollection
+[]
+NatRule
+Name
+Description
+Value
+destinationAddresses
+List of destination IP addresses or Service Tags.
+string[]
+destinationPorts
+List of destination ports.
+string[]
+ipProtocols
+Array of FirewallPolicyRuleNetworkProtocols.
+String array containing any of:
+'Any'
+'ICMP'
+'TCP'
+'UDP'
+ruleType
+Rule Type.
+'NatRule' (required)
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+translatedAddress
+The translated address for this NAT rule.
+string
+translatedFqdn
+The translated FQDN for this NAT rule.
+string
+translatedPort
+The translated port for this NAT rule.
+string
+NetworkRule
+Name
+Description
+Value
+destinationAddresses
+List of destination IP addresses or Service Tags.
+string[]
+destinationFqdns
+List of destination FQDNs.
+string[]
+destinationGeoLocations
+List of destination geographic location filters (ISO 3166-1 alpha-2 country codes, e.g. "US", "CA") for this rule.
+string[]
+destinationIpGroups
+List of destination IpGroups for this rule.
+string[]
+destinationPorts
+List of destination ports.
+string[]
+ipProtocols
+Array of FirewallPolicyRuleNetworkProtocols.
+String array containing any of:
+'Any'
+'ICMP'
+'TCP'
+'UDP'
+ruleType
+Rule Type.
+'NetworkRule' (required)
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceGeoLocations
+List of source geographic location filters (ISO 3166-1 alpha-2 country codes, e.g. "US", "CA") for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+sourceKubeSelectorGroups
+List of source Kubernetes Selector Groups for this rule.
+string[]
+Terraform (AzAPI provider) resource definition
+The firewallPolicies/ruleCollectionGroups resource type can be deployed with operations that target:
+Resource groups
+For a list of changed properties in each API version, see 
+change log
+.
+Usage Examples
+Terraform Samples
+A basic example of deploying Firewall Policy Rule Collection Group.
+terraform {
+  required_providers {
+    azapi = {
+      source = "Azure/azapi"
+    }
+  }
+}
+provider "azapi" {
+  skip_provider_registration = false
+}
+variable "resource_name" {
+  type    = string
+  default = "acctest0001"
+}
+variable "location" {
+  type    = string
+  default = "westeurope"
+}
+resource "azapi_resource" "resourceGroup" {
+  type     = "Microsoft.Resources/resourceGroups@2020-06-01"
+  name     = var.resource_name
+  location = var.location
+}
+resource "azapi_resource" "firewallPolicy" {
+  type      = "Microsoft.Network/firewallPolicies@2022-07-01"
+  parent_id = azapi_resource.resourceGroup.id
+  name      = var.resource_name
+  location  = var.location
+  body = {
+    properties = {
+      threatIntelMode = "Alert"
+    }
+  }
+  schema_validation_enabled = false
+  response_export_values    = ["*"]
+}
+resource "azapi_resource" "ruleCollectionGroup" {
+  type      = "Microsoft.Network/firewallPolicies/ruleCollectionGroups@2022-07-01"
+  parent_id = azapi_resource.firewallPolicy.id
+  name      = var.resource_name
+  body = {
+    properties = {
+      priority        = 500
+      ruleCollections = []
+    }
+  }
+  schema_validation_enabled = false
+  response_export_values    = ["*"]
+}
+Resource format
+To create a Microsoft.Network/firewallPolicies/ruleCollectionGroups resource, add the following Terraform to your template.
+resource "azapi_resource" "symbolicname" {
+  type = "Microsoft.Network/firewallPolicies/ruleCollectionGroups@2026-03-01"
+  name = "string"
+  parent_id = "string"
+  body = {
+    properties = {
+      priority = int
+      ruleCollections = [
+        {
+          name = "string"
+          priority = int
+          ruleCollectionType = "string"
+          // For remaining properties, see FirewallPolicyRuleCollection objects
+        }
+      ]
+    }
+  }
+}
+FirewallPolicyRuleCollection objects
+Set the 
+ruleCollectionType
+ property to specify the type of object.
+For 
+FirewallPolicyFilterRuleCollection
+, use:
+{
+  action = {
+    type = "string"
+  }
+  ruleCollectionType = "FirewallPolicyFilterRuleCollection"
+  rules = [
+    {
+      description = "string"
+      name = "string"
+      ruleType = "string"
+      // For remaining properties, see FirewallPolicyRule objects
+    }
+  ]
+}
+For 
+FirewallPolicyNatRuleCollection
+, use:
+{
+  action = {
+    type = "string"
+  }
+  ruleCollectionType = "FirewallPolicyNatRuleCollection"
+  rules = [
+    {
+      description = "string"
+      name = "string"
+      ruleType = "string"
+      // For remaining properties, see FirewallPolicyRule objects
+    }
+  ]
+}
+FirewallPolicyRule objects
+Set the 
+ruleType
+ property to specify the type of object.
+For 
+ApplicationRule
+, use:
+{
+  destinationAddresses = [
+    "string"
+  ]
+  fqdnTags = [
+    "string"
+  ]
+  httpHeadersToInsert = [
+    {
+      headerName = "string"
+      headerValue = "string"
+    }
+  ]
+  protocols = [
+    {
+      port = int
+      protocolType = "string"
+    }
+  ]
+  ruleType = "ApplicationRule"
+  sourceAddresses = [
+    "string"
+  ]
+  sourceIpGroups = [
+    "string"
+  ]
+  sourceKubeSelectorGroups = [
+    "string"
+  ]
+  targetFqdns = [
+    "string"
+  ]
+  targetUrls = [
+    "string"
+  ]
+  terminateTLS = bool
+  webCategories = [
+    "string"
+  ]
+}
+For 
+NatRule
+, use:
+{
+  destinationAddresses = [
+    "string"
+  ]
+  destinationPorts = [
+    "string"
+  ]
+  ipProtocols = [
+    "string"
+  ]
+  ruleType = "NatRule"
+  sourceAddresses = [
+    "string"
+  ]
+  sourceIpGroups = [
+    "string"
+  ]
+  translatedAddress = "string"
+  translatedFqdn = "string"
+  translatedPort = "string"
+}
+For 
+NetworkRule
+, use:
+{
+  destinationAddresses = [
+    "string"
+  ]
+  destinationFqdns = [
+    "string"
+  ]
+  destinationGeoLocations = [
+    "string"
+  ]
+  destinationIpGroups = [
+    "string"
+  ]
+  destinationPorts = [
+    "string"
+  ]
+  ipProtocols = [
+    "string"
+  ]
+  ruleType = "NetworkRule"
+  sourceAddresses = [
+    "string"
+  ]
+  sourceGeoLocations = [
+    "string"
+  ]
+  sourceIpGroups = [
+    "string"
+  ]
+  sourceKubeSelectorGroups = [
+    "string"
+  ]
+}
+Property Values
+Microsoft.Network/firewallPolicies/ruleCollectionGroups
+Name
+Description
+Value
+name
+The resource name
+string (required)
+parent_id
+The ID of the resource that is the parent for this resource.
+ID for resource of type: 
+firewallPolicies
+properties
+The properties of the firewall policy rule collection group.
+FirewallPolicyRuleCollectionGroupProperties
+type
+The resource type
+"Microsoft.Network/firewallPolicies/ruleCollectionGroups@2026-03-01"
+ApplicationRule
+Name
+Description
+Value
+destinationAddresses
+List of destination IP addresses or Service Tags.
+string[]
+fqdnTags
+List of FQDN Tags for this rule.
+string[]
+httpHeadersToInsert
+List of HTTP/S headers to insert.
+FirewallPolicyHttpHeaderToInsert
+[]
+protocols
+Array of Application Protocols.
+FirewallPolicyRuleApplicationProtocol
+[]
+ruleType
+Rule Type.
+'ApplicationRule' (required)
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+sourceKubeSelectorGroups
+List of source Kubernetes Selector Groups for this rule.
+string[]
+targetFqdns
+List of FQDNs for this rule.
+string[]
+targetUrls
+List of Urls for this rule condition.
+string[]
+terminateTLS
+Terminate TLS connections for this rule.
+bool
+webCategories
+List of destination azure web categories.
+string[]
+FirewallPolicyFilterRuleCollection
+Name
+Description
+Value
+action
+The action type of a Filter rule collection.
+FirewallPolicyFilterRuleCollectionAction
+ruleCollectionType
+The type of the rule collection.
+'FirewallPolicyFilterRuleCollection' (required)
+rules
+List of rules included in a rule collection.
+FirewallPolicyRule
+[]
+FirewallPolicyFilterRuleCollectionAction
+Name
+Description
+Value
+type
+The type of action.
+'Allow'
+'Deny'
+FirewallPolicyHttpHeaderToInsert
+Name
+Description
+Value
+headerName
+Contains the name of the header
+string
+headerValue
+Contains the value of the header
+string
+FirewallPolicyNatRuleCollection
+Name
+Description
+Value
+action
+The action type of a Nat rule collection.
+FirewallPolicyNatRuleCollectionAction
+ruleCollectionType
+The type of the rule collection.
+'FirewallPolicyNatRuleCollection' (required)
+rules
+List of rules included in a rule collection.
+FirewallPolicyRule
+[]
+FirewallPolicyNatRuleCollectionAction
+Name
+Description
+Value
+type
+The type of action.
+'DNAT'
+FirewallPolicyRule
+Name
+Description
+Value
+description
+Description of the rule.
+string
+name
+Name of the rule.
+string
+ruleType
+Set to 'ApplicationRule' for type 
+ApplicationRule
+. Set to 'NatRule' for type 
+NatRule
+. Set to 'NetworkRule' for type 
+NetworkRule
+.
+'ApplicationRule'
+'NatRule'
+'NetworkRule' (required)
+FirewallPolicyRuleApplicationProtocol
+Name
+Description
+Value
+port
+Port number for the protocol, cannot be greater than 64000.
+int 
+Constraints:
+Min value = 0
+Max value = 64000
+protocolType
+Protocol type.
+'Http'
+'Https'
+FirewallPolicyRuleCollection
+Name
+Description
+Value
+name
+The name of the rule collection.
+string
+priority
+Priority of the Firewall Policy Rule Collection resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+ruleCollectionType
+Set to 'FirewallPolicyFilterRuleCollection' for type 
+FirewallPolicyFilterRuleCollection
+. Set to 'FirewallPolicyNatRuleCollection' for type 
+FirewallPolicyNatRuleCollection
+.
+'FirewallPolicyFilterRuleCollection'
+'FirewallPolicyNatRuleCollection' (required)
+FirewallPolicyRuleCollectionGroupProperties
+Name
+Description
+Value
+priority
+Priority of the Firewall Policy Rule Collection Group resource.
+int 
+Constraints:
+Min value = 100
+Max value = 65000
+ruleCollections
+Group of Firewall Policy rule collections.
+FirewallPolicyRuleCollection
+[]
+NatRule
+Name
+Description
+Value
+destinationAddresses
+List of destination IP addresses or Service Tags.
+string[]
+destinationPorts
+List of destination ports.
+string[]
+ipProtocols
+Array of FirewallPolicyRuleNetworkProtocols.
+String array containing any of:
+'Any'
+'ICMP'
+'TCP'
+'UDP'
+ruleType
+Rule Type.
+'NatRule' (required)
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+translatedAddress
+The translated address for this NAT rule.
+string
+translatedFqdn
+The translated FQDN for this NAT rule.
+string
+translatedPort
+The translated port for this NAT rule.
+string
+NetworkRule
+Name
+Description
+Value
+destinationAddresses
+List of destination IP addresses or Service Tags.
+string[]
+destinationFqdns
+List of destination FQDNs.
+string[]
+destinationGeoLocations
+List of destination geographic location filters (ISO 3166-1 alpha-2 country codes, e.g. "US", "CA") for this rule.
+string[]
+destinationIpGroups
+List of destination IpGroups for this rule.
+string[]
+destinationPorts
+List of destination ports.
+string[]
+ipProtocols
+Array of FirewallPolicyRuleNetworkProtocols.
+String array containing any of:
+'Any'
+'ICMP'
+'TCP'
+'UDP'
+ruleType
+Rule Type.
+'NetworkRule' (required)
+sourceAddresses
+List of source IP addresses for this rule.
+string[]
+sourceGeoLocations
+List of source geographic location filters (ISO 3166-1 alpha-2 country codes, e.g. "US", "CA") for this rule.
+string[]
+sourceIpGroups
+List of source IpGroups for this rule.
+string[]
+sourceKubeSelectorGroups
+List of source Kubernetes Selector Groups for this rule.
+string[]
+					
+	 
+		
+	
+		
+		
+			
+			
+Feedback
+			
+				
+					Was this page helpful?
+				
+					
+						
+							
+						
+						
+Yes
+					
+					
+						
+							
+						
+						
+No
+					
+					
+						
+							
+								
+							
+							
+No
+						
+						
+							
+								Need help with this topic?
+							
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							
+			
+		
+			
+				
+			
+		
+		
+			
+				
+			
+			
+Ask Learn
+		
+		
+			
+				
+			
+			
+Ask Learn
+		
+	
+			
+				
+					
+				
+				
+ Suggest a fix? 
+			
+		
+	
+					
+				
+			
+		
+		
+	
+				
+			
+			
+				Additional resources
+			 
+	 
+	
+	 
+			
+			
+				
+			
+				
+Last updated on 
+		2026-10-20
+			
+		
+			
+		
+	
+		
+				

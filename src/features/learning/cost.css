@@ -1,0 +1,635 @@
+.cost-lesson {
+  --cost-blue: #006cb7;
+  --cost-ink: #17354b;
+  color: #203647;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.cost-lesson h2 {
+  font-size: 1.85rem;
+  line-height: 1.25;
+  color: var(--cost-ink);
+}
+.cost-lesson h3 {
+  font-size: 1.35rem;
+  line-height: 1.35;
+  color: var(--cost-ink);
+}
+.cost-lesson h4 {
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+.cost-lesson p {
+  max-width: 90ch;
+  margin: 0.85rem 0;
+}
+.cost-lesson small {
+  font-size: 0.82rem;
+}
+.cost-entry {
+  border-left: 4px solid #0078b8;
+  padding: 1.5rem 1.8rem;
+  margin: 1.5rem 0;
+  background: #edf7fd;
+}
+.cost-entry h2 {
+  margin: 0.4rem 0;
+  font-size: 1.5rem;
+}
+.cost-entry > small {
+  display: block;
+  color: #345870;
+}
+.course-path-entry {
+  margin-top: 1.5rem;
+}
+.course-path-entry > small {
+  display: block;
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+.cost-reading {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(230px, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+.cost-reading > aside {
+  border-left: 2px solid #87bad9;
+  padding: 0 1.2rem;
+  background: #f5f9fc;
+}
+.cost-lesson dl > div {
+  margin: 0.75rem 0;
+}
+.cost-lesson dt {
+  font-weight: 650;
+}
+.cost-lesson dd {
+  margin: 0.2rem 0 0.9rem;
+}
+.cost-worked {
+  margin: 1.5rem 0;
+  padding: 1.2rem 1.5rem;
+  background: #f2f6f9;
+  border-left: 3px solid #4d6c82;
+}
+.cost-limit,
+.cost-boundary {
+  padding: 1rem 1.25rem;
+  background: #fff7e9;
+  border-left: 3px solid #946326;
+  color: #59451f;
+}
+.cost-prerequisites {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.cost-cycle {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: #cadce9;
+  border: 1px solid #cadce9;
+  margin: 2rem 0;
+}
+.cost-cycle > a {
+  background: white;
+  padding: 1.3rem;
+  display: grid;
+  grid-template-columns: 2rem 1fr;
+  gap: 0.4rem 0.8rem;
+  text-decoration: none;
+}
+.cost-cycle b {
+  grid-row: span 2;
+  font-size: 1.3rem;
+  color: #087cb9;
+}
+.cost-cycle span {
+  font-weight: 650;
+}
+.cost-cycle small {
+  color: #425d70;
+}
+.cost-workbench {
+  border-top: 3px solid #0879b6;
+  margin: 2rem 0;
+  padding-top: 1.4rem;
+}
+.cost-workbench > header {
+  margin-bottom: 1.5rem;
+}
+.cost-workbench > header small {
+  text-transform: uppercase;
+  color: #42617a;
+  letter-spacing: 0.06em;
+}
+.portal .cost-primary {
+  background: #006cb7;
+  color: white;
+  border: 1px solid #0063a7;
+  padding: 0.7rem 1.2rem;
+  font-weight: 600;
+  border-radius: 3px;
+}
+.portal .cost-primary:hover {
+  background: #005b9a;
+}
+.portal .cost-primary:disabled {
+  background: #52616c;
+  border-color: #52616c;
+  color: white;
+  opacity: 1;
+}
+.cost-lesson button {
+  font-size: 0.95rem;
+  min-height: 38px;
+}
+.cost-lesson button.cost-primary:not(:disabled):is(:hover, :focus-visible) {
+  background: #005a9e;
+  color: #fff;
+  border-color: #005a9e;
+}
+.cost-lesson button:focus-visible,
+.cost-lesson a:focus-visible,
+.cost-lesson select:focus-visible,
+.cost-lesson input:focus-visible {
+  outline: 3px solid #0879c2;
+  outline-offset: 3px;
+}
+.cost-workbench > .savvy {
+  background: #eef7fd;
+  border: 1px solid #c3ddec;
+  padding: 1.1rem;
+  margin: 1.5rem 0;
+  align-items: start;
+}
+.cost-workbench .savvy dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.cost-workbench .savvy dl > div {
+  margin: 0;
+}
+.cost-estimate-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.8fr) minmax(260px, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+.cost-lesson fieldset {
+  min-width: 0;
+  border: 1px solid #c6d6e2;
+  padding: 1.2rem;
+  margin: 1rem 0;
+}
+.cost-lesson legend {
+  padding: 0 0.4rem;
+  font-weight: 650;
+}
+.cost-input-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem 1.4rem;
+}
+.cost-input-grid > legend {
+  grid-column: 1/-1;
+}
+.portal .cost-control {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.4rem;
+  margin: 0;
+  font-size: 0.92rem;
+  min-width: 0;
+}
+.portal .cost-control select,
+.portal .cost-control input {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  height: 40px;
+  border: 1px solid #829aab;
+  background: white;
+  color: #203647;
+  padding: 0.35rem 0.6rem;
+  font-size: 1rem;
+  border-radius: 2px;
+}
+.cost-rate-notes {
+  font-size: 0.9rem;
+  border-left: 2px solid #bfd6e7;
+  padding-left: 1.2rem;
+}
+.cost-rate-notes ul {
+  padding-left: 1.2rem;
+}
+.cost-rate-notes li {
+  margin: 0.8rem 0;
+}
+.cost-run {
+  display: flex;
+  gap: 1rem;
+  align-items: end;
+  margin: 1.2rem 0;
+}
+.cost-run .cost-control {
+  flex: 1;
+  max-width: 420px;
+}
+.cost-observation {
+  padding: 1.5rem;
+  background: #f6fafc;
+  border: 1px solid #c1d8e8;
+  margin: 1.5rem 0;
+}
+.cost-totals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.2rem 0;
+}
+.cost-totals > div {
+  border-top: 2px solid #8bbbd9;
+  padding: 0.8rem 0;
+}
+.cost-totals small,
+.cost-totals strong {
+  display: block;
+}
+.cost-totals strong {
+  font-size: 1.4rem;
+  line-height: 1.35;
+  font-variant-numeric: tabular-nums;
+  color: #123e5b;
+}
+.cost-stale {
+  background: #fff2d7;
+  padding: 0.7rem;
+}
+.cost-lesson table {
+  width: 100%;
+  table-layout: auto;
+  border-collapse: collapse;
+  margin: 1.4rem 0;
+  font-size: 0.88rem;
+}
+.cost-table-help {
+  display: block;
+  margin-top: 1.4rem;
+  color: #425b6c;
+}
+.cost-table-scroll {
+  min-width: 0;
+  max-width: 100%;
+  overflow: auto;
+}
+.cost-table-scroll table {
+  margin-top: 0;
+}
+.cost-table-scroll:focus-visible {
+  outline: 3px solid #075e99;
+  outline-offset: 2px;
+}
+.cost-lesson caption {
+  text-align: left;
+  font-weight: 650;
+  color: #274f6b;
+  padding: 0.6rem 0;
+}
+.cost-lesson th,
+.cost-lesson td {
+  border-bottom: 1px solid #cddce7;
+  padding: 0.7rem 0.65rem;
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+.cost-lesson thead {
+  background: #eaf2f8;
+}
+.cost-lesson td {
+  font-variant-numeric: tabular-nums;
+}
+.cost-bars {
+  margin: 1.5rem 0;
+}
+.cost-bars figcaption,
+.cost-trend figcaption {
+  font-weight: 650;
+  margin-bottom: 0.8rem;
+}
+.cost-bars ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cost-bars li {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) minmax(100px, 2fr) minmax(100px, auto);
+  align-items: center;
+  gap: 1rem;
+  padding: 0.45rem 0;
+}
+.cost-bar-track {
+  height: 15px;
+  background: #dce8ef;
+}
+.cost-bar-track i {
+  display: block;
+  height: 100%;
+  background: #087bb9;
+}
+.cost-bars strong {
+  text-align: right;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+.cost-bars > small {
+  display: block;
+  text-align: right;
+  color: #425b6c;
+}
+.cost-trend {
+  padding: 1.2rem;
+  border: 1px solid #c9dce9;
+  background: white;
+  margin: 1.6rem 0;
+}
+.cost-trend svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.cost-trend svg text {
+  font:
+    14px Arial,
+    sans-serif;
+  fill: #294860;
+}
+.cost-chart-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  font-size: 0.85rem;
+}
+.cost-data-scroll {
+  max-height: 360px;
+  overflow: auto;
+  border: 1px solid #b7cddc;
+  padding: 0 0.75rem;
+}
+.cost-data-scroll thead {
+  position: sticky;
+  top: 0;
+}
+.cost-data-scroll:focus-visible {
+  outline: 3px solid #006cb7;
+  outline-offset: 3px;
+}
+.cost-tag-editors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.cost-tag-editors fieldset {
+  margin: 0.5rem 0;
+}
+.cost-tag-editors label + label {
+  margin-top: 1rem;
+}
+.cost-tag-editors legend {
+  overflow-wrap: anywhere;
+}
+.cost-tag-editors p {
+  font-size: 0.85rem;
+}
+.cost-explanation {
+  border-top: 1px solid #c2d6e4;
+  margin-top: 2rem;
+  padding-top: 1rem;
+}
+.portal .cost-explanation fieldset label,
+.portal .cost-assessment fieldset label {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.8rem;
+  padding: 0.85rem;
+  margin: 0.55rem 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  border: 1px solid #c3d5e1;
+  background: white;
+  border-radius: 3px;
+}
+.portal .cost-explanation input[type='radio'],
+.portal .cost-assessment input[type='radio'] {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  margin: 0.28rem 0 0;
+  accent-color: #006cb7;
+}
+.cost-resource-reference {
+  border-left: 3px solid #7b8795;
+  background: #f4f5f7;
+  padding: 1.3rem;
+  margin-top: 2rem;
+}
+.cost-resource-reference .cost-control {
+  max-width: 580px;
+}
+.cost-resource-reference dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.cost-calculator-bridge {
+  padding: 1.5rem;
+  border: 1px solid #a2c3dc;
+  margin: 2rem 0;
+}
+.cost-calculator-bridge li {
+  margin: 0.7rem 0;
+}
+.cost-optimization {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.3rem;
+}
+.cost-optimization > div {
+  border-top: 2px solid #79a9ca;
+  padding: 1rem;
+  background: #f4f8fb;
+}
+.cost-assessment > .cost-control {
+  max-width: 650px;
+  margin: 1.5rem 0;
+}
+.cost-assessment > header {
+  border-top: 2px solid #297ba9;
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+}
+.cost-problem {
+  font-size: 1.15rem;
+  font-weight: 550;
+}
+.cost-premises {
+  background: #eff5f9;
+  padding: 1.4rem 1.4rem 1.4rem 2.5rem;
+}
+.cost-premises li {
+  margin: 0.7rem 0;
+}
+.cost-answer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+.cost-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1.2rem 0;
+}
+.cost-feedback {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 1px solid #b6cdde;
+  background: #f5f9fc;
+}
+.cost-feedback .savvy {
+  margin: 1.5rem 0;
+}
+.cost-feedback li {
+  margin: 1.2rem 0;
+}
+.cost-history {
+  border-top: 2px solid #657d90;
+  margin: 2rem 0;
+  padding-top: 1rem;
+}
+.cost-given {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 1.5rem 0;
+  border: 1px solid #bdcfdd;
+}
+.cost-given > div {
+  padding: 1rem;
+}
+.cost-given strong,
+.cost-given span {
+  display: block;
+}
+.cost-given span {
+  font-size: 0.85rem;
+}
+.cost-sources {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
+.cost-sources ul {
+  columns: 2;
+  padding-left: 1.2rem;
+}
+.cost-sources li {
+  break-inside: avoid;
+  margin: 0.5rem 0;
+}
+.cost-recovery {
+  padding: 1rem;
+  border: 1px solid #a1702e;
+  background: #fff8e9;
+}
+.cost-recovery button {
+  margin: 0.4rem;
+}
+.cost-brief {
+  color: #203647;
+  line-height: 1.65;
+}
+.cost-brief .cost-primary {
+  color: white;
+}
+@media (max-width: 1200px) {
+  .cost-estimate-layout {
+    grid-template-columns: 1fr;
+  }
+  .cost-reading {
+    grid-template-columns: 1fr;
+  }
+  .cost-reading > aside {
+    padding: 1rem;
+  }
+  .cost-reading aside dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .cost-answer-grid {
+    grid-template-columns: 1fr;
+  }
+  .cost-tag-editors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .cost-workbench .savvy dl {
+    grid-template-columns: 1fr;
+  }
+  .cost-trend {
+    padding: 0.8rem;
+  }
+}
+@media (max-width: 700px) {
+  .cost-input-grid,
+  .cost-tag-editors,
+  .cost-totals,
+  .cost-cycle,
+  .cost-optimization,
+  .cost-given {
+    grid-template-columns: 1fr;
+  }
+  .cost-bars li {
+    grid-template-columns: 1fr auto;
+    gap: 0.4rem;
+  }
+  .cost-bar-track {
+    grid-column: 1/-1;
+    grid-row: 2;
+  }
+  .cost-run {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .cost-observation,
+  .cost-feedback {
+    padding: 0.7rem;
+  }
+  .cost-sources ul {
+    columns: 1;
+  }
+  .cost-resource-reference dl,
+  .cost-reading aside dl {
+    display: block;
+  }
+  .cost-lesson table {
+    font-size: 0.78rem;
+  }
+  .cost-lesson th,
+  .cost-lesson td {
+    padding: 0.4rem;
+  }
+  .cost-entry {
+    padding: 1rem;
+  }
+  .cost-totals strong {
+    font-size: 1.2rem;
+  }
+}

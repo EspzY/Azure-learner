@@ -1,0 +1,285 @@
+.expanded-experiment .expanded-model-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+.portal .expanded-experiment .expanded-model-layout .expanded-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 18px 24px;
+  border-top: 1px solid #bdd0de;
+  padding-top: 24px;
+}
+.expanded-model-layout .expanded-controls button {
+  align-self: end;
+}
+.learning-visual {
+  margin: 0;
+  border: 1px solid #344f67;
+  border-radius: 7px;
+  background: radial-gradient(ellipse at 80% 0, #244b61, #14293e 85%);
+  color: #e6f4fc;
+  overflow: hidden;
+}
+.lv-caption {
+  padding: 18px 24px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: #b3d5e7;
+  letter-spacing: 0.09em;
+}
+.lv-caption span {
+  font-size: 12px;
+  border-bottom: 1px solid #548aa3;
+}
+.learning-visual svg {
+  display: block;
+  width: 100%;
+  max-height: 460px;
+}
+.learning-visual svg text {
+  font:
+    23px 'Segoe UI',
+    sans-serif;
+  fill: #edf7fc;
+}
+.learning-visual svg .lv-small {
+  font-size: 19px;
+  fill: #c8e1ef;
+}
+.learning-visual svg .lv-link {
+  fill: none;
+  stroke: #78bdd5;
+  stroke-width: 2.5;
+}
+.learning-visual svg .lv-dim {
+  stroke-dasharray: 5 7;
+  opacity: 0.38;
+}
+.lv-app,
+.lv-platform,
+.lv-screen,
+.lv-document {
+  fill: #214c67;
+  stroke: #8bb8cd;
+  stroke-width: 1.5;
+}
+.lv-router,
+.lv-nic,
+.lv-chip,
+.lv-person {
+  fill: #176c88;
+  stroke: #8ac6d8;
+  stroke-width: 1.5;
+}
+.lv-guest {
+  fill: #1c3c55;
+  stroke: #7da7c1;
+}
+.lv-host {
+  fill: #0d2130;
+  stroke: #7596a9;
+  stroke-width: 2;
+}
+.lv-detail {
+  fill: none;
+  stroke: #86aebf;
+  stroke-width: 1.5;
+}
+.lv-database,
+.lv-disk {
+  fill: #225b67;
+  stroke: #8ababa;
+  stroke-width: 1.5;
+}
+.lv-base {
+  fill: #86a1b3;
+}
+.lv-scope {
+  fill: #243b4c;
+  stroke: #d8b47e;
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+}
+.learning-visual .lv-boundary {
+  fill: none;
+  stroke: #dfbb79;
+  stroke-width: 3;
+  stroke-dasharray: 7 6;
+}
+.lv-key {
+  fill: none;
+  stroke: #a7c6d7;
+  stroke-width: 3;
+}
+.learning-visual .lv-failed {
+  fill: #452f36;
+  stroke: #e59a86;
+  stroke-dasharray: 5 4;
+}
+.lv-break {
+  fill: none;
+  stroke: #f1b080;
+  stroke-width: 4;
+}
+.learning-visual figcaption {
+  padding: 16px 24px;
+  border-top: 1px solid #527084;
+  color: #deedf5;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.lv-pending,
+.lv-footnote {
+  margin: 0 !important;
+  padding: 0 24px 18px;
+  color: #b9d7e7;
+  font-size: 14px;
+}
+.lv-outcome {
+  display: flex;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: #153c49;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.lv-outcome strong {
+  font-size: 24px;
+}
+.lv-template,
+.lv-schedule {
+  padding: 32px 50px;
+}
+.lv-source {
+  text-align: center;
+  border-bottom: 1px solid #78bdd5;
+  padding-bottom: 15px;
+}
+.lv-source strong {
+  font-size: 24px;
+}
+.lv-source p,
+.lv-template > p {
+  color: #bedbe8;
+  text-align: center;
+}
+.lv-fan,
+.lv-regions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: center;
+}
+.lv-fan {
+  padding: 12px;
+  color: #88c3d9;
+  font-size: 30px;
+}
+.lv-regions > div {
+  border-top: 4px solid #368da5;
+  padding: 20px 5px;
+  background: #203d51;
+}
+.lv-regions small {
+  display: block;
+  margin-bottom: 15px;
+}
+.lv-time-row {
+  margin-top: 26px;
+}
+.lv-time-row > span {
+  display: block;
+  margin-bottom: 10px;
+}
+.lv-hours {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  gap: 3px;
+}
+.lv-hours i {
+  height: 24px;
+  background: #284355;
+  border-bottom: 2px solid #567384;
+}
+.lv-hours i[data-on='true'] {
+  background: #47a3bc;
+  border-color: #b4e7f2;
+}
+.lv-formula {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-top: 30px;
+  font-size: 23px;
+}
+.lv-schedule > p {
+  text-align: center;
+  color: #c6ddea;
+}
+.lv-retained {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0;
+  padding: 0 24px 20px;
+  gap: 20px;
+}
+.lv-retained > div {
+  border-top: 2px solid #67b4cc;
+  padding-top: 10px;
+}
+.lv-retained dt {
+  font-weight: 650;
+}
+.lv-retained dd {
+  margin: 6px 0 0;
+  font-size: 15px;
+  color: #c6ddea;
+}
+.lv-trend {
+  display: flex;
+  gap: 20px;
+  padding: 0 24px 22px;
+  flex-wrap: wrap;
+}
+.lv-trend strong {
+  width: 100%;
+}
+.lv-trend span {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+@media (max-width: 800px) {
+  .portal .expanded-experiment .expanded-model-layout .expanded-controls {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .lv-template,
+  .lv-schedule {
+    padding: 24px 15px;
+  }
+  .lv-regions {
+    gap: 8px;
+  }
+  .lv-retained {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .lv-caption {
+    padding: 16px;
+    letter-spacing: 0;
+  }
+}
+
+.learning-visual {
+  scroll-margin-top: 85px;
+}
+.portal .learning-visual small {
+  color: #c3e1ef;
+}
+.course-main .portal-manuscript:has(.expanded-embedded) {
+  max-width: none;
+}
+.course-main .portal-manuscript > p {
+  max-width: 90ch;
+}

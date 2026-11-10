@@ -1,0 +1,44 @@
+* text=auto eol=lf
+# Original licensed Microsoft SVG bytes must survive checkout without normalization.
+public/icons/azure/*.svg -text
+public/icons/fluent/*.svg -text
+# Preserve original PR70 source/failure evidence bytes and their recorded SHA256.
+docs/reviews/evidence/pr70/**/*.raw -text
+# Keep original PR71 source and diagnostic evidence bytes.
+docs/reviews/evidence/pr71/**/*.raw -text
+# Preserve these two original Laboratory3.9 CRLF build captures byte for byte.
+docs/reviews/evidence/integrated-application-chain/qa/normal-build-post-icons.log.raw -text
+docs/reviews/evidence/integrated-application-chain/qa/normal-build-post-noop.log.raw -text
+# Preserve the original Portal fidelity command and failure captures exactly.
+docs/reviews/evidence/portal-resource-fidelity/qa/baseline-group-guided-two-passed.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/baseline-group-review-wrong-pre-harness.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/baseline-module-harness-failure.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/baseline-rg-guided-server-unavailable.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/bounded-final-six-passed.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/breadcrumb-first-10-pass-1-selector-harness.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/breadcrumb-first-selector.context.md.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/census-json-import-harness.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/complete-490-plan.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/current-baseline-four-passed.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/final-visual-first-17-pass-1-cap.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/final-visual-first-chain.context.md.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/fullcheck-first-three-failures.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/initial-production-build.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-chain.context.md.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-gateway.context.md.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-scope.context.md.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/native-initial-three-failures.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/normal-final-breadcrumb-build.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/optimized-native-1.context.md.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/optimized-native-10-pass-4-fail.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/optimized-native-2.context.md.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/optimized-native-3.context.md.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/optimized-native-4.context.md.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/plan-first-collection-cap.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/preservation-first-fail-closed.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/project-args-harness-failure.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/rg-pending-first-1.context.md.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/rg-pending-first-2.context.md.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/rg-pending-native-first-10-pass-2-harness.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/sql-fixture-invalid.log.raw -text
+docs/reviews/evidence/portal-resource-fidelity/qa/waf-fixture-invalid.log.raw -text

@@ -1,0 +1,124 @@
+## Current integrated Laboratory3.9 —9 November2026
+
+See the current [operation-by-operation Laboratory3.9 matrix](LABORATORY_INTEGRATED_CAPABILITIES.md) for the explicit integrated successor. The complete historical body below keeps its original model scope and is not an assertion that newer models are create-only.
+
+## Current shared entry consolidation —9 November2026
+
+See the exhaustive [course-v2 versus Laboratory3.7 matrix](SHARED_PORTAL_CAPABILITY_MATRIX.md) and [architecture contract](SHARED_PORTAL_CONSOLIDATION.md). Home, Subscriptions and catalogue/navigation now share implementation; original resource/learning authorities remain separate. Historical rows below retain their dated scope and are not reclassified as new operations.
+
+# PR50 — Portal capability and fidelity matrix
+
+## PR66 — Compute Part A
+
+New explicit `laboratory@3.4.0` workspaces expose CreateVirtualMachine through the shared Portal Review/Create flow, with one new primary static-IPv4 NIC and one managed OS disk. VM/NIC/disk lists, Overview/Properties/Networking, original receipts and existing read-only route/NSG analysis use the same PostgreSQL World. Existing3.0–3.3 retain original capabilities. OS disks are metadata, images are symbolic configuration, no VM/runtime/start/stop/SSH/RDP or real traffic. Local PostgreSQL/isolated CI only; public503 remains intentional. See [the bounded contract](LABORATORY_COMPUTE_PART_A.md).
+
+## PR65 scoped extension
+
+PR65 scoped extension: new3.3 workspaces expose CreateNetworkInterface, AssociateNicNsg and DisassociateNicNsg through shared Review/Create/Apply and original receipts. One primary static private IPv4; same subscription/region as VNet, first4/last reserved, unique per subnet. Read-only NSG Policy Analysis uses actual persisted NICs and frozen routing, four ordered NSG layers and partial service-tag knowledge. No VM runtime/packet delivery/Network Watcher/full tags. Existing3.0/3.1/3.2 workspaces retain original capabilities. See [Part C](LABORATORY_NETWORKING_PART_C.md).
+
+## PR64 — Laboratory Networking Part B
+
+New explicit `laboratory@3.2.0` workspaces expose directional VNet peerings (Initiated/Connected), Route Tables, bounded IPv4 UDRs (`VnetLocal`, `Internet`, `None`), explicit subnet table association/replacement/removal, original receipts and a read-only persisted-World route-selection analysis. The existing shared Portal primitives serve both free Laboratory and unchanged course mode. No packet/NSG/end-to-end connection result is claimed. No BGP, service endpoints, gateway/appliance/Firewall routing or transit is implemented. Existing3.0/3.1 workspaces stay on their original versions. [Exact contract and Azure sources](LABORATORY_NETWORKING_PART_B.md).
+
+Local PostgreSQL and isolated CI only. Public backend503 remains owner-approved; no external database or storage fallback. Verification status is recorded in the PR64 evidence, independently of these capability descriptions.
+
+## PR62 — isolated Laboratory networking, separate from the legacy Portal
+
+New `laboratory@3.1.0` workspaces in `/labs/laboratory` support the following bounded operations in the same server-authoritative World as Storage. Historical3.0 workspaces retain their original evaluator; no implicit upgrade/import. Local PostgreSQL/isolated CI only; public backend503 remains accepted. See [networking contract](LABORATORY_NETWORKING_PART_A.md).
+
+| Capability         | Actual operation                                                                                                         | Explicit boundary                                                                                                 |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| VNet               | CreateVirtualNetwork, stable RG/subscription/region, one private IPv4 CIDR, original receipt, reload                     | RFC1918/8–/29 only; no IPv6, peering or routes                                                                    |
+| Subnet             | CreateSubnet, parent VNet, canonical contained prefix, overlap/name validation, reserved-address metadata                | No actual IP allocation, service subnet, NIC or VM attachment                                                     |
+| NSG                | CreateNetworkSecurityGroup, independent RG/region scope, actual custom-rule inventory                                    | No traffic filtering or Network Watcher execution                                                                 |
+| NSG custom rule    | CreateSecurityRule, Inbound/Outbound, unique directional priority100–4096, Tcp/Udp/Any, IPv4/CIDR/wildcard, single ports | No custom service tags, ASGs, augmented expressions, edit/delete; read-only standard-rule references are separate |
+| Subnet association | AssociateSubnetNsg, same subscription/region, cross-RG permitted, original Apply receipt                                 | One NSG/subnet; no NIC association or effective flow result                                                       |
+| Storage            | Original bounded RG/account/private-container/text-blob operations also in3.1                                            | Create-only; no v2 migration, Azure authentication or external API                                                |
+
+The dated original matrix below concerns the legacy Portal and remains historical evidence. Its teaching-only Storage and read-only VNet rows are **not** a claim about the separate server Laboratory.
+
+Actual code inspected2 November2026 on base4934408075fccdab944e629a108a0f23424ee3f8. This is an inventory of **local AzureLab support**, not Azure product completeness. `src/domain/sandbox/model.ts`, frozen `src/domain/chapter01/model.ts`, `src/domain/portal/model.ts`, original `portal.tsx` and PR48 inspection projections are authoritative. Icon presence, teaching and conceptual examples do not establish operative support.
+
+| Area                                          | Actual classification                          | Supported local behavior                                                                                                               | Important absence / next scope                                                                 |
+| --------------------------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| Create a resource                             | Fully supported for the bounded local forms    | Resource group, App Service Plan, Web App, atomic VM bundle; explicit Review+create, original validation and accepted/rejected receipt | No Marketplace, arbitrary ARM provider, subscription provisioning or general deployment engine |
+| Resource Groups                               | Bounded local operation + inspection           | Create under existing scope, metadata region, resource membership and receipt. Engine retains DeleteEmptyGroup                         | Generic RG delete UI is not exposed; no automatic cascade                                      |
+| Subscriptions                                 | Read-only inspection                           | Existing App/Shared training scopes, group ancestry and membership                                                                     | No billing, tenant switching, real subscriptions or tokens                                     |
+| Virtual Machines                              | Partially operative resource                   | Atomic CreateVmBundle/DeleteVmBundle; two teaching images/profiles, disk/NIC/subnet/VNet references, Overview/Properties               | No guest boot, passwords, extensions, power, OS patch, actual SKU price or CPU/health/traffic  |
+| Disks / NIC / VNet / subnet                   | Read-only resources created with VM            | Follow actual typed attachments and parent/membership relationships; eligible subnet reuse during VM creation                          | No independent VNet/NSG/route/disk commands or traffic simulation                              |
+| App Service Plans                             | Bounded local operation                        | Create original Linux learning profile, group/region/policy validation, hosting relation and receipt                                   | No actual autoscale, SKU billing, metrics or capacity guarantee                                |
+| Web Apps                                      | Bounded local operation                        | Create on actual Plan; allowlisted configuration draft then explicit SetAppSettings Apply                                              | No deployed app, HTTP requests, runtime logs, arbitrary secrets or code execution              |
+| Storage Accounts / Blob / Azure Files         | Teaching and concept models only               | Existing Storage Studios and read-only organizational context                                                                          | No authoritative Storage Account/Blob/file inventory or upload/download command                |
+| Activity log                                  | Local technical-ledger inspection              | Actual command IDs, scope, outcome, validation/policy evidence and resource-scoped filtering                                           | Not Azure Monitor ingestion, runtime telemetry or a real Azure Activity Log feed               |
+| Azure Policy                                  | Fixed operative local rule + separate teaching | Original web-location rejection/correction and genuine receipt; current scopes inspected                                               | No general assignment/evaluation/compliance engine; do not apply web rule universally to VM    |
+| Azure RBAC / Entra / Conditional Access       | Pedagogical concept models                     | Existing separate declarative access exercises and assessments                                                                         | No operative identity/auth/IAM engine, token or live directory                                 |
+| Monitor / Advisor / Service Health / Defender | Pedagogical models and references              | Explicitly synthetic scenario signals and original teaching                                                                            | No telemetry, real incidents, recommendation feed, scanning or protection plan activation      |
+| Cost Management                               | Pedagogical model + references                 | Declared synthetic estimates/analysis exercises                                                                                        | No actual meter, billing, invoice or universal real-price guarantee                            |
+| Azure Migrate / Data Box / File Sync / AzCopy | Pedagogical model + references                 | Original bounded planning, file-manifest and sync examples                                                                             | No migration, appliance, device order, file transport, agent or filesystem engine              |
+| Azure Functions / containers / AVD            | Pedagogical models + references                | Existing execution/hosting concepts                                                                                                    | No Functions resource, runtime, container deployment or desktop session                        |
+| SaaS lab                                      | Separate fictional supported product           | Existing versioned fictional administration exercise                                                                                   | Not ARM inventory, Microsoft365 parity, real login or live service                             |
+| Cloud Shell / CLI / PowerShell / Bicep / Arc  | Teaching and static examples                   | Existing Management Tools conceptual comparison                                                                                        | No terminal, shell/runtime, compiler, ARM deployment or Arc agent                              |
+
+“Fully supported” above always means the named bounded simulator operation. No row means full Microsoft Azure service support. All local operations use the same original store; no PR50 command/resource class was added.
+
+## Reference comparison, actual sources
+
+Actual public article bodies were retrieved2 November2026 with title, URL and bodySHA in `docs/reviews/evidence/visual50-sources.json`. Public Microsoft images for shell, resource list and VM form were inspected outside the repository. No protected Portal screenshot/code is copied into the shipped product. Examples are dated captures: portal-callouts includes a VM created2024 and newer documentation may show a different image/default. They are structural references, not universal current Portal options.
+
+| Pattern                                             | Public reference                                                    | AzureLab observation / disposition                                                                                                                                        |
+| --------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Global header / search / breadcrumb / resource menu | P50-01 Portal overview and actual portal-callouts image             | Existing40px blue operational header, local search, dense menu and linked Essentials match structure. No Copilot, real identity, shell, power or fake notifications added |
+| All services / favorites                            | P50-01 menu/favorites public examples                               | Existing supported local service lists, discovery and menu conventions only. No claim that every Azure service is available                                               |
+| Notifications / appearance                          | P50-02 settings/preferences and header image                        | Existing native right-side panels remain distinct from centered course modals. Settings are bounded local presentation, not account preferences                           |
+| RG list / Create                                    | P50-03 actual resource-group list image                             | Original compact filters/table/command bar and explicit creation; no fake Export/Open query control                                                                       |
+| VM create / Review+create                           | P50-04 actual project-details image and current public instructions | Original tabs and supported input/review/commit preserved. No password/public-IP/live-size matching inferred                                                              |
+| Web App / Plan                                      | P50-05 current public quickstart                                    | Actual local hosting dependency represented; deployment/runtime/connection/security steps remain outside support                                                          |
+| Activity log                                        | P50-06 product documentation                                        | Retain local command ledger labeling and precise receipt evidence. No fake live log feed                                                                                  |
+
+P50-07 Fluent2 motion and P50-08 W3C animation-from-interactions were also read for short, purposeful motion and reduced-motion guidance. Font OFL provenance is separately pinned. These design sources add no new Azure assessment claims. Existing icon registry/rights remain unchanged; official service icons appear inside educational architecture examples, never as AzureLab branding. The original AzureLab A mark is separately drawn.
+
+## Prioritized next work, not implemented here
+
+1. **PR-01 Stage A remains existing support:** real resource/receipt/course return, demonstrated in PR50 with a new presentation frame only.
+2. **Stage B proposal:** choose one valuable resource capability (for example Storage Account/Blob) only after explicit owner scope, domain/version/replay/validation/dependency/receipt design, accessibility and independent-learning boundary review. Do not activate icon-only services.
+3. **Stage C proposal:** progressively refine native list/resource/search/menu fidelity and later AZ104/AZ305 work habits. Real billing, network traffic, Entra, monitoring and cloud API integration remain separate architectures and authorizations.
+
+Broader fidelity is not closed by a polished shell or screenshot. Human Azure workflow/novice usability testing and measured learning transfer remain unperformed.
+
+## PR67 — Laboratory3.5 only
+
+| Capability                                                             | Classification and boundary                                                                                                                            |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Standard VNet Azure Firewall + Standard Public IP configuration        | Operational local simulation; one atomic command and original two-resource receipt. Public address is not allocated.                                   |
+| Firewall Policy / RCG / network collection / network rule              | Operational local resources; group then collection priority100–65000, collection action, literal IPv4/prefix/_, TCP/UDP and single destination port/_. |
+| VirtualAppliance UDR                                                   | Operational only to an actual compatible Firewall private IP; original route/delete receipts and explicit subnet association.                          |
+| Receiving peering allowForwardedTraffic                                | Explicit directional Apply in3.5; old peering histories unchanged.                                                                                     |
+| Firewall-aware inspection                                              | Read-only projection from verified World; route/NSG reuse, default deny, exact forward/return identities, no connectivity claim.                       |
+| Public IP traffic / NAT / application filtering / Premium / flow state | Not implemented; no decorative operational controls.                                                                                                   |
+| AZ-900 v2 and Laboratory3.0–3.4                                        | Prior capabilities unchanged; no Firewall activation or automatic migration.                                                                           |
+
+See [contract and source distinctions](LABORATORY_FIREWALL_PART_A.md). Public Laboratory without database returns expected503; this is not a public Firewall demo.
+
+## PR68 — Architecture Studio (read-only)
+
+Free Laboratory navigation now exposes actual topology, scope/type filters, selection/Properties/original receipt links, accessible resource/relationship lists and the existing route/NSG/Firewall analysis in context. All resource identities come from the verified owned Snapshot; older models show only existing families. Zoom/filter/select/analyse create no technical events or receipts. No graph provisioning, live traffic, security score, scenario import or extra Azure operation. [Contract and sources](ARCHITECTURE_STUDIO_PART_A.md); [exact remediation capability matrix](LABORATORY_REMEDIATION_CAPABILITIES.md). Public503 without configured database remains intentional.
+
+## PR69 — Rule remediation in free Laboratory3.6
+
+Custom NSG rules: full supported-field Update/Delete. Nested Firewall network rules: source/destination/protocol/destination-port Update/Delete. Existing frozen models have no such operations. Standard NSG rules remain read-only; Firewall collection action/priority and ancestry remain fixed. Shared Portal Review → Save/Delete, immutable receipts, before/after replay and Studio return are implemented through the original server command path. No AZ-900/v2 capability is implied. See [contract](LABORATORY_SECURITY_REMEDIATION_PART_A.md).
+
+## PR70 — free Laboratory3.7 topology remediation
+
+| Capability                     | Actual scope                                                                                                                                   |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| UpdateRoute                    | One atomic replacement of supported destination/next-hop fields; same ID/name/table/Create-origin. All current table subnet users validated.   |
+| DisassociateSubnetNsg          | Removes only the exact actual attachment, preserves NSG/rules/evidence. No security-improvement claim.                                         |
+| SetPeeringVirtualNetworkAccess | One directional access flag; remote flag, forwarding and derived status remain separate.                                                       |
+| Topology diagnostics           | Original LPM/NSG/Firewall engine plus conservative selected/return/service-tag access preconditions. No actual packets or connectivity result. |
+| Peering Delete                 | Not implemented: official shared-Portal versus single-link side effects remain insufficiently resolved.                                        |
+
+The existing shared Portal Review/Save/confirmation and Studio resource links are reused. Earlier models/coursev2 do not inherit the new operations and are not upgraded. [Contract and source distinction](LABORATORY_TOPOLOGY_REMEDIATION_PART_B.md).
+
+## PR71 — temporary free workspace transport
+
+Explicit temporary3.7 uses every already supported3.7 resource/command and the original route/NSG/Firewall diagnostics in the shared Portal/Studio. It adds no Azure capability. State, receipts and through-history live only in this document; refresh clears them. No course credit or durable attestation. The original PostgreSQL path and all historical versions remain separate and unchanged. [Contract](LABORATORY_EPHEMERAL_LANDING.md). Course-v2 Web hosting is not newly implemented in3.7; shared course motor integration remains a [versioned proposal](LABORATORY_COURSE_INTEGRATION_PLAN.md).

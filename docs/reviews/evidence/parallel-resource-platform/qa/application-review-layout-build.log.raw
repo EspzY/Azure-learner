@@ -1,0 +1,49 @@
+
+> azurelab@0.1.0 build
+> node scripts/next.mjs build
+
+▲ Next.js 16.4.2 (Turbopack)
+- Environments: .env.local
+✓ Running next.config.ts took 253ms
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 6.6s
+  Running TypeScript ...
+  Finished TypeScript in 14.0s ...
+  Collecting page data using 4 workers ...
+  Generating static pages using 4 workers (0/16) ...
+  Generating static pages using 4 workers (4/16) 
+  Generating static pages using 4 workers (8/16) 
+  Generating static pages using 4 workers (12/16) 
+✓ Generating static pages using 4 workers (16/16) in 1447ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /api/laboratory/analysis
+├ ƒ /api/laboratory/command
+├ ƒ /api/laboratory/ephemeral
+├ ƒ /api/laboratory/policy-analysis
+├ ƒ /api/laboratory/review
+├ ƒ /api/laboratory/session
+├ ƒ /api/laboratory/state
+├ ○ /design/foundations-31a
+├ ○ /expedition-3d
+├ ○ /explore
+├ ○ /icon.svg
+├ ○ /labs/laboratory
+├ ○ /labs/saas
+├ ○ /learn
+├ ƒ /learn/[module]
+├ ○ /learn/design-review
+├ ○ /legacy-expedition
+├ ○ /legacy/rpg
+├ ○ /missions
+├ ○ /portal
+└ ○ /progress
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

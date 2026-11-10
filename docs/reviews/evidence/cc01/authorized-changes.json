@@ -1,0 +1,39 @@
+{
+  "base": "0e96c991d5e735e6b217bed15f20a3d5ef765c98",
+  "authorization": "PR54 CC01 owner-authorized route parser, attempt-bound origin and durable-only Portal store. This amends only named files in older implementation freeze tests; old proof artifacts, all old event schemas/rubrics/evaluators, source data and manuscripts remain unchanged.",
+  "files": {
+    "src/domain/portal/model.ts": {
+      "before": "7f75f3d118a81190bd49f14fda60829773e59e8cca32b117698523dbf27af2cf",
+      "after": "983544cf40f0c14ed0edb608d71b9208e57fc5ebf6975508366c7e2575d0af04"
+    },
+    "src/domain/portal/store.ts": {
+      "before": "973aa2a2923c95a2fcb4b0262bfb1cd0106a3e5fcf370f4929882bfce3c53704",
+      "after": "69d4a42305d1149df02d6ccbb56e20521d5e91cae4e99817f7ec5dd20e1e1a0e"
+    },
+    "src/domain/portal/portal.test.ts": {
+      "before": "df83e5df46cc4d52acdc22c4c1ee0cf1b2e8411775a9b5443e14d5f63c87f0b8",
+      "after": "2b1b3a35fcb8e06fd565ee0d8711d2b53ffaba7a3bd6416f14e1cc39865f3a14"
+    },
+    "src/domain/portal/challenge-origin.ts": {
+      "before": null,
+      "after": "48f22ccf2396353dc58216c32069e0759542e7c8849dbf0a0fe8b72d5dbcd6ce"
+    },
+    "src/domain/portal/challenge-origin.test.ts": {
+      "before": null,
+      "after": "3252daaec1d5e926ab6bffa952532331b9e95439d0c3a8ce7918032e4eab7595"
+    },
+    "src/features/learning/management-access.tsx": {
+      "before": "181c9a10f5983997f73dd6c44ed53e2a1cc5040d262ddf55753bc91a7f982f2a",
+      "after": "4b7a31d9209bc14ca4d3fe50bfc05325a3aa173a433569e9287746fd0f82affc"
+    },
+    "src/features/course/mission-context.ts": {
+      "before": "5cdc87b16c7f094ae47cb755e4c39f5cef7030f36c54d650ab2aa77755ac2948",
+      "after": "b2524a6980aea0f90152d7aff4845d135b9641ffa6c27081d18a2c208b1fc31b"
+    }
+  },
+  "localePrefix": {
+    "bytes": 1488942,
+    "sha256": "00a8ad2ccbc85e24b79921b4f9ebc4707fbf88eb0204333a5ef2f3e2f3ff14f2",
+    "policy": "The complete PR53 locale, including all original lessons/answers/rubrics, is unchanged. Only a new challengeReturnNb interface-copy export is appended."
+  }
+}

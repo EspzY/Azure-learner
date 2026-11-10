@@ -1,0 +1,195 @@
+
+> azurelab@0.1.0 test:e2e:desktop
+> npm run test:e2e:plan && playwright test --config playwright.desktop.config.ts
+
+
+> azurelab@0.1.0 test:e2e:plan
+> node scripts/e2e-plan-check.mjs
+
+{
+  "legacyCases": 838,
+  "desktopCasesUnchanged": 419,
+  "compactCases": 49,
+  "candidateCases": 468,
+  "workers": 1,
+  "status": "desktop/compact plan validated; legacy regression remains available"
+}
+[WebServer] (node:50528) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 468 tests using 1 worker
+
+(node:50557) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓    1 [desktop-chromium] › tests/e2e/access-control.spec.ts:125:1 › Part B follows unchanged Identity Part A in the existing path with deep links, history and exact resume (9.0s)
+  ✓    2 [desktop-chromium] › tests/e2e/access-control.spec.ts:164:1 › RBAC guide saves permission and inheritance contrasts while actual Sandbox and prior firsts remain read-only (16.1s)
+  ✓    3 [desktop-chromium] › tests/e2e/access-control.spec.ts:258:1 › Conditional Access guide distinguishes combined policies, report-only, targeting and four CA/RBAC states (9.1s)
+  ✓    4 [desktop-chromium] › tests/e2e/access-control.spec.ts:279:1 › paired first, durable Journal help, retry, previous feedback shielding and reload retain their classifications (3.7s)
+  ✓    5 [desktop-chromium] › tests/e2e/access-control.spec.ts:305:1 › denied assistance, already-open cross-tab Journal, Portal shielding and scoped recovery remain fail-closed (3.5s)
+  ✓    6 [desktop-chromium] › tests/e2e/access-control.spec.ts:358:1 › Access Control keyboard, semantic flow, short native briefing, reduced motion and compact views remain readable (16.4s)
+  ✓    7 [desktop-chromium] › tests/e2e/access-control.spec.ts:404:1 › shared teaching preflight hides Benefits before durable aid even when the URL commits first (2.8s)
+  ✓    8 [desktop-chromium] › tests/e2e/application-transfer.spec.ts:69:1 › all-first actual browser submissions cannot solve the transfer bank and retry never rewrites first evidence (10.5s)
+  ✓    9 [desktop-chromium] › tests/e2e/application-transfer.spec.ts:91:1 › changed evidence and contracts accept coherent counterfactual pairs and both qualified adapters (14.6s)
+  ✓   10 [desktop-chromium] › tests/e2e/application-transfer.spec.ts:114:1 › original nw12 and pricing histories retain original rubrics while related cross-module exposure is explicit (5.5s)
+  ✓   11 [desktop-chromium] › tests/e2e/application-transfer.spec.ts:157:1 › Start Escape exact draft Hub resume and denied durable help preserve independent shielding (6.8s)
+  ✓   12 [desktop-chromium] › tests/e2e/application-transfer.spec.ts:209:1 › stale tabs rejected writes and scoped recovery cannot create two first results or erase a newer attempt (6.2s)
+  ✓   13 [desktop-chromium] › tests/e2e/application-transfer.spec.ts:241:1 › native keyboard short-window composition reduced motion and Axe keep transfer controls accessible (4.3s)
+  ✓   14 [desktop-chromium] › tests/e2e/application-transfer.spec.ts:279:1 › four natural entries invalid links original Portal inspection and guidance preserve technical and guided evidence (5.0s)
+  ✓   15 [desktop-chromium] › tests/e2e/application-transfer.spec.ts:355:1 › corrupt transfer recovery and competing historical contexts remain explicit without fabricated fresh progress (3.1s)
+  ✓   16 [desktop-chromium] › tests/e2e/assessment-refinement.spec.ts:53:3 › benefits updated all-first browser submission fails and assisted retry preserves immutable first (2.7s)
+  ✓   17 [desktop-chromium] › tests/e2e/assessment-refinement.spec.ts:53:3 › services updated all-first browser submission fails and assisted retry preserves immutable first (2.8s)
+  ✓   18 [desktop-chromium] › tests/e2e/assessment-refinement.spec.ts:80:1 › updated assessment Start Cancel Escape and exact draft Hub resume preserve technical records (2.6s)
+  ✓   19 [desktop-chromium] › tests/e2e/assessment-refinement.spec.ts:120:1 › historical Benefits and Services active attempts retain original rubric and explicit routes (5.4s)
+  ✓   20 [desktop-chromium] › tests/e2e/assessment-refinement.spec.ts:154:1 › updated Services accepts both matching architectures and rejects incompatible cross pairs (3.1s)
+  ✓   21 [desktop-chromium] › tests/e2e/assessment-refinement.spec.ts:184:1 › updated denied durable assistance withholds Journal feedback and stale tab cannot submit (2.8s)
+  ✓   22 [desktop-chromium] › tests/e2e/assessment-refinement.spec.ts:213:1 › new and old concurrent assessment contexts are explicit and corrupt recovery is scoped (2.9s)
+  ✓   23 [desktop-chromium] › tests/e2e/assessment-refinement.spec.ts:268:1 › updated assessment desktop compact short-height keyboard centered start reduced motion and Axe remain usable (5.4s)
+  ✓   24 [desktop-chromium] › tests/e2e/az900-audit.spec.ts:6:1 › ordinary course stays unchanged and preview audit navigation cannot write learning records (1.7s)
+  ✓   25 [desktop-chromium] › tests/e2e/challenge-return.spec.ts:97:1 › Computing real Web lab returns through changed challenge to neutral origin, Hub, same draft and original submitted receipt evidence (9.9s)
+  ✓   26 [desktop-chromium] › tests/e2e/challenge-return.spec.ts:256:1 › legacy unknown origin stays neutral despite mutable Computing or Services position; stored first rubric is never changed (2.1s)
+  ✓   27 [desktop-chromium] › tests/e2e/challenge-return.spec.ts:302:1 › documented Services origin survives reload and abandon; assisted retry preserves the same first submission (3.7s)
+  ✓   28 [desktop-chromium] › tests/e2e/challenge-return.spec.ts:335:1 › denied durable aid fails closed and denied origin Start never claims an active attempt (2.4s)
+  ✓   29 [desktop-chromium] › tests/e2e/challenge-return.spec.ts:381:1 › two tabs cannot repin the active challenge and corrupt navigation evidence recovers neutrally without changing draft or World (2.3s)
+  ✓   30 [desktop-chromium] › tests/e2e/challenge-return.spec.ts:412:1 › challenge return desktop compact keyboard short-height reduced motion Axe and original teaching destination stay accessible without evidence writes (6.0s)
+  ✓   31 [desktop-chromium] › tests/e2e/challenge-validity.spec.ts:58:1 › updated Computing Web assessment follows actual lab, explicit paired premises, technical receipts, neutral return and exact Hub resume (16.5s)
+  ✓   32 [desktop-chromium] › tests/e2e/challenge-validity.spec.ts:117:1 › updated Services origin and assessment selection survive resource navigation Back Forward reload and completed return (16.7s)
+  ✓   33 [desktop-chromium] › tests/e2e/challenge-validity.spec.ts:152:1 › wrong model with correct reason and right model with wrong reason fail and assisted retry never replaces first (4.5s)
+  ✓   34 [desktop-chromium] › tests/e2e/challenge-validity.spec.ts:175:1 › denied durable updated Start and assistance expose no success teaching Journal or prior legacy feedback (2.8s)
+  ✓   35 [desktop-chromium] › tests/e2e/challenge-validity.spec.ts:217:1 › historical active Portal v1 is continued by default and its draft origin and original rubric stay separate (2.2s)
+  ✓   36 [desktop-chromium] › tests/e2e/challenge-validity.spec.ts:248:1 › old submitted Portal v1 history and new version feedback require durable cross-version aid without regrading (2.0s)
+  ✓   37 [desktop-chromium] › tests/e2e/challenge-validity.spec.ts:268:1 › updated cross-tab stale writes corrupt recovery and multiple active versions are explicit without World or origin replacement (3.6s)
+  ✓   38 [desktop-chromium] › tests/e2e/challenge-validity.spec.ts:332:1 › updated Web assessment desktop compact short-height keyboard focus reduced motion and Axe keep complete premises readable (3.0s)
+  ✓   39 [desktop-chromium] › tests/e2e/cloud-consolidation.spec.ts:35:1 › consolidated Cloud Computing follows fourteen meaningful entries with preserved module boundary and no automatic assessment start (5.5s)
+  ✓   40 [desktop-chromium] › tests/e2e/cloud-consolidation.spec.ts:82:1 › every historical Foundations v2 URL resolves to the right consolidated session without rewriting its address (6.9s)
+  ✓   41 [desktop-chromium] › tests/e2e/cloud-consolidation.spec.ts:97:1 › historical part navigation retains the same live investigation and exact saved resume through Back Forward reload and v1 (3.6s)
+  ✓   42 [desktop-chromium] › tests/e2e/cloud-consolidation.spec.ts:136:1 › historical Serverless transfer assessment and summary direct URLs retain their original independent stores and explicit starts (4.5s)
+  ✓   43 [desktop-chromium] › tests/e2e/cloud-consolidation.spec.ts:151:1 › composed sections register only actually exposed visits and explicit model observations without completion World receipts or XP (2.4s)
+  ✓   44 [desktop-chromium] › tests/e2e/cloud-consolidation.spec.ts:200:1 › chapter source union original manuscripts checks and causal models are preserved while generic guide repetition is removed (5.1s)
+  ✓   45 [desktop-chromium] › tests/e2e/cloud-consolidation.spec.ts:255:1 › chapter navigation keeps PR51 explicit abandonment assisted practice denied writes cross-tab and Journal fail closed (3.1s)
+  ✓   46 [desktop-chromium] › tests/e2e/cloud-consolidation.spec.ts:304:1 › consolidated chapter desktop compact short-height keyboard reduced motion and Axe keep explanations and controls reachable (9.2s)
+  ✓   47 [desktop-chromium] › tests/e2e/cloud-owner-navigation.spec.ts:18:1 › owner flat Cloud Computing navigation short desktop keyboard reduced motion and Axe expose actual teaching without nested menus or credit (5.8s)
+  ✓   48 [desktop-chromium] › tests/e2e/cloud-owner-navigation.spec.ts:76:1 › historical chapter fragment addresses focus their original sections and ignore unknown or foreign parts without rewriting resume or creating results (5.8s)
+  ✓   49 [desktop-chromium] › tests/e2e/cloud-owner-navigation.spec.ts:114:1 › closing Cloud Computing choices distinguish voluntary assessment observations and recommended transfer without starting attempts (4.5s)
+  ✓   50 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:72:1 › root → computing transfer → draft reload → correct first → exact repetition → family retry (7.1s)
+  ✓   51 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:105:1 › Benefits wrong first has selected-specific feedback, then durable theory help and retry without XP (12.1s)
+  ✓   52 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:144:1 › Service Types accepts both valid hosts with matching reasons and preserves wrong pair feedback (14.6s)
+  ✓   53 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:175:1 › historical transfer feedback is withheld on denied old-context assistance and after an open cross-tab conflict (4.0s)
+  ✓   54 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:228:1 › own history, Journal and old theory require durable aid; rejected writes never expose solutions (5.8s)
+  ✓   55 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:256:1 › remaining unfamiliar contexts render and evaluate their actual structured relationships (17.1s)
+  ✓   56 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:291:1 › another module cannot silently move an active draft or render a different problem (8.2s)
+  ✓   57 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:308:1 › existing all-data deletion still requires confirmation and includes only the intended transfer lifecycle (7.8s)
+  ✓   58 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:326:1 › a historical Service Types preference does not hide the new explicit transfer route or rewrite that choice (5.1s)
+  ✓   59 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:345:1 › briefing cancel and recall preserve records; keyboard submission and post-result contrast remain accessible (4.7s)
+  ✓   60 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:394:1 › cross-tab stale drafts hold; scoped corrupt recovery cannot remove another valid record (8.3s)
+  ✓   61 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:423:3 › root Resume preserves active benefits priority before inactive exact transfer fallback (2.0s)
+  ✓   62 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:423:3 › root Resume preserves active practical priority before inactive exact transfer fallback (2.1s)
+  ✓   63 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:423:3 › root Resume preserves active none priority before inactive exact transfer fallback (1.6s)
+  ✓   64 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:487:1 › blocked course Summary retains a semantic page heading without exposing answers or changing denied storage (2.0s)
+  ✓   65 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:510:1 › standalone SaaS withholds authored guidance on denied aid and already-open cross-tab conflicts (3.4s)
+  ✓   66 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:564:1 › corrupt SaaS transfer context recovers only its key and active assistance never re-enables automatic hints (1.2s)
+  ✓   67 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:595:1 › old aided Portal practical feedback cannot bypass transfer preflight while own terminal controls remain available (5.8s)
+  ✓   68 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:626:1 › full valid history explains its bound, preserves firsts and keeps submitted feedback accessible (4.9s)
+  ✓   69 [desktop-chromium] › tests/e2e/cloud-transfer.spec.ts:657:1 › desktop compositions, short-window briefing, keyboard, reduced motion and Axe retain visible instructions (11.4s)
+  ✓   70 [desktop-chromium] › tests/e2e/collapsible-sources.spec.ts:52:1 › Large Summary source banks and global Journal default closed with exact counts and preserved references (10.7s)
+  ✓   71 [desktop-chromium] › tests/e2e/collapsible-sources.spec.ts:74:1 › Storage A B C Cost and Compute keep complete Summary banks separate from topic sources (10.3s)
+  ✓   72 [desktop-chromium] › tests/e2e/collapsible-sources.spec.ts:93:1 › Earlier Foundations Benefits Services Core Serverless and teaching Journal use the same source disclosure without hiding model limits (12.0s)
+  ✓   73 [desktop-chromium] › tests/e2e/collapsible-sources.spec.ts:125:1 › Source disclosures never replace denied durable teaching boundaries or cross-tab protection for either new assessment version (6.6s)
+  ✓   74 [desktop-chromium] › tests/e2e/collapsible-sources.spec.ts:194:1 › Source desktop compact native keyboard short-height zoom reduced motion and Axe retain readable links and no evidence writes (12.7s)
+  ✓   75 [desktop-chromium] › tests/e2e/compute-hosting.spec.ts:114:1 › root integrates original theory, visible briefing and durable container mechanism without old evidence (4.5s)
+  ✓   76 [desktop-chromium] › tests/e2e/compute-hosting.spec.ts:152:1 › capacity mission distinguishes zone failure, explicit scale rule, routing and data (3.8s)
+  ✓   77 [desktop-chromium] › tests/e2e/compute-hosting.spec.ts:190:1 › container host responsibility, cached instance and retained data are independent of a failed new process (4.8s)
+  ✓   78 [desktop-chromium] › tests/e2e/compute-hosting.spec.ts:235:1 › hosting and AVD investigations preserve explicit publication versus host observations (3.8s)
+  ✓   79 [desktop-chromium] › tests/e2e/compute-hosting.spec.ts:269:1 › all independent cases require compatible pairs and preserve firsts before precise repetition (12.5s)
+  ✓   80 [desktop-chromium] › tests/e2e/compute-hosting.spec.ts:291:1 › wrong compatible-service/mismatched-reason first persists through reload, explicit aid and correct retry (8.4s)
+  ✓   81 [desktop-chromium] › tests/e2e/compute-hosting.spec.ts:325:1 › historical feedback fails closed when another independent store cannot durably record aid (951ms)
+  ✓   82 [desktop-chromium] › tests/e2e/compute-hosting.spec.ts:352:1 › new Compute assessment shields Portal/SavvyShark and already-open teaching on actual peer conflict (3.3s)
+  ✓   83 [desktop-chromium] › tests/e2e/compute-hosting.spec.ts:372:1 › unseeded VM mission guides the actual group, VM, plan and Web App forms without false completion (4.9s)
+  ✓   84 [desktop-chromium] › tests/e2e/compute-hosting.spec.ts:490:1 › actual VM mission uses real Portal create/accepted receipt and all live dependencies without automatic commands (6.3s)
+  ✓   85 [desktop-chromium] › tests/e2e/compute-hosting.spec.ts:649:1 › keyboard, Axe, reduced motion and constrained desktop views expose all required instructions (5.1s)
+  ✓   86 [desktop-chromium] › tests/e2e/compute-hosting.spec.ts:680:1 › all other independent contexts durably shield Compute teaching and Journal on denied assistance (13.8s)
+  ✓   87 [desktop-chromium] › tests/e2e/compute-hosting.spec.ts:751:1 › explicit pause and recall restore a prior guided configuration without new evidence (4.3s)
+  ✓   88 [desktop-chromium] › tests/e2e/cost-management.spec.ts:74:1 › actual Portal configuration is read-only context, never fabricated economic history (3.9s)
+  ✓   89 [desktop-chromium] › tests/e2e/cost-management.spec.ts:133:1 › ordinary root integrates full theory, explicit briefing and causal estimates without old evidence/XP (4.8s)
+  ✓   90 [desktop-chromium] › tests/e2e/cost-management.spec.ts:179:1 › dated cost analysis filters actual synthetic scope, explains increase and retains observed result (2.6s)
+  ✓   91 [desktop-chromium] › tests/e2e/cost-management.spec.ts:197:1 › budget contrast never stops resources; observed milestone is once-only and recallable (4.1s)
+  ✓   92 [desktop-chromium] › tests/e2e/cost-management.spec.ts:221:1 › tag workbench separates resource metadata, report inheritance and cost conservation (3.2s)
+  ✓   93 [desktop-chromium] › tests/e2e/cost-management.spec.ts:258:1 › wrong first, help, retry, exact repetition and reload do not rewrite the first answer (3.1s)
+  ✓   94 [desktop-chromium] › tests/e2e/cost-management.spec.ts:297:1 › all four objectives and optimization have actual unseen cases with matched structured reasons (7.2s)
+  ✓   95 [desktop-chromium] › tests/e2e/cost-management.spec.ts:320:1 › durable help denial prevents cost teaching from leaking into PR25 transfer (727ms)
+  ✓   96 [desktop-chromium] › tests/e2e/cost-management.spec.ts:342:1 › cost active context shields historical PR25 feedback when aid cannot be written (730ms)
+  ✓   97 [desktop-chromium] › tests/e2e/cost-management.spec.ts:368:1 › already-open historical cost feedback closes on real cross-tab conflict and protects newer records (2.6s)
+  ✓   98 [desktop-chromium] › tests/e2e/cost-management.spec.ts:395:1 › invalid cost recovery is isolated and newer valid replacement is never removed (1.9s)
+  ✓   99 [desktop-chromium] › tests/e2e/cost-management.spec.ts:444:1 › witnessed guided work at the capacity boundary can finish and reload without new work or evidence upgrades (1.8s)
+  ✓  100 [desktop-chromium] › tests/e2e/cost-management.spec.ts:487:1 › actual UI-history repair clears stale warnings without replaying an old interruption or altering learning (3.4s)
+  ✓  101 [desktop-chromium] › tests/e2e/cost-management.spec.ts:547:1 › switching a guided mission is explicit, offers exact continuation and explains retained earlier work (2.7s)
+  ✓  102 [desktop-chromium] › tests/e2e/cost-management.spec.ts:597:1 › capacity explanation disables new begin while reserved help and terminal submit still work (1.5s)
+  ✓  103 [desktop-chromium] › tests/e2e/cost-management.spec.ts:626:3 › desktop/compact assessment 1920x1080, long feedback, keyboard and reduced motion remain readable with no external runtime requests (3.5s)
+  ✓  104 [desktop-chromium] › tests/e2e/cost-management.spec.ts:626:3 › desktop/compact assessment 1440x900, long feedback, keyboard and reduced motion remain readable with no external runtime requests (3.1s)
+  ✓  105 [desktop-chromium] › tests/e2e/cost-management.spec.ts:626:3 › desktop/compact assessment 1366x768, long feedback, keyboard and reduced motion remain readable with no external runtime requests (3.3s)
+  ✓  106 [desktop-chromium] › tests/e2e/cost-management.spec.ts:626:3 › desktop/compact assessment 1024x768, long feedback, keyboard and reduced motion remain readable with no external runtime requests (3.0s)
+  ✓  107 [desktop-chromium] › tests/e2e/cost-management.spec.ts:626:3 › desktop/compact assessment 1024x500, long feedback, keyboard and reduced motion remain readable with no external runtime requests (3.1s)
+  ✓  108 [desktop-chromium] › tests/e2e/cost-management.spec.ts:626:3 › desktop/compact assessment 390x844, long feedback, keyboard and reduced motion remain readable with no external runtime requests (3.1s)
+  ✓  109 [desktop-chromium] › tests/e2e/cost-management.spec.ts:656:3 › estimate workbench preserves readable semantic controls in short and existing compact layouts (5.9s)
+  ✓  110 [desktop-chromium] › tests/e2e/cost-management.spec.ts:656:3 › analysis workbench preserves readable semantic controls in short and existing compact layouts (15.5s)
+  ✓  111 [desktop-chromium] › tests/e2e/cost-management.spec.ts:656:3 › budgets workbench preserves readable semantic controls in short and existing compact layouts (6.1s)
+  ✓  112 [desktop-chromium] › tests/e2e/cost-management.spec.ts:656:3 › tags workbench preserves readable semantic controls in short and existing compact layouts (9.0s)
+  ✓  113 [desktop-chromium] › tests/e2e/course-hub.spec.ts:57:1 › first visit exposes one start, three honest paths and direct modules before teaching (8.2s)
+  ✓  114 [desktop-chromium] › tests/e2e/course-hub.spec.ts:105:1 › saved deep link resumes the exact Core B activity and preserves separate historical records (3.7s)
+  ✓  115 [desktop-chromium] › tests/e2e/course-hub.spec.ts:217:1 › all independent contexts resume their own exact route without metadata help or evidence rewriting (46.3s)
+  ✓  116 [desktop-chromium] › tests/e2e/course-hub.spec.ts:353:1 › corrupt, denied and cross-tab history suppresss invented progress and retains deliberate recovery (4.9s)
+  ✓  117 [desktop-chromium] › tests/e2e/course-hub.spec.ts:445:1 › root Journal durably classifies independent help and withholds teaching when storage denies it (2.8s)
+  ✓  118 [desktop-chromium] › tests/e2e/course-hub.spec.ts:493:1 › desktop compositions, collapsed hierarchy, short windows, keyboard, reduced motion and Sandbox return remain usable (16.1s)
+  ✓  119 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:54:3 › Dialog security: centered native start at desktop and short heights preserves cancel Escape and no attempt (6.6s)
+  ✓  120 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:54:3 › Dialog storage: centered native start at desktop and short heights preserves cancel Escape and no attempt (8.9s)
+  ✓  121 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:54:3 › Dialog identity: centered native start at desktop and short heights preserves cancel Escape and no attempt (6.1s)
+  ✓  122 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:54:3 › Dialog monitoring: centered native start at desktop and short heights preserves cancel Escape and no attempt (6.5s)
+  ✓  123 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:102:1 › Global Journal centered keyboard scrolling title and focus return keep history unchanged (9.6s)
+  ✓  124 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:134:1 › Portal ordinary modal side panels native briefings and guidance menu retain distinct desktop compact placement (6.2s)
+  ✓  125 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:223:1 › Real Chromium browser zoom and doubled text preserve centered scrollable accessible modal actions (4.4s)
+  ✓  126 [desktop-chromium] › tests/e2e/dialog-placement.spec.ts:270:1 › Centered start and Journal retain explicit first submission durable aid denial and immutable first evidence (3.2s)
+  ✓  127 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:23:1 › landing launches actual 3.7 Laboratory without a database, then returns to root (4.9s)
+  ✓  128 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:66:1 › memory Networking Compute NSG route and Studio use original resources and invalidate analysis after a real rule correction (26.6s)
+  ✓  129 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:166:1 › memory Firewall policy nested rule Review Update Delete and historical replay keep original identities and receipts (7.4s)
+  ✓  130 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:245:1 › memory lost response retry separate tabs and reset preserve course bytes without database writes or shared session (5.7s)
+  ✓  131 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:313:1 › course navigation keeps guided origins separate while making free Lab discoverable (4.3s)
+  ✓  132 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:351:1 › compact landing is readable with keyboard access and reduced motion (6.9s)
+  ✓  133 [desktop-chromium] › tests/e2e/file-movement-migration.spec.ts:120:1 › Storage Part C retains its three-part catalogue and follows Security with exact source links and active resume (6.1s)
+  ✓  134 [desktop-chromium] › tests/e2e/file-movement-migration.spec.ts:168:1 › Method guide compares valid alternatives automation protocol and fidelity while actual Portal context stays read-only (20.5s)
+  ✓  135 [desktop-chromium] › tests/e2e/file-movement-migration.spec.ts:202:1 › Manifest guide preserves direction explicit deletion unresolved conflict and offline tiered-content boundaries (9.3s)
+  ✘  136 [desktop-chromium] › tests/e2e/file-movement-migration.spec.ts:226:1 › Planning guide separates dependencies stale assessment complete transport budgets and declared cutover validation (6.1s)
+
+
+  1) [desktop-chromium] › tests/e2e/file-movement-migration.spec.ts:226:1 › Planning guide separates dependencies stale assessment complete transport budgets and declared cutover validation 
+
+    Test was interrupted.
+
+    Error: locator.check: Test ended.
+    Call log:
+      - waiting for locator('.migration-workbench').getByRole('radio', { name: 'Aktuell discovery/assessment, en gjennomførbar transportplan, konsistens og separate måltester støtter ulike deler av overgangen.', exact: true })
+        - locator resolved to <input type="radio" name="migration-cause-planning"/>
+
+
+      58 |   await bench(p)
+      59 |     .getByRole('radio', { name: c.causal[mission][migrationGuidedAnswer[mission]], exact: true })
+    > 60 |     .check();
+         |      ^
+      61 |   await bench(p).getByRole('button', { name: c.labels.explain, exact: true }).click();
+      62 |   await expect(bench(p).getByText(c.labels.done, { exact: true })).toBeVisible();
+      63 | }
+        at explain (/workspace/Azure-learner/tests/e2e/file-movement-migration.spec.ts:60:6)
+        at /workspace/Azure-learner/tests/e2e/file-movement-migration.spec.ts:232:9
+
+    Error Context: test-results/file-movement-migration-Pl-c32e6-declared-cutover-validation-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/file-movement-migration-Pl-c32e6-declared-cutover-validation-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/file-movement-migration-Pl-c32e6-declared-cutover-validation-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 interrupted
+    [desktop-chromium] › tests/e2e/file-movement-migration.spec.ts:226:1 › Planning guide separates dependencies stale assessment complete transport budgets and declared cutover validation 
+  332 did not run
+  135 passed (14.7m)

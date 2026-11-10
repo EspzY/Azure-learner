@@ -1,0 +1,18 @@
+[WebServer] (node:17705) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:17730) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/e2e/ephemeral-landing.spec.ts:351:1 › compact landing is readable with keyboard access and reduced motion (8.2s)
+  ✓  2 [desktop-chromium] › tests/e2e/learning-flow-guidance.spec.ts:376:1 › Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable (13.5s)
+  ✓  3 [desktop-chromium] › tests/e2e/portal-inspection-bridge.spec.ts:245:1 › Independent raw Portal inspection stays neutral while denied durable assistance withholds course bridge instructions and exact resume (3.0s)
+  ✓  4 [desktop-chromium] › tests/e2e/shared-portal.spec.ts:237:1 › shared Portal compact native search drawer properties dialogs reduced motion Axe and unavailable server preserve scope and visible controls (8.8s)
+(node:18063) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [compact-chromium] › tests/e2e/ephemeral-landing.spec.ts:351:1 › compact landing is readable with keyboard access and reduced motion (5.9s)
+  ✓  6 [compact-chromium] › tests/e2e/learning-flow-guidance.spec.ts:376:1 › Guidance desktop compact keyboard short windows reduced motion and Axe keep recovery and next actions reachable (12.5s)
+  ✓  7 [compact-chromium] › tests/e2e/shared-portal.spec.ts:237:1 › shared Portal compact native search drawer properties dialogs reduced motion Axe and unavailable server preserve scope and visible controls (8.2s)
+
+  7 passed (1.1m)

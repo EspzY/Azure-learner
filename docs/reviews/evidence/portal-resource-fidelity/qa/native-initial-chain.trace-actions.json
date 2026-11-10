@@ -1,0 +1,601 @@
+{
+  "derived": true,
+  "transformation": "Only action identity/timing/selector/key and failure messages retained. All network collections, request/response bodies, headers, cookies, tokens, resource blobs and frame-snapshots excluded. Original error-context DOM output is a separate original safe artifact.",
+  "actions": [
+    {
+      "type": "after",
+      "callId": "xbgz@1196",
+      "endTime": 21898.254
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1198",
+      "class": "Frame",
+      "method": "evaluateExpression",
+      "startTime": 21901.286,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1198",
+      "endTime": 21911.496
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1200",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 21916.455,
+      "selectorOrKey": {
+        "selector": ".portal-title h1"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1200",
+      "endTime": 21931.724
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1202",
+      "class": "Frame",
+      "method": "queryCount",
+      "startTime": 21934.397,
+      "selectorOrKey": {
+        "selector": "internal:role=table >> internal:role=link"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1202",
+      "endTime": 21939.727
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1204",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 21942.498,
+      "selectorOrKey": {
+        "selector": "internal:role=table >> internal:role=link"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1204",
+      "endTime": 21951.295
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1206",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 21954.63,
+      "selectorOrKey": {
+        "selector": "internal:role=table >> internal:role=link"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1206",
+      "endTime": 22015.25
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1209",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22036.446,
+      "selectorOrKey": {
+        "selector": "[data-portal-component=\"resource-menu\"] >> internal:role=button[name=\"Endpoints\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1209",
+      "endTime": 22058.911
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1211",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 22063.165,
+      "selectorOrKey": {
+        "selector": "[data-portal-component=\"resource-menu\"] >> internal:role=button[name=\"Endpoints\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1211",
+      "endTime": 22119.003
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1213",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22129.418,
+      "selectorOrKey": {
+        "selector": "internal:role=heading[level=2][name=\"Endpoints\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1213",
+      "endTime": 22133.482
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1215",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 22138.853,
+      "selectorOrKey": {
+        "selector": "internal:role=link[name=\"chain-endpoint\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1215",
+      "endTime": 22183.184
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1217",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 22185.809,
+      "selectorOrKey": {
+        "selector": "internal:role=region[name=\"Delivery configuration analysis\"s] >> internal:role=button[name=\"Analyse configuration\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1217",
+      "endTime": 22257.788
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1219",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22262.733,
+      "selectorOrKey": {
+        "selector": "internal:role=region[name=\"Delivery configuration analysis\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1219",
+      "endTime": 22276.181
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1221",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22280.437,
+      "selectorOrKey": {
+        "selector": "internal:role=region[name=\"Delivery configuration analysis\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1221",
+      "endTime": 22295.418
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1228",
+      "class": "Page",
+      "method": "screenshot",
+      "startTime": 22308.659,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1228",
+      "endTime": 22408.916
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1230",
+      "class": "Frame",
+      "method": "queryCount",
+      "startTime": 22416.878,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"All resources\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1230",
+      "endTime": 22428.065
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1232",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22432.901,
+      "selectorOrKey": {
+        "selector": "[data-portal-mode=\"laboratory\"]:visible"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1232",
+      "endTime": 22438.768
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1234",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22443.344,
+      "selectorOrKey": {
+        "selector": "internal:role=status >> internal:has-text=\"Henter bekreftet tilstand fra serveren \u2026\"i"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1234",
+      "endTime": 22457.624
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1236",
+      "class": "Frame",
+      "method": "isVisible",
+      "startTime": 22461.074,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1236",
+      "endTime": 22466.211
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1238",
+      "class": "Frame",
+      "method": "queryCount",
+      "startTime": 22469.795,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"Home\"s] >> xpath=ancestor::details[1]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1238",
+      "endTime": 22475.083
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1240",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22479.298,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"Home\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1240",
+      "endTime": 22485.412
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1242",
+      "class": "Frame",
+      "method": "queryCount",
+      "startTime": 22489.631,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"All resources\"s] >> xpath=ancestor::details[1]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1242",
+      "endTime": 22497.235
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1244",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 22500.435,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"All resources\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1244",
+      "endTime": 22530.264
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1246",
+      "class": "Frame",
+      "method": "evaluateExpression",
+      "startTime": 22533.314,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1246",
+      "endTime": 22581.108
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1248",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22613.804,
+      "selectorOrKey": {
+        "selector": ".portal-title h1"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1248",
+      "endTime": 22678.487
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1250",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22703.858,
+      "selectorOrKey": {
+        "selector": "internal:role=row >> internal:has=\"internal:role=link[name=\\\"chain-postgres\\\"s]\" >> img[data-icon=\"postgresServer\"]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1250",
+      "endTime": 22724.435
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1253",
+      "class": "Frame",
+      "method": "waitForSelector",
+      "startTime": 22730.876,
+      "selectorOrKey": {
+        "selector": "internal:role=row >> internal:has=\"internal:role=link[name=\\\"chain-postgres\\\"s]\" >> img[data-icon=\"postgresServer\"]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1253",
+      "endTime": 22744.624
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1258",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22752.084,
+      "selectorOrKey": {
+        "selector": "internal:role=row >> internal:has=\"internal:role=link[name=\\\"chain-frontdoor\\\"s]\" >> img[data-icon=\"frontDoor\"]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1258",
+      "endTime": 22762.076
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1261",
+      "class": "Frame",
+      "method": "waitForSelector",
+      "startTime": 22771.596,
+      "selectorOrKey": {
+        "selector": "internal:role=row >> internal:has=\"internal:role=link[name=\\\"chain-frontdoor\\\"s]\" >> img[data-icon=\"frontDoor\"]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1261",
+      "endTime": 22783.692
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1266",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22793.158,
+      "selectorOrKey": {
+        "selector": "internal:role=link[name=\"chain-postgres\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1266",
+      "endTime": 22804.378
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1268",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22818.246,
+      "selectorOrKey": {
+        "selector": "internal:role=link[name=\"chain-frontdoor\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1268",
+      "endTime": 22830.928
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1270",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22837.519,
+      "selectorOrKey": {
+        "selector": "internal:role=link[name=\"app-integrated-chain\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1270",
+      "endTime": 22843.883
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1272",
+      "class": "Frame",
+      "method": "queryCount",
+      "startTime": 22847.427,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"Architecture Studio\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1272",
+      "endTime": 22852.901
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1274",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22857.531,
+      "selectorOrKey": {
+        "selector": "[data-portal-mode=\"laboratory\"]:visible"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1274",
+      "endTime": 22866.187
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1276",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22871.603,
+      "selectorOrKey": {
+        "selector": "internal:role=status >> internal:has-text=\"Henter bekreftet tilstand fra serveren \u2026\"i"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1276",
+      "endTime": 22876.787
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1278",
+      "class": "Frame",
+      "method": "isVisible",
+      "startTime": 22879.775,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1278",
+      "endTime": 22883.473
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1280",
+      "class": "Frame",
+      "method": "queryCount",
+      "startTime": 22886.243,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"All services\"s] >> xpath=ancestor::details[1]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1280",
+      "endTime": 22893.254
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1282",
+      "class": "Frame",
+      "method": "expect",
+      "startTime": 22897.809,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"All services\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1282",
+      "endTime": 22904.57
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1284",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 22908.017,
+      "selectorOrKey": {
+        "selector": "internal:role=navigation[name=\"Laboratory v3 navigasjon\"s] >> internal:role=link[name=\"All services\"s]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1284",
+      "endTime": 22949.124
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1286",
+      "class": "Frame",
+      "method": "evaluateExpression",
+      "startTime": 22953.845,
+      "selectorOrKey": {}
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1286",
+      "endTime": 22978.478
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1288",
+      "class": "Frame",
+      "method": "queryCount",
+      "startTime": 22982.145,
+      "selectorOrKey": {
+        "selector": "main >> internal:role=link[name=\"Architecture Studio\"s] >> xpath=ancestor::details[1]"
+      }
+    },
+    {
+      "type": "after",
+      "callId": "xbgz@1288",
+      "endTime": 22997.581
+    },
+    {
+      "type": "before",
+      "callId": "xbgz@1290",
+      "class": "Frame",
+      "method": "click",
+      "startTime": 23001.42,
+      "selectorOrKey": {
+        "selector": "main >> internal:role=link[name=\"Architecture Studio\"s]"
+      }
+    }
+  ],
+  "originalActionCount": 2239,
+  "retainedActionCount": 80,
+  "omission": "Only the final80 action events are retained in this safe diagnostic excerpt; the complete exact original remains private."
+}

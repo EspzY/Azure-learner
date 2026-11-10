@@ -1,0 +1,122 @@
+{
+  "base": "41a187a4437eeea76749c61c94219a2577848645",
+  "purpose": "Finite reviewed adaptations only; actual direct filesystem checked independently",
+  "files": {
+    ".gitattributes": {
+      "before": "5f0792510b11601eca1025d11000597bebf581b38773b632e37d54258e48a82a",
+      "after": "5599d9e75216a91ec847701acbf3f8193d91599f238af7a02c365caec0df2094"
+    },
+    "AGENTS.md": {
+      "before": "88a20eb7f0c34af2048c8b7657ee2a86335e251a74e8259a8643b31898267327",
+      "after": "057b5d6cf5a6c68dc4597a18ab3cb428695ba62822f16a72e36aa88ca2163d4c"
+    },
+    "docs/ARCHITECTURE.md": {
+      "before": "4b9c6f4b7dbf3dca4fab6b9b6bb74a5a0aabb9d597b63b6735eb5bd91d19f7b1",
+      "after": "3549adf15ccab7f050f5040254204ed5ef2f4287ae7db8d6dbfa8fdca1cb21b3"
+    },
+    "docs/DECISIONS.md": {
+      "before": "95d54fcb107ee49f8c293a5329f5232bbae6387fad34bf0813d6d140c5725e16",
+      "after": "6861691106ce55d99d9e8f588e7f45fb973b8ff84403f4fd5d669effd33bab72"
+    },
+    "docs/LABORATORY_REMEDIATION_CAPABILITIES.md": {
+      "before": "6c5baf349fe96b9b11c898da273af0f8fb30526016bef1d6ad95ae2d208ca5de",
+      "after": "cd28381e542de52971f096c16825ab4a294d871b89a809b87f05534dbde05bc4"
+    },
+    "docs/LABORATORY_V3_SERVER.md": {
+      "before": "401bf07a47e05e6c1e6bf2f23ff97f6f710b90b6a46bc5fcb41a66bfe9ecae85",
+      "after": "1ea8785d4f70888db66ad54e36147faa7760960a4fd0daf129da88ef5c0d748d"
+    },
+    "docs/PORTAL_CAPABILITY_MATRIX.md": {
+      "before": "baa6d09d629471e3dbd1e3765b7b2ae3ea81255a8c5df448ea8f5178a7c58764",
+      "after": "4bc49e81e2526395879bc183db4be0972c6bea5b67a4df5b0d41283ffd590c4b"
+    },
+    "docs/PROJECT_STATUS.md": {
+      "before": "8713654d05972d2731c11b4b8f34eb03638e323aa311c26f7c24b3a2e82328a4",
+      "after": "f4603aabaae05dbf4a52f2aeb351bbe1c84821211bec13791d8ceee244860ca4"
+    },
+    "playwright.desktop.config.ts": {
+      "before": "5cd1be1b227527b0c0d5335b87a80e987c93334274ef9a751ce49ce00910589e",
+      "after": "8e98da9fd843ac37643fa5b9f4b3c7af1b9aefa070a2f1c34ed7e46a3f5e8d69"
+    },
+    "scripts/laboratory-db.mjs": {
+      "before": "6ac73eceb18be1886cf9fcb946c96ac0afece844a233b23270eb9795562d4ea2",
+      "after": "493f08925470c4fccf84dfc540292abfd1c83a28ec28605bc7e8dbb26dd95b8c"
+    },
+    "src/features/laboratory/capabilities.ts": {
+      "before": "3364a91249cf6792e3aba609da8656348ce344889ef2b6ab5af8f32a0f8a6a01",
+      "after": "2361447a55c37089a7dc4182cb3b954c4157f3fb7aa69445345897c2251352e5"
+    },
+    "src/features/laboratory/compute.tsx": {
+      "before": "c5cdc543daa27d73daf25b052098ddcf223a3cde92ae17d2e99f8d7a5fbe71f9",
+      "after": "2d3d27c6b6ab155712f825d64436588f1fb9b9d103c32427496e0afd746db419"
+    },
+    "src/features/laboratory/endpoints.tsx": {
+      "before": "aedfffb85a922c50dfb44d210fc9a0c5a32d6aeb6550653f7f2f3abcfd0bb870",
+      "after": "e963e17b9d1d0dc38006031681c863f67620483863090b1ee5486ec469392217"
+    },
+    "src/features/laboratory/firewall.tsx": {
+      "before": "a37ee4250e4bba61c21e6974bcde176e6374cfa2393fde47c2deb5fcc84ae981",
+      "after": "19ba67933fb875a0ed833de784755c17bf71b1f4a730e2c86eb26c268a602db4"
+    },
+    "src/features/laboratory/laboratory.tsx": {
+      "before": "ab89f635809a654dac2e82a08b12dbe0d8f8a388d537b648d917a83c9dd4605d",
+      "after": "1302aacb59aa7aef0c655f9e8ae08f3e4a84ba36cf6fb4bdd7a8f452500eb21f"
+    },
+    "src/features/laboratory/networking.tsx": {
+      "before": "81691705d6933cf07631ad9193de231ef3ffa245818d2cfeb9f80f1d4f6efe88",
+      "after": "7133c9a33782ab99d9764e2d08745d25e008fa46f05bbb1b676371b6d5de6525"
+    },
+    "src/features/laboratory/portal-adapter.tsx": {
+      "before": "f2f113e74f0c018935158742dfbc90bcd51617a0214d3a306529cc21d4e22a7d",
+      "after": "88e0643eb4ee7b2402a3b2b7198ee93bab38ec61b18c3dcbdbbbeeb653eec0c0"
+    },
+    "src/features/laboratory/routing.tsx": {
+      "before": "e6b620909a84f5e3b5302092e6aaa3004e98ab1ea1f812f50c1c9fecf6546b61",
+      "after": "2d9d11cb031b67c81879efb6dab438b75576daee10e2a7b503d59ed71981e64a"
+    },
+    "src/features/laboratory/rule-lifecycle.css": {
+      "before": "442775325c619a4e322575a17d73d44812461f9a97e93b7dcd810d7c687fc859",
+      "after": "387ff35408213623800e4e0f5a740486c4bda4d4b3aa330e8142d9f7b8858eac"
+    },
+    "src/features/laboratory/rule-lifecycle.tsx": {
+      "before": "e54dae4ec55f32c385b0bcfd84ac1e1191f0543694e185662be415448d2b65b2",
+      "after": "93b54d5bb33e9a36e5fdfb6231e16cf8f253598379196ccf75d0fe5308b893e2"
+    },
+    "src/features/laboratory/studio-model.ts": {
+      "before": "37de3a000fa34008061984c6b5d900dbda6ef26366cced84ab33be78e9c6e0a5",
+      "after": "ed5a2ecfd44ac1e5a81a20db8125645c2982673f36b2ca912bd73d80c51a6cd2"
+    },
+    "src/features/laboratory/studio.tsx": {
+      "before": "1610815824346cf2ef153511380167f8d4094f96646057d04226d17b7c78931a",
+      "after": "6d661e5a1f1ef1830783fb60072e5a648283b07413483ef2640856f75504fe05"
+    },
+    "src/laboratory-compute.test.ts": {
+      "before": "a3dc6b07ce3ae0dbc50066c373a3b5881422cda628d51646205dd5c39872b152",
+      "after": "5ad0d14dbd272588254ab34fb6221778e2b011937a98e70a40b461a738c46037"
+    },
+    "src/laboratory-remediation-preservation.test.ts": {
+      "before": "1356be4e63be02863fca8901fc448eac5b0a21fcfd6b9407fb198c6529d0ef90",
+      "after": "2c9759c284ea4cd536e286988cf895ce39dbdaf726960c7cd9b0b4cc1e2b460d"
+    },
+    "src/laboratory-remediation.test.ts": {
+      "before": "61420ea816138e6e0dcf3685f578a8689ec6b667c6be377a585e8ddcb1db63ee",
+      "after": "06983b430bdd79c9170e99286d9a579dfbe3817059d90f918ca846e535711097"
+    },
+    "src/laboratory/engine.ts": {
+      "before": "7efd298dd98e9b478eea10a12d1390bfe30ac6a279b17fd4dace1caab7af388a",
+      "after": "ecb16434e62eda278e7496e2408fc2bc734211ed295661c5df9ffea805247f9f"
+    },
+    "src/laboratory/v3/server.ts": {
+      "before": "3315ef1cfee6a2467cfe2d1136efcc7978fbacae2d0edac0d22664f85e73f34e",
+      "after": "689edf2234fd214b754847b030b253a7e7f41b6901a9662b7e4d0a7eddbb2ed5"
+    },
+    "tests/e2e/laboratory-remediation.spec.ts": {
+      "before": "95dd417c31764aec2ff7be4f70635062ca9e57e529849f761f804f36cfd053ed",
+      "after": "ccf8b25951e92e366da71887fbef5a9460bac99bd10a112a301d992f66f60144"
+    },
+    "tests/pr69-preservation.ts": {
+      "before": "c48f5e6b529da8ac8232dd26e2e097d4c891797b48cd384cac11bccba19239a9",
+      "after": "ee623b6cc8a95664d2a7be4012acd8380952cb164d508d8a73ff17a7bdcaf4ce"
+    }
+  }
+}

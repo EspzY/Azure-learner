@@ -1,0 +1,229 @@
+.resilience-perspectives {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.4rem 0;
+}
+.portal .resilience-perspectives a {
+  padding: 1rem;
+  border: 1px solid #aec9dd;
+  text-decoration: none;
+  line-height: 1.6;
+  border-radius: 4px;
+}
+.resilience-perspectives a[aria-current] {
+  background: #e8f3fc;
+  color: #084c85;
+  font-weight: 650;
+}
+.resilience-perspectives span {
+  margin-right: 0.6rem;
+}
+.resilience-workbench {
+  border-top: 3px solid #0868b4;
+}
+.resilience-causal-choice {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  line-height: 1.7;
+  margin: 0.6rem 0;
+}
+.resilience-causal-choice input {
+  flex: 0 0 auto;
+  margin-top: 0.4rem;
+}
+.resilience-lifecycle {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+.resilience-lifecycle li {
+  display: grid;
+  gap: 0.8rem;
+  align-content: start;
+  background: #edf5fb;
+  border-bottom: 3px solid #5089b1;
+  padding: 1.2rem;
+  line-height: 1.7;
+}
+.resilience-lifecycle li[data-state='offline'],
+.resilience-lifecycle li[data-state='pending'] {
+  background: #fff4df;
+  border-color: #a36705;
+}
+.resilience-replica-map {
+  margin: 2rem 0;
+}
+.resilience-replica-map figcaption {
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+.resilience-replica-map section {
+  padding: 1.2rem;
+  border: 1px solid #bad0e1;
+  margin-bottom: 1.2rem;
+}
+.resilience-replica-map ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+.resilience-replica-map li {
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+  line-height: 1.7;
+  background: #eaf3fa;
+  border-left: 4px solid #1875b4;
+}
+.resilience-replica-map li[data-state='unavailable'],
+.resilience-replica-map li[data-state='deleted'] {
+  background: #fff0ed;
+  border-color: #ac4530;
+}
+.resilience-facts {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.resilience-facts dt,
+.resilience-decisions dt {
+  font-weight: 650;
+  line-height: 1.7;
+}
+.resilience-facts dd {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+.resilience-decisions div {
+  border-top: 1px solid #bdd0de;
+  padding: 1rem 0;
+}
+.resilience-decisions dd {
+  margin: 0.5rem 0;
+  line-height: 1.7;
+}
+.resilience-workbench :is(button, a, input, select):focus-visible {
+  outline: 3px solid #075f9f;
+  outline-offset: 3px;
+}
+@media (max-width: 1100px) {
+  .resilience-workbench .compute-parameter-grid {
+    grid-template-columns: 1fr;
+  }
+  .resilience-lifecycle {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 800px) {
+  .resilience-perspectives,
+  .resilience-replica-map ol {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .resilience-lesson * {
+    scroll-behavior: auto;
+  }
+}
+
+.resilience-prerequisites {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+  line-height: 1.7;
+}
+.resilience-phase-track ol,
+.resilience-replica-map .resilience-replication-flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  list-style: none;
+  padding: 0;
+  gap: 1.2rem;
+  margin: 1rem 0 2rem;
+}
+.resilience-phase-track li,
+.resilience-replica-map .resilience-replication-flow li {
+  position: relative;
+  border: 1px solid #bbcede;
+  background: #f4f8fb;
+  display: flex;
+  gap: 0.7rem;
+  padding: 1rem;
+  line-height: 1.7;
+  border-left: 1px solid #bbcede;
+}
+.resilience-phase-track li + li::before,
+.resilience-replica-map .resilience-replication-flow li + li::before {
+  content: '→';
+  position: absolute;
+  left: -1.15rem;
+  top: 40%;
+  color: #1b5b89;
+}
+.resilience-phase-track li[data-current='true'] {
+  border: 2px solid #1068a6;
+  background: #e8f3fb;
+}
+.resilience-replica-map .resilience-replication-flow {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.resilience-cost-bars {
+  margin: 1.5rem 0;
+  max-width: 800px;
+}
+.resilience-cost-bars figcaption {
+  font-weight: 650;
+  margin-bottom: 1rem;
+}
+.resilience-cost-bars div {
+  margin: 0.7rem 0;
+  line-height: 1.7;
+}
+.resilience-cost-bars span {
+  display: block;
+}
+.resilience-cost-bars i {
+  display: block;
+  height: 14px;
+  background: #246aa0;
+  max-width: 100%;
+}
+.resilience-cost-bars i[data-driver='access'] {
+  background: #087e8b;
+}
+.resilience-cost-bars i[data-driver='early'] {
+  background: #ad670d;
+}
+.resilience-cost-bars i[data-driver='rehydrate'] {
+  background: #7454a3;
+}
+@media (max-width: 1100px) {
+  .resilience-replica-map .resilience-replication-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 800px) {
+  .resilience-phase-track ol,
+  .resilience-replica-map .resilience-replication-flow {
+    grid-template-columns: 1fr;
+  }
+  .resilience-phase-track li + li::before,
+  .resilience-replica-map .resilience-replication-flow li + li::before {
+    content: '↓';
+    left: 45%;
+    top: -1.5rem;
+  }
+}
+
+.resilience-lifecycle li[data-state='unsupported'] {
+  background: #fff0ed;
+  border-color: #ac4530;
+}

@@ -1,0 +1,14 @@
+
+> azurelab@0.1.0 check
+> npm run typecheck && npm run lint && npm run format:check && npm run docs:check && npm run quality:check && npm run az900:audit:check && npm run curriculum:check && npm run assets:check && npm run legacy:check && npm test && npm run build
+
+
+> azurelab@0.1.0 typecheck
+> node scripts/next.mjs typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+src/laboratory-remediation.integration.test.ts(60,49): error TS2352: Conversion of type '{ commandId: `${string}-${string}-${string}-${string}-${string}`; expectedRevision: number; command: { '': string; type: "CreateGroup"; subscriptionId: string; name: string; metadataRegion: string; } | { ...; } | ... 28 more ... | { ...; }; }' to type 'Request' may be a mistake because neither type sufficiently overlaps with the other. If this was intentional, convert the expression to 'unknown' first.
+  Types of property 'command' are incompatible.
+    Type '{ '': string; type: "CreateGroup"; subscriptionId: string; name: string; metadataRegion: string; } | { '': string; type: "CreateStorageAccount"; groupId: string; name: string; region: string; kind: string; sku: string; } | ... 28 more ... | { ...; }' is not comparable to type 'Command'.
+      Object literal may only specify known properties, and '''' does not exist in type '{ type: "DeleteFirewallNetworkRule"; ruleId: string; collectionId: string; }'.

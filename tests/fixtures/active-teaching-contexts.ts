@@ -1,0 +1,264 @@
+import {
+  freshMigration,
+  applyMigration,
+  migrationKey,
+  restoreMigration,
+  migrationFacts,
+} from '../../src/domain/curriculum/migration';
+import {
+  freshSecurity,
+  applySecurity,
+  securityKey,
+  restoreSecurity,
+  securityFacts,
+} from '../../src/domain/curriculum/security';
+import {
+  freshMonitoring,
+  applyMonitoring,
+  monitoringKey,
+  restoreMonitoring,
+  monitoringFacts,
+} from '../../src/domain/curriculum/monitoring';
+import {
+  freshTools,
+  applyTools,
+  toolsKey,
+  restoreTools,
+  toolsFacts,
+} from '../../src/domain/curriculum/management-tools';
+import {
+  freshGovernance,
+  applyGovernance,
+  governanceKey,
+  restoreGovernance,
+  governanceFacts,
+} from '../../src/domain/curriculum/governance';
+import {
+  freshAccess,
+  applyAccess,
+  accessKey,
+  restoreAccess,
+  accessFacts,
+} from '../../src/domain/curriculum/access-control';
+import {
+  freshIdentity,
+  applyIdentity,
+  identityKey,
+  restoreIdentity,
+  identityFacts,
+} from '../../src/domain/curriculum/identity-foundations';
+import {
+  freshResilience,
+  applyResilience,
+  resilienceKey,
+  restoreResilience,
+  resilienceFacts,
+} from '../../src/domain/curriculum/storage-resilience';
+import {
+  freshStorage,
+  applyStorage,
+  storageKey,
+  restoreStorage,
+  storageFacts,
+} from '../../src/domain/curriculum/storage';
+import {
+  freshConnectivity,
+  applyConnectivity,
+  connectivityKey,
+  restoreConnectivity,
+  connectivityFacts,
+} from '../../src/domain/curriculum/connectivity';
+import {
+  freshLearning,
+  applyLearning,
+  learningKey,
+  restoreLearning,
+  learningFacts,
+} from '../../src/domain/curriculum/foundations';
+import {
+  freshV2,
+  applyV2,
+  foundationsV2Key,
+  restoreV2,
+  v2Facts,
+} from '../../src/domain/curriculum/foundations-v2';
+import {
+  freshServerless,
+  applyServerless,
+  serverlessKey,
+  restoreServerless,
+  serverlessFacts,
+} from '../../src/domain/curriculum/serverless';
+import {
+  freshPhysical,
+  applyPhysical,
+  physicalKey,
+  restorePhysical,
+  physicalFacts,
+} from '../../src/domain/curriculum/architecture-physical';
+import {
+  freshManagement,
+  applyManagement,
+  managementKey,
+  restoreManagement,
+  managementFacts,
+} from '../../src/domain/curriculum/architecture-management';
+import {
+  freshServices,
+  applyModuleEvent,
+  serviceLearningKey,
+  restoreServices,
+  serviceFacts,
+} from '../../src/domain/portal/learning';
+import { fresh, apply, restore, expansionKeys, facts } from '../../src/domain/curriculum/expansion';
+import {
+  freshPractical,
+  applyPractical,
+  restorePractical,
+  practicalKey,
+  practicalFacts,
+} from '../../src/domain/sandbox/practical';
+function fixture<S>(
+  key: string,
+  save: S | null,
+  parse: (raw: string | null) => { save: S; issue: string | null },
+  state: (save: S) => { active: boolean; assisted: boolean },
+) {
+  if (!save) throw Error('invalid active-context test fixture: ' + key);
+  const raw = JSON.stringify(save);
+  if (parse(raw).issue || !state(save).active || state(save).assisted)
+    throw Error('not a fresh unaided fixture: ' + key);
+  return {
+    key,
+    raw,
+    state: (raw: string | null) => {
+      const r = parse(raw);
+      if (r.issue) throw Error(r.issue);
+      return state(r.save);
+    },
+  };
+}
+/** Valid records from frozen reducers, never new runtime curriculum. */
+export function activeTeachingContexts() {
+  return [
+    fixture(
+      migrationKey,
+      applyMigration(freshMigration(), { kind: 'begin', item: 'fm01' }),
+      restoreMigration,
+      migrationFacts,
+    ),
+    fixture(
+      securityKey,
+      applySecurity(freshSecurity(), { kind: 'begin', item: 'sp01' }),
+      restoreSecurity,
+      securityFacts,
+    ),
+    fixture(
+      monitoringKey,
+      applyMonitoring(freshMonitoring(), { kind: 'begin', item: 'md01' }),
+      restoreMonitoring,
+      monitoringFacts,
+    ),
+    fixture(
+      toolsKey,
+      applyTools(freshTools(), { kind: 'begin', item: 'mt01' }),
+      restoreTools,
+      toolsFacts,
+    ),
+    fixture(
+      governanceKey,
+      applyGovernance(freshGovernance(), { kind: 'begin', item: 'gc01' }),
+      restoreGovernance,
+      governanceFacts,
+    ),
+    fixture(
+      accessKey,
+      applyAccess(freshAccess(), { kind: 'begin', item: 'ab01' }),
+      restoreAccess,
+      accessFacts,
+    ),
+    fixture(
+      identityKey,
+      applyIdentity(freshIdentity(), { kind: 'begin', item: 'if01' }),
+      restoreIdentity,
+      identityFacts,
+    ),
+    fixture(
+      resilienceKey,
+      applyResilience(freshResilience(), { kind: 'begin', item: 'rb01' }),
+      restoreResilience,
+      resilienceFacts,
+    ),
+    fixture(
+      storageKey,
+      applyStorage(freshStorage(), { kind: 'begin', item: 'sa01' }),
+      restoreStorage,
+      storageFacts,
+    ),
+    fixture(
+      connectivityKey,
+      applyConnectivity(freshConnectivity(), { kind: 'begin', item: 'nc03' }),
+      restoreConnectivity,
+      connectivityFacts,
+    ),
+    fixture(
+      managementKey,
+      applyManagement(freshManagement(), { kind: 'begin' }),
+      restoreManagement,
+      managementFacts,
+    ),
+    fixture(
+      physicalKey,
+      applyPhysical(freshPhysical(), { kind: 'begin' }),
+      restorePhysical,
+      physicalFacts,
+    ),
+    fixture(
+      serverlessKey,
+      applyServerless(freshServerless(), { kind: 'begin' }),
+      restoreServerless,
+      serverlessFacts,
+    ),
+    fixture(
+      learningKey,
+      applyLearning(freshLearning(), { kind: 'begin-transfer' }),
+      restoreLearning,
+      learningFacts,
+    ),
+    fixture(foundationsV2Key, applyV2(freshV2(), { kind: 'begin' }), restoreV2, v2Facts),
+    fixture(
+      serviceLearningKey,
+      applyModuleEvent(freshServices(), { kind: 'begin', boundary: null, attemptNumber: 1 }),
+      restoreServices,
+      serviceFacts,
+    ),
+    fixture(
+      expansionKeys.benefits,
+      apply(fresh('benefits'), { kind: 'begin' }),
+      (raw) => restore('benefits', raw),
+      facts,
+    ),
+    fixture(
+      expansionKeys.services,
+      apply(fresh('services'), { kind: 'begin' }),
+      (raw) => restore('services', raw),
+      facts,
+    ),
+    fixture(
+      practicalKey,
+      applyPractical(freshPractical(), {
+        type: 'start',
+        kind: 'paas',
+        mode: 'independent',
+        origin: { module: 'services', topic: 'paas' },
+        attempt: 1,
+        boundary: null,
+      }),
+      (raw) => ({ save: restorePractical(raw), issue: null }),
+      (save) => {
+        const f = practicalFacts(save);
+        return { active: f.activeIndependent, assisted: !!f.current?.aided };
+      },
+    ),
+  ];
+}

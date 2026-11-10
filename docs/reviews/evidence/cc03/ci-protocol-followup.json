@@ -1,0 +1,36 @@
+{
+  "initialHead": "453640d1cdda6b811ab8ee1c3e545278378ef2af",
+  "initialCI": {
+    "id": 41915662193,
+    "result": "failure",
+    "cases": "364passed+1flaky+2failed",
+    "scope": "All367 executions, no successful complete-profile receipt, strict skipped."
+  },
+  "findings": [
+    {
+      "id": "CI55-T1",
+      "observation": "Two helper tabs still entered unqualified computing/services URLs while expecting frozen legacy Start/alert. The new default correctly showed updated bank. Author omitted these aliases when restoring native CC01 href constants.",
+      "correction": "Explicit assessment=legacy in tab.goto and stale.goto; native Hub href assertions remain unchanged."
+    },
+    {
+      "id": "CI55-T2",
+      "observation": "New denied-aid snapshot could be read before asynchronous begin completed; expectednull later compared against actualbegin without aid.",
+      "correction": "Await actual active status (durable readback) before snapshot and denying aid. Same explicit Start-before-technical assertion in Services journey."
+    },
+    {
+      "id": "CI55-T3",
+      "observation": "After archive-entry fix, local cross-tab fixture still failed because second provider had loaded after winner Start and validly resumed; no stale baseline had been established. Original error-context shows active legacy form.",
+      "correction": "Require both actual Start controls enabled before winner Start; await actual active state before testing stale conflict. Original conflict/disabled/origin/draft/World assertions retained."
+    }
+  ],
+  "targetedInitial": {
+    "result": "2passed+1failed,exit1",
+    "logSha256": "98e373e4784141007a17666252344ce08d93c87dda05d9c464f0f27356859018"
+  },
+  "targetedCorrected": {
+    "result": "4passed,no retry,29.3s,exit0",
+    "logSha256": "8660190659d06cc40f6ce25cf9309842a434ca6a54dcf7c1c5908d07ff7f6c48"
+  },
+  "unchangedProductionSource": true,
+  "limits": "Author test-fixture/protocol omissions, not product or earlier Compute/Axe flake fixes. Original CI/logs/errors preserved. No timeout/retry/worker/skip or runtime changes. Fresh exact-final-head complete367CI/strict and actual newSHA Gate7 still required."
+}

@@ -1,0 +1,95 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: integrated-chain.spec.ts >> integrated3.9 compact native Review keyboard focus reduced motion Axe and short desktop keep typed configuration readable
+- Location: tests/e2e/integrated-chain.spec.ts:180:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Tearing down "context" exceeded the test timeout of 30000ms.
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - alert [ref=e2]: AzureLab — Lær Azure ved å bruke det
+  - generic [ref=e3]:
+    - link "Hopp til innhold" [ref=e4] [cursor=pointer]:
+      - /url: "#lab-main"
+    - banner [ref=e5]:
+      - button "Åpne eller lukk portalmenyen" [ref=e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=e8] [cursor=pointer]:
+        - /url: /labs/laboratory
+      - searchbox "Search resources and services" [ref=e10]
+      - generic [ref=e11]: Fri Laboratory
+      - button "Originale kvitteringer" [ref=e12] [cursor=pointer]
+      - button "Modellgrenser" [ref=e14] [cursor=pointer]
+      - link "Kursarbeidsområde" [ref=e16] [cursor=pointer]:
+        - /url: /portal
+      - link "Til kurset" [ref=e17] [cursor=pointer]:
+        - /url: /learn
+      - link "Til forsiden" [ref=e18] [cursor=pointer]:
+        - /url: /
+    - main [ref=e23]:
+      - generic [ref=e24]:
+        - button "Home" [ref=e25] [cursor=pointer]
+        - button "Azure Database for PostgreSQL flexible server" [ref=e27] [cursor=pointer]
+      - generic [ref=e31]:
+        - heading "Azure Database for PostgreSQL flexible server" [level=1] [ref=e32]
+        - generic [ref=e33]: Midlertidig Sandbox · nullstilles ved ny innlasting · ingen kursresultater eller XP
+      - generic [ref=e36]:
+        - heading "Create PostgreSQL flexible server" [level=2] [ref=e37]
+        - list "Create PostgreSQL flexible server" [ref=e38]:
+          - listitem [ref=e39]: Basics
+          - listitem [ref=e40]: Review + create
+        - generic [ref=e41]:
+          - region "Review result" [ref=e42]:
+            - heading "Review + create" [active] [level=3] [ref=e43]
+            - status [ref=e44]: Validation passed
+            - generic [ref=e45]:
+              - generic [ref=e46]:
+                - term [ref=e47]: Resource group
+                - definition [ref=e48]: rg-integrated-access
+              - generic [ref=e49]:
+                - term [ref=e50]: Name
+                - definition [ref=e51]: accessible-postgres
+              - generic [ref=e52]:
+                - term [ref=e53]: Region
+                - definition [ref=e54]: Norway East
+              - generic [ref=e55]:
+                - term [ref=e56]: Server version
+                - definition [ref=e57]: "16"
+              - generic [ref=e58]:
+                - term [ref=e59]: Pricing tier
+                - definition [ref=e60]: Standard_B1ms
+              - generic [ref=e61]:
+                - term [ref=e62]: Storage (GiB)
+                - definition [ref=e63]: "32"
+              - generic [ref=e64]:
+                - term [ref=e65]: Public network access
+                - definition [ref=e66]: Enabled
+            - paragraph [ref=e67]: Review validerer uten å lagre. Bare den bekreftede Create, Save eller Delete-operasjonen lagrer endringen.
+            - group [ref=e68]:
+              - generic "Technical evidence" [ref=e69] [cursor=pointer]
+          - generic [ref=e70]:
+            - button "Create" [ref=e71] [cursor=pointer]
+            - button "Previous" [ref=e72] [cursor=pointer]
+            - button "Cancel" [ref=e73] [cursor=pointer]
+      - generic [ref=e74]:
+        - generic [ref=e75]: Fri Laboratory
+        - status [ref=e76]: Midlertidig – ingen lagring · nullstilles ved ny innlasting
+        - button "Oppdater visningen" [ref=e77] [cursor=pointer]
+        - generic [ref=e79]: "World-revisjon: 1 · Arbeidsforsøk: 1 · Arbeidsområdets modell: laboratory@3.9.0"
+        - button "Nullstill eget arbeidsområde" [ref=e80] [cursor=pointer]
+```

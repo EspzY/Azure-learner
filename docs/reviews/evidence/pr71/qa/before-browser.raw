@@ -1,0 +1,90 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+ExpectError: expect(locator).toBeVisible() failed
+
+Locator: getByRole('button', { name: 'Create resource group', exact: true })
+Expected: visible
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" getByRole('button', { name: 'Create resource group', exact: true }) with timeout 5000ms
+  - waiting for getByRole('button', { name: 'Create resource group', exact: true })
+
+    at captureRawStack (/workspace/Azure-learner/node_modules/playwright-core/lib/coreBundle.js:9282:17)
+    at callMatcherAsStep (/workspace/Azure-learner/node_modules/playwright/lib/matchers/expect.js:13316:57)
+    at Object.toBeVisible (/workspace/Azure-learner/node_modules/playwright/lib/matchers/expect.js:13308:23)
+    at /workspace/azurelab-pr71/before.mjs:1:1153 {
+  matcherResult: {
+    message: 'expect(locator).toBeVisible() failed\n' +
+      '\n' +
+      "Locator: getByRole('button', { name: 'Create resource group', exact: true })\n" +
+      'Expected: visible\n' +
+      'Timeout: 5000ms\n' +
+      'Error: element(s) not found\n' +
+      '\n' +
+      'Call log:\n' +
+      `  - Expect "toBeVisible" getByRole('button', { name: 'Create resource group', exact: true }) with timeout 5000ms\n` +
+      "  - waiting for getByRole('button', { name: 'Create resource group', exact: true })\n",
+    pass: false,
+    actual: undefined,
+    name: 'toBeVisible',
+    expected: 'visible',
+    log: [
+      `  - Expect "toBeVisible" getByRole('button', { name: 'Create resource group', exact: true }) with timeout 5000ms`,
+      "  - waiting for getByRole('button', { name: 'Create resource group', exact: true })"
+    ],
+    timeout: 5000,
+    ariaSnapshot: '- alert\n' +
+      '- link "Hopp til innhold":\n' +
+      '  - /url: "#lab-main"\n' +
+      '- banner:\n' +
+      '  - button "Åpne eller lukk portalmenyen" [expanded]\n' +
+      '  - link "AzureLab 3.2.1":\n' +
+      '    - /url: /labs/laboratory\n' +
+      '  - searchbox "Search resources and services"\n' +
+      '  - text: Fri Laboratory\n' +
+      '  - button "Originale kvitteringer"\n' +
+      '  - button "Modellgrenser"\n' +
+      '  - link "Kursarbeidsområde":\n' +
+      '    - /url: /portal\n' +
+      '  - link "Til kurset":\n' +
+      '    - /url: /learn\n' +
+      '  - link "Til forsiden":\n' +
+      '    - /url: /\n' +
+      '- complementary "Laboratory v3 navigasjon":\n' +
+      '  - navigation "Laboratory v3 navigasjon":\n' +
+      '    - link "Create a resource":\n' +
+      '      - /url: /labs/laboratory?view=services\n' +
+      '    - link "All services":\n' +
+      '      - /url: /labs/laboratory?view=services\n' +
+      '    - text: FAVORITES\n' +
+      '    - link "All resources":\n' +
+      '      - /url: /labs/laboratory?view=resources\n' +
+      '    - link "Architecture Studio":\n' +
+      '      - /url: /labs/laboratory?view=studio\n' +
+      '    - link "Resource groups":\n' +
+      '      - /url: /labs/laboratory?view=groups\n' +
+      '    - link "Storage accounts":\n' +
+      '      - /url: /labs/laboratory?view=accounts\n' +
+      '    - link "Originale kvitteringer":\n' +
+      '      - /url: /labs/laboratory?view=history\n' +
+      '  - text: Støttede tjenester i dette arbeidsområdet\n' +
+      '- main "Laboratory v3":\n' +
+      '  - button "Fri Laboratory"\n' +
+      '  - button "Resource groups"\n' +
+      '  - heading "Laboratory v3" [level=1]\n' +
+      '  - text: Lokal AzureLab-simulator · eget serverlagret arbeidsområde · ingen kursresultater eller XP\n' +
+      '  - alert:\n' +
+      '    - paragraph: Forespørselen kom ikke fra arbeidsområdets godkjente adresse.\n' +
+      '  - paragraph: En anonym nettleserøkt med egen serverlagring opprettes først når du starter. Økten varer i inntil sju dager. Dette er ikke verifisert brukeridentitet eller sertifiseringshistorikk.\n' +
+      '  - group: Tidligere arbeidsområdemodeller\n' +
+      '  - button "Start eget laboratoriearbeidsområde"\n' +
+      '  - text: Fri Laboratory\n' +
+      '  - button "Oppdater fra serveren"'
+  }
+}
+
+Node.js v24.19.0

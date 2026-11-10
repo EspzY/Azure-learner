@@ -1,0 +1,2370 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>Create, Change, or Delete Azure Network Interfaces | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="Learn how to create, change, and delete Azure network interfaces using the Azure portal, PowerShell, or CLI. Step-by-step guide with examples for managing VM networking." />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="Create, Change, or Delete Azure Network Interfaces" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface" />
+			<meta property="og:description" content="Learn how to create, change, and delete Azure network interfaces using the Azure portal, PowerShell, or CLI. Step-by-step guide with examples for managing VM networking." />
+			<meta name="platform_id" content="223f0afa-7bcc-2aae-0268-a1358a5b1134" /> <meta name="scope" content="Azure" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="azure" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="breadcrumb_path" content="/azure/bread/toc.json" />
+	
+		<meta name="feedback_help_link_url" content="https://learn.microsoft.com/answers/tags/143/azure-virtual-network/" />
+	
+		<meta name="feedback_help_link_type" content="get-help-at-qna" />
+	
+		<meta name="feedback_product_url" content="https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=f2c41334-8326-ec11-b6e6-000d3a4f0789" />
+	
+		<meta name="feedback_system" content="Standard" />
+	
+		<meta name="permissioned-type" content="public" />
+	
+		<meta name="recommendations" content="true" />
+	
+		<meta name="recommendation_types" content="Training" />
+	
+		<meta name="recommendation_types" content="Certification" />
+	
+		<meta name="ms.suite" content="office" />
+	
+		<meta name="adobe-target" content="true" />
+	
+		<meta name="learn_banner_products" content="azure" />
+	
+		<meta name="manager" content="kumud" />
+	
+		<meta name="ms.collection" content="networking" />
+	
+		<meta name="ms.reviewer" content="allensu" />
+	
+		<meta name="titlesuffix" content="Azure Virtual Network" />
+	
+		<meta name="author" content="asudbring" />
+	
+		<meta name="ms.service" content="azure-virtual-network" />
+	
+		<meta name="ms.topic" content="how-to" />
+	
+		<meta name="ms.date" content="2025-07-28T00:00:00Z" />
+	
+		<meta name="ms.author" content="allensu" />
+	
+		<meta name="ms.custom" content="devx-track-azurecli" />
+	
+		<meta name="ms.custom" content="devx-track-azurepowershell" />
+	
+		<meta name="ms.custom" content="sfi-image-nochange" />
+	
+		<meta name="document_id" content="c377fa1e-2274-704a-dcfa-4ac02659bf87" />
+	
+		<meta name="document_version_independent_id" content="1ba8a48b-a99e-096b-4822-63d62379e605" />
+	
+		<meta name="updated_at" content="2025-10-08T22:11:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/virtual-network/virtual-network-network-interface.md" />
+	
+		<meta name="gitcommit" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/136130fc1149e51f3cc15b573e22d653e7ad6353/articles/virtual-network/virtual-network-network-interface.md" />
+	
+		<meta name="git_commit_id" content="136130fc1149e51f3cc15b573e22d653e7ad6353" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="Azure.azure-documents" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="interactive_type" content="azurecli,azurepowershell" />
+	
+		<meta name="toc_rel" content="toc.json" />
+	
+		<meta name="pdf_url_template" content="https://learn.microsoft.com/pdfstore/en-us/Azure.azure-documents/{branchName}{pdfName}" />
+	
+		<meta name="word_count" content="4704" />
+	
+		<meta name="asset_id" content="virtual-network/virtual-network-network-interface" />
+	
+		<meta name="moniker_range_name" content="" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="articles/virtual-network/virtual-network-network-interface.md" />
+	
+		<meta name="previous_tlsh_hash" content="662BE5B2750DC701DFC36F1B2A1FCA51A5F4C6C9EAF06ECC013739A1A25D7EA3939866DAAB3B6216173183D20393456E57F1DBA880AC421759FE417D428432D4BE9C66F1DB" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/virtual-network/virtual-network-network-interface.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface?accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/20ed8455-bc18-4537-87a4-83784e7b2a39" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/089c8ba6-d135-43ff-bfaf-b8197fb72fb9" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/9a7f703b-30bb-4d62-9eb4-97213f571849" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/32516e21-6665-416f-be21-413febe47d91" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03595.8353-c1321031/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "azure",
+    "context": {},
+    "standardFeedback": true,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "get-help-at-qna",
+    "feedbackHelpLinkUrl": "https://learn.microsoft.com/answers/tags/143/azure-virtual-network/",
+    "feedbackSystem": "Standard",
+    "feedbackGitHubRepo": "MicrosoftDocs/azure-docs",
+    "feedbackProductUrl": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=f2c41334-8326-ec11-b6e6-000d3a4f0789",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": true,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03595.8353-c1321031/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div> 
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					aria-expanded="false"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			
+			href="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/virtual-network/virtual-network-network-interface.md"
+			data-original_content_git_url="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/virtual-network/virtual-network-network-interface.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/articles/virtual-network/virtual-network-network-interface.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="create-change-or-delete-a-network-interface">Create, change, or delete a network interface</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	 <div class="content"><p>A network interface (NIC) enables an Azure virtual machine (VM) to communicate with internet, Azure, and on-premises resources. This article explains how to create, view and change settings for, and delete Azure network interfaces using the Azure portal, PowerShell, and CLI.</p>
+<p>A VM you create in the Azure portal has one NIC with default settings. You can create NICs with custom settings instead, and add one or more NICs to a VM when or after you create it. You can also change settings for an existing NIC.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_azure-portal" role="tab" aria-controls="tabpanel_1_azure-portal" data-tab="azure-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark">Portal</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_azure-cli" role="tab" aria-controls="tabpanel_1_azure-cli" data-tab="azure-cli" tabindex="-1" data-linktype="self-bookmark">Azure CLI</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_azure-powershell" role="tab" aria-controls="tabpanel_1_azure-powershell" data-tab="azure-powershell" tabindex="-1" data-linktype="self-bookmark">PowerShell</a>
+</li>
+</ul>
+<section id="tabpanel_1_azure-portal" role="tabpanel" data-tab="azure-portal">
+
+<p>You need the following prerequisites:</p>
+<ul>
+<li>An Azure account with an active subscription. <a href="https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn" data-linktype="external">Create an account for free</a>.</li>
+<li>An existing Azure virtual network. To create one, see <a href="quick-create-portal" data-linktype="relative-path">Quickstart: Create a virtual network by using the Azure portal</a>.</li>
+</ul>
+<p>To run the procedures in this article, sign in to the <a href="https://portal.azure.com" data-linktype="external">Azure portal</a> with your Azure account. You can replace the placeholders in the examples with your own values.</p>
+</section>
+<section id="tabpanel_1_azure-cli" role="tabpanel" data-tab="azure-cli" aria-hidden="true" hidden="hidden">
+
+<p>To run the commands in this article, you need the following prerequisites:</p>
+<ul>
+<li>An Azure account with an active subscription. <a href="https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn" data-linktype="external">Create an account for free</a>.</li>
+<li>An existing Azure virtual network. To create one, see <a href="quick-create-cli" data-linktype="relative-path">Quickstart: Create a virtual network by using Azure CLI</a>.</li>
+</ul>
+<p>You can run the commands either in the <a href="/en-us/azure/cloud-shell/overview" data-linktype="absolute-path">Azure Cloud Shell</a> or from Azure CLI on your computer.</p>
+<ul>
+<li><p>Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account. To run the commands in the Cloud Shell, select <strong>Open Cloud shell</strong> at the upper-right corner of a code block. Select <strong>Copy</strong> to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.</p>
+</li>
+<li><p>If you <a href="/en-us/cli/azure/install-azure-cli" data-linktype="absolute-path">install Azure CLI locally</a> to run the commands, you need Azure CLI version 2.31.0 or later. Run <a href="/en-us/cli/azure/reference-index?#az-version" data-linktype="absolute-path">az version</a> to find your installed version, and run <a href="/en-us/cli/azure/reference-index?#az-upgrade" data-linktype="absolute-path">az upgrade</a> to upgrade.</p>
+<p>If you're prompted, install the Azure CLI extension on first use. For more information, <a href="/en-us/cli/azure/azure-cli-extensions-overview" data-linktype="absolute-path">Use extensions with the Azure CLI</a>.</p>
+<p>Run <a href="/en-us/cli/azure/reference-index#az-login" data-linktype="absolute-path">az login</a> to connect to Azure. For more information, see <a href="/en-us/cli/azure/authenticate-azure-cli" data-linktype="absolute-path">Sign in with Azure CLI</a>.</p>
+</li>
+</ul>
+<p>In the following procedures, you can replace the example placeholder names with your own values.</p>
+</section>
+<section id="tabpanel_1_azure-powershell" role="tabpanel" data-tab="azure-powershell" aria-hidden="true" hidden="hidden">
+
+<p>To run the commands in this article, you need the following prerequisites:</p>
+<ul>
+<li>An Azure account with an active subscription. <a href="https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn" data-linktype="external">Create an account for free</a>.</li>
+<li>An existing Azure virtual network. To create one, see <a href="quick-create-powershell" data-linktype="relative-path">Quickstart: Create a virtual network by using Azure PowerShell</a>.</li>
+</ul>
+<p>You can run the commands either in the <a href="/en-us/azure/cloud-shell/overview" data-linktype="absolute-path">Azure Cloud Shell</a> or from PowerShell on your computer.</p>
+<ul>
+<li><p>Azure Cloud Shell is a free interactive shell that has common Azure tools preinstalled and configured to use with your account. To run the commands in the Cloud Shell, select <strong>Open Cloud shell</strong> at the upper-right corner of a code block. Select <strong>Copy</strong> to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.</p>
+</li>
+<li><p>If you <a href="/en-us/powershell/azure/install-azure-powershell" data-linktype="absolute-path">install Azure PowerShell locally</a> to run the commands, you need Azure PowerShell module version 5.4.1 or later. Run <code>Get-Module -ListAvailable Az</code> to find your installed version. If you need to upgrade, see <a href="/en-us/powershell/azure/install-Az-ps#update-the-azure-powershell-module" data-linktype="absolute-path">Update the Azure PowerShell module</a>.</p>
+<p>Also make sure your <code>Az.Network</code> module is 4.3.0 or later. To verify the installed module, use <code>Get-InstalledModule -Name "Az.Network"</code>. To update, use the command <code>Update-Module -Name Az.Network</code>.</p>
+<p>Then run <code>Connect-AzAccount</code> to connect to Azure. For more information, see <a href="/en-us/powershell/azure/authenticate-azureps" data-linktype="absolute-path">Sign in with Azure PowerShell</a>.</p>
+</li>
+</ul>
+<p>In the following procedures, you can replace the example placeholder names with your own values.</p>
+</section>
+</div>
+<h3 id="permissions">Permissions</h3>
+<p>To work with NICs, your account must be assigned to the <a href="../role-based-access-control/built-in-roles?toc=/azure/virtual-network/toc.json#network-contributor" data-linktype="relative-path">network contributor</a> role or to a <a href="../role-based-access-control/custom-roles?toc=/azure/virtual-network/toc.json" data-linktype="relative-path">custom role</a> assigned the appropriate actions from the following list:</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microsoft.Network/networkInterfaces/read</td>
+<td>Get network interface</td>
+</tr>
+<tr>
+<td>Microsoft.Network/networkInterfaces/write</td>
+<td>Create or update network interface</td>
+</tr>
+<tr>
+<td>Microsoft.Network/networkInterfaces/join/action</td>
+<td>Attach a network interface to a virtual machine</td>
+</tr>
+<tr>
+<td>Microsoft.Network/networkInterfaces/delete</td>
+<td>Delete network interface</td>
+</tr>
+<tr>
+<td>Microsoft.Network/networkInterfaces/joinViaPrivateIp/action</td>
+<td>Join a resource to a network interface via private ip</td>
+</tr>
+<tr>
+<td>Microsoft.Network/networkInterfaces/effectiveRouteTable/action</td>
+<td>Get network interface effective route table</td>
+</tr>
+<tr>
+<td>Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action</td>
+<td>Get network interface effective security groups</td>
+</tr>
+<tr>
+<td>Microsoft.Network/networkInterfaces/loadBalancers/read</td>
+<td>Get network interface load balancers</td>
+</tr>
+<tr>
+<td>Microsoft.Network/networkInterfaces/serviceAssociations/read</td>
+<td>Get service association</td>
+</tr>
+<tr>
+<td>Microsoft.Network/networkInterfaces/serviceAssociations/write</td>
+<td>Create or update a service association</td>
+</tr>
+<tr>
+<td>Microsoft.Network/networkInterfaces/serviceAssociations/delete</td>
+<td>Delete service association</td>
+</tr>
+<tr>
+<td>Microsoft.Network/networkInterfaces/serviceAssociations/validate/action</td>
+<td>Validate service association</td>
+</tr>
+<tr>
+<td>Microsoft.Network/networkInterfaces/ipconfigurations/read</td>
+<td>Get network interface IP configuration</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create-a-network-interface">Create a network interface</h2>
+<p>You can create a NIC in the Azure portal or by using Azure CLI or Azure PowerShell.</p>
+<ul>
+<li><p>The portal doesn't provide the option to assign a public IP address to a NIC when you create it. If you want to create a NIC with a public IP address, use Azure CLI or PowerShell. To add a public IP address to a NIC after you create it, see <a href="ip-services/virtual-network-network-interface-addresses" data-linktype="relative-path">Configure IP addresses for an Azure network interface</a>.</p>
+</li>
+<li><p>The portal does create a NIC with default settings and a public IP address when you create a VM. To create a NIC with custom settings and attach it to a VM, or to add a NIC to an existing VM, use PowerShell, or Azure CLI.</p>
+</li>
+<li><p>The portal doesn't provide the option to assign a NIC to application security groups when you create the NIC, but Azure CLI and PowerShell do. However, if an existing NIC is attached to a VM, you can use the portal to assign that NIC to an application security group. For more information, see <a href="#add-or-remove-from-application-security-groups" data-linktype="self-bookmark">Add to or remove from application security groups</a>.</p>
+</li>
+</ul>
+<p>To create a NIC, use the following procedure.</p>
+<div class="tabGroup" id="tabgroup_2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_2_azure-portal" role="tab" aria-controls="tabpanel_2_azure-portal" data-tab="azure-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark">Portal</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_2_azure-cli" role="tab" aria-controls="tabpanel_2_azure-cli" data-tab="azure-cli" tabindex="-1" data-linktype="self-bookmark">Azure CLI</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_2_azure-powershell" role="tab" aria-controls="tabpanel_2_azure-powershell" data-tab="azure-powershell" tabindex="-1" data-linktype="self-bookmark">PowerShell</a>
+</li>
+</ul>
+<section id="tabpanel_2_azure-portal" role="tabpanel" data-tab="azure-portal">
+
+<ol>
+<li><p>In the <a href="https://portal.azure.com" data-linktype="external">Azure portal</a>, search for and select <em>network interfaces</em>.</p>
+</li>
+<li><p>On the <strong>Network interfaces</strong> page, select <strong>Create</strong>.</p>
+</li>
+<li><p>On the <strong>Create network interface</strong> screen, enter or select values for the NIC settings.</p>
+</li>
+<li><p>Select <strong>Review + create</strong>, and when validation passes, select <strong>Create</strong>.</p>
+</li>
+</ol>
+</section>
+<section id="tabpanel_2_azure-cli" role="tabpanel" data-tab="azure-cli" aria-hidden="true" hidden="hidden">
+
+<p>The following example creates an Azure public IP address and associates it with the NIC.</p>
+<ol>
+<li><p>Use <a href="/en-us/cli/azure/network/public-ip#az-network-public-ip-create" data-linktype="absolute-path">az network public-ip create</a> to create a primary public IP address.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">  az network public-ip create \
+    --resource-group myResourceGroup \
+    --name myPublicIP \
+    --sku Standard \
+    --version IPv4 \
+    --zone 1 2 3
+</code></pre>
+</li>
+<li><p>Use <a href="/en-us/cli/azure/network/nic#az-network-nic-create" data-linktype="absolute-path">az network nic create</a> to create the NIC. To create a NIC without a public IP address, omit the <code>--public-ip-address</code> parameter for <code>az network nic create</code>.</p>
+</li>
+</ol>
+<pre><code class="lang-azurecli" data-interactive="azurecli">  az network nic create \
+    --resource-group myResourceGroup \
+    --name myNIC \
+    --private-ip-address-version IPv4 \
+    --vnet-name myVNet \
+    --subnet myBackEndSubnet \
+    --public-ip-address myPublicIP
+</code></pre>
+</section>
+<section id="tabpanel_2_azure-powershell" role="tabpanel" data-tab="azure-powershell" aria-hidden="true" hidden="hidden">
+
+<p>The following example creates an Azure public IP address and associates it with the NIC.</p>
+<ol>
+<li><p>Use <a href="/en-us/powershell/module/az.network/new-azpublicipaddress" data-linktype="absolute-path">New-AzPublicIpAddress</a> to create a primary public IP address.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">$ip = @{
+    Name = 'myPublicIP'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    IpAddressVersion = 'IPv4'
+    Zone = 1,2,3
+}
+New-AzPublicIpAddress @ip
+</code></pre>
+</li>
+<li><p>Use <a href="/en-us/powershell/module/az.network/new-aznetworkinterfaceipconfig" data-linktype="absolute-path">New-AzNetworkInterfaceIpConfig</a> and <a href="/en-us/powershell/module/az.network/new-aznetworkinterface" data-linktype="absolute-path">New-AzNetworkInterface</a> to create the NIC. To create a NIC without a public IP address, omit the <code>-PublicIpAddress</code> parameter for <code>New-AzNetworkInterfaceIPConfig</code>.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">## Place the virtual network into a variable. ##
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Place the primary public IP address into a variable. ##
+$pub = @{
+    Name = 'myPublicIP'
+    ResourceGroupName = 'myResourceGroup'
+}
+$pubIP = Get-AzPublicIPAddress @pub
+
+## Create primary configuration for NIC. ##
+$IP1 = @{
+    Name = 'ipconfig1'
+    Subnet = $vnet.Subnets[0]
+    PrivateIpAddressVersion = 'IPv4'
+    PublicIPAddress = $pubIP
+}
+$IP1Config = New-AzNetworkInterfaceIpConfig @IP1 -Primary
+
+## Command to create network interface for VM ##
+$nic = @{
+    Name = 'myNIC'
+    ResourceGroupName = 'myResourceGroup'
+    Location = 'eastus2'
+    IpConfiguration = $IP1Config
+}
+New-AzNetworkInterface @nic
+</code></pre>
+</li>
+</ol>
+</section>
+</div>
+
+<p>You can configure the following settings for a NIC:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Subscription</strong></td>
+<td>Select your subscription.</td>
+<td>You can assign a NIC only to a virtual network in the same subscription and location.</td>
+</tr>
+<tr>
+<td><strong>Resource group</strong></td>
+<td>Select your resource group or create a new one.</td>
+<td>A resource group is a logical container for grouping Azure resources. A NIC can exist in the same or a different resource group from the VM you attach it to or the virtual network you connect it to.</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>Enter a name for the NIC.</td>
+<td>The name must be unique within the resource group. For information about creating a naming convention to make managing several NICs easier, see <a href="/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#resource-naming" data-linktype="absolute-path">Resource naming</a>. You can't change the name after you create the NIC.</td>
+</tr>
+<tr>
+<td><strong>Region</strong></td>
+<td>Select your region.</td>
+<td>The Azure region where you create the NIC.</td>
+</tr>
+<tr>
+<td><strong>Virtual network</strong></td>
+<td>Select your virtual network.</td>
+<td>You can assign a NIC only to a virtual network in the same subscription and location as the NIC. Once you create a NIC, you can't change the virtual network assign the NIC. The VM you add the NIC to must also be in the same location and subscription as the NIC.</td>
+</tr>
+<tr>
+<td><strong>Subnet</strong></td>
+<td>Select a subnet within the virtual network you selected.</td>
+<td>You can change the subnet the NIC is assigned to after you create the NIC.</td>
+</tr>
+<tr>
+<td><strong>IP version</strong></td>
+<td>Select <strong>IPv4</strong> or<br><strong>IPv4 and IPv6</strong>.</td>
+<td>You can choose to create the NIC with an IPv4 address or IPv4 and IPv6 addresses. To assign an IPv6 address, the network and subnet you use for the NIC must also have an IPv6 address space. An IPv6 configuration is assigned to a secondary IP configuration for the NIC.</td>
+</tr>
+<tr>
+<td><strong>Private IP address assignment</strong></td>
+<td>Select <strong>Dynamic</strong> or <strong>Static</strong>.</td>
+<td>The Azure DHCP server assigns the private IP address to the NIC in the VM's operating system.<br><br>- If you select <strong>Dynamic</strong>, Azure automatically assigns the next available address from the address space of the subnet you selected. <br><br>- If you select <strong>Static</strong>, you must manually assign an available IP address from within the address space of the subnet you selected.<br><br>Static and dynamic addresses don't change until you change them or delete the NIC. You can change the assignment method after the NIC is created.</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<p>Note</p>
+<p>Azure assigns a MAC address to the NIC only after the NIC is attached to a VM and the VM starts for the first time. You can't specify the MAC address that Azure assigns to the NIC.</p>
+<p>The MAC address remains assigned to the NIC until the NIC is deleted or the private IP address assigned to the primary IP configuration of the primary NIC changes. For more information, see <a href="ip-services/virtual-network-network-interface-addresses" data-linktype="relative-path">Configure IP addresses for an Azure network interface</a>.</p>
+</div>
+<div class="NOTE">
+<p>Note</p>
+<p>Azure provides a default outbound access IP for VMs that either aren't assigned a public IP address or are in the backend pool of an internal basic Azure load balancer. The default outbound access IP mechanism provides an outbound IP address that isn't configurable.</p>
+<p>The default outbound access IP is disabled when one of the following events happens:</p>
+<ul>
+<li>A public IP address is assigned to the VM.</li>
+<li>The VM is placed in the backend pool of a standard load balancer, with or without outbound rules.</li>
+<li>An <a href="/en-us/azure/virtual-network/nat-gateway/nat-overview" data-linktype="absolute-path">Azure NAT Gateway</a> resource is assigned to the subnet of the VM.</li>
+</ul>
+<p>VMs that you create by using virtual machine scale sets in flexible orchestration mode don't have default outbound access.</p>
+<p>For more information about outbound connections in Azure, see <a href="/en-us/azure/virtual-network/ip-services/default-outbound-access" data-linktype="absolute-path">Default outbound access in Azure</a> and <a href="/en-us/azure/load-balancer/load-balancer-outbound-connections" data-linktype="absolute-path">Use Source Network Address Translation (SNAT) for outbound connections</a>.</p>
+</div>
+<h2 id="view-network-interface-settings">View network interface settings</h2>
+<p>You can view most settings for a NIC after you create it. The portal doesn't display the DNS suffix or application security group membership for the NIC. You can use Azure PowerShell or Azure CLI to view the DNS suffix and application security group membership.</p>
+<div class="tabGroup" id="tabgroup_3">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_3_azure-portal" role="tab" aria-controls="tabpanel_3_azure-portal" data-tab="azure-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark">Portal</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_3_azure-cli" role="tab" aria-controls="tabpanel_3_azure-cli" data-tab="azure-cli" tabindex="-1" data-linktype="self-bookmark">Azure CLI</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_3_azure-powershell" role="tab" aria-controls="tabpanel_3_azure-powershell" data-tab="azure-powershell" tabindex="-1" data-linktype="self-bookmark">PowerShell</a>
+</li>
+</ul>
+<section id="tabpanel_3_azure-portal" role="tabpanel" data-tab="azure-portal">
+
+<ol>
+<li><p>In the <a href="https://portal.azure.com" data-linktype="external">Azure portal</a>, search for and select <strong>Network interfaces</strong>.</p>
+</li>
+<li><p>On the <strong>Network interfaces</strong> page, select the NIC you want to view.</p>
+</li>
+<li><p>On the <strong>Overview</strong> page for the NIC, view essential information such as IPv4 and IPv6 IP addresses and network security group (NSG) membership.</p>
+<p>You can select <strong>Edit accelerated networking</strong> to set accelerated networking for NICs. For more information about accelerated networking, see <a href="accelerated-networking-overview" data-linktype="relative-path">What is Accelerated Networking?</a></p>
+<p><span class="mx-imgBorder">
+<img src="media/virtual-network-network-interface/nic-overview.png" alt="Screenshot of network interface Overview." data-linktype="relative-path">
+</span>
+</p>
+</li>
+<li><p>Select <strong>IP configurations</strong> in the left navigation, and on the <strong>IP configurations</strong> page, view the <strong>IP forwarding</strong>, <strong>Subnet</strong>, and public and private IPv4 and IPv6 IP configurations. For more information about IP configurations and how to add and remove IP addresses, see <a href="ip-services/virtual-network-network-interface-addresses" data-linktype="relative-path">Configure IP addresses for an Azure network interface</a>.</p>
+<p><span class="mx-imgBorder">
+<img src="media/virtual-network-network-interface/ip-configurations.png" alt="Screenshot of network interface IP configurations." data-linktype="relative-path">
+</span>
+</p>
+</li>
+<li><p>Select <strong>DNS servers</strong> in the left navigation, and on the <strong>DNS servers</strong> page, view any DNS server that Azure DHCP assigns the NIC to. Also note whether the NIC inherits the setting from the virtual network or has a custom setting that overrides the virtual network setting.</p>
+<p><span class="mx-imgBorder">
+<img src="media/virtual-network-network-interface/dns-servers.png" alt="Screenshot of DNS server configuration." data-linktype="relative-path">
+</span>
+</p>
+</li>
+<li><p>Select <strong>Network security group</strong> from the left navigation, and on the <strong>Network security group</strong> page, see NSGs associated to the NIC. An NSG contains inbound and outbound rules to filter network traffic for the NIC.</p>
+<p><span class="mx-imgBorder">
+<img src="media/virtual-network-network-interface/network-security-group.png" alt="Screenshot of network security group configuration." data-linktype="relative-path">
+</span>
+</p>
+</li>
+<li><p>Select <strong>Properties</strong> in the left navigation. On the <strong>Properties</strong> page, view settings for the NIC, such as the MAC address and subscription information. The MAC address is blank if the NIC isn't attached to a VM.</p>
+<p><span class="mx-imgBorder">
+<img src="media/virtual-network-network-interface/nic-properties.png" alt="Screenshot of network interface properties." data-linktype="relative-path">
+</span>
+</p>
+</li>
+<li><p>Select <strong>Effective security rules</strong> in the left navigation. The <strong>Effective security rules</strong> page lists security rules if the NIC is attached to a running VM and associated with an NSG. For more information about NSGs, see <a href="network-security-groups-overview" data-linktype="relative-path">Network security groups</a>.</p>
+<p><span class="mx-imgBorder">
+<img src="media/virtual-network-network-interface/effective-security-rules.png" alt="Screenshot of effective security rules." data-linktype="relative-path">
+</span>
+</p>
+</li>
+<li><p>Select <strong>Effective routes</strong> in the left navigation. The <strong>Effective routes</strong> page lists routes if the NIC is attached to a running VM.</p>
+<p>The routes are a combination of the Azure default routes, any user-defined routes, and any Border Gateway Protocol (BGP) routes that exist for the subnet the NIC is assigned to. For more information about Azure default routes and user-defined routes, see <a href="virtual-networks-udr-overview" data-linktype="relative-path">Virtual network traffic routing</a>.</p>
+<p><span class="mx-imgBorder">
+<img src="media/virtual-network-network-interface/effective-routes.png" alt="Screenshot of effective routes." data-linktype="relative-path">
+</span>
+</p>
+</li>
+</ol>
+</section>
+<section id="tabpanel_3_azure-cli" role="tabpanel" data-tab="azure-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nic#az-network-nic-list" data-linktype="absolute-path">az network nic list</a> to view all NICs in the subscription.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nic list
+</code></pre>
+<p>Use <a href="/en-us/cli/azure/network/nic#az-network-nic-show" data-linktype="absolute-path">az network nic show</a> to view the settings for a NIC.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nic show --name myNIC --resource-group myResourceGroup
+</code></pre>
+</section>
+<section id="tabpanel_3_azure-powershell" role="tabpanel" data-tab="azure-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/get-aznetworkinterface" data-linktype="absolute-path">Get-AzNetworkInterface</a> to view NICs in the subscription or view settings for a NIC.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>Remove the  <code>-Name</code> and <code>-ResourceGroupName</code> parameters to return all the NICs in the subscription.</p>
+</div>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+</code></pre>
+</section>
+</div>
+<h2 id="change-network-interface-settings">Change network interface settings</h2>
+<p>You can change most settings for a NIC after you create it.</p>
+<p><a name="change-dns-servers"></a></p>
+<h3 id="add-or-change-dns-servers">Add or change DNS servers</h3>
+<p>Azure DHCP assigns the DNS server to the NIC within the VM operating system. The NIC can inherit the settings from the virtual network, or use its own unique settings that override the setting for the virtual network. For more information about name resolution settings for a NIC, see <a href="virtual-networks-name-resolution-for-vms-and-role-instances" data-linktype="relative-path">Name resolution for virtual machines</a>.</p>
+<div class="tabGroup" id="tabgroup_4">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_4_azure-portal" role="tab" aria-controls="tabpanel_4_azure-portal" data-tab="azure-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark">Portal</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_4_azure-cli" role="tab" aria-controls="tabpanel_4_azure-cli" data-tab="azure-cli" tabindex="-1" data-linktype="self-bookmark">Azure CLI</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_4_azure-powershell" role="tab" aria-controls="tabpanel_4_azure-powershell" data-tab="azure-powershell" tabindex="-1" data-linktype="self-bookmark">PowerShell</a>
+</li>
+</ul>
+<section id="tabpanel_4_azure-portal" role="tabpanel" data-tab="azure-portal">
+
+<ol>
+<li><p>In the <a href="https://portal.azure.com" data-linktype="external">Azure portal</a>, search for and select <strong>Network interfaces</strong>.</p>
+</li>
+<li><p>On the <strong>Network interfaces</strong> page, select the NIC you want to change from the list.</p>
+</li>
+<li><p>On the NIC's page, select <strong>DNS servers</strong> from the left navigation.</p>
+</li>
+<li><p>On the <strong>DNS servers</strong> page, select one of the following settings:</p>
+<ul>
+<li><p><strong>Inherit from virtual network</strong>: Choose this option to inherit the DNS server setting from the virtual network the NIC is assigned to. Either a custom DNS server or the Azure-provided DNS server is defined at the virtual network level.</p>
+<p>The Azure-provided DNS server can resolve hostnames for resources assigned to the same virtual network. The fully qualified domain name (FQDN) must be used for resources assigned to different virtual networks.</p>
+<div class="NOTE">
+<p>Note</p>
+</div>
+</li>
+</ul>
+<blockquote>
+<p>If a VM uses a NIC that belongs to an availability set, all NICs on all VMs within that availability set will inherit the same DNS server settings.</p>
+</blockquote>
+<ul>
+<li><strong>Custom</strong>: You can configure your own DNS server to resolve names across multiple virtual networks. Enter the IP address of the server you want to use as a DNS server. The DNS server address you specify is assigned only to this NIC and overrides any DNS setting for the virtual network the NIC is assigned to.</li>
+</ul>
+</li>
+<li><p>Select <strong>Save</strong>.</p>
+</li>
+</ol>
+</section>
+<section id="tabpanel_4_azure-cli" role="tabpanel" data-tab="azure-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nic#az-network-nic-update" data-linktype="absolute-path">az network nic update</a> to change the DNS server setting from inherited to a custom setting. Replace the DNS server IP addresses with your custom IP addresses.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nic update \
+    --name myNIC \
+    --resource-group myResourceGroup \
+    --dns-servers 192.168.1.100 192.168.1.101
+</code></pre>
+<p>To remove the DNS servers and change the setting to virtual network setting inheritance, use the following command:</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nic update \
+    --name myNIC \
+    --resource-group myResourceGroup \
+    --dns-servers null
+</code></pre>
+</section>
+<section id="tabpanel_4_azure-powershell" role="tabpanel" data-tab="azure-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/set-aznetworkinterface" data-linktype="absolute-path">Set-AzNetworkInterface</a> to change the DNS server setting from inherited to a custom setting. Replace the DNS server IP addresses with your custom IP addresses.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+
+## Add the DNS servers to the configuration. ##
+$nic.DnsSettings.DnsServers.Add("192.168.1.100")
+
+## Add a secondary DNS server if needed, otherwise set the configuration. ##
+$nic.DnsSettings.DnsServers.Add("192.168.1.101")
+
+## Apply the new configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
+</code></pre>
+<p>To remove the DNS servers and change the setting to inherit from the virtual network, use the following command. Replace the DNS server IP addresses with your custom IP addresses.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+
+## Add the DNS servers to the configuration. ##
+$nic.DnsSettings.DnsServers.Remove("192.168.1.100")
+
+## Add a secondary DNS server if needed, otherwise set the configuration. ##
+$nic.DnsSettings.DnsServers.Remove("192.168.1.101")
+
+## Apply the new configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
+</code></pre>
+</section>
+</div>
+<h3 id="enable-or-disable-ip-forwarding">Enable or disable IP forwarding</h3>
+<p>IP forwarding enables a NIC attached to a VM to:</p>
+<ul>
+<li>Receive network traffic not destined for any of the IP addresses assigned in any of the NIC's IP configurations.</li>
+<li>Send network traffic with a different source IP address than is assigned in any of the NIC's IP configurations.</li>
+</ul>
+<p>You must enable IP forwarding for every NIC attached to the VM that needs to forward traffic. A VM can forward traffic whether it has multiple NICs or a single NIC attached to it.</p>
+<p>IP forwarding is typically used with user-defined routes. For more information, see <a href="virtual-networks-udr-overview" data-linktype="relative-path">User-defined routes</a>.</p>
+<p>While IP forwarding is an Azure setting, the VM must also run an application that's able to forward the traffic, such as a firewall, WAN optimization, or load balancing application. A VM that runs network applications is often called a network virtual appliance (NVA). You can view a list of ready-to-deploy NVAs in the <a href="https://azuremarketplace.microsoft.com/marketplace/apps?search=network%20virtual%20appliances" data-linktype="external">Azure Marketplace</a>.</p>
+<div class="tabGroup" id="tabgroup_5">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_5_azure-portal" role="tab" aria-controls="tabpanel_5_azure-portal" data-tab="azure-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark">Portal</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_5_azure-cli" role="tab" aria-controls="tabpanel_5_azure-cli" data-tab="azure-cli" tabindex="-1" data-linktype="self-bookmark">Azure CLI</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_5_azure-powershell" role="tab" aria-controls="tabpanel_5_azure-powershell" data-tab="azure-powershell" tabindex="-1" data-linktype="self-bookmark">PowerShell</a>
+</li>
+</ul>
+<section id="tabpanel_5_azure-portal" role="tabpanel" data-tab="azure-portal">
+
+<ol>
+<li>On the NIC's page, select <strong>IP configurations</strong> in the left navigation.</li>
+<li>On the <strong>IP configurations</strong> page, under <strong>IP forwarding settings</strong>, select <strong>Enabled</strong> or <strong>Disabled</strong>, the default, to change the setting.</li>
+<li>Select <strong>Save</strong>.</li>
+</ol>
+</section>
+<section id="tabpanel_5_azure-cli" role="tabpanel" data-tab="azure-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nic#az-network-nic-update" data-linktype="absolute-path">az network nic update</a> to enable or disable the IP forwarding setting.</p>
+<p>To enable IP forwarding, use the following command:</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nic update \
+    --name myNIC \
+    --resource-group myResourceGroup \
+    --ip-forwarding true
+</code></pre>
+<p>To disable IP forwarding, use the following command:</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nic update \
+    --name myNIC \
+    --resource-group myResourceGroup \
+    --ip-forwarding false
+</code></pre>
+</section>
+<section id="tabpanel_5_azure-powershell" role="tabpanel" data-tab="azure-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/set-aznetworkinterface" data-linktype="absolute-path">Set-AzNetworkInterface</a> to enable or disable the IP forwarding setting.</p>
+<p>To enable IP forwarding, use the following command:</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+
+## Set the IP forwarding setting to enabled. ##
+$nic.EnableIPForwarding = 1
+
+## Apply the new configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
+
+</code></pre>
+<p>To disable IP forwarding, use the following command:</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+
+## Set the IP forwarding setting to disabled. ##
+$nic.EnableIPForwarding = 0
+
+## Apply the new configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
+
+</code></pre>
+</section>
+</div>
+<h3 id="change-subnet-assignment">Change subnet assignment</h3>
+<p>You can change the subnet, but not the virtual network, that a NIC is assigned to.</p>
+<div class="tabGroup" id="tabgroup_6">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_6_azure-portal" role="tab" aria-controls="tabpanel_6_azure-portal" data-tab="azure-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark">Portal</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_6_azure-cli" role="tab" aria-controls="tabpanel_6_azure-cli" data-tab="azure-cli" tabindex="-1" data-linktype="self-bookmark">Azure CLI</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_6_azure-powershell" role="tab" aria-controls="tabpanel_6_azure-powershell" data-tab="azure-powershell" tabindex="-1" data-linktype="self-bookmark">PowerShell</a>
+</li>
+</ul>
+<section id="tabpanel_6_azure-portal" role="tabpanel" data-tab="azure-portal">
+
+<ol>
+<li><p>On the NIC's page, select <strong>IP configurations</strong> in the left navigation.</p>
+</li>
+<li><p>On the <strong>IP configurations</strong> page, under <strong>IP configurations</strong>, if any private IP addresses listed have <strong>(Static)</strong> next to them, change the IP address assignment method to dynamic. All private IP addresses must be assigned with the dynamic assignment method to change the subnet assignment for the NIC.</p>
+<p>To change the assignment method to dynamic:</p>
+<ol>
+<li>Select the IP configuration you want to change from the list of IP configurations.</li>
+<li>On the IP configuration page, select <strong>Dynamic</strong> under <strong>Assignment</strong>.</li>
+<li>Select <strong>Save</strong>.</li>
+</ol>
+</li>
+<li><p>When all private IP addresses are set to <strong>Dynamic</strong>, under <strong>Subnet</strong>, select the subnet you want to move the NIC to.</p>
+</li>
+<li><p>Select <strong>Save</strong>. New dynamic addresses are assigned from the new subnet's address range.</p>
+</li>
+</ol>
+<p>After assigning the NIC to a new subnet, you can assign a static IPv4 address from the new subnet address range if you choose. For more information about adding, changing, and removing IP addresses for a NIC, see <a href="ip-services/virtual-network-network-interface-addresses" data-linktype="relative-path">Configure IP addresses for an Azure network interface</a>.</p>
+</section>
+<section id="tabpanel_6_azure-cli" role="tabpanel" data-tab="azure-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nic#az-network-nic-ip-config-update" data-linktype="absolute-path">az network nic ip-config update</a> to change the subnet of the NIC.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nic ip-config update \
+    --name ipv4config \
+    --nic-name myNIC \
+    --resource-group myResourceGroup \
+    --subnet mySubnet \
+    --vnet-name myVNet
+</code></pre>
+</section>
+<section id="tabpanel_6_azure-powershell" role="tabpanel" data-tab="azure-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/set-aznetworkinterfaceipconfig" data-linktype="absolute-path">Set-AzNetworkInterfaceIpConfig</a> to change the subnet of the NIC.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">## Place the virtual network into a variable. ##
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+
+## Change the subnet in the IP configuration. Replace the subnet number with number of your subnet in your VNet. Your first listed subnet in your VNet is 0, next is 1, and so on. ##
+$IP = @{
+    Name = 'ipv4config'
+    Subnet = $vnet.Subnets[1]
+}
+$nic | Set-AzNetworkInterfaceIpConfig @IP
+
+## Apply the new configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
+
+</code></pre>
+</section>
+</div>
+
+<div class="WARNING">
+<p>Warning</p>
+<p>You can change the subnet of a primary network interface while the virtual machine is started. You can't change the subnet of a secondary network interface in the same manner. To change the subnet of a secondary network interface, you must first stop and deallocate the virtual machine.</p>
+</div>
+<h3 id="add-or-remove-from-application-security-groups">Add or remove from application security groups</h3>
+<p>You can add NICs only to application security groups in the same virtual network and location as the NIC.</p>
+<p>You can use the portal to add or remove a NIC for an application security group only if the NIC is attached to a VM. Otherwise, use PowerShell or Azure CLI. For more information, see <a href="network-security-groups-overview#application-security-groups" data-linktype="relative-path">Application security groups</a> and <a href="manage-network-security-group" data-linktype="relative-path">How to create an application security group</a>.</p>
+<div class="tabGroup" id="tabgroup_7">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_7_azure-portal" role="tab" aria-controls="tabpanel_7_azure-portal" data-tab="azure-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark">Portal</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_7_azure-cli" role="tab" aria-controls="tabpanel_7_azure-cli" data-tab="azure-cli" tabindex="-1" data-linktype="self-bookmark">Azure CLI</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_7_azure-powershell" role="tab" aria-controls="tabpanel_7_azure-powershell" data-tab="azure-powershell" tabindex="-1" data-linktype="self-bookmark">PowerShell</a>
+</li>
+</ul>
+<section id="tabpanel_7_azure-portal" role="tabpanel" data-tab="azure-portal">
+
+<p>To add or remove a NIC for an application security group on a VM, follow this procedure:</p>
+<ol>
+<li><p>In the <a href="https://portal.azure.com" data-linktype="external">Azure portal</a>, search for and select <em>virtual machines</em>.</p>
+</li>
+<li><p>On the <strong>Virtual machines</strong> page, select the VM you want to configure from the list.</p>
+</li>
+<li><p>On the VM's page, select <strong>Networking</strong> from the left navigation.</p>
+</li>
+<li><p>On the <strong>Networking</strong> page, under the <strong>Application security groups</strong> tab, select <strong>Configure the application security groups</strong>.</p>
+<p><span class="mx-imgBorder">
+<img src="media/virtual-network-network-interface/application-security-group.png" alt="Screenshot of application security group configuration." data-linktype="relative-path">
+</span>
+</p>
+</li>
+<li><p>Select the application security groups where you want to add the NIC. Deselect any application security groups where you want to remove the NIC.</p>
+</li>
+<li><p>Select <strong>Save</strong>.</p>
+</li>
+</ol>
+</section>
+<section id="tabpanel_7_azure-cli" role="tabpanel" data-tab="azure-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nic#az-network-nic-ip-config-update" data-linktype="absolute-path">az network nic ip-config update</a> to set the application security group.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nic ip-config update \
+    --name ipv4config \
+    --nic-name myNIC \
+    --resource-group myResourceGroup \
+    --application-security-groups myASG
+</code></pre>
+</section>
+<section id="tabpanel_7_azure-powershell" role="tabpanel" data-tab="azure-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/set-aznetworkinterfaceipconfig" data-linktype="absolute-path">Set-AzNetworkInterfaceIpConfig</a> to set the application security group.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">## Place the virtual network into a variable. ##
+$net = @{
+    Name = 'myVNet'
+    ResourceGroupName = 'myResourceGroup'
+}
+$vnet = Get-AzVirtualNetwork @net
+
+## Place the subnet configuration into a variable. ##
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name mySubnet -VirtualNetwork $vnet
+
+## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+
+## Place the application security group configuration into a variable. ##
+$asg = Get-AzApplicationSecurityGroup -Name myASG -ResourceGroupName myResourceGroup
+
+## Add the application security group to the IP configuration. ##
+$IP = @{
+    Name = 'ipv4config'
+    Subnet = $subnet
+    ApplicationSecurityGroup = $asg
+}
+$nic | Set-AzNetworkInterfaceIpConfig @IP
+
+## Save the configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
+</code></pre>
+</section>
+</div>
+<h3 id="associate-or-dissociate-a-network-security-group">Associate or dissociate a network security group</h3>
+<div class="tabGroup" id="tabgroup_8">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_8_azure-portal" role="tab" aria-controls="tabpanel_8_azure-portal" data-tab="azure-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark">Portal</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_8_azure-cli" role="tab" aria-controls="tabpanel_8_azure-cli" data-tab="azure-cli" tabindex="-1" data-linktype="self-bookmark">Azure CLI</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_8_azure-powershell" role="tab" aria-controls="tabpanel_8_azure-powershell" data-tab="azure-powershell" tabindex="-1" data-linktype="self-bookmark">PowerShell</a>
+</li>
+</ul>
+<section id="tabpanel_8_azure-portal" role="tabpanel" data-tab="azure-portal">
+
+<ol>
+<li>On the NIC's page, select <strong>Network security group</strong> in the left navigation.</li>
+<li>On the <strong>Network security group</strong> page, select the network security group you want to associate, or select <strong>None</strong> to dissociate the NSG.</li>
+<li>Select <strong>Save</strong>.</li>
+</ol>
+</section>
+<section id="tabpanel_8_azure-cli" role="tabpanel" data-tab="azure-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nic#az-network-nic-update" data-linktype="absolute-path">az network nic update</a> to set the network security group for the NIC.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nic update \
+    --name myNIC \
+    --resource-group myResourceGroup \
+    --network-security-group myNSG
+</code></pre>
+</section>
+<section id="tabpanel_8_azure-powershell" role="tabpanel" data-tab="azure-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/set-aznetworkinterface" data-linktype="absolute-path">Set-AzNetworkInterface</a> to set the network security group for the NIC.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">## Place the network interface configuration into a variable. ##
+$nic = Get-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+
+## Place the network security group configuration into a variable. ##
+$nsg = Get-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
+
+## Add the NSG to the NIC configuration. ##
+$nic.NetworkSecurityGroup = $nsg
+
+## Save the configuration to the network interface. ##
+$nic | Set-AzNetworkInterface
+</code></pre>
+</section>
+</div>
+<h2 id="delete-a-network-interface">Delete a network interface</h2>
+<p>You can delete a NIC only when the NIC isn't attached to a VM. If a NIC is attached to a VM, you must first stop the VM, deallocate it, and then detach the NIC.</p>
+<p>To detach the NIC from the VM, complete the steps in <a href="virtual-network-network-interface-vm#remove-a-network-interface-from-a-vm" data-linktype="relative-path">Remove a network interface from a VM</a>. A VM must always have at least one NIC attached to it, so you can't delete the only NIC from a VM.</p>
+<div class="tabGroup" id="tabgroup_9">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_9_azure-portal" role="tab" aria-controls="tabpanel_9_azure-portal" data-tab="azure-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark">Portal</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_9_azure-cli" role="tab" aria-controls="tabpanel_9_azure-cli" data-tab="azure-cli" tabindex="-1" data-linktype="self-bookmark">Azure CLI</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_9_azure-powershell" role="tab" aria-controls="tabpanel_9_azure-powershell" data-tab="azure-powershell" tabindex="-1" data-linktype="self-bookmark">PowerShell</a>
+</li>
+</ul>
+<section id="tabpanel_9_azure-portal" role="tabpanel" data-tab="azure-portal">
+
+<p>To delete a NIC, on the <strong>Overview</strong> page for the NIC you want to delete, select <strong>Delete</strong> from the top menu bar, and then select <strong>Yes</strong>.</p>
+</section>
+<section id="tabpanel_9_azure-cli" role="tabpanel" data-tab="azure-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nic#az-network-nic-delete" data-linktype="absolute-path">az network nic delete</a> to delete the NIC.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nic delete --name myNIC --resource-group myResourceGroup
+</code></pre>
+</section>
+<section id="tabpanel_9_azure-powershell" role="tabpanel" data-tab="azure-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/remove-aznetworkinterface" data-linktype="absolute-path">Remove-AzNetworkInterface</a> to delete the NIC.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">Remove-AzNetworkInterface -Name myNIC -ResourceGroupName myResourceGroup
+</code></pre>
+</section>
+</div>
+<h2 id="resolve-connectivity-issues">Resolve connectivity issues</h2>
+<p>If you have communication problems with a VM, network security group rules or effective routes might be causing the problems. Use the following options to help resolve the issue.</p>
+<h3 id="view-effective-security-rules">View effective security rules</h3>
+<p>The effective security rules for each network interface show the combined result of:</p>
+<ul>
+<li>Security rules configured in network security groups</li>
+<li>Azure's <a href="network-security-groups-overview#default-security-rules" data-linktype="relative-path">default security rules</a></li>
+</ul>
+<p>Viewing these effective rules helps diagnose VM communication issues. You can view the effective rules for any network interface attached to a running VM.</p>
+<div class="tabGroup" id="tabgroup_10">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_10_azure-portal" role="tab" aria-controls="tabpanel_10_azure-portal" data-tab="azure-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark">Portal</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_10_azure-cli" role="tab" aria-controls="tabpanel_10_azure-cli" data-tab="azure-cli" tabindex="-1" data-linktype="self-bookmark">Azure CLI</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_10_azure-powershell" role="tab" aria-controls="tabpanel_10_azure-powershell" data-tab="azure-powershell" tabindex="-1" data-linktype="self-bookmark">PowerShell</a>
+</li>
+</ul>
+<section id="tabpanel_10_azure-portal" role="tabpanel" data-tab="azure-portal">
+
+<ol>
+<li>In the <a href="https://portal.azure.com" data-linktype="external">Azure portal</a>, search for and select <em>virtual machines</em>.</li>
+<li>On the <strong>Virtual machines</strong> page, select the VM you want to view settings for.</li>
+<li>On the VM page, select <strong>Networking</strong> from the left navigation.</li>
+<li>On the <strong>Networking</strong> page, select the <strong>Network Interface</strong>.</li>
+<li>On the NIC's page, select <strong>Effective security rules</strong> under <strong>Help</strong> in the left navigation.</li>
+<li>Review the list of effective security rules to determine if the rules are correct for your required inbound and outbound communications. For more information about security rules, see <a href="network-security-groups-overview" data-linktype="relative-path">Network security group overview</a>.</li>
+</ol>
+</section>
+<section id="tabpanel_10_azure-cli" role="tabpanel" data-tab="azure-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nic#az-network-nic-list-effective-nsg" data-linktype="absolute-path">az network nic list-effective-nsg</a> to view the list of effective security rules.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nic list-effective-nsg --name myNIC --resource-group myResourceGroup
+</code></pre>
+</section>
+<section id="tabpanel_10_azure-powershell" role="tabpanel" data-tab="azure-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/get-azeffectivenetworksecuritygroup" data-linktype="absolute-path">Get-AzEffectiveNetworkSecurityGroup</a> to view the list of effective security rules.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName myNIC -ResourceGroupName myResourceGroup
+</code></pre>
+</section>
+</div>
+<h3 id="view-effective-routes">View effective routes</h3>
+<p>The effective routes for the NIC or NICs attached to a VM are a combination of:</p>
+<ul>
+<li>Default routes</li>
+<li>User-defined routes</li>
+<li>Routes propagated from on-premises networks via BGP through an Azure virtual network gateway.</li>
+</ul>
+<p>Understanding effective routes helps diagnose VM communication problems. You can view the effective routes for any NIC attached to a running VM to troubleshoot connectivity issues.</p>
+<div class="tabGroup" id="tabgroup_11">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_11_azure-portal" role="tab" aria-controls="tabpanel_11_azure-portal" data-tab="azure-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark">Portal</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_11_azure-cli" role="tab" aria-controls="tabpanel_11_azure-cli" data-tab="azure-cli" tabindex="-1" data-linktype="self-bookmark">Azure CLI</a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_11_azure-powershell" role="tab" aria-controls="tabpanel_11_azure-powershell" data-tab="azure-powershell" tabindex="-1" data-linktype="self-bookmark">PowerShell</a>
+</li>
+</ul>
+<section id="tabpanel_11_azure-portal" role="tabpanel" data-tab="azure-portal">
+
+<ol>
+<li>On the page for the NIC attached to the VM, select <strong>Effective routes</strong> under <strong>Help</strong> in the left navigation.</li>
+<li>Review the list of effective routes to see if the routes are correct for your required inbound and outbound communications. For more information about routing, see <a href="virtual-networks-udr-overview" data-linktype="relative-path">Routing overview</a>.</li>
+</ol>
+</section>
+<section id="tabpanel_11_azure-cli" role="tabpanel" data-tab="azure-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nic#az-network-nic-show-effective-route-table" data-linktype="absolute-path">az network nic show-effective-route-table</a> to view a list of the effective routes.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nic show-effective-route-table --name myNIC --resource-group myResourceGroup
+</code></pre>
+</section>
+<section id="tabpanel_11_azure-powershell" role="tabpanel" data-tab="azure-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/get-azeffectiveroutetable" data-linktype="absolute-path">Get-AzEffectiveRouteTable</a> to view a list of the effective routes.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">Get-AzEffectiveRouteTable -NetworkInterfaceName myNIC -ResourceGroupName myResourceGroup
+</code></pre>
+</section>
+</div>
+
+<p>The next hop feature of Azure Network Watcher can also help you determine if routes are preventing communication between a VM and an endpoint. For more information, see <a href="/en-us/azure/network-watcher/diagnose-vm-network-routing-problem" data-linktype="absolute-path">Tutorial: Diagnose a virtual machine network routing problem by using the Azure portal</a>.</p>
+<h2 id="next-steps">Next steps</h2>
+<p>For other network interface tasks, see the following articles:</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Article</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Add, change, or remove IP addresses for a network interface.</td>
+<td><a href="ip-services/virtual-network-network-interface-addresses" data-linktype="relative-path">Configure IP addresses for an Azure network interface</a></td>
+</tr>
+<tr>
+<td>Add or remove network interfaces for VMs.</td>
+<td><a href="virtual-network-network-interface-vm" data-linktype="relative-path">Add network interfaces to or remove network interfaces from virtual machines</a></td>
+</tr>
+<tr>
+<td>Create a VM with multiple NICs</td>
+<td>- <a href="/en-us/azure/virtual-machines/linux/multiple-nics?toc=%2fazure%2fvirtual-network%2ftoc.json" data-linktype="absolute-path">How to create a Linux virtual machine in Azure with multiple network interface cards</a><br>- <a href="/en-us/azure/virtual-machines/windows/multiple-nics" data-linktype="absolute-path">Create and manage a Windows virtual machine that has multiple NICs</a></td>
+</tr>
+<tr>
+<td>Create a single NIC VM with multiple IPv4 addresses.</td>
+<td>- <a href="ip-services/virtual-network-multiple-ip-addresses-cli" data-linktype="relative-path">Assign multiple IP addresses to virtual machines by using the Azure CLI</a><br>- <a href="ip-services/virtual-network-multiple-ip-addresses-powershell" data-linktype="relative-path">Assign multiple IP addresses to virtual machines by using Azure PowerShell</a></td>
+</tr>
+<tr>
+<td>Create a single NIC VM with a private IPv6 address behind Azure Load Balancer.</td>
+<td>- <a href="/en-us/azure/load-balancer/load-balancer-ipv6-internet-cli?toc=%2fazure%2fvirtual-network%2ftoc.json" data-linktype="absolute-path">Create a public load balancer with IPv6 by using Azure CLI</a><br>- <a href="/en-us/azure/load-balancer/load-balancer-ipv6-internet-ps?toc=%2fazure%2fvirtual-network%2ftoc.json" data-linktype="absolute-path">Create an internet facing load balancer with IPv6 by using PowerShell</a><br>- <a href="/en-us/azure/load-balancer/load-balancer-ipv6-internet-template?toc=%2fazure%2fvirtual-network%2ftoc.json" data-linktype="absolute-path">Deploy an internet-facing load-balancer solution with IPv6 by using a template</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2025-07-28T08:00:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2025-07-28
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

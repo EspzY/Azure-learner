@@ -1,0 +1,152 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: integrated-delivery.spec.ts >> integrated private Application Gateway native configuration uses real subnet backend probe listener and routing references
+- Location: tests/e2e/integrated-delivery.spec.ts:179:1
+
+# Error details
+
+```
+Error: expect(locator).toHaveAttribute(expected) failed
+
+Locator:  getByRole('link', { name: 'Åpne original kvittering', exact: true })
+Expected: "/labs/laboratory?view=history&receipt=eb3fbf88-4127-41bd-8b66-62b90fa9a14c"
+Received: "/labs/laboratory?view=history&receipt=eb3fbf88-4127-41bd-8b66-62b90fa9a14c&studio=1&sselected=application-gateway-7&sx=240&sy=51&sz=0.3006451612903226&sw=dffe7309-1781-4029-b298-d13ae2e09445"
+Timeout:  5000ms
+
+Call log:
+  - Expect "toHaveAttribute" getByRole('link', { name: 'Åpne original kvittering', exact: true }) with timeout 5000ms
+  - waiting for getByRole('link', { name: 'Åpne original kvittering', exact: true })
+    14 × locator resolved to <a class="lab-evidence-link" href="/labs/laboratory?view=history&receipt=eb3fbf88-4127-41bd-8b66-62b90fa9a14c&studio=1&sselected=application-gateway-7&sx=240&sy=51&sz=0.3006451612903226&sw=dffe7309-1781-4029-b298-d13ae2e09445">Åpne original kvittering</a>
+       - unexpected value "/labs/laboratory?view=history&receipt=eb3fbf88-4127-41bd-8b66-62b90fa9a14c&studio=1&sselected=application-gateway-7&sx=240&sy=51&sz=0.3006451612903226&sw=dffe7309-1781-4029-b298-d13ae2e09445"
+
+```
+
+```yaml
+- link "Åpne original kvittering":
+  - /url: /labs/laboratory?view=history&receipt=eb3fbf88-4127-41bd-8b66-62b90fa9a14c&studio=1&sselected=application-gateway-7&sx=240&sy=51&sz=0.3006451612903226&sw=dffe7309-1781-4029-b298-d13ae2e09445
+```
+
+# Test source
+
+```ts
+  186 |     groupId = base.groups[0]!.id;
+  187 |   await service(page, network.vnets);
+  188 |   await create(page, network.newVnet, {
+  189 |     name: 'vnet-delivery-gateway',
+  190 |     addressSpace: '10.6.0.0/16',
+  191 |   });
+  192 |   const subnetResult = await create(page, network.newSubnet, {
+  193 |       name: 'subnet-delivery-gateway',
+  194 |       addressPrefix: '10.6.1.0/24',
+  195 |     }),
+  196 |     subnet = integratedWorld(subnetResult).subnets[0]!;
+  197 |   const gatewayResult = await deliveryOperation(
+  198 |       page,
+  199 |       'Application Gateways',
+  200 |       'CreateApplicationGateway',
+  201 |       {
+  202 |         name: 'gateway-delivery',
+  203 |         groupId,
+  204 |         region: app.region,
+  205 |         subnetId: subnet.id,
+  206 |       },
+  207 |     ),
+  208 |     gateway = integratedWorld(gatewayResult).delivery.applicationGateways[0]!;
+  209 |   expect(gateway).toMatchObject({
+  210 |     subnetId: subnet.id,
+  211 |     privateIp: '10.6.1.254',
+  212 |     networkIsolation: true,
+  213 |   });
+  214 |   const poolResult = await deliveryOperation(
+  215 |       page,
+  216 |       'Gateway backend pools',
+  217 |       'CreateGatewayBackendPool',
+  218 |       { name: 'pool-delivery', gatewayId: gateway.id, webAppId: app.id },
+  219 |     ),
+  220 |     pool = integratedWorld(poolResult).delivery.backendPools[0]!;
+  221 |   const probeResult = await deliveryOperation(
+  222 |       page,
+  223 |       'Gateway synthetic probes',
+  224 |       'CreateGatewayProbe',
+  225 |       { name: 'probe-delivery', gatewayId: gateway.id, path: '/health' },
+  226 |     ),
+  227 |     probe = integratedWorld(probeResult).delivery.gatewayProbes[0]!;
+  228 |   const listenerResult = await deliveryOperation(
+  229 |       page,
+  230 |       'Gateway HTTP listeners',
+  231 |       'CreateGatewayListener',
+  232 |       { name: 'listener-delivery', gatewayId: gateway.id, port: '80' },
+  233 |     ),
+  234 |     listener = integratedWorld(listenerResult).delivery.gatewayListeners[0]!;
+  235 |   const settingResult = await deliveryOperation(
+  236 |       page,
+  237 |       'Gateway HTTPS backend settings',
+  238 |       'CreateGatewayBackendSetting',
+  239 |       { name: 'setting-delivery', gatewayId: gateway.id, probeId: probe.id },
+  240 |     ),
+  241 |     setting = integratedWorld(settingResult).delivery.backendSettings[0]!;
+  242 |   await deliveryOperation(page, 'Gateway routing rules', 'CreateGatewayRoutingRule', {
+  243 |     name: 'rule-delivery',
+  244 |     gatewayId: gateway.id,
+  245 |     listenerId: listener.id,
+  246 |     poolId: pool.id,
+  247 |     settingId: setting.id,
+  248 |     priority: '100',
+  249 |   });
+  250 |   await openDelivery(page, 'Application Gateways', gateway.name);
+  251 |   const count = commands.length,
+  252 |     consistent = await analyse(page, '/health');
+  253 |   await expect(consistent).toContainText('configuration-consistent');
+  254 |   await expect(consistent).toContainText(app.id);
+  255 |   await expect(consistent).toContainText('not-verified');
+  256 |   await expect(page.getByText(d.privateGateway, { exact: true })).toBeVisible();
+  257 |   expect(commands).toHaveLength(count);
+  258 |   await openDelivery(page, 'Gateway synthetic probes', probe.name);
+  259 |   const changed = await integratedOperation(
+  260 |     page,
+  261 |     d.operations.UpdateGatewayProbe,
+  262 |     { [d.fields.path]: '/unmodeled' },
+  263 |     'Save',
+  264 |   );
+  265 |   expect(changed.receipt).toMatchObject({
+  266 |     updatedIds: [probe.id],
+  267 |     integrationChange: { id: probe.id, createOrigin: probe.origin, after: { path: '/unmodeled' } },
+  268 |   });
+  269 |   await openDelivery(page, 'Application Gateways', gateway.name);
+  270 |   const afterChange = commands.length,
+  271 |     undetermined = await analyse(page, '/health');
+  272 |   await expect(undetermined).toContainText('undetermined');
+  273 |   await expect(undetermined).toContainText('modeled-non-200');
+  274 |   await expect(undetermined).toContainText('not-verified');
+  275 |   await page.screenshot({ path: info.outputPath('private-gateway-probe-analysis.png') });
+  276 |   await service(page, studio.title);
+  277 |   await page.getByRole('button', { name: studio.list, exact: true }).click();
+  278 |   await page
+  279 |     .getByRole('table', { name: studio.list, exact: true })
+  280 |     .getByRole('button', { name: `${gateway.name} · ${gateway.id}`, exact: true })
+  281 |     .click();
+  282 |   await expect(page.locator('.studio-inspector')).toContainText(subnet.name);
+  283 |   await page.getByRole('link', { name: studio.open, exact: true }).click();
+  284 |   await expect(page.locator('.portal-title h1')).toHaveText(gateway.name);
+  285 |   const originalReceipt = page.getByRole('link', { name: storage.receipt, exact: true });
+> 286 |   await expect(originalReceipt).toHaveAttribute(
+      |                                 ^ Error: expect(locator).toHaveAttribute(expected) failed
+  287 |     'href',
+  288 |     '/labs/laboratory?view=history&receipt=' + gateway.origin,
+  289 |   );
+  290 |   await originalReceipt.click();
+  291 |   await expect(page.locator('[data-portal-component="receipt"]')).toContainText(
+  292 |     'CreateApplicationGateway',
+  293 |   );
+  294 |   await expect(page.locator('[data-portal-component="receipt"]')).toContainText(gateway.origin);
+  295 |   expect(commands).toHaveLength(afterChange);
+  296 |   expect(await courseBytes(page)).toBe(ready.before);
+  297 | });
+  298 | 
+```

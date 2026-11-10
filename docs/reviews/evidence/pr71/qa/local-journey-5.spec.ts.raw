@@ -1,0 +1,192 @@
+import { test, expect, type Page } from '/workspace/Azure-learner/node_modules/@playwright/test/index.mjs';
+import { startTemporary, service, openResource, create, fill, memoryResponse, courseBytes, t,c,n,r,e,m,f,temp } from '/workspace/Azure-learner/tests/e2e/ephemeral-actions';
+import Axe from '/workspace/Azure-learner/node_modules/@axe-core/playwright/dist/index.mjs';
+async function baseFirewall(page: Page) {
+  await startTemporary(page);
+  const before = await courseBytes(page);
+  let result = await create(page, c.newGroup, { name: 'rg-firewall' });
+  const group = result.receipt.addedIds[0]!;
+  const vn: Record<string, string> = {},
+    sn: Record<string, string> = {};
+  for (const [name, addressSpace, subname, addressPrefix] of [
+    ['vnet-hub', '10.0.0.0/16', 'AzureFirewallSubnet', '10.0.0.0/26'],
+    ['vnet-app', '10.10.0.0/16', 'snet-app', '10.10.1.0/24'],
+    ['vnet-data', '10.20.0.0/16', 'snet-data', '10.20.1.0/24'],
+  ]) {
+    await service(page, n.vnets);
+    result = await create(page, n.newVnet, { name: name!, addressSpace: addressSpace! });
+    vn[name!] = result.receipt.addedIds[0]!;
+    result = await create(page, n.newSubnet, { name: subname!, addressPrefix: addressPrefix! });
+    sn[subname!] = result.receipt.addedIds[0]!;
+  }
+  await service(page, f.policies);
+  result = await create(page, f.operations.CreateFirewallPolicy, { name: 'fw-policy-hub' });
+  const policy = result.receipt.addedIds[0]!;
+  result = await create(page, f.operations.CreateFirewallRuleCollectionGroup, {
+    name: 'workloads',
+    priority: '200',
+  });
+  const collectionGroup = result.receipt.addedIds[0]!;
+  result = await create(page, f.operations.CreateFirewallNetworkCollection, {
+    name: 'allow-data',
+    priority: '200',
+    action: 'Allow',
+  });
+  const collection = result.receipt.addedIds[0]!;
+  result = await create(page, f.operations.CreateFirewallNetworkRule, {
+    name: 'app-sql',
+    source: '10.10.1.0/24',
+    destination: '10.20.1.0/24',
+    protocol: 'Tcp',
+    destinationPort: '1433',
+  });
+  const rule = result.receipt.addedIds[0]!;
+  await service(page, f.firewalls);
+  result = await create(page, f.operations.CreateAzureFirewall, {
+    name: 'fw-hub',
+    subnetId: sn.AzureFirewallSubnet!,
+    policyId: policy,
+  });
+  const firewall = result.receipt.addedIds[0]!,
+    publicIp = result.receipt.addedIds[1]!;
+  return {
+    before,
+    group,
+    vn,
+    sn,
+    policy,
+    collectionGroup,
+    collection,
+    rule,
+    firewall,
+    publicIp,
+    result,
+  };
+}
+async function analyse(page: Page, nics: Record<string, string>, port = '1433') {
+  await service(page, f.analysis);
+  await page
+    .getByRole('combobox', { name: e.source, exact: true })
+    .selectOption(nics['vm-app-01']!);
+  await page
+    .getByRole('combobox', { name: e.destination, exact: true })
+    .selectOption(nics['vm-data-01']!);
+  await page.getByRole('textbox', { name: e.destinationPort, exact: true }).fill(port);
+  await page.getByRole('button', { name: e.calculate, exact: true }).click();
+  await expect(page.locator('[data-firewall-outcome]')).toBeVisible();
+}
+
+let page: Page; let s: Awaited<ReturnType<typeof baseFirewall>>; let endpoints: Record<string,string>;
+test.describe.configure({ mode:'serial' });
+test.beforeAll(async ({browser})=> {const context=await browser.newContext({viewport:{width:1440,height:900}});page=await context.newPage();});
+test.afterAll(async()=>{await page?.context().close();});
+test('actual UI Stage A Resource Groups VNet subnets Firewall hierarchy and original receipt', async()=>{ s=await baseFirewall(page); });
+test('actual UI Stage B directional forwarding peerings and authoritative appliance routes', async()=>{
+
+  const peers: Record<string, string> = {};
+  let result = s.result;
+  for (const [local, remote, name] of [
+    ['vnet-hub', 'vnet-app', 'hub-app'],
+    ['vnet-app', 'vnet-hub', 'app-hub'],
+    ['vnet-hub', 'vnet-data', 'hub-data'],
+    ['vnet-data', 'vnet-hub', 'data-hub'],
+  ]) {
+    await service(page, n.vnets);
+    await openResource(page, local!);
+    await page.getByRole('link', { name: r.peerings, exact: true }).click();
+    result = await create(page, r.operations.CreateVnetPeering, {
+      name: name!,
+      vnetId: s.vn[local!]!,
+      remoteVnetId: s.vn[remote!]!,
+    });
+    peers[name!] = result.receipt.addedIds[0]!;
+    if (name === 'app-hub' || name === 'data-hub') {
+      await create(page, f.operations.SetPeeringForwardedTraffic, { value: 'true' }, true);
+      await expect(page.locator('.portal-title h1')).toHaveText(name);
+    }
+  }
+  const tables: Record<string, string> = {},
+    routes: Record<string, string> = {};
+  for (const [name, prefix, subnetName] of [
+    ['rt-app', '10.20.0.0/16', 'snet-app'],
+    ['rt-data', '10.10.0.0/16', 'snet-data'],
+  ]) {
+    await service(page, r.tables);
+    result = await create(page, r.operations.CreateRouteTable, { name: name! });
+    tables[name!] = result.receipt.addedIds[0]!;
+    result = await create(page, r.operations.CreateRoute, {
+      nextHopType: 'VirtualAppliance',
+      name: 'to-' + (name === 'rt-app' ? 'data' : 'app'),
+      addressPrefix: prefix!,
+      firewallId: s.firewall,
+      nextHopIp: '10.0.0.4',
+    });
+    routes[name!] = result.receipt.addedIds[0]!;
+    await service(page, n.vnets);
+    await openResource(page, name === 'rt-app' ? 'vnet-app' : 'vnet-data');
+    await openResource(page, subnetName!);
+    await create(
+      page,
+      r.operations.AssociateSubnetRouteTable,
+      { routeTableId: tables[name!]! },
+      true,
+    );
+  }
+});
+test('actual UI Stage C VMs NICs disks and concrete subnet NSG rules',async()=>{
+  let result = s.result;
+  const vms: Record<string, string> = {},
+    nics: Record<string, string> = {};
+  for (const [name, vnet, subnet, ip] of [
+    ['vm-app-01', 'vnet-app', 'snet-app', '10.10.1.10'],
+    ['vm-data-01', 'vnet-data', 'snet-data', '10.20.1.10'],
+  ]) {
+    await service(page, m.vms);
+    result = await create(page, m.create, {
+      name: name!,
+      vnetId: s.vn[vnet!]!,
+      subnetId: s.sn[subnet!]!,
+      privateIpAddress: ip!,
+    });
+    vms[name!] = result.receipt.addedIds[0]!;
+    nics[name!] = result.receipt.addedIds[1]!;
+  }
+  for (const [name, subnet, direction, port] of [
+    ['nsg-app', 'snet-app', 'Outbound', '*'],
+    ['nsg-data', 'snet-data', 'Inbound', '1433'],
+  ]) {
+    await service(page, n.nsgs);
+    result = await create(page, n.newNsg, { name: name! });
+    const nsg = result.receipt.addedIds[0]!;
+    await create(page, n.newRule, {
+      name: 'rule-' + name,
+      direction: direction!,
+      priority: '200',
+      protocol: 'Tcp',
+      source: '10.10.1.0/24',
+      sourcePort: '*',
+      destination: '10.20.1.0/24',
+      destinationPort: port!,
+      access: 'Allow',
+    });
+    await service(page, n.vnets);
+    await openResource(page, name === 'nsg-app' ? 'vnet-app' : 'vnet-data');
+    await openResource(page, subnet!);
+    result = await create(page, n.associate, { nsgId: nsg }, true);
+  }
+endpoints=nics;
+});
+
+test('actual UI Stage D original Firewall and NSG analysis 1433 Allow 3389 Deny no technical writes Studio',async({}, info)=>{
+ const counts:number[]=[];page.on('response',async response=>{if(response.url().endsWith('/api/laboratory/ephemeral')){const d=await response.json();if(d.entries)counts.push(d.entries.length);}});
+ await analyse(page,endpoints);await expect(page.locator('[data-firewall-outcome]')).toHaveAttribute('data-firewall-outcome','allowed-via-firewall');await expect(page.locator('.lab-firewall-path')).toContainText('app-sql');await page.screenshot({path:info.outputPath('actual-hub-firewall-1433.png'),fullPage:true});
+ await analyse(page,endpoints,'3389');await expect(page.locator('[data-firewall-outcome]')).toHaveAttribute('data-firewall-outcome','denied-by-firewall');await service(page,'Architecture Studio');await expect(page.locator('.architecture-studio')).toContainText('vm-app-01');await page.screenshot({path:info.outputPath('actual-hub-studio.png')});expect(await courseBytes(page)).toBe(s.before);expect(new Set(counts).size).toBeLessThanOrEqual(1);
+ for(const viewport of [{width:1920,height:1080},{width:1440,height:900},{width:1024,height:768},{width:1024,height:500}]){await page.setViewportSize(viewport);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:info.outputPath(`studio-${viewport.width}-${viewport.height}.png`)});}
+});
+test('actual UI Stage E Home both real cards full desktop layouts browser zoom native focus Axe and refresh loss', async({},info)=>{
+ await page.getByRole('link',{name:'Til forsiden',exact:true}).click();await expect(page).toHaveURL('/');await page.emulateMedia({reducedMotion:'reduce'});
+ for(const viewport of [{width:1920,height:1080},{width:1440,height:900},{width:1366,height:768},{width:1024,height:768},{width:1024,height:500},{width:800,height:700}]){await page.setViewportSize(viewport);expect(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight)).toBe(true);await page.screenshot({path:info.outputPath(`landing-${viewport.width}-${viewport.height}.png`)});}
+ expect((await new Axe({page}).analyze()).violations).toEqual([]);
+ const cdp=await page.context().newCDPSession(page);for(const zoom of [1.25,2]){await cdp.send('Emulation.setPageScaleFactor',{pageScaleFactor:zoom});await page.screenshot({path:info.outputPath(`page-scale-${zoom}.png`)});}await cdp.send('Emulation.setPageScaleFactor',{pageScaleFactor:1});await cdp.detach();
+ await page.getByRole('link',{name:t.labLink,exact:true}).click();await service(page,m.vms);await expect(page.getByRole('link',{name:'vm-app-01',exact:true})).toBeVisible();await page.reload();await expect(page.getByRole('button',{name:temp.start,exact:true})).toBeVisible();
+});

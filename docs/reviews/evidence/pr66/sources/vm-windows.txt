@@ -1,0 +1,171 @@
+Table of contents
+Exit editor mode
+Ask Learn
+Ask Learn
+Reading mode
+Table of contents
+Read in English
+Add
+Add to Plans
+Edit
+Copy Markdown
+Print
+Note
+Access to this page requires authorization. You can try
+signing in
+or
+changing directories
+.
+Access to this page requires authorization. You can try
+changing directories
+.
+Quickstart: Create a Windows virtual machine in the Azure portal
+Feedback
+Summarize this article for me
+In this article
+Applies to:
+✔️ Windows VMs
+Azure virtual machines (VMs) can be created through the Azure portal. This method provides a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Azure portal to deploy a virtual machine (VM) in Azure that runs Windows Server 2022 Datacenter. To see your VM in action, you then RDP to the VM and install the IIS web server.
+If you don't have an Azure subscription, create a
+free account
+before you begin.
+Important
+The steps outlined in this quickstart are solely for education purposes and aren't intended for deployments to a production environment.
+Sign in to Azure
+Sign in to the
+Azure portal
+.
+Create virtual machine
+Enter
+virtual machines
+in the search.
+Under
+Services
+, select
+Virtual machines
+.
+In the
+Virtual machines
+page, select
+Create
+from the menu at the top of the page and then select
+Virtual machine
+from the drop-down. The
+Create a virtual machine
+page opens.
+Under
+Instance details
+, enter
+myVM
+for the
+Virtual machine name
+and choose
+Windows Server 2022 Datacenter: Azure Edition - x64 Gen 2
+for the
+Image
+. The page will fill in the other fields with defaults and use the VM name to create similar names for the other resources that are needed.
+Note
+Some users will now see the option to create VMs in multiple zones. To learn more about this new capability, see
+Create virtual machines in an availability zone
+.
+Under
+Administrator account
+,  provide a username, such as
+azureuser
+and a password. The password must be at least 12 characters long and meet the
+defined complexity requirements
+.
+Under
+Inbound port rules
+, choose
+Allow selected ports
+and then select
+RDP (3389)
+and
+HTTP (80)
+from the drop-down.
+At the top of the page, select the
+Management
+tab.
+In the
+Auto-shutdown
+section, select the
+Enable auto-shutdown
+option.
+Select a
+Shutdown time
+and the
+Time zone
+to use (UTC is the default). Optionally you can choose to be notified by e-mail before the shutdown. For more information see
+Auto-shutdown
+.
+Leave the remaining defaults and then select the
+Review + create
+button at the bottom of the page.
+After validation runs, select the
+Create
+button at the bottom of the page.
+After deployment is complete, select
+Go to resource
+.
+Connect to virtual machine
+Create a remote desktop connection to the virtual machine. These directions tell you how to connect to your VM from a Windows computer. On a Mac, you need an RDP client such as this
+Remote Desktop Client
+from the Mac App Store.
+On the overview page for your virtual machine, select
+Connect
+and then select
+Connect
+again from the drop-down.
+In the
+Native RDP
+page, select the
+Check access
+button to make sure port 3389 is available.
+Select
+Download RDP file
+to download the connection file to your computer.
+Open the downloaded RDP file and click
+Connect
+when prompted.
+You may receive a certificate warning during the sign-in process. Click
+Yes
+or
+Continue
+to create the connection.
+Install web server
+To see your VM in action, install the IIS web server. Open a PowerShell prompt on the VM and run the following command:
+Install-WindowsFeature -name Web-Server -IncludeManagementTools
+When done, close the RDP connection to the VM.
+View the IIS welcome page
+In the portal, select the VM and in the overview of the VM, hover over the IP address to show
+Copy to clipboard
+. Copy the IP address and paste it into a browser tab. The default IIS welcome page will open, and should look like this:
+Clean up resources
+Delete resources
+When no longer needed, you can delete the resource group, virtual machine, and all related resources.
+On the Overview page for the VM, select the
+Resource group
+link.
+At the top of the page for the resource group, select
+Delete resource group
+.
+A page will open warning you that you are about to delete resources. Type the name of the resource group and select
+Delete
+to finish deleting the resources and the resource group.
+Next steps
+In this quickstart, you deployed a simple virtual machine, opened a network port for web traffic, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
+Azure Windows virtual machine tutorials
+Feedback
+Was this page helpful?
+Yes
+No
+No
+Need help with this topic?
+Want to try using Ask Learn to clarify or guide you through this topic?
+Ask Learn
+Ask Learn
+Suggest a fix?
+Additional resources
+Last updated on
+2026-03-27

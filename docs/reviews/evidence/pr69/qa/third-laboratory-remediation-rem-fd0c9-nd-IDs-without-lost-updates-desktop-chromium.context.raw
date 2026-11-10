@@ -1,0 +1,333 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: laboratory-remediation.spec.ts >> remediation two native editors preserve pinned revisions reject stale saves and replay identical command IDs without lost updates
+- Location: tests/e2e/laboratory-remediation.spec.ts:299:1
+
+# Error details
+
+```
+Error: route.continue: Route is already handled!
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f2e1]:
+  - alert [ref=f2e2]
+  - generic [ref=f2e3]:
+    - link "Hopp til innhold" [ref=f2e4] [cursor=pointer]:
+      - /url: "#lab-main"
+    - banner [ref=f2e5]:
+      - button "Åpne eller lukk portalmenyen" [expanded] [ref=f2e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=f2e8] [cursor=pointer]:
+        - /url: /labs/laboratory
+      - searchbox "Search resources and services" [ref=f2e10]
+      - generic [ref=f2e11]: Fri Laboratory
+      - button "Originale kvitteringer" [ref=f2e12] [cursor=pointer]
+      - button "Modellgrenser" [ref=f2e14] [cursor=pointer]
+      - link "Kursarbeidsområde" [ref=f2e16] [cursor=pointer]:
+        - /url: /portal
+      - link "Til kurset" [ref=f2e17] [cursor=pointer]:
+        - /url: /learn
+    - generic [ref=f2e18]:
+      - complementary "Laboratory v3 navigasjon" [ref=f2e19]:
+        - navigation "Laboratory v3 navigasjon" [ref=f2e20]:
+          - link "Create a resource" [ref=f2e21] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - link "All services" [ref=f2e23] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - generic [ref=f2e25]: FAVORITES
+          - link "All resources" [ref=f2e27] [cursor=pointer]:
+            - /url: /labs/laboratory?view=resources
+          - link "Architecture Studio" [ref=f2e29] [cursor=pointer]:
+            - /url: /labs/laboratory?view=studio
+          - link "Azure Firewalls" [ref=f2e31] [cursor=pointer]:
+            - /url: /labs/laboratory?view=firewalls
+          - link "Firewall Policies" [ref=f2e33] [cursor=pointer]:
+            - /url: /labs/laboratory?view=firewallPolicies
+          - link "Public IP addresses" [ref=f2e35] [cursor=pointer]:
+            - /url: /labs/laboratory?view=publicIps
+          - link "Virtual machines" [ref=f2e37] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vms
+          - link "Managed disks" [ref=f2e39] [cursor=pointer]:
+            - /url: /labs/laboratory?view=disks
+          - link "Network interfaces" [ref=f2e41] [cursor=pointer]:
+            - /url: /labs/laboratory?view=nics
+          - link "Network Policy Analysis" [ref=f2e43] [cursor=pointer]:
+            - /url: /labs/laboratory?view=policy
+          - link "Resource groups" [ref=f2e45] [cursor=pointer]:
+            - /url: /labs/laboratory?view=groups
+          - link "Storage accounts" [ref=f2e47] [cursor=pointer]:
+            - /url: /labs/laboratory?view=accounts
+          - link "Virtual networks" [ref=f2e49] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vnets
+          - link "Network security groups" [ref=f2e51] [cursor=pointer]:
+            - /url: /labs/laboratory?view=nsgs
+          - link "Route tables" [ref=f2e53] [cursor=pointer]:
+            - /url: /labs/laboratory?view=routeTables
+          - link "Ruteanalyse" [ref=f2e55] [cursor=pointer]:
+            - /url: /labs/laboratory?view=analysis
+          - link "Originale kvitteringer" [ref=f2e57] [cursor=pointer]:
+            - /url: /labs/laboratory?view=history
+        - generic [ref=f2e59]: Støttede tjenester i dette arbeidsområdet
+      - main [ref=f2e60]:
+        - generic [ref=f2e61]:
+          - button "Fri Laboratory" [ref=f2e62] [cursor=pointer]
+          - button "Network security groups" [ref=f2e64] [cursor=pointer]
+          - button "nsg-data" [ref=f2e66] [cursor=pointer]
+          - generic [ref=f2e68]: receive-sql
+        - generic [ref=f2e72]:
+          - heading "receive-sql" [level=1] [ref=f2e73]
+          - generic [ref=f2e74]: Security rule · Lokal AzureLab-simulator · eget serverlagret arbeidsområde · ingen kursresultater eller XP
+        - generic [ref=f2e77]:
+          - navigation "receive-sql · Overview" [ref=f2e78]:
+            - strong [ref=f2e79]: receive-sql
+            - generic [ref=f2e81]:
+              - generic [ref=f2e82]: Search this resource
+              - searchbox "Search this resource" [ref=f2e83]
+            - button "Overview" [ref=f2e84] [cursor=pointer]
+            - button "Activity log" [ref=f2e86] [cursor=pointer]
+            - group [ref=f2e88]:
+              - generic "Settings" [ref=f2e89] [cursor=pointer]
+              - button "Properties" [ref=f2e90] [cursor=pointer]
+            - generic [ref=f2e92]: Lokalt simulator-scope
+          - generic [ref=f2e93]:
+            - region "Edit" [ref=f2e94]:
+              - generic [ref=f2e95]:
+                - button "Edit" [active] [ref=f2e96] [cursor=pointer]
+                - button "Delete" [ref=f2e97] [cursor=pointer]
+                - link "Siste endringskvittering" [ref=f2e98] [cursor=pointer]:
+                  - /url: /labs/laboratory?view=history&receipt=a04bbf57-e6be-4a18-afe4-1334bb931b37
+            - generic [ref=f2e99]:
+              - generic [ref=f2e100]:
+                - term [ref=f2e101]: Lokal ID
+                - definition [ref=f2e102]: rule-31
+              - generic [ref=f2e103]:
+                - term [ref=f2e104]: Network security group
+                - definition [ref=f2e105]:
+                  - link "nsg-data" [ref=f2e106] [cursor=pointer]:
+                    - /url: /labs/laboratory?view=nsg&id=nsg-29
+              - generic [ref=f2e107]:
+                - term [ref=f2e108]: Direction
+                - definition [ref=f2e109]: Inbound
+              - generic [ref=f2e110]:
+                - term [ref=f2e111]: Priority
+                - definition [ref=f2e112]: "200"
+              - generic [ref=f2e113]:
+                - term [ref=f2e114]: Protocol
+                - definition [ref=f2e115]: Tcp
+              - generic [ref=f2e116]:
+                - term [ref=f2e117]: Source IPv4/CIDR
+                - definition [ref=f2e118]: 10.10.1.0/24
+              - generic [ref=f2e119]:
+                - term [ref=f2e120]: Source port
+                - definition [ref=f2e121]: "*"
+              - generic [ref=f2e122]:
+                - term [ref=f2e123]: Destination IPv4/CIDR
+                - definition [ref=f2e124]: 10.20.1.0/24
+              - generic [ref=f2e125]:
+                - term [ref=f2e126]: Destination port
+                - definition [ref=f2e127]: "1777"
+              - generic [ref=f2e128]:
+                - term [ref=f2e129]: Access
+                - definition [ref=f2e130]: Allow
+            - link "Åpne original kvittering" [ref=f2e131] [cursor=pointer]:
+              - /url: /labs/laboratory?view=history&receipt=remediation-32
+        - generic [ref=f2e132]:
+          - generic [ref=f2e133]: Fri Laboratory
+          - button "Oppdater fra serveren" [ref=f2e134] [cursor=pointer]
+          - generic [ref=f2e136]: "World-revisjon: 34 · Arbeidsforsøk: 1 · Arbeidsområdets modell: laboratory@3.6.0"
+          - button "Nullstill eget arbeidsområde" [ref=f2e137] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  255 |     .click();
+  256 |   let dialog = page.getByRole('dialog', { name: t.deleting, exact: true });
+  257 |   for (const value of [a.workspace, 'laboratory@3.6.0', a.dataRule, a.dataNsg, 'receive-sql'])
+  258 |     await expect(dialog).toContainText(value);
+  259 |   await dialog.getByRole('button', { name: t.review, exact: true }).click();
+  260 |   expect(await state(page)).toEqual(before);
+  261 |   await expect(dialog.getByRole('button', { name: t.remove, exact: true })).toBeDisabled();
+  262 |   await page.keyboard.press('Escape');
+  263 |   expect(await state(page)).toEqual(before);
+  264 |   await page
+  265 |     .locator('.lab-rule-lifecycle')
+  266 |     .getByRole('button', { name: t.remove, exact: true })
+  267 |     .click();
+  268 |   dialog = page.getByRole('dialog', { name: t.deleting, exact: true });
+  269 |   await dialog.getByRole('button', { name: t.review, exact: true }).click();
+  270 |   await dialog.getByRole('checkbox').check();
+  271 |   await dialog.getByRole('button', { name: t.remove, exact: true }).click();
+  272 |   const history = page.locator('.lab-rule-history');
+  273 |   await expect(history).toContainText(t.removed);
+  274 |   const after = await state(page),
+  275 |     deletion = after.entries.at(-1);
+  276 |   expect(deletion.receipt.removedIds).toEqual([a.dataRule]);
+  277 |   expect(after.entries.slice(0, before.entries.length)).toEqual(before.entries);
+  278 |   await page.reload();
+  279 |   await history.getByRole('button', { name: t.verify, exact: true }).click();
+  280 |   await expect(history).toContainText(t.verified);
+  281 |   await page.getByRole('button', { name: c.reset, exact: true }).click();
+  282 |   await page.getByRole('button', { name: c.confirmReset, exact: true }).click();
+  283 |   await page.goto(
+  284 |     '/labs/laboratory?' +
+  285 |       new URLSearchParams({ view: 'history', receipt: deletion.receipt.commandId }),
+  286 |   );
+  287 |   await history.getByRole('button', { name: t.verify, exact: true }).click();
+  288 |   await expect(history).toContainText(t.verified);
+  289 |   await history.locator('details').nth(0).locator('summary').click();
+  290 |   await expect(history.locator('details').nth(0)).toContainText(a.dataRule);
+  291 |   await history.locator('details').nth(1).locator('summary').click();
+  292 |   await expect(history.locator('details').nth(1)).toContainText(t.missingHistoricalRule);
+  293 |   expect((await state(page)).entries.slice(0, after.entries.length)).toEqual(after.entries);
+  294 |   await page.screenshot({
+  295 |     path: test.info().outputPath('deleted-nsg-historical-replay-after-reset.png'),
+  296 |   });
+  297 | });
+  298 | 
+  299 | test('remediation two native editors preserve pinned revisions reject stale saves and replay identical command IDs without lost updates', async ({
+  300 |   page,
+  301 |   context,
+  302 | }) => {
+  303 |   const a = await seed(page),
+  304 |     second = await context.newPage();
+  305 |   await open(page, 'rule', a.dataRule);
+  306 |   await open(second, 'rule', a.dataRule);
+  307 |   const d1 = await edit(page, { destinationPort: '1444' });
+  308 |   const d2 = await edit(second, { destinationPort: '1555' });
+  309 |   await expect(d1).toContainText(a.workspace);
+  310 |   const sent = page.waitForRequest(
+  311 |     (r) => r.url().endsWith('/api/laboratory/command') && r.method() === 'POST',
+  312 |   );
+  313 |   await save(page);
+  314 |   const command = (await sent).postDataJSON(),
+  315 |     winner = await state(page);
+  316 |   await second.bringToFront();
+  317 |   await expect(d2).toContainText(t.stale);
+  318 |   await expect(d2.getByRole('button', { name: t.save, exact: true })).toBeDisabled();
+  319 |   await expect(
+  320 |     d2.getByRole('textbox', { name: n.fields.destinationPort, exact: true }),
+  321 |   ).toHaveValue('1555');
+  322 |   expect(await state(second)).toEqual(winner);
+  323 |   const headers = { Origin: 'http://127.0.0.1:3000', 'If-Laboratory-Workspace': a.workspace };
+  324 |   const redelivery = await page.request.post('/api/laboratory/command', { headers, data: command });
+  325 |   expect((await redelivery.json()).redelivered).toBe(true);
+  326 |   const conflict = await page.request.post('/api/laboratory/command', {
+  327 |     headers,
+  328 |     data: { ...command, command: { ...command.command, destinationPort: '1666' } },
+  329 |   });
+  330 |   expect(conflict.status()).toBe(409);
+  331 |   const stale = await page.request.post('/api/laboratory/command', {
+  332 |     headers,
+  333 |     data: {
+  334 |       ...command,
+  335 |       commandId: crypto.randomUUID(),
+  336 |       command: { ...command.command, destinationPort: '1555' },
+  337 |     },
+  338 |   });
+  339 |   expect(stale.status()).toBe(409);
+  340 |   expect((await stale.json()).receipt.code).toBe('stale-revision');
+  341 |   expect((await state(page)).world).toEqual(winner.world);
+  342 |   await d2.getByRole('button', { name: t.cancel, exact: true }).click();
+  343 |   await open(page, 'rule', a.dataRule);
+  344 |   await open(second, 'rule', a.dataRule);
+  345 |   await edit(page, { destinationPort: '1777' });
+  346 |   const oldReview = await edit(second, { destinationPort: '1888' });
+  347 |   // Delay only invalidation reads, not the command or server authority. This
+  348 |   // exercises Save before the other tab learns about the real competing commit.
+  349 |   let release!: () => void;
+  350 |   const gate = new Promise<void>((resolve) => {
+  351 |     release = resolve;
+  352 |   });
+  353 |   await second.route('**/api/laboratory/state', async (route) => {
+  354 |     await gate;
+> 355 |     await route.continue();
+      |                         ^ Error: route.continue: Route is already handled!
+  356 |   });
+  357 |   try {
+  358 |     await save(page);
+  359 |     const committed = await state(page);
+  360 |     const rejected = second.waitForResponse(
+  361 |       (r) => r.url().endsWith('/api/laboratory/command') && r.request().method() === 'POST',
+  362 |     );
+  363 |     await oldReview.getByRole('button', { name: t.save, exact: true }).click();
+  364 |     const result = await rejected;
+  365 |     expect(result.status()).toBe(409);
+  366 |     const body = await result.json();
+  367 |     expect(body.receipt.code).toBe('stale-revision');
+  368 |     expect(body.world).toEqual(committed.world);
+  369 |     await expect(second.locator('.lab-result')).toContainText(c.codes['stale-revision']);
+  370 |     expect((await state(page)).world).toEqual(committed.world);
+  371 |   } finally {
+  372 |     release();
+  373 |     await second.unroute('**/api/laboratory/state');
+  374 |   }
+  375 |   await second.close();
+  376 | });
+  377 | 
+  378 | test('remediation compact native Review keyboard focus reduced motion Axe pinned delete and short desktop preserve readable rule evidence', async ({
+  379 |   page,
+  380 | }) => {
+  381 |   await page.emulateMedia({ reducedMotion: 'reduce' });
+  382 |   const a = await seed(page);
+  383 |   await open(page, 'rule', a.dataRule);
+  384 |   const initial = await state(page);
+  385 |   await page
+  386 |     .locator('.lab-rule-lifecycle')
+  387 |     .getByRole('button', { name: t.edit, exact: true })
+  388 |     .click();
+  389 |   const validation = page.getByRole('dialog', { name: t.editing, exact: true });
+  390 |   await validation.getByRole('button', { name: t.review, exact: true }).click();
+  391 |   await expect(validation).toContainText(t.noChange);
+  392 |   await expect(validation.getByRole('button', { name: t.save, exact: true })).toBeDisabled();
+  393 |   await validation.getByRole('textbox', { name: n.fields.priority, exact: true }).fill('99');
+  394 |   await validation.getByRole('button', { name: t.review, exact: true }).click();
+  395 |   await expect(validation).toContainText(n.codes['invalid-priority']);
+  396 |   await expect(validation.getByRole('button', { name: t.save, exact: true })).toBeDisabled();
+  397 |   expect(await state(page)).toEqual(initial);
+  398 |   await validation.getByRole('button', { name: t.cancel, exact: true }).click();
+  399 |   const dialog = await edit(page, { destinationPort: '1444' });
+  400 |   for (const viewport of [
+  401 |     { width: 1440, height: 900 },
+  402 |     { width: 1024, height: 768 },
+  403 |     { width: 1024, height: 500 },
+  404 |   ]) {
+  405 |     await page.setViewportSize(viewport);
+  406 |     const button = dialog.getByRole('button', { name: t.save, exact: true });
+  407 |     await button.focus();
+  408 |     await expect(button).toBeFocused();
+  409 |     const box = await button.boundingBox();
+  410 |     expect(box!.y).toBeGreaterThanOrEqual(0);
+  411 |     expect(box!.y + box!.height).toBeLessThanOrEqual(viewport.height);
+  412 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  413 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+  414 |       true,
+  415 |     );
+  416 |     await page.screenshot({
+  417 |       path: test.info().outputPath(`remediation-review-${viewport.width}-${viewport.height}.png`),
+  418 |     });
+  419 |   }
+  420 |   await dialog.getByRole('button', { name: t.cancel, exact: true }).click();
+  421 |   await page
+  422 |     .locator('.lab-rule-lifecycle')
+  423 |     .getByRole('button', { name: t.remove, exact: true })
+  424 |     .focus();
+  425 |   await page.keyboard.press('Enter');
+  426 |   const remove = page.getByRole('dialog', { name: t.deleting, exact: true });
+  427 |   await remove.getByRole('button', { name: t.review, exact: true }).click();
+  428 |   await remove.getByRole('checkbox').focus();
+  429 |   await page.keyboard.press('Space');
+  430 |   await expect(remove.getByRole('checkbox')).toBeChecked();
+  431 |   await page.keyboard.press('Escape');
+  432 |   expect(await state(page)).toEqual(initial);
+  433 | });
+  434 | 
+```

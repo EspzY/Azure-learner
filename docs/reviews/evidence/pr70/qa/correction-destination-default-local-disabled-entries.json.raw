@@ -1,0 +1,1256 @@
+[
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-1",
+      "expectedRevision": 0,
+      "command": {
+        "type": "CreateGroup",
+        "name": "rg-firewall",
+        "subscriptionId": "sub-shared",
+        "metadataRegion": "norwayeast"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-1",
+      "sequence": 1,
+      "beforeRevision": 0,
+      "afterRevision": 1,
+      "operation": "CreateGroup",
+      "targetType": "Microsoft.Resources/resourceGroups",
+      "scopeId": "sub-shared",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-storage@3.4",
+      "addedIds": [
+        "group-1"
+      ],
+      "removedIds": [],
+      "beforeCount": 0,
+      "afterCount": 1
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-2",
+      "expectedRevision": 1,
+      "command": {
+        "type": "CreateVirtualNetwork",
+        "groupId": "group-1",
+        "name": "vnet-hub",
+        "region": "norwayeast",
+        "addressSpace": "10.0.0.0/16"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-2",
+      "sequence": 2,
+      "beforeRevision": 1,
+      "afterRevision": 2,
+      "operation": "CreateVirtualNetwork",
+      "targetType": "Microsoft.Network/virtualNetworks",
+      "scopeId": "group-1",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-network@3.4",
+      "addedIds": [
+        "vnet-2"
+      ],
+      "removedIds": [],
+      "beforeCount": 1,
+      "afterCount": 2
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-3",
+      "expectedRevision": 2,
+      "command": {
+        "type": "CreateVirtualNetwork",
+        "groupId": "group-1",
+        "name": "vnet-app",
+        "region": "norwayeast",
+        "addressSpace": "10.10.0.0/16"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-3",
+      "sequence": 3,
+      "beforeRevision": 2,
+      "afterRevision": 3,
+      "operation": "CreateVirtualNetwork",
+      "targetType": "Microsoft.Network/virtualNetworks",
+      "scopeId": "group-1",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-network@3.4",
+      "addedIds": [
+        "vnet-3"
+      ],
+      "removedIds": [],
+      "beforeCount": 2,
+      "afterCount": 3
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-4",
+      "expectedRevision": 3,
+      "command": {
+        "type": "CreateVirtualNetwork",
+        "groupId": "group-1",
+        "name": "vnet-data",
+        "region": "norwayeast",
+        "addressSpace": "10.20.0.0/16"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-4",
+      "sequence": 4,
+      "beforeRevision": 3,
+      "afterRevision": 4,
+      "operation": "CreateVirtualNetwork",
+      "targetType": "Microsoft.Network/virtualNetworks",
+      "scopeId": "group-1",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-network@3.4",
+      "addedIds": [
+        "vnet-4"
+      ],
+      "removedIds": [],
+      "beforeCount": 3,
+      "afterCount": 4
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-5",
+      "expectedRevision": 4,
+      "command": {
+        "type": "CreateSubnet",
+        "vnetId": "vnet-2",
+        "name": "AzureFirewallSubnet",
+        "addressPrefix": "10.0.0.0/26"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-5",
+      "sequence": 5,
+      "beforeRevision": 4,
+      "afterRevision": 5,
+      "operation": "CreateSubnet",
+      "targetType": "Microsoft.Network/virtualNetworks/subnets",
+      "scopeId": "vnet-2",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-firewall-subnet@3.5",
+      "addedIds": [
+        "subnet-5"
+      ],
+      "removedIds": [],
+      "beforeCount": 4,
+      "afterCount": 5
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-6",
+      "expectedRevision": 5,
+      "command": {
+        "type": "CreateSubnet",
+        "vnetId": "vnet-3",
+        "name": "snet-app",
+        "addressPrefix": "10.10.1.0/24"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-6",
+      "sequence": 6,
+      "beforeRevision": 5,
+      "afterRevision": 6,
+      "operation": "CreateSubnet",
+      "targetType": "Microsoft.Network/virtualNetworks/subnets",
+      "scopeId": "vnet-3",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-network@3.4",
+      "addedIds": [
+        "subnet-6"
+      ],
+      "removedIds": [],
+      "beforeCount": 5,
+      "afterCount": 6
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-7",
+      "expectedRevision": 6,
+      "command": {
+        "type": "CreateSubnet",
+        "vnetId": "vnet-4",
+        "name": "snet-data",
+        "addressPrefix": "10.20.1.0/24"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-7",
+      "sequence": 7,
+      "beforeRevision": 6,
+      "afterRevision": 7,
+      "operation": "CreateSubnet",
+      "targetType": "Microsoft.Network/virtualNetworks/subnets",
+      "scopeId": "vnet-4",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-network@3.4",
+      "addedIds": [
+        "subnet-7"
+      ],
+      "removedIds": [],
+      "beforeCount": 6,
+      "afterCount": 7
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-8",
+      "expectedRevision": 7,
+      "command": {
+        "type": "CreateVnetPeering",
+        "vnetId": "vnet-2",
+        "remoteVnetId": "vnet-3",
+        "name": "hub-app"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-8",
+      "sequence": 8,
+      "beforeRevision": 7,
+      "afterRevision": 8,
+      "operation": "CreateVnetPeering",
+      "targetType": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "scopeId": "vnet-2",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-routing@3.4",
+      "addedIds": [
+        "peering-8"
+      ],
+      "removedIds": [],
+      "beforeCount": 7,
+      "afterCount": 8
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-9",
+      "expectedRevision": 8,
+      "command": {
+        "type": "CreateVnetPeering",
+        "vnetId": "vnet-3",
+        "remoteVnetId": "vnet-2",
+        "name": "app-hub"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-9",
+      "sequence": 9,
+      "beforeRevision": 8,
+      "afterRevision": 9,
+      "operation": "CreateVnetPeering",
+      "targetType": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "scopeId": "vnet-3",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-routing@3.4",
+      "addedIds": [
+        "peering-9"
+      ],
+      "removedIds": [],
+      "beforeCount": 8,
+      "afterCount": 9
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-10",
+      "expectedRevision": 9,
+      "command": {
+        "type": "CreateVnetPeering",
+        "vnetId": "vnet-2",
+        "remoteVnetId": "vnet-4",
+        "name": "hub-data"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-10",
+      "sequence": 10,
+      "beforeRevision": 9,
+      "afterRevision": 10,
+      "operation": "CreateVnetPeering",
+      "targetType": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "scopeId": "vnet-2",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-routing@3.4",
+      "addedIds": [
+        "peering-10"
+      ],
+      "removedIds": [],
+      "beforeCount": 9,
+      "afterCount": 10
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-11",
+      "expectedRevision": 10,
+      "command": {
+        "type": "CreateVnetPeering",
+        "vnetId": "vnet-4",
+        "remoteVnetId": "vnet-2",
+        "name": "data-hub"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-11",
+      "sequence": 11,
+      "beforeRevision": 10,
+      "afterRevision": 11,
+      "operation": "CreateVnetPeering",
+      "targetType": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "scopeId": "vnet-4",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-routing@3.4",
+      "addedIds": [
+        "peering-11"
+      ],
+      "removedIds": [],
+      "beforeCount": 10,
+      "afterCount": 11
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-12",
+      "expectedRevision": 11,
+      "command": {
+        "type": "SetPeeringForwardedTraffic",
+        "peeringId": "peering-9",
+        "value": "true"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-12",
+      "sequence": 12,
+      "beforeRevision": 11,
+      "afterRevision": 12,
+      "operation": "SetPeeringForwardedTraffic",
+      "targetType": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "scopeId": "peering-9",
+      "location": null,
+      "outcome": "accepted",
+      "code": "updated",
+      "ruleId": "lab-firewall@3.5",
+      "addedIds": [],
+      "removedIds": [],
+      "beforeCount": 11,
+      "afterCount": 11
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-13",
+      "expectedRevision": 12,
+      "command": {
+        "type": "SetPeeringForwardedTraffic",
+        "peeringId": "peering-11",
+        "value": "true"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-13",
+      "sequence": 13,
+      "beforeRevision": 12,
+      "afterRevision": 13,
+      "operation": "SetPeeringForwardedTraffic",
+      "targetType": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "scopeId": "peering-11",
+      "location": null,
+      "outcome": "accepted",
+      "code": "updated",
+      "ruleId": "lab-firewall@3.5",
+      "addedIds": [],
+      "removedIds": [],
+      "beforeCount": 11,
+      "afterCount": 11
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-14",
+      "expectedRevision": 13,
+      "command": {
+        "type": "CreateFirewallPolicy",
+        "groupId": "group-1",
+        "name": "fw-policy-hub",
+        "region": "norwayeast",
+        "tier": "Standard",
+        "threatIntelMode": "Off"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-14",
+      "sequence": 14,
+      "beforeRevision": 13,
+      "afterRevision": 14,
+      "operation": "CreateFirewallPolicy",
+      "targetType": "Microsoft.Network/firewallPolicies",
+      "scopeId": "group-1",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-firewall@3.5",
+      "addedIds": [
+        "firewall-policy-12"
+      ],
+      "removedIds": [],
+      "beforeCount": 11,
+      "afterCount": 12
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-15",
+      "expectedRevision": 14,
+      "command": {
+        "type": "CreateFirewallRuleCollectionGroup",
+        "policyId": "firewall-policy-12",
+        "name": "workloads",
+        "priority": "200"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-15",
+      "sequence": 15,
+      "beforeRevision": 14,
+      "afterRevision": 15,
+      "operation": "CreateFirewallRuleCollectionGroup",
+      "targetType": "Microsoft.Network/firewallPolicies/ruleCollectionGroups",
+      "scopeId": "firewall-policy-12",
+      "location": null,
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-firewall@3.5",
+      "addedIds": [
+        "firewall-group-13"
+      ],
+      "removedIds": [],
+      "beforeCount": 12,
+      "afterCount": 13
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-16",
+      "expectedRevision": 15,
+      "command": {
+        "type": "CreateFirewallNetworkCollection",
+        "collectionGroupId": "firewall-group-13",
+        "name": "allow-data",
+        "priority": "200",
+        "action": "Allow"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-16",
+      "sequence": 16,
+      "beforeRevision": 15,
+      "afterRevision": 16,
+      "operation": "CreateFirewallNetworkCollection",
+      "targetType": "local/firewallNetworkCollection",
+      "scopeId": "firewall-group-13",
+      "location": null,
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-firewall@3.5",
+      "addedIds": [
+        "firewall-collection-14"
+      ],
+      "removedIds": [],
+      "beforeCount": 13,
+      "afterCount": 14
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-17",
+      "expectedRevision": 16,
+      "command": {
+        "type": "CreateFirewallNetworkRule",
+        "collectionId": "firewall-collection-14",
+        "name": "app-sql",
+        "source": "10.10.1.0/24",
+        "destination": "10.20.1.0/24",
+        "protocol": "Tcp",
+        "destinationPort": "1433"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-17",
+      "sequence": 17,
+      "beforeRevision": 16,
+      "afterRevision": 17,
+      "operation": "CreateFirewallNetworkRule",
+      "targetType": "local/firewallNetworkRule",
+      "scopeId": "firewall-collection-14",
+      "location": null,
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-firewall@3.5",
+      "addedIds": [
+        "firewall-rule-15"
+      ],
+      "removedIds": [],
+      "beforeCount": 14,
+      "afterCount": 15
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-18",
+      "expectedRevision": 17,
+      "command": {
+        "type": "CreateAzureFirewall",
+        "groupId": "group-1",
+        "name": "fw-hub",
+        "region": "norwayeast",
+        "subnetId": "subnet-5",
+        "policyId": "firewall-policy-12",
+        "skuName": "AZFW_VNet",
+        "skuTier": "Standard"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-18",
+      "sequence": 18,
+      "beforeRevision": 17,
+      "afterRevision": 18,
+      "operation": "CreateAzureFirewall",
+      "targetType": "Microsoft.Network/azureFirewalls",
+      "scopeId": "group-1",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-firewall@3.5",
+      "addedIds": [
+        "firewall-16",
+        "public-ip-17"
+      ],
+      "removedIds": [],
+      "beforeCount": 15,
+      "afterCount": 17
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-19",
+      "expectedRevision": 18,
+      "command": {
+        "type": "CreateRouteTable",
+        "groupId": "group-1",
+        "name": "rt-app",
+        "region": "norwayeast"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-19",
+      "sequence": 19,
+      "beforeRevision": 18,
+      "afterRevision": 19,
+      "operation": "CreateRouteTable",
+      "targetType": "Microsoft.Network/routeTables",
+      "scopeId": "group-1",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-routing@3.4",
+      "addedIds": [
+        "route-table-18"
+      ],
+      "removedIds": [],
+      "beforeCount": 17,
+      "afterCount": 18
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-20",
+      "expectedRevision": 19,
+      "command": {
+        "type": "CreateRouteTable",
+        "groupId": "group-1",
+        "name": "rt-data",
+        "region": "norwayeast"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-20",
+      "sequence": 20,
+      "beforeRevision": 19,
+      "afterRevision": 20,
+      "operation": "CreateRouteTable",
+      "targetType": "Microsoft.Network/routeTables",
+      "scopeId": "group-1",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-routing@3.4",
+      "addedIds": [
+        "route-table-19"
+      ],
+      "removedIds": [],
+      "beforeCount": 18,
+      "afterCount": 19
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-21",
+      "expectedRevision": 20,
+      "command": {
+        "type": "CreateFirewallRoute",
+        "routeTableId": "route-table-18",
+        "name": "to-data",
+        "addressPrefix": "10.20.0.0/16",
+        "firewallId": "firewall-16",
+        "nextHopIp": "10.0.0.4"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-21",
+      "sequence": 21,
+      "beforeRevision": 20,
+      "afterRevision": 21,
+      "operation": "CreateFirewallRoute",
+      "targetType": "Microsoft.Network/routeTables/routes",
+      "scopeId": "route-table-18",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-firewall@3.5",
+      "addedIds": [
+        "route-20"
+      ],
+      "removedIds": [],
+      "beforeCount": 19,
+      "afterCount": 20
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-22",
+      "expectedRevision": 21,
+      "command": {
+        "type": "CreateFirewallRoute",
+        "routeTableId": "route-table-19",
+        "name": "to-app",
+        "addressPrefix": "10.10.0.0/16",
+        "firewallId": "firewall-16",
+        "nextHopIp": "10.0.0.4"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-22",
+      "sequence": 22,
+      "beforeRevision": 21,
+      "afterRevision": 22,
+      "operation": "CreateFirewallRoute",
+      "targetType": "Microsoft.Network/routeTables/routes",
+      "scopeId": "route-table-19",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-firewall@3.5",
+      "addedIds": [
+        "route-21"
+      ],
+      "removedIds": [],
+      "beforeCount": 20,
+      "afterCount": 21
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-23",
+      "expectedRevision": 22,
+      "command": {
+        "type": "AssociateSubnetRouteTable",
+        "subnetId": "subnet-6",
+        "routeTableId": "route-table-18"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-23",
+      "sequence": 23,
+      "beforeRevision": 22,
+      "afterRevision": 23,
+      "operation": "AssociateSubnetRouteTable",
+      "targetType": "Microsoft.Network/virtualNetworks/subnets",
+      "scopeId": "subnet-6",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "updated",
+      "ruleId": "lab-routing@3.4",
+      "addedIds": [],
+      "removedIds": [],
+      "beforeCount": 21,
+      "afterCount": 21
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-24",
+      "expectedRevision": 23,
+      "command": {
+        "type": "AssociateSubnetRouteTable",
+        "subnetId": "subnet-7",
+        "routeTableId": "route-table-19"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-24",
+      "sequence": 24,
+      "beforeRevision": 23,
+      "afterRevision": 24,
+      "operation": "AssociateSubnetRouteTable",
+      "targetType": "Microsoft.Network/virtualNetworks/subnets",
+      "scopeId": "subnet-7",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "updated",
+      "ruleId": "lab-routing@3.4",
+      "addedIds": [],
+      "removedIds": [],
+      "beforeCount": 21,
+      "afterCount": 21
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-25",
+      "expectedRevision": 24,
+      "command": {
+        "type": "CreateVirtualMachine",
+        "name": "vm-app-01",
+        "groupId": "group-1",
+        "region": "norwayeast",
+        "image": "ubuntu-22.04-gen2",
+        "size": "Standard_D2s_v4",
+        "subnetId": "subnet-6",
+        "privateIpAddress": "10.10.1.10",
+        "allocation": "Static",
+        "nsgId": "none",
+        "osDiskSku": "StandardSSD_LRS",
+        "osDiskSizeGiB": "128"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-25",
+      "sequence": 25,
+      "beforeRevision": 24,
+      "afterRevision": 25,
+      "operation": "CreateVirtualMachine",
+      "targetType": "Microsoft.Compute/virtualMachines",
+      "scopeId": "group-1",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-compute@3.4",
+      "addedIds": [
+        "vm-23",
+        "nic-22",
+        "disk-24"
+      ],
+      "removedIds": [],
+      "beforeCount": 21,
+      "afterCount": 24
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-26",
+      "expectedRevision": 25,
+      "command": {
+        "type": "CreateVirtualMachine",
+        "name": "vm-data-01",
+        "groupId": "group-1",
+        "region": "norwayeast",
+        "image": "ubuntu-22.04-gen2",
+        "size": "Standard_D2s_v4",
+        "subnetId": "subnet-7",
+        "privateIpAddress": "10.20.1.10",
+        "allocation": "Static",
+        "nsgId": "none",
+        "osDiskSku": "StandardSSD_LRS",
+        "osDiskSizeGiB": "128"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-26",
+      "sequence": 26,
+      "beforeRevision": 25,
+      "afterRevision": 26,
+      "operation": "CreateVirtualMachine",
+      "targetType": "Microsoft.Compute/virtualMachines",
+      "scopeId": "group-1",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-compute@3.4",
+      "addedIds": [
+        "vm-26",
+        "nic-25",
+        "disk-27"
+      ],
+      "removedIds": [],
+      "beforeCount": 24,
+      "afterCount": 27
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-27",
+      "expectedRevision": 26,
+      "command": {
+        "type": "CreateNetworkSecurityGroup",
+        "groupId": "group-1",
+        "name": "nsg-app",
+        "region": "norwayeast"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-27",
+      "sequence": 27,
+      "beforeRevision": 26,
+      "afterRevision": 27,
+      "operation": "CreateNetworkSecurityGroup",
+      "targetType": "Microsoft.Network/networkSecurityGroups",
+      "scopeId": "group-1",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-network@3.4",
+      "addedIds": [
+        "nsg-28"
+      ],
+      "removedIds": [],
+      "beforeCount": 27,
+      "afterCount": 28
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-28",
+      "expectedRevision": 27,
+      "command": {
+        "type": "CreateNetworkSecurityGroup",
+        "groupId": "group-1",
+        "name": "nsg-data",
+        "region": "norwayeast"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-28",
+      "sequence": 28,
+      "beforeRevision": 27,
+      "afterRevision": 28,
+      "operation": "CreateNetworkSecurityGroup",
+      "targetType": "Microsoft.Network/networkSecurityGroups",
+      "scopeId": "group-1",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-network@3.4",
+      "addedIds": [
+        "nsg-29"
+      ],
+      "removedIds": [],
+      "beforeCount": 28,
+      "afterCount": 29
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-29",
+      "expectedRevision": 28,
+      "command": {
+        "type": "AssociateSubnetNsg",
+        "subnetId": "subnet-6",
+        "nsgId": "nsg-28"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-29",
+      "sequence": 29,
+      "beforeRevision": 28,
+      "afterRevision": 29,
+      "operation": "AssociateSubnetNsg",
+      "targetType": "Microsoft.Network/virtualNetworks/subnets",
+      "scopeId": "subnet-6",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "updated",
+      "ruleId": "lab-network@3.4",
+      "addedIds": [],
+      "removedIds": [],
+      "beforeCount": 29,
+      "afterCount": 29
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-30",
+      "expectedRevision": 29,
+      "command": {
+        "type": "AssociateSubnetNsg",
+        "subnetId": "subnet-7",
+        "nsgId": "nsg-29"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-30",
+      "sequence": 30,
+      "beforeRevision": 29,
+      "afterRevision": 30,
+      "operation": "AssociateSubnetNsg",
+      "targetType": "Microsoft.Network/virtualNetworks/subnets",
+      "scopeId": "subnet-7",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "updated",
+      "ruleId": "lab-network@3.4",
+      "addedIds": [],
+      "removedIds": [],
+      "beforeCount": 29,
+      "afterCount": 29
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-31",
+      "expectedRevision": 30,
+      "command": {
+        "type": "CreateSecurityRule",
+        "nsgId": "nsg-28",
+        "name": "send-data",
+        "direction": "Outbound",
+        "priority": "200",
+        "protocol": "Tcp",
+        "source": "10.10.1.0/24",
+        "sourcePort": "*",
+        "destination": "10.20.1.0/24",
+        "destinationPort": "*",
+        "access": "Allow"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-31",
+      "sequence": 31,
+      "beforeRevision": 30,
+      "afterRevision": 31,
+      "operation": "CreateSecurityRule",
+      "targetType": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "scopeId": "nsg-28",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-network@3.4",
+      "addedIds": [
+        "rule-30"
+      ],
+      "removedIds": [],
+      "beforeCount": 29,
+      "afterCount": 30
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-32",
+      "expectedRevision": 31,
+      "command": {
+        "type": "CreateSecurityRule",
+        "nsgId": "nsg-29",
+        "name": "receive-sql",
+        "direction": "Inbound",
+        "priority": "200",
+        "protocol": "Tcp",
+        "source": "10.10.1.0/24",
+        "sourcePort": "*",
+        "destination": "10.20.1.0/24",
+        "destinationPort": "1433",
+        "access": "Allow"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-32",
+      "sequence": 32,
+      "beforeRevision": 31,
+      "afterRevision": 32,
+      "operation": "CreateSecurityRule",
+      "targetType": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "scopeId": "nsg-29",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-network@3.4",
+      "addedIds": [
+        "rule-31"
+      ],
+      "removedIds": [],
+      "beforeCount": 30,
+      "afterCount": 31
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-33",
+      "expectedRevision": 32,
+      "command": {
+        "type": "CreateVnetPeering",
+        "vnetId": "vnet-3",
+        "remoteVnetId": "vnet-4",
+        "name": "review-app-data"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-33",
+      "sequence": 33,
+      "beforeRevision": 32,
+      "afterRevision": 33,
+      "operation": "CreateVnetPeering",
+      "targetType": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "scopeId": "vnet-3",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-routing@3.4",
+      "addedIds": [
+        "peering-32"
+      ],
+      "removedIds": [],
+      "beforeCount": 31,
+      "afterCount": 32
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-34",
+      "expectedRevision": 33,
+      "command": {
+        "type": "CreateVnetPeering",
+        "vnetId": "vnet-4",
+        "remoteVnetId": "vnet-3",
+        "name": "review-data-app"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-34",
+      "sequence": 34,
+      "beforeRevision": 33,
+      "afterRevision": 34,
+      "operation": "CreateVnetPeering",
+      "targetType": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "scopeId": "vnet-4",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "created",
+      "ruleId": "lab-routing@3.4",
+      "addedIds": [
+        "peering-33"
+      ],
+      "removedIds": [],
+      "beforeCount": 32,
+      "afterCount": 33
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-35",
+      "expectedRevision": 34,
+      "command": {
+        "type": "SetPeeringVirtualNetworkAccess",
+        "peeringId": "peering-32",
+        "vnetId": "vnet-3",
+        "value": "false"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-35",
+      "sequence": 35,
+      "beforeRevision": 34,
+      "afterRevision": 35,
+      "operation": "SetPeeringVirtualNetworkAccess",
+      "targetType": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+      "scopeId": "vnet-3",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "updated",
+      "ruleId": "lab-topology-lifecycle@3.7",
+      "addedIds": [],
+      "removedIds": [],
+      "updatedIds": [
+        "peering-32"
+      ],
+      "beforeCount": 33,
+      "afterCount": 33,
+      "topologyChange": {
+        "id": "peering-32",
+        "name": "review-app-data",
+        "parentId": "vnet-3",
+        "createOrigin": "topology-33",
+        "before": {
+          "allowVirtualNetworkAccess": true,
+          "accessOrigin": null
+        },
+        "after": {
+          "allowVirtualNetworkAccess": false,
+          "accessOrigin": "topology-35"
+        }
+      }
+    }
+  },
+  {
+    "model": "laboratory@3.7.0",
+    "attempt": 1,
+    "request": {
+      "commandId": "topology-36",
+      "expectedRevision": 35,
+      "command": {
+        "type": "DeleteSecurityRule",
+        "ruleId": "rule-31",
+        "nsgId": "nsg-29"
+      }
+    },
+    "receipt": {
+      "commandId": "topology-36",
+      "sequence": 36,
+      "beforeRevision": 35,
+      "afterRevision": 36,
+      "operation": "DeleteSecurityRule",
+      "targetType": "Microsoft.Network/networkSecurityGroups/securityRules",
+      "scopeId": "nsg-29",
+      "location": "norwayeast",
+      "outcome": "accepted",
+      "code": "updated",
+      "ruleId": "lab-security-lifecycle@3.6",
+      "addedIds": [],
+      "removedIds": [
+        "rule-31"
+      ],
+      "updatedIds": [],
+      "beforeCount": 33,
+      "afterCount": 32,
+      "change": {
+        "id": "rule-31",
+        "name": "receive-sql",
+        "parentId": "nsg-29",
+        "createOrigin": "topology-32",
+        "before": {
+          "direction": "Inbound",
+          "priority": 200,
+          "protocol": "Tcp",
+          "source": "10.10.1.0/24",
+          "sourcePort": "*",
+          "destination": "10.20.1.0/24",
+          "destinationPort": "1433",
+          "access": "Allow"
+        },
+        "after": null
+      }
+    }
+  }
+]

@@ -1,0 +1,197 @@
+{
+  "status": "complete",
+  "verdict": "changes-required",
+  "reviewer": {
+    "id": "codex-pr67-independent-final-auditor",
+    "kind": "agent"
+  },
+  "started": "2026-11-08T10:36:49Z",
+  "completed": "2026-11-08T10:43:46.838Z",
+  "implementationFinished": "2026-11-08T10:35:58.146Z",
+  "fingerprint": "9632abb223ba066f918a90be954a8e51ee616370b1c54f3e9a8f501fae6d6601",
+  "fileCount": 127,
+  "baseCommit": "9252739eb1bdf7bf6aabc2696ae57000aa02a49f",
+  "domains": {
+    "content": {
+      "finding": "Retained13official source bodies and two reference images support the bounded Standard/network-only profile; all hashes/lengths/msDate verified. Synthetic allocation and simulator restrictions are labeled. Source fetch timing is not independently attested.",
+      "evidence": [
+        {
+          "path": "docs/quality/PR67_FINAL_AUDIT.md",
+          "marker": "### Content"
+        },
+        {
+          "path": "docs/reviews/evidence/pr67/source-fetch.json"
+        },
+        {
+          "path": "src/content/laboratory-firewall-nb.ts"
+        }
+      ]
+    },
+    "technical": {
+      "finding": "Independent pure and real PostgreSQL checks validate route/policy composition, return forwarding, conservative next-hop identity, atomicity/replay/isolation. MAJOR OPEN: Create Firewall can show dedicated subnet-5 while Review submits ordinary subnet-3.",
+      "evidence": [
+        {
+          "path": "docs/quality/PR67_FINAL_AUDIT.md",
+          "marker": "PR67-FINAL-01"
+        },
+        {
+          "path": "src/features/laboratory/laboratory.tsx"
+        },
+        {
+          "path": "src/laboratory/v35/analysis.ts"
+        },
+        {
+          "path": "src/laboratory-firewall.integration.test.ts"
+        }
+      ]
+    },
+    "visual": {
+      "finding": "Actual official and production images inspected, including independent1920x1080/1366x768/1440x900/1024x768/500; decisive diagnosis and limits readable. Displayed/submitted subnet mismatch blocks form acceptance. Current tenant parity/human accessibility unverified.",
+      "evidence": [
+        {
+          "path": "docs/quality/PR67_FINAL_AUDIT.md",
+          "marker": "### Visual and accessibility"
+        },
+        {
+          "path": "docs/quality/PR67_VISUAL_REVIEW.md"
+        },
+        {
+          "path": "docs/reviews/evidence/pr67/inspection-1024x500.png"
+        }
+      ]
+    },
+    "assessment": {
+      "finding": "No new bank/rubric/XP/completion authority; unchanged course/assessment bytes protected by direct filesystem/base preservation. Practical form inconsistency must be corrected; no human learning or transfer claim.",
+      "evidence": [
+        {
+          "path": "docs/quality/PR67_FINAL_AUDIT.md",
+          "marker": "### Assessment"
+        },
+        {
+          "path": "src/laboratory-firewall-preservation.test.ts"
+        },
+        {
+          "path": "docs/reviews/evidence/pr67/preservation.json"
+        }
+      ]
+    },
+    "guidance": {
+      "finding": "Free Laboratory retains separate authority and no course guidance/mascot providers or rewards; actual resource/receipt explanations preserve no-traffic limits. Subnet mismatch gives contradictory practical feedback and remains MAJOR OPEN.",
+      "evidence": [
+        {
+          "path": "docs/quality/PR67_FINAL_AUDIT.md",
+          "marker": "### Guidance"
+        },
+        {
+          "path": "src/features/laboratory/firewall.tsx"
+        },
+        {
+          "path": "src/laboratory-firewall-preservation.test.ts"
+        }
+      ]
+    },
+    "regression": {
+      "finding": "Independently34/34 targeted cases incl5realPG,2/2production native cases,9extra command-built assertions passed. Additional ordinary-UI default probe reproduced new MAJOR. Author967Vitest/24Node/503curriculum/build and13native retained; full exact-headCI/strict pending. Original failures and unresolved inherited causes preserved.",
+      "evidence": [
+        {
+          "path": "docs/quality/PR67_FINAL_AUDIT.md",
+          "marker": "### Regression"
+        },
+        {
+          "path": "docs/reviews/evidence/pr67/full-check-initial.log.raw"
+        },
+        {
+          "path": "docs/reviews/evidence/pr67/full-check-corrected.log.raw"
+        },
+        {
+          "path": "docs/quality/PR67_QA_INVESTIGATION.md"
+        }
+      ]
+    }
+  },
+  "findings": [
+    {
+      "id": "PR67-FINAL-01",
+      "severity": "major",
+      "status": "open",
+      "description": "Ordinary-first VNet/subnet order causes Create Firewall to display supported dedicated subnet-5 while Review POST submits ordinary subnet-3, correctly rejected invalid-firewall-subnet. Existing native tests explicitly select Subnet and mask default mismatch.",
+      "fix": null,
+      "retests": [],
+      "requiredFix": "Use an actual supported current-model subnet default with coherent scope, or explicit empty required choice. Add ordinary-first native request/display equality and accepted bundle regression without touching Subnet; test no eligible/multiple scope choices; restamp and independent follow-up.",
+      "evidence": [
+        {
+          "path": "docs/quality/PR67_FINAL_AUDIT.md",
+          "marker": "### PR67-FINAL-01"
+        }
+      ],
+      "localEvidence": "/workspace/azurelab-pr67/final-audit/form-defaults.json"
+    },
+    {
+      "id": "PR67-FINAL-02",
+      "severity": "minor",
+      "status": "accepted-limitation",
+      "description": "Retained source manifest lacks actual retrieval timestamp/response Date; msDate and copied-file review times are not HTTP freshness evidence.",
+      "fix": "Retain original provenance; future captures should record actual retrieval timestamp and available response metadata.",
+      "retests": [
+        {
+          "path": "docs/quality/PR67_FINAL_AUDIT.md",
+          "marker": "### Content"
+        }
+      ]
+    },
+    {
+      "id": "PR67-IMPL-02",
+      "severity": "major",
+      "status": "fixed",
+      "description": "Prior same-private-IP/wrong-hub false positive was corrected before this stamp; this review independently confirmed rejection.",
+      "fix": "Require source/return next-hop lookup to select unambiguous direct VnetPeering to exact Firewall hub; retain exact endpoint onward/return identity checks.",
+      "retests": [
+        {
+          "path": "src/laboratory-firewall.test.ts",
+          "marker": "rejects ambiguous/wrong actual next-hop hub identity"
+        },
+        {
+          "path": "tests/e2e/laboratory-firewall.spec.ts",
+          "marker": "firewall native same IP"
+        },
+        {
+          "path": "docs/quality/PR67_FINAL_AUDIT.md",
+          "marker": "### PR67-IMPL-02"
+        }
+      ]
+    },
+    {
+      "id": "PR67-FINAL-03",
+      "severity": "note",
+      "status": "accepted-limitation",
+      "description": "VM duplicate-status and older Compute/Axe causes remain unresolved; architecture helper alone has traced correction evidence. Unchanged dependency audit exits0 at high threshold but reports10moderate advisories.",
+      "fix": "No claim of closure or clean security approval; preserve original failures and unchanged QA settings.",
+      "retests": [
+        {
+          "path": "docs/quality/PR67_QA_INVESTIGATION.md"
+        },
+        {
+          "path": "docs/quality/PR67_FINAL_AUDIT.md",
+          "marker": "### PR67-FINAL-03"
+        }
+      ]
+    },
+    {
+      "id": "PR67-FINAL-04",
+      "severity": "note",
+      "status": "accepted-limitation",
+      "description": "Exact-head completeCI/strict, anonymous root/fullSHA/expected503 and human SME/usability/screen-reader/learning validation remain separate pending/unperformed gates. Current tenant Portal parity unverified.",
+      "fix": "Do not infer delivery or human approval from this local audit.",
+      "retests": [
+        {
+          "path": "docs/quality/PR67_FINAL_AUDIT.md",
+          "marker": "### PR67-FINAL-04"
+        }
+      ]
+    }
+  ],
+  "report": {
+    "path": "docs/quality/PR67_FINAL_AUDIT.md"
+  },
+  "localEvidenceRoot": "/workspace/azurelab-pr67/final-audit"
+}

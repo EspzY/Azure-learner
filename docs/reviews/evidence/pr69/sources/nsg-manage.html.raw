@@ -1,0 +1,2685 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>Create, Change, or Delete Azure Network Security Groups | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="Learn to create, change, or delete Azure network security groups (NSGs) to control traffic flow and enhance network security with Portal, PowerShell, and CLI examples." />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="Create, Change, or Delete Azure Network Security Groups" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group" />
+			<meta property="og:description" content="Learn to create, change, or delete Azure network security groups (NSGs) to control traffic flow and enhance network security with Portal, PowerShell, and CLI examples." />
+			<meta name="platform_id" content="39a6c92a-fbf0-f1a0-5511-ce85a290eb94" /> <meta name="scope" content="Azure" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="azure" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="breadcrumb_path" content="/azure/bread/toc.json" />
+	
+		<meta name="feedback_help_link_url" content="https://learn.microsoft.com/answers/tags/143/azure-virtual-network/" />
+	
+		<meta name="feedback_help_link_type" content="get-help-at-qna" />
+	
+		<meta name="feedback_product_url" content="https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=f2c41334-8326-ec11-b6e6-000d3a4f0789" />
+	
+		<meta name="feedback_system" content="Standard" />
+	
+		<meta name="permissioned-type" content="public" />
+	
+		<meta name="recommendations" content="true" />
+	
+		<meta name="recommendation_types" content="Training" />
+	
+		<meta name="recommendation_types" content="Certification" />
+	
+		<meta name="ms.suite" content="office" />
+	
+		<meta name="adobe-target" content="true" />
+	
+		<meta name="learn_banner_products" content="azure" />
+	
+		<meta name="manager" content="kumud" />
+	
+		<meta name="ms.collection" content="networking" />
+	
+		<meta name="ms.reviewer" content="allensu" />
+	
+		<meta name="titlesuffix" content="Azure Virtual Network" />
+	
+		<meta name="services" content="virtual-network" />
+	
+		<meta name="author" content="asudbring" />
+	
+		<meta name="ms.service" content="azure-virtual-network" />
+	
+		<meta name="ms.topic" content="how-to" />
+	
+		<meta name="ms.date" content="2025-07-26T00:00:00Z" />
+	
+		<meta name="ms.author" content="allensu" />
+	
+		<meta name="ms.custom" content="template-how-to" />
+	
+		<meta name="ms.custom" content="engagement-fy23" />
+	
+		<meta name="ms.custom" content="devx-track-azurepowershell" />
+	
+		<meta name="ms.custom" content="devx-track-azurecli" />
+	
+		<meta name="ms.custom" content="sfi-image-nochange" />
+	
+		<meta name="document_id" content="8ea14a05-b98d-4cec-5f36-726f3c3d1da2" />
+	
+		<meta name="document_version_independent_id" content="6852fef5-f9f1-5893-258a-5d04c82dfcc8" />
+	
+		<meta name="updated_at" content="2025-10-08T22:11:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/virtual-network/manage-network-security-group.md" />
+	
+		<meta name="gitcommit" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/136130fc1149e51f3cc15b573e22d653e7ad6353/articles/virtual-network/manage-network-security-group.md" />
+	
+		<meta name="git_commit_id" content="136130fc1149e51f3cc15b573e22d653e7ad6353" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="Azure.azure-documents" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="interactive_type" content="azurepowershell,azurecli" />
+	
+		<meta name="toc_rel" content="toc.json" />
+	
+		<meta name="pdf_url_template" content="https://learn.microsoft.com/pdfstore/en-us/Azure.azure-documents/{branchName}{pdfName}" />
+	
+		<meta name="word_count" content="4711" />
+	
+		<meta name="asset_id" content="virtual-network/manage-network-security-group" />
+	
+		<meta name="moniker_range_name" content="" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="articles/virtual-network/manage-network-security-group.md" />
+	
+		<meta name="previous_tlsh_hash" content="168E5DB2320ECB01EF924E9B126BD5501AF4C3D1AFF02CC02215764963CC6FE78BD6B5FD6B87664E237442E613E759AC61CEDB25485C87934AED81BCC174B1A1B7C8A2A1CA" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/virtual-network/manage-network-security-group.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group?accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/12ed19f9-ebdf-4c8a-8bcd-7a681836774d" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/5cf46315-b33f-4e99-8224-a1592697eff9" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d" data-source="generated" />
+	
+		<meta name="spProducts" content="https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/3a764584-4f97-452b-8f1d-36f19b12f6ae" data-source="generated" />
+	
+		<meta name="spProducts" content="https://microsoft-devrel.poolparty.biz/DevRelOfferingOntology/715d24c3-3683-4219-82c5-1e3c813fb7fc" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03595.8353-c1321031/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "azure",
+    "context": {},
+    "standardFeedback": true,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "get-help-at-qna",
+    "feedbackHelpLinkUrl": "https://learn.microsoft.com/answers/tags/143/azure-virtual-network/",
+    "feedbackSystem": "Standard",
+    "feedbackGitHubRepo": "MicrosoftDocs/azure-docs",
+    "feedbackProductUrl": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=f2c41334-8326-ec11-b6e6-000d3a4f0789",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": true,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03595.8353-c1321031/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div> 
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					aria-expanded="false"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			
+			href="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/virtual-network/manage-network-security-group.md"
+			data-original_content_git_url="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/virtual-network/manage-network-security-group.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/articles/virtual-network/manage-network-security-group.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="create-change-or-delete-a-network-security-group">Create, change, or delete a network security group</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	 <div class="content"><p>Network security groups (NSGs) control network traffic flow through security rules that filter traffic in and out of virtual network subnets and network interfaces. This guide shows you how to create, change, or delete network security groups to enhance your Azure virtual network security. Learn to manage NSG rules using the Azure portal, PowerShell, and Azure CLI. To learn more about NSGs, see <a href="network-security-groups-overview" data-linktype="relative-path">Network security group overview</a>. Next, complete the <a href="tutorial-filter-network-traffic" data-linktype="relative-path">Filter network traffic tutorial</a> to gain hands-on experience with NSGs.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>If you don't have an Azure account with an active subscription, <a href="https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn" data-linktype="external">create one for free</a>. Complete one of these tasks before you start the remainder of this article:</p>
+<ul>
+<li><p><strong>Portal users</strong>: Sign in to the <a href="https://portal.azure.com" data-linktype="external">Azure portal</a> with your Azure account.</p>
+</li>
+<li><p><strong>PowerShell users</strong>: Either run the commands in <a href="https://shell.azure.com/powershell" data-linktype="external">Azure Cloud Shell</a> or run PowerShell locally from your computer. Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools that are preinstalled and configured to use with your account. On the Cloud Shell browser tab, find the <strong>Select environment</strong> dropdown list. Then select <strong>PowerShell</strong> if it isn't already selected.</p>
+<p>If you're running PowerShell locally, use Azure PowerShell module version 1.0.0 or later. Run <code>Get-Module -ListAvailable Az.Network</code> to find the installed version. If you need to install or upgrade, see <a href="/en-us/powershell/azure/install-azure-powershell" data-linktype="absolute-path">Install Azure PowerShell module</a>. Run <code>Connect-AzAccount</code> to sign in to Azure.</p>
+</li>
+<li><p><strong>Azure CLI users</strong>: Either run the commands in <a href="https://shell.azure.com/bash" data-linktype="external">Cloud Shell</a> or run the Azure CLI locally from your computer. Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools that are preinstalled and configured to use with your account. On the Cloud Shell browser tab, find the <strong>Select environment</strong> dropdown list. Then select <strong>Bash</strong> if it isn't already selected.</p>
+<p>If you're running the Azure CLI locally, use Azure CLI version 2.0.28 or later. Run <code>az --version</code> to find the installed version. If you need to install or upgrade, see <a href="/en-us/cli/azure/install-azure-cli" data-linktype="absolute-path">Install the Azure CLI</a>. Run <code>az login</code> to sign in to Azure.</p>
+</li>
+</ul>
+<p>Assign the <a href="../role-based-access-control/built-in-roles?toc=/azure/virtual-network/toc.json#network-contributor" data-linktype="relative-path">Network Contributor role</a> or a <a href="../role-based-access-control/custom-roles?toc=/azure/virtual-network/toc.json" data-linktype="relative-path">custom role</a> with the appropriate <a href="#permissions" data-linktype="self-bookmark">permissions</a>.</p>
+<h2 id="work-with-network-security-groups">Work with network security groups</h2>
+<p>You can create, <a href="#view-all-network-security-groups" data-linktype="self-bookmark">view all</a>, <a href="#view-details-of-a-network-security-group" data-linktype="self-bookmark">view details of</a>, <a href="#change-a-network-security-group" data-linktype="self-bookmark">change</a>, and <a href="#delete-a-network-security-group" data-linktype="self-bookmark">delete</a> an NSG. You can also associate or dissociate an NSG from a <a href="#associate-or-dissociate-a-network-security-group-to-or-from-a-network-interface" data-linktype="self-bookmark">network interface</a> or a <a href="#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet" data-linktype="self-bookmark">subnet</a>.</p>
+<h3 id="create-a-network-security-group">Create a network security group</h3>
+<p>Azure limits the number of NSGs that you can create for each Azure region and subscription. To learn more, see <a href="../azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits" data-linktype="relative-path">Azure subscription and service limits, quotas, and constraints</a>.</p>
+<div class="tabGroup" id="tabgroup_1">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_1_network-security-group-portal" role="tab" aria-controls="tabpanel_1_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_network-security-group-powershell" role="tab" aria-controls="tabpanel_1_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_1_network-security-group-cli" role="tab" aria-controls="tabpanel_1_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_1_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<ol>
+<li><p>In the search box at the top of the portal, enter <strong>Network security group</strong>. Select <strong>Network security groups</strong> in the search results.</p>
+</li>
+<li><p>Select <strong>+ Create</strong>.</p>
+</li>
+<li><p>On the <strong>Create network security group</strong> page, under the <strong>Basics</strong> tab, enter or select the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Project details</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Subscription</td>
+<td>Select your Azure subscription.</td>
+</tr>
+<tr>
+<td>Resource group</td>
+<td>Select an existing resource group, or create a new one by selecting <strong>Create new</strong>. This example uses the <code>myResourceGroup</code> resource group.</td>
+</tr>
+<tr>
+<td><strong>Instance details</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Network security group name</td>
+<td>Enter a name for your new NSG. This example uses the name <code>myNSG</code>.</td>
+</tr>
+<tr>
+<td>Region</td>
+<td>Select the desired region where you want to create the NSG.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>Select <strong>Review + create</strong>.</p>
+</li>
+<li><p>After you see the <strong>Validation passed</strong> message, select <strong>Create</strong>.</p>
+</li>
+</ol>
+</section>
+<section id="tabpanel_1_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/new-aznetworksecuritygroup" data-linktype="absolute-path">New-AzNetworkSecurityGroup</a> to create an NSG named <code>myNSG</code> in the <strong>East US</strong> region. The NSG named <code>myNSG</code> is created in the existing <code>myResourceGroup</code> resource group.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell"># Define parameters for the new NSG
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+    Location          = "eastus"
+}
+
+# Create the network security group
+New-AzNetworkSecurityGroup @NSGParams
+</code></pre>
+</section>
+<section id="tabpanel_1_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nsg#az-network-nsg-create" data-linktype="absolute-path">az network nsg create</a> to create an NSG named <code>myNSG</code> in the existing <code>myResourceGroup</code> resource group.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nsg create \
+    --resource-group myResourceGroup \
+    --name myNSG
+</code></pre>
+</section>
+</div>
+<h3 id="view-all-network-security-groups">View all network security groups</h3>
+<div class="tabGroup" id="tabgroup_2">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_2_network-security-group-portal" role="tab" aria-controls="tabpanel_2_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_2_network-security-group-powershell" role="tab" aria-controls="tabpanel_2_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_2_network-security-group-cli" role="tab" aria-controls="tabpanel_2_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_2_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<p>In the search box at the top of the portal, enter <strong>Network security group</strong>. Select <strong>Network security groups</strong> in the search results to see the list of NSGs in your subscription.</p>
+<p><span class="mx-imgBorder">
+<img src="media/manage-network-security-group/view-network-security-groups.png" alt="Screenshot of the Network security groups list in the Azure portal." data-linktype="relative-path">
+</span>
+</p>
+</section>
+<section id="tabpanel_2_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/get-aznetworksecuritygroup" data-linktype="absolute-path">Get-AzNetworkSecurityGroup</a> to list all the NSGs in your subscription.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">Get-AzNetworkSecurityGroup | format-table Name, Location, ResourceGroupName, ProvisioningState, ResourceGuid
+</code></pre>
+</section>
+<section id="tabpanel_2_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nsg#az-network-nsg-list" data-linktype="absolute-path">az network nsg list</a> to list all the NSGs in your subscription.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nsg list --out table
+</code></pre>
+</section>
+</div>
+<h3 id="view-details-of-a-network-security-group">View details of a network security group</h3>
+<div class="tabGroup" id="tabgroup_3">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_3_network-security-group-portal" role="tab" aria-controls="tabpanel_3_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_3_network-security-group-powershell" role="tab" aria-controls="tabpanel_3_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_3_network-security-group-cli" role="tab" aria-controls="tabpanel_3_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_3_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<ol>
+<li><p>In the search box at the top of the portal, enter <strong>Network security group</strong> and select <strong>Network security groups</strong> in the search results.</p>
+</li>
+<li><p>Select the name of your NSG.</p>
+<ul>
+<li><p>In <strong>Settings</strong>, view the <strong>Inbound security rules</strong>, <strong>Outbound security rules</strong>, <strong>Network interfaces</strong>, and <strong>Subnets</strong> that the NSG associates with.</p>
+</li>
+<li><p>In <strong>Monitoring</strong>, enable or disable <strong>Diagnostic settings</strong>. For more information, see <a href="virtual-network-nsg-manage-log" data-linktype="relative-path">Resource logging for a network security group</a>.</p>
+</li>
+<li><p>In <strong>Help</strong>, view <strong>Effective security rules</strong>. For more information, see <a href="diagnose-network-traffic-filter-problem" data-linktype="relative-path">Diagnose a virtual machine (VM) network traffic filter problem</a>.</p>
+</li>
+</ul>
+<p><span class="mx-imgBorder">
+<a href="media/manage-network-security-group/network-security-group-details-expanded.png#lightbox" data-linktype="relative-path">
+<img src="media/manage-network-security-group/network-security-group-details-inline.png" alt="Screenshot of the Network security group page in the Azure portal." data-linktype="relative-path">
+</a>
+</span>
+</p>
+</li>
+</ol>
+<p>To learn more about the common Azure settings that are listed, see the following articles:</p>
+<ul>
+<li><p><a href="/en-us/azure/azure-monitor/essentials/platform-logs-overview" data-linktype="absolute-path">Activity logs</a></p>
+</li>
+<li><p><a href="../role-based-access-control/overview" data-linktype="relative-path">Access control identity and access management (IAM)</a></p>
+</li>
+<li><p><a href="../azure-resource-manager/management/tag-resources" data-linktype="relative-path">Tags</a></p>
+</li>
+<li><p><a href="../azure-resource-manager/management/lock-resources" data-linktype="relative-path">Locks</a></p>
+</li>
+<li><p><a href="../azure-resource-manager/templates/export-template-portal" data-linktype="relative-path">Automation script</a></p>
+</li>
+</ul>
+</section>
+<section id="tabpanel_3_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/get-aznetworksecuritygroup" data-linktype="absolute-path">Get-AzNetworkSecurityGroup</a> to view the details of an NSG.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell"># Define parameters for the NSG
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+}
+
+# Retrieve the NSG
+Get-AzNetworkSecurityGroup @NSGParams
+</code></pre>
+<p>To learn more about the common Azure settings that are listed, see the following articles:</p>
+<ul>
+<li><p><a href="/en-us/azure/azure-monitor/essentials/platform-logs-overview" data-linktype="absolute-path">Activity logs</a></p>
+</li>
+<li><p><a href="../role-based-access-control/overview" data-linktype="relative-path">Access control (IAM)</a></p>
+</li>
+<li><p><a href="../azure-resource-manager/management/tag-resources" data-linktype="relative-path">Tags</a></p>
+</li>
+<li><p><a href="../azure-resource-manager/management/lock-resources" data-linktype="relative-path">Locks</a></p>
+</li>
+</ul>
+</section>
+<section id="tabpanel_3_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nsg#az-network-nsg-show" data-linktype="absolute-path">az network nsg show</a> to view the details of an NSG.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nsg show \
+    --resource-group myResourceGroup \
+    --name myNSG
+</code></pre>
+<p>To learn more about the common Azure settings that are listed, see the following articles:</p>
+<ul>
+<li><p><a href="/en-us/azure/azure-monitor/essentials/platform-logs-overview" data-linktype="absolute-path">Activity logs</a></p>
+</li>
+<li><p><a href="../role-based-access-control/overview" data-linktype="relative-path">Access control (IAM)</a></p>
+</li>
+<li><p><a href="../azure-resource-manager/management/tag-resources" data-linktype="relative-path">Tags</a></p>
+</li>
+<li><p><a href="../azure-resource-manager/management/lock-resources" data-linktype="relative-path">Locks</a></p>
+</li>
+</ul>
+</section>
+</div>
+<h3 id="change-a-network-security-group">Change a network security group</h3>
+<p>The most common changes to an NSG are:</p>
+<ul>
+<li><p><a href="#associate-or-dissociate-a-network-security-group-to-or-from-a-network-interface" data-linktype="self-bookmark">Associate or dissociate a network security group to or from a network interface</a></p>
+</li>
+<li><p><a href="#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet" data-linktype="self-bookmark">Associate or dissociate a network security group to or from a subnet</a></p>
+</li>
+<li><p><a href="#create-a-security-rule" data-linktype="self-bookmark">Create a security rule</a></p>
+</li>
+<li><p><a href="#delete-a-security-rule" data-linktype="self-bookmark">Delete a security rule</a></p>
+</li>
+</ul>
+<h3 id="associate-or-dissociate-a-network-security-group-to-or-from-a-network-interface">Associate or dissociate a network security group to or from a network interface</h3>
+<p>For more information about the association and dissociation of an NSG, see <a href="virtual-network-network-interface#associate-or-dissociate-a-network-security-group" data-linktype="relative-path">Associate or dissociate a network security group</a>.</p>
+<h3 id="associate-or-dissociate-a-network-security-group-to-or-from-a-subnet">Associate or dissociate a network security group to or from a subnet</h3>
+<div class="tabGroup" id="tabgroup_4">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_4_network-security-group-portal" role="tab" aria-controls="tabpanel_4_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_4_network-security-group-powershell" role="tab" aria-controls="tabpanel_4_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_4_network-security-group-cli" role="tab" aria-controls="tabpanel_4_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_4_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<ol>
+<li><p>In the search box at the top of the portal, enter <strong>Network security group</strong>. Then select <strong>Network security groups</strong> in the search results.</p>
+</li>
+<li><p>Select the name of your NSG, and then select <strong>Subnets</strong>.</p>
+<ul>
+<li><p>To associate an NSG to the subnet, select <strong>+ Associate</strong>. Then select your virtual network and the subnet to which you want to associate the NSG. Select <strong>OK</strong>.</p>
+<p><span class="mx-imgBorder">
+<img src="media/manage-network-security-group/associate-subnet-network-security-group.png" alt="Screenshot of associating a network security group to a subnet in the Azure portal." data-linktype="relative-path">
+</span>
+</p>
+</li>
+<li><p>To dissociate an NSG from the subnet, select the three dots next to the subnet from which you want to dissociate the NSG, and then select <strong>Dissociate</strong>. Select <strong>Yes</strong>.</p>
+<p><span class="mx-imgBorder">
+<img src="media/manage-network-security-group/dissociate-subnet-network-security-group.png" alt="Screenshot of dissociating an NSG from a subnet in the Azure portal." data-linktype="relative-path">
+</span>
+</p>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="tabpanel_4_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/set-azvirtualnetworksubnetconfig" data-linktype="absolute-path">Set-AzVirtualNetworkSubnetConfig</a> to associate or dissociate an NSG to or from a subnet.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell"># Define parameters for the virtual network and subnet configuration
+$VNetParams = @{
+    Name              = "myVNet"
+    ResourceGroupName = "myResourceGroup"
+}
+$SubnetParams = @{
+    Name              = "mySubnet"
+    AddressPrefix     = "10.0.0.0/24"
+    NetworkSecurityGroup = $networkSecurityGroup
+}
+
+# Retrieve the virtual network
+$virtualNetwork = Get-AzVirtualNetwork @VNetParams
+
+# Update the subnet configuration
+Set-AzVirtualNetworkSubnetConfig -VirtualNetwork $virtualNetwork @SubnetParams
+
+# Update the virtual network
+Set-AzVirtualNetwork -VirtualNetwork $virtualNetwork
+</code></pre>
+</section>
+<section id="tabpanel_4_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update" data-linktype="absolute-path">az network vnet subnet update</a> to associate or dissociate an NSG to or from a subnet.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network vnet subnet update \
+    --resource-group myResourceGroup \
+    --vnet-name myVNet \
+    --name mySubnet \
+    --network-security-group myNSG
+</code></pre>
+</section>
+</div>
+<h3 id="delete-a-network-security-group">Delete a network security group</h3>
+<p>If an NSG is associated with any subnets or network interfaces, you can't delete it. Dissociate an NSG from all subnets and network interfaces before you attempt to delete it.</p>
+<div class="tabGroup" id="tabgroup_5">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_5_network-security-group-portal" role="tab" aria-controls="tabpanel_5_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_5_network-security-group-powershell" role="tab" aria-controls="tabpanel_5_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_5_network-security-group-cli" role="tab" aria-controls="tabpanel_5_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_5_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<ol>
+<li><p>In the search box at the top of the portal, enter <strong>Network security group</strong>. Then select <strong>Network security groups</strong> in the search results.</p>
+</li>
+<li><p>Select the NSG that you want to delete.</p>
+</li>
+<li><p>Select <strong>Delete</strong>, and then select <strong>Yes</strong> in the confirmation dialog box.</p>
+<p><span class="mx-imgBorder">
+<img src="media/manage-network-security-group/delete-network-security-group.png" alt="Screenshot of deleting a network security group in the Azure portal." data-linktype="relative-path">
+</span>
+</p>
+</li>
+</ol>
+</section>
+<section id="tabpanel_5_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/remove-aznetworksecuritygroup" data-linktype="absolute-path">Remove-AzNetworkSecurityGroup</a> to delete an NSG.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell"># Define parameters for the NSG to be removed
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+}
+
+# Remove the NSG
+Remove-AzNetworkSecurityGroup @NSGParams
+</code></pre>
+</section>
+<section id="tabpanel_5_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nsg#az-network-nsg-delete" data-linktype="absolute-path">az network nsg delete</a> to delete an NSG.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nsg delete \
+    --resource-group myResourceGroup \
+    --name myNSG
+</code></pre>
+</section>
+</div>
+<h2 id="work-with-security-rules">Work with security rules</h2>
+<p>An NSG can contain multiple security rules. You can <a href="#create-a-security-rule" data-linktype="self-bookmark">create</a>, <a href="#view-all-security-rules" data-linktype="self-bookmark">view all</a>, <a href="#view-the-details-of-a-security-rule" data-linktype="self-bookmark">view details of</a>, <a href="#change-a-security-rule" data-linktype="self-bookmark">change</a>, and <a href="#delete-a-security-rule" data-linktype="self-bookmark">delete</a> a security rule.</p>
+<h3 id="create-a-security-rule">Create a security rule</h3>
+<p>Azure limits the number of rules per NSG that you can create for each Azure location and subscription.
+To learn more, see <a href="../azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/virtual-network/toc.json#azure-resource-manager-virtual-networking-limits" data-linktype="relative-path">Azure subscription and service limits, quotas, and constraints</a>.</p>
+<div class="tabGroup" id="tabgroup_6">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_6_network-security-group-portal" role="tab" aria-controls="tabpanel_6_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_6_network-security-group-powershell" role="tab" aria-controls="tabpanel_6_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_6_network-security-group-cli" role="tab" aria-controls="tabpanel_6_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_6_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<ol>
+<li><p>In the search box at the top of the portal, enter <strong>Network security group</strong>. Then select <strong>Network security groups</strong> in the search results.</p>
+</li>
+<li><p>Select the name of the NSG to which you want to add a security rule.</p>
+</li>
+<li><p>Select <strong>Inbound security rules</strong> or <strong>Outbound security rules</strong>.</p>
+<p>When you create an NSG, Azure creates several default security rules in it. To learn more, see <a href="network-security-groups-overview#default-security-rules" data-linktype="relative-path">Default security rules</a>. You can't delete default security rules, but you can override them with rules that have a higher priority.</p>
+</li>
+<li><p><a name="security-rule-settings"></a>Select <strong>+ Add</strong>. Select or add values for the following settings, and then select <strong>Add</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Source</strong></td>
+<td>One of:<ul><li><strong>Any</strong></li><li><strong>IP Addresses</strong></li><li><strong>My IP address</strong></li><li><strong>Service Tag</strong></li><li><strong>Application security group</strong></li></ul></td>
+<td><p>If you select <strong>IP Addresses</strong>, you must also specify <strong>Source IP addresses/CIDR ranges</strong>.</p><p>If you select <strong>Service Tag</strong>, you must also select a <strong>Source service tag</strong>.</p><p>If you select <strong>Application security group</strong>, you must also select an existing application security group. If you select <strong>Application security group</strong> for both <strong>Source</strong> and <strong>Destination</strong>, the network interfaces within both application security groups must be in the same virtual network. Learn how to <a href="#create-an-application-security-group" data-linktype="self-bookmark">create an application security group</a>.</p></td>
+</tr>
+<tr>
+<td><strong>Source IP addresses/CIDR ranges</strong></td>
+<td>A comma-delimited list of IP addresses and Classless Interdomain Routing (CIDR) ranges</td>
+<td><p>This setting appears if you set <strong>Source</strong> to <strong>IP Addresses</strong>. You must specify a single value or comma-separated list of multiple values. An example of multiple values is <code>10.0.0.0/16, 192.188.1.1</code>. The number of values that you can specify is limited. For more information, see <a href="../azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits" data-linktype="relative-path">Azure limits</a>.</p><p>If the IP address that you specify is assigned to an Azure VM, ensure that you specify its private IP, not its public IP address. Learn more about NSG rules' IP address translation behavior in the <a href="network-security-groups-overview#security-rules" data-linktype="relative-path">overview</a>.</p></td>
+</tr>
+<tr>
+<td><strong>Source service tag</strong></td>
+<td>A service tag from the dropdown list</td>
+<td>This setting appears if you set <strong>Source</strong> to <strong>Service Tag</strong> for a security rule. A service tag is a predefined identifier for a category of IP addresses. To learn more about available service tags, and what each tag represents, see <a href="service-tags-overview" data-linktype="relative-path">Service tags</a>.</td>
+</tr>
+<tr>
+<td><strong>Source application security group</strong></td>
+<td>An existing application security group</td>
+<td>This setting appears if you set <strong>Source</strong> to <strong>Application security group</strong>. Select an application security group that exists in the same region as the network interface. Learn how to <a href="#create-an-application-security-group" data-linktype="self-bookmark">create an application security group</a>.</td>
+</tr>
+<tr>
+<td><strong>Source port ranges</strong></td>
+<td>One of:<ul><li>A single port, such as <code>80</code></li><li>A range of ports, such as <code>1024-65535</code></li><li>A comma-separated list of single ports and/or port ranges, such as <code>80, 1024-65535</code></li><li>An asterisk (<code>*</code>) to allow traffic on any port</li></ul></td>
+<td>This setting specifies the ports on which the rule allows or denies traffic. The number of ports that you can specify is limited. For more information, see <a href="../azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits" data-linktype="relative-path">Azure limits</a>.</td>
+</tr>
+<tr>
+<td><strong>Destination</strong></td>
+<td>One of:<ul><li><strong>Any</strong></li><li><strong>IP Addresses</strong></li><li><strong>Service Tag</strong></li><li><strong>Application security group</strong></li></ul></td>
+<td><p>If you select <strong>IP Addresses</strong>, you must also specify <strong>Destination IP addresses/CIDR ranges</strong>.</p><p>If you select <strong>Service Tag</strong>, you must also select a <strong>Destination service tag</strong>.</p><p>If you select <strong>Application security group</strong>, you must also select an existing application security group. If you select <strong>Application security group</strong> for both <strong>Source</strong> and <strong>Destination</strong>, the network interfaces within both application security groups must be in the same virtual network. Learn how to <a href="#create-an-application-security-group" data-linktype="self-bookmark">create an application security group</a>.</p></td>
+</tr>
+<tr>
+<td><strong>Destination IP addresses/CIDR ranges</strong></td>
+<td>A comma-delimited list of IP addresses and CIDR ranges</td>
+<td><p>This setting appears if you change <strong>Destination</strong> to <strong>IP Addresses</strong>. You can specify single or multiple addresses or ranges like you can do with <strong>Source</strong> and <strong>Source IP addresses/CIDR ranges</strong>. The number that you can specify is limited. For more information, see <a href="../azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits" data-linktype="relative-path">Azure limits</a>.</p><p>If the IP address that you specify is assigned to an Azure VM, ensure that you specify its private IP, not its public IP address. Learn more about NSG rules' IP address translation behavior in the <a href="network-security-groups-overview#security-rules" data-linktype="relative-path">overview</a>.</p></td>
+</tr>
+<tr>
+<td><strong>Destination service tag</strong></td>
+<td>A service tag from the dropdown list</td>
+<td>This setting appears if you set <strong>Destination</strong> to <strong>Service Tag</strong> for a security rule. A service tag is a predefined identifier for a category of IP addresses. To learn more about available service tags, and what each tag represents, see <a href="service-tags-overview" data-linktype="relative-path">Service tags</a>.</td>
+</tr>
+<tr>
+<td><strong>Destination application security group</strong></td>
+<td>An existing application security group</td>
+<td>This setting appears if you set <strong>Destination</strong> to <strong>Application security group</strong>. Select an application security group that exists in the same region as the network interface. Learn how to <a href="#create-an-application-security-group" data-linktype="self-bookmark">create an application security group</a>.</td>
+</tr>
+<tr>
+<td><strong>Service</strong></td>
+<td>A destination protocol from the dropdown list</td>
+<td>This setting specifies the destination protocol and port range for the security rule. You can select a predefined service, like <strong>RDP</strong>, or select <strong>Custom</strong> and provide the port range in <strong>Destination port ranges</strong>.</td>
+</tr>
+<tr>
+<td><strong>Destination port ranges</strong></td>
+<td>One of:<ul><li>A single port, such as <code>80</code></li><li>A range of ports, such as <code>1024-65535</code></li><li>A comma-separated list of single ports and/or port ranges, such as <code>80, 1024-65535</code></li><li>An asterisk (<code>*</code>) to allow traffic on any port</li></ul></td>
+<td>As with <strong>Source port ranges</strong>, you can specify single or multiple ports and ranges. The number that you can specify is limited. For more information, see <a href="../azure-resource-manager/management/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits" data-linktype="relative-path">Azure limits</a>.</td>
+</tr>
+<tr>
+<td><strong>Protocol</strong></td>
+<td><strong>Any</strong>, <strong>TCP</strong>, <strong>UDP</strong>, or <strong>ICMP</strong></td>
+<td>You can restrict the rule to the Transmission Control Protocol (TCP), User Datagram Protocol (UDP), or Internet Control Message Protocol (ICMPv4 or ICMPv6). The default is for the rule to apply to all protocols (<strong>Any</strong>).</td>
+</tr>
+<tr>
+<td><strong>Action</strong></td>
+<td><strong>Allow</strong> or <strong>Deny</strong></td>
+<td>This setting specifies whether this rule allows or denies access for the supplied source and destination configuration.</td>
+</tr>
+<tr>
+<td><strong>Priority</strong></td>
+<td>A value between 100 and 4096 that is unique for all security rules within the NSG</td>
+<td>Azure processes security rules in priority order. The lower the number, the higher the priority. We recommend that you leave a gap between priority numbers when you create rules, such as 100, 200, and 300. Leaving gaps makes it easier to add rules in the future so that you can give them higher or lower priority than existing rules.</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>A unique name for the rule within the NSG</td>
+<td>The name can be up to 80 characters. It must begin with a letter or number, and it must end with a letter, number, or underscore. The name can contain only letters, numbers, underscores, periods, or hyphens.</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>A text description</td>
+<td>You can optionally specify a text description for the security rule. The description can't be longer than 140 characters.</td>
+</tr>
+</tbody>
+</table>
+<p><span class="mx-imgBorder">
+<img src="media/manage-network-security-group/add-security-rule.png" alt="Screenshot of adding a security rule to a network security group in the Azure portal." data-linktype="relative-path">
+</span>
+</p>
+</li>
+</ol>
+</section>
+<section id="tabpanel_6_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/add-aznetworksecurityruleconfig" data-linktype="absolute-path">Add-AzNetworkSecurityRuleConfig</a> to create an NSG rule.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell"># Define parameters for the NSG and security rule
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+}
+$RuleParams = @{
+    Name                 = "RDP-rule"
+    Description          = "Allow RDP"
+    Access               = "Allow"
+    Protocol             = "Tcp"
+    Direction            = "Inbound"
+    Priority             = 300
+    SourceAddressPrefix  = "*"
+    SourcePortRange      = "*"
+    DestinationAddressPrefix = "*"
+    DestinationPortRange = 3389
+}
+
+# Retrieve the NSG
+$networkSecurityGroup = Get-AzNetworkSecurityGroup @NSGParams
+
+# Add the security rule to the NSG
+Add-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $networkSecurityGroup @RuleParams
+
+# Update the NSG
+Set-AzNetworkSecurityGroup -NetworkSecurityGroup $networkSecurityGroup
+</code></pre>
+</section>
+<section id="tabpanel_6_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nsg/rule#az-network-nsg-rule-create" data-linktype="absolute-path">az network nsg rule create</a> to create an NSG rule.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nsg rule create \
+    --resource-group myResourceGroup \
+    --nsg-name myNSG \
+    --name RDP-rule \
+    --priority 300 \
+    --destination-address-prefixes '*' \
+    --destination-port-ranges 3389 \
+    --protocol Tcp \
+    --description "Allow RDP"
+</code></pre>
+</section>
+</div>
+<h4 id="duplicate-security-rules">Duplicate security rules</h4>
+<p>To duplicate existing security rules, you can export the JSON of the existing NSG, extract the <code>securityRules</code>, and include it in your ARM template.</p>
+<ol>
+<li><p>In the search box at the top of the portal, enter <strong>Network security group</strong>. Then select <strong>Network security groups</strong> in the search results.</p>
+</li>
+<li><p>Select the name of the NSG for which you want to duplicate the rules.</p>
+</li>
+<li><p>In the NSG's <strong>Overview</strong> page, expand the <strong>Essentials</strong> section and select the <strong>JSON View</strong> link on the far right.</p>
+</li>
+<li><p>In the <strong>Resource JSON</strong> half-pane, find <code>"properties"</code>. Within <code>"properties"</code>, find <code>"securityRules"</code>. Copy the full object of the security rule or rules you want to duplicate.</p>
+</li>
+<li><p>In the search box at the top of the portal, enter <strong>Deploy a custom template</strong> and select it in the search results.</p>
+</li>
+<li><p>In the <strong>Custom deployment</strong> page, select <strong>Build your own template in the editor</strong>.</p>
+</li>
+<li><p>In the <strong>Edit template</strong> page, specify the existing NSG where you want to duplicate the rules to through its name and location. Within the <code>"properties"</code> -&gt; <code>"securityRules"</code> of the NSG, paste the copied security rule object or objects.</p>
+</li>
+<li><p>Select <strong>Save</strong>. Select the desired subscription, resource group, and region, then select <strong>Review + create</strong>.</p>
+</li>
+</ol>
+<hr>
+<h3 id="view-all-security-rules">View all security rules</h3>
+<p>An NSG can contain multiple security rules. To learn more about the list of information when you view the rules, see <a href="network-security-groups-overview#security-rules" data-linktype="relative-path">Security rules</a>.</p>
+<div class="tabGroup" id="tabgroup_7">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_7_network-security-group-portal" role="tab" aria-controls="tabpanel_7_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_7_network-security-group-powershell" role="tab" aria-controls="tabpanel_7_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_7_network-security-group-cli" role="tab" aria-controls="tabpanel_7_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_7_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<ol>
+<li><p>In the search box at the top of the portal, enter <strong>Network security group</strong>. Then select <strong>Network security groups</strong> in the search results.</p>
+</li>
+<li><p>Select the name of the NSG for which you want to view the rules.</p>
+</li>
+<li><p>Select <strong>Inbound security rules</strong> or <strong>Outbound security rules</strong>.</p>
+<p>The list contains any rules that you created and the <a href="network-security-groups-overview#default-security-rules" data-linktype="relative-path">default security rules</a> of your NSG.</p>
+<p><span class="mx-imgBorder">
+<img src="media/manage-network-security-group/view-security-rules.png" alt="Screenshot of inbound security rules of a network security group in the Azure portal." data-linktype="relative-path">
+</span>
+</p>
+</li>
+</ol>
+</section>
+<section id="tabpanel_7_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/get-aznetworksecurityruleconfig" data-linktype="absolute-path">Get-AzNetworkSecurityRuleConfig</a> to view the security rules of an NSG.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell"># Define parameters for the NSG
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+}
+
+# Retrieve the NSG
+$networkSecurityGroup = Get-AzNetworkSecurityGroup @NSGParams
+
+# List security rules of the NSG in a table
+Get-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $networkSecurityGroup | Format-Table Name, Protocol, Access, Priority, Direction, SourcePortRange, DestinationPortRange, SourceAddressPrefix, DestinationAddressPrefix
+</code></pre>
+</section>
+<section id="tabpanel_7_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nsg/rule#az-network-nsg-rule-list" data-linktype="absolute-path">az network nsg rule list</a> to view the security rules of an NSG.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nsg rule list \
+    --resource-group myResourceGroup \
+    --nsg-name myNSG
+</code></pre>
+</section>
+</div>
+<h3 id="view-the-details-of-a-security-rule">View the details of a security rule</h3>
+<div class="tabGroup" id="tabgroup_8">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_8_network-security-group-portal" role="tab" aria-controls="tabpanel_8_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_8_network-security-group-powershell" role="tab" aria-controls="tabpanel_8_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_8_network-security-group-cli" role="tab" aria-controls="tabpanel_8_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_8_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<ol>
+<li><p>In the search box at the top of the portal, enter <strong>Network security group</strong>. Then select <strong>Network security groups</strong> in the search results.</p>
+</li>
+<li><p>Select the name of the NSG for which you want to view the rules.</p>
+</li>
+<li><p>Select <strong>Inbound security rules</strong> or <strong>Outbound security rules</strong>.</p>
+</li>
+<li><p>Select the rule for which you want to view details. For an explanation of all settings, see <a href="#security-rule-settings" data-linktype="self-bookmark">Security rule settings</a>.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>This procedure applies only to a custom security rule. It doesn't work if you choose a default security rule.</p>
+</div>
+<p><span class="mx-imgBorder">
+<img src="media/manage-network-security-group/view-security-rule-details.png" alt="Screenshot of the details of an inbound security rule of a network security group in the Azure portal." data-linktype="relative-path">
+</span>
+</p>
+</li>
+</ol>
+</section>
+<section id="tabpanel_8_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/get-aznetworksecurityruleconfig" data-linktype="absolute-path">Get-AzNetworkSecurityRuleConfig</a> to view the details of a security rule.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell"># Define parameters for the NSG and security rule
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+}
+$RuleParams = @{
+    Name = "RDP-rule"
+}
+
+# Retrieve the NSG
+$networkSecurityGroup = Get-AzNetworkSecurityGroup @NSGParams
+
+# View details of the security rule
+Get-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $networkSecurityGroup @RuleParams
+</code></pre>
+<div class="NOTE">
+<p>Note</p>
+<p>This procedure applies only to a custom security rule. It doesn't work if you choose a default security rule.</p>
+</div>
+</section>
+<section id="tabpanel_8_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nsg/rule#az-network-nsg-rule-show" data-linktype="absolute-path">az network nsg rule show</a> to view the details of a security rule.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nsg rule show \
+    --resource-group myResourceGroup \
+    --nsg-name myNSG \
+    --name RDP-rule
+</code></pre>
+<div class="NOTE">
+<p>Note</p>
+<p>This procedure applies only to a custom security rule. It doesn't work if you choose a default security rule.</p>
+</div>
+</section>
+</div>
+<h3 id="change-a-security-rule">Change a security rule</h3>
+<div class="tabGroup" id="tabgroup_9">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_9_network-security-group-portal" role="tab" aria-controls="tabpanel_9_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_9_network-security-group-powershell" role="tab" aria-controls="tabpanel_9_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_9_network-security-group-cli" role="tab" aria-controls="tabpanel_9_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_9_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<ol>
+<li><p>In the search box at the top of the portal, enter <strong>Network security group</strong>. Then select <strong>Network security groups</strong> in the search results.</p>
+</li>
+<li><p>Select the name of the NSG for which you want to view the rules.</p>
+</li>
+<li><p>Select <strong>Inbound security rules</strong> or <strong>Outbound security rules</strong>.</p>
+</li>
+<li><p>Select the rule that you want to change.</p>
+</li>
+<li><p>Change the rule's settings as needed, then select <strong>Save</strong>. For an explanation of all settings, see <a href="#security-rule-settings" data-linktype="self-bookmark">Security rule settings</a>.</p>
+<p><span class="mx-imgBorder">
+<img src="media/manage-network-security-group/change-security-rule.png" alt="Screenshot of changing the inbound security rule details of a network security group in the Azure portal." data-linktype="relative-path">
+</span>
+</p>
+<div class="NOTE">
+<p>Note</p>
+<p>This procedure applies only to a custom security rule. You aren't allowed to change a default security rule.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="tabpanel_9_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/set-aznetworksecurityruleconfig" data-linktype="absolute-path">Set-AzNetworkSecurityRuleConfig</a> to update an NSG rule.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell"># Define parameters for the NSG and security rule
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+}
+$RuleParams = @{
+    Name                 = "RDP-rule"
+    Description          = "Allow RDP"
+    Access               = "Allow"
+    Protocol             = "Tcp"
+    Direction            = "Inbound"
+    Priority             = 200
+    SourceAddressPrefix  = "*"
+    SourcePortRange      = "*"
+    DestinationAddressPrefix = "*"
+    DestinationPortRange = 3389
+}
+
+# Retrieve the NSG
+$networkSecurityGroup = Get-AzNetworkSecurityGroup @NSGParams
+
+# Update the security rule in the NSG
+Set-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $networkSecurityGroup @RuleParams
+
+# Update the NSG
+Set-AzNetworkSecurityGroup -NetworkSecurityGroup $networkSecurityGroup
+</code></pre>
+<div class="NOTE">
+<p>Note</p>
+<p>This procedure applies only to a custom security rule. You aren't allowed to change a default security rule.</p>
+</div>
+</section>
+<section id="tabpanel_9_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nsg/rule#az-network-nsg-rule-update" data-linktype="absolute-path">az network nsg rule update</a> to update an NSG rule.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nsg rule update \
+    --resource-group myResourceGroup \
+    --nsg-name myNSG \
+    --name RDP-rule \
+    --priority 200
+</code></pre>
+<div class="NOTE">
+<p>Note</p>
+<p>This procedure applies only to a custom security rule. You aren't allowed to change a default security rule.</p>
+</div>
+</section>
+</div>
+<h3 id="delete-a-security-rule">Delete a security rule</h3>
+<div class="tabGroup" id="tabgroup_10">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_10_network-security-group-portal" role="tab" aria-controls="tabpanel_10_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_10_network-security-group-powershell" role="tab" aria-controls="tabpanel_10_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_10_network-security-group-cli" role="tab" aria-controls="tabpanel_10_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_10_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<ol>
+<li><p>In the search box at the top of the portal, enter <strong>Network security group</strong>. Then select <strong>Network security groups</strong> in the search results.</p>
+</li>
+<li><p>Select the name of the NSG for which you want to view the rules.</p>
+</li>
+<li><p>Select <strong>Inbound security rules</strong> or <strong>Outbound security rules</strong>.</p>
+</li>
+<li><p>Select the rule that you want to delete. You can select more than one rule to delete at a time.</p>
+</li>
+<li><p>Select <strong>Delete</strong>, then select <strong>Yes</strong>.</p>
+<p><span class="mx-imgBorder">
+<img src="media/manage-network-security-group/delete-security-rule.png" alt="Screenshot of deleting an inbound security rule of a network security group in the Azure portal." data-linktype="relative-path">
+</span>
+</p>
+<div class="NOTE">
+<p>Note</p>
+<p>This procedure applies only to a custom security rule. You aren't allowed to delete a default security rule.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="tabpanel_10_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/remove-aznetworksecurityruleconfig" data-linktype="absolute-path">Remove-AzNetworkSecurityRuleConfig</a> to delete a security rule from an NSG.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell"># Define parameters for the NSG and security rule. You may specify more than one rule to delete at a time
+$NSGParams = @{
+    Name              = "myNSG"
+    ResourceGroupName = "myResourceGroup"
+}
+$RuleParams = @{
+    Name = "RDP-rule"
+}
+
+# Retrieve the NSG
+$networkSecurityGroup = Get-AzNetworkSecurityGroup @NSGParams
+
+# Remove the security rule from the NSG
+Remove-AzNetworkSecurityRuleConfig -NetworkSecurityGroup $networkSecurityGroup @RuleParams
+
+# Update the NSG
+Set-AzNetworkSecurityGroup -NetworkSecurityGroup $networkSecurityGroup
+</code></pre>
+<div class="NOTE">
+<p>Note</p>
+<p>This procedure applies only to a custom security rule. You aren't allowed to delete a default security rule.</p>
+</div>
+</section>
+<section id="tabpanel_10_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/nsg/rule#az-network-nsg-rule-delete" data-linktype="absolute-path">az network nsg rule delete</a> to delete a security rule from an NSG.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network nsg rule delete \
+    --resource-group myResourceGroup \
+    --nsg-name myNSG \
+    --name RDP-rule
+</code></pre>
+<div class="NOTE">
+<p>Note</p>
+<p>This procedure applies only to a custom security rule. You aren't allowed to delete a default security rule.</p>
+</div>
+</section>
+</div>
+<h2 id="work-with-application-security-groups">Work with application security groups</h2>
+<p>An application security group contains zero or more network interfaces. To learn more, see <a href="network-security-groups-overview#application-security-groups" data-linktype="relative-path">Application security groups</a>. All network interfaces in an application security group must exist in the same virtual network. To learn how to add a network interface to an application security group, see <a href="virtual-network-network-interface#add-or-remove-from-application-security-groups" data-linktype="relative-path">Add a network interface to an application security group</a>.</p>
+<h3 id="create-an-application-security-group">Create an application security group</h3>
+<div class="tabGroup" id="tabgroup_11">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_11_network-security-group-portal" role="tab" aria-controls="tabpanel_11_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_11_network-security-group-powershell" role="tab" aria-controls="tabpanel_11_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_11_network-security-group-cli" role="tab" aria-controls="tabpanel_11_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_11_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<ol>
+<li><p>In the search box at the top of the portal, enter <strong>Application security group</strong>. Then select <strong>Application security groups</strong> in the search results.</p>
+</li>
+<li><p>Select <strong>+ Create</strong>.</p>
+</li>
+<li><p>On the <strong>Create an application security group</strong> page, under the <strong>Basics</strong> tab, enter or select the following values:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Project details</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Subscription</td>
+<td>Select your Azure subscription.</td>
+</tr>
+<tr>
+<td>Resource group</td>
+<td>Select an existing resource group, or create a new one by selecting <strong>Create new</strong>. This example uses the <code>myResourceGroup</code> resource group.</td>
+</tr>
+<tr>
+<td><strong>Instance details</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Name</td>
+<td>Enter a name for your new application security group. This example uses the name <code>myASG</code>.</td>
+</tr>
+<tr>
+<td>Region</td>
+<td>Select the desired region where you want to create the application security group.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p>Select <strong>Review + create</strong>.</p>
+</li>
+<li><p>After you see the <strong>Validation passed</strong> message, select <strong>Create</strong>.</p>
+</li>
+</ol>
+</section>
+<section id="tabpanel_11_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/new-azapplicationsecuritygroup" data-linktype="absolute-path">New-AzApplicationSecurityGroup</a> to create an application security group.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell"># Define parameters for the new application security group
+$ASGParams = @{
+    ResourceGroupName = "myResourceGroup"
+    Name              = "myASG"
+    Location          = "eastus"
+}
+
+# Create the application security group
+New-AzApplicationSecurityGroup @ASGParams
+</code></pre>
+</section>
+<section id="tabpanel_11_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/asg#az-network-asg-create" data-linktype="absolute-path">az network asg create</a> to create an application security group.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network asg create \
+    --resource-group myResourceGroup \
+    --name myASG \
+    --location eastus
+</code></pre>
+</section>
+</div>
+<h3 id="view-all-application-security-groups">View all application security groups</h3>
+<div class="tabGroup" id="tabgroup_12">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_12_network-security-group-portal" role="tab" aria-controls="tabpanel_12_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_12_network-security-group-powershell" role="tab" aria-controls="tabpanel_12_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_12_network-security-group-cli" role="tab" aria-controls="tabpanel_12_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_12_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<p>In the search box at the top of the portal, enter <strong>Application security group</strong>. Then select <strong>Application security groups</strong> in the search results. A list of your application security groups appears in the Azure portal.</p>
+<p><span class="mx-imgBorder">
+<img src="media/manage-network-security-group/view-application-security-groups.png" alt="Screenshot of existing application security groups in the Azure portal." data-linktype="relative-path">
+</span>
+</p>
+</section>
+<section id="tabpanel_12_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/get-azapplicationsecuritygroup" data-linktype="absolute-path">Get-AzApplicationSecurityGroup</a> to list all the application security groups in your Azure subscription.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">Get-AzApplicationSecurityGroup | format-table Name, ResourceGroupName, Location
+</code></pre>
+</section>
+<section id="tabpanel_12_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/asg#az-network-asg-list" data-linktype="absolute-path">az network asg list</a> to list all the application security groups in a resource group.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network asg list \
+    --resource-group myResourceGroup \
+    --out table
+</code></pre>
+</section>
+</div>
+<h3 id="view-the-details-of-a-specific-application-security-group">View the details of a specific application security group</h3>
+<div class="tabGroup" id="tabgroup_13">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_13_network-security-group-portal" role="tab" aria-controls="tabpanel_13_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_13_network-security-group-powershell" role="tab" aria-controls="tabpanel_13_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_13_network-security-group-cli" role="tab" aria-controls="tabpanel_13_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_13_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<ol>
+<li><p>In the search box at the top of the portal, enter <strong>Application security group</strong>. Then select <strong>Application security groups</strong> in the search results.</p>
+</li>
+<li><p>Select the application security group for which you want to view the details.</p>
+</li>
+</ol>
+</section>
+<section id="tabpanel_13_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/get-azapplicationsecuritygroup" data-linktype="absolute-path">Get-AzApplicationSecurityGroup</a> to view the details of an application security group.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">Get-AzApplicationSecurityGroup -Name myASG
+</code></pre>
+</section>
+<section id="tabpanel_13_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/asg#az-network-asg-show" data-linktype="absolute-path">az network asg show</a> to view the details of an application security group.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network asg show \
+    --resource-group myResourceGroup \
+    --name myASG
+</code></pre>
+</section>
+</div>
+<h3 id="change-an-application-security-group">Change an application security group</h3>
+<div class="tabGroup" id="tabgroup_14">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_14_network-security-group-portal" role="tab" aria-controls="tabpanel_14_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_14_network-security-group-powershell" role="tab" aria-controls="tabpanel_14_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_14_network-security-group-cli" role="tab" aria-controls="tabpanel_14_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_14_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<ol>
+<li><p>In the search box at the top of the portal, enter <strong>Application security group</strong>. Then select <strong>Application security groups</strong> in the search results.</p>
+</li>
+<li><p>Select the application security group that you want to change:</p>
+<ul>
+<li><p>Select <strong>move</strong> next to <strong>Resource group</strong> or <strong>Subscription</strong> to change the resource group or subscription, respectively.</p>
+</li>
+<li><p>Select <strong>edit</strong> next to <strong>Tags</strong> to add or remove tags. To learn more, see <a href="../azure-resource-manager/management/tag-resources" data-linktype="relative-path">Use tags to organize your Azure resources and management hierarchy</a>.</p>
+<p><span class="mx-imgBorder">
+<img src="media/manage-network-security-group/change-application-security-group.png" alt="Screenshot of changing an application security group in the Azure portal." data-linktype="relative-path">
+</span>
+</p>
+<div class="NOTE">
+<p>Note</p>
+<p>You can't change the location of an application security group.</p>
+</div>
+</li>
+<li><p>Navigate to the <strong>Access control (IAM)</strong> section to assign or remove permissions to the application security group.</p>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="tabpanel_14_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell"># Define parameters for the application security group
+$ASGParams = @{
+    ResourceGroupName = "myResourceGroup"
+    Name              = "myASG"
+}
+
+# Retrieve the application security group
+$applicationSecurityGroup = Get-AzApplicationSecurityGroup @ASGParams
+
+New-AzTag -ResourceId $applicationSecurityGroup.Id -Tag @{ Dept = "Finance" }
+</code></pre>
+</section>
+<section id="tabpanel_14_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/asg#az-network-asg-update" data-linktype="absolute-path">az network asg update</a> to update the tags for an application security group.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network asg update \
+    --resource-group myResourceGroup \
+    --name myASG \
+    --tags Dept=Finance
+</code></pre>
+<div class="NOTE">
+<p>Note</p>
+<p>You can't change the resource group, subscription, or location of an application security group by using the Azure CLI.</p>
+</div>
+</section>
+</div>
+<h3 id="delete-an-application-security-group">Delete an application security group</h3>
+<p>You can't delete an application security group if it contains any network interfaces. To remove all network interfaces from the application security group, either change the network interface settings or delete the network interfaces. To learn more, see <a href="virtual-network-network-interface#add-or-remove-from-application-security-groups" data-linktype="relative-path">Add or remove from application security groups</a> or <a href="virtual-network-network-interface#delete-a-network-interface" data-linktype="relative-path">Delete a network interface</a>.</p>
+<div class="tabGroup" id="tabgroup_15">
+<ul role="tablist">
+<li role="presentation">
+<a href="#tabpanel_15_network-security-group-portal" role="tab" aria-controls="tabpanel_15_network-security-group-portal" data-tab="network-security-group-portal" tabindex="0" aria-selected="true" data-linktype="self-bookmark"><strong>Portal</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_15_network-security-group-powershell" role="tab" aria-controls="tabpanel_15_network-security-group-powershell" data-tab="network-security-group-powershell" tabindex="-1" data-linktype="self-bookmark"><strong>PowerShell</strong></a>
+</li>
+<li role="presentation">
+<a href="#tabpanel_15_network-security-group-cli" role="tab" aria-controls="tabpanel_15_network-security-group-cli" data-tab="network-security-group-cli" tabindex="-1" data-linktype="self-bookmark"><strong>Azure CLI</strong></a>
+</li>
+</ul>
+<section id="tabpanel_15_network-security-group-portal" role="tabpanel" data-tab="network-security-group-portal">
+
+<ol>
+<li><p>In the search box at the top of the portal, enter <strong>Application security group</strong>. Then select <strong>Application security groups</strong> in the search results.</p>
+</li>
+<li><p>Select the application security group that you want to delete.</p>
+</li>
+<li><p>Select <strong>Delete</strong>, and then select <strong>Yes</strong> to delete the application security group.</p>
+<p><span class="mx-imgBorder">
+<img src="media/manage-network-security-group/delete-application-security-group.png" alt="Screenshot of deleting an application security group in the Azure portal." data-linktype="relative-path">
+</span>
+</p>
+</li>
+</ol>
+</section>
+<section id="tabpanel_15_network-security-group-powershell" role="tabpanel" data-tab="network-security-group-powershell" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/powershell/module/az.network/remove-azapplicationsecuritygroup" data-linktype="absolute-path">Remove-AzApplicationSecurityGroup</a> to delete an application security group.</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell"># Define parameters for the application security group to be removed
+$ASGParams = @{
+    ResourceGroupName = "myResourceGroup"
+    Name              = "myASG"
+}
+
+# Remove the application security group
+Remove-AzApplicationSecurityGroup @ASGParams
+</code></pre>
+</section>
+<section id="tabpanel_15_network-security-group-cli" role="tabpanel" data-tab="network-security-group-cli" aria-hidden="true" hidden="hidden">
+
+<p>Use <a href="/en-us/cli/azure/network/asg#az-network-asg-delete" data-linktype="absolute-path">az network asg delete</a> to delete an application security group.</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network asg delete \
+    --resource-group myResourceGroup \
+    --name myASG
+</code></pre>
+</section>
+</div>
+<h2 id="permissions">Permissions</h2>
+<p>To manage NSGs, security rules, and application security groups, your account must be assigned to the <a href="../role-based-access-control/built-in-roles?toc=/azure/virtual-network/toc.json#network-contributor" data-linktype="relative-path">Network Contributor</a> role. You can also use a <a href="../role-based-access-control/custom-roles?toc=/azure/virtual-network/toc.json" data-linktype="relative-path">custom role</a> with the appropriate permissions assigned, as listed in the following tables.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>You might <em>not</em> see the full list of service tags if the Network Contributor role was assigned at a resource group level. To view the full list, you can assign this role at a subscription scope instead. If you can only allow the Network Contributor role for the resource group, you can also create a custom role for the permissions <code>Microsoft.Network/locations/serviceTags/read</code> and <code>Microsoft.Network/locations/serviceTagDetails/read</code>. Assign them at a subscription scope along with the Network Contributor role at the resource group scope.</p>
+</div>
+<h3 id="network-security-group">Network security group</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Microsoft.Network/networkSecurityGroups/read</code></td>
+<td>Get an NSG.</td>
+</tr>
+<tr>
+<td><code>Microsoft.Network/networkSecurityGroups/write</code></td>
+<td>Create or update an NSG.</td>
+</tr>
+<tr>
+<td><code>Microsoft.Network/networkSecurityGroups/delete</code></td>
+<td>Delete an NSG.</td>
+</tr>
+<tr>
+<td><code>Microsoft.Network/networkSecurityGroups/join/action</code></td>
+<td>Associate an NSG to a subnet or network interface.</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<p>Note</p>
+<p>To perform <code>write</code> operations on an NSG, the subscription account must have at least <code>read</code> permissions for the resource group along with <code>Microsoft.Network/networkSecurityGroups/write</code> permission.</p>
+</div>
+<h3 id="network-security-group-rule">Network security group rule</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Microsoft.Network/networkSecurityGroups/securityRules/read</code></td>
+<td>Get a rule.</td>
+</tr>
+<tr>
+<td><code>Microsoft.Network/networkSecurityGroups/securityRules/write</code></td>
+<td>Create or update a rule.</td>
+</tr>
+<tr>
+<td><code>Microsoft.Network/networkSecurityGroups/securityRules/delete</code></td>
+<td>Delete a rule.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="application-security-group">Application security group</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action</code></td>
+<td>Join an IP configuration to an application security group.</td>
+</tr>
+<tr>
+<td><code>Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action</code></td>
+<td>Join a security rule to an application security group.</td>
+</tr>
+<tr>
+<td><code>Microsoft.Network/applicationSecurityGroups/read</code></td>
+<td>Get an application security group.</td>
+</tr>
+<tr>
+<td><code>Microsoft.Network/applicationSecurityGroups/write</code></td>
+<td>Create or update an application security group.</td>
+</tr>
+<tr>
+<td><code>Microsoft.Network/applicationSecurityGroups/delete</code></td>
+<td>Delete an application security group.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="related-content">Related content</h2>
+<ul>
+<li><p>Add or remove <a href="virtual-network-network-interface?tabs=network-interface-portal#add-or-remove-from-application-security-groups" data-linktype="relative-path">a network interface to or from an application security group</a>.</p>
+</li>
+<li><p>Create and assign <a href="policy-reference" data-linktype="relative-path">Azure Policy definitions</a> for virtual networks.</p>
+</li>
+</ul>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2025-07-26T08:00:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2025-07-26
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

@@ -1,0 +1,145 @@
+{
+  "base": "0538b40cc51af634e71182014e65bdb932936c70",
+  "files": {
+    ".github/workflows/ci.yml": {
+      "before": "407e1218d65d24783227e8925e7e8931a922eb8c",
+      "after": "81c61c13f64f31472e8bc09e443499eb0a2e00cf"
+    },
+    "AGENTS.md": {
+      "before": "1bdfe1383e522963fac5d26e2f16ce71511aefad",
+      "after": "5f9455d6d94528d26c9b6ffcffe341d9507921d1"
+    },
+    "docs/ARCHITECTURE.md": {
+      "before": "88828a24573f8e2ac6a5d11998b92902d54df4ae",
+      "after": "b87acc6272ee367bb2846a400c9fea3ce30542d4"
+    },
+    "docs/DECISIONS.md": {
+      "before": "7c4f1ee0715613b7e1358ea66902cd25f0d6d45f",
+      "after": "6e1b28c701e5e1010acc890c9271289ecf87781e"
+    },
+    "docs/DEVELOPMENT_WORKFLOW.md": {
+      "before": "2dba255168137a5ba8f8117727fd60b5c4c37cd2",
+      "after": "9757792f2976b28e2ec0149fd82af92c11f36866"
+    },
+    "docs/PORTAL_CAPABILITY_MATRIX.md": {
+      "before": "0211b4635949ad9321494cb9c39afbc238340d4a",
+      "after": "3802bb552bfbb4cc741761e095ca4e1b5b13cd8f"
+    },
+    "docs/PROJECT_STATUS.md": {
+      "before": "ba1a8e1ae8e34940d52d0f0941ef7b0cc6f14e56",
+      "after": "ec030370f902374cbdb8f80c8522aca777084160"
+    },
+    "playwright.desktop.config.ts": {
+      "before": "4485852da8ea5aa45aa78ce8ec82dfb8ac55ee35",
+      "after": "0a52d8bd279f554df761ef6da15fc691a0c6a861"
+    },
+    "src/features/laboratory/laboratory.tsx": {
+      "before": "9de41a1ee614546222fe0ccf8d71d32c348de580",
+      "after": "9086cb38e6f830c74ef818460be091f65ad55b7b"
+    },
+    "src/features/portal/portal.tsx": {
+      "before": "bc822b5ac212a0bbbccd880e736db113c4963405",
+      "after": "0b068b08af07e4d24c7430dfe6eee7f2129fa097"
+    },
+    "src/features/portal/presentation.css": {
+      "before": "6f3f56bfcdec4d27e9d1f064baabf247f25ff405",
+      "after": "7d4fefd8dd0212602479ecc0fc8445568fd8ced6"
+    },
+    "src/laboratory-pr71-preservation.test.ts": {
+      "before": "0f485b333b15d1951df0029e605ad8047691e842",
+      "after": "3780ae3c89a9c30c6e2bc917dd7836fb7765e069"
+    },
+    "tests/pr71-preservation.ts": {
+      "before": "153a8f475fe51b62c6518d84374f656f93ed466b",
+      "after": "034ceb1bf82e5672f52ffe1d2b01a45928b3c6f7"
+    }
+  },
+  "added": {
+    "docs/SHARED_PORTAL_CAPABILITY_MATRIX.md": "eb975df950c6a011168bac82f678013f274ba5d3",
+    "docs/SHARED_PORTAL_CONSOLIDATION.md": "895565b5e6c0b0bb04953946b921975e74d35ea6",
+    "docs/reviews/evidence/pr72/catalog-icon-after-course.json": "2abc6c2acca36d44761b8ee7a0ca21ff9ff386f9",
+    "docs/reviews/evidence/pr72/catalog-icon-after-free.json": "d4e354dc40028470c4963d19bc7f4073c05c1200",
+    "docs/reviews/evidence/pr72/failures/catalog-icon-before.json.raw": "a4ffb7466ec3a91386401e84a6de64b3358e3e52",
+    "docs/reviews/evidence/pr72/failures/catalog-icon-before.png": "1861665d728349fc97749c4bd520f33046efe9fe",
+    "docs/reviews/evidence/pr72/failures/ci118-complete.log.raw": "f84d71ab48d2938dc050bea868dd423c9f50bb58",
+    "docs/reviews/evidence/pr72/failures/ci118-local-red.log.raw": "cb8252a7d12efcecc4e94e0dc491d2b3a93a7c21",
+    "docs/reviews/evidence/pr72/failures/ci118-new-compact-closed-menu.log.raw": "863a255a57ed68b946297e669dce9c988e8cc681",
+    "docs/reviews/evidence/pr72/failures/ci118-overflow-isolation.json.raw": "bb5a270325a702497e3c9c7851eb6ec9a16d7953",
+    "docs/reviews/evidence/pr72/failures/ci119-attempt1.log.raw": "52adf092cee547ce1dab93fddeb001ed5c2bf369",
+    "docs/reviews/evidence/pr72/failures/ci119-attempt2.log.raw": "6981374c1950a3e4f03a4e922c47f06eb45d270a",
+    "docs/reviews/evidence/pr72/failures/ci119-timing-comparison.json.raw": "5cacc1e85083027a350a8038dded82321ff4a4e3",
+    "docs/reviews/evidence/pr72/failures/guided-coach-assumption.md.raw": "8b679fe00a4080afed9928c3c19d7a0e0d72f4d2",
+    "docs/reviews/evidence/pr72/failures/hybrid-experience-enhanced-f624f-thored-start-middle-and-end-desktop-chromium.md.raw": "1ee5ce2e7a8f1785f6d5630204194b0ed79cce05",
+    "docs/reviews/evidence/pr72/failures/initial-filename-collision.log.raw": "d2a77f8ea290d27925f6bc110ef37902553715b3",
+    "docs/reviews/evidence/pr72/failures/initial-native.log.raw": "6b18837933c946da5901d38207ac6e7adac308a0",
+    "docs/reviews/evidence/pr72/failures/initial-projection-test.log.raw": "68b4a7f9067d6c828736662f352a27160d5bd6f7",
+    "docs/reviews/evidence/pr72/failures/intermediate-prop-lint.log.raw": "744a9c5e4265a1f654af868a53e8c6d25478920e",
+    "docs/reviews/evidence/pr72/failures/intermediate-raw-format.log.raw": "bd2f8ab34c8fb20a1a1c2c7d16d3ffdc947dc290",
+    "docs/reviews/evidence/pr72/failures/laboratory-networking-netw-29365-are-one-authoritative-World-desktop-chromium.md.raw": "5eb7ce63d5cb33665baf3445e6542beaf5b2d189",
+    "docs/reviews/evidence/pr72/failures/local-artifact-collision.log.raw": "e94748a23cd0f9e8c4a5048843d6f2aafe132e39",
+    "docs/reviews/evidence/pr72/failures/local-full-profile.log.raw": "f35f653b29ddd6de61c55be973896239dda98d86",
+    "docs/reviews/evidence/pr72/failures/model-label-assumption.md.raw": "428d8f85ae1ba0f5fb75b095466b477169fce1b1",
+    "docs/reviews/evidence/pr72/failures/original-fidelity-collision-run.log.raw": "6fd6e41bbb1d5243d57d5152df99dc03d1b55b91",
+    "docs/reviews/evidence/pr72/failures/serial-ci-env-parser-prototype.log.raw": "d55a11dff5f7a33d4bc41572b73ae0ad69e25d47",
+    "docs/reviews/evidence/pr72/failures/serial-ci-monolithic-preservation-timeout.log.raw": "cca07874e29feaf1097a12eab9947bd403d4715e",
+    "docs/reviews/evidence/pr72/failures/serial-ci-new-test-lint.log.raw": "dfc4b281c75af25b40e2cb562d35cf4eee5e764d",
+    "docs/reviews/evidence/pr72/failures/serial-ci-test-env-typecheck.log.raw": "5561b53743ae4c85256981b11b8c80090bab3966",
+    "docs/reviews/evidence/pr72/screens/before-course-home-1440-900.png": "1daae3334f517fd4350a366ff0dd5aca3e147a10",
+    "docs/reviews/evidence/pr72/screens/before-free-entry-1440-900.png": "45d04ec3d672729248248ed28b1015db5a3f76ab",
+    "docs/reviews/evidence/pr72/screens/course-create-1024-500.png": "09fbe365eaba5287c8341daa1ee5f4fe9b68c446",
+    "docs/reviews/evidence/pr72/screens/course-create-1024-768.png": "d7271467923778d7b3b35f009a5b70611461fe7f",
+    "docs/reviews/evidence/pr72/screens/course-create-1440-900.png": "e1952598e6461dddd5478a77dc42be7b5a0b2149",
+    "docs/reviews/evidence/pr72/screens/course-group-1024-500.png": "048f21c5af2a6fbc26a3ca39cf9c53f8bddf0b9b",
+    "docs/reviews/evidence/pr72/screens/course-group-1024-768.png": "f79e492f4625647ed2a6b97a036ec0c8ea74e661",
+    "docs/reviews/evidence/pr72/screens/course-group-1440-900.png": "6b6696bdd06894afceed80fb15e7725da306b343",
+    "docs/reviews/evidence/pr72/screens/course-home-1024-500.png": "ed3a9a6b256d1c0716a0ce0cf4b20cad4db1894b",
+    "docs/reviews/evidence/pr72/screens/course-home-1024-768.png": "a305494391d38f03eb5cc1391e30130590b3ad28",
+    "docs/reviews/evidence/pr72/screens/course-home-1440-900.png": "f24df32933458111ccc619eb5b53aa7a5f79a1c5",
+    "docs/reviews/evidence/pr72/screens/course-list-1024-500.png": "4fbf966c37f0712e8a7c668def0b4cff57da20c6",
+    "docs/reviews/evidence/pr72/screens/course-list-1024-768.png": "1995676e9b88be17d5fdc091fb1575d7a65995bc",
+    "docs/reviews/evidence/pr72/screens/course-list-1440-900.png": "a4b0f7a67bbada1beb3fd7fa112b048ee416197c",
+    "docs/reviews/evidence/pr72/screens/course-services-1024-500.png": "29d8c6ac53f10170a3efb8816690d4d586ea1791",
+    "docs/reviews/evidence/pr72/screens/course-services-1024-768.png": "18c945ffc00ad8a63dcfcee9e70edb33cc847a8a",
+    "docs/reviews/evidence/pr72/screens/course-services-1440-900.png": "88c86779bd1cc1ad2f4f28f63c238560a1b4515f",
+    "docs/reviews/evidence/pr72/screens/course-subscription-details-1024-500.png": "8713a59e5558880ed7597b28c133078a267f0ed1",
+    "docs/reviews/evidence/pr72/screens/course-subscription-details-1024-768.png": "b7448f3e3888dea94792b2fad2a2d65d7cd1a120",
+    "docs/reviews/evidence/pr72/screens/course-subscription-details-1440-900.png": "31bbebbdf8c1cc142e27f17347a9c0e962cb8245",
+    "docs/reviews/evidence/pr72/screens/course-subscriptions-1024-500.png": "ee7c5f8cb4a49c450cd74a6c49157ab903efc2f3",
+    "docs/reviews/evidence/pr72/screens/course-subscriptions-1024-768.png": "c004303ff393b443ce66235b4214bdfc79ffd483",
+    "docs/reviews/evidence/pr72/screens/course-subscriptions-1440-900.png": "87dbef742a30a25467d37684ee40f3d6d211e95a",
+    "docs/reviews/evidence/pr72/screens/free-create-1024-500.png": "fcd931390abdcc8d23e5ea46c750b44005d28f54",
+    "docs/reviews/evidence/pr72/screens/free-create-1024-768.png": "71ac793e5656d7ca37f61d8a775661aa4dd51dca",
+    "docs/reviews/evidence/pr72/screens/free-create-1440-900.png": "a6e70cb7a308794d7a210f5802dc0db97bb96c0e",
+    "docs/reviews/evidence/pr72/screens/free-group-1024-500.png": "53e57c3067f9ca089dbb2858bef059af62582781",
+    "docs/reviews/evidence/pr72/screens/free-group-1024-768.png": "39d694fc31d84acfc0071314b4790af698ed33c4",
+    "docs/reviews/evidence/pr72/screens/free-group-1440-900.png": "4fb36b857588458acaf76f63d50cd2f191b937c3",
+    "docs/reviews/evidence/pr72/screens/free-home-1024-500.png": "f08b66f37f4dc3d16d59891d76f6626c91355765",
+    "docs/reviews/evidence/pr72/screens/free-home-1024-768.png": "51d41ac69f3700f25ee37a3d44314ac785c87252",
+    "docs/reviews/evidence/pr72/screens/free-home-1440-900.png": "66f198da189f3e0f1c0766eef3293b7da1328944",
+    "docs/reviews/evidence/pr72/screens/free-list-1024-500.png": "fe287cbd57f3090c575cf064f5574897a7737a96",
+    "docs/reviews/evidence/pr72/screens/free-list-1024-768.png": "f5024fbb996929b7af0154c1e4040b792068f03b",
+    "docs/reviews/evidence/pr72/screens/free-list-1440-900.png": "724a464e14359f16c6de28734235a574acb539e8",
+    "docs/reviews/evidence/pr72/screens/free-services-1024-500.png": "3722ff8ea4e6501d5dc1e23c9fd860c793005492",
+    "docs/reviews/evidence/pr72/screens/free-services-1024-768.png": "ac9ac0bc8e83b6f61f14f61e3db490d02cddd3d7",
+    "docs/reviews/evidence/pr72/screens/free-services-1440-900.png": "cb6d3a09bc9a952be1400f25fe4c6d24f348b270",
+    "docs/reviews/evidence/pr72/screens/free-subscription-details-1024-500.png": "8f3f9d189f53c1cd4e1c31543d03a7c5df701bdc",
+    "docs/reviews/evidence/pr72/screens/free-subscription-details-1024-768.png": "a40b9ecf37d4adfabfef9d536c861211d55977e3",
+    "docs/reviews/evidence/pr72/screens/free-subscription-details-1440-900.png": "29976b8f20e5ba248942703982cca04c58c19b76",
+    "docs/reviews/evidence/pr72/screens/free-subscriptions-1024-500.png": "dc21bb9ea7dba0b6f7ce6a2d8a8776474623c59f",
+    "docs/reviews/evidence/pr72/screens/free-subscriptions-1024-768.png": "040124fbcedf24a61abf774ec2f11ba9682254a4",
+    "docs/reviews/evidence/pr72/screens/free-subscriptions-1440-900.png": "9ead3cbc3bbe5c9b14a5efe469e42af21d3c14c0",
+    "docs/reviews/evidence/pr72/screens/guided-subscription-1440-900.png": "aa2618ddc47b9bdbe6e09dfcfeb0508b14a53468",
+    "docs/reviews/evidence/pr72/sources.json": "e09d70245aca8f5a67c2c13ec4479f9dabccb23f",
+    "src/content/shared-portal-nb.ts": "7ed521540bfa7ae676aa36a05d1a9d15d0401592",
+    "src/features/laboratory/scope-projection.ts": "9c7804628ecf0032b0f7768836a330a5df4d2609",
+    "src/features/portal/home.tsx": "1465bb3c2aff470a9684a0829c4024c8054c625a",
+    "src/features/portal/scope-projection.ts": "2a47d2bfbbb02c0e07bb5a738d00b3347621c5c8",
+    "src/features/portal/service-catalog.ts": "0de32be6785b78c4c7a09cc73e52f0f133ee8d7a",
+    "src/features/portal/shared-shell.test.ts": "0b48649736a9cbdc089feb7a558146df80af2077",
+    "src/features/portal/subscriptions.tsx": "3637a4a15a0a0e79c4ed76ab209b960996665a51",
+    "src/pr72-ci-workflow.test.ts": "4ebd0be035a011e6527886984a00ab1343792888",
+    "src/pr72-shared-portal-preservation.test.ts": "5e9befea51f06ad526de3f52745911cd9b87fd28",
+    "tests/e2e/portal-consolidation.spec.ts": "38be35503cbf6464b7d0142bdd6aa273992f67c7",
+    "tests/pr72-preservation.ts": "18134608acd5ef983856118ac14c30498f3a04d9"
+  }
+}

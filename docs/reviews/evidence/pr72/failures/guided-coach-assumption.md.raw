@@ -1,0 +1,371 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: portal-consolidation.spec.ts >> guided course uses the same Home catalogue and subscriptions while actual v2 task and exact return retain original authority
+- Location: tests/e2e/portal-consolidation.spec.ts:90:1
+
+# Error details
+
+```
+Error: expect(locator).toHaveCount(expected) failed
+
+Locator:  locator('.portal-home-training')
+Expected: 1
+Received: 0
+Timeout:  5000ms
+
+Call log:
+  - Expect "toHaveCount" locator('.portal-home-training') with timeout 5000ms
+  - waiting for locator('.portal-home-training')
+    13 × locator resolved to 0 elements
+       - unexpected value "0"
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - alert [ref=e2]
+  - generic [ref=e3]:
+    - link "Hopp til innhold" [ref=e4] [cursor=pointer]:
+      - /url: "#portal-main"
+    - banner [ref=e5]:
+      - button "Åpne eller lukk portalmenyen" [expanded] [ref=e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=e8] [cursor=pointer]:
+        - /url: /portal
+      - searchbox "Search resources, services, and docs" [ref=e10]
+      - button "SavvyShark · Veiledning" [ref=e12] [cursor=pointer]:
+        - generic [ref=e13]:
+          - text: SavvyShark
+          - generic [ref=e14]: · Veiledning
+      - generic [ref=e15]: TRAINING SIMULATOR
+      - button "Notifications (0)" [ref=e16] [cursor=pointer]
+      - button "Portal appearance" [ref=e19] [cursor=pointer]
+      - button "Modellgrenser" [ref=e21] [cursor=pointer]
+      - button "Kunnskapsjournal" [ref=e23] [cursor=pointer]
+      - link "Til forsiden" [ref=e25] [cursor=pointer]:
+        - /url: /
+    - generic [ref=e30]:
+      - complementary "Portalmeny" [ref=e31]:
+        - navigation "Portalmeny" [ref=e32]:
+          - link "Create a resource" [ref=e33] [cursor=pointer]:
+            - /url: /portal?area=services&module=services&topic=overview&mode=learn&mission=infrastructure
+          - link "Home" [ref=e35] [cursor=pointer]:
+            - /url: /portal?area=home&module=services&topic=overview&mode=learn&mission=infrastructure
+          - link "All services" [ref=e37] [cursor=pointer]:
+            - /url: /portal?area=services&module=services&topic=overview&mode=learn&mission=infrastructure
+          - generic [ref=e39]: FAVORITES
+          - link "Subscriptions" [ref=e41] [cursor=pointer]:
+            - /url: /portal?area=subscriptions&module=services&topic=overview&mode=learn&mission=infrastructure
+          - link "Resource groups" [ref=e43] [cursor=pointer]:
+            - /url: /portal?area=groups&module=services&topic=overview&mode=learn&mission=infrastructure
+          - link "All resources" [ref=e45] [cursor=pointer]:
+            - /url: /portal?area=resources&module=services&topic=overview&mode=learn&mission=infrastructure
+          - link "App Services" [ref=e47] [cursor=pointer]:
+            - /url: /portal?area=apps&module=services&topic=overview&mode=learn&mission=infrastructure
+          - link "App Service plans" [ref=e49] [cursor=pointer]:
+            - /url: /portal?area=plans&module=services&topic=overview&mode=learn&mission=infrastructure
+          - link "Virtual machines" [ref=e51] [cursor=pointer]:
+            - /url: /portal?area=vms&module=services&topic=overview&mode=learn&mission=infrastructure
+          - link "Activity log" [ref=e53] [cursor=pointer]:
+            - /url: /portal?area=activity&module=services&topic=overview&mode=learn&mission=infrastructure
+          - group [ref=e55]:
+            - generic "AzureLab learning tools" [ref=e56] [cursor=pointer]
+        - generic [ref=e58]: Lokalt treningsmiljø · ingen Azure-tilkobling
+      - main [ref=e59]:
+        - generic [ref=e63]:
+          - heading "Home" [active] [level=1] [ref=e64]
+          - generic [ref=e65]: AzureLab Directory · Lokalt treningsmiljø · ingen Azure-tilkobling
+        - generic [ref=e66]:
+          - generic [ref=e67]: Veiledet oppdrag
+          - generic [ref=e68]: IaaS · bygg for et konkret gjestekrav
+          - link "Tilbake til kurset" [ref=e69] [cursor=pointer]:
+            - /url: /learn/services?topic=iaas&activity=mission&version=2
+          - button "Architecture Explorer" [ref=e70] [cursor=pointer]
+          - button "Tilbake til læringen" [ref=e72] [cursor=pointer]
+        - generic [ref=e76]:
+          - heading "Azure services" [level=2] [ref=e77]
+          - generic [ref=e78]:
+            - link "Create a resource" [ref=e79] [cursor=pointer]:
+              - /url: /portal?area=services&module=services&topic=overview&mode=learn&mission=infrastructure
+            - link "Subscriptions" [ref=e82] [cursor=pointer]:
+              - /url: /portal?area=subscriptions&module=services&topic=overview&mode=learn&mission=infrastructure
+            - link "Resource groups" [ref=e85] [cursor=pointer]:
+              - /url: /portal?area=groups&module=services&topic=overview&mode=learn&mission=infrastructure
+            - link "All resources" [ref=e88] [cursor=pointer]:
+              - /url: /portal?area=resources&module=services&topic=overview&mode=learn&mission=infrastructure
+            - link "App Services" [ref=e91] [cursor=pointer]:
+              - /url: /portal?area=apps&module=services&topic=overview&mode=learn&mission=infrastructure
+            - link "App Service plans" [ref=e94] [cursor=pointer]:
+              - /url: /portal?area=plans&module=services&topic=overview&mode=learn&mission=infrastructure
+            - link "Virtual machines" [ref=e97] [cursor=pointer]:
+              - /url: /portal?area=vms&module=services&topic=overview&mode=learn&mission=infrastructure
+            - link "Activity log" [ref=e100] [cursor=pointer]:
+              - /url: /portal?area=activity&module=services&topic=overview&mode=learn&mission=infrastructure
+            - link "More services" [ref=e103] [cursor=pointer]:
+              - /url: /portal?area=services&module=services&topic=overview&mode=learn&mission=infrastructure
+          - button "Create a resource group" [ref=e107] [cursor=pointer]
+          - heading "Recently visited resources" [level=2] [ref=e108]
+          - paragraph [ref=e109]: Ressurser du har åpnet i denne økten. Inventaret gjenopprettes separat fra tekniske kommandoer.
+          - table [ref=e111]:
+            - caption [ref=e112]: Resources
+            - rowgroup [ref=e113]:
+              - row [ref=e114]:
+                - columnheader "Name" [ref=e115]
+                - columnheader "Type" [ref=e116]
+                - columnheader "Resource group" [ref=e117]
+                - columnheader "Subscription" [ref=e118]
+            - rowgroup [ref=e119]:
+              - row [ref=e120]:
+                - cell "Ingen ressurser er åpnet i denne økten ennå." [ref=e121]
+          - generic [ref=e122]:
+            - heading "Navigate" [level=2] [ref=e123]
+            - generic [ref=e124]:
+              - link "Subscriptions" [ref=e125] [cursor=pointer]:
+                - /url: /portal?area=subscriptions&module=services&topic=overview&mode=learn&mission=infrastructure
+              - link "Resource groups" [ref=e127] [cursor=pointer]:
+                - /url: /portal?area=groups&module=services&topic=overview&mode=learn&mission=infrastructure
+              - link "All resources" [ref=e129] [cursor=pointer]:
+                - /url: /portal?area=resources&module=services&topic=overview&mode=learn&mission=infrastructure
+        - generic [ref=e131]: AzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering.
+    - complementary "Veiledet oppdrag" [ref=e132]:
+      - generic [ref=e133]:
+        - generic [ref=e134]: Veiledet oppdrag
+        - button "Minimer oppdragsveiledningen" [expanded] [ref=e135] [cursor=pointer]
+      - heading "IaaS · bygg for et konkret gjestekrav" [level=2] [ref=e136]
+      - paragraph [ref=e137]: Et dokumentteam vedlikeholder en Linux-native konverterer og egne gjestepakker. Teamet trenger standard treningsprofil (4 vCPU / 8 GiB RAM), en separat 32 GiB datadisk og Shared Sandbox som administrativt ansvar.
+      - paragraph [ref=e138]: Ingen egnet ressurs finnes ennå. Opprett den selv gjennom støttede Portal-kontroller. Ingen eksempelressurs legges til automatisk. Begynn med Resource groups → Create ved behov, deretter Virtual machines → Create. Følg oppdragets gjeste-, disk- og subscription-krav før Review + create. Velg den opprettede VM-en som oppdragets ressurs.
+      - generic [ref=e140]:
+        - strong [ref=e141]: SavvyShark
+        - generic [ref=e142]: Din kontekstuelle læringsguide
+        - strong [ref=e143]: Bygg konfigurasjonen som kravene beskriver
+      - generic [ref=e144]:
+        - generic [ref=e145]:
+          - term [ref=e146]: Hvor finner du kontrollen?
+          - definition [ref=e147]: Bruk Resource groups ved behov og deretter tjenestens Create → Basics/Disks/Networking → Review + create → Create.
+        - generic [ref=e148]:
+          - term [ref=e149]: Hvorfor er dette relevant?
+          - definition [ref=e150]: IaaS gir kontroll over gjesten. Nå må du begrunne hvorfor kontrollen trengs og velge en modellert konfigurasjon som følger et konkret arbeidsbehov.
+        - generic [ref=e151]:
+          - term [ref=e152]: Gjør dette nå
+          - definition [ref=e153]: Bygg konfigurasjonen som kravene beskriver
+        - generic [ref=e154]:
+          - term [ref=e155]: Dette skal du observere
+          - definition [ref=e156]: Review validerer uten opprettelse. Bare din Create sender en kommando; bundle-kvitteringen må vise aksepterte avhengigheter.
+      - button "Se oppdraget igjen" [ref=e157] [cursor=pointer]
+      - paragraph [ref=e158]: "Teknisk forsøk: 1 · Teknisk startgrense: Før første kommando"
+      - generic [ref=e159]:
+        - heading "Faktiske tekniske observasjoner" [level=3] [ref=e160]
+        - list
+        - paragraph [ref=e162]: Ingen kvitteringer er ennå knyttet til valgt oppdragsressurs.
+      - link "Tilbake til oppdraget i kurset" [ref=e163] [cursor=pointer]:
+        - /url: /learn/services?topic=iaas&activity=mission&version=2
+      - button "Avbryt oppdragsforsøket · behold ressurser" [ref=e164] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  1   | import { test, expect, type Page } from '@playwright/test';
+  2   | import Axe from '@axe-core/playwright';
+  3   | import { startTemporary, service, create, courseBytes, c } from './ephemeral-actions';
+  4   | import { nb } from '../../src/content/nb';
+  5   | import { architectureStudioNb as studio } from '../../src/content/architecture-studio-nb';
+  6   | import { start as missionStart, create as courseCreate, returnCourse } from './vm-debrief-actions';
+  7   | import { revealPortalLink } from './portal-actions';
+  8   | import { revealLaboratoryLink, closeLaboratoryDrawer } from './laboratory-actions';
+  9   | const p = nb.portal;
+  10  | async function home(page: Page, mode: 'course' | 'laboratory') {
+  11  |   const link = page
+  12  |     .locator('.portal-nav nav')
+  13  |     .getByRole('link', { name: p.areas.home, exact: true });
+  14  |   if (mode === 'course') await revealPortalLink(page, link);
+  15  |   else await revealLaboratoryLink(page, link);
+  16  |   await link.click();
+  17  |   if (mode === 'laboratory') await closeLaboratoryDrawer(page);
+  18  |   await expect(page.locator('[data-portal-component="home"]')).toBeVisible();
+  19  | }
+  20  | async function scope(page: Page, name: string) {
+  21  |   await service(page, p.areas.subscriptions);
+  22  |   await page
+  23  |     .locator('[data-portal-component="subscriptions"]')
+  24  |     .getByRole('link', { name, exact: true })
+  25  |     .click();
+  26  |   await expect(page.locator('[data-portal-component="subscription-details"]')).toBeVisible();
+  27  | }
+  28  | test('free shared Home subscriptions scoped creation Properties resources Studio and recent navigation use real temporary evidence without inspection writes', async ({
+  29  |   page,
+  30  | }, info) => {
+  31  |   const commands: string[] = [];
+  32  |   page.on('request', (r) => {
+  33  |     if (
+  34  |       r.url().endsWith('/api/laboratory/ephemeral') &&
+  35  |       r.method() === 'POST' &&
+  36  |       r.postDataJSON().action === 'command'
+  37  |     )
+  38  |       commands.push(r.postData()!);
+  39  |   });
+  40  |   await startTemporary(page);
+  41  |   await expect(page.locator('[data-portal-component="home"]')).toBeVisible();
+  42  |   const before = await courseBytes(page);
+  43  |   await scope(page, 'App Sandbox');
+  44  |   await page.screenshot({ path: info.outputPath('free-subscription-before-create.png') });
+  45  |   await page.getByRole('button', { name: c.newGroup, exact: true }).click();
+  46  |   await expect(page.getByLabel(c.subscription, { exact: true })).toHaveValue('sub-app');
+  47  |   await page.getByLabel(c.name, { exact: true }).fill('rg-shared-home');
+  48  |   await page.getByRole('button', { name: c.review, exact: true }).click();
+  49  |   await page
+  50  |     .getByRole('region', { name: c.review, exact: true })
+  51  |     .getByRole('button', { name: c.create, exact: true })
+  52  |     .click();
+  53  |   await expect(page.locator('.portal-title h1')).toHaveText('rg-shared-home');
+  54  |   await service(page, c.accounts);
+  55  |   const made = await create(page, c.newAccount, { name: 'sharedhomeaccount72' });
+  56  |   expect(made.world.groups[0]!.subscriptionId).toBe('sub-app');
+  57  |   const original = JSON.stringify(made.entries);
+  58  |   await page
+  59  |     .getByRole('navigation', { name: 'sharedhomeaccount72 · Overview', exact: true })
+  60  |     .getByRole('button', { name: nb.portalUi.properties, exact: true })
+  61  |     .click();
+  62  |   await expect(page.getByRole('link', { name: c.receipt, exact: true })).toHaveAttribute(
+  63  |     'href',
+  64  |     new RegExp(made.receipt.commandId),
+  65  |   );
+  66  |   await service(page, p.areas.resources);
+  67  |   await expect(page.locator('table')).toContainText('sharedhomeaccount72');
+  68  |   const count = commands.length;
+  69  |   await service(page, studio.title);
+  70  |   await expect(page.locator('.architecture-studio')).toBeVisible();
+  71  |   await home(page, 'laboratory');
+  72  |   await expect(page.locator('[data-portal-component="home"] table')).toContainText(
+  73  |     'sharedhomeaccount72',
+  74  |   );
+  75  |   await scope(page, 'Shared Sandbox');
+  76  |   await expect(page.locator('[data-portal-component="subscription-details"]')).not.toContainText(
+  77  |     'rg-shared-home',
+  78  |   );
+  79  |   await page.goBack();
+  80  |   await expect(page.locator('.portal-title h1')).toHaveText(p.areas.subscriptions);
+  81  |   await page.goForward();
+  82  |   await expect(page.locator('.portal-title h1')).toHaveText('Shared Sandbox');
+  83  |   expect(commands).toHaveLength(count);
+  84  |   expect(await courseBytes(page)).toBe(before);
+  85  |   await service(page, c.history);
+  86  |   await expect(page.locator('table tbody tr')).toHaveCount(made.entries.length);
+  87  |   expect(JSON.stringify(made.entries)).toBe(original);
+  88  |   await page.screenshot({ path: info.outputPath('free-original-history.png') });
+  89  | });
+  90  | test('guided course uses the same Home catalogue and subscriptions while actual v2 task and exact return retain original authority', async ({
+  91  |   page,
+  92  | }, info) => {
+  93  |   await missionStart(page, 'infrastructure');
+  94  |   await home(page, 'course');
+> 95  |   await expect(page.locator('.portal-home-training')).toHaveCount(1);
+      |                                                       ^ Error: expect(locator).toHaveCount(expected) failed
+  96  |   const nav = page.getByRole('navigation', { name: p.navLabel, exact: true });
+  97  |   await nav.getByRole('link', { name: p.areas.subscriptions, exact: true }).click();
+  98  |   await page
+  99  |     .locator('[data-portal-component="subscriptions"]')
+  100 |     .getByRole('link', { name: 'Shared Sandbox', exact: true })
+  101 |     .click();
+  102 |   await expect(page.locator('[data-portal-component="subscription-details"]')).toBeVisible();
+  103 |   await page.screenshot({ path: info.outputPath('course-subscription.png') });
+  104 |   await courseCreate(page, 'group', 'rg-shared-course', 'sub-shared', 'norwayeast');
+  105 |   await home(page, 'course');
+  106 |   await expect(page.locator('[data-portal-component="home"] table')).toContainText(
+  107 |     'rg-shared-course',
+  108 |   );
+  109 |   await expect(nav.getByRole('link', { name: 'Storage accounts', exact: true })).toHaveCount(0);
+  110 |   await expect(nav.getByRole('link', { name: p.areas.apps, exact: true })).toBeVisible();
+  111 |   await returnCourse(page, 'infrastructure');
+  112 | });
+  113 | test('persistent shared Home subscriptions reload and isolated sessions read the same committed World without new history', async ({
+  114 |   page,
+  115 |   browser,
+  116 | }, info) => {
+  117 |   await page.goto('/labs/laboratory');
+  118 |   await page.getByRole('button', { name: c.start, exact: true }).click();
+  119 |   await expect(page.locator('[data-portal-component="home"]')).toBeVisible();
+  120 |   await page.getByRole('button', { name: c.newGroup, exact: true }).click();
+  121 |   await page.getByLabel(c.name, { exact: true }).fill('rg-shared-persistent');
+  122 |   await page.getByRole('button', { name: c.review, exact: true }).click();
+  123 |   await page
+  124 |     .getByRole('region', { name: c.review, exact: true })
+  125 |     .getByRole('button', { name: c.create, exact: true })
+  126 |     .click();
+  127 |   await expect(page.locator('.portal-title h1')).toHaveText('rg-shared-persistent');
+  128 |   const before = await (await page.request.get('/api/laboratory/state')).json();
+  129 |   await scope(page, 'Shared Sandbox');
+  130 |   await expect(page.locator('[data-portal-component="subscription-details"]')).toContainText(
+  131 |     'rg-shared-persistent',
+  132 |   );
+  133 |   await page.reload();
+  134 |   await expect(page.locator('[data-portal-component="subscription-details"]')).toContainText(
+  135 |     'rg-shared-persistent',
+  136 |   );
+  137 |   const after = await (await page.request.get('/api/laboratory/state')).json();
+  138 |   expect(after).toEqual(before);
+  139 |   const isolated = await browser.newContext({ baseURL: info.project.use.baseURL });
+  140 |   expect((await isolated.request.get('/api/laboratory/state')).status()).toBe(401);
+  141 |   await isolated.close();
+  142 | });
+  143 | test('historical free 3.0 has common Home and subscription discovery without advertising newer model operations', async ({
+  144 |   page,
+  145 | }) => {
+  146 |   await page.goto('/labs/laboratory');
+  147 |   await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();
+  148 |   await page.getByLabel('Arbeidsområdemodell', { exact: true }).selectOption('laboratory@3.0.0');
+  149 |   await page.getByRole('button', { name: c.start, exact: true }).click();
+  150 |   await expect(page.locator('[data-portal-component="home"]')).toBeVisible();
+  151 |   await service(page, p.areas.services);
+  152 |   const directory = page.locator('[data-portal-component="service-directory"]');
+  153 |   await expect(directory.getByRole('link', { name: c.accounts, exact: true })).toBeVisible();
+  154 |   await expect(directory.getByRole('link', { name: p.areas.vms, exact: true })).toHaveCount(0);
+  155 |   await expect(directory.getByRole('link', { name: p.areas.apps, exact: true })).toHaveCount(0);
+  156 |   await scope(page, 'App Sandbox');
+  157 |   await expect(page.locator('[data-portal-component="subscription-details"]')).toContainText(
+  158 |     'sub-app',
+  159 |   );
+  160 | });
+  161 | test('shared Home subscriptions compact keyboard focus reduced motion Axe and short desktop stay readable in both modes', async ({
+  162 |   page,
+  163 | }, info) => {
+  164 |   await page.emulateMedia({ reducedMotion: 'reduce' });
+  165 |   await startTemporary(page);
+  166 |   for (const [width, height] of [
+  167 |     [1440, 900],
+  168 |     [1024, 768],
+  169 |     [1024, 500],
+  170 |     [800, 700],
+  171 |   ]) {
+  172 |     await page.setViewportSize({ width: width!, height: height! });
+  173 |     await home(page, 'laboratory');
+  174 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+  175 |       true,
+  176 |     );
+  177 |     expect((await new Axe({ page }).analyze()).violations).toEqual([]);
+  178 |     await page.screenshot({ path: info.outputPath(`free-home-${width}-${height}.png`) });
+  179 |   }
+  180 |   const first = page
+  181 |     .locator('.portal-home-services')
+  182 |     .getByRole('link', { name: p.areas.subscriptions, exact: true });
+  183 |   await first.focus();
+  184 |   await expect(first).toBeFocused();
+  185 |   await page.keyboard.press('Enter');
+  186 |   await expect(page.locator('[data-portal-component="subscriptions"]')).toBeVisible();
+  187 |   expect((await new Axe({ page }).analyze()).violations).toEqual([]);
+  188 |   await page.screenshot({ path: info.outputPath('free-subscriptions-short.png') });
+  189 |   await page.goto('/portal');
+  190 |   await expect(page.locator('[data-portal-component="home"]')).toBeVisible();
+  191 |   expect((await new Axe({ page }).analyze()).violations).toEqual([]);
+  192 |   const link = page
+  193 |     .locator('.portal-home-services')
+  194 |     .getByRole('link', { name: p.areas.subscriptions, exact: true });
+  195 |   await link.focus();
+```

@@ -1,0 +1,17 @@
+{
+  "run": 41824040575,
+  "job": 126554103616,
+  "head": "6e065c785d386c25801bdecf9be15bb82369e65f",
+  "result": "failed",
+  "actualSummary": ["5 failed", "1 flaky", "352 passed (23.6m)"],
+  "failingCases": [
+    "1) [desktop-chromium] › tests/e2e/challenge-return.spec.ts:85:1 › Computing real Web lab returns through changed challenge to neutral origin, Hub, same draft and original submitted receipt evidence ",
+    "2) [desktop-chromium] › tests/e2e/challenge-return.spec.ts:267:1 › documented Services origin survives reload and abandon; assisted retry preserves the same first submission ",
+    "3) [desktop-chromium] › tests/e2e/course-hub.spec.ts:217:1 › all independent contexts resume their own exact route without metadata help or evidence rewriting ",
+    "4) [desktop-chromium] › tests/e2e/portal.spec.ts:293:1 › keyboard search, incomplete practice, reference assistance, first submission and malformed storage are honest ",
+    "5) [compact-chromium] › tests/e2e/portal.spec.ts:293:1 › keyboard search, incomplete practice, reference assistance, first submission and malformed storage are honest "
+  ],
+  "flakyCase": "6) [desktop-chromium] › tests/e2e/course.spec.ts:391:1 › original computing investigations, direct module access, tablet/narrow navigation and missing mascot remain usable ",
+  "diagnosis": "Initial attempt had new guided-form readiness failure, Services click/reload race, stale fixed-Services expected route in Hub fixture, and two Portal confirmations racing async durable Start. Flaky original Computing course Hub test had same missing confirmed-Start wait. New revision awaits actual committed active status; does not relabel the known older Compute help/Back or Guidance/Axe document-title issues as fixed.",
+  "changes": "Only test readiness/expected neutral route assertions; all scoring/technical/runtime bytes stay as published6e. No assertion removed, no deadline/retry/worker/skip change. Original failure summary and filtered browser blocks retained outside Git; checkout/auth logs not retained."
+}

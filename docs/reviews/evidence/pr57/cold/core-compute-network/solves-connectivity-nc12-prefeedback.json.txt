@@ -1,0 +1,8 @@
+{
+  "at": "2026-11-05T14:31:14.804Z",
+  "source": "public rendered prompt only; no keys or feedback seen",
+  "scenario": "nc12",
+  "decision": "Planlegg riktig File-subressurs med sin støttede private endpoint- og DNS-konfigurasjon.",
+  "reason": "Et Private Endpoint gjelder den støttede målsubressursen; andre kontotjenester trenger sitt eget riktige forbindelsesgrunnlag.",
+  "independentRationale": "The premise explicitly confirms File support. Blob approval covers Blob target, not File simply because same account. File needs correct endpoint target, service normal hostname, private DNS/path and authorization. RG co-location cannot expand endpoint scope; generic private NIC/account facts are true but not causal."
+}

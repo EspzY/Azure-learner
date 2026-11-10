@@ -1,0 +1,1230 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: laboratory-studio.spec.ts >> Studio near-capacity graph semantic list keyboard focus reduced motion Axe and short desktop remain usable without moving resource nodes
+- Location: tests/e2e/laboratory-studio.spec.ts:302:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: apiRequestContext.get: Test timeout of 30000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - alert [ref=e2]
+  - generic [ref=e3]:
+    - link "Hopp til innhold" [ref=e4] [cursor=pointer]:
+      - /url: "#lab-main"
+    - banner [ref=e5]:
+      - button "Åpne eller lukk portalmenyen" [ref=e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=e8] [cursor=pointer]:
+        - /url: /labs/laboratory
+      - searchbox "Search resources and services" [ref=e10]
+      - generic [ref=e11]: Fri Laboratory
+      - button "Originale kvitteringer" [ref=e12] [cursor=pointer]
+      - button "Modellgrenser" [ref=e14] [cursor=pointer]
+      - link "Kursarbeidsområde" [ref=e16] [cursor=pointer]:
+        - /url: /portal
+      - link "Til kurset" [ref=e17] [cursor=pointer]:
+        - /url: /learn
+    - main [ref=e19]:
+      - generic [ref=e20]:
+        - button "Fri Laboratory" [ref=e21] [cursor=pointer]
+        - button "Architecture Studio" [ref=e23] [cursor=pointer]
+      - generic [ref=e27]:
+        - heading "Architecture Studio" [level=1] [ref=e28]
+        - generic [ref=e29]: Lokal AzureLab-simulator · eget serverlagret arbeidsområde · ingen kursresultater eller XP
+      - region "Architecture Studio" [ref=e32]:
+        - paragraph [ref=e33]: Strukturelle relasjoner viser konfigurasjon. De viser ikke at trafikk går frem eller at en VM kjører.
+        - generic [ref=e34]:
+          - generic [ref=e35]:
+            - text: Abonnement
+            - combobox "Abonnement" [ref=e36]:
+              - option "Alle" [selected]
+              - option "Shared Sandbox · sub-shared"
+          - generic [ref=e37]:
+            - text: Resource Group
+            - combobox "Resource Group" [ref=e38]:
+              - option "Alle" [selected]
+              - option "rg-firewall · group-1"
+          - generic [ref=e39]:
+            - text: Ressurstype
+            - combobox "Ressurstype" [ref=e40]:
+              - option "Alle" [selected]
+              - option "Azure Firewall · firewall"
+              - option "Firewall Policy · firewallPolicy"
+              - option "Managed disk · disk"
+              - option "Network interface · nic"
+              - option "Network Rule · firewallRule"
+              - option "Network Rule Collection · firewallCollection"
+              - option "Network security group · nsg"
+              - option "Private container · container"
+              - option "Public IP configuration · publicIp"
+              - option "Resource group · group"
+              - option "Route table · routeTable"
+              - option "Rule Collection Group · firewallGroup"
+              - option "Security rule · rule"
+              - option "Storage account · account"
+              - option "Subnet · subnet"
+              - option "Text blob · blob"
+              - option "User-defined route · route"
+              - option "Virtual machine · vm"
+              - option "Virtual network · vnet"
+              - option "VNet peering · peering"
+          - button "Nullstill filtre" [ref=e41] [cursor=pointer]
+        - generic [ref=e42]:
+          - button "Topologi" [pressed] [ref=e43] [cursor=pointer]
+          - button "Ressursliste" [ref=e44] [cursor=pointer]
+          - button "Diagnostikk" [ref=e45] [cursor=pointer]
+        - paragraph [ref=e46]: 97 / 97 · laboratory@3.5.0 · revisjon 97.
+        - group [ref=e47]:
+          - generic "Bruk av grafen" [ref=e48] [cursor=pointer]
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - generic "Topologi" [ref=e51]:
+              - application [ref=e52]:
+                - generic [ref=e54]:
+                  - generic:
+                    - generic:
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e55] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e58] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e61] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e64] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e67] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e70] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e73] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e76] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e79] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e82] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e85] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e88] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e91] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e94] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e97] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e100] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e103] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e106] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e109] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e112] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e115] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e118] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e121] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e124] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e127] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e130] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e133] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e136] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e139] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e142] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e145] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e148] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e151] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e154] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e157] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e160] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e163] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e166] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e169] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e172] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e175] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e178] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e181] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e184] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e187] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e190] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e193] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e196] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e199] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e202] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e205] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e208] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e211] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e214] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e217] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e220] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e223] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e226] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e229] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e232] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e235] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e238] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e241] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e244] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e247] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e250] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e253] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e256] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e259] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e262] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e265] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e268] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e271] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e274] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e277] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e280] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e283] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e286] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e289] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e292] [cursor=pointer]
+                      - img:
+                        - img "Retningsbestemt peering · Connected" [ref=e295] [cursor=pointer]
+                      - img:
+                        - img "Retningsbestemt peering · Connected" [ref=e298] [cursor=pointer]
+                      - img:
+                        - img "Retningsbestemt peering · Connected" [ref=e301] [cursor=pointer]
+                      - img:
+                        - img "Retningsbestemt peering · Connected" [ref=e304] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e307] [cursor=pointer]
+                      - img:
+                        - img "NIC i subnett" [ref=e310] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e313] [cursor=pointer]
+                      - img:
+                        - img "NIC i subnett" [ref=e316] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e319] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e322] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e325] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e328] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e331] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e334] [cursor=pointer]
+                      - img:
+                        - img "Ressurstilhørighet" [ref=e337] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e340] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e343] [cursor=pointer]
+                      - img:
+                        - img "Parent / child" [ref=e346] [cursor=pointer]
+                      - img:
+                        - img "Subnett-NSG" [ref=e349] [cursor=pointer]
+                      - img:
+                        - img "Route Table-tilknytning" [ref=e352] [cursor=pointer]
+                      - img:
+                        - img "Subnett-NSG" [ref=e355] [cursor=pointer]
+                      - img:
+                        - img "Route Table-tilknytning" [ref=e358] [cursor=pointer]
+                      - img:
+                        - img "Eksternt VNet · Connected" [ref=e361] [cursor=pointer]
+                      - img:
+                        - img "Eksternt VNet · Connected" [ref=e364] [cursor=pointer]
+                      - img:
+                        - img "Eksternt VNet · Connected" [ref=e367] [cursor=pointer]
+                      - img:
+                        - img "Eksternt VNet · Connected" [ref=e370] [cursor=pointer]
+                      - img:
+                        - img "Primær NIC" [ref=e373] [cursor=pointer]
+                      - img:
+                        - img "Managed OS Disk" [ref=e376] [cursor=pointer]
+                      - img:
+                        - img "Primær NIC" [ref=e379] [cursor=pointer]
+                      - img:
+                        - img "Managed OS Disk" [ref=e382] [cursor=pointer]
+                      - img:
+                        - img "Dedikert Firewall-subnett" [ref=e385] [cursor=pointer]
+                      - img:
+                        - img "Firewall Policy"
+                      - img:
+                        - img "Public IP-konfigurasjon"
+                      - img:
+                        - img "Konfigurert Firewall-next hop" [ref=e388] [cursor=pointer]
+                      - img:
+                        - img "Konfigurert Firewall-next hop" [ref=e391] [cursor=pointer]
+                    - generic:
+                      - group [ref=e394] [cursor=pointer]:
+                        - button "Resource group rg-firewall Norway East Shared Sandbox / rg-firewall · group-1" [ref=e398]:
+                          - generic [ref=e400]:
+                            - generic [ref=e401]: Resource group
+                            - strong [ref=e402]: rg-firewall
+                            - generic [ref=e403]: Norway East
+                            - generic [ref=e404]: Shared Sandbox / rg-firewall · group-1
+                      - group [ref=e407] [cursor=pointer]:
+                        - button "Storage account capaccount0 Norway East Shared Sandbox / rg-firewall · storage-63" [ref=e411]:
+                          - generic [ref=e413]:
+                            - generic [ref=e414]: Storage account
+                            - strong [ref=e415]: capaccount0
+                            - generic [ref=e416]: Norway East
+                            - generic [ref=e417]: Shared Sandbox / rg-firewall · storage-63
+                      - group [ref=e420] [cursor=pointer]:
+                        - button "Storage account capaccount1 Norway East Shared Sandbox / rg-firewall · storage-64" [ref=e424]:
+                          - generic [ref=e426]:
+                            - generic [ref=e427]: Storage account
+                            - strong [ref=e428]: capaccount1
+                            - generic [ref=e429]: Norway East
+                            - generic [ref=e430]: Shared Sandbox / rg-firewall · storage-64
+                      - group [ref=e433] [cursor=pointer]:
+                        - button "Storage account capaccount2 Norway East Shared Sandbox / rg-firewall · storage-65" [ref=e437]:
+                          - generic [ref=e439]:
+                            - generic [ref=e440]: Storage account
+                            - strong [ref=e441]: capaccount2
+                            - generic [ref=e442]: Norway East
+                            - generic [ref=e443]: Shared Sandbox / rg-firewall · storage-65
+                      - group [ref=e446] [cursor=pointer]:
+                        - button "Storage account capaccount3 Norway East Shared Sandbox / rg-firewall · storage-66" [ref=e450]:
+                          - generic [ref=e452]:
+                            - generic [ref=e453]: Storage account
+                            - strong [ref=e454]: capaccount3
+                            - generic [ref=e455]: Norway East
+                            - generic [ref=e456]: Shared Sandbox / rg-firewall · storage-66
+                      - group [ref=e459] [cursor=pointer]:
+                        - button "Storage account capaccount4 Norway East Shared Sandbox / rg-firewall · storage-67" [ref=e463]:
+                          - generic [ref=e465]:
+                            - generic [ref=e466]: Storage account
+                            - strong [ref=e467]: capaccount4
+                            - generic [ref=e468]: Norway East
+                            - generic [ref=e469]: Shared Sandbox / rg-firewall · storage-67
+                      - group [ref=e472] [cursor=pointer]:
+                        - button "Storage account capaccount5 Norway East Shared Sandbox / rg-firewall · storage-68" [ref=e476]:
+                          - generic [ref=e478]:
+                            - generic [ref=e479]: Storage account
+                            - strong [ref=e480]: capaccount5
+                            - generic [ref=e481]: Norway East
+                            - generic [ref=e482]: Shared Sandbox / rg-firewall · storage-68
+                      - group [ref=e485] [cursor=pointer]:
+                        - button "Storage account capaccount6 Norway East Shared Sandbox / rg-firewall · storage-69" [ref=e489]:
+                          - generic [ref=e491]:
+                            - generic [ref=e492]: Storage account
+                            - strong [ref=e493]: capaccount6
+                            - generic [ref=e494]: Norway East
+                            - generic [ref=e495]: Shared Sandbox / rg-firewall · storage-69
+                      - group [ref=e498] [cursor=pointer]:
+                        - button "Storage account capaccount7 Norway East Shared Sandbox / rg-firewall · storage-70" [ref=e502]:
+                          - generic [ref=e504]:
+                            - generic [ref=e505]: Storage account
+                            - strong [ref=e506]: capaccount7
+                            - generic [ref=e507]: Norway East
+                            - generic [ref=e508]: Shared Sandbox / rg-firewall · storage-70
+                      - group [ref=e511] [cursor=pointer]:
+                        - button "Private container container-0 Norway East Shared Sandbox / rg-firewall · container-71" [ref=e515]:
+                          - generic [ref=e517]:
+                            - generic [ref=e518]: Private container
+                            - strong [ref=e519]: container-0
+                            - generic [ref=e520]: Norway East
+                            - generic [ref=e521]: Shared Sandbox / rg-firewall · container-71
+                      - group [ref=e524] [cursor=pointer]:
+                        - button "Private container container-1 Norway East Shared Sandbox / rg-firewall · container-72" [ref=e528]:
+                          - generic [ref=e530]:
+                            - generic [ref=e531]: Private container
+                            - strong [ref=e532]: container-1
+                            - generic [ref=e533]: Norway East
+                            - generic [ref=e534]: Shared Sandbox / rg-firewall · container-72
+                      - group [ref=e537] [cursor=pointer]:
+                        - button "Private container container-2 Norway East Shared Sandbox / rg-firewall · container-73" [ref=e541]:
+                          - generic [ref=e543]:
+                            - generic [ref=e544]: Private container
+                            - strong [ref=e545]: container-2
+                            - generic [ref=e546]: Norway East
+                            - generic [ref=e547]: Shared Sandbox / rg-firewall · container-73
+                      - group [ref=e550] [cursor=pointer]:
+                        - button "Private container container-3 Norway East Shared Sandbox / rg-firewall · container-74" [ref=e554]:
+                          - generic [ref=e556]:
+                            - generic [ref=e557]: Private container
+                            - strong [ref=e558]: container-3
+                            - generic [ref=e559]: Norway East
+                            - generic [ref=e560]: Shared Sandbox / rg-firewall · container-74
+                      - group [ref=e563] [cursor=pointer]:
+                        - button "Private container container-4 Norway East Shared Sandbox / rg-firewall · container-75" [ref=e567]:
+                          - generic [ref=e569]:
+                            - generic [ref=e570]: Private container
+                            - strong [ref=e571]: container-4
+                            - generic [ref=e572]: Norway East
+                            - generic [ref=e573]: Shared Sandbox / rg-firewall · container-75
+                      - group [ref=e576] [cursor=pointer]:
+                        - button "Private container container-5 Norway East Shared Sandbox / rg-firewall · container-76" [ref=e580]:
+                          - generic [ref=e582]:
+                            - generic [ref=e583]: Private container
+                            - strong [ref=e584]: container-5
+                            - generic [ref=e585]: Norway East
+                            - generic [ref=e586]: Shared Sandbox / rg-firewall · container-76
+                      - group [ref=e589] [cursor=pointer]:
+                        - button "Private container container-6 Norway East Shared Sandbox / rg-firewall · container-77" [ref=e593]:
+                          - generic [ref=e595]:
+                            - generic [ref=e596]: Private container
+                            - strong [ref=e597]: container-6
+                            - generic [ref=e598]: Norway East
+                            - generic [ref=e599]: Shared Sandbox / rg-firewall · container-77
+                      - group [ref=e602] [cursor=pointer]:
+                        - button "Private container container-7 Norway East Shared Sandbox / rg-firewall · container-78" [ref=e606]:
+                          - generic [ref=e608]:
+                            - generic [ref=e609]: Private container
+                            - strong [ref=e610]: container-7
+                            - generic [ref=e611]: Norway East
+                            - generic [ref=e612]: Shared Sandbox / rg-firewall · container-78
+                      - group [ref=e615] [cursor=pointer]:
+                        - button "Private container container-8 Norway East Shared Sandbox / rg-firewall · container-79" [ref=e619]:
+                          - generic [ref=e621]:
+                            - generic [ref=e622]: Private container
+                            - strong [ref=e623]: container-8
+                            - generic [ref=e624]: Norway East
+                            - generic [ref=e625]: Shared Sandbox / rg-firewall · container-79
+                      - group [ref=e628] [cursor=pointer]:
+                        - button "Private container container-9 Norway East Shared Sandbox / rg-firewall · container-80" [ref=e632]:
+                          - generic [ref=e634]:
+                            - generic [ref=e635]: Private container
+                            - strong [ref=e636]: container-9
+                            - generic [ref=e637]: Norway East
+                            - generic [ref=e638]: Shared Sandbox / rg-firewall · container-80
+                      - group [ref=e641] [cursor=pointer]:
+                        - button "Private container container-10 Norway East Shared Sandbox / rg-firewall · container-81" [ref=e645]:
+                          - generic [ref=e647]:
+                            - generic [ref=e648]: Private container
+                            - strong [ref=e649]: container-10
+                            - generic [ref=e650]: Norway East
+                            - generic [ref=e651]: Shared Sandbox / rg-firewall · container-81
+                      - group [ref=e654] [cursor=pointer]:
+                        - button "Private container container-11 Norway East Shared Sandbox / rg-firewall · container-82" [ref=e658]:
+                          - generic [ref=e660]:
+                            - generic [ref=e661]: Private container
+                            - strong [ref=e662]: container-11
+                            - generic [ref=e663]: Norway East
+                            - generic [ref=e664]: Shared Sandbox / rg-firewall · container-82
+                      - group [ref=e667] [cursor=pointer]:
+                        - button "Private container container-12 Norway East Shared Sandbox / rg-firewall · container-83" [ref=e671]:
+                          - generic [ref=e673]:
+                            - generic [ref=e674]: Private container
+                            - strong [ref=e675]: container-12
+                            - generic [ref=e676]: Norway East
+                            - generic [ref=e677]: Shared Sandbox / rg-firewall · container-83
+                      - group [ref=e680] [cursor=pointer]:
+                        - button "Private container container-13 Norway East Shared Sandbox / rg-firewall · container-84" [ref=e684]:
+                          - generic [ref=e686]:
+                            - generic [ref=e687]: Private container
+                            - strong [ref=e688]: container-13
+                            - generic [ref=e689]: Norway East
+                            - generic [ref=e690]: Shared Sandbox / rg-firewall · container-84
+                      - group [ref=e693] [cursor=pointer]:
+                        - button "Private container container-14 Norway East Shared Sandbox / rg-firewall · container-85" [ref=e697]:
+                          - generic [ref=e699]:
+                            - generic [ref=e700]: Private container
+                            - strong [ref=e701]: container-14
+                            - generic [ref=e702]: Norway East
+                            - generic [ref=e703]: Shared Sandbox / rg-firewall · container-85
+                      - group [ref=e706] [cursor=pointer]:
+                        - button "Private container container-15 Norway East Shared Sandbox / rg-firewall · container-86" [ref=e710]:
+                          - generic [ref=e712]:
+                            - generic [ref=e713]: Private container
+                            - strong [ref=e714]: container-15
+                            - generic [ref=e715]: Norway East
+                            - generic [ref=e716]: Shared Sandbox / rg-firewall · container-86
+                      - group [ref=e719] [cursor=pointer]:
+                        - button "Text blob blob-0 Norway East Shared Sandbox / rg-firewall · blob-87" [ref=e723]:
+                          - generic [ref=e725]:
+                            - generic [ref=e726]: Text blob
+                            - strong [ref=e727]: blob-0
+                            - generic [ref=e728]: Norway East
+                            - generic [ref=e729]: Shared Sandbox / rg-firewall · blob-87
+                      - group [ref=e732] [cursor=pointer]:
+                        - button "Text blob blob-1 Norway East Shared Sandbox / rg-firewall · blob-88" [ref=e736]:
+                          - generic [ref=e738]:
+                            - generic [ref=e739]: Text blob
+                            - strong [ref=e740]: blob-1
+                            - generic [ref=e741]: Norway East
+                            - generic [ref=e742]: Shared Sandbox / rg-firewall · blob-88
+                      - group [ref=e745] [cursor=pointer]:
+                        - button "Text blob blob-2 Norway East Shared Sandbox / rg-firewall · blob-89" [ref=e749]:
+                          - generic [ref=e751]:
+                            - generic [ref=e752]: Text blob
+                            - strong [ref=e753]: blob-2
+                            - generic [ref=e754]: Norway East
+                            - generic [ref=e755]: Shared Sandbox / rg-firewall · blob-89
+                      - group [ref=e758] [cursor=pointer]:
+                        - button "Text blob blob-3 Norway East Shared Sandbox / rg-firewall · blob-90" [ref=e762]:
+                          - generic [ref=e764]:
+                            - generic [ref=e765]: Text blob
+                            - strong [ref=e766]: blob-3
+                            - generic [ref=e767]: Norway East
+                            - generic [ref=e768]: Shared Sandbox / rg-firewall · blob-90
+                      - group [ref=e771] [cursor=pointer]:
+                        - button "Text blob blob-4 Norway East Shared Sandbox / rg-firewall · blob-91" [ref=e775]:
+                          - generic [ref=e777]:
+                            - generic [ref=e778]: Text blob
+                            - strong [ref=e779]: blob-4
+                            - generic [ref=e780]: Norway East
+                            - generic [ref=e781]: Shared Sandbox / rg-firewall · blob-91
+                      - group [ref=e784] [cursor=pointer]:
+                        - button "Text blob blob-5 Norway East Shared Sandbox / rg-firewall · blob-92" [ref=e788]:
+                          - generic [ref=e790]:
+                            - generic [ref=e791]: Text blob
+                            - strong [ref=e792]: blob-5
+                            - generic [ref=e793]: Norway East
+                            - generic [ref=e794]: Shared Sandbox / rg-firewall · blob-92
+                      - group [ref=e797] [cursor=pointer]:
+                        - button "Text blob blob-6 Norway East Shared Sandbox / rg-firewall · blob-93" [ref=e801]:
+                          - generic [ref=e803]:
+                            - generic [ref=e804]: Text blob
+                            - strong [ref=e805]: blob-6
+                            - generic [ref=e806]: Norway East
+                            - generic [ref=e807]: Shared Sandbox / rg-firewall · blob-93
+                      - group [ref=e810] [cursor=pointer]:
+                        - button "Text blob blob-7 Norway East Shared Sandbox / rg-firewall · blob-94" [ref=e814]:
+                          - generic [ref=e816]:
+                            - generic [ref=e817]: Text blob
+                            - strong [ref=e818]: blob-7
+                            - generic [ref=e819]: Norway East
+                            - generic [ref=e820]: Shared Sandbox / rg-firewall · blob-94
+                      - group [ref=e823] [cursor=pointer]:
+                        - button "Text blob blob-8 Norway East Shared Sandbox / rg-firewall · blob-95" [ref=e827]:
+                          - generic [ref=e829]:
+                            - generic [ref=e830]: Text blob
+                            - strong [ref=e831]: blob-8
+                            - generic [ref=e832]: Norway East
+                            - generic [ref=e833]: Shared Sandbox / rg-firewall · blob-95
+                      - group [ref=e836] [cursor=pointer]:
+                        - button "Text blob blob-9 Norway East Shared Sandbox / rg-firewall · blob-96" [ref=e840]:
+                          - generic [ref=e842]:
+                            - generic [ref=e843]: Text blob
+                            - strong [ref=e844]: blob-9
+                            - generic [ref=e845]: Norway East
+                            - generic [ref=e846]: Shared Sandbox / rg-firewall · blob-96
+                      - group [ref=e849] [cursor=pointer]:
+                        - button "Virtual network vnet-hub Norway East Shared Sandbox / rg-firewall · vnet-2" [ref=e853]:
+                          - generic [ref=e855]:
+                            - generic [ref=e856]: Virtual network
+                            - strong [ref=e857]: vnet-hub
+                            - generic [ref=e858]: Norway East
+                            - generic [ref=e859]: Shared Sandbox / rg-firewall · vnet-2
+                      - group [ref=e862] [cursor=pointer]:
+                        - button "Virtual network vnet-app Norway East Shared Sandbox / rg-firewall · vnet-3" [ref=e866]:
+                          - generic [ref=e868]:
+                            - generic [ref=e869]: Virtual network
+                            - strong [ref=e870]: vnet-app
+                            - generic [ref=e871]: Norway East
+                            - generic [ref=e872]: Shared Sandbox / rg-firewall · vnet-3
+                      - group [ref=e875] [cursor=pointer]:
+                        - button "Virtual network vnet-data Norway East Shared Sandbox / rg-firewall · vnet-4" [ref=e879]:
+                          - generic [ref=e881]:
+                            - generic [ref=e882]: Virtual network
+                            - strong [ref=e883]: vnet-data
+                            - generic [ref=e884]: Norway East
+                            - generic [ref=e885]: Shared Sandbox / rg-firewall · vnet-4
+                      - group [ref=e888] [cursor=pointer]:
+                        - button "Subnet AzureFirewallSubnet Norway East Shared Sandbox / rg-firewall · subnet-5" [ref=e892]:
+                          - generic [ref=e894]:
+                            - generic [ref=e895]: Subnet
+                            - strong [ref=e896]: AzureFirewallSubnet
+                            - generic [ref=e897]: Norway East
+                            - generic [ref=e898]: Shared Sandbox / rg-firewall · subnet-5
+                      - group [ref=e901] [cursor=pointer]:
+                        - button "Subnet snet-app Norway East Shared Sandbox / rg-firewall · subnet-6" [ref=e905]:
+                          - generic [ref=e907]:
+                            - generic [ref=e908]: Subnet
+                            - strong [ref=e909]: snet-app
+                            - generic [ref=e910]: Norway East
+                            - generic [ref=e911]: Shared Sandbox / rg-firewall · subnet-6
+                      - group [ref=e914] [cursor=pointer]:
+                        - button "Subnet snet-data Norway East Shared Sandbox / rg-firewall · subnet-7" [ref=e918]:
+                          - generic [ref=e920]:
+                            - generic [ref=e921]: Subnet
+                            - strong [ref=e922]: snet-data
+                            - generic [ref=e923]: Norway East
+                            - generic [ref=e924]: Shared Sandbox / rg-firewall · subnet-7
+                      - group [ref=e927] [cursor=pointer]:
+                        - button "Network security group nsg-app Norway East Shared Sandbox / rg-firewall · nsg-28" [ref=e931]:
+                          - generic [ref=e933]:
+                            - generic [ref=e934]: Network security group
+                            - strong [ref=e935]: nsg-app
+                            - generic [ref=e936]: Norway East
+                            - generic [ref=e937]: Shared Sandbox / rg-firewall · nsg-28
+                      - group [ref=e940] [cursor=pointer]:
+                        - button "Network security group nsg-data Norway East Shared Sandbox / rg-firewall · nsg-29" [ref=e944]:
+                          - generic [ref=e946]:
+                            - generic [ref=e947]: Network security group
+                            - strong [ref=e948]: nsg-data
+                            - generic [ref=e949]: Norway East
+                            - generic [ref=e950]: Shared Sandbox / rg-firewall · nsg-29
+                      - group [ref=e953] [cursor=pointer]:
+                        - button "Network security group nsg-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa Norway East Shared Sandbox / rg-firewall · nsg-32" [ref=e957]:
+                          - generic [ref=e959]:
+                            - generic [ref=e960]: Network security group
+                            - strong [ref=e961]: nsg-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+                            - generic [ref=e962]: Norway East
+                            - generic [ref=e963]: Shared Sandbox / rg-firewall · nsg-32
+                      - group [ref=e966] [cursor=pointer]:
+                        - button "Security rule send-data Norway East Shared Sandbox / rg-firewall · rule-30" [ref=e970]:
+                          - generic [ref=e972]:
+                            - generic [ref=e973]: Security rule
+                            - strong [ref=e974]: send-data
+                            - generic [ref=e975]: Norway East
+                            - generic [ref=e976]: Shared Sandbox / rg-firewall · rule-30
+                      - group [ref=e979] [cursor=pointer]:
+                        - button "Security rule receive-sql Norway East Shared Sandbox / rg-firewall · rule-31" [ref=e983]:
+                          - generic [ref=e985]:
+                            - generic [ref=e986]: Security rule
+                            - strong [ref=e987]: receive-sql
+                            - generic [ref=e988]: Norway East
+                            - generic [ref=e989]: Shared Sandbox / rg-firewall · rule-31
+                      - group [ref=e992] [cursor=pointer]:
+                        - button "Security rule capacity-rule-0 Norway East Shared Sandbox / rg-firewall · rule-33" [ref=e996]:
+                          - generic [ref=e998]:
+                            - generic [ref=e999]: Security rule
+                            - strong [ref=e1000]: capacity-rule-0
+                            - generic [ref=e1001]: Norway East
+                            - generic [ref=e1002]: Shared Sandbox / rg-firewall · rule-33
+                      - group [ref=e1005] [cursor=pointer]:
+                        - button "Security rule capacity-rule-1 Norway East Shared Sandbox / rg-firewall · rule-34" [ref=e1009]:
+                          - generic [ref=e1011]:
+                            - generic [ref=e1012]: Security rule
+                            - strong [ref=e1013]: capacity-rule-1
+                            - generic [ref=e1014]: Norway East
+                            - generic [ref=e1015]: Shared Sandbox / rg-firewall · rule-34
+                      - group [ref=e1018] [cursor=pointer]:
+                        - button "Security rule capacity-rule-2 Norway East Shared Sandbox / rg-firewall · rule-35" [ref=e1022]:
+                          - generic [ref=e1024]:
+                            - generic [ref=e1025]: Security rule
+                            - strong [ref=e1026]: capacity-rule-2
+                            - generic [ref=e1027]: Norway East
+                            - generic [ref=e1028]: Shared Sandbox / rg-firewall · rule-35
+                      - group [ref=e1031] [cursor=pointer]:
+                        - button "Security rule capacity-rule-3 Norway East Shared Sandbox / rg-firewall · rule-36" [ref=e1035]:
+                          - generic [ref=e1037]:
+                            - generic [ref=e1038]: Security rule
+                            - strong [ref=e1039]: capacity-rule-3
+                            - generic [ref=e1040]: Norway East
+                            - generic [ref=e1041]: Shared Sandbox / rg-firewall · rule-36
+                      - group [ref=e1044] [cursor=pointer]:
+                        - button "Security rule capacity-rule-4 Norway East Shared Sandbox / rg-firewall · rule-37" [ref=e1048]:
+                          - generic [ref=e1050]:
+                            - generic [ref=e1051]: Security rule
+                            - strong [ref=e1052]: capacity-rule-4
+                            - generic [ref=e1053]: Norway East
+                            - generic [ref=e1054]: Shared Sandbox / rg-firewall · rule-37
+                      - group [ref=e1057] [cursor=pointer]:
+                        - button "Security rule capacity-rule-5 Norway East Shared Sandbox / rg-firewall · rule-38" [ref=e1061]:
+                          - generic [ref=e1063]:
+                            - generic [ref=e1064]: Security rule
+                            - strong [ref=e1065]: capacity-rule-5
+                            - generic [ref=e1066]: Norway East
+                            - generic [ref=e1067]: Shared Sandbox / rg-firewall · rule-38
+                      - group [ref=e1070] [cursor=pointer]:
+                        - button "Security rule capacity-rule-6 Norway East Shared Sandbox / rg-firewall · rule-39" [ref=e1074]:
+                          - generic [ref=e1076]:
+                            - generic [ref=e1077]: Security rule
+                            - strong [ref=e1078]: capacity-rule-6
+                            - generic [ref=e1079]: Norway East
+                            - generic [ref=e1080]: Shared Sandbox / rg-firewall · rule-39
+                      - group [ref=e1083] [cursor=pointer]:
+                        - button "Security rule capacity-rule-7 Norway East Shared Sandbox / rg-firewall · rule-40" [ref=e1087]:
+                          - generic [ref=e1089]:
+                            - generic [ref=e1090]: Security rule
+                            - strong [ref=e1091]: capacity-rule-7
+                            - generic [ref=e1092]: Norway East
+                            - generic [ref=e1093]: Shared Sandbox / rg-firewall · rule-40
+                      - group [ref=e1096] [cursor=pointer]:
+                        - button "Security rule capacity-rule-8 Norway East Shared Sandbox / rg-firewall · rule-41" [ref=e1100]:
+                          - generic [ref=e1102]:
+                            - generic [ref=e1103]: Security rule
+                            - strong [ref=e1104]: capacity-rule-8
+                            - generic [ref=e1105]: Norway East
+                            - generic [ref=e1106]: Shared Sandbox / rg-firewall · rule-41
+                      - group [ref=e1109] [cursor=pointer]:
+                        - button "Security rule capacity-rule-9 Norway East Shared Sandbox / rg-firewall · rule-42" [ref=e1113]:
+                          - generic [ref=e1115]:
+                            - generic [ref=e1116]: Security rule
+                            - strong [ref=e1117]: capacity-rule-9
+                            - generic [ref=e1118]: Norway East
+                            - generic [ref=e1119]: Shared Sandbox / rg-firewall · rule-42
+                      - group [ref=e1122] [cursor=pointer]:
+                        - button "Security rule capacity-rule-10 Norway East Shared Sandbox / rg-firewall · rule-43" [ref=e1126]:
+                          - generic [ref=e1128]:
+                            - generic [ref=e1129]: Security rule
+                            - strong [ref=e1130]: capacity-rule-10
+                            - generic [ref=e1131]: Norway East
+                            - generic [ref=e1132]: Shared Sandbox / rg-firewall · rule-43
+                      - group [ref=e1135] [cursor=pointer]:
+                        - button "Security rule capacity-rule-11 Norway East Shared Sandbox / rg-firewall · rule-44" [ref=e1139]:
+                          - generic [ref=e1141]:
+                            - generic [ref=e1142]: Security rule
+                            - strong [ref=e1143]: capacity-rule-11
+                            - generic [ref=e1144]: Norway East
+                            - generic [ref=e1145]: Shared Sandbox / rg-firewall · rule-44
+                      - group [ref=e1148] [cursor=pointer]:
+                        - button "Security rule capacity-rule-12 Norway East Shared Sandbox / rg-firewall · rule-45" [ref=e1152]:
+                          - generic [ref=e1154]:
+                            - generic [ref=e1155]: Security rule
+                            - strong [ref=e1156]: capacity-rule-12
+                            - generic [ref=e1157]: Norway East
+                            - generic [ref=e1158]: Shared Sandbox / rg-firewall · rule-45
+                      - group [ref=e1161] [cursor=pointer]:
+                        - button "Security rule capacity-rule-13 Norway East Shared Sandbox / rg-firewall · rule-46" [ref=e1165]:
+                          - generic [ref=e1167]:
+                            - generic [ref=e1168]: Security rule
+                            - strong [ref=e1169]: capacity-rule-13
+                            - generic [ref=e1170]: Norway East
+                            - generic [ref=e1171]: Shared Sandbox / rg-firewall · rule-46
+                      - group [ref=e1174] [cursor=pointer]:
+                        - button "Security rule capacity-rule-14 Norway East Shared Sandbox / rg-firewall · rule-47" [ref=e1178]:
+                          - generic [ref=e1180]:
+                            - generic [ref=e1181]: Security rule
+                            - strong [ref=e1182]: capacity-rule-14
+                            - generic [ref=e1183]: Norway East
+                            - generic [ref=e1184]: Shared Sandbox / rg-firewall · rule-47
+                      - group [ref=e1187] [cursor=pointer]:
+                        - button "Security rule capacity-rule-15 Norway East Shared Sandbox / rg-firewall · rule-48" [ref=e1191]:
+                          - generic [ref=e1193]:
+                            - generic [ref=e1194]: Security rule
+                            - strong [ref=e1195]: capacity-rule-15
+                            - generic [ref=e1196]: Norway East
+                            - generic [ref=e1197]: Shared Sandbox / rg-firewall · rule-48
+                      - group [ref=e1200] [cursor=pointer]:
+                        - button "Security rule capacity-rule-16 Norway East Shared Sandbox / rg-firewall · rule-49" [ref=e1204]:
+                          - generic [ref=e1206]:
+                            - generic [ref=e1207]: Security rule
+                            - strong [ref=e1208]: capacity-rule-16
+                            - generic [ref=e1209]: Norway East
+                            - generic [ref=e1210]: Shared Sandbox / rg-firewall · rule-49
+                      - group [ref=e1213] [cursor=pointer]:
+                        - button "Security rule capacity-rule-17 Norway East Shared Sandbox / rg-firewall · rule-50" [ref=e1217]:
+                          - generic [ref=e1219]:
+                            - generic [ref=e1220]: Security rule
+                            - strong [ref=e1221]: capacity-rule-17
+                            - generic [ref=e1222]: Norway East
+                            - generic [ref=e1223]: Shared Sandbox / rg-firewall · rule-50
+                      - group [ref=e1226] [cursor=pointer]:
+                        - button "Security rule capacity-rule-18 Norway East Shared Sandbox / rg-firewall · rule-51" [ref=e1230]:
+                          - generic [ref=e1232]:
+                            - generic [ref=e1233]: Security rule
+                            - strong [ref=e1234]: capacity-rule-18
+                            - generic [ref=e1235]: Norway East
+                            - generic [ref=e1236]: Shared Sandbox / rg-firewall · rule-51
+                      - group [ref=e1239] [cursor=pointer]:
+                        - button "Security rule capacity-rule-19 Norway East Shared Sandbox / rg-firewall · rule-52" [ref=e1243]:
+                          - generic [ref=e1245]:
+                            - generic [ref=e1246]: Security rule
+                            - strong [ref=e1247]: capacity-rule-19
+                            - generic [ref=e1248]: Norway East
+                            - generic [ref=e1249]: Shared Sandbox / rg-firewall · rule-52
+                      - group [ref=e1252] [cursor=pointer]:
+                        - button "Security rule capacity-rule-20 Norway East Shared Sandbox / rg-firewall · rule-53" [ref=e1256]:
+                          - generic [ref=e1258]:
+                            - generic [ref=e1259]: Security rule
+                            - strong [ref=e1260]: capacity-rule-20
+                            - generic [ref=e1261]: Norway East
+                            - generic [ref=e1262]: Shared Sandbox / rg-firewall · rule-53
+                      - group [ref=e1265] [cursor=pointer]:
+                        - button "Security rule capacity-rule-21 Norway East Shared Sandbox / rg-firewall · rule-54" [ref=e1269]:
+                          - generic [ref=e1271]:
+                            - generic [ref=e1272]: Security rule
+                            - strong [ref=e1273]: capacity-rule-21
+                            - generic [ref=e1274]: Norway East
+                            - generic [ref=e1275]: Shared Sandbox / rg-firewall · rule-54
+                      - group [ref=e1278] [cursor=pointer]:
+                        - button "Security rule capacity-rule-22 Norway East Shared Sandbox / rg-firewall · rule-55" [ref=e1282]:
+                          - generic [ref=e1284]:
+                            - generic [ref=e1285]: Security rule
+                            - strong [ref=e1286]: capacity-rule-22
+                            - generic [ref=e1287]: Norway East
+                            - generic [ref=e1288]: Shared Sandbox / rg-firewall · rule-55
+                      - group [ref=e1291] [cursor=pointer]:
+                        - button "Security rule capacity-rule-23 Norway East Shared Sandbox / rg-firewall · rule-56" [ref=e1295]:
+                          - generic [ref=e1297]:
+                            - generic [ref=e1298]: Security rule
+                            - strong [ref=e1299]: capacity-rule-23
+                            - generic [ref=e1300]: Norway East
+                            - generic [ref=e1301]: Shared Sandbox / rg-firewall · rule-56
+                      - group [ref=e1304] [cursor=pointer]:
+                        - button "Security rule capacity-rule-24 Norway East Shared Sandbox / rg-firewall · rule-57" [ref=e1308]:
+                          - generic [ref=e1310]:
+                            - generic [ref=e1311]: Security rule
+                            - strong [ref=e1312]: capacity-rule-24
+                            - generic [ref=e1313]: Norway East
+                            - generic [ref=e1314]: Shared Sandbox / rg-firewall · rule-57
+                      - group [ref=e1317] [cursor=pointer]:
+                        - button "Security rule capacity-rule-25 Norway East Shared Sandbox / rg-firewall · rule-58" [ref=e1321]:
+                          - generic [ref=e1323]:
+                            - generic [ref=e1324]: Security rule
+                            - strong [ref=e1325]: capacity-rule-25
+                            - generic [ref=e1326]: Norway East
+                            - generic [ref=e1327]: Shared Sandbox / rg-firewall · rule-58
+                      - group [ref=e1330] [cursor=pointer]:
+                        - button "Security rule capacity-rule-26 Norway East Shared Sandbox / rg-firewall · rule-59" [ref=e1334]:
+                          - generic [ref=e1336]:
+                            - generic [ref=e1337]: Security rule
+                            - strong [ref=e1338]: capacity-rule-26
+                            - generic [ref=e1339]: Norway East
+                            - generic [ref=e1340]: Shared Sandbox / rg-firewall · rule-59
+                      - group [ref=e1343] [cursor=pointer]:
+                        - button "Security rule capacity-rule-27 Norway East Shared Sandbox / rg-firewall · rule-60" [ref=e1347]:
+                          - generic [ref=e1349]:
+                            - generic [ref=e1350]: Security rule
+                            - strong [ref=e1351]: capacity-rule-27
+                            - generic [ref=e1352]: Norway East
+                            - generic [ref=e1353]: Shared Sandbox / rg-firewall · rule-60
+                      - group [ref=e1356] [cursor=pointer]:
+                        - button "Security rule capacity-rule-28 Norway East Shared Sandbox / rg-firewall · rule-61" [ref=e1360]:
+                          - generic [ref=e1362]:
+                            - generic [ref=e1363]: Security rule
+                            - strong [ref=e1364]: capacity-rule-28
+                            - generic [ref=e1365]: Norway East
+                            - generic [ref=e1366]: Shared Sandbox / rg-firewall · rule-61
+                      - group [ref=e1369] [cursor=pointer]:
+                        - button "Security rule capacity-rule-29 Norway East Shared Sandbox / rg-firewall · rule-62" [ref=e1373]:
+                          - generic [ref=e1375]:
+                            - generic [ref=e1376]: Security rule
+                            - strong [ref=e1377]: capacity-rule-29
+                            - generic [ref=e1378]: Norway East
+                            - generic [ref=e1379]: Shared Sandbox / rg-firewall · rule-62
+                      - group [ref=e1382] [cursor=pointer]:
+                        - button "Route table rt-app Norway East Shared Sandbox / rg-firewall · route-table-18" [ref=e1386]:
+                          - generic [ref=e1388]:
+                            - generic [ref=e1389]: Route table
+                            - strong [ref=e1390]: rt-app
+                            - generic [ref=e1391]: Norway East
+                            - generic [ref=e1392]: Shared Sandbox / rg-firewall · route-table-18
+                      - group [ref=e1395] [cursor=pointer]:
+                        - button "Route table rt-data Norway East Shared Sandbox / rg-firewall · route-table-19" [ref=e1399]:
+                          - generic [ref=e1401]:
+                            - generic [ref=e1402]: Route table
+                            - strong [ref=e1403]: rt-data
+                            - generic [ref=e1404]: Norway East
+                            - generic [ref=e1405]: Shared Sandbox / rg-firewall · route-table-19
+                      - group [ref=e1408] [cursor=pointer]:
+                        - button "User-defined route to-data Norway East Shared Sandbox / rg-firewall · route-20" [ref=e1412]:
+                          - generic [ref=e1414]:
+                            - generic [ref=e1415]: User-defined route
+                            - strong [ref=e1416]: to-data
+                            - generic [ref=e1417]: Norway East
+                            - generic [ref=e1418]: Shared Sandbox / rg-firewall · route-20
+                      - group [ref=e1421] [cursor=pointer]:
+                        - button "User-defined route to-app Norway East Shared Sandbox / rg-firewall · route-21" [ref=e1425]:
+                          - generic [ref=e1427]:
+                            - generic [ref=e1428]: User-defined route
+                            - strong [ref=e1429]: to-app
+                            - generic [ref=e1430]: Norway East
+                            - generic [ref=e1431]: Shared Sandbox / rg-firewall · route-21
+                      - group [ref=e1434] [cursor=pointer]:
+                        - button "VNet peering hub-app Norway East Shared Sandbox / rg-firewall · peering-8" [ref=e1438]:
+                          - generic [ref=e1440]:
+                            - generic [ref=e1441]: VNet peering
+                            - strong [ref=e1442]: hub-app
+                            - generic [ref=e1443]: Norway East
+                            - generic [ref=e1444]: Shared Sandbox / rg-firewall · peering-8
+                      - group [ref=e1447] [cursor=pointer]:
+                        - button "VNet peering app-hub Norway East Shared Sandbox / rg-firewall · peering-9" [ref=e1451]:
+                          - generic [ref=e1453]:
+                            - generic [ref=e1454]: VNet peering
+                            - strong [ref=e1455]: app-hub
+                            - generic [ref=e1456]: Norway East
+                            - generic [ref=e1457]: Shared Sandbox / rg-firewall · peering-9
+                      - group [ref=e1460] [cursor=pointer]:
+                        - button "VNet peering hub-data Norway East Shared Sandbox / rg-firewall · peering-10" [ref=e1464]:
+                          - generic [ref=e1466]:
+                            - generic [ref=e1467]: VNet peering
+                            - strong [ref=e1468]: hub-data
+                            - generic [ref=e1469]: Norway East
+                            - generic [ref=e1470]: Shared Sandbox / rg-firewall · peering-10
+                      - group [ref=e1473] [cursor=pointer]:
+                        - button "VNet peering data-hub Norway East Shared Sandbox / rg-firewall · peering-11" [ref=e1477]:
+                          - generic [ref=e1479]:
+                            - generic [ref=e1480]: VNet peering
+                            - strong [ref=e1481]: data-hub
+                            - generic [ref=e1482]: Norway East
+                            - generic [ref=e1483]: Shared Sandbox / rg-firewall · peering-11
+                      - group [ref=e1486] [cursor=pointer]:
+                        - button "Network interface vm-app-01-nic Norway East Shared Sandbox / rg-firewall · nic-22" [ref=e1490]:
+                          - generic [ref=e1492]:
+                            - generic [ref=e1493]: Network interface
+                            - strong [ref=e1494]: vm-app-01-nic
+                            - generic [ref=e1495]: Norway East
+                            - generic [ref=e1496]: Shared Sandbox / rg-firewall · nic-22
+                      - group [ref=e1499] [cursor=pointer]:
+                        - button "Network interface vm-data-01-nic Norway East Shared Sandbox / rg-firewall · nic-25" [ref=e1503]:
+                          - generic [ref=e1505]:
+                            - generic [ref=e1506]: Network interface
+                            - strong [ref=e1507]: vm-data-01-nic
+                            - generic [ref=e1508]: Norway East
+                            - generic [ref=e1509]: Shared Sandbox / rg-firewall · nic-25
+                      - group [ref=e1512] [cursor=pointer]:
+                        - button "Virtual machine vm-app-01 Norway East Shared Sandbox / rg-firewall · vm-23" [ref=e1516]:
+                          - generic [ref=e1518]:
+                            - generic [ref=e1519]: Virtual machine
+                            - strong [ref=e1520]: vm-app-01
+                            - generic [ref=e1521]: Norway East
+                            - generic [ref=e1522]: Shared Sandbox / rg-firewall · vm-23
+                      - group [ref=e1525] [cursor=pointer]:
+                        - button "Virtual machine vm-data-01 Norway East Shared Sandbox / rg-firewall · vm-26" [ref=e1529]:
+                          - generic [ref=e1531]:
+                            - generic [ref=e1532]: Virtual machine
+                            - strong [ref=e1533]: vm-data-01
+                            - generic [ref=e1534]: Norway East
+                            - generic [ref=e1535]: Shared Sandbox / rg-firewall · vm-26
+                      - group [ref=e1538] [cursor=pointer]:
+                        - button "Managed disk vm-app-01-os Norway East Shared Sandbox / rg-firewall · disk-24" [ref=e1542]:
+                          - generic [ref=e1544]:
+                            - generic [ref=e1545]: Managed disk
+                            - strong [ref=e1546]: vm-app-01-os
+                            - generic [ref=e1547]: Norway East
+                            - generic [ref=e1548]: Shared Sandbox / rg-firewall · disk-24
+                      - group [ref=e1551] [cursor=pointer]:
+                        - button "Managed disk vm-data-01-os Norway East Shared Sandbox / rg-firewall · disk-27" [ref=e1555]:
+                          - generic [ref=e1557]:
+                            - generic [ref=e1558]: Managed disk
+                            - strong [ref=e1559]: vm-data-01-os
+                            - generic [ref=e1560]: Norway East
+                            - generic [ref=e1561]: Shared Sandbox / rg-firewall · disk-27
+                      - group [ref=e1564] [cursor=pointer]:
+                        - button "Azure Firewall fw-hub Norway East Shared Sandbox / rg-firewall · firewall-16" [ref=e1568]:
+                          - generic [ref=e1570]:
+                            - generic [ref=e1571]: Azure Firewall
+                            - strong [ref=e1572]: fw-hub
+                            - generic [ref=e1573]: Norway East
+                            - generic [ref=e1574]: Shared Sandbox / rg-firewall · firewall-16
+                      - group [ref=e1577] [cursor=pointer]:
+                        - button "Public IP configuration fw-hub-pip Norway East Shared Sandbox / rg-firewall · public-ip-17" [ref=e1581]:
+                          - generic [ref=e1583]:
+                            - generic [ref=e1584]: Public IP configuration
+                            - strong [ref=e1585]: fw-hub-pip
+                            - generic [ref=e1586]: Norway East
+                            - generic [ref=e1587]: Shared Sandbox / rg-firewall · public-ip-17
+                      - group [ref=e1590] [cursor=pointer]:
+                        - button "Firewall Policy fw-policy-hub Norway East Shared Sandbox / rg-firewall · firewall-policy-12" [ref=e1594]:
+                          - generic [ref=e1596]:
+                            - generic [ref=e1597]: Firewall Policy
+                            - strong [ref=e1598]: fw-policy-hub
+                            - generic [ref=e1599]: Norway East
+                            - generic [ref=e1600]: Shared Sandbox / rg-firewall · firewall-policy-12
+                      - group [ref=e1603] [cursor=pointer]:
+                        - button "Rule Collection Group workloads Norway East Shared Sandbox / rg-firewall · firewall-group-13" [ref=e1607]:
+                          - generic [ref=e1609]:
+                            - generic [ref=e1610]: Rule Collection Group
+                            - strong [ref=e1611]: workloads
+                            - generic [ref=e1612]: Norway East
+                            - generic [ref=e1613]: Shared Sandbox / rg-firewall · firewall-group-13
+                      - group [ref=e1616] [cursor=pointer]:
+                        - button "Network Rule Collection allow-data Norway East Shared Sandbox / rg-firewall · firewall-collection-14" [ref=e1620]:
+                          - generic [ref=e1622]:
+                            - generic [ref=e1623]: Network Rule Collection
+                            - strong [ref=e1624]: allow-data
+                            - generic [ref=e1625]: Norway East
+                            - generic [ref=e1626]: Shared Sandbox / rg-firewall · firewall-collection-14
+                      - group [ref=e1629] [cursor=pointer]:
+                        - button "Network Rule app-sql Norway East Shared Sandbox / rg-firewall · firewall-rule-15" [ref=e1633]:
+                          - generic [ref=e1635]:
+                            - generic [ref=e1636]: Network Rule
+                            - strong [ref=e1637]: app-sql
+                            - generic [ref=e1638]: Norway East
+                            - generic [ref=e1639]: Shared Sandbox / rg-firewall · firewall-rule-15
+                      - group [ref=e1642] [cursor=pointer]:
+                        - button "Subscription Shared Sandbox sub-shared" [ref=e1646]:
+                          - generic [ref=e1648]:
+                            - generic [ref=e1649]: Subscription
+                            - strong [ref=e1650]: Shared Sandbox
+                            - generic [ref=e1651]: sub-shared
+                - button "Fokuser valgt ressurs" [active] [ref=e1655] [cursor=pointer]
+                - generic "Control Panel" [ref=e1656]:
+                  - button "Zoom inn" [ref=e1657] [cursor=pointer]
+                  - button "Zoom ut" [ref=e1660] [cursor=pointer]
+                  - button "Tilpass kartet" [ref=e1663] [cursor=pointer]
+                - link "React Flow attribution" [ref=e1667] [cursor=pointer]:
+                  - /url: https://reactflow.dev?utm_source=attribution
+                  - text: React Flow
+            - paragraph [ref=e1669]: Strukturell relasjon · - - Initiated / konfigurert next hop · Referert av gjeldende analyse
+            - group [ref=e1670]:
+              - generic "Relasjoner · 115" [ref=e1671] [cursor=pointer]
+          - complementary "Ressursinspeksjon" [ref=e1672]:
+            - heading "vm-app-01" [level=2] [ref=e1673]
+            - generic [ref=e1674]:
+              - generic [ref=e1675]:
+                - term [ref=e1676]: Identitet
+                - definition [ref=e1677]: vm-23
+              - generic [ref=e1678]:
+                - term [ref=e1679]: Ressurstype
+                - definition [ref=e1680]: Virtual machine
+              - generic [ref=e1681]:
+                - term [ref=e1682]: Scope
+                - definition [ref=e1683]: Shared Sandbox / rg-firewall · vm-23
+            - link "Åpne ressursen i Portal" [ref=e1684] [cursor=pointer]:
+              - /url: /labs/laboratory?view=vm&studio=1&sw=701ac873-47a8-47b5-8adf-cee6acdbbfb9&id=vm-23&sselected=vm-23&sx=-841&sy=-416&sz=1
+            - paragraph [ref=e1685]:
+              - link "Original kvittering · firewall-test-25" [ref=e1686] [cursor=pointer]:
+                - /url: /labs/laboratory?view=history&studio=1&sw=701ac873-47a8-47b5-8adf-cee6acdbbfb9&receipt=firewall-test-25&sselected=vm-23&sx=-841&sy=-416&sz=1
+            - group [ref=e1687]:
+              - generic "Properties" [ref=e1688] [cursor=pointer]
+            - heading "Relasjoner" [level=3] [ref=e1689]
+            - list [ref=e1690]:
+              - listitem [ref=e1691]:
+                - button "rg-firewall · group-1" [ref=e1692] [cursor=pointer]
+                - generic [ref=e1693]: Ressurstilhørighet
+              - listitem [ref=e1694]:
+                - button "vm-app-01-nic · nic-22" [ref=e1695] [cursor=pointer]
+                - generic [ref=e1696]: Primær NIC
+              - listitem [ref=e1697]:
+                - button "vm-app-01-os · disk-24" [ref=e1698] [cursor=pointer]
+                - generic [ref=e1699]: Managed OS Disk
+        - group [ref=e1700]:
+          - generic "Diagnostikk" [ref=e1701] [cursor=pointer]
+          - option "Velg NIC" [disabled] [selected]
+          - option "vm-app-01 / vm-app-01-nic · 10.10.1.10 · rg-firewall / sub-shared · vnet-app / snet-app · norwayeast · nic-22"
+          - option "vm-data-01 / vm-data-01-nic · 10.20.1.10 · rg-firewall / sub-shared · vnet-data / snet-data · norwayeast · nic-25"
+          - option "Velg NIC" [disabled] [selected]
+          - option "vm-app-01 / vm-app-01-nic · 10.10.1.10 · rg-firewall / sub-shared · vnet-app / snet-app · norwayeast · nic-22"
+          - option "vm-data-01 / vm-data-01-nic · 10.20.1.10 · rg-firewall / sub-shared · vnet-data / snet-data · norwayeast · nic-25"
+          - option "TCP" [selected]
+          - option "UDP"
+        - region "Observasjoner" [ref=e1702]:
+          - heading "Observasjoner" [level=2] [ref=e1703]
+          - paragraph [ref=e1704]: Ingen av de avgrensede observasjonstypene er funnet. Dette er ikke en sikkerhets- eller arkitekturgodkjenning.
+      - generic [ref=e1705]:
+        - generic [ref=e1706]: Fri Laboratory
+        - button "Oppdater fra serveren" [ref=e1707] [cursor=pointer]
+        - generic [ref=e1709]: "World-revisjon: 97 · Arbeidsforsøk: 1 · Arbeidsområdets modell: laboratory@3.5.0"
+        - button "Nullstill eget arbeidsområde" [ref=e1710] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  1   | import { test, expect, type Page } from '@playwright/test';
+  2   | import AxeBuilder from '@axe-core/playwright';
+  3   | import { writeFileSync } from 'node:fs';
+  4   | import { studioWorld } from '../fixtures/studio-world';
+  5   | import { architectureStudioNb as t } from '../../src/content/architecture-studio-nb';
+  6   | import { laboratoryV3Nb as c, nb } from '../../src/content/nb';
+  7   | import { laboratoryEndpointsNb as e } from '../../src/content/laboratory-endpoints-nb';
+  8   | import { laboratoryFirewallNb as f } from '../../src/content/laboratory-firewall-nb';
+  9   | import { revealLaboratoryLink, closeLaboratoryDrawer } from './laboratory-actions';
+  10  | const studio = (page: Page) => page.locator('.architecture-studio');
+  11  | async function seed(page: Page, near = false) {
+  12  |   await page.goto('/labs/laboratory');
+  13  |   await expect(page.getByRole('button', { name: c.start, exact: true })).toBeEnabled();
+  14  |   await page.getByText('Tidligere arbeidsområdemodeller', { exact: true }).click();
+  15  |   await page
+  16  |     .getByRole('combobox', { name: 'Arbeidsområdemodell', exact: true })
+  17  |     .selectOption('laboratory@3.5.0');
+  18  |   await page.getByRole('button', { name: c.start, exact: true }).click();
+  19  |   await expect(page.locator('.laboratory-workspace-status')).toContainText('laboratory@3.5.0');
+  20  |   const initial = await (await page.request.get('/api/laboratory/state')).json();
+  21  |   const fixture = studioWorld(near);
+  22  |   // Setup executes actual owned server commands, never imports/injects a World or receipt.
+  23  |   for (const entry of fixture.s.entries) {
+  24  |     const response = await page.request.post('/api/laboratory/command', {
+  25  |       headers: { Origin: 'http://127.0.0.1:3000', 'If-Laboratory-Workspace': initial.workspace },
+  26  |       data: entry.request,
+  27  |     });
+  28  |     expect(response.status()).toBe(200);
+  29  |     const result = await response.json();
+  30  |     expect(result.receipt).toEqual(entry.receipt);
+  31  |   }
+  32  |   await page.getByRole('button', { name: c.refresh, exact: true }).click();
+  33  |   const link = page
+  34  |     .getByRole('navigation', { name: c.navigation, exact: true })
+  35  |     .getByRole('link', { name: t.title, exact: true });
+  36  |   await revealLaboratoryLink(page, link);
+  37  |   await link.click();
+  38  |   await closeLaboratoryDrawer(page);
+  39  |   await expect(studio(page)).toHaveAttribute('data-revision', String(fixture.s.world.revision));
+  40  |   return { ...fixture, workspace: initial.workspace };
+  41  | }
+  42  | async function analyse(page: Page, a: ReturnType<typeof studioWorld>, port = '1433') {
+  43  |   await page
+  44  |     .locator('.portal-graph-toolbar')
+  45  |     .getByRole('button', { name: t.diagnostics, exact: true })
+  46  |     .click();
+  47  |   const form = page.locator('.studio-diagnostics .lab-policy-analysis');
+  48  |   await form.getByRole('combobox', { name: e.source, exact: true }).selectOption(a.appNic);
+  49  |   await form.getByRole('combobox', { name: e.destination, exact: true }).selectOption(a.dataNic);
+  50  |   await form.getByRole('textbox', { name: e.destinationPort, exact: true }).fill(port);
+  51  |   await form.getByRole('button', { name: e.calculate, exact: true }).click();
+  52  |   return form;
+  53  | }
+  54  | async function state(page: Page) {
+> 55  |   return (await page.request.get('/api/laboratory/state')).json();
+      |                              ^ Error: apiRequestContext.get: Test timeout of 30000ms exceeded.
+  56  | }
+  57  | const storage = (page: Page) =>
+  58  |   page.evaluate(() =>
+  59  |     JSON.stringify(
+  60  |       Object.fromEntries(
+  61  |         Object.entries(localStorage)
+  62  |           .filter(([k]) => k.startsWith('azurelab.'))
+  63  |           .sort(([a], [b]) => a.localeCompare(b)),
+  64  |       ),
+  65  |     ),
+  66  |   );
+  67  | 
+  68  | test('Studio live hub topology reuses server Firewall NSG routes and original resource Properties with URL-only return and no inspection writes', async ({
+  69  |   page,
+  70  | }) => {
+  71  |   const a = await seed(page),
+  72  |     before = await state(page),
+  73  |     old = await storage(page),
+  74  |     writes: string[] = [];
+  75  |   page.on('request', (r) => {
+  76  |     if (r.method() === 'POST' && r.url().includes('/api/laboratory/')) writes.push(r.url());
+  77  |   });
+  78  |   await expect(page.locator('.react-flow__node')).toHaveCount(
+  79  |     Object.values(a.s.world).reduce((n, v) => n + (Array.isArray(v) ? v.length : 0), 0) + 1,
+  80  |   );
+  81  |   const canvas = page.locator('.studio-graph'),
+  82  |     viewport = canvas.locator('.react-flow__viewport');
+  83  |   const originalTransform = await viewport.getAttribute('style');
+  84  |   await canvas.getByRole('button', { name: nb.explore.controls.zoomIn, exact: true }).click();
+  85  |   await expect(viewport).not.toHaveAttribute('style', originalTransform!);
+  86  |   const zoomed = await viewport.getAttribute('style'),
+  87  |     area = await canvas.boundingBox();
+  88  |   await page.mouse.move(area!.x + area!.width - 15, area!.y + 15);
+  89  |   await page.mouse.down();
+  90  |   await page.mouse.move(area!.x + area!.width - 65, area!.y + 40, { steps: 5 });
+  91  |   await page.mouse.up();
+  92  |   await expect(viewport).not.toHaveAttribute('style', zoomed!);
+  93  |   const result = await analyse(page, a);
+  94  |   await expect(result).toContainText(f.outcome['allowed-via-firewall']);
+  95  |   await expect(page.locator('.studio-analysis-summary')).toContainText(
+  96  |     f.outcome['allowed-via-firewall'],
+  97  |   );
+  98  |   await expect(page.locator('.studio-analysed')).not.toHaveCount(0);
+  99  |   await page
+  100 |     .locator('.portal-graph-toolbar')
+  101 |     .getByRole('button', { name: t.list, exact: true })
+  102 |     .click();
+  103 |   await page
+  104 |     .getByRole('table', { name: t.list, exact: true })
+  105 |     .getByRole('button', { name: `vm-app-01 · ${a.appVm}`, exact: true })
+  106 |     .click();
+  107 |   const pane = page.getByRole('complementary', { name: t.inspect, exact: true });
+  108 |   await expect(pane).toContainText(a.appNic);
+  109 |   const saved = new URL(page.url()).searchParams;
+  110 |   await pane.getByRole('link', { name: t.open, exact: true }).click();
+  111 |   await expect(page.locator('#lab-page-title')).toHaveText('vm-app-01');
+  112 |   await page.getByRole('link', { name: t.back, exact: true }).click();
+  113 |   await expect(studio(page)).toBeVisible();
+  114 |   expect(new URL(page.url()).searchParams.get('sselected')).toBe(a.appVm);
+  115 |   expect(saved.get('sw')).toBe(a.workspace);
+  116 |   for (const key of ['sx', 'sy', 'sz'])
+  117 |     expect(new URL(page.url()).searchParams.get(key)).toBe(saved.get(key));
+  118 |   await page.goBack();
+  119 |   await expect(page.locator('#lab-page-title')).toHaveText('vm-app-01');
+  120 |   await page.goForward();
+  121 |   await expect(studio(page)).toBeVisible();
+  122 |   await page.reload();
+  123 |   await expect(studio(page)).toHaveAttribute('data-workspace', a.workspace);
+  124 |   expect(await state(page)).toEqual(before);
+  125 |   expect(await storage(page)).toBe(old);
+  126 |   expect(writes).toEqual([]);
+  127 |   await page.screenshot({ path: test.info().outputPath('studio-hub-topology.png') });
+  128 | });
+  129 | 
+  130 | test('Studio refresh invalidates a real changed forwarding path and shows the concrete NSG conflict without manufacturing policy success', async ({
+  131 |   page,
+  132 | }) => {
+  133 |   const a = await seed(page);
+  134 |   await analyse(page, a);
+  135 |   await expect(page.locator('.studio-diagnostics')).toContainText(
+  136 |     f.outcome['allowed-via-firewall'],
+  137 |   );
+  138 |   const second = await page.context().newPage();
+  139 |   await second.goto('/labs/laboratory?view=peering&id=' + a.dataHub);
+  140 |   await expect(second.locator('#lab-page-title')).toBeVisible();
+  141 |   // Existing actual Apply is the authoritative edit; Studio has no write action.
+  142 |   await second
+  143 |     .getByRole('button', { name: f.operations.SetPeeringForwardedTraffic, exact: true })
+  144 |     .click();
+  145 |   await second.getByRole('combobox', { name: f.fields.value, exact: true }).selectOption('false');
+  146 |   await second.getByRole('button', { name: c.review, exact: true }).click();
+  147 |   await second.locator('.lab-review').getByRole('button', { name: 'Apply', exact: true }).click();
+  148 |   await page.getByRole('button', { name: c.refresh, exact: true }).click();
+  149 |   await expect(page.locator('.studio-analysed')).toHaveCount(0);
+  150 |   await expect(page.locator('.studio-diagnostics .lab-policy-outcome')).toHaveCount(0);
+  151 |   const broken = page.locator('.studio-diagnostics .lab-policy-analysis');
+  152 |   await broken.getByRole('button', { name: e.calculate, exact: true }).click();
+  153 |   await expect(broken).toContainText(f.outcome.incomplete);
+  154 |   await expect(broken).toContainText(f.reasons['destination-forwarding-disabled']);
+  155 |   await page.screenshot({ path: test.info().outputPath('studio-missing-forwarding.png') });
+```

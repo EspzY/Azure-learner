@@ -1,0 +1,511 @@
+.foundations-v2.proof-shell {
+  min-height: 0;
+  background: transparent;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.v2-lesson-heading {
+  border-top: 1px solid #d2dee9;
+  padding-top: 24px;
+  margin: 20px 0 25px;
+}
+.v2-lesson-heading small {
+  color: #496780;
+  letter-spacing: 1px;
+  font-size: 11px;
+  font-weight: 650;
+}
+.portal .v2-lesson-heading h2 {
+  font-size: 30px;
+  line-height: 1.25;
+  font-weight: 600;
+  margin: 9px 0;
+  color: #172f48;
+}
+.v2-lesson-heading p {
+  color: #52677d;
+  margin: 0;
+}
+.v2-teaching {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(390px, 1.35fr);
+  gap: 32px;
+  align-items: start;
+}
+.v2-explanation > p:first-child {
+  font-size: 18px;
+  color: #203e58;
+  margin-top: 0;
+}
+.v2-explanation p {
+  max-width: 72ch;
+}
+.v2-model {
+  min-width: 0;
+}
+.v2-model .proof-server {
+  min-height: 220px;
+}
+.portal .v2-model .proof-drawing-label,
+.portal .v2-model .proof-path-label {
+  font-size: 17px;
+  letter-spacing: 0.2px;
+}
+.portal .v2-model .proof-drawing-text {
+  font-size: 18px;
+}
+.portal .v2-model .proof-trace li[data-active='true'] {
+  color: #fff;
+  border-bottom: 2px solid #77d6e4;
+  font-weight: 650;
+}
+.portal .v2-model .proof-capacity dt {
+  font-size: 14px;
+}
+.v2-model .proof-system {
+  padding: 25px 14px;
+}
+.v2-model .proof-capacity {
+  padding: 20px 14px;
+}
+.v2-model .proof-columns {
+  gap: 8px;
+}
+.v2-model .proof-hour {
+  padding-left: 8px;
+}
+.v2-model .proof-trace {
+  flex-wrap: wrap;
+}
+.v2-traced .proof-server path {
+  stroke-width: 2px;
+}
+.v2-model button,
+.v2-check button,
+.v2-capacity-controls button {
+  margin-top: 12px;
+}
+.v2-toggle {
+  display: flex;
+  gap: 9px;
+  margin: 20px 0;
+  font-size: 14px;
+}
+.v2-vm,
+.v2-provision {
+  padding: 25px;
+  background: #152d43;
+  color: #e8f2fa;
+  border: 1px solid #3f5e76;
+  border-radius: 6px;
+}
+.portal .v2-model .v2-vm p,
+.portal .v2-model .v2-provision p {
+  color: #d5e5f4;
+}
+.v2-host-budget {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 5px;
+  margin: 22px 0;
+}
+.v2-host-budget span {
+  height: 30px;
+  border: 1px dashed #92aabd;
+}
+.v2-host-budget .vm-a {
+  background: #4289b8;
+  border: 1px solid #a1d0ee;
+}
+.v2-host-budget .vm-b {
+  background: #087b78;
+  border: 1px solid #82d7ce;
+}
+.v2-guests {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.v2-guests > div {
+  border: 1px solid #8aa9bf;
+  padding: 16px;
+}
+.v2-hypervisor {
+  text-align: center;
+  border-block: 1px solid #66849b;
+  padding: 12px 0;
+}
+.v2-selects {
+  display: flex;
+  gap: 15px;
+}
+.v2-selects label {
+  flex: 1;
+}
+.v2-lane {
+  border-left: 3px solid #76b8d9;
+  padding-left: 15px;
+  margin: 22px 0;
+}
+.v2-check {
+  border-block: 1px solid #d2dee9;
+  margin: 30px 0;
+  padding: 12px 0;
+}
+.portal .v2-check label,
+.portal .foundations-v2 fieldset label {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  margin: 12px 0;
+}
+.portal .foundations-v2 label:has(input[type='radio']),
+.portal .foundations-v2 label:has(input[type='checkbox']) {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+}
+.portal .foundations-v2 input[type='radio'],
+.portal .foundations-v2 input[type='checkbox'] {
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+.portal .v2-model .proof-trace {
+  font-size: 14px;
+}
+.portal .foundations-v2 fieldset {
+  margin: 18px 0;
+  padding: 18px;
+}
+.portal .v2-capacity-controls fieldset {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.v2-capacity-controls > p {
+  font-size: 13px;
+}
+.v2-capacity-controls input[type='number'] {
+  max-width: 160px;
+  display: block;
+}
+.v2-manuscript {
+  margin: 24px 0;
+  max-width: 78ch;
+}
+.v2-manuscript > section {
+  margin: 25px 0;
+}
+.v2-manuscript h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+.v2-manuscript dl {
+  background: #edf3f8;
+  padding: 20px;
+}
+.v2-manuscript dt {
+  font-weight: 650;
+}
+.v2-manuscript dd {
+  margin: 3px 0 15px;
+}
+.v2-topology {
+  display: grid;
+  gap: 16px;
+}
+.v2-topology > div {
+  border: 1px solid #ccdce8;
+  border-left: 4px solid #11769e;
+  padding: 15px;
+}
+.v2-sources {
+  margin: 25px 0;
+}
+.v2-evidence-nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
+.course-v2 .course-main {
+  max-width: 1600px;
+  padding: 30px clamp(24px, 3vw, 55px) 0;
+}
+.course-v2 .course-module-header > p {
+  max-width: 85ch;
+}
+.course-version-choice,
+.course-legacy-note {
+  padding: 20px;
+  background: #edf4f9;
+  border-left: 3px solid #126c9d;
+  margin: 22px 0;
+}
+.course-version-choice button {
+  display: block;
+  margin: 14px 0;
+}
+.course-build {
+  color: #4c647a;
+  font: 12px system-ui;
+  padding: 18px 30px;
+  border-top: 1px solid #d8e1eb;
+  background: #f3f6fa;
+}
+.course-build summary {
+  cursor: pointer;
+}
+.course-build code {
+  overflow-wrap: anywhere;
+}
+.portal .resource-naming {
+  max-width: 75ch;
+  margin: 14px 0 24px;
+  padding: 15px;
+  border-left: 3px solid #5287ad;
+  background: #f1f6fa;
+}
+.resource-naming dt {
+  font-weight: 650;
+}
+.resource-naming dd {
+  margin: 6px 0 15px;
+}
+@media (max-width: 1150px) {
+  .v2-teaching {
+    grid-template-columns: 1fr;
+  }
+  .v2-model {
+    max-width: 850px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .foundations-v2 * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+.v2-teaching.v2-comparison {
+  display: block;
+}
+.v2-comparison .v2-explanation {
+  max-width: 85ch;
+  margin-bottom: 26px;
+}
+.v2-comparison .v2-model {
+  max-width: none;
+}
+.cloud-deployment {
+  border: 1px solid #c5d7e5;
+  background: #f9fbfd;
+}
+.deployment-toolbar {
+  display: flex;
+  gap: 10px;
+  padding: 16px 22px;
+  border-bottom: 1px solid #d4e0ea;
+  background: white;
+}
+.portal .deployment-toolbar button {
+  margin: 0;
+  padding: 10px 22px;
+}
+.deployment-toolbar button[aria-pressed='true'] {
+  background: #e9f3fb;
+  border: 2px solid #1675af;
+  color: #125a86;
+  font-weight: 650;
+}
+.deployment-map {
+  padding: 14px 22px 8px;
+}
+.deployment-map svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 390px;
+}
+.deployment-map text {
+  fill: #304d63;
+  font:
+    16px 'Segoe UI',
+    sans-serif;
+}
+.deployment-map .deployment-title {
+  font-size: 19px;
+  font-weight: 650;
+}
+.deployment-map .deployment-caption {
+  font-size: 15px;
+}
+.deployment-boundary {
+  fill: #edf3f8;
+  stroke: #90aabd;
+  stroke-dasharray: 7 5;
+  stroke-width: 1.5;
+}
+.deployment-rack {
+  fill: #c1d6e5;
+  stroke: #62879f;
+  stroke-width: 1.5;
+}
+.deployment-rack ~ g rect {
+  fill: #f7fbff;
+  stroke: #8fadc2;
+}
+.deployment-cloud {
+  fill: #ddebf2;
+  stroke: #7b9db5;
+  stroke-width: 1.5;
+}
+.deployment-use {
+  fill: none;
+  stroke: #186b9b;
+  stroke-width: 2;
+  marker-end: url(#deployment-arrow);
+  color: #186b9b;
+}
+.deployment-integration {
+  stroke: #126e69;
+  stroke-width: 2;
+  stroke-dasharray: 6 5;
+  marker-start: url(#deployment-arrow);
+  marker-end: url(#deployment-arrow);
+  color: #126e69;
+}
+.deployment-person {
+  stroke: #39677f;
+  fill: #c8e0ec;
+  stroke-width: 2;
+}
+.portal .deployment-boundary-note {
+  font-size: 12px;
+  color: #587187;
+  line-height: 1.6;
+  margin: 4px 0;
+}
+.deployment-interpretation {
+  border-top: 1px solid #d4e0ea;
+  padding: 18px 24px;
+  background: white;
+}
+.portal .deployment-interpretation h3 {
+  font-size: 20px;
+  margin: 0 0 10px;
+}
+.deployment-interpretation p {
+  max-width: 88ch;
+}
+.deployment-interpretation label {
+  font-size: 14px;
+  margin: 16px 0;
+}
+.cloud-deployment > details {
+  margin: 0;
+  padding: 14px 24px;
+  border-top: 1px solid #d4e0ea;
+}
+@media (max-width: 800px) {
+  .deployment-toolbar {
+    flex-wrap: wrap;
+  }
+  .deployment-map {
+    padding: 10px 0;
+    overflow: auto;
+  }
+  .deployment-map svg {
+    min-width: 650px;
+  }
+  .deployment-boundary-note {
+    padding: 0 12px;
+  }
+}
+.portal-responsibility,
+.cloud-deployment {
+  scroll-margin-top: 86px;
+}
+.portal-layer-inspector details {
+  margin-top: 18px;
+}
+.portal-layer-inspector summary {
+  color: #1d5c85;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* Owner acceptance: readable assessment feedback, without changing rubric/content. */
+.v2-assessment {
+  min-width: 0;
+  max-width: 88ch;
+  overflow-wrap: anywhere;
+}
+.v2-assessment fieldset {
+  min-inline-size: 0;
+  max-width: 100%;
+}
+.v2-assessment legend {
+  max-width: 100%;
+  white-space: normal;
+}
+.v2-assessment label {
+  min-width: 0;
+}
+.v2-attempt-note,
+.v2-abandoned {
+  border-left: 3px solid #0e706a;
+  padding-left: 16px;
+  margin-block: 24px;
+  max-width: 76ch;
+}
+.v2-feedback {
+  margin-block: 28px;
+}
+.v2-feedback header {
+  border-block: 1px solid #c9d3d9;
+  padding-block: 16px;
+}
+.v2-feedback header h3 {
+  margin-block: 8px;
+}
+.v2-feedback-items {
+  margin-block: 24px;
+  border-top: 1px solid #c9d3d9;
+}
+.v2-feedback-items > details {
+  padding-block: 16px;
+  border-bottom: 1px solid #c9d3d9;
+}
+.v2-feedback-items summary {
+  cursor: pointer;
+  line-height: 1.6;
+}
+.v2-feedback-items summary > strong {
+  display: block;
+  margin: 6px 0 0 20px;
+  color: #865015;
+  font-size: 13px;
+}
+.v2-feedback-items summary > strong[data-correct='true'] {
+  color: #0e706a;
+}
+.v2-feedback-items summary:focus-visible,
+.v2-feedback-history summary:focus-visible {
+  outline: 2px solid #0865bd;
+  outline-offset: 4px;
+}
+.v2-feedback-detail {
+  padding: 12px 0 4px 20px;
+  max-width: 76ch;
+}
+.v2-feedback-detail h4 {
+  margin: 14px 0 6px;
+}
+.v2-feedback-history {
+  margin-block: 24px;
+}
+.v2-abandoned dd {
+  margin: 6px 0 20px;
+}

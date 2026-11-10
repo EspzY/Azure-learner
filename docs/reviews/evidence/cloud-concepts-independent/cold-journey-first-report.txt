@@ -1,0 +1,121 @@
+# AzureLab Cloud Concepts — locked cold first impressions
+
+This is an AI expert critique of the ordinary anonymous public application, not a human beginner study or a measurement of learning. The strongest added value is the sequence of small, bounded causal experiments and the local operation history. The main weaknesses are duplicated prose, implementation vocabulary in learner copy, and practice entrances whose prerequisites and recovery are less clear than the conceptual sequence.
+
+Target: https://azure-learner-git-codex-az900-cloud-comp-3bf852-espzys-projects.vercel.app. Before teaching, I opened the public build information and verified **527b95140917e75e83899f21e6b2291e01df0a7d** in full ([003](003-build-info.png), [text](003-build-info.txt)). Browser evidence spans 2026-11-04 06:19:29–06:37:19 UTC. All paths below are on that deployment.
+
+I worked only in `/workspace/azurelab-pr53/cold-journey`, read its isolation AGENTS.md, and did not read application source/AGENTS, historical reports, another reviewer’s output, assessment keys or independent feedback. Installed Playwright/Axe dependencies were loaded through the permitted package path. Runtime instructions and nonsecret network policy were read. Isolation was procedural/contextual: unrestricted OS permissions would have allowed other reads; no OS barrier enforced this boundary.
+
+## Coverage and exposure
+
+I followed actual sidebar/Next links and the CourseHub catalogue. There are **29 observed recommended route activities** in these three modules: Cloud Computing 14, Benefits 7, Service Types 8. I read the complete displayed article bodies and lower teaching/practical entrance sections for the 25 non-assessment routes. Benefits and Service Types glossaries were expanded; alternative model states were sampled, not exhaustively read. Four independent entrances were read only; **no independent attempt was started, submitted, or graded**. No assessment answer key or feedback was read. Guided model/check/reflection feedback was exposed deliberately and is listed below.
+
+`R` means the displayed teaching/summary/practice article body was fully read, including lower sections. It does not mean every closed source drawer, alternative tab, or possible model result was opened. `A` means entrance only, with no scenario activated. Exact screenshots/text, timestamps, viewport, route, hashes, actions, errors and omissions are in [index.json](index.json); [coverage.json](coverage.json) supplies machine-readable ordered coverage. Evidence numbers refer to matching PNG/TXT filenames.
+
+| Order | Actual route | Actual title | Coverage / interaction evidence |
+|---|---|---|---|
+| 1 | `/learn/computing?topic=intro-request` | Fra nettside til fysisk server | R; request first step, RAM, guided server-side/storage answers; 005 |
+| 2 | `/learn/computing?topic=virtualization` | Virtualisering og bestilling av skykapasitet | R; rejected memory and provisioning, tip; 007–009 |
+| 3 | `/learn/computing?topic=capacity-basics` | Kapasitet og etterspørsel | R; two predictions/runs and table; 010–011 |
+| 4 | `/learn/computing?topic=v2-responsibility` | Ansvar når infrastrukturen blir en tjeneste | R; compare and guided classification; 012–014 |
+| 5 | `/learn/computing?topic=v2-models` | Cloud-modeller og valg av miljø | R; hybrid diagram and text; 015–016 |
+| 6 | `/learn/computing?topic=v2-metering` | Forbruk, betaling og risiko | R; idle/released, four price comparisons; 017–022 |
+| 7 | `/learn/computing?topic=serverless-concept` | Kode som venter på en hendelse | R; 023 |
+| 8 | `/learn/computing?topic=serverless-mechanism` | Event → Trigger → Execution → Result | R; 024 |
+| 9 | `/learn/computing?topic=serverless-hosting` | Ansvar, hosting og begrensninger | R; 025 |
+| 10 | `/learn/computing?topic=serverless-explorer` | Undersøk en hendelseskjede | R; guided brief, warm/error runs, cause; 026–034 |
+| 11 | `/learn/computing?topic=serverless-assessment` | Selvstendig anvendelse · Serverless | A; 035 |
+| 12 | `/learn/computing?topic=serverless-summary` | Ditt serverless-grunnlag | R; 036 |
+| 13 | `/learn/computing?topic=resource-bridge` | Fra forståelse til Portal-laboratoriet | R; Portal practice and return; 037–067 |
+| 14 | `/learn/computing?topic=transfer` | Prøv kunnskapen i nye situasjoner | A; 068 |
+| 15 | `/learn/benefits?topic=availability` | Kapasitet er ikke det samme som tilgjengelighet | R; three runs and guided cause; 069–072 |
+| 16 | `/learn/benefits?topic=reliability` | Finn årsaken før du velger tiltak | R; wrong/right dependency lever; 073–075 |
+| 17 | `/learn/benefits?topic=governance` | Tillatelse, policy og sikkerhet er forskjellige spørsmål | R; conceptual model not run; actual Portal policy inspected; 076 |
+| 18 | `/learn/benefits?topic=management` | Gjenta en konfigurasjon — også feil kan gjentas | R; wrong template, short keyboard/Axe; 077–078 |
+| 19 | `/learn/benefits?topic=sustainability` | Reduser unødvendig ressursbruk uten å fjerne funksjonen | R; model not run; 079 |
+| 20 | `/learn/benefits?topic=summary` | Observasjoner og neste steg | R; 080 |
+| 21 | `/learn/benefits?topic=transfer` | Prøv kunnskapen i nye situasjoner | A; 081 |
+| 22 | `/learn/services?topic=overview` | Fra ansvarsoversikt til operativt valg | R; all three service tabs/OS layer, SaaS depth; 082–086 |
+| 23 | `/learn/services?topic=iaas` | Bygg en forståelig VM-konfigurasjon | R; incomplete/corrected conceptual plan; 087–089 |
+| 24 | `/learn/services?topic=paas` | Kode, runtime og hosting er ulike deler | R; conceptual model not run, Portal sampled earlier; 090 |
+| 25 | `/learn/services?topic=saas` | Administrer en ferdig tjeneste, ikke en gjesteplattform | R; conceptual model not run; guided product lab completed; 091,105–115 |
+| 26 | `/learn/services?topic=selection` | Velg en løsning ut fra krav og driftsarbeid | R; two accepted alternatives in open situation; 092–094 |
+| 27 | `/learn/services?topic=practice` | Bruk og forklar den faktiske hostingkonfigurasjonen | R; actual lab remains incomplete; 095 |
+| 28 | `/learn/services?topic=summary` | Observasjoner og neste steg | R; 096,100 |
+| 29 | `/learn/services?topic=transfer` | Prøv kunnskapen i nye situasjoner | A; Journal, Back/Forward/reload; 097–102 |
+
+The catalogue also exposes independent Cloud Computing/Benefits/Service Types assessments, four practical missions (Diagnose, Governance, IaaS, PaaS), and IaaS/PaaS/SaaS practical labs ([104](104-cloud-concepts-catalogue.png)). Their inline mission prompts were read in their relevant articles. The changed independent missions and VM practical were **not executed**. I did not inspect archived Service Types v1 or prior assessment material.
+
+## Findings requiring attention
+
+### F1 — Medium: repeated text crowds out the experiment
+
+Route `/learn/computing?topic=v2-responsibility`: after “Kjør og sammenlign”, the paragraphs beginning “Med Azure Virtual Machines vedlikeholder kunden normalt gjesteoperativsystemet” and “Teamet bruker en administrert webplattform” appear again verbatim beneath the result, after already appearing under “I Azure” and “Gjennomarbeidet eksempel” ([012 text](012-responsibility-full.txt), [013 text](013-responsibility-compared.txt)). This grows the document from 3515 to 4055 CSS px before the answer. The action mainly reveals an answer table plus repeated explanation rather than a new manipulated service comparison.
+
+The same pattern recurs in metering: the result repeats the Azure caveats and complete worked example already above it (017–022). Initial document heights were 5941px for cloud models, 5621px for metering, 6263px for IaaS and 6326px for PaaS at 1440×900 (recorded in the index, not inferred from screenshots). Service Types often presents an original article followed by a second full “Mekanismen / I Azure / example / limits” article on the same concept (087,090,091,092).
+
+Reproduce: open responsibility, read through the article, click “Kjør og sammenlign”, compare the two repeated paragraphs. Keep one explanation and place result-specific causal differences beside the changed output. This is a reading/density concern, not proof that learners fail to learn.
+
+### F2 — Medium, causal explanation provisional: Portal recovery does not identify the unmet task requirement
+
+Entry `/learn/computing?topic=resource-bridge` → “Start praktisk lab”. I used the ordinary search/Create flow to create `rg-coldjourney-53` in App Sandbox with **West Europe metadata**. This is a valid local configuration and got an accepted receipt. Subsequent guidance returned to “Finn Resource groups / Åpne Resource groups”, and continued showing this while I created plans and an app, inspected policy and properties, and returned (046–066). It did not explain which property prevented the current group from satisfying the lesson.
+
+Later `/learn/services?topic=practice` explicitly states that the task expects **Norway East group metadata** (095). Therefore this is **not established as a generic progress-state defect**: my accepted group did not meet that lesson requirement, and I did not force completion or recreate it. The observed recovery weakness is the generic return to step one rather than identifying the existing group and metadata mismatch. The original per-field guide may have stated the requirement while I configured fields; I did not capture every intermediate field-guide state.
+
+Reproduce provisionally: begin the bridge lab, create a valid App Sandbox group with West Europe metadata, then inspect its accepted result and guide. Explain “this group exists, but the task requires Norway East metadata” and a supported recovery route. This would distinguish task criteria from resource validity.
+
+### F3 — Medium: optional practice entrances arrive before their stated prerequisites
+
+The foundational bridge (037) says Benefits comes next and Service Types will subsequently explain why an App Service platform fits. It already offers “Start praktisk lab”. The Portal assignment brief says “Kjenn PaaS og retained kundeansvar” (047), although the first dedicated service-model module is later in the recommended Next chain.
+
+Benefits availability offers the VM practical with OS-disk, NIC, VNet and subnet (069); reliability’s diagnosis prompt assumes that chain (073). NIC/vCPU and the structured VM dependency explanation appear later in Service Types IaaS (087). These are optional entrances, not forced prerequisites of Next, but a learner following the prominent practice call to action can enter ahead of the explanation.
+
+Reproduce: follow first-time Cloud Computing → bridge lab, read the brief; compare with later Service Types. Add a specific short prerequisite link or clearly recommend returning after the named lesson. The conceptual Next order itself is coherent.
+
+### F4 — Medium editorial: learner copy exposes internal versioning and mixed technical English
+
+Examples visible on current recommended routes include “retained operations” (087), “authored treningsregel”, “world revision”, “bounded Portal-motoren”, “replay/receipt” and “Inspect app → plan” (095); “F01 med praktisk G01/C01/G03” appears repeatedly across Service Types; Serverless summary discusses “gamle Foundations-rubrikker” (036). These terms describe implementation/history more than the learner’s next decision. “Menneskelig Azure-fagreview gjenstår” and source-check dates also recur across lower sections.
+
+In contrast, the opening request/server explanation defines unfamiliar terms where first needed, and the Benefits glossaries explain concepts such as instans, headroom and principal. Apply that same Norwegian consistency to later copy: “kundens gjenværende driftsoppgaver”, “lagret operasjonshistorikk”, “lokal kvittering”, and an unobtrusive provenance detail would be easier to use. This is an expert readability judgment; no novice comprehension was measured.
+
+### F5 — Low: short-desktop Portal guidance overlaps the working area
+
+At actual **1024×500**, with the Web App settings inspected after Apply/reload, the fixed guide covers the right-hand working area and the Architecture Explorer navigation; its content extends within a scrollable panel while the app settings continue below the viewport ([064](064-portal-after-reload.png)). An attempted Architecture Explorer click could not reach the covered control until I minimized guidance. Minimizing then opening Architecture Explorer worked (065).
+
+Reproduce from a started guided Web lab: open Environment variables, use 1024×500 with guidance expanded. Prefer a docked or collapsible presentation that leaves the active controls visible, or indicate that the guide should be minimized for this view. The minimize recovery exists; I did not classify the entire short layout as unusable.
+
+## Concrete strengths and practical value
+
+**The early models expose a mechanism, not just a label.** In virtualization, requesting 5+4 against an 8-unit memory budget was rejected while accepted allocation stayed 3+3 (008); the provisioning model separately rejected a request when supported capacity was unchecked (009). Text distinguishes management requests from application requests and warns that virtualization is not unlimited physical capacity. This is useful beyond simply rereading definitions.
+
+**Capacity and billing avoid common but consequential simplifications.** At allocation six, my prediction of two uncovered jobs in the peak matched the run; at ten, prediction zero matched while summed unused allocation rose from nine to twenty-three (011). The table alternative exposes the same values. Metering explicitly separates allocated time from useful work. Four actual pricing runs gave steady usage48/commitment24 and uncertain usage8/commitment24, with twenty unused commitment-place periods in the last case (019–022). These are clearly labeled invented teaching units, not Azure prices or capacity guarantees.
+
+**Integrated Serverless builds on the foundation and separates activation from success.** With seven events, two slots and two rounds, warm execution completed four, left three pending and failed none. With a first-job code error, three completed, three remained pending and one failed. The per-event table distinguishes “Ikke aktivert i vinduet / Venter” from started/failed, and the guided cause answer explained why a trigger alone proves no successful result (029–034). The first run opened a SavvyShark milestone dialog; that is legitimate guided feedback exposure, not an independent assessment result. Hosting text distinguishes Flex Consumption, Premium and Dedicated and avoids universal scale-to-zero/free-idle claims (025). The table is useful context, although its service-specific accuracy was not independently verified against current Azure documentation.
+
+**Benefits tests intervention against cause.** A healthy single instance with capacity eight processed six; failure reduced it to zero. Two four-unit instances with one failure and a healthy-copy route processed four and left two uncovered (070–072). On a failed shared dependency, “increase web capacity” left throughput zero; “restore dependency” restored modeled six (074–075). This gives a reason to question an appealing but irrelevant fix. Management’s wrong North Europe template produced equal values but three standard violations (078). Sustainability carefully labels capacity-hours as neither energy nor CO₂ (079); I read but did not execute that model.
+
+**The local Portal has inspectable technical consequences and preserves failure.** I created a group, two accepted plans and a Web App, and made one rejected plan attempt. The North Europe request produced `policy-location-denied`, revision2→2, active objects7→7, and “Ingen ressurs ble lagt til” (055). Its policy page shows scope App Sandbox, affected Web types and allowed West Europe (056). Back → “Endre konfigurasjon” retained the request, changing only region led to accepted revision2→3 (057). The Web App references the corrected plan (059–060). App settings made a distinction between draft and Apply; `APP_ENVIRONMENT=staging` persisted after reload (064). Architecture list explicitly separates app→group membership from app→plan hosting and policy→subscription scope (066). No operation claims to start code, prove health, contact Azure or produce real billing. This is material product value over static official reading: practice includes a decision, a recorded rejection, targeted correction, and evidence of the resulting relationship.
+
+**The SaaS practical is a coherent second kind of practice.** In `/labs/saas`, assigning Erin a third license was rejected at2/2 without revision change (108). Releasing Mina’s license, assigning Erin, blocking Mina, changing to Member, restricting sharing to team and recording departure-data review produced six separate accepted operations; history preserved the original rejection (109–112). The guided reflection and return debrief correctly say this is verified guided practice, not independent mastery (113,115). Reload preserved the changed model state (114). The explanation warns that blocked login does not recover already shared copies. This is more useful than another responsibility-label question because the controls separate license, role, login and sharing consequences.
+
+**Service choices allow a justified alternative.** The open webcode situation accepted IaaS paired with taking guest-OS/software-stack work, and PaaS paired with supported platform/customer code-data-access work (093–094). IaaS’s incomplete conceptual plan listed concrete missing conditions; correcting Windows,8GiB,persistent appdata, network/runtime and patch ownership yielded a fitting *teaching setup*, not a fake deployment (088–089). Not every judgment is reduced to “PaaS is always better”.
+
+**Progress/status is generally restrained and navigation returns work to context.** CourseHub after the journey showed guided observations2/1/0 for Computing/Benefits/Services, rather than pretending that reading was completion (103); Serverless keeps its own summary and showed the guided model registered with no independent observation (036). Benefits summary marked all five introduced but only the executed and answered availability activity guided-confirmed (080). Service summary kept incomplete guided status despite visits and model runs without final causes (096). Portal returned to the originating bridge with a continuation button and no false completion (067). SaaS returned to its actual debrief (115). Course Back/Forward moved summary→transfer, and transfer survived reload (100–102).
+
+**Accessibility has useful witnesses, with narrow limits.** The short1024×500 management view after interaction retained a visible focus ring when Tab moved from configuration method to template value; `prefers-reduced-motion: reduce` was set and matched (078). This does not establish the behavior of every animation. Installed Axe on that single state reported zero automatic violations and incomplete color-contrast checks ([axe JSON](axe-management-short.json)). Diagram alternatives were actually opened for capacity table, hybrid relationship text and architecture list. Journal was navigable by select, its lower section could be scrolled, and Escape restored focus to the opening Knowledge Journal button (098–099). No screenreader or complete keyboard audit was performed.
+
+## Limits, errors, and interpretation
+
+The Journal is primarily a contextual re-reading of article concepts plus assessment history, rather than evidence that a learner can independently explain a mechanism. I inspected its Service Types overview and IaaS lower content, not every Journal entry. Its immediate access is helpful for review; the public independent entrances explain that help during an active attempt is recorded, but I did not test that contract. Summary/version terminology is thorough but adds cognitive overhead.
+
+Some immediate SPA snapshots captured the prior body or a temporary “Avklar lagret vurderingskontekst” guard before the settled article appeared (e.g.006→007 and097→098). I did not count these as persistent blocked teaching. There were several reviewer selector mistakes/timeouts and a strict-mode selector conflict; those are harness failures, not app defects. Some outstanding selector waits overlapped later inspection; use the concrete DOM results/receipts rather than treating every logged attempted command as a successful action.
+
+One execution call failed with **exec-server transport disconnected** during Portal reload verification around06:30 UTC. Later recovery showed the saved staging setting in064. This is recorded as environment/access failure. No HTTP503 or HTTP≥400 was recorded in the browser event log. Four console CSP messages blocked the optional `vercel.live` feedback script; no pageerror was recorded. This does not prove that every external link/service works.
+
+Unverified: exhaustive model combinations, source-drawer/external-link correctness, independent assessment/rubric quality, changed independent missions, actual VM practical execution, real Azure APIs/hosting/pricing/availability/security, human SME review, storage conflict/multi-tab behavior, mobile, screenreaders and full manual contrast/reduced-motion audits. No assertion here converts a local configuration or guided answer into real Azure operations, Microsoft Learn credit, certification, or measured competence.
+
+The app’s useful role is an original companion to official reading: bounded experiments and recorded local administrative consequences can make causal distinctions inspectable. The course still needs tighter copy, better signposting around practice prerequisites, and explicit diagnosis when technically valid work fails a lesson criterion. Its accurate statements of model limits should remain, but the learner should reach the next meaningful observation without repeatedly traversing versioning and duplicated explanation.
+
+## Reproduction artifacts
+
+[ index.json ](index.json) links every actual screenshot/text capture and hash. [browser.cjs](browser.cjs) is the actual persistent Playwright collection harness, with exact attempted actions in [commands.jsonl](commands.jsonl). [reproduce.cjs](reproduce.cjs) is a clean standalone replay of selected observed routes/actions, prepared from those commands; it was not executed end-to-end during the cold review to avoid creating extra local operations just to recreate evidence. Run it from this review directory with the already-installed dependencies. No application repository edits were made.

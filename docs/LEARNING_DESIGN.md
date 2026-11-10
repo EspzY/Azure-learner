@@ -1,0 +1,158 @@
+# Learning design
+
+## P06 address-to-path reasoning
+
+Networking develops source/name/address concepts before VNet, CIDR and real NIC relationships. Four distinct investigations inspect actual configuration, repair an address plan, diagnose topology and separate DNS from path/access. Predictions and saved runs precede mission-specific causal debriefs. Independent cases change decision structure (scope versus zonal/regional structure, boundary arithmetic, global peering, delegation/alias/custom resolver/app roles). [Sequence and traceability](NETWORKING_FOUNDATIONS.md).
+
+## P05 workload-to-mechanism reasoning
+
+Compute starts with five distinct workloads, then develops execution/control, VM dependencies, container lifecycle, event hosting, fleet/resilience, desktop publication and platform selection. Four applications alternate real operations and explicit conceptual investigation. Independent situations change requirements and decision structure; feedback includes counterfactuals and exact repetition links. Saved draft/run/causal explanation are distinct from navigation and first independent results. [Sequence](COMPUTE_HOSTING.md).
+
+## P04 economic reasoning
+
+The course moves from a workload requirement through cost drivers, estimate assumptions, dated analysis, budget/projection contrast, metadata allocation and operationally constrained optimization. Predictions are compared with saved model inputs/results; explicit causal explanations distinguish guided investigation from ten unseen decision/reason situations. SavvyShark introduces each investigation, reports only validated runs and reopens two significant observed milestones. No arbitrary interaction completes learning. [Detailed sequence](COST_MANAGEMENT.md).
+
+## P03 transfer after practical experience
+
+Each Cloud Concepts module now links teaching and guided missions to a separate independent decision/reason workspace. Prerequisites are instructional, not rigid mission-completion gates. New contexts change the causal or operational requirement; one service scenario accepts either supported architecture with its matching responsibility. Feedback explains every alternative only after submission and recommends the precise original activity. Human difficulty, cueing and transfer validation remain outstanding. [P03](CLOUD_CONCEPTS_TRANSFER.md).
+
+## Management learning task — PR23
+
+Start with a team's ownership/lifecycle problem before terminology. Compare actual administrative ancestry with hosting dependencies and Part A geography. Commit a prediction before pure counterfactual evaluation; compare scope/type/condition/effect and explain consequences. Apply this through the real existing Portal lab. Four different unassisted contexts require choices and reasons with committed alternative feedback; guided success never upgrades independent evidence. [Manuscript](CORE_ARCHITECTURE_MANAGEMENT.md).
+
+## Part A: learn physical boundaries through consequences
+
+Build from known hardware/virtualization and Benefits dependencies. Explain datacenter, region/geography, zone deployment types, pair qualifications and sovereign environment before prediction. The guided model requires three distinct loss/dependency/resilience witnesses plus a causal answer, not navigation. Changed booking, approved-region/government and physical-failure cases commit decisions/reasons/matching before feedback. Per-objective first criteria, assistance, retries and abandonment remain visible; a partial first answer is retained rather than hidden or replaced. No broad transfer or full-core mastery claim. [Original teaching specification](CORE_ARCHITECTURE_PHYSICAL.md).
+
+## P00 serverless application
+
+The learning progression now connects prior provisioning, shared responsibility and pricing to managed event execution. A synthetic trace distinguishes activation, code failure, remaining work and output. Predictions commit with bounded input; guided completion requires contrasting run witnesses plus causal explanation. A webhook task and guest-kernel-driver task change decision requirements; hosting AND reason, outcome, duty and plan-cost criteria commit before feedback. First/help/retry/abandon remain separate, with no XP. [Original manuscript and source qualification](SERVERLESS_FOUNDATIONS.md). This is not human educational validation.
+
+## PR20 — quality foundation, not curriculum expansion
+
+Use the [permanent quality contract](QUALITY_CONTRACT.md), [content QA](CONTENT_QA_STANDARD.md) and [source protocol](SOURCE_COVERAGE_PROTOCOL.md) for future modules. Existing depth and PR19 gaps remain unchanged. New short causal milestones explain observed policy/VM relations in context; they do not replace theory, new-scenario assessment or module completion. Full mission prerequisites and action consequences precede practice; required guide text stays visible. Separate post-implementation review challenges technical, instructional, visual, assessment and guidance quality. Human SME/novice/IT/transfer validation remains unperformed unless explicitly documented.
+
+## AZ-900 audit findings — 2026-10-26
+
+[Coverage audit](AZ900_COVERAGE_MATRIX.md) distinguishes real teaching from available UI and actual independent tasks. Existing cloud manuscripts/models are substantive, yet several Benefits prompts reveal the diagnosis and current Service Types v2 lacks an independent SaaS-selection case. Retain the teaching depth and lab rules; improve changed contexts and alternative-specific feedback in separate reviewed PRs. Core architecture should become the first new complete module, after a bounded serverless addition. [Pedagogical gap solutions](AZ900_GAP_ANALYSIS.md) deliberately prefer conceptual comparison/visualization where full operation adds little AZ-900 value. No current learning/assessment behavior is changed by the plan. Human novice, IT and qualified SME validation remains outstanding.
+
+## Legacy retirement — 2026-10-26
+
+Current Foundations v1/v2, Benefits, Service Types, Journal, responsibility model and guided/independent practice remain intact. Timed NPC delivery and scenery no longer present them; explicit learner actions remain the only source of evidence. No rubric, award or learning observation changed. G1.x/journey sections below are historical. See [audit](LEGACY_AUDIT.md).
+
+## Module2/3 practical bridge refinement — 2026-10-26
+
+The mission brief establishes purpose, conceptual outcomes, main actions and completion observations before navigation. Benefits bridges explicitly distinguish configuration inspection from operational proof. The revised figures explain a mechanism before controls and causal feedback; previous source-backed manuscript depth, guided reasoning and independent changed-context rubrics remain intact. No result is revealed before its explicit experiment run. Learner comprehension and expert technical review remain unperformed human gates. [Audit and specification](GUIDED_LEARNING_REFINEMENT.md).
+
+## 3.2.1 operational evidence boundary
+
+The preserved conceptual models explain mechanisms; their runs do not create infrastructure. New practical labs apply those concepts through accepted persistent commands, causal receipt/resource/relationship inspection and an original changed task. A VM profile does not prove a running guest, settings do not prove deployed code and account blocking does not prove recovery of shared data. Keep guided assistance and independent first submissions distinct. No new XP is awarded. [Qualitative coverage](FUNDAMENTALS_LAB_COVERAGE.md) records objective-specific limitations and unperformed human review.
+
+## 3.2 cumulative depth
+
+Module1 establishes intuition and retains its original outcome checks. Module2 asks why a capability helps and under which conditions: compare capacity with fault tolerance, diagnose before correcting, distinguish policy and security, repeat both correct and incorrect configuration, and reduce unnecessary resource use without losing required function. Module3 applies that reasoning to guest/platform/product control boundaries. Its nine-layer comparison is one recap entrance followed by distinct operational tasks, not repeated on every page.
+
+SavvyShark states objective, reason, action and expected observation per investigation. Full theory and assumptions are visible before action. Guidance and independent changed scenarios have separate rubrics/history; no default answers or solution highlights in independent use. [Benefits](CLOUD_BENEFITS_CONTENT.md), [service deepening](SERVICE_TYPES_DEEP_LEARNING.md) and [source register](FUNDAMENTALS_SUPPLEMENTARY_READING.md) specify concrete behaviors. Qualified SME, think-aloud beginner/IT and assistive-technology review remain human gates.
+
+## 3.1B current module
+
+New learners begin with shop request→hardware/software→guest/host→provisioning before capacity. A worked hour does not expose the changed campaign result. Actions, guided explanations and changed-task first/help/retry are tracked under2.0.0, never inferred from old evidence. Later official outcomes retain substantive original theory/practice. The bridge uses the shared Portal and factual debrief. Human novice/SME/retention review remains outstanding.
+
+## 3.1A prerequisite-first candidate — 2026-10-25
+
+Owner playtesting found that technical correctness did not establish beginner comprehension. The [audit](BEGINNER_LEARNING_AUDIT.md) grounds specific defects; the [blueprint](FOUNDATIONS_PEDAGOGY_BLUEPRINT.md) and [storyboard](FOUNDATIONS_31A_STORYBOARD.md) specify website request → physical computing → VM → provisioning → explained capacity → existing cloud objectives. Worked/practice/changed independent tasks remain distinct. The isolated proof evaluates presentation feasibility, not learning effectiveness. Existing manuscripts/evidence remain playable unchanged; full 3.1B implementation awaits separate instruction. Desktop-first supersedes earlier equal-priority mobile visual work; baseline accessibility and existing regressions remain.
+
+## Course-first refinement — 2026-10-25
+
+Course order and explicit next activities now lead into the actual guided Portal lab and back to a causal debrief. The original manuscripts, diagrams, justified cases, six investigations and independent rubric are retained. Group creation applies resource-organization prerequisites, not service-module completion by itself. Source-reviewed guide and reflection copy stays in nb.ts. [Course strategy](COURSE_FIRST_PRODUCT_EXPERIENCE.md) and [guide mechanics](GUIDED_SANDBOX_ENGINE.md) define behavior. Human first-time usability/SME review remains outstanding.
+
+## Portal learning loop — 2026-10-24
+
+Learn → manipulate responsibility layers → justify a workload decision → configure through recognizable Portal services → investigate actual rejection → inspect membership/hosting/location → apply changed requirements. Full theory is focused and readable; an optional resizable pane gives guided instructions without replacing the manuscript. The same technical world underlies all modes. No resource/diagram duplicate is created for education.
+
+The preserved Foundations 01 investigations retain their original explanations, paired probes and evidence. The new service-types module has ST01–ST04 manuscript/source/activity bindings and three original model-plus-reason cases; a changed Shared Sandbox/North Europe task records actual new resources plus causal/model decisions. Starting a task captures technical attempt and command boundary; first errors/help remain visible after retries. This is local task evidence, not Chapter01 promotion or mastery. [Portal manuscript](PORTAL_LEARNING_EXPERIENCE.md) and [coverage audit](CURRICULUM_COVERAGE.md) own details; human SME/learning-effectiveness review remains pending.
+
+## G1.3 connected explanations and demonstrations
+
+The guide leads explanations rather than requiring the learner to ask the right question. Complete original concept/mechanism/Azure/example/misconception/limit sections unfold in reading-aware beats; original flow, responsibility and capacity/topology illustrations explain the current text. Existing deliberate experiments/questions and first changed-task submission remain the evidence. Auto-demonstrated IaaS/PaaS/SaaS changes are visibly authored examples and do not satisfy the learner comparison predicate. Playback can pause, revisit, skip or switch to manual without awards. [Instructional sequence engine](INSTRUCTIONAL_SEQUENCE_ENGINE.md) owns timing/accessibility, while human comprehension/reading-pace review remains unperformed.
+
+## G1.2 instructional orientation
+
+Before investigations, the learner now receives purpose, expected predict/change/observe/explain actions, recording rules and the distinction between the six guided units and a separate changed task. Ida supplies the learning context; Noor connects it to technical work. Return/debrief reads actual findings, preserving guided/independent boundaries. The log restores the thread without replaying completed teaching; manual and experienced entry stay available. [Onboarding](PLAYER_ONBOARDING.md) defines the unperformed novice/engineer review exercises. Existing L1 theory, original assessments and Azure rules are unchanged.
+
+## L1 — complete first-module investigation
+
+The new [manuscript](FOUNDATIONS_01_CONTENT.md) precedes presentation code. It teaches six official cloud-computing objectives plus on-premises prerequisites through paired capacity/pricing experiments, responsibility allocation, topology comparison, three workload placements and an idle/release meter. Each unit needs actual probe witnesses and a correct causal response for guided completion. Reading/visiting alone cannot complete it. Original wrong-answer explanations and worked/counterexamples remain accessible in the playable investigation and journal.
+
+A separate museum-pilot task changes the demand, capacity and operational constraints. Answers are committed together before feedback; in-attempt journal/instruction marks help. First criterion observations remain immutable, retries are practice, and neither implies retained competence. No new XP or Chapter01 promotion. [Content standards](CONTENT_STANDARDS.md) define the permanent authoring/review gate; [coverage](CURRICULUM_COVERAGE.md) distinguishes narrow legacy material from full modules.
+
+## G1.1 conversation pacing
+
+Short spoken beats now accompany intentional character/workshop shots. Full original explanations, misconceptions and source-backed caveats remain in resumable field notes. Layer inspection uses the same responsibility rules and emits no assessment/XP event. Immediate guided feedback still records assisted practice; neither cinematic pacing nor correct retries establish independent evidence. [NPC dialogue design](NPC_DIALOGUE_DESIGN.md) specifies the content split and re-entry behavior.
+
+## G1 — conversations, demonstrations and real technical evidence
+
+The separate game route adds a connected **meet → investigate → choose → configure → report** presentation of the existing objectives. [NPC dialogue design](NPC_DIALOGUE_DESIGN.md) specifies both characters, misconception branches, physical responsibility changes and source-backed caveats. Ida teaches through comparison; Noor supplies workload requirements and responds to actual current guided findings. Experienced entry skips introductory prose without asserting prior knowledge. Corrective challenge responses are guided observations; game completion earns no XP, mastery, readiness or Chapter 01 promotion. No new Azure technical rule is introduced for visual effect. Learning effectiveness and transfer require the planned human/independent assessments, not successful traversal.
+
+This file describes the **implemented legacy organization activity**. Phase 1A.5 adds the [expedition teaching and two guided detours](JOURNEY_EXPERIENCE.md), using requirement selection and responsibility allocation rather than repeating the legacy three-question component. All three checks are guided, not independent assessment. Phase 1A's wider competency graph, evidence distinctions and source lifecycle are proposed in [LEARNING_JOURNEY.md](LEARNING_JOURNEY.md), reusable mechanics in [EXPERIENCE_PATTERNS.md](EXPERIENCE_PATTERNS.md), and the first complete chapter in [CHAPTER_01_BLUEPRINT.md](CHAPTER_01_BLUEPRINT.md). The complete chapters/platform and independent evidence designs have not been implemented or evaluated with learners. Keep this legacy activity's validated rules/results separate from the new specification.
+
+## Guided technical extension — Phase 1B.1
+
+The [implemented chapter subset](CHAPTER_01_GUIDED.md) bridges the journey's service choice into operational responsibility, lifecycle/scope choice, a recorded pre-result prediction, policy/dependency investigation, correction and causal explanation. A valid Shared Sandbox operation remains valid while failing the task requirement. The original prediction is retained even if wrong; a later guided explanation can demonstrate correction without rewriting that history. A learner choosing the permitted region immediately can inspect a real denied request on an isolated fork without damaging the main configuration.
+
+Purpose, mechanism, Azure nuance/limits and official sources are available at the relevant inspector, location comparison and policy investigation. Hints, repeat explanations and model feedback are guided assistance. Six findings indicate the current configuration/observations fit this guided task; they are neither the complete five-criterion transfer rubric nor independent competence. No chapter XP/promotion occurs. Follow-up Phase 1B.2 must implement unfamiliar transfer, evidence classification and explicit checkpoint handoff before Chapter 01 can be called complete. Learner/SME effectiveness reviews remain pending.
+
+## Resource organization v1
+
+**Context:** a team needs an application resource group in a sandbox subscription. **Outcome:** explain identity, management containment and regional placement without conflating them.
+
+1. Enter the scene and accept a short mission brief. Identify Learning Sandbox and discover creation in its contextual actions.
+2. Explore actual parent/child relationships through focus and branch highlighting. Tenant-root remains a dashed identity association. Technical caveats are progressively disclosed in the inspector.
+3. Compare `rg-webapp-dev` metadata in Norway East with App Service in West Europe using the region layer. Geometry does not move; location labels expose the separate dimension.
+4. Create `rg-azurelab-dev` with metadata in Norway East through a scene command. Name, scope and region remain the same deterministic success conditions. The object and relationship appear visibly; wrong configurations do not award the mission.
+5. Answer the original questions one at a time, review every selected answer's explanation, and reflect on why group/resource locations differ. Scoring and award IDs are unchanged.
+
+The loop is discover → interact → observe → understand → apply → reflect. Explanations follow relevant actions. Hints still deliberately disclose this introductory solution. Invalid commands retain associated feedback; valid but wrong configurations remain visible with a correction/reset prompt. The sandbox supports three new groups; reset clears current-attempt steps and preserves historical awards. The original unit-tested domain implementation is retained.
+
+## Accuracy and simplifications
+
+Entra tenant is an identity boundary, distinct from Tenant root group. Each subscription trusts one tenant at a time; one tenant may support several subscriptions. A custom management group is optional; subscriptions can sit directly under the root. Entra roles differ from Azure RBAC. Tenant administration is not automatic resource access.
+
+Groups cannot nest. Ordinary services are shown within groups; some Azure resource types exist at other scopes. Geography is a separate property, not a hierarchy level. No policies, moves, billing, availability, deployment validation or residency guarantees are modeled. Choosing a region is not a compliance assessment.
+
+## Rewards and evidence
+
+| Activity                  | XP      | Interpretation                 |
+| ------------------------- | ------- | ------------------------------ |
+| Exact mission conditions  | 80 once | Guided configuration completed |
+| All three answers correct | 40 once | Immediate assisted check       |
+| Replays                   | 0 extra | Practice encouraged            |
+| Reading/selecting a node  | 0       | Interaction is not competence  |
+
+Phase 0 collects no formal mastery evidence. Hints and immediate feedback limit the assessment. Future evidence needs unfamiliar scenarios, independent performance, delayed retrieval and broader coverage. Completion never automatically implies mastery or exam readiness. No streaks/rankings exist.
+
+## Official competency references
+
+Reviewed **2026-10-22**. These narrow mappings do not represent complete coverage. Summaries are original; official documents control scope.
+
+| Exam   | Observed objectives effective from | Relationship                                         | Source                                                                                                    |
+| ------ | ---------------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| AZ-900 | 2026-07-20                         | Primary mapping: resource organization and hierarchy | [Study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900) |
+| AZ-104 | 2026-04-17                         | Future identity/governance administration            | [Study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104) |
+| AZ-305 | 2026-04-17                         | Future governance design decisions                   | [Study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-305) |
+
+AZ-305 is part of the Azure Solutions Architect Expert credential; that exam alone is not the entire requirement. See [credential prerequisites](https://learn.microsoft.com/en-us/credentials/certifications/azure-solutions-architect). No credential or exam outcome is guaranteed.
+
+Technical registry, reviewed **2026-10-22**, Microsoft documentation, reference-only use:
+
+- [Management groups](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview): parent/root relationships and directory association.
+- [Resource Manager](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview): management scopes and grouping.
+- [Resource groups](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal): metadata location.
+
+All teaching text/questions are original. No practice assessment was copied, scraped or embedded. Future sources record attribution, licensing disposition, source version, review date and competency mapping. Re-review relevant sources when changing content and before certification-aligned releases; mark stale mappings until reconciled.
+
+The [source register](SOURCE_REGISTER.md) rechecks these dates and adds current retired/new credentials, Applied Skills and specialist references for Phase 1A. Its versioned overlay policy supersedes using these three exam codes as the product's curriculum boundary. The existing immediate check remains assisted evidence only; no historical completion is upgraded into independent performance.
+
+# PR24: fire forskjellige praktiske overføringer
+
+Benefits reliability bygger fra faktisk VM-inspeksjon til en tydelig separat feil-/rutingshypotese. Governance sammenligner nytt policyavslag, scope, korrigert Web-lokasjon og gruppemetadata. Service Types gir et nytt gjeste-/disk-/subscription-krav og et eget vedlikeholdsforløp med endret draft, to Apply og kvitteringer. Nye selvstendige varianter endrer beslutningsgrunnlaget; tidligere guidet arbeid blir ikke oppgradert. [Manuskript, kriterier og kilder](PRACTICAL_MISSION_EXPANSION.md).

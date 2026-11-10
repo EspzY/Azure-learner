@@ -1,0 +1,84 @@
+{
+  "at": "2026-11-09T21:20:01.312Z",
+  "build": "qUmyqSY3W446fJTLWUbop",
+  "results": [
+    {
+      "mode": "light",
+      "state": {
+        "text": "Valget brukes her, men kan ikke lagres i nettleseren.",
+        "color": "rgb(153, 98, 10)",
+        "background": "rgb(99, 28, 206)",
+        "font": "12px",
+        "rect": {
+          "x": 1192,
+          "y": 17.5,
+          "width": 224,
+          "height": 36,
+          "top": 17.5,
+          "right": 1416,
+          "bottom": 53.5,
+          "left": 1192
+        },
+        "contrast": 1.5865962242837661
+      },
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": ["#_r_3_-storage"],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.58 (foreground color: #99620a, background color: #631cce, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ],
+      "screenshot": "/tmp/bifrost-course-final-audit/appearance-light.png",
+      "reflow": {
+        "width": 457,
+        "viewport": 320
+      },
+      "narrowScreenshot": "/tmp/bifrost-course-final-audit/appearance-light-320.png",
+      "narrowViolations": []
+    },
+    {
+      "mode": "dark",
+      "state": {
+        "text": "Valget brukes her, men kan ikke lagres i nettleseren.",
+        "color": "rgb(255, 219, 112)",
+        "background": "rgb(173, 138, 255)",
+        "font": "12px",
+        "rect": {
+          "x": 1192,
+          "y": 17.5,
+          "width": 224,
+          "height": 36,
+          "top": 17.5,
+          "right": 1416,
+          "bottom": 53.5,
+          "left": 1192
+        },
+        "contrast": 1.98804769246877
+      },
+      "violations": [
+        {
+          "id": "color-contrast",
+          "impact": "serious",
+          "nodes": [
+            {
+              "target": ["#_r_3_-storage"],
+              "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.98 (foreground color: #ffdb70, background color: #ad8aff, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+            }
+          ]
+        }
+      ],
+      "screenshot": "/tmp/bifrost-course-final-audit/appearance-dark.png",
+      "reflow": {
+        "width": 457,
+        "viewport": 320
+      },
+      "narrowScreenshot": "/tmp/bifrost-course-final-audit/appearance-dark-320.png",
+      "narrowViolations": []
+    }
+  ]
+}

@@ -1,0 +1,2717 @@
+{
+  "createdUtc": "2026-11-05T15:44:23.990789+00:00",
+  "reviewStage": "Separat pedagogisk struktur-etterkontroll etter kald lås og etter-lås kildevalidering; ikke nytt kaldt review.",
+  "basisSha": "a3f1b575b2eb5b257fd455fec1a73b30a38706f4",
+  "basis": "52 faktisk leste offentlige studenttekst-/figur-/kontrollsnapshots og tidligere registrerte interaksjoner fra den kalde passeringen. Ingen nytt kildearbeid eller ny bankreview for denne strukturvurderingen.",
+  "noNewBrowserTransitions": "Ingen nye browseroverganger var nødvendige: direkte sideinnhold, faktisk Next/Previous og guideprioritet finnes i låst inventar og vitner. Fremtidig sammensetting/resume er en implementeringsrisiko, ikke påstått testet.",
+  "classificationLegend": {
+    "A": "behold egen anbefalt aktivitet",
+    "B": "slå sammen jevnbyrdige aktiviteter til økt",
+    "C": "integrer som navngitt seksjon i annen aktivitet",
+    "D": "valgfri eller flytt til sekundær oversikt/tillegg",
+    "E": "mer undersøkelse før strukturvalg"
+  },
+  "originalIntegrity": {
+    "manifest": "/workspace/azurelab-pr57/cold/core-compute-network/lock.json",
+    "finishUtc": "2026-11-05T14:37:56.133237+00:00",
+    "filesChecked": 527,
+    "sha256Mismatches": 0
+  },
+  "limitations": [
+    "AI-pedagogisk strukturvurdering, ikke menneskelig novice-/SME-/skjermleser- eller målt læringseffektstudie.",
+    "Ingen ord-/sideterskel, ingen reduksjonsmål og ingen tvungen seksøktsstruktur. Kort funksjonell modell eller check kan legitimere egen aktivitet.",
+    "Snapshots er fra kald SHA før eventuelle senere PR57-rettinger; dette er ikke en fersk RC-UIverifikasjon.",
+    "Alle originale topic-/check-/guide-/assessmentidentiteter, Start/submit/aid/first/retry/resume, modeller, lagrede resultater og rubrics skal bevares.",
+    "Oppdragskart kan allerede bli forbigått av dynamisk Neste. Reduksjon av statiske oppføringer er ingen dokumentert tilsvarende klikkbesparelse.",
+    "Ingen konkret strukturell P1 er påvist; forslagene er en avgrenset oppfølging, ikke krav før RC."
+  ],
+  "activities": [
+    {
+      "module": "architecture",
+      "topic": "datacenters",
+      "title": "Maskinene trenger et sted å være",
+      "currentRole": "Fysisk grunnmodell, case, skisse og lokal begrepssjekk",
+      "learningGoal": "Forklare fysisk avhengighet under en virtuell ressurs.",
+      "newUnderstanding": "To management-navn gir ingen fysisk uavhengighet; app og data kan dele samme feilgrense.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Konkrete host-/anleggsavhengigheter, strøm/kjøling/sikring og et API/data-moteksempel."
+      },
+      "mechanism": "Datasenterskisse med compute/storage/network og støtteinfrastruktur.",
+      "check": "Egen flervalgssjekk om to VM-er i samme bygning/ulike grupper.",
+      "recordedEvidence": "Sjekken ble lest, ikke levert; etterfølgende explorer kjørte anleggsfeil.",
+      "prerequisites": [
+        "Cloud Computing: fysisk server/virtualisering",
+        "Service Types: ansvar"
+      ],
+      "dependency": "Behold opprinnelig topic datacenters, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Benefits gjentas som nytt fysisk moteksempel, ikke en ren reprise.",
+      "pageJustification": "Egen side er begrunnet av første fysisk feilmodell og målrettet kontrastsjekk.",
+      "classification": "A",
+      "proposalReason": "Egen side er begrunnet av første fysisk feilmodell og målrettet kontrastsjekk.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/005-architecture-datacenters-loaded.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/005-architecture-datacenters-loaded.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/005-architecture-datacenters-loaded.png",
+          "capturedUtc": "2026-11-05T14:00:10.650Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=datacenters",
+          "quote": "To ressursnavn eller resource groups skaper ingen fysisk separasjon."
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/013-architecture-single-run.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-datacenters",
+      "proposedSessionTitle": "Maskinene trenger et sted å være",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "regions",
+      "title": "Geography og region",
+      "currentRole": "Regional plassering, kartorientering og sjekk",
+      "learningGoal": "Velge region etter tjeneste-, data- og arbeidslastkrav.",
+      "newUnderstanding": "Geography er ikke kontinent eller management-parent; regionnærhet er utilstrekkelig alene.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Datert flerregionutvalg og avveining av data/replika/backup, støtte og latency."
+      },
+      "mechanism": "Geography-/regionfigur med Norway, Europe og Italy.",
+      "check": "Egen sjekk om hva som gjenstår etter valg nær brukerne.",
+      "recordedEvidence": "Lest figur og sjekk; ingen sjekkinnlevering i kald passering.",
+      "prerequisites": [
+        "datacenters",
+        "Cloud Concepts: latency/ansvar"
+      ],
+      "dependency": "Behold opprinnelig topic regions, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Boilerplate om forkunnskaper gjentas; kartets funksjon og beslutningskrav er nye.",
+      "pageJustification": "Regionvalg er et eget spørsmål før sone-/recoverydesign; kart og sjekk forsvarer egen side.",
+      "classification": "A",
+      "proposalReason": "Regionvalg er et eget spørsmål før sone-/recoverydesign; kart og sjekk forsvarer egen side.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/006-architecture-regions.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/006-architecture-regions.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/006-architecture-regions.png",
+          "capturedUtc": "2026-11-05T14:00:23.066Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=regions",
+          "quote": "Velg sted etter krav, ikke etter kartfarge"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-regions",
+      "proposedSessionTitle": "Geography og region",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "zones",
+      "title": "Soner er forskjellige feilgrenser",
+      "currentRole": "Feilgrenseforklaring, mappingfigur og sjekk",
+      "learningGoal": "Skille zonal, zone-redundant og nonzonal fra antall kopier.",
+      "newUnderstanding": "En valgt sone lager ingen redundans, og samme logiske sonenummer kan mappe ulikt mellom subscriptions.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Flere klart ulike deployment-begreper, tjenesteforbehold og konkret mapping-moteksempel."
+      },
+      "mechanism": "Tre fysiske soner og separat Subscription A/B-mapping.",
+      "check": "Sjekk om én app og én datakopi i samme sone.",
+      "recordedEvidence": "Sjekk lest; app-/data-sonefeil senere kjørt i explorer.",
+      "prerequisites": [
+        "regions",
+        "datacenters"
+      ],
+      "dependency": "Behold opprinnelig topic zones, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Datasenterets støtteinfrastruktur gjentas som premiss for større feilgrense.",
+      "pageJustification": "Ny feilgrense og ikke-trivielt logisk/fysisk skille fortjener egen stopp.",
+      "classification": "A",
+      "proposalReason": "Ny feilgrense og ikke-trivielt logisk/fysisk skille fortjener egen stopp.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/007-architecture-zones.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/007-architecture-zones.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/007-architecture-zones.png",
+          "capturedUtc": "2026-11-05T14:00:27.633Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=zones",
+          "quote": "En sone er en isolasjonsgrense, ikke en ekstra kopi"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/014-architecture-app-only-run.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-zones",
+      "proposedSessionTitle": "Soner er forskjellige feilgrenser",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "pairs",
+      "title": "Regionpar er ikke en beredskapsplan",
+      "currentRole": "Regionrelasjoner, kontrafaktiske figurer og sjekk",
+      "learningGoal": "Skille regionparmetadata fra en konfigurert multiregion-plan.",
+      "newUnderstanding": "Par kan mangle eller være asymmetriske og oppretter ikke appkopier/failover.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Symmetrisk NE/WE, uparet Italy og asymmetrisk Brazil gjør prinsippet konkret."
+      },
+      "mechanism": "Piler for parrelasjon med eksplisitt merking om ikke-operativ forbindelse.",
+      "check": "Egen sjekk om hva en eksisterende parrelasjon bekrefter.",
+      "recordedEvidence": "Fullt lest; senere selvstendig A-oppgave brukte endrede regionpremisser.",
+      "prerequisites": [
+        "regions",
+        "zones"
+      ],
+      "dependency": "Behold opprinnelig topic pairs, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Data/ruting-avhengigheter gjenbrukes ved en annen feilgrense, med ny metadatafelle.",
+      "pageJustification": "Regionhendelse og plattformmetadata er en egen begrunnelsesoppgave; bør ikke skjules i soneøvelsen.",
+      "classification": "A",
+      "proposalReason": "Regionhendelse og plattformmetadata er en egen begrunnelsesoppgave; bør ikke skjules i soneøvelsen.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/008-architecture-pairs.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/008-architecture-pairs.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/008-architecture-pairs.png",
+          "capturedUtc": "2026-11-05T14:00:30.108Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=pairs",
+          "quote": "Et regionpar garanterer ikke generell automatisk replikering, failover eller null datatap."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-pairs",
+      "proposedSessionTitle": "Regionpar er ikke en beredskapsplan",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "sovereign",
+      "title": "Region eller separat skymiljø?",
+      "currentRole": "Miljøvalg, sammenligning og sjekk",
+      "learningGoal": "Skille public-cloud-region fra separat Azure-miljø.",
+      "newUnderstanding": "Government/21Vianet gjelder operative og kvalifiseringsgrenser; public cloud kan også støtte sovereignty-krav.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Tre miljøer, eligibility-/avtalevilkår og region-vs-miljø-moteksempel."
+      },
+      "mechanism": "Public/Government/21Vianet-sammenligning.",
+      "check": "Egen sjekk Norway East versus Azure Government.",
+      "recordedEvidence": "Lest; valgt miljø inngikk i selvstendig A-besvarelse.",
+      "prerequisites": [
+        "regions"
+      ],
+      "dependency": "Behold opprinnelig topic sovereign, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Dataplassering fra regionvalg er nødvendig tilbakekobling; miljøskillet er nytt.",
+      "pageJustification": "Egen beslutningstype med høy feilkonsekvens; behold fremfor å slå sammen av visuell likhet.",
+      "classification": "A",
+      "proposalReason": "Egen beslutningstype med høy feilkonsekvens; behold fremfor å slå sammen av visuell likhet.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/009-architecture-sovereign.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/009-architecture-sovereign.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/009-architecture-sovereign.png",
+          "capturedUtc": "2026-11-05T14:00:31.794Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=sovereign",
+          "quote": "Et annet regionsnavn er ikke nødvendigvis et annet skymiljø"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-sovereign",
+      "proposedSessionTitle": "Region eller separat skymiljø?",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "explorer",
+      "title": "Azure Infrastructure Explorer",
+      "currentRole": "Eksplisitt guidet konseptundersøkelse",
+      "learningGoal": "Forutsi og forklare tjenestetilgjengelighet gjennom fysisk feil og app/data/ruting.",
+      "newUnderstanding": "Appoverlevelse er ikke tilstrekkelig når datakopien mangler.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Tre definerte kontraster med lagrede input og kausal forklaring; kort innledning er tilstrekkelig."
+      },
+      "mechanism": "Start, premisskontroller, prediksjon, Run, app/data-figur og refleksjon.",
+      "check": "Tre modellvitner og årsaksvalg er egen guidet grense.",
+      "recordedEvidence": "Tre faktiske kjøringer og årsaksforklaring registrert i kald passering.",
+      "prerequisites": [
+        "datacenters",
+        "regions",
+        "zones",
+        "pairs",
+        "sovereign"
+      ],
+      "dependency": "Behold opprinnelig topic explorer, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Tidligere begreper anvendes med manipulerbare avhengigheter, ikke bare opplistning.",
+      "pageJustification": "Funksjonell modell og eksplisitt forsøksgrense gir klar egen sidebegrunnelse.",
+      "classification": "A",
+      "proposalReason": "Funksjonell modell og eksplisitt forsøksgrense gir klar egen sidebegrunnelse.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/010-architecture-explorer.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/010-architecture-explorer.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/010-architecture-explorer.png",
+          "capturedUtc": "2026-11-05T14:01:15.247Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=explorer",
+          "quote": "Appen trenger både ruting og en tilgjengelig datakopi."
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/013-architecture-single-run.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/014-architecture-app-only-run.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/015-architecture-redundant-run.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/016-architecture-guided-reflection.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-explorer",
+      "proposedSessionTitle": "Azure Infrastructure Explorer",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "assessment",
+      "title": "Selvstendig anvendelse · fysisk arkitektur",
+      "currentRole": "Selvstendig Part A-forsøk og feedback",
+      "learningGoal": "Begrunne nye fysiske arkitekturvalg uten trinnvis hjelp.",
+      "newUnderstanding": "Premisser anvendes i nye situasjoner; riktig svar må være egen observerbar besvarelse.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Tre situasjoner med ti kriterier; separat Start/submit/aid/first/retry."
+      },
+      "mechanism": "Eksplisitt Start, utkast og samlet innlevering før feedback.",
+      "check": "Uavhengig vurdering; skal ikke sammenflettes med undervisningen.",
+      "recordedEvidence": "Original forhåndslåst besvarelse, draftreload og samlet feedback er bevart.",
+      "prerequisites": [
+        "Part A-undervisning og explorer"
+      ],
+      "dependency": "Behold opprinnelig topic assessment, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Gjenbrukte konsepter er nødvendig transfer, ikke redundant forklaringsside.",
+      "pageJustification": "Behold egen attempt-grense og egen anbefalt aktivitet.",
+      "classification": "A",
+      "proposalReason": "Behold egen attempt-grense og egen anbefalt aktivitet.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/017-architecture-independent-before-start.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/017-architecture-independent-before-start.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/017-architecture-independent-before-start.png",
+          "capturedUtc": "2026-11-05T14:03:26.776Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=assessment",
+          "quote": "Alle svar leveres samlet før feedback."
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/018-architecture-independent-prompts.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/019-architecture-a-reload-draft.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/020-architecture-a-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-assessment",
+      "proposedSessionTitle": "Selvstendig anvendelse · fysisk arkitektur",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "summary",
+      "title": "Dine observasjoner · Part A",
+      "currentRole": "Part A-status og overgang til Part B",
+      "learningGoal": "Tolke avgrensede fysiske observasjoner separat fra Part B.",
+      "newUnderstanding": "Åpnet teori, guided og første uassisterte observasjon er forskjellige.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Per mål-status, tre modellvitner og eksplisitt avgrensning av evidens."
+      },
+      "mechanism": "Read-only statusgrupper, ikke et nytt forsøk.",
+      "check": "Ingen ny sjekk eller automatisk fullføring.",
+      "recordedEvidence": "Kald status viste guidet registrert og egne kriterier, men undervisningssjekker ikke registrert.",
+      "prerequisites": [
+        "assessment",
+        "explorer"
+      ],
+      "dependency": "Behold opprinnelig topic summary, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Begrepsmål gjentas som evidensstruktur med annen funksjon.",
+      "pageJustification": "Egen debrief/handoff før Part B beskytter tolking av resultatene.",
+      "classification": "A",
+      "proposalReason": "Egen debrief/handoff før Part B beskytter tolking av resultatene.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/021-architecture-a-summary.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/021-architecture-a-summary.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/021-architecture-a-summary.png",
+          "capturedUtc": "2026-11-05T14:04:14.860Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=summary",
+          "quote": "Part A-resultater · fysisk arkitektur, separat fra Part B"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-summary",
+      "proposedSessionTitle": "Dine observasjoner · Part A",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "organization",
+      "title": "Hvorfor et management-hierarki?",
+      "currentRole": "Part B-problemorientering, hierarchyfigur og lokal sjekk",
+      "learningGoal": "Skille eierskap, identitet, administrativt scope og fysisk plassering før ressursvalg.",
+      "newUnderstanding": "Et kortlivet miljø og en delt produksjonsavhengighet har ulike administrative behov.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Godt konkret case og egen kontrastsjekk; ingen selvstendig modell eller operativ Start."
+      },
+      "mechanism": "Nordlys Drift-case og samme hierarkifigur som de neste teorisidene.",
+      "check": "Egen orienteringssjekk må bevares som lokal seksjon med opprinnelig identitet.",
+      "recordedEvidence": "Lest sjekk, ikke innlevert; ingen egen forsøksgrense startet her.",
+      "prerequisites": [
+        "Part A-summary",
+        "Service Types"
+      ],
+      "dependency": "Behold opprinnelig topic organization, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "De neste resources/groups-sidene gjentar triaden, livssyklusproblemet og samme hele hierarchyfigur.",
+      "pageJustification": "Problemet er verdifullt som åpningsseksjon rett før ressursbegrepene, men trenger ikke egen navigasjonsavslutning.",
+      "classification": "C",
+      "proposalReason": "Integrer hele caset og sjekken som innledning til resources. Eleven får straks objektene som skal løse det administrative problemet; behold Part A/B-handoff og sjekk-ID.",
+      "navEffect": "Fjern egen statisk anbefalt oppføring; bevar hele innholdet/sjekken som navngitt seksjon i resources. Gamle topic/direct/resume-lenker må lande på rett seksjon uten implicit Start, aid-tap eller automatisk visit/fullføring. Dette er ingen målt klikkbesparelse.",
+      "risk": {
+        "level": "medium",
+        "detail": "Eventuell sammensetting/flytting må bevare alle originale topic-/check-/Start-/attempt-/aid-/resume-identiteter og må ikke registrere offscreen-seksjoner som lest eller fullført."
+      },
+      "priority": "P2 oppfølging",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/023-architecture-organization.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/023-architecture-organization.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/023-architecture-organization.png",
+          "capturedUtc": "2026-11-05T14:04:26.843Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=organization",
+          "quote": "Først problemet: hvem eier hva?"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-resources",
+      "proposedSessionTitle": "Fra administrativt problem til Azure-ressurs",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "resources",
+      "title": "Azure resources og providers",
+      "currentRole": "ARM-objekter, relasjonstyper, figur og lokal sjekk",
+      "learningGoal": "Identifisere provider/type/ID og skille medlemskap fra hosting.",
+      "newUnderstanding": "Konfigurasjon og kontrollplan er ikke drift; subnet er underressurs, gruppe er administrativ kontekst.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Konkrete ARM-typer, instans-ID og App→Plan-eksempel med lokale/virkelige grenser."
+      },
+      "mechanism": "Hierarkifigur supplert med forklaring av provider/type og tekniske avhengigheter.",
+      "check": "Egen Microsoft.Web/sites-sjekk.",
+      "recordedEvidence": "Lest; ingen kontrollinnlevering; begrepene senere brukt i faktisk Portal-bro.",
+      "prerequisites": [
+        "organization",
+        "Part A"
+      ],
+      "dependency": "Behold opprinnelig topic resources, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Samme bakgrunnsfigur er repetitiv, men nye objekter og relasjonstyper er substans.",
+      "pageJustification": "Behold som faglig anker; kan romme organization-problemet før definisjonene.",
+      "classification": "A",
+      "proposalReason": "Behold som faglig anker; kan romme organization-problemet før definisjonene.",
+      "navEffect": "Behold faglig arbeidsflate og opprinnelig kontroll/Start. Vis absorberte forberedelser som seksjoner først; ikke auto-krediter deltopics ved montering. Egne assessment- og operative grenser forblir separate.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/024-architecture-resources.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/024-architecture-resources.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/024-architecture-resources.png",
+          "capturedUtc": "2026-11-05T14:04:29.672Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=resources",
+          "quote": "Medlemskap forklarer hvor noe administreres; hosting forklarer hva det trenger."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-resources",
+      "proposedSessionTitle": "Fra administrativt problem til Azure-ressurs",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "groups",
+      "title": "Resource groups og livssyklus",
+      "currentRole": "Livssyklus-/grupperingsbeslutning og lokal sjekk",
+      "learningGoal": "Gruppere ressurser etter relevant livssyklus og ansvar.",
+      "newUnderstanding": "Metadata-location flytter ikke medlemmer; en gruppe er ikke en uskyldig nestbar mappe.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Egne slettings-/avhengighetsmoteksempler og metadataavklaring ut over ARM-typen."
+      },
+      "mechanism": "Samme hierarki, anvendt til kortlivet demo og varige felleskomponenter.",
+      "check": "Sjekk om kortlivet eksperiment.",
+      "recordedEvidence": "Lest; gruppering og delt plan senere inngikk i selvstendig B-svar.",
+      "prerequisites": [
+        "resources"
+      ],
+      "dependency": "Behold opprinnelig topic groups, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Hierarkisk kontekst gjentas; faktisk beslutningsspørsmål skifter til organisering/livssyklus.",
+      "pageJustification": "Eget praktisk feilvalg og kontrollpunkt gjør separat aktivitet meningsfull.",
+      "classification": "A",
+      "proposalReason": "Eget praktisk feilvalg og kontrollpunkt gjør separat aktivitet meningsfull.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/025-architecture-groups.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/025-architecture-groups.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/025-architecture-groups.png",
+          "capturedUtc": "2026-11-05T14:04:31.320Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=groups",
+          "quote": "Resource groups: organiser etter livssyklus"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-groups",
+      "proposedSessionTitle": "Resource groups og livssyklus",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "subscriptions",
+      "title": "Subscriptions og identitet",
+      "currentRole": "Administrativ/kostnads-/identitetsgrense og sjekk",
+      "learningGoal": "Velge riktig subscription selv for ellers gyldig ressurs.",
+      "newUnderstanding": "En tenant kan ha flere subscriptions; subscription er ikke alltid én faktura og ikke en region.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Adskiller tillitsrelasjon, governance, forbruk og kommersiell avtale."
+      },
+      "mechanism": "Hierarki med directory som egen identitetskontekst.",
+      "check": "Sjekk hvorfor subscription må velges.",
+      "recordedEvidence": "Lest; produksjons-subscription ble begrunnet i uavhengig B-forsøk.",
+      "prerequisites": [
+        "resources",
+        "groups"
+      ],
+      "dependency": "Behold opprinnelig topic subscriptions, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Fysisk/admin-skillet repeteres, men identitets- og faktureringsforbehold er nye.",
+      "pageJustification": "Egen scopebeslutning bør ikke drukne i gruppens livssyklus.",
+      "classification": "A",
+      "proposalReason": "Egen scopebeslutning bør ikke drukne i gruppens livssyklus.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/026-architecture-subscriptions.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/026-architecture-subscriptions.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/026-architecture-subscriptions.png",
+          "capturedUtc": "2026-11-05T14:04:33.006Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=subscriptions",
+          "quote": "Subscription er en enhet for forbruksregistrering, men innebærer ikke alltid én separat faktura."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-subscriptions",
+      "proposedSessionTitle": "Subscriptions og identitet",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "management",
+      "title": "Management groups og root",
+      "currentRole": "Ancestry/root-governance og lokal sjekk",
+      "learningGoal": "Lese parent/children og assignment-rekkevidde over subscriptions.",
+      "newUnderstanding": "Én parent og root-group er management, ikke directory som ekstra ressursparent.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Konkrete Learning/App/Shared-scopes og policyplassering viser konsekvens av scopevalg."
+      },
+      "mechanism": "Hierarchyfigur med identitetskontekst skilt fra ARM-parent.",
+      "check": "Sjekk én parent og flere children.",
+      "recordedEvidence": "Lest; ancestry/type/location senere brukt i B-oppgave og scope-modell.",
+      "prerequisites": [
+        "subscriptions",
+        "groups"
+      ],
+      "dependency": "Behold opprinnelig topic management, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Hele hierarkifiguren gjentas; nytt spørsmål er felles governance og stor scopekonsekvens.",
+      "pageJustification": "Behold egen overordnet styringsbeslutning før faktisk nodeundersøkelse.",
+      "classification": "A",
+      "proposalReason": "Behold egen overordnet styringsbeslutning før faktisk nodeundersøkelse.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/027-architecture-management.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/027-architecture-management.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/027-architecture-management.png",
+          "capturedUtc": "2026-11-05T14:04:36.539Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=management",
+          "quote": "Management groups: styr flere subscriptions"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-management",
+      "proposedSessionTitle": "Management groups og root",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "hierarchy",
+      "title": "Management Hierarchy Explorer",
+      "currentRole": "Read-only faktisk inventory- og relasjonsutforsker",
+      "learningGoal": "Følge faktisk node, parents og avhengigheter uten å oppfinne ressurser.",
+      "newUnderstanding": "Ancestry, membership og hosting er ulike kanter; tom gruppe er fortsatt gyldig.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Interaktiv inventory, ancestorsti, policyassignment og alternativt Resource Relationships-perspektiv."
+      },
+      "mechanism": "Velg node, bytt perspektiv, åpne faktisk Portal; ingen Start/kreditt ved bare navigasjon.",
+      "check": "Ingen særskilt ny vurdering; observerbare node-/ID-/scoperelasjoner.",
+      "recordedEvidence": "Tomt inventory og App Sandbox→Learning→root/policy lest; ikke dypt testet med utfylt inventory.",
+      "prerequisites": [
+        "resources",
+        "groups",
+        "subscriptions",
+        "management"
+      ],
+      "dependency": "Behold opprinnelig topic hierarchy, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Scope-siden inneholder også explorer som praktisk retur; her er det en egen forberedende lesestrategi.",
+      "pageJustification": "Kortere forklaring legitimeres av faktisk interaktiv inspeksjon; behold før policy og operativ praksis.",
+      "classification": "A",
+      "proposalReason": "Kortere forklaring legitimeres av faktisk interaktiv inspeksjon; behold før policy og operativ praksis.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/028-architecture-hierarchy.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/028-architecture-hierarchy.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/028-architecture-hierarchy.png",
+          "capturedUtc": "2026-11-05T14:04:50.443Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=hierarchy",
+          "quote": "valg av node er navigasjon og gir ingen kompetanseregistrering."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-hierarchy",
+      "proposedSessionTitle": "Management Hierarchy Explorer",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "scope",
+      "title": "Scope, policy og praktisk undersøkelse",
+      "currentRole": "Konseptuell policyundersøkelse og separat faktisk Portal-bro",
+      "learningGoal": "Forutsi type/location/ancestry og skille audit fra deny; undersøke faktisk resultat.",
+      "newUnderstanding": "Assignment-rekkevidde alene avgjør ikke matching; faktisk Web-policy er noe annet enn hypotetisk større scope.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "To modellkontraster samt eksisterende PaaS-lab/receipt-/ressursinspeksjon."
+      },
+      "mechanism": "Eksplisitt guidet Start/Run og egen separat Portal-lab Start/return.",
+      "check": "Kausal forklaring og faktisk ressurs-/policyarbeid har opprinnelige grenser.",
+      "recordedEvidence": "Deny/audit kjørt; faktisk bro startet og returnert; hele Portal-praksisen ikke fullført.",
+      "prerequisites": [
+        "hierarchy",
+        "resources",
+        "groups",
+        "subscriptions",
+        "management"
+      ],
+      "dependency": "Behold opprinnelig topic scope, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Explorer gjentas med hensikt etter operasjonen for debrief.",
+      "pageJustification": "Funksjonell modell og separat operativ bro begrunner egen side; slå ikke sammen forsøksgrenser med forrige read-only side.",
+      "classification": "A",
+      "proposalReason": "Funksjonell modell og separat operativ bro begrunner egen side; slå ikke sammen forsøksgrenser med forrige read-only side.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/029-architecture-scope.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/029-architecture-scope.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/029-architecture-scope.png",
+          "capturedUtc": "2026-11-05T14:04:52.359Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=scope",
+          "quote": "Konseptmodellen kan sammenligne en større scope eller annen effekt, men kan ikke skrive noen av valgene til Portalen."
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/032-architecture-scope-deny.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/033-architecture-scope-audit.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/035-architecture-portal-lab-start.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/038-architecture-portal-return.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-scope",
+      "proposedSessionTitle": "Scope, policy og praktisk undersøkelse",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "management-assessment",
+      "title": "Part B · selvstendig anvendelse",
+      "currentRole": "Selvstendig Part B-forsøk",
+      "learningGoal": "Anvende adminstruktur og relasjoner på nye premisser.",
+      "newUnderstanding": "Teknisk gyldighet erstatter ikke produksjonsscope; en sann generisk egenskap er ikke kausal begrunnelse.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Fire nye situasjoner, åtte kriterier og egne holdbare draft/submit/aid-grenser."
+      },
+      "mechanism": "Egen Start/utkast/samlet submit og senere feedback.",
+      "check": "Uavhengig Part B-vurdering, separat fra både A og guidet Portal.",
+      "recordedEvidence": "Original pre-feedback-lås og feedback med åtte oppfylte kriterier bevart.",
+      "prerequisites": [
+        "Part B-teori",
+        "hierarchy",
+        "scope"
+      ],
+      "dependency": "Behold opprinnelig topic management-assessment, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Repetisjon av konsepter er uavhengig anvendelse, ikke duplisert undervisning.",
+      "pageJustification": "Behold egen vurderingsflate og attempt-grense.",
+      "classification": "A",
+      "proposalReason": "Behold egen vurderingsflate og attempt-grense.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/039-architecture-b-independent-prompts.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/039-architecture-b-independent-prompts.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/039-architecture-b-independent-prompts.png",
+          "capturedUtc": "2026-11-05T14:07:02.145Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=management-assessment",
+          "quote": "Fire nye situasjoner. Velg både en handling og dens begrunnelse."
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/039-architecture-b-independent-prompts.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/040-architecture-b-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-management-assessment",
+      "proposedSessionTitle": "Part B · selvstendig anvendelse",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "architecture",
+      "topic": "core-summary",
+      "title": "Core Architecture · samlet resultat",
+      "currentRole": "Samlet avgrenset status for A og B",
+      "learningGoal": "Tolke hva de ulike registreringene faktisk dokumenterer.",
+      "newUnderstanding": "Sterke delresultater kan sameksistere med ufullført veiledet arbeid og ikke samlet fullføring.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Egne A/B-mål, førsteinnlevering og avbrudd, med tydelig ingen-readiness-grense."
+      },
+      "mechanism": "Read-only status og videre navigasjon.",
+      "check": "Ingen ny oppgave eller endring av gamle resultater.",
+      "recordedEvidence": "Samlet status var ikke tilstrekkelig dokumentert; A/B-kriterier og manglende guidedB stod separat.",
+      "prerequisites": [
+        "assessment",
+        "management-assessment"
+      ],
+      "dependency": "Behold opprinnelig topic core-summary, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Part A-status gjenbrukes legitimt i helhet med Part B.",
+      "pageJustification": "Egen sluttoppsummering må stå etter begge separate vurderinger.",
+      "classification": "A",
+      "proposalReason": "Egen sluttoppsummering må stå etter begge separate vurderinger.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/041-architecture-core-summary.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/041-architecture-core-summary.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/041-architecture-core-summary.png",
+          "capturedUtc": "2026-11-05T14:07:34.154Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=core-summary",
+          "quote": "Samlede, versjonerte observasjoner fra Part A og B"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "architecture-core-summary",
+      "proposedSessionTitle": "Core Architecture · samlet resultat",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "compute",
+      "topic": "introduction",
+      "title": "Oppdraget: fem ulike arbeidslaster",
+      "currentRole": "Arbeidslastcase, orientering, stack-sammenligning og oppdragskart",
+      "learningGoal": "Knytte fem arbeidslaster til ulike kjørebehov før plattformvalg.",
+      "newUnderstanding": "Hostingvalg er annet enn region/subscription, og én serverbetegnelse skjuler forskjellige behov.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Konkret organisasjonscase, men ingen egen kontroll eller run; samme stack-sammenligning følger straks igjen."
+      },
+      "mechanism": "Fem arbeidslaster, tre stackfigurer og fire briefingkort.",
+      "check": "Ingen egen selvstendig check; kort åpner briefing uten automatisk Start.",
+      "recordedEvidence": "Fullt lest; ingen egen modellregistrering ved introduksjonen.",
+      "prerequisites": [
+        "Core Architecture",
+        "Service Types"
+      ],
+      "dependency": "Behold opprinnelig topic introduction, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Hva kjører koden?-stacken og containerillustrasjonen finnes igjen på fundamentals; oppdragskort finnes også i missions.",
+      "pageJustification": "Bevar caset som innledning til fundamentals, med én sammenhengende instruksjon→plattform-forklaring.",
+      "classification": "C",
+      "proposalReason": "Integrer arbeidslastorienteringen som startseksjon i fundamentals. Behold alle fem behov, simulatorgrensen og tilgang til opprinnelige briefinger; unngå å avslutte samme stackforklaring to ganger.",
+      "navEffect": "Fjern egen statisk anbefalt oppføring; bevar hele innholdet/sjekken som navngitt seksjon i fundamentals. Gamle topic/direct/resume-lenker må lande på rett seksjon uten implicit Start, aid-tap eller automatisk visit/fullføring. Dette er ingen målt klikkbesparelse.",
+      "risk": {
+        "level": "medium",
+        "detail": "Eventuell sammensetting/flytting må bevare alle originale topic-/check-/Start-/attempt-/aid-/resume-identiteter og må ikke registrere offscreen-seksjoner som lest eller fullført."
+      },
+      "priority": "P2 oppfølging",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/042-compute-introduction.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/042-compute-introduction.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/042-compute-introduction.png",
+          "capturedUtc": "2026-11-05T14:08:47.289Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=introduction",
+          "quote": "Samme organisasjon, forskjellige kjørebehov"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "compute-fundamentals",
+      "proposedSessionTitle": "Fra arbeidslast til kjøremiljø",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "compute",
+      "topic": "fundamentals",
+      "title": "Hva kjører koden?",
+      "currentRole": "Compute-/kernel-/runtime-grunnlag med stack-sammenligning",
+      "learningGoal": "Skille instruksjon, kernel, språkruntime og distribuert enhet.",
+      "newUnderstanding": "JVM er ikke Azure VM; infrastruktur, installert app og brukerrespons er tre ulike bevis.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Konkrete tekniske lag, livssyklus-/kapasitetsmoteksempler og VM/container/Functions-sammenligning."
+      },
+      "mechanism": "Tre semantiske stacks og gjennomarbeidet .NET-eksempel.",
+      "check": "Ingen egen lokal check; forståelsen anvendes i de senere modellene.",
+      "recordedEvidence": "Fullt lest; ingen ny kreditt ved figuren.",
+      "prerequisites": [
+        "introduction",
+        "Cloud Computing virtualisering"
+      ],
+      "dependency": "Behold opprinnelig topic fundamentals, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Stackfiguren og containerillustrasjonen gjentas identisk fra introduction.",
+      "pageJustification": "Behold faglig anker, men med caseorienteringen integrert før første stackforklaring.",
+      "classification": "A",
+      "proposalReason": "Behold faglig anker, men med caseorienteringen integrert før første stackforklaring.",
+      "navEffect": "Behold faglig arbeidsflate og opprinnelig kontroll/Start. Vis absorberte forberedelser som seksjoner først; ikke auto-krediter deltopics ved montering. Egne assessment- og operative grenser forblir separate.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/043-compute-fundamentals.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/043-compute-fundamentals.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/043-compute-fundamentals.png",
+          "capturedUtc": "2026-11-05T14:08:51.331Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=fundamentals",
+          "quote": "En Java Virtual Machine er derfor ikke det samme som en Azure Virtual Machine."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "compute-fundamentals",
+      "proposedSessionTitle": "Fra arbeidslast til kjøremiljø",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "compute",
+      "topic": "vm",
+      "title": "Virtual Machines: guest og ressursprofil",
+      "currentRole": "Guest-ansvar, image/profil og oppgavekrav",
+      "learningGoal": "Begrunne VM når guest-/systemkontroll kreves og lese størrelse/image korrekt.",
+      "newUnderstanding": "Image er ikke kjørende VM, og vCPU/RAM/disk/SKU er forskjellige størrelser og begrensninger.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Egne konkrete konfigurasjonsvalg og begrensninger før operativ bestilling."
+      },
+      "mechanism": "VM-/disk-/NIC-kjede og Windows-driver-eksempel.",
+      "check": "Forberedelse til senere actual VM-guide, ingen selvstendig Start på teorisiden.",
+      "recordedEvidence": "Lest; kravene ble senere brukt i Review/Create.",
+      "prerequisites": [
+        "fundamentals",
+        "Core scopes/region"
+      ],
+      "dependency": "Behold opprinnelig topic vm, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Kjedefigur gjentas i dependencies, men her forklarer den VM-valg og guestansvar.",
+      "pageJustification": "Egen konfiguratorisk beslutning før operativ forsøksgrense er nyttig; behold.",
+      "classification": "A",
+      "proposalReason": "Egen konfiguratorisk beslutning før operativ forsøksgrense er nyttig; behold.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/044-compute-vm.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/044-compute-vm.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/044-compute-vm.png",
+          "capturedUtc": "2026-11-05T14:08:53.402Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=vm",
+          "quote": "Virtual Machines: kontrollen følger ansvaret"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "compute-vm",
+      "proposedSessionTitle": "Virtual Machines: guest og ressursprofil",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "compute",
+      "topic": "dependencies",
+      "title": "VM Resources & Dependencies",
+      "currentRole": "Teori ved operativ VM-praksis og faktisk resource/receipt-inspeksjon",
+      "learningGoal": "Opprette riktig ny VM og følge faktiske disk-/NIC-/subnet-/VNet-referanser.",
+      "newUnderstanding": "Ekstra disk er ikke backup; accepted request er ikke guestboot eller nåbart endpoint.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Full ordinary Portal-sekvens, reused-subnet-krav, original receipt og eksplisitt debrief."
+      },
+      "mechanism": "Egen Start, faktisk Create/review, valgt VM, syv bekreftelser, årsaksvalg.",
+      "check": "Guidet operativ grense og post-start nybundle; bevares separat fra vm-teori og assessment.",
+      "recordedEvidence": "Faktisk RG/foundation/indexVM, receipt og return/debrief registrert; disk-view-capture-begrensning står i coldrapport.",
+      "prerequisites": [
+        "vm",
+        "Core management/region"
+      ],
+      "dependency": "Behold opprinnelig topic dependencies, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "VM-kjeden repeteres som faktisk ID-inspeksjon med annen evidensfunksjon.",
+      "pageJustification": "En tydelig operativ arbeidsøkt må forbli egen aktivitet.",
+      "classification": "A",
+      "proposalReason": "En tydelig operativ arbeidsøkt må forbli egen aktivitet.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/045-compute-dependencies.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/045-compute-dependencies.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/045-compute-dependencies.png",
+          "capturedUtc": "2026-11-05T14:08:54.598Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=dependencies",
+          "quote": "Et historisk inventory kan brukes til undersøkelse, men kan ikke alene oppfylle kravet om en ny VM etter dette oppdragets tekniske startgrense."
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/057-compute-index-review.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/065-compute-index-receipt-inspect.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/066-compute-vm-return-debrief.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/067-compute-vm-guided-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "compute-dependencies",
+      "proposedSessionTitle": "VM Resources & Dependencies",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "compute",
+      "topic": "containers",
+      "title": "Container Execution Explorer",
+      "currentRole": "Containerteori og guidet livssyklusmodell",
+      "learningGoal": "Skille image, runtime, instans, prosess, isolasjon og data som må overleve recreate.",
+      "newUnderstanding": "Image lager ikke automatisk prosess eller bevarer rapport som oppstår etter imagebygging.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Egen manipulerbar livssykluskjede, host-/guestforbehold og to persistenskontraster."
+      },
+      "mechanism": "Start, premisser, prediksjon/Run, imagecutaway og rapport-livssyklus, årsaksvalg.",
+      "check": "Guidet B har egen saved run-/årsaksgrense.",
+      "recordedEvidence": "Recreate med ephemeral og external persistent kjørt og forklart.",
+      "prerequisites": [
+        "fundamentals",
+        "vm"
+      ],
+      "dependency": "Behold opprinnelig topic containers, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Generisk containerillustrasjon finnes mange steder, men denne siden er dens relevante faglige hjem og har særskilt modell.",
+      "pageJustification": "Behold lang funksjonell Explorer som egen arbeidsøkt; en tidligere orienteringsduplikasjon rettferdiggjør ikke å fjerne den.",
+      "classification": "A",
+      "proposalReason": "Behold lang funksjonell Explorer som egen arbeidsøkt; en tidligere orienteringsduplikasjon rettferdiggjør ikke å fjerne den.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/068-compute-containers.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/068-compute-containers.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/068-compute-containers.png",
+          "capturedUtc": "2026-11-05T14:12:58.409Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=containers",
+          "quote": "Image er oppskriften; instansen er det som kjører"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/070-compute-container-ephemeral-run.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/071-compute-container-persistent-run.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/072-compute-container-guided-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "compute-containers",
+      "proposedSessionTitle": "Container Execution Explorer",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "compute",
+      "topic": "functions",
+      "title": "Functions i compute-landskapet",
+      "currentRole": "Hendelsesdrevet compute-valg og kobling til eksisterende Serverless-modell",
+      "learningGoal": "Vurdere funksjonsprogrammodell og plan mot kontinuerlig prosess/containert jobb.",
+      "newUnderstanding": "Functions og container er ikke nødvendigvis gjensidig utelukkende; plan endrer kapasitet/oppstart/kostnadsmodell.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Spesifikke workload- og planforbehold, med kobling til eksisterende kjøreøvelse."
+      },
+      "mechanism": "Trigger→kode→resultat forklart; presis Serverless Execution Explorer-lenke.",
+      "check": "Ingen ny Compute-run/kreditt via repetisjonslenken; eksisterende Serverless har egen grense.",
+      "recordedEvidence": "Teori og lenke lest, den eksterne moduløvelsen ikke gjentatt.",
+      "prerequisites": [
+        "Cloud Computing Serverless",
+        "fundamentals",
+        "containers"
+      ],
+      "dependency": "Behold opprinnelig topic functions, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Tidligere serverless aktiveres for et nytt plattformvalg; tilfeldig containerillustrasjon er svakere relevant, men fjerner ikke substansen.",
+      "pageJustification": "En egen hendelsesdrevet beslutning er nødvendig før Hosting; behold med eksisterende modulgrense.",
+      "classification": "A",
+      "proposalReason": "En egen hendelsesdrevet beslutning er nødvendig før Hosting; behold med eksisterende modulgrense.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/073-compute-functions.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/073-compute-functions.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/073-compute-functions.png",
+          "capturedUtc": "2026-11-05T14:13:49.699Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=functions",
+          "quote": "Functions flytter starten til en hendelse, ikke ansvaret bort"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "compute-functions",
+      "proposedSessionTitle": "Functions i compute-landskapet",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "compute",
+      "topic": "options",
+      "title": "Velg VM-alternativ",
+      "currentRole": "Sammenligning av VMSS/set/AVD og skalering/plassering før Lab",
+      "learningGoal": "Velge mekanisme for kapasitet, feilseparasjon eller brukerleveranse.",
+      "newUnderstanding": "Scale out/in er ikke størrelse; Flexible/Uniform og zoneseparasjon er ulike dimensjoner.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Betydelig kvalifikasjon om orkestrering og kapasitetsregler; ingen egen Run på denne siden."
+      },
+      "mechanism": "Samme FD/UD-matrise som resilience; batch-/vedlikeholds-/desktop-moteksempler.",
+      "check": "Ingen selvstendig check eller operativ forsøksgrense her.",
+      "recordedEvidence": "Lest via sidebar; etter fullført containerguide pekte faktisk Neste direkte til resilience.",
+      "prerequisites": [
+        "vm",
+        "Core zones"
+      ],
+      "dependency": "Behold opprinnelig topic options, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Figur og VMSS/placement-forbehold overlapper direkte med første bruk i resilience.",
+      "pageJustification": "Bevar som innledende mekanismevalg i resilience før det eksplisitte Lab-Start, med AVD-peker beholdt.",
+      "classification": "C",
+      "proposalReason": "Integrer options som teori-/valgseksjon før resilience-modellen. Dette plasserer Flexible/Uniform og scale-out-forklaringen på den faktiske guideflytens resilience-destinasjon, uten å slå sammen to Start-grenser.",
+      "navEffect": "Fjern egen statisk anbefalt oppføring; bevar hele innholdet/sjekken som navngitt seksjon i resilience. Gamle topic/direct/resume-lenker må lande på rett seksjon uten implicit Start, aid-tap eller automatisk visit/fullføring. Dette er ingen målt klikkbesparelse.",
+      "risk": {
+        "level": "medium",
+        "detail": "Eventuell sammensetting/flytting må bevare alle originale topic-/check-/Start-/attempt-/aid-/resume-identiteter og må ikke registrere offscreen-seksjoner som lest eller fullført."
+      },
+      "priority": "P2 oppfølging",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/074-compute-options.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/074-compute-options.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/074-compute-options.png",
+          "capturedUtc": "2026-11-05T14:13:50.911Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=options",
+          "quote": "Fire VM-behov som må holdes fra hverandre"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/072-compute-container-guided-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "compute-resilience",
+      "proposedSessionTitle": "Velg VM-mekanisme og undersøk kapasitet/feil",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "compute",
+      "topic": "resilience",
+      "title": "VM Capacity & Resilience Lab",
+      "currentRole": "Guidet kapasitet-/feil-/avhengighetsmodell",
+      "learningGoal": "Skille antall, FD/UD, soner, skaleringsregel og leverbar tjeneste.",
+      "newUnderstanding": "Overlevende compute trenger data/ruting; VMSS-regelen går før feilen og reparerer ikke felles avhengighet.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Flere distinkte premisser, tabell over konkrete instanser og årsaksforklaring."
+      },
+      "mechanism": "Egen Start, demand/placement/failure/routing/data-kontroller, Run og vitner.",
+      "check": "Guidet C har egen registrerings- og årsaksgrense.",
+      "recordedEvidence": "Set/zones/VMSS/delt data kjørt og guide fullført.",
+      "prerequisites": [
+        "options",
+        "Core zones",
+        "fundamentals"
+      ],
+      "dependency": "Behold opprinnelig topic resilience, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "FD/UD-matrise gjentas fra options; modelleksperimentet tilfører selvstendig funksjon.",
+      "pageJustification": "Behold funksjonell Lab; den kan absorbere options-innføringen uten at Lab-Start flyttes eller automatisk utføres.",
+      "classification": "A",
+      "proposalReason": "Behold funksjonell Lab; den kan absorbere options-innføringen uten at Lab-Start flyttes eller automatisk utføres.",
+      "navEffect": "Behold faglig arbeidsflate og opprinnelig kontroll/Start. Vis absorberte forberedelser som seksjoner først; ikke auto-krediter deltopics ved montering. Egne assessment- og operative grenser forblir separate.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/075-compute-resilience.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/075-compute-resilience.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/075-compute-resilience.png",
+          "capturedUtc": "2026-11-05T14:13:52.475Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=resilience",
+          "quote": "Kapasitet, plassering og en fungerende tjeneste er ulike ting"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/077-compute-resilience-set-zone.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/078-compute-resilience-zones.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/079-compute-vmss-scale-run.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/080-compute-resilience-data-failure.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/081-compute-resilience-guided-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "compute-resilience",
+      "proposedSessionTitle": "Velg VM-mekanisme og undersøk kapasitet/feil",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "compute",
+      "topic": "desktop",
+      "title": "Azure Virtual Desktop Explorer",
+      "currentRole": "AVD-servicekjede og modellert publiseringsundersøkelse",
+      "learningGoal": "Skille workspace/application group/pool/session hosts og brukertilordning.",
+      "newUnderstanding": "En feedpublisering er ikke host-kjøregrunnlag eller faktisk brukerøkt; personal/pooled er annet enn session-type.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Egen objektkjede og semantiske kombinasjoner som VM-/container-Lab ikke kan erstatte."
+      },
+      "mechanism": "Seks valgbar serviceobjekter, kombinasjonskontroller, prediksjon og Run.",
+      "check": "Egne desktop-observasjoner i Hosting-forløpet, uten å bli egen uavhengig vurdering.",
+      "recordedEvidence": "To hosts og null hosts kjørt; ikke alle objektklikk/kombinasjoner testet.",
+      "prerequisites": [
+        "vm",
+        "options",
+        "fundamentals"
+      ],
+      "dependency": "Behold opprinnelig topic desktop, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "AVD nevnes i options og hosting som sammenligning; her er første full objektmodell.",
+      "pageJustification": "Behold separat funksjonell side selv om guidet historikk deles med Hosting; ikke slå sammen lange, forskjellige arbeidsoppgaver.",
+      "classification": "A",
+      "proposalReason": "Behold separat funksjonell side selv om guidet historikk deles med Hosting; ikke slå sammen lange, forskjellige arbeidsoppgaver.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/082-compute-desktop.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/082-compute-desktop.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/082-compute-desktop.png",
+          "capturedUtc": "2026-11-05T14:15:05.185Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=desktop",
+          "quote": "En VM alene oppretter ingen publisert AVD-tjeneste."
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/084-compute-avd-published-hosts.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/085-compute-avd-no-hosts.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "compute-desktop",
+      "proposedSessionTitle": "Azure Virtual Desktop Explorer",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "compute",
+      "topic": "hosting",
+      "title": "Hosting Decision Studio",
+      "currentRole": "Kravbasert sammenligning og guidet beslutningsmodell",
+      "learningGoal": "Velge og begrunne hosting fra konkret arbeidsform og kontrollbehov.",
+      "newUnderstanding": "Et imageformat bestemmer ikke tjeneste, og flere kandidater kan være gyldige under samme premiss.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Workload/kandidat/årsak-matrise med endret controllerkrav og retained responsibilities."
+      },
+      "mechanism": "Egen guidet D-Start, premissvelger, kandidat/reason, Run og kausal kontrast.",
+      "check": "To forskjellige kontrollkrav og årsaksvalg, separat fra uavhengige cases.",
+      "recordedEvidence": "HTTP-image/ContainerApps og cluster-controller/AKS kjørt; guide fullført.",
+      "prerequisites": [
+        "vm",
+        "containers",
+        "functions",
+        "resilience",
+        "desktop"
+      ],
+      "dependency": "Behold opprinnelig topic hosting, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Tjenestedefinisjoner gjenbrukes som kriterier; dette er syntese, ikke ny teoriside for hvert navn.",
+      "pageJustification": "Behold funksjonell Studio som egen økt; ikke aggregér AVD og transportlignende begreper bare for færre sider.",
+      "classification": "A",
+      "proposalReason": "Behold funksjonell Studio som egen økt; ikke aggregér AVD og transportlignende begreper bare for færre sider.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/086-compute-hosting.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/086-compute-hosting.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/086-compute-hosting.png",
+          "capturedUtc": "2026-11-05T14:15:45.774Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=hosting",
+          "quote": "Hosting velges fra krav, ikke fra en rangstige"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/087-compute-hosting-http-image.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/088-compute-hosting-kubernetes.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/089-compute-hosting-guided-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "compute-hosting",
+      "proposedSessionTitle": "Hosting Decision Studio",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "compute",
+      "topic": "context",
+      "title": "AI, machine learning og IoT/Edge",
+      "currentRole": "Merket Learn-tillegg om AI/ML/IoT/Edge",
+      "learningGoal": "Orientere om kategorier som bruker compute uten å skape nye scoped mestringsmål.",
+      "newUnderstanding": "AI/Edge er løsningskategorier, ikke nye grunnleggende compute-typer eller operative simulatorressurser.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Relevant avgrenset kategorikontekst; ingen egen modell, check eller guide."
+      },
+      "mechanism": "Dokumentmottak-eksempel; generisk containerillustrasjon tilfører lite til dette temaet.",
+      "check": "Ingen ny vurdering eller simulatorhandling.",
+      "recordedEvidence": "Lest; ingen egen læringsevidens registrert.",
+      "prerequisites": [
+        "fundamentals",
+        "hosting"
+      ],
+      "dependency": "Behold opprinnelig topic context, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Containerillustrasjonen gjentas; teksten erklærer selv tillegg og ingen nye scoped eksamensslots.",
+      "pageJustification": "Behold tilgjengelig som tillegg, men ikke som obligatorisk anbefalt stopp rett før assessment.",
+      "classification": "D",
+      "proposalReason": "Flytt til tydelig valgfritt Les videre etter Summary eller sekundær innholdsoversikt; bevar direkte lenke og kilde-/begrensningstekst. Kontroller at ingen bevart vurdering forutsetter dette som ny undervisningsplikt før implementering.",
+      "navEffect": "Behold kompatibel route, status og direkte lenker som valgfri/sekundær oppføring; fjern bare den statiske obligatoriske rollen. Aktiv/neste guideprioritet og alle Start-/attemptgrenser beholdes. Dynamisk Neste kan allerede hoppe forbi kart; ingen fast klikkbesparelse påstås.",
+      "risk": {
+        "level": "low",
+        "detail": "Eventuell sammensetting/flytting må bevare alle originale topic-/check-/Start-/attempt-/aid-/resume-identiteter og må ikke registrere offscreen-seksjoner som lest eller fullført."
+      },
+      "priority": "P3 oppfølging",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/090-compute-context.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/090-compute-context.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/090-compute-context.png",
+          "capturedUtc": "2026-11-05T14:16:25.484Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=context",
+          "quote": "Learn-tillegg: hva slags løsning bruker compute?"
+        }
+      ],
+      "confidence": {
+        "level": "medium",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "compute-context",
+      "proposedSessionTitle": "AI, machine learning og IoT/Edge",
+      "proposedMode": "optional-secondary"
+    },
+    {
+      "module": "compute",
+      "topic": "missions",
+      "title": "Guidede anvendelser",
+      "currentRole": "Oversikts-/resume-kart for fire eksisterende guider",
+      "learningGoal": "Finne et manglende eller tidligere guidet oppdrag.",
+      "newUnderstanding": "Ny funksjon er oversikt/status, ikke nytt fagstoff eller nytt forsøk.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Fire gjenbrukte briefingkort med status; nyttig orientering, men ingen selvstendig faglig handling på kartet."
+      },
+      "mechanism": "Lenker åpner eksisterende briefing/resume; de oppretter ikke nye praktiske modeller.",
+      "check": "Ingen selvstendig check/fullføringsgrense for kartet.",
+      "recordedEvidence": "Snapshot viste 4/4 guider, samme titler som introduksjonen og inline arbeidsflater.",
+      "prerequisites": [
+        "Eksisterende guidede økter"
+      ],
+      "dependency": "Behold opprinnelig topic missions, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Samme mål/case/status presenteres i intro, inline og Summary.",
+      "pageJustification": "Behold som sekundær oppdragsoversikt, ikke en obligatorisk teoriaktivitet.",
+      "classification": "D",
+      "proposalReason": "Flytt kartets anbefalte rolle til sekundær Oppdragsoversikt/Resume, med kompatibel eksisterende route. Ingen flytting eller sammenblanding av de fire opprinnelige Start-/attempt-grensene.",
+      "navEffect": "Behold kompatibel route, status og direkte lenker som valgfri/sekundær oppføring; fjern bare den statiske obligatoriske rollen. Aktiv/neste guideprioritet og alle Start-/attemptgrenser beholdes. Dynamisk Neste kan allerede hoppe forbi kart; ingen fast klikkbesparelse påstås.",
+      "risk": {
+        "level": "low",
+        "detail": "Eventuell sammensetting/flytting må bevare alle originale topic-/check-/Start-/attempt-/aid-/resume-identiteter og må ikke registrere offscreen-seksjoner som lest eller fullført."
+      },
+      "priority": "P3 oppfølging",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/091-compute-missions.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/091-compute-missions.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/091-compute-missions.png",
+          "capturedUtc": "2026-11-05T14:16:27.300Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=missions",
+          "quote": "Fullført guidet undersøkelse · tilgjengelig for repetisjon"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/067-compute-vm-guided-feedback.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/072-compute-container-guided-feedback.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/081-compute-resilience-guided-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "compute-missions",
+      "proposedSessionTitle": "Guidede anvendelser",
+      "proposedMode": "optional-secondary"
+    },
+    {
+      "module": "compute",
+      "topic": "assessment",
+      "title": "Selvstendig Compute-anvendelse",
+      "currentRole": "Selvstendig scenarioforsøk med beslutning+begrunnelse",
+      "learningGoal": "Anvende compute-krav uten guidede løsningshint.",
+      "newUnderstanding": "En riktig tjeneste uten gyldig årsak er ikke nok; første/help/retry må skilles.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "14 scenarier med eksplisitt Start/submit/feedback; prøvd representativt."
+      },
+      "mechanism": "Casevelger og egen attemptflate.",
+      "check": "Uavhengig vurdering skal stå separat fra undervisning/praksis og Summary.",
+      "recordedEvidence": "cp09 og cp11 forhåndslåst og innlevert; øvrige 12 ikke fullreviewet.",
+      "prerequisites": [
+        "Compute-teori og praksis"
+      ],
+      "dependency": "Behold opprinnelig topic assessment, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Kjente mekanismer i nye premisser er transfer, ikke duplikasjon.",
+      "pageJustification": "Behold egen aktivitet og attempt-/aid-grense.",
+      "classification": "A",
+      "proposalReason": "Behold egen aktivitet og attempt-/aid-grense.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/092-compute-assessment.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/092-compute-assessment.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/092-compute-assessment.png",
+          "capturedUtc": "2026-11-05T14:16:28.654Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=assessment",
+          "quote": "Velg både beslutning og en faglig begrunnelse som passer valget."
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/095-compute-cp09-feedback.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/100-compute-cp11-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "compute-assessment",
+      "proposedSessionTitle": "Selvstendig Compute-anvendelse",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "compute",
+      "topic": "summary",
+      "title": "Oppsummering og dokumenterte resultater",
+      "currentRole": "Avgrenset fremdrifts-/resultatdebrief",
+      "learningGoal": "Lese separat besøk, guided og uavhengige innleveringer.",
+      "newUnderstanding": "4/4 guider er ikke 14 uavhengige førstesvar eller exam readiness.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Konkret første-tabell og guided-status, med tilbake-/viderevalg."
+      },
+      "mechanism": "Read-only resultatvisning.",
+      "check": "Ingen ny vurdering eller automatisk ny kreditt.",
+      "recordedEvidence": "11/11 åpnet, 4/4 guider, 2/14 uavhengige i kaldt vitne.",
+      "prerequisites": [
+        "assessment",
+        "guidede arbeidsflater"
+      ],
+      "dependency": "Behold opprinnelig topic summary, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Oppdragsnavn gjentas som status; dette er legitim resultattolking.",
+      "pageJustification": "Behold egen avslutning, også hvis kart/context blir sekundært.",
+      "classification": "A",
+      "proposalReason": "Behold egen avslutning, også hvis kart/context blir sekundært.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/101-compute-summary.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/101-compute-summary.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/101-compute-summary.png",
+          "capturedUtc": "2026-11-05T14:17:53.857Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=summary",
+          "quote": "Ingen XP, Microsoft Learn-fullføring eller exam readiness utledes."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "compute-summary",
+      "proposedSessionTitle": "Oppsummering og dokumenterte resultater",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "networking",
+      "topic": "introduction",
+      "title": "Én applikasjon, flere nettverksbehov",
+      "currentRole": "Arbeidslastorientering, firetrinnsdiagnose og oppdragskart",
+      "learningGoal": "Formulere navn/adresse/vei/tilgang/tjeneste som separate spørsmål.",
+      "newUnderstanding": "En Azure-ressurs eller tegnet forbindelse beviser ikke brukbart API.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Konkret katalogcase og klart skille fra tidligere Compute; ingen egen Run/check."
+      },
+      "mechanism": "Nordverk-case og fire briefingkort; avgrenser faktisk versus syntetisk.",
+      "check": "Kort åpner eksisterende briefing; ingen ny egen vurdering.",
+      "recordedEvidence": "Lest; ingen selvstendig registrering her.",
+      "prerequisites": [
+        "Compute VM/NIC",
+        "Core fysisk/admin"
+      ],
+      "dependency": "Behold opprinnelig topic introduction, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Det samme navn/vei/tilgang/skille utdypes straks i fundamentals, før et eget nettverksobjekt introduseres.",
+      "pageJustification": "Bevar caset og modulgrensen som åpning på fundamentals; ingen egen operativ grense her krever side.",
+      "classification": "C",
+      "proposalReason": "Integrer Nordverk-caset og faktisk/konseptuell avgrensning før IP-/DNS-grunnlaget i fundamentals. Behold oppdragslenker som sekundær oversikt og Part A/B-markering.",
+      "navEffect": "Fjern egen statisk anbefalt oppføring; bevar hele innholdet/sjekken som navngitt seksjon i fundamentals. Gamle topic/direct/resume-lenker må lande på rett seksjon uten implicit Start, aid-tap eller automatisk visit/fullføring. Dette er ingen målt klikkbesparelse.",
+      "risk": {
+        "level": "medium",
+        "detail": "Eventuell sammensetting/flytting må bevare alle originale topic-/check-/Start-/attempt-/aid-/resume-identiteter og må ikke registrere offscreen-seksjoner som lest eller fullført."
+      },
+      "priority": "P2 oppfølging",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/103-networking-introduction.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/103-networking-introduction.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/103-networking-introduction.png",
+          "capturedUtc": "2026-11-05T14:18:15.872Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/networking?topic=introduction",
+          "quote": "Hva må være på plass før katalogen kan svare?"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "networking-fundamentals",
+      "proposedSessionTitle": "Fra applikasjonsbehov til navn, adresse og kommunikasjon",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "networking",
+      "topic": "fundamentals",
+      "title": "Fra navn og adresse til kommunikasjon",
+      "currentRole": "IP-/resolver-/kommunikasjonsgrunnlag",
+      "learningGoal": "Skille privat IP, DNS-navn, nettverksrute og autorisert respons.",
+      "newUnderstanding": "En privat adresse er ikke et sikkerhetsstempel, og navnesvar er ikke dokumentert rute.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "IPv4-format/private områder og et konkret korrekt-IP/ingen-rute-moteksempel."
+      },
+      "mechanism": "Navn→adresse→vei/access-resonnering, ordliste og worked example.",
+      "check": "Ingen egen Run; forberedelse til adresse-/DNS-øvelser.",
+      "recordedEvidence": "Fullt lest; forskjellene senere eksperimentert i DNS-guide.",
+      "prerequisites": [
+        "introduction",
+        "Cloud Computing klient/server"
+      ],
+      "dependency": "Behold opprinnelig topic fundamentals, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Firetrinnsrammen fra introduction gjentas og konkretiseres med adresser.",
+      "pageJustification": "Behold som faglig grunnlag, med introduksjonen integrert før definisjonene.",
+      "classification": "A",
+      "proposalReason": "Behold som faglig grunnlag, med introduksjonen integrert før definisjonene.",
+      "navEffect": "Behold faglig arbeidsflate og opprinnelig kontroll/Start. Vis absorberte forberedelser som seksjoner først; ikke auto-krediter deltopics ved montering. Egne assessment- og operative grenser forblir separate.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/104-networking-fundamentals.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/104-networking-fundamentals.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/104-networking-fundamentals.png",
+          "capturedUtc": "2026-11-05T14:18:18.662Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/networking?topic=fundamentals",
+          "quote": "En privat adresse er ikke et sikkerhetsstempel."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "networking-fundamentals",
+      "proposedSessionTitle": "Fra applikasjonsbehov til navn, adresse og kommunikasjon",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "networking",
+      "topic": "vnet",
+      "title": "Virtual Networks og logiske grenser",
+      "currentRole": "Logisk nettverksstruktur og grenseskiller",
+      "learningGoal": "Lese VM→NIC→subnet→VNet ved siden av administrative scopes.",
+      "newUnderstanding": "Subnet er ikke sone eller automatisk sikkerhetsgrense; felles RG gir ingen WebApp-VNet-integrasjon.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Regionalitet, standard kommunikasjon og reelle/simulatorbegrensninger er konkrete nye relasjoner."
+      },
+      "mechanism": "VM/NIC/subnet/VNet-kjedefigur.",
+      "check": "Forberedende lesestrategi; faktisk kontroll i dependencies har egen grense.",
+      "recordedEvidence": "Figur/tekst lest; ingen nye faktiske ressurser i denne modulens kontekst.",
+      "prerequisites": [
+        "fundamentals",
+        "Compute dependencies",
+        "Core scopes"
+      ],
+      "dependency": "Behold opprinnelig topic vnet, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Kjeden gjenkalles fra Compute med nye regionale og integrasjonsgrenser.",
+      "pageJustification": "Egen logisk medlemskapsoppgave gir substans før CIDR og faktisk inspeksjon.",
+      "classification": "A",
+      "proposalReason": "Egen logisk medlemskapsoppgave gir substans før CIDR og faktisk inspeksjon.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/105-networking-vnet.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/105-networking-vnet.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/105-networking-vnet.png",
+          "capturedUtc": "2026-11-05T14:18:19.946Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/networking?topic=vnet",
+          "quote": "Et subnet skaper ikke automatisk en sikkerhetsgrense bare ved å få et navn som «database»."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "networking-vnet",
+      "proposedSessionTitle": "Virtual Networks og logiske grenser",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "networking",
+      "topic": "addressing",
+      "title": "IP Addressing & CIDR Explorer",
+      "currentRole": "CIDR-teori ved guidet adresseplanmodell",
+      "learningGoal": "Beregne og kontrollere containment, overlap og tilgjengelig kapasitet.",
+      "newUnderstanding": "Mange ledige adresser gjør ikke overlappende subnet gyldige.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Kanoniske prefixer, eksakte intervaller og Azure-reservasjoner, fulgt av endring av design."
+      },
+      "mechanism": "Egen Start, CIDR-felter, behov, prediksjon/Run, bitroller og kontrolltabell.",
+      "check": "Guidet B krever ugyldig overlap, gyldig korrigering og årsaksvalg.",
+      "recordedEvidence": "/24+/25 overlap kjørt; data endret til /26 med59 tilgjengelige; forklaring lagret.",
+      "prerequisites": [
+        "fundamentals",
+        "vnet"
+      ],
+      "dependency": "Behold opprinnelig topic addressing, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Grunnleggende IP gjentas som beregnbar plan, ikke bare begrepsreprise.",
+      "pageJustification": "Funksjonell modell og to observerbare design gjør egen side nødvendig.",
+      "classification": "A",
+      "proposalReason": "Funksjonell modell og to observerbare design gjør egen side nødvendig.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/106-networking-addressing.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/106-networking-addressing.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/106-networking-addressing.png",
+          "capturedUtc": "2026-11-05T14:18:21.329Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/networking?topic=addressing",
+          "quote": "Containment betyr at hele subnettintervallet ligger innenfor et av VNet-områdene."
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/109-networking-cidr-overlap.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/110-networking-cidr-valid.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/111-networking-cidr-guided-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "networking-addressing",
+      "proposedSessionTitle": "IP Addressing & CIDR Explorer",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "networking",
+      "topic": "dependencies",
+      "title": "Undersøk en faktisk VM-nettverkskjede",
+      "currentRole": "Faktisk VM-nettverksinspeksjon med eget guided Start",
+      "learningGoal": "Følge eksisterende faktiske referanser og original receipt uten å oppfinne IP/trafikk.",
+      "newUnderstanding": "Gjenbruk av ressurs er ny inspeksjon, ikke ny opprettelse eller selvstendig kreditt.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Identitetskjede, originale prefixer og empty-inventory-flyten gir konkret arbeid."
+      },
+      "mechanism": "Eksplisitt Start og vanlig Portal, syv eksplisitte undersøkelser, årsaksforklaring.",
+      "check": "Egen faktisk-inspeksjonsgrense; skal ikke slås sammen med hypotetisk adressering.",
+      "recordedEvidence": "Teori/briefinglenke lest; denne guidens komplette Portal-flyt ble ikke startet i kald modulkontekst.",
+      "prerequisites": [
+        "vnet",
+        "Compute Portal",
+        "Core scopes"
+      ],
+      "dependency": "Behold opprinnelig topic dependencies, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Compute-kjeden gjentas med bevisst nytt mål: nettverksmedlemskap og faktiske prefixer.",
+      "pageJustification": "Operativ versus konseptuell grense forsvarer egen aktivitet, uansett tekstmengde.",
+      "classification": "A",
+      "proposalReason": "Operativ versus konseptuell grense forsvarer egen aktivitet, uansett tekstmengde.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/112-networking-dependencies.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/112-networking-dependencies.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/112-networking-dependencies.png",
+          "capturedUtc": "2026-11-05T14:21:40.052Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/networking?topic=dependencies",
+          "quote": "Du skal følge identitetene, ikke bare like navn."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "networking-dependencies",
+      "proposedSessionTitle": "Undersøk en faktisk VM-nettverkskjede",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "networking",
+      "topic": "peering",
+      "title": "VNet Peering · direkte forbindelser",
+      "currentRole": "Tosidig topologi og guidet feildiagnose",
+      "learningGoal": "Forklare direkte peeringstatus, adressekrav og ikke-transitivitet.",
+      "newUnderstanding": "AB og BC gir ikke AC; en side eller overlap er egne feilårsaker.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Direkte kanter og mål, seks sider, valgt scope og tilgang/rute gir distinkte premisser."
+      },
+      "mechanism": "Egen guide C-Start og Run med topologifigur/status/checks.",
+      "check": "Ikke-transitivt vitne, direkte relasjon, overlap og årsaksvalg.",
+      "recordedEvidence": "Fem peeringkjøringer inkl. ensidig og overlap; guide fullført.",
+      "prerequisites": [
+        "addressing",
+        "vnet"
+      ],
+      "dependency": "Behold opprinnelig topic peering, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Adresseoverlap repeteres i et nytt topologisk problem; nødvendig sammenheng.",
+      "pageJustification": "Behold egen funksjonell undersøkelse; kildevaliderte feedbackdetaljer er separat fra segmentering.",
+      "classification": "A",
+      "proposalReason": "Behold egen funksjonell undersøkelse; kildevaliderte feedbackdetaljer er separat fra segmentering.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/113-networking-peering.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/113-networking-peering.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/113-networking-peering.png",
+          "capturedUtc": "2026-11-05T14:21:41.986Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/networking?topic=peering",
+          "quote": "Koble nettverk direkte uten å finne på videre transit"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/119-networking-peering-nontransitive.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/120-networking-peering-direct.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/121-networking-peering-one-sided.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/123-networking-peering-overlap.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/124-networking-peering-guided-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "networking-peering",
+      "proposedSessionTitle": "VNet Peering · direkte forbindelser",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "networking",
+      "topic": "dns",
+      "title": "Azure DNS · navn før nettverksvei",
+      "currentRole": "DNS-tjenester/records/resolverteori ved guidet navne-/veimodell",
+      "learningGoal": "Følge faktisk resolver-/zone-/record-forutsetning før nettverksvei.",
+      "newUnderstanding": "Peering arver ikke private zone-links og custom DNS trenger fungerende forwarding.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Public/provided/private DNS, A/CNAME og resolution versus registration er nye skiller."
+      },
+      "mechanism": "Egen guide D-Start, resolver-/record-/linkkontroller og trinnvis resultat.",
+      "check": "Mislykket oppslag og korrekt adresse med udokumentert vei; kausal forklaring.",
+      "recordedEvidence": "No-link, linked og routeunknown kjørt; guide fullført.",
+      "prerequisites": [
+        "fundamentals",
+        "vnet",
+        "peering"
+      ],
+      "dependency": "Behold opprinnelig topic dns, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Firetrinnsrammen repeteres som konkrete resolverfeil og recordkjede.",
+      "pageJustification": "Substansiell egen navneoppgave før samlet diagnose; ikke slå inn i peering-Studio.",
+      "classification": "A",
+      "proposalReason": "Substansiell egen navneoppgave før samlet diagnose; ikke slå inn i peering-Studio.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/114-networking-dns.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/114-networking-dns.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/114-networking-dns.png",
+          "capturedUtc": "2026-11-05T14:21:43.438Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/networking?topic=dns",
+          "quote": "Navn, adresse, vei og tilgang er fire forskjellige spørsmål"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/127-networking-dns-no-link.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/128-networking-dns-linked.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/129-networking-dns-path-unknown.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/130-networking-dns-guided-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "networking-dns",
+      "proposedSessionTitle": "Azure DNS · navn før nettverksvei",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "networking",
+      "topic": "explorer",
+      "title": "Azure Network Path Explorer",
+      "currentRole": "Samlet lesestrategi og fireperspektivs-workbench",
+      "learningGoal": "Finne første udokumenterte trinn og velge riktig nettverksperspektiv.",
+      "newUnderstanding": "Et gyldig DNS-svar kan peke til feil mål; endre ikke korrekt del for å gjøre hele kjeden grønn.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Syntese av faktisk struktur, adresseplan, topologi og DNS med lagret-versus-utkast-skille."
+      },
+      "mechanism": "Fire perspektivknapper; samme beholdte guidekontekst og eksisterende kontroller, ikke nye ressursmotorer.",
+      "check": "Ingen femte guide eller ny assessment; egne underliggende Run-/explain-grenser er de opprinnelige.",
+      "recordedEvidence": "Alle fire perspektiver inventert; peering/DNS faktisk kjørt her. Explorer viste tidligere adressekontekst korrekt bevart.",
+      "prerequisites": [
+        "dependencies",
+        "addressing",
+        "peering",
+        "dns"
+      ],
+      "dependency": "Behold opprinnelig topic explorer, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Underliggende kontroller gjenbrukes, men spørsmålet skifter fra ett begrep til valg av bevis/feiltrinn.",
+      "pageJustification": "Behold samlet funksjonell arbeidsflate som egen synteseøkt; en sammenslåing med DNS ville skjule de andre perspektivene og kreve mer state-/guidevalidering.",
+      "classification": "A",
+      "proposalReason": "Behold samlet funksjonell arbeidsflate som egen synteseøkt; en sammenslåing med DNS ville skjule de andre perspektivene og kreve mer state-/guidevalidering.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/115-networking-explorer.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/115-networking-explorer.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/115-networking-explorer.png",
+          "capturedUtc": "2026-11-05T14:21:44.748Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/networking?topic=explorer",
+          "quote": "Finn det første trinnet som ikke er dokumentert"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/115-networking-explorer.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/116-networking-peering-controls.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/126-networking-dns-controls.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "networking-explorer",
+      "proposedSessionTitle": "Azure Network Path Explorer",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "networking",
+      "topic": "missions",
+      "title": "Guidede nettverksoppdrag",
+      "currentRole": "Oversikt og gjenopptak av fire eksisterende nettverksguider",
+      "learningGoal": "Finne manglende faktisk/konseptuell guide og gjenoppta rett sted.",
+      "newUnderstanding": "Kartet viser status, ikke et nytt nettverksprinsipp.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Fire eksisterende case-/mål-/statuskort."
+      },
+      "mechanism": "Briefing-/repetisjonslenker til de opprinnelige arbeidsflatene.",
+      "check": "Ingen egen guide eller vurdering; vanlig lenke er ikke Start.",
+      "recordedEvidence": "3/4 fullført og actual-inspection ikke startet viste korrekt status.",
+      "prerequisites": [
+        "Eksisterende guidede arbeidsflater"
+      ],
+      "dependency": "Behold opprinnelig topic missions, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Samme kort finnes allerede i introduction og Summary og ved hver arbeidsflate.",
+      "pageJustification": "Nyttig sekundært oppdragskart; ikke nødvendig som separat anbefalt læringsøkt.",
+      "classification": "D",
+      "proposalReason": "Behold route/status/resume som sekundær Oppdragsoversikt og i eksisterende modulorientering. Fjern bare rollen som obligatorisk statisk aktivitetsstopp; bevar alle fire Start-/attempt-grenser.",
+      "navEffect": "Behold kompatibel route, status og direkte lenker som valgfri/sekundær oppføring; fjern bare den statiske obligatoriske rollen. Aktiv/neste guideprioritet og alle Start-/attemptgrenser beholdes. Dynamisk Neste kan allerede hoppe forbi kart; ingen fast klikkbesparelse påstås.",
+      "risk": {
+        "level": "low",
+        "detail": "Eventuell sammensetting/flytting må bevare alle originale topic-/check-/Start-/attempt-/aid-/resume-identiteter og må ikke registrere offscreen-seksjoner som lest eller fullført."
+      },
+      "priority": "P3 oppfølging",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/131-networking-missions.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/131-networking-missions.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/131-networking-missions.png",
+          "capturedUtc": "2026-11-05T14:25:22.244Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/networking?topic=missions",
+          "quote": "Fullført guidet undersøkelse · tilgjengelig for repetisjon"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/111-networking-cidr-guided-feedback.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/124-networking-peering-guided-feedback.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/130-networking-dns-guided-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "networking-missions",
+      "proposedSessionTitle": "Guidede nettverksoppdrag",
+      "proposedMode": "optional-secondary"
+    },
+    {
+      "module": "networking",
+      "topic": "assessment",
+      "title": "Selvstendig Networking-anvendelse",
+      "currentRole": "Selvstendig Networking A-forsøk og valgfri overføringslenke",
+      "learningGoal": "Begrunne nettverksvalg fra nye krav uten guided løsning.",
+      "newUnderstanding": "Generelt sant nettverksutsagn må passe den konkrete årsaken.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "12 scenariofamilier med egne første-/hjelp-/retry-grenser og separat valgfritt transfer."
+      },
+      "mechanism": "Explicit Start, casevalg, beslutning+begrunnelse, submit og feedback.",
+      "check": "Uavhengig vurdering; behold egen aktivitet og skillet til transfer-tillegget.",
+      "recordedEvidence": "nw11 pre-feedback-låst og levert; ikke full bank.",
+      "prerequisites": [
+        "Networking A-teori/praksis"
+      ],
+      "dependency": "Behold opprinnelig topic assessment, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Konsepter gjentas i nye situasjoner for selvstendig anvendelse.",
+      "pageJustification": "Behold egen attempt-grense; ikke bygg undervisningsseksjoner inn i aktiv vurdering.",
+      "classification": "A",
+      "proposalReason": "Behold egen attempt-grense; ikke bygg undervisningsseksjoner inn i aktiv vurdering.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/132-networking-assessment.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/132-networking-assessment.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/132-networking-assessment.png",
+          "capturedUtc": "2026-11-05T14:25:24.612Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/networking?topic=assessment",
+          "quote": "Tidligere guidet arbeid gir ingen ny selvstendig vurderingskreditt."
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/134-networking-nw11-started.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/135-networking-nw11-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "networking-assessment",
+      "proposedSessionTitle": "Selvstendig Networking-anvendelse",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "networking",
+      "topic": "summary",
+      "title": "Part A · oppsummering og dokumenterte resultater",
+      "currentRole": "Part A-resultat og tydelig Part B-handoff",
+      "learningGoal": "Tolke Part A-evidens uten å anta hele Networking ferdig.",
+      "newUnderstanding": "Besøk, guided, independent og Part B har ulike evidensgrenser.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Mål-/guide-/førstestatuser og videre Part B-lenke."
+      },
+      "mechanism": "Read-only resultatvisning og gjenopptak av manglende guider.",
+      "check": "Ingen ny vurdering eller progresjonsmotor.",
+      "recordedEvidence": "8/8 åpnet, 3/4 guided, 1/12 independent; neste går Part B.",
+      "prerequisites": [
+        "assessment",
+        "guided arbeid"
+      ],
+      "dependency": "Behold opprinnelig topic summary, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Oppdragskort gjentas legitimt som status/debrief.",
+      "pageJustification": "Egen avslutning er nødvendig mellom delenes historikk og neste lag.",
+      "classification": "A",
+      "proposalReason": "Egen avslutning er nødvendig mellom delenes historikk og neste lag.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/136-networking-summary.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/136-networking-summary.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/136-networking-summary.png",
+          "capturedUtc": "2026-11-05T14:26:18.776Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/networking?topic=summary",
+          "quote": "Dette er Part A-resultater."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "networking-summary",
+      "proposedSessionTitle": "Part A · oppsummering og dokumenterte resultater",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "connectivity",
+      "topic": "introduction",
+      "title": "Fra tilkoblet nettverk til brukbar tjeneste",
+      "currentRole": "Part A/B-overgang, samlet diagnostisk ramme og oppdragsorientering",
+      "learningGoal": "Formulere transport, navnesvar, inngang og autorisasjon som separate delspørsmål.",
+      "newUnderstanding": "peering fra Part A er verken fabrikktilkobling eller VPN-klient; flere innganger er egne krav.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Case med fabrikk og reisende, firetrinnskjede, eksplisitt resultat-/forkunnskapshandoff."
+      },
+      "mechanism": "Orienteringscase, Part A-resultatlenke og fire originale briefingkort.",
+      "check": "Ingen egen Run eller automatisk Part B-kreditt ved åpning.",
+      "recordedEvidence": "Lest i egen tom context; tidligere Part A-status ble ikke fabrikert.",
+      "prerequisites": [
+        "Networking A",
+        "Core region/scope",
+        "Compute VM/NIC"
+      ],
+      "dependency": "Behold opprinnelig topic introduction, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Navn/vei/accessramme gjenkalles fra A, men ny transport-/inngangskjede innføres.",
+      "pageJustification": "Behold egen handoff, slik at Part B ikke starter som bare et VPN-kapittel eller arver tidligere resultater.",
+      "classification": "A",
+      "proposalReason": "Behold egen handoff, slik at Part B ikke starter som bare et VPN-kapittel eller arver tidligere resultater.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/138-connectivity-introduction.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/138-connectivity-introduction.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/138-connectivity-introduction.png",
+          "capturedUtc": "2026-11-05T14:26:39.764Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/connectivity?topic=introduction",
+          "quote": "Fire forskjellige spørsmål før et program kan bruke tjenesten"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "connectivity-introduction",
+      "proposedSessionTitle": "Fra tilkoblet nettverk til brukbar tjeneste",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "connectivity",
+      "topic": "vpn",
+      "title": "VPN Gateway · site, klient og VNet",
+      "currentRole": "VPN-scope/protokollforklaring og inngang til hybridfeilguide",
+      "learningGoal": "Velge site, individuell klient eller annetVNet med passende tunnel-/underlagsforutsetninger.",
+      "newUnderstanding": "Kryptering betyr ikke privat providertransport; klient/protokoll/auth må være kompatible.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Tre forbindelsesomfang, GatewaySubnet, protokolltyper og underlagsfeil som separate premisser."
+      },
+      "mechanism": "Tekst/workedexample og eksplisitt guide B-briefing til eksisterende hybridmodell.",
+      "check": "HybridB har egen Start/Run-grense; ingen ekte gateway eller nøkkel.",
+      "recordedEvidence": "Full teori lest; hybridB-fallbackguide ikke gjennomført i kald passering.",
+      "prerequisites": [
+        "Networking A VNet/ruting",
+        "introduction"
+      ],
+      "dependency": "Behold opprinnelig topic vpn, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Transportlaget er nytt; tunellogikk brukes igjen i hybrid, med nye konkrete feil.",
+      "pageJustification": "Egen omfangsbeslutning er nødvendig før ExpressRoute-sammenligningen.",
+      "classification": "A",
+      "proposalReason": "Egen omfangsbeslutning er nødvendig før ExpressRoute-sammenligningen.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/139-connectivity-vpn.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/139-connectivity-vpn.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/139-connectivity-vpn.png",
+          "capturedUtc": "2026-11-05T14:26:41.863Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/connectivity?topic=vpn",
+          "quote": "VPN Gateway knytter et bestemt omfang til et VNet"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "connectivity-vpn",
+      "proposedSessionTitle": "VPN Gateway · site, klient og VNet",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "connectivity",
+      "topic": "expressroute",
+      "title": "ExpressRoute · privat transport og kryptering",
+      "currentRole": "Privattransport-/krypteringsforklaring og guide A-inngang",
+      "learningGoal": "Skille provider/circuit/peering/ruting fra ende-til-ende-beskyttelse.",
+      "newUnderstanding": "ExpressRoute er ikke kryptert som standard, MACsec-link er ikke universell ende-til-ende IPsec.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Egne private/Microsoft-peering-, lastmile-/redundans- og beskyttelsesforbehold."
+      },
+      "mechanism": "Workedexample og guide A-briefing med tre transport-/krypteringskontraster.",
+      "check": "Eksisterende hybridA-start/Run/årsaksgrense.",
+      "recordedEvidence": "ER uten kryptering og ER+IPsec senere kjørt i hybrid; her full teori lest.",
+      "prerequisites": [
+        "vpn",
+        "introduction"
+      ],
+      "dependency": "Behold opprinnelig topic expressroute, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "VPNforbehold sammenlignes med annet underlag, ikke bare navnebytte.",
+      "pageJustification": "Behold egen beslutningsdimensjon før samlet avhengighetseksperiment.",
+      "classification": "A",
+      "proposalReason": "Behold egen beslutningsdimensjon før samlet avhengighetseksperiment.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/140-connectivity-expressroute.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/140-connectivity-expressroute.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/140-connectivity-expressroute.png",
+          "capturedUtc": "2026-11-05T14:27:07.102Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/connectivity?topic=expressroute",
+          "quote": "Velg privat transport og beskyttelse hver for seg"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/149-connectivity-er-unencrypted.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/150-connectivity-er-ipsec.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "connectivity-expressroute",
+      "proposedSessionTitle": "ExpressRoute · privat transport og kryptering",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "connectivity",
+      "topic": "endpoints",
+      "title": "Public & Private Endpoints · separate innganger",
+      "currentRole": "Offentlig/privat tjenesteinngang og guide C-inngang",
+      "learningGoal": "Skille privat tilknytning, godkjenning, public network access og apprettighet.",
+      "newUnderstanding": "Approved PE stenger ikke offentlig inngang og gir ingen datarolle.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Målsubressurs, NIC-/tjenesteskille, status og separate nettverks-/appkontroller."
+      },
+      "mechanism": "Forklaring/workedexample og eksplisitt endpointC-briefing til samme modell.",
+      "check": "Egen guide C-Start og lagrede private/offentlige kontraster.",
+      "recordedEvidence": "Privat, public enabled, public disabled, privatmedpublic disabled kjørt; guide fullført via Explorer.",
+      "prerequisites": [
+        "Networking A navn/vei/access",
+        "introduction"
+      ],
+      "dependency": "Behold opprinnelig topic endpoints, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Tilgangsrammen fra A får ny konkret inngangs-/godkjenningsdimensjon.",
+      "pageJustification": "Behold eget tjenesteinngangsspørsmål; ikke slå lang teori inn i DNS bare fordi de samspiller.",
+      "classification": "A",
+      "proposalReason": "Behold eget tjenesteinngangsspørsmål; ikke slå lang teori inn i DNS bare fordi de samspiller.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/141-connectivity-endpoints.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/141-connectivity-endpoints.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/141-connectivity-endpoints.png",
+          "capturedUtc": "2026-11-05T14:27:11.441Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/connectivity?topic=endpoints",
+          "quote": "En offentlig adresse er ikke en offentlig datatillatelse"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/155-connectivity-private-approved.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/156-connectivity-public-still-enabled.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/157-connectivity-public-disabled.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/158-connectivity-private-with-public-disabled.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/159-connectivity-endpoint-guided-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "connectivity-endpoints",
+      "proposedSessionTitle": "Public & Private Endpoints · separate innganger",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "connectivity",
+      "topic": "private-dns",
+      "title": "Private Link DNS · klientens oppslagsvei",
+      "currentRole": "PrivateLink-navneperspektiv og guide D-inngang",
+      "learningGoal": "Beholde normalt hostname mens riktig privatadresse velges for faktisk resolver.",
+      "newUnderstanding": "Privat CNAME/IP er ikke nok; relevant zone-link/forwarding og rute er egne ledd.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Tjenestens normale hostname/sertifikat, subressurs og custom/onpremforwarding er nye vilkår."
+      },
+      "mechanism": "Forklaring/workedexample og eksplisitt guide D-briefing.",
+      "check": "GuideDhar egen opprinnelig Start/årsaksgrense; ikke sammenflett med C eller assessment.",
+      "recordedEvidence": "Full teori lest; DNS-kontraster kjørt i historikken for C, separat guide D ikke fullført.",
+      "prerequisites": [
+        "Networking A DNS",
+        "endpoints"
+      ],
+      "dependency": "Behold opprinnelig topic private-dns, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "PrivateDNSfraA repeteres ved et spesifikt PE-hostname-/sertifikatproblem.",
+      "pageJustification": "Behold egen konkret klientoppslagsoppgave før samlet endpointdiagnose.",
+      "classification": "A",
+      "proposalReason": "Behold egen konkret klientoppslagsoppgave før samlet endpointdiagnose.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/142-connectivity-private-dns.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/142-connectivity-private-dns.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/142-connectivity-private-dns.png",
+          "capturedUtc": "2026-11-05T14:27:13.712Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/connectivity?topic=private-dns",
+          "quote": "Klientens DNS-perspektiv avgjør hvilken inngang den forsøker"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "connectivity-private-dns",
+      "proposedSessionTitle": "Private Link DNS · klientens oppslagsvei",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "connectivity",
+      "topic": "hybrid",
+      "title": "Hybrid Connectivity Explorer",
+      "currentRole": "Samlet transport-/krypterings-/feil-workbench",
+      "learningGoal": "Forutsi om deklarerte avhengigheter og reserve faktisk dekker valgte krav.",
+      "newUnderstanding": "To forbindelser kan dele lokal feilgrense, og reserve kan endre hvilke krav som dekkes.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Funksjonelle transportvalg, rute/gateway/providerstatus, kryptering, behov og failures; egen praktisk anvendelse."
+      },
+      "mechanism": "GuideA/B-knapper, eksplicit Start, prediksjon/Run, transportfigur og kontrolltabell.",
+      "check": "To opprinnelige guidede grenser; ingen live BGP eller failovermåling.",
+      "recordedEvidence": "VPN/ER/IPsec og guide A-årsak gjennomført; guide B/rutefallback ikke kjørt.",
+      "prerequisites": [
+        "vpn",
+        "expressroute",
+        "Networking A"
+      ],
+      "dependency": "Behold opprinnelig topic hybrid, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "VPN/ERdefinisjoner gjenbrukes men eleven endrer faktiske forutsetninger og observerer flere krav.",
+      "pageJustification": "Behold funksjonell Explorer; lang teori foran er ikke grunn til å absorbere selve arbeidsflaten.",
+      "classification": "A",
+      "proposalReason": "Behold funksjonell Explorer; lang teori foran er ikke grunn til å absorbere selve arbeidsflaten.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/143-connectivity-hybrid.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/143-connectivity-hybrid.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/143-connectivity-hybrid.png",
+          "capturedUtc": "2026-11-05T14:27:14.868Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/connectivity?topic=hybrid",
+          "quote": "Les transportens avhengigheter og feilgrenser"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/147-connectivity-vpn-private-required.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/149-connectivity-er-unencrypted.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/150-connectivity-er-ipsec.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/151-connectivity-hybrid-guided-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "connectivity-hybrid",
+      "proposedSessionTitle": "Hybrid Connectivity Explorer",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "connectivity",
+      "topic": "explorer",
+      "title": "Endpoint & DNS Explorer",
+      "currentRole": "Endpoint/DNS-syntese med syvtrinnsdiagnose",
+      "learningGoal": "Finne første utilstrekkelige ledd fra hostname til deklarert respons.",
+      "newUnderstanding": "Riktig adresse kan sameksistere med feil inngang, Pending, manglende vei eller avvist applikasjonsrolle.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Komplett interaktiv inngangskjede med uavhengige response assumptions og resultatkort/tabell."
+      },
+      "mechanism": "GuideC/Dvelger, egen Start, alleDNS/endpoint/nettverk/auth/response-kontroller, prediksjon/Run.",
+      "check": "Eksisterende C/Dattemptgrenser; ikke en femte guide eller ny uavhengig vurdering.",
+      "recordedEvidence": "Offentlig/privatkontraster, riktigDNS+deniedauth ogCårsaksforklaring lagret; ikke alle pending/resolverkombinasjoner.",
+      "prerequisites": [
+        "endpoints",
+        "private-dns",
+        "hybrid",
+        "Networking A"
+      ],
+      "dependency": "Behold opprinnelig topic explorer, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Underliggende C/D-kontroller finnes via teorisidene, men her samles seleksjon og alle bevistrinn til syntese.",
+      "pageJustification": "Behold egen funksjonell Studio med nytt diagnostisk mål; ikke slå tre lange sider sammen for å oppnå et sidetall.",
+      "classification": "A",
+      "proposalReason": "Behold egen funksjonell Studio med nytt diagnostisk mål; ikke slå tre lange sider sammen for å oppnå et sidetall.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/144-connectivity-explorer.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/144-connectivity-explorer.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/144-connectivity-explorer.png",
+          "capturedUtc": "2026-11-05T14:27:16.381Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/connectivity?topic=explorer",
+          "quote": "Følg navnet gjennom adressen til en tillatelse"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/158-connectivity-private-with-public-disabled.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/160-connectivity-dns-wrong-ingress.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/161-connectivity-dns-correct-auth-denied.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "connectivity-explorer",
+      "proposedSessionTitle": "Endpoint & DNS Explorer",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "connectivity",
+      "topic": "missions",
+      "title": "Guidede Connectivity-oppdrag",
+      "currentRole": "Oversikts-/resume-kart for fire eksisterende Connectivityguider",
+      "learningGoal": "Gjenoppta riktig transport- eller endpointundersøkelse.",
+      "newUnderstanding": "Kartet er en veiviser til gjenstående arbeid, ikke et nytt teknisk prinsipp.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Fire kjente case-/mål-/statuskort."
+      },
+      "mechanism": "Briefing-/repetisjonslenker til A/B/C/D.",
+      "check": "Ingen egen femte guide eller oppgavegrense.",
+      "recordedEvidence": "Snapshot viste A/C fullført, B/D ikke startet; Neste tilbød eksisterende Bbriefing.",
+      "prerequisites": [
+        "Eksisterende guided arbeidsflater"
+      ],
+      "dependency": "Behold opprinnelig topic missions, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Samme kort allerede på introduction og summary og ved arbeidsflatene.",
+      "pageJustification": "Behold som sekundært kart fremfor obligatorisk anbefalt aktivitet; fjern ikke faktisk guided arbeid.",
+      "classification": "D",
+      "proposalReason": "Flytt kartet til sekundær Oppdragsoversikt/Resume og behold route og original Start. I dette vitnet gikk Neste fortsatt via kartet; andre guidekonfigurasjoner kan allerede hoppe direkte. Ingen generell klikkbesparelse beregnes.",
+      "navEffect": "Behold kompatibel route, status og direkte lenker som valgfri/sekundær oppføring; fjern bare den statiske obligatoriske rollen. Aktiv/neste guideprioritet og alle Start-/attemptgrenser beholdes. Dynamisk Neste kan allerede hoppe forbi kart; ingen fast klikkbesparelse påstås.",
+      "risk": {
+        "level": "low",
+        "detail": "Eventuell sammensetting/flytting må bevare alle originale topic-/check-/Start-/attempt-/aid-/resume-identiteter og må ikke registrere offscreen-seksjoner som lest eller fullført."
+      },
+      "priority": "P3 oppfølging",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/162-connectivity-missions.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/162-connectivity-missions.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/162-connectivity-missions.png",
+          "capturedUtc": "2026-11-05T14:30:47.858Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/connectivity?topic=missions",
+          "quote": "Fullført guidet undersøkelse · tilgjengelig for repetisjon"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/151-connectivity-hybrid-guided-feedback.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/159-connectivity-endpoint-guided-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "connectivity-missions",
+      "proposedSessionTitle": "Guidede Connectivity-oppdrag",
+      "proposedMode": "optional-secondary"
+    },
+    {
+      "module": "connectivity",
+      "topic": "assessment",
+      "title": "Selvstendig Connectivity-anvendelse",
+      "currentRole": "Selvstendig Connectivityforsøk",
+      "learningGoal": "Velge tiltak og årsak under nye transport-/inngangs-/tilgangspremisser.",
+      "newUnderstanding": "TidligerePart A/guidedB er ikke egen førstegangsinnlevering.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "12familier med egen beslutning+begrunnelse, hjelp/retry/first og feedback."
+      },
+      "mechanism": "Egen explicit Start/casevelger/submit.",
+      "check": "Uavhengig vurderingsgrense, separat fra all undervisning og veiledning.",
+      "recordedEvidence": "nc12 forhåndslåst og levert; resten ikke fullreviewet.",
+      "prerequisites": [
+        "Connectivityteori/praksis"
+      ],
+      "dependency": "Behold opprinnelig topic assessment, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Lærte mekanismer i endrede premisser er legitim anvendelse.",
+      "pageJustification": "Behold egen aktivitet og alle attemptgrenser.",
+      "classification": "A",
+      "proposalReason": "Behold egen aktivitet og alle attemptgrenser.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/163-connectivity-assessment.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/163-connectivity-assessment.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/163-connectivity-assessment.png",
+          "capturedUtc": "2026-11-05T14:30:49.432Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/connectivity?topic=assessment",
+          "quote": "Tidligere Part A-resultater eller guidet Part B-arbeid blir ikke en ny selvstendig førstegangsinnlevering."
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/164-connectivity-nc12-started.json"
+        },
+        {
+          "interactionSnapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/165-connectivity-nc12-feedback.json"
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "connectivity-assessment",
+      "proposedSessionTitle": "Selvstendig Connectivity-anvendelse",
+      "proposedMode": "recommended"
+    },
+    {
+      "module": "connectivity",
+      "topic": "summary",
+      "title": "Networking Part B · dokumenterte resultater",
+      "currentRole": "Separatstatus for Part B og videre Storagehåndoff",
+      "learningGoal": "Tolke faktiskePart Bobservasjoner uten å arvePart A eller utlede virkelig tilgang.",
+      "newUnderstanding": "Konfigurerte konsepter er ikke tunnel, DNSquery eller brukerrespons.",
+      "substance": {
+        "type": "qualitative",
+        "assessment": "Egen per-delhistorikk, visits/guided/independent og klare begrensninger."
+      },
+      "mechanism": "Read-only status, Part Atilbakekobling og anbefalt neste Storage.",
+      "check": "Ingen ny assessment eller XP.",
+      "recordedEvidence": "7/7 åpnet, 2/4guider, 1/12 independent beholdt etter reload.",
+      "prerequisites": [
+        "assessment",
+        "guidedarbeid"
+      ],
+      "dependency": "Behold opprinnelig topic summary, forklaringsgrenser og eventuelle egne kontroll-/forsøks-ID-er; ingen fremtidig økt skal gi automatisk kreditt for sine delseksjoner.",
+      "repetition": "Oppdragskort gjenbrukes som debrief/status med annen legitim funksjon.",
+      "pageJustification": "Behold separat oppsummering mellom delens evidens og neste modul.",
+      "classification": "A",
+      "proposalReason": "Behold separat oppsummering mellom delens evidens og neste modul.",
+      "navEffect": "Behold egen statisk anbefalt oppføring og opprinnelige direkte-/Neste-/resume-destinasjoner. Dynamisk guideprioritet er ikke en ny lineær leseplikt.",
+      "risk": {
+        "level": "low",
+        "detail": "Ingen strukturendring foreslått; behold modell-/kontroll- og evidensgrenser."
+      },
+      "priority": "behold",
+      "evidence": [
+        {
+          "snapshot": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/168-connectivity-summary-stable.json",
+          "textCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/168-connectivity-summary-stable.txt",
+          "figureCapture": "/workspace/azurelab-pr57/cold/core-compute-network/evidence/168-connectivity-summary-stable.png",
+          "capturedUtc": "2026-11-05T14:31:48.605Z",
+          "actualUrl": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/connectivity?topic=summary",
+          "quote": "Part B-observasjoner er adskilt fra tidligere Part A-svar."
+        }
+      ],
+      "confidence": {
+        "level": "high",
+        "basis": "Faktisk tidligere lest studenttekst og vist figur/kontrollinventar, kontrollert igjen i låst snapshot; dette er en etterkontroll, ikke et nytt kaldt review."
+      },
+      "proposedSessionId": "connectivity-summary",
+      "proposedSessionTitle": "Networking Part B · dokumenterte resultater",
+      "proposedMode": "recommended"
+    }
+  ]
+}

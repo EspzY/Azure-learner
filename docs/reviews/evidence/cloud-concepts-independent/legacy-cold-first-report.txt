@@ -1,0 +1,194 @@
+# Legacy blind solve — locked before feedback
+
+This is an expert AI learner-facing review, not a human novice assessment. Filesystem/tool access is shared; isolation was procedural. I did not read other reviewer outputs or application implementation, reports, answer keys, or rubrics. No feedback/help was opened and nothing was submitted.
+
+- Route: https://azure-learner-git-codex-az900-cloud-comp-3bf852-espzys-projects.vercel.app/portal?area=challenge&module=services&topic=overview&mode=independent&course=1
+- Supplied expected build SHA: 527b95140917e75e83899f21e6b2291e01df0a7d
+- Displayed version: AzureLab 3.2.1. The full build SHA was not visible on this assessment, including after hovering the version text. I cannot honestly claim to have verified the supplied SHA from the learner UI.
+- First learner view: 2026-11-04T06:45:07.856Z. Questions exposed: 2026-11-04T06:45:46.235Z. Lock: 2026-11-04T06:47:13.064Z.
+- Actual question exposure to lock: 87 seconds. These are wall-clock timestamps, not an estimate of human completion time.
+- A browser restart repeated the same introductory assessment text. Each Chromium context was fresh and anonymous. Only Start endret oppgave was clicked; the version label was hovered. No answer selector changed, resource created, storage injected, or submit/feedback/help action occurred.
+
+## Exact premise
+
+Et nytt team trenger en ny, egen HTTP-applikasjon uten gjeste-OS-vedlikehold. Bruk Shared Sandbox. Gruppemetadata skal være i Norway East, men hosting skal være i North Europe. Bygg ny gruppe, plan og app i dette forsøket; velg egne navn. To andre krav gjelder OS-avhengig programvare og ferdig samarbeid. Du får kravene, ikke konfigurasjonstrinnene.
+
+Endret krav uten fremgangsmåte. Teori, sammenligning eller hint under forsøket registreres som hjelp.
+
+## Independent answers and uncertainty
+
+### 1. Hvilken modell passer OS-avhengig programvare?
+
+- Velg et svar
+- IAAS
+- PAAS
+- SAAS
+
+Locked choice: **IAAS**. Confidence: conditional; wording alone does not establish unique correctness.
+
+IaaS is a sensible choice if the software requires guest-OS control, custom system configuration, unsupported runtime components, or installation privileges. None of those distinguishing requirements is explicitly stated. OS dependence alone is insufficient: a compatible managed PaaS runtime also runs on an OS.
+
+Missing premises: The particular OS dependency and whether the team must control the guest OS. Whether that dependency is supported by an available managed runtime/platform.
+
+Valid alternatives: PAAS if the software and its OS/runtime dependencies are supported by the managed platform. SAAS only if a ready hosted product already supplies the required functions; the phrase OS-dependent by itself does not exclude this, although no such product fit is stated.
+
+### 2. Hvilken modell passer teamets egen HTTP-kode?
+
+- Velg et svar
+- IAAS
+- PAAS
+- SAAS
+
+Locked choice: **PAAS**. Confidence: high under the normal service-model reading.
+
+The team supplies its own HTTP application and expressly wants no guest-OS maintenance. A managed application platform fits this division of responsibility.
+
+Missing premises: Compatibility of the application runtime and other dependencies with the selected platform is implicit rather than stated.
+
+Valid alternatives: Different managed application-hosting or serverless offerings within PaaS could satisfy these stated workload requirements; no single concrete product is established solely by this question.
+
+### 3. Hvilken modell passer ferdig samarbeid?
+
+- Velg et svar
+- IAAS
+- PAAS
+- SAAS
+
+Locked choice: **SAAS**. Confidence: high if ferdig means an already supplied application.
+
+A ready collaboration application consumed for its functions fits SaaS. The short wording signals an outcome supplied as a product rather than a team-developed application.
+
+Missing premises: The needed collaboration functions and whether an existing hosted product meets them. An explicit statement that the team consumes a ready application rather than deploying a prebuilt self-hosted package.
+
+Valid alternatives: IAAS or PAAS could host a ready-made collaboration package if self-hosting were required. The text does not explicitly rule that interpretation out.
+
+### 4. Hva begrunner valget for HTTP-koden?
+
+- Velg et svar
+- Arbeidslasten krever kontroll over gjeste-OS.
+- Teamet leverer egen kode på en støttet, administrert plattform.
+- Behovet er en ferdig applikasjon med støttede funksjoner.
+
+Locked choice: **Teamet leverer egen kode på en støttet, administrert plattform.**. Confidence: high among displayed choices; supported-platform compatibility is assumed.
+
+Own code plus provider-managed guest OS is the relevant PaaS boundary. The OS-control option conflicts with the requested lack of guest-OS maintenance. The ready-application option does not match the team supplying its own HTTP application.
+
+Missing premises: That the code and dependencies are in fact supported by the managed platform. This support is introduced by the answer option, not expressly established by the task premise.
+
+Valid alternatives: No equally valid displayed alternative under the stated App Service context.
+
+### 5. Hva avgjør appens resource location?
+
+- Velg et svar
+- Den refererte hosting-planens lokasjon.
+- Alltid resource groupens metadata-region.
+- Én global policy bestemmer lokasjonen i alle subscriptions.
+
+Locked choice: **Den refererte hosting-planens lokasjon.**. Confidence: high in the displayed App Service plan / Web App context.
+
+The hosting plan supplies the App Service app hosting region. With hosting required in North Europe and group metadata in Norway East, a North Europe plan yields North Europe app hosting. A resource group metadata region does not force all grouped resources into that region.
+
+Missing premises: The explicit generic phrase resource location is interpreted through the adjacent App Service plan and Web App selectors. It should not be generalized to every Azure resource type.
+
+Valid alternatives: No equally valid displayed alternative under the stated App Service context.
+
+## Resource selectors and exposure limits
+
+Resource group, App Service plan, and Web App each had only the option “Velg et svar”. All remained blank. No resources were invented. Resource construction was outside the audit-only authorization.
+
+- The initial premise supplies the own-code / no-guest-OS-maintenance distinction.
+- The causal answer choices themselves name guest-OS control, supported managed platform, and ready application, revealing the usual service-model decision boundaries while all five questions are visible together.
+- Resource-selector labels explicitly name App Service plan and Web App, supplying product context for the app-location question.
+- Portal navigation names other learning tools, but no such tools, feedback, help, or explanations were opened.
+
+Because the whole question set is visible together, this is blind to accepted answers but not free of answer-option teaching. The OS-dependent premise is the clearest ambiguity: an OS dependency does not by itself require customer OS control. The collaboration item also omits the product-fit and hosted-consumption premises.
+
+## Complete learner-visible assessment after Start
+
+```text
+Hopp til innhold
+AzureLab 3.2.1
+SavvyShark · Veiledning
+TRAINING SIMULATOR
+Notifications (0)
+Create a resource
+Home
+All services
+FAVORITES
+Subscriptions
+Resource groups
+All resources
+App Services
+App Service plans
+Virtual machines
+Activity log
+AzureLab learning tools
+Learning workspace
+Responsibility explorer
+Resource hierarchy
+Architecture Explorer
+Independent challenge
+Lokalt treningsmiljø · ingen Azure-tilkobling
+Home
+Independent challenge
+Independent challenge
+AzureLab Directory · Lokalt treningsmiljø · ingen Azure-tilkobling
+Refresh
+Independent Challenge
+Describe cloud service types
+Tilbake til kurset
+Architecture Explorer
+Tilbake til læringen
+Fortsett den endrede oppgaven
+Et nytt team · samme tekniske modell
+
+Et nytt team trenger en ny, egen HTTP-applikasjon uten gjeste-OS-vedlikehold. Bruk Shared Sandbox. Gruppemetadata skal være i Norway East, men hosting skal være i North Europe. Bygg ny gruppe, plan og app i dette forsøket; velg egne navn. To andre krav gjelder OS-avhengig programvare og ferdig samarbeid. Du får kravene, ikke konfigurasjonstrinnene.
+
+Endret krav uten fremgangsmåte. Teori, sammenligning eller hint under forsøket registreres som hjelp.
+
+Oppgaven pågår. Ressursarbeidet og svarutkastet lagres. Ingen registrert hjelp i dette forsøket. Dette attesterer ikke identitet eller hva du brukte utenfor AzureLab.
+
+Avslutt forsøket uten innleveringAll resources
+Velg de faktiske ressursene du bygget
+Hvilken modell passer OS-avhengig programvare?
+Velg et svar
+IAAS
+PAAS
+SAAS
+Hvilken modell passer teamets egen HTTP-kode?
+Velg et svar
+IAAS
+PAAS
+SAAS
+Hvilken modell passer ferdig samarbeid?
+Velg et svar
+IAAS
+PAAS
+SAAS
+Hva begrunner valget for HTTP-koden?
+Velg et svar
+Arbeidslasten krever kontroll over gjeste-OS.
+Teamet leverer egen kode på en støttet, administrert plattform.
+Behovet er en ferdig applikasjon med støttede funksjoner.
+Hva avgjør appens resource location?
+Velg et svar
+Den refererte hosting-planens lokasjon.
+Alltid resource groupens metadata-region.
+Én global policy bestemmer lokasjonen i alle subscriptions.
+Resource group
+Velg et svar
+App Service plan
+Velg et svar
+Web App
+Velg et svar
+Lever vurderingsgrunnlaget
+Innsendingshistorikk
+
+Ingen innsending. Skjermbesøk og konfigurasjon alene er ikke en vurdering.
+
+Dette er lokale kriterieobservasjoner for en endret oppgave. Første svar, hjelp og retries beholdes. Ingen XP, Chapter 01-fullføring, generell mestring eller eksamensklarhet tildeles.
+
+AzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering.
+```
+
+STOP: responses were locked before feedback, submission, or accepted-answer inspection. Await explicit follow-up.

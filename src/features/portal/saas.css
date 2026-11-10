@@ -1,0 +1,181 @@
+.saas-lab {
+  color-scheme: light;
+  min-height: 100dvh;
+  background: #f5f7fa;
+  color: #243747;
+  font:
+    15px/1.6 'Segoe UI',
+    sans-serif;
+}
+.saas-header {
+  min-height: 64px;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  background: #17364c;
+  color: white;
+}
+.saas-header > a:first-child {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+.saas-header > a:last-child {
+  margin-left: auto;
+}
+.saas-mode {
+  display: flex;
+  gap: 1rem;
+  padding: 0.65rem 2rem;
+  background: #e7f0f8;
+  border-bottom: 1px solid #cbd7e2;
+}
+.saas-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(500px, 1fr) 350px;
+  max-width: 1800px;
+  margin: auto;
+}
+.saas-navigation {
+  padding: 1.5rem;
+  border-right: 1px solid #d3dce5;
+  background: #fff;
+}
+.saas-navigation button {
+  width: 100%;
+  text-align: left;
+  display: grid;
+  padding: 0.7rem;
+  margin-bottom: 0.3rem;
+}
+.saas-navigation [aria-current] {
+  background: #e6f1fb;
+  border-left: 3px solid #0078d4;
+}
+.saas-navigation small {
+  color: #50677a;
+}
+.saas-workspace {
+  padding: 2rem 2.5rem;
+  min-width: 0;
+}
+.saas-workspace h1 {
+  font-size: 2rem;
+  font-weight: 500;
+}
+.saas-admin-section {
+  padding: 1.3rem 0;
+  border-bottom: 1px solid #cbd7e2;
+}
+.saas-admin-section h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+.saas-admin-section label {
+  display: block;
+  margin-block: 0.65rem;
+}
+.saas-admin-section select {
+  display: block;
+  min-height: 40px;
+  min-width: 280px;
+  background: white;
+  border: 1px solid #798c9a;
+  margin-block: 0.4rem;
+  padding: 0.4rem;
+}
+.saas-workspace button,
+.saas-learning button {
+  border: 1px solid #56768f;
+  padding: 0.5rem 0.9rem;
+  background: white;
+  color: #005a9e;
+  margin-top: 0.5rem;
+}
+.saas-learning {
+  padding: 1.5rem;
+  background: #edf4fa;
+  border-left: 1px solid #cbd7e2;
+}
+.saas-learning .savvy h2 {
+  font-size: 1rem;
+}
+.saas-receipt {
+  padding: 1rem;
+  background: #e9f4ef;
+  border-left: 3px solid #187341;
+  margin-top: 1rem;
+}
+.saas-receipt.rejected {
+  background: #fff1e5;
+  border-color: #b65200;
+}
+.saas-workspace table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-block: 1rem;
+  font-size: 0.85rem;
+}
+.saas-workspace th,
+.saas-workspace td {
+  text-align: left;
+  border-bottom: 1px solid #cbd7e2;
+  padding: 0.7rem;
+  vertical-align: top;
+}
+@media (max-width: 1100px) {
+  .saas-layout {
+    grid-template-columns: 180px minmax(0, 1fr);
+  }
+  .saas-learning {
+    grid-column: 2;
+  }
+}
+@media (max-width: 700px) {
+  .saas-layout {
+    display: block;
+  }
+  .saas-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .saas-navigation button {
+    width: auto;
+  }
+  .saas-workspace {
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  .saas-header,
+  .saas-mode {
+    flex-wrap: wrap;
+    padding: 0.8rem;
+    gap: 0.7rem;
+  }
+}
+
+.saas-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+}
+.saas-learning {
+  position: sticky;
+  top: 64px;
+  align-self: start;
+  max-height: calc(100dvh - 64px);
+  overflow-y: auto;
+}
+@media (max-width: 700px) {
+  .saas-learning {
+    position: static;
+    max-height: none;
+  }
+}
+
+.saas-workspace td small {
+  display: block;
+  margin-top: 0.3rem;
+  color: #536d7f;
+}

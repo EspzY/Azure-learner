@@ -1,0 +1,50 @@
+[WebServer] (node:10370) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:10395) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 [desktop-chromium] › tests/e2e/premium-landing.spec.ts:198:1 › landing responsive keyboard short desktop status semantics reduced motion and Axe preserve primary choices (12.6s)
+  ✓  2 [desktop-chromium] › tests/e2e/premium-landing.spec.ts:264:1 › landing actual browser zoom at125 and200 percent retains course and Laboratory actions without overflow (7.0s)
+  ✘  3 [desktop-chromium] › tests/e2e/shared-portal.spec.ts:237:1 › shared Portal compact native search drawer properties dialogs reduced motion Axe and unavailable server preserve scope and visible controls (15.8s)
+
+
+  1) [desktop-chromium] › tests/e2e/shared-portal.spec.ts:237:1 › shared Portal compact native search drawer properties dialogs reduced motion Axe and unavailable server preserve scope and visible controls 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByRole('main')
+    Expected substring: "Laboratory v3 er ikke tilgjengelig i denne forhåndsvisningen. Den eksisterende Portalen og kurset er fortsatt tilgjengelige."
+    Received string:    "Fri LaboratoryResource groupsLaboratory v3Midlertidig Sandbox · nullstilles ved ny innlasting · ingen kursresultater eller XPServerlagring er ikke tilgjengelig her. Du kan bruke den midlertidige Sandboxen.Laboratory v3 er ikke tilgjengelig i denne forhåndsvisningen.Start midlertidig Sandbox uten lagringUtforsk alle støttede tjenester uten innlogging. Arbeidet ligger bare i denne fanen og forsvinner ved ny innlasting.Tidligere arbeidsområdemodellerArbeidsområdemodell3.6 · Security Rule Lifecycle3.7 · Topology Remediation3.5 · Storage, Networking, Compute og Firewall A3.4 · Storage, Networking og Compute A3.3 · Storage og Networking A/B/C3.2 · Storage og Networking A/B3.1 · Storage og Networking A3.0 · StorageValget gjelder bare et nytt arbeidsområde. Eksisterende sesjon gjenopptas uten oppgradering.Start eget laboratoriearbeidsområdeFri LaboratoryOppdater fra serveren"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" getByRole('main') with timeout 5000ms
+      - waiting for getByRole('main')
+        14 × locator resolved to <main id="lab-main" class="portal-working" aria-labelledby="lab-page-title">…</main>
+           - unexpected value "Fri LaboratoryResource groupsLaboratory v3Midlertidig Sandbox · nullstilles ved ny innlasting · ingen kursresultater eller XPServerlagring er ikke tilgjengelig her. Du kan bruke den midlertidige Sandboxen.Laboratory v3 er ikke tilgjengelig i denne forhåndsvisningen.Start midlertidig Sandbox uten lagringUtforsk alle støttede tjenester uten innlogging. Arbeidet ligger bare i denne fanen og forsvinner ved ny innlasting.Tidligere arbeidsområdemodellerArbeidsområdemodell3.6 · Security Rule Lifecycle3.7 · Topology Remediation3.5 · Storage, Networking, Compute og Firewall A3.4 · Storage, Networking og Compute A3.3 · Storage og Networking A/B/C3.2 · Storage og Networking A/B3.1 · Storage og Networking A3.0 · StorageValget gjelder bare et nytt arbeidsområde. Eksisterende sesjon gjenopptas uten oppgradering.Start eget laboratoriearbeidsområdeFri LaboratoryOppdater fra serveren"
+
+
+      320 |       c.codes['backend-unavailable'],
+      321 |     );
+    > 322 |     await expect(off.getByRole('main')).toContainText(c.unavailable);
+          |                                         ^
+      323 |     await expect(off.getByRole('button', { name: c.start, exact: true })).toBeDisabled();
+      324 |     expect(posts).toBe(0);
+      325 |     expect(await empty.cookies()).toEqual([]);
+        at /workspace/Azure-learner/tests/e2e/shared-portal.spec.ts:322:41
+
+    Error Context: test-results/shared-portal-shared-Porta-36d98--scope-and-visible-controls-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/shared-portal-shared-Porta-36d98--scope-and-visible-controls-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/shared-portal-shared-Porta-36d98--scope-and-visible-controls-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › tests/e2e/shared-portal.spec.ts:237:1 › shared Portal compact native search drawer properties dialogs reduced motion Axe and unavailable server preserve scope and visible controls 
+  2 passed (43.9s)

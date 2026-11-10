@@ -1,0 +1,425 @@
+import type { Engine } from '../chapter01/model';
+import { infrastructure, types } from '../sandbox/model';
+import { replayEngine } from '../sandbox/replay';
+
+/** Conceptual observations are not Engine receipts and have their own source contract. */
+export const conceptMilestones = {
+  'migration-method': {
+    version: '1.0.0',
+    objectives: ['MOVE01'],
+    sources: ['FM04', 'FM05', 'FM08', 'FM17'],
+    trigger: 'saved-role-alternative-automation-protocol-and-fidelity-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'migration-sync': {
+    version: '1.0.0',
+    objectives: ['MOVE01'],
+    sources: ['FM06', 'FM17', 'FM32', 'FM35'],
+    trigger: 'saved-direction-deletion-conflict-and-cache-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'migration-planning': {
+    version: '1.0.0',
+    objectives: ['MOVE02'],
+    sources: ['FM11', 'FM12', 'FM13', 'FM37'],
+    trigger: 'saved-discovery-fresh-assessment-transport-and-validation-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'security-trust': {
+    version: '1.0.0',
+    objectives: ['SEC01'],
+    sources: ['SE03', 'SE07', 'SE08'],
+    trigger: 'saved-origin-context-scope-duration-and-breach-preparation-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'security-depth': {
+    version: '1.0.0',
+    objectives: ['SEC02'],
+    sources: ['SE04', 'SE05', 'SE08'],
+    trigger: 'saved-specific-controls-independent-failure-recovery-and-data-access-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'security-defender': {
+    version: '1.0.0',
+    objectives: ['SEC03'],
+    sources: ['SE09', 'SE10', 'SE12', 'SE17'],
+    trigger: 'saved-posture-workload-plan-data-risk-prioritization-and-score-model-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'monitoring-evidence': {
+    version: '1.0.0',
+    objectives: ['MON01', 'MON03'],
+    sources: ['MO03', 'MO07', 'MO13'],
+    trigger: 'saved-source-relevance-freshness-and-category-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'monitoring-health': {
+    version: '1.0.0',
+    objectives: ['MON02'],
+    sources: ['MO04', 'MO05', 'MO06'],
+    trigger: 'saved-scope-unknown-and-historical-observation-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'monitoring-telemetry': {
+    version: '1.0.0',
+    objectives: ['MON03'],
+    sources: ['MO12', 'MO20', 'MO22', 'MO24'],
+    trigger: 'saved-rule-notification-aggregation-coverage-and-log-collection-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'tools-intent': {
+    version: '1.0.0',
+    objectives: ['MGT01', 'MGT02'],
+    sources: ['MT19', 'MT20', 'MT21', 'MT22'],
+    trigger:
+      'saved-tool-environment-contrasts-plus-original-post-start-portal-receipt-and-hosting-inspections',
+    auto: 'first-new-guided-model-result',
+  },
+  'tools-change': {
+    version: '1.0.0',
+    objectives: ['MGT04', 'MGT05'],
+    sources: ['MT24', 'MT25', 'MT26', 'MT28'],
+    trigger: 'saved-parameter-reference-dependency-and-language-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'tools-arc': {
+    version: '1.0.0',
+    objectives: ['MGT03'],
+    sources: ['MT07', 'MT29', 'MT30', 'MT39'],
+    trigger: 'saved-representation-physical-location-and-current-management-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'governance-data': {
+    version: '1.0.0',
+    objectives: ['GOV01'],
+    sources: ['GV21', 'GV22', 'GV33'],
+    trigger: 'saved-metadata-lineage-and-separate-source-access-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'governance-policy': {
+    version: '1.0.0',
+    objectives: ['GOV02'],
+    sources: ['GV07', 'GV08', 'GV26', 'GV27'],
+    trigger: 'saved-applicability-contrasts-and-verified-native-denial-correction',
+    auto: 'first-new-guided-model-result',
+  },
+  'governance-locks': {
+    version: '1.0.0',
+    objectives: ['GOV03'],
+    sources: ['GV12', 'GV13'],
+    trigger: 'saved-management-data-and-inherited-lock-consequences',
+    auto: 'first-new-guided-model-result',
+  },
+  'access-rbac': {
+    version: '1.0.0',
+    objectives: ['ACF02'],
+    sources: ['AC05', 'AC06', 'AC07'],
+    trigger: 'saved-permission-and-scope-direction-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'access-conditional': {
+    version: '1.0.0',
+    objectives: ['ACF01'],
+    sources: ['AC10', 'AC11', 'AC14', 'AC15'],
+    trigger: 'saved-targeting-enforcement-and-resource-authorization-contrasts',
+    auto: 'first-new-guided-model-result',
+  },
+  'identity-directory': {
+    version: '1.0.0',
+    objectives: ['IDF01'],
+    sources: ['IF04', 'IF16', 'IF17'],
+    trigger: 'saved-entra-managed-legacy-capability-contrast',
+    auto: 'first-new-guided-model-result',
+  },
+  'identity-journey': {
+    version: '1.0.0',
+    objectives: ['IDF02'],
+    sources: ['IF05', 'IF07', 'IF19', 'IF28'],
+    trigger: 'saved-same-authentication-different-application-access',
+    auto: 'first-new-guided-model-result',
+  },
+  'identity-external': {
+    version: '1.0.0',
+    objectives: ['IDF03'],
+    sources: ['IF09', 'IF20', 'IF25'],
+    trigger: 'saved-customer-b2b-versus-external-tenant-contrast',
+    auto: 'first-new-guided-model-result',
+  },
+  'resilience-tiers': {
+    version: '1.0.0',
+    objectives: ['STB01'],
+    sources: ['SB03', 'SB05'],
+    trigger: 'saved-distinct-archive-stored-pending-complete-and-unmet-immediate',
+    auto: 'first-new-guided-model-result',
+  },
+  'resilience-replication': {
+    version: '1.0.0',
+    objectives: ['STB02'],
+    sources: ['SB04', 'SB21'],
+    trigger: 'saved-grs-ra-grs-read-access-contrast-with-unreplicated-write',
+    auto: 'first-new-guided-model-result',
+  },
+  'storage-accounts': {
+    version: '1.0.0',
+    objectives: ['SG03'],
+    sources: ['SS08', 'SS20', 'SS21'],
+    trigger: 'saved-unsupported-premium-queue-and-supported-gpv2-contrast',
+    auto: 'first-new-guided-model-result',
+  },
+  'storage-delivery': {
+    version: '1.0.0',
+    objectives: ['SG02'],
+    sources: ['SS13', 'SS14', 'SS15'],
+    trigger: 'saved-redelivery-with-two-versus-one-application-effects',
+    auto: 'first-new-guided-model-result',
+  },
+  'connectivity-diagnose': {
+    version: '1.0.0',
+    objectives: ['CN01', 'CN02'],
+    sources: ['CS09', 'CS12', 'CS13', 'CS15'],
+    trigger: 'saved-hybrid-failure-and-declared-independent-backup-contrast',
+    auto: 'first-new-guided-model-result',
+  },
+  'connectivity-dns': {
+    version: '1.0.0',
+    objectives: ['CN03', 'CN04'],
+    sources: ['CS16', 'CS17', 'CS19', 'CS20'],
+    trigger: 'saved-private-address-resolution-without-declared-network-path',
+    auto: 'first-new-guided-model-result',
+  },
+  'networking-inspect': {
+    version: '1.0.0',
+    objectives: ['NW01'],
+    sources: ['NS07', 'NS08'],
+    trigger: 'seven-current-actual-references-inspected-in-pinned-technical-attempt',
+    auto: 'first-new-guided-inspection',
+  },
+  'networking-peering': {
+    version: '1.0.0',
+    objectives: ['NW03'],
+    sources: ['NS09', 'NS10', 'NS11'],
+    trigger: 'saved-standard-peering-address-overlap-rejection',
+    auto: 'first-new-guided-model-result',
+  },
+  'networking-dns': {
+    version: '1.0.0',
+    objectives: ['NW04'],
+    sources: ['NS13', 'NS14'],
+    trigger: 'saved-correct-name-resolution-without-documented-network-path',
+    auto: 'first-new-guided-model-result',
+  },
+  'compute-container': {
+    version: '1.0.0',
+    objectives: ['CP01'],
+    sources: ['PS24', 'PS26', 'PS31'],
+    trigger: 'saved-recreate-ephemeral-versus-persistent-valid-runtime-contrast',
+    auto: 'first-new-guided-model-result',
+  },
+  'compute-capacity': {
+    version: '1.0.0',
+    objectives: ['CP02'],
+    sources: ['PS12', 'PS13', 'PS15', 'PS16'],
+    trigger: 'saved-zone-boundary-and-explicit-capacity-rule-contrast',
+    auto: 'first-new-guided-model-result',
+  },
+  'cost-time': {
+    version: '1.0.0',
+    objectives: ['CM01', 'CM02'],
+    sources: ['CS03', 'CS10'],
+    trigger: 'two-saved-estimates-lower-compute-time-retained-storage-and-egress',
+    auto: 'first-new-guided-model-result',
+  },
+  'cost-budget': {
+    version: '1.0.0',
+    objectives: ['CM03'],
+    sources: ['CS13', 'CS14'],
+    trigger: 'saved-actual-and-forecast-same-scope-budget-contrast',
+    auto: 'first-new-guided-model-result',
+  },
+  'mission-diagnosis': {
+    version: '1.0.0',
+    objectives: ['CB02'],
+    sources: ['PM09', 'PM10'],
+    trigger: 'validated-dependency-topology-model-contrast',
+    auto: 'first-new-guided-validated-observation',
+  },
+  'mission-settings': {
+    version: '1.0.0',
+    objectives: ['ST02', 'ST04'],
+    sources: ['PM17', 'PM18'],
+    trigger: 'two-ordered-accepted-settings-receipts-and-inspection',
+    auto: 'first-new-guided-validated-observation',
+  },
+  'management-relations': {
+    version: '1.0.0',
+    objectives: ['CA04', 'CA07'],
+    sources: ['AM03'],
+    trigger: 'live-hosting-and-membership-causal-explanation',
+    auto: 'first-new-guided-validated-observation',
+  },
+  'management-policy': {
+    version: '1.0.0',
+    objectives: ['CA06', 'CA07'],
+    sources: ['AM06', 'AM10'],
+    trigger: 'replayed-subscription-policy-denial-inspection',
+    auto: 'first-new-guided-validated-observation',
+  },
+  'physical-loss': {
+    version: '1.0.0',
+    objectives: ['CA03', 'CA02'],
+    sources: ['AR06', 'AR09'],
+    trigger: 'validated-single-placement-loss',
+    auto: 'first-new-guided-model-result',
+  },
+  'physical-resilience': {
+    version: '1.0.0',
+    objectives: ['CA02', 'CA01'],
+    sources: ['AR05', 'AR07'],
+    trigger: 'validated-affected-components-and-surviving-usable-path',
+    auto: 'first-new-guided-model-result',
+  },
+  'serverless-execution': {
+    version: '1.0.0',
+    objectives: ['FC08'],
+    sources: ['SL03', 'SL04', 'SL10'],
+    trigger: 'validated-execution-trace-with-started-work',
+    auto: 'first-new-guided-model-result',
+  },
+} as const;
+
+/** Read-only presentation contracts; never emits commands, answers, awards or learning events. */
+export const milestoneDefinitions = {
+  'policy-denial': {
+    version: '1.0.0',
+    objectives: ['G03', 'CB03'],
+    sources: ['S38'],
+    trigger: 'replayed-denial-in-guided-scope',
+    auto: 'first-new-receipt-policy-inspection',
+  },
+  'vm-dependencies': {
+    version: '1.0.0',
+    objectives: ['C02', 'ST01', 'N01'],
+    sources: ['S321-VM', 'S321-DISK', 'S321-NIC'],
+    trigger: 'replayed-vm-bundle-with-existing-dependencies',
+    auto: 'first-new-bundle-explicit-vm-inspection',
+  },
+} as const;
+export type MilestoneId = keyof typeof milestoneDefinitions;
+export interface GuidedMilestoneContext {
+  scope: string;
+  attempt: number;
+  boundary: string | null;
+  kind: 'vm' | 'paas';
+  groupId?: string;
+  inspected: readonly string[];
+}
+export interface MilestoneObservation {
+  id: MilestoneId;
+  key: string;
+  receiptId: string;
+  scopeId: string;
+  requestedLocation: string | null;
+  allowedLocations: readonly string[];
+  beforeCount: number;
+  afterCount: number;
+  resources: { id: string; name: string; role: 'vm' | 'osDisk' | 'nic' | 'subnet' | 'vnet' }[];
+}
+export function milestoneObservations(
+  engine: Engine,
+  attempt: number,
+  context: GuidedMilestoneContext | null,
+  independent: boolean,
+): MilestoneObservation[] {
+  if (independent || !context || context.attempt !== attempt) return [];
+  const replay = replayEngine(engine);
+  if (!replay) return [];
+  const boundary =
+    context.boundary === null
+      ? -1
+      : engine.ledger.findIndex((e) => e.request.commandId === context.boundary);
+  if (context.boundary !== null && boundary < 0) return [];
+  const entries = engine.ledger.slice(boundary + 1);
+  const key = (id: MilestoneId) =>
+    `${id}@${milestoneDefinitions[id].version}:${attempt}:${context.scope}`;
+  const result: MilestoneObservation[] = [];
+  if (context.kind === 'paas') {
+    const r = entries.findLast(
+      ({ receipt: r }) =>
+        r.code === 'policy-location-denied' &&
+        r.outcome === 'rejected' &&
+        r.targetType === types.plan &&
+        r.policy &&
+        context.groupId === r.scopeId &&
+        r.beforeRevision === r.afterRevision &&
+        r.addedIds.length === 0 &&
+        replay.world.groups.some((g) => g.id === r.scopeId),
+    )?.receipt;
+    if (r?.policy)
+      result.push({
+        id: 'policy-denial',
+        key: key('policy-denial'),
+        receiptId: r.commandId,
+        scopeId: r.scopeId,
+        requestedLocation: r.location,
+        allowedLocations: r.policy.allowedLocations,
+        beforeCount: r.beforeCount,
+        afterCount: r.afterCount,
+        resources: [],
+      });
+  }
+  if (context.kind === 'vm') {
+    const resources = infrastructure(replay.world);
+    const entry = entries.findLast(
+      ({ receipt: r }) =>
+        r.operation === 'CreateVmBundle' &&
+        r.outcome === 'accepted' &&
+        resources.some((x) => x.kind === 'vm' && r.addedIds.includes(x.id)),
+    );
+    const vm =
+      entry && resources.find((r) => r.kind === 'vm' && entry.receipt.addedIds.includes(r.id));
+    if (vm?.kind === 'vm' && entry) {
+      const disk = resources.find(
+        (r) => r.id === vm.osDiskId && r.kind === 'disk' && r.role === 'os',
+      );
+      const nic = resources.find((r) => r.id === vm.nicId && r.kind === 'nic');
+      const subnet =
+        nic?.kind === 'nic' && resources.find((r) => r.id === nic.subnetId && r.kind === 'subnet');
+      const vnet =
+        subnet &&
+        subnet.kind === 'subnet' &&
+        resources.find((r) => r.id === subnet.vnetId && r.kind === 'vnet');
+      if (disk && nic && subnet && vnet)
+        result.push({
+          id: 'vm-dependencies',
+          key: key('vm-dependencies'),
+          receiptId: entry.receipt.commandId,
+          scopeId: vm.groupId,
+          requestedLocation: vm.location,
+          allowedLocations: [],
+          beforeCount: entry.receipt.beforeCount,
+          afterCount: entry.receipt.afterCount,
+          resources: [
+            { id: vm.id, name: vm.name, role: 'vm' },
+            { id: disk.id, name: disk.name, role: 'osDisk' },
+            { id: nic.id, name: nic.name, role: 'nic' },
+            { id: subnet.id, name: subnet.name, role: 'subnet' },
+            { id: vnet.id, name: vnet.name, role: 'vnet' },
+          ],
+        });
+    }
+  }
+  return result;
+}
+export function milestoneAutoContext(
+  observation: MilestoneObservation,
+  context: GuidedMilestoneContext,
+  area: string,
+  resourceId: string,
+) {
+  return observation.id === 'policy-denial'
+    ? area === 'policy'
+    : area === 'resource' &&
+        observation.resources.some(
+          (r) => r.role === 'vm' && r.id === resourceId && context.inspected.includes(r.id),
+        );
+}

@@ -1,0 +1,3374 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>Microsoft.Network/firewallPolicies/ruleCollectionGroups - Bicep, ARM template &amp; Terraform AzAPI reference | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="Azure Microsoft.Network/firewallPolicies/ruleCollectionGroups syntax and properties to use in Azure Resource Manager templates for deploying the resource. API version latest" />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/azure/templates/microsoft.network/firewallpolicies/rulecollectiongroups" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="Microsoft.Network/firewallPolicies/ruleCollectionGroups - Bicep, ARM template &amp; Terraform AzAPI reference" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/azure/templates/microsoft.network/firewallpolicies/rulecollectiongroups" />
+			<meta property="og:description" content="Azure Microsoft.Network/firewallPolicies/ruleCollectionGroups syntax and properties to use in Azure Resource Manager templates for deploying the resource. API version latest" />
+			<meta name="platform_id" content="1dadc193-77b6-34c8-ff82-d70e105ccf47" /> <meta name="scope" content="Azure,Deployment resources" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="azure" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="feedback_system" content="Standard" />
+	
+		<meta name="breadcrumb_path" content="/azure/templates/breadcrumb/toc.json" />
+	
+		<meta name="zone_pivot_group_filename" content="templates/zone-pivot-groups.json" />
+	
+		<meta name="ms.date" content="2024-12-09T00:00:00Z" />
+	
+		<meta name="author" content="kgremban" />
+	
+		<meta name="ms.author" content="kgremban" />
+	
+		<meta name="ms.manager" content="akashdubey" />
+	
+		<meta name="zone_pivot_groups" content="deployment-languages-reference" />
+	
+		<meta name="ms.service" content="azure-resource-manager" />
+	
+		<meta name="ms.topic" content="reference" />
+	
+		<meta name="document_id" content="94d5e8b8-3be2-229b-be41-ae645c51f266" />
+	
+		<meta name="document_version_independent_id" content="dde2867c-9c66-d11f-6eed-1c4b25e60b23" />
+	
+		<meta name="updated_at" content="2026-10-20T20:55:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/azure-resource-manager-schema-reference-pr/blob/live/arm-schema-ref/Microsoft.Network/firewallPolicies/ruleCollectionGroups.md" />
+	
+		<meta name="gitcommit" content="https://github.com/MicrosoftDocs/azure-resource-manager-schema-reference-pr/blob/34186641da814105fd2729b572f9fe866f2cc961/arm-schema-ref/Microsoft.Network/firewallPolicies/ruleCollectionGroups.md" />
+	
+		<meta name="git_commit_id" content="34186641da814105fd2729b572f9fe866f2cc961" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="MSDN.arm-schema-ref" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="toc_rel" content="../../toc.json" />
+	
+		<meta name="feedback_product_url" content="" />
+	
+		<meta name="feedback_help_link_type" content="" />
+	
+		<meta name="feedback_help_link_url" content="" />
+	
+		<meta name="word_count" content="3267" />
+	
+		<meta name="asset_id" content="microsoft.network/firewallpolicies/rulecollectiongroups" />
+	
+		<meta name="moniker_range_name" content="" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="arm-schema-ref/Microsoft.Network/firewallPolicies/ruleCollectionGroups.md" />
+	
+		<meta name="previous_tlsh_hash" content="4BF5A292222BC27CFA32545E11BE690052ECD1C694E0EFA632380DC8B1C66C72405CB93E250533C1B36146EB25C1EEDA13E1953DF25DA33345648EF6C36DA9F29F66ABB19B" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/azure-resource-manager-schema-reference-pr/blob/live/arm-schema-ref/Microsoft.Network/firewallPolicies/ruleCollectionGroups.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/azure/templates/microsoft.network/firewallpolicies/rulecollectiongroups?accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/85ee13c4-5d0b-41b0-895d-b7e834668123" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/20ed8455-bc18-4537-87a4-83784e7b2a39" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/7e79a0d4-3b49-4899-aac2-fbdd26ca15a8" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/9a7f703b-30bb-4d62-9eb4-97213f571849" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03595.8353-c1321031/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "azure",
+    "context": {},
+    "standardFeedback": true,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "",
+    "feedbackHelpLinkUrl": "",
+    "feedbackSystem": "Standard",
+    "feedbackGitHubRepo": "",
+    "feedbackProductUrl": "",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": false,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": false
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03595.8353-c1321031/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div> 
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					aria-expanded="false"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			hidden
+			href=""
+			data-original_content_git_url="https://github.com/MicrosoftDocs/azure-resource-manager-schema-reference-pr/blob/live/arm-schema-ref/Microsoft.Network/firewallPolicies/ruleCollectionGroups.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/arm-schema-ref/Microsoft.Network/firewallPolicies/ruleCollectionGroups.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="microsoftnetwork-firewallpoliciesrulecollectiongroups">Microsoft.Network firewallPolicies/ruleCollectionGroups</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	 <div class="content"><div class="op_single_selector" title1="API Versions:">
+<ul>
+<li><a href="rulecollectiongroups" data-linktype="relative-path">Latest</a></li>
+<li><a href="../2026-03-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2026-03-01</a></li>
+<li><a href="../2026-01-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2026-01-01</a></li>
+<li><a href="../2025-09-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2025-09-01</a></li>
+<li><a href="../2025-07-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2025-07-01</a></li>
+<li><a href="../2025-05-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2025-05-01</a></li>
+<li><a href="../2025-03-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2025-03-01</a></li>
+<li><a href="../2025-01-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2025-01-01</a></li>
+<li><a href="../2024-10-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2024-10-01</a></li>
+<li><a href="../2024-07-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2024-07-01</a></li>
+<li><a href="../2024-05-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2024-05-01</a></li>
+<li><a href="../2024-03-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2024-03-01</a></li>
+<li><a href="../2024-01-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2024-01-01</a></li>
+<li><a href="../2023-11-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2023-11-01</a></li>
+<li><a href="../2023-09-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2023-09-01</a></li>
+<li><a href="../2023-06-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2023-06-01</a></li>
+<li><a href="../2023-05-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2023-05-01</a></li>
+<li><a href="../2023-04-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2023-04-01</a></li>
+<li><a href="../2023-02-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2023-02-01</a></li>
+<li><a href="../2022-11-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2022-11-01</a></li>
+<li><a href="../2022-09-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2022-09-01</a></li>
+<li><a href="../2022-07-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2022-07-01</a></li>
+<li><a href="../2022-05-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2022-05-01</a></li>
+<li><a href="../2022-01-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2022-01-01</a></li>
+<li><a href="../2021-08-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2021-08-01</a></li>
+<li><a href="../2021-05-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2021-05-01</a></li>
+<li><a href="../2021-03-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2021-03-01</a></li>
+<li><a href="../2021-02-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2021-02-01</a></li>
+<li><a href="../2020-11-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2020-11-01</a></li>
+<li><a href="../2020-08-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2020-08-01</a></li>
+<li><a href="../2020-07-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2020-07-01</a></li>
+<li><a href="../2020-06-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2020-06-01</a></li>
+<li><a href="../2020-05-01/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">2020-05-01</a></li>
+</ul>
+</div>
+<div class="zone has-pivot" data-pivot="deployment-language-bicep">
+<h2 id="bicep-resource-definition">Bicep resource definition</h2>
+<p>The firewallPolicies/ruleCollectionGroups resource type can be deployed with operations that target:</p>
+<ul>
+<li><strong>Resource groups</strong> - See <a href="/en-us/azure/azure-resource-manager/bicep/deploy-to-resource-group" data-linktype="absolute-path">resource group deployment commands</a></li>
+</ul>
+<p>For a list of changed properties in each API version, see <a href="../change-log/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">change log</a>.</p>
+<h2 id="usage-examples">Usage Examples</h2>
+<h3 id="bicep-samples">Bicep Samples</h3>
+<p>A basic example of deploying Firewall Policy Rule Collection Group.</p>
+<pre><code class="lang-bicep">param resourceName string = 'acctest0001'
+param location string = 'westeurope'
+
+resource firewallPolicy 'Microsoft.Network/firewallPolicies@2022-07-01' = {
+  name: resourceName
+  location: location
+  properties: {
+    threatIntelMode: 'Alert'
+  }
+}
+
+resource ruleCollectionGroup 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2022-07-01' = {
+  name: resourceName
+  parent: firewallPolicy
+  properties: {
+    priority: 500
+    ruleCollections: []
+  }
+}
+</code></pre>
+<h3 id="azure-verified-modules">Azure Verified Modules</h3>
+<p>The following <a href="https://aka.ms/avm" data-linktype="external">Azure Verified Modules</a> can be used to deploy this resource type.</p>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/network/firewall-policy/rule-collection-group" data-linktype="external">Firewall Policy - Rule Collection Group</a></td>
+<td>AVM Child Module for Firewall Policy - Rule Collection Group</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="azure-quickstart-samples">Azure Quickstart Samples</h3>
+<p>The following <a href="https://aka.ms/azqst" data-linktype="external">Azure Quickstart templates</a> contain Bicep samples for deploying this resource type.</p>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Bicep File</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups/main.bicep" data-linktype="external">Create a Firewall and FirewallPolicy with Rules and Ipgroups</a></td>
+<td>This template deploys an Azure Firewall with Firewall Policy (including multiple application and network rules) referencing IP Groups in application and network rules.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/nat-gateway-hub-spoke-firewall/main.bicep" data-linktype="external">Hub-Spoke Network with NAT Gateway and Azure Firewall</a></td>
+<td>Deploy a hub-spoke network topology with NAT gateway, Azure Firewall, and virtual machine</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/fwm-docs-qs/main.bicep" data-linktype="external">Secured virtual hubs</a></td>
+<td>This template creates a secured virtual hub using Azure Firewall to secure your cloud network traffic destined to the Internet.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azurefirewall-premium/main.bicep" data-linktype="external">Testing environment for Azure Firewall Premium</a></td>
+<td>This template creates an Azure Firewall Premium and Firewall Policy with premium features such as Intrusion Inspection Detection (IDPS), TLS inspection and Web Category filtering</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azure-firewall-dns-proxy/main.bicep" data-linktype="external">Use Azure Firewall as a DNS Proxy in a Hub &amp; Spoke topology</a></td>
+<td>This sample show how to deploy a hub-spoke topology in Azure using the Azure Firewall. The hub virtual network acts as a central point of connectivity to many spoke virtual networks that are connected to hub virtual network via virtual network peering.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="resource-format">Resource format</h2>
+<p>To create a Microsoft.Network/firewallPolicies/ruleCollectionGroups resource, add the following Bicep to your template.</p>
+<pre><code class="lang-bicep">resource symbolicname 'Microsoft.Network/firewallPolicies/ruleCollectionGroups@2026-03-01' = {
+  parent: resourceSymbolicName
+  name: 'string'
+  properties: {
+    priority: int
+    ruleCollections: [
+      {
+        name: 'string'
+        priority: int
+        ruleCollectionType: 'string'
+        // For remaining properties, see FirewallPolicyRuleCollection objects
+      }
+    ]
+  }
+}
+</code></pre>
+<h3 id="firewallpolicyrulecollection-objects">FirewallPolicyRuleCollection objects</h3>
+<p>Set the <strong>ruleCollectionType</strong> property to specify the type of object.</p>
+<p>For <strong>FirewallPolicyFilterRuleCollection</strong>, use:</p>
+<pre><code class="lang-bicep">{
+  action: {
+    type: 'string'
+  }
+  ruleCollectionType: 'FirewallPolicyFilterRuleCollection'
+  rules: [
+    {
+      description: 'string'
+      name: 'string'
+      ruleType: 'string'
+      // For remaining properties, see FirewallPolicyRule objects
+    }
+  ]
+}
+</code></pre>
+<p>For <strong>FirewallPolicyNatRuleCollection</strong>, use:</p>
+<pre><code class="lang-bicep">{
+  action: {
+    type: 'string'
+  }
+  ruleCollectionType: 'FirewallPolicyNatRuleCollection'
+  rules: [
+    {
+      description: 'string'
+      name: 'string'
+      ruleType: 'string'
+      // For remaining properties, see FirewallPolicyRule objects
+    }
+  ]
+}
+</code></pre>
+<h3 id="firewallpolicyrule-objects">FirewallPolicyRule objects</h3>
+<p>Set the <strong>ruleType</strong> property to specify the type of object.</p>
+<p>For <strong>ApplicationRule</strong>, use:</p>
+<pre><code class="lang-bicep">{
+  destinationAddresses: [
+    'string'
+  ]
+  fqdnTags: [
+    'string'
+  ]
+  httpHeadersToInsert: [
+    {
+      headerName: 'string'
+      headerValue: 'string'
+    }
+  ]
+  protocols: [
+    {
+      port: int
+      protocolType: 'string'
+    }
+  ]
+  ruleType: 'ApplicationRule'
+  sourceAddresses: [
+    'string'
+  ]
+  sourceIpGroups: [
+    'string'
+  ]
+  sourceKubeSelectorGroups: [
+    'string'
+  ]
+  targetFqdns: [
+    'string'
+  ]
+  targetUrls: [
+    'string'
+  ]
+  terminateTLS: bool
+  webCategories: [
+    'string'
+  ]
+}
+</code></pre>
+<p>For <strong>NatRule</strong>, use:</p>
+<pre><code class="lang-bicep">{
+  destinationAddresses: [
+    'string'
+  ]
+  destinationPorts: [
+    'string'
+  ]
+  ipProtocols: [
+    'string'
+  ]
+  ruleType: 'NatRule'
+  sourceAddresses: [
+    'string'
+  ]
+  sourceIpGroups: [
+    'string'
+  ]
+  translatedAddress: 'string'
+  translatedFqdn: 'string'
+  translatedPort: 'string'
+}
+</code></pre>
+<p>For <strong>NetworkRule</strong>, use:</p>
+<pre><code class="lang-bicep">{
+  destinationAddresses: [
+    'string'
+  ]
+  destinationFqdns: [
+    'string'
+  ]
+  destinationGeoLocations: [
+    'string'
+  ]
+  destinationIpGroups: [
+    'string'
+  ]
+  destinationPorts: [
+    'string'
+  ]
+  ipProtocols: [
+    'string'
+  ]
+  ruleType: 'NetworkRule'
+  sourceAddresses: [
+    'string'
+  ]
+  sourceGeoLocations: [
+    'string'
+  ]
+  sourceIpGroups: [
+    'string'
+  ]
+  sourceKubeSelectorGroups: [
+    'string'
+  ]
+}
+</code></pre>
+<h2 id="property-values">Property Values</h2>
+<h3 id="microsoftnetworkfirewallpoliciesrulecollectiongroups">Microsoft.Network/firewallPolicies/ruleCollectionGroups</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>The resource name</td>
+<td>string (required)</td>
+</tr>
+<tr>
+<td>parent</td>
+<td>In Bicep, you can specify the parent resource for a child resource. You only need to add this property when the child resource is declared outside of the parent resource.<br><br>For more information, see <a href="/en-us/azure/azure-resource-manager/bicep/child-resource-name-type#outside-parent-resource" data-linktype="absolute-path">Child resource outside parent resource</a>.</td>
+<td>Symbolic name for resource of type: <a href="../firewallpolicies" data-linktype="relative-path">firewallPolicies</a></td>
+</tr>
+<tr>
+<td>properties</td>
+<td>The properties of the firewall policy rule collection group.</td>
+<td><a href="#firewallpolicyrulecollectiongroupproperties" data-linktype="self-bookmark">FirewallPolicyRuleCollectionGroupProperties</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="applicationrule">ApplicationRule</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>destinationAddresses</td>
+<td>List of destination IP addresses or Service Tags.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>fqdnTags</td>
+<td>List of FQDN Tags for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>httpHeadersToInsert</td>
+<td>List of HTTP/S headers to insert.</td>
+<td><a href="#firewallpolicyhttpheadertoinsert" data-linktype="self-bookmark">FirewallPolicyHttpHeaderToInsert</a>[]</td>
+</tr>
+<tr>
+<td>protocols</td>
+<td>Array of Application Protocols.</td>
+<td><a href="#firewallpolicyruleapplicationprotocol" data-linktype="self-bookmark">FirewallPolicyRuleApplicationProtocol</a>[]</td>
+</tr>
+<tr>
+<td>ruleType</td>
+<td>Rule Type.</td>
+<td>'ApplicationRule' (required)</td>
+</tr>
+<tr>
+<td>sourceAddresses</td>
+<td>List of source IP addresses for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceIpGroups</td>
+<td>List of source IpGroups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceKubeSelectorGroups</td>
+<td>List of source Kubernetes Selector Groups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>targetFqdns</td>
+<td>List of FQDNs for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>targetUrls</td>
+<td>List of Urls for this rule condition.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>terminateTLS</td>
+<td>Terminate TLS connections for this rule.</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>webCategories</td>
+<td>List of destination azure web categories.</td>
+<td>string[]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyfilterrulecollection">FirewallPolicyFilterRuleCollection</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>The action type of a Filter rule collection.</td>
+<td><a href="#firewallpolicyfilterrulecollectionaction" data-linktype="self-bookmark">FirewallPolicyFilterRuleCollectionAction</a></td>
+</tr>
+<tr>
+<td>ruleCollectionType</td>
+<td>The type of the rule collection.</td>
+<td>'FirewallPolicyFilterRuleCollection' (required)</td>
+</tr>
+<tr>
+<td>rules</td>
+<td>List of rules included in a rule collection.</td>
+<td><a href="#firewallpolicyrule" data-linktype="self-bookmark">FirewallPolicyRule</a>[]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyfilterrulecollectionaction">FirewallPolicyFilterRuleCollectionAction</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>The type of action.</td>
+<td>'Allow'<br>'Deny'</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyhttpheadertoinsert">FirewallPolicyHttpHeaderToInsert</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>headerName</td>
+<td>Contains the name of the header</td>
+<td>string</td>
+</tr>
+<tr>
+<td>headerValue</td>
+<td>Contains the value of the header</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicynatrulecollection">FirewallPolicyNatRuleCollection</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>The action type of a Nat rule collection.</td>
+<td><a href="#firewallpolicynatrulecollectionaction" data-linktype="self-bookmark">FirewallPolicyNatRuleCollectionAction</a></td>
+</tr>
+<tr>
+<td>ruleCollectionType</td>
+<td>The type of the rule collection.</td>
+<td>'FirewallPolicyNatRuleCollection' (required)</td>
+</tr>
+<tr>
+<td>rules</td>
+<td>List of rules included in a rule collection.</td>
+<td><a href="#firewallpolicyrule" data-linktype="self-bookmark">FirewallPolicyRule</a>[]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicynatrulecollectionaction">FirewallPolicyNatRuleCollectionAction</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>The type of action.</td>
+<td>'DNAT'</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyrule">FirewallPolicyRule</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Description of the rule.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Name of the rule.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>ruleType</td>
+<td>Set to 'ApplicationRule' for type <a href="#applicationrule" data-linktype="self-bookmark">ApplicationRule</a>. Set to 'NatRule' for type <a href="#natrule" data-linktype="self-bookmark">NatRule</a>. Set to 'NetworkRule' for type <a href="#networkrule" data-linktype="self-bookmark">NetworkRule</a>.</td>
+<td>'ApplicationRule'<br>'NatRule'<br>'NetworkRule' (required)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyruleapplicationprotocol">FirewallPolicyRuleApplicationProtocol</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>port</td>
+<td>Port number for the protocol, cannot be greater than 64000.</td>
+<td>int <br><br>Constraints:<br>Min value = 0<br>Max value = 64000</td>
+</tr>
+<tr>
+<td>protocolType</td>
+<td>Protocol type.</td>
+<td>'Http'<br>'Https'</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyrulecollection">FirewallPolicyRuleCollection</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>The name of the rule collection.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>Priority of the Firewall Policy Rule Collection resource.</td>
+<td>int <br><br>Constraints:<br>Min value = 100<br>Max value = 65000</td>
+</tr>
+<tr>
+<td>ruleCollectionType</td>
+<td>Set to 'FirewallPolicyFilterRuleCollection' for type <a href="#firewallpolicyfilterrulecollection" data-linktype="self-bookmark">FirewallPolicyFilterRuleCollection</a>. Set to 'FirewallPolicyNatRuleCollection' for type <a href="#firewallpolicynatrulecollection" data-linktype="self-bookmark">FirewallPolicyNatRuleCollection</a>.</td>
+<td>'FirewallPolicyFilterRuleCollection'<br>'FirewallPolicyNatRuleCollection' (required)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyrulecollectiongroupproperties">FirewallPolicyRuleCollectionGroupProperties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>priority</td>
+<td>Priority of the Firewall Policy Rule Collection Group resource.</td>
+<td>int <br><br>Constraints:<br>Min value = 100<br>Max value = 65000</td>
+</tr>
+<tr>
+<td>ruleCollections</td>
+<td>Group of Firewall Policy rule collections.</td>
+<td><a href="#firewallpolicyrulecollection" data-linktype="self-bookmark">FirewallPolicyRuleCollection</a>[]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="natrule">NatRule</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>destinationAddresses</td>
+<td>List of destination IP addresses or Service Tags.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationPorts</td>
+<td>List of destination ports.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>ipProtocols</td>
+<td>Array of FirewallPolicyRuleNetworkProtocols.</td>
+<td>String array containing any of:<br>'Any'<br>'ICMP'<br>'TCP'<br>'UDP'</td>
+</tr>
+<tr>
+<td>ruleType</td>
+<td>Rule Type.</td>
+<td>'NatRule' (required)</td>
+</tr>
+<tr>
+<td>sourceAddresses</td>
+<td>List of source IP addresses for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceIpGroups</td>
+<td>List of source IpGroups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>translatedAddress</td>
+<td>The translated address for this NAT rule.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>translatedFqdn</td>
+<td>The translated FQDN for this NAT rule.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>translatedPort</td>
+<td>The translated port for this NAT rule.</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="networkrule">NetworkRule</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>destinationAddresses</td>
+<td>List of destination IP addresses or Service Tags.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationFqdns</td>
+<td>List of destination FQDNs.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationGeoLocations</td>
+<td>List of destination geographic location filters (ISO 3166-1 alpha-2 country codes, e.g. "US", "CA") for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationIpGroups</td>
+<td>List of destination IpGroups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationPorts</td>
+<td>List of destination ports.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>ipProtocols</td>
+<td>Array of FirewallPolicyRuleNetworkProtocols.</td>
+<td>String array containing any of:<br>'Any'<br>'ICMP'<br>'TCP'<br>'UDP'</td>
+</tr>
+<tr>
+<td>ruleType</td>
+<td>Rule Type.</td>
+<td>'NetworkRule' (required)</td>
+</tr>
+<tr>
+<td>sourceAddresses</td>
+<td>List of source IP addresses for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceGeoLocations</td>
+<td>List of source geographic location filters (ISO 3166-1 alpha-2 country codes, e.g. "US", "CA") for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceIpGroups</td>
+<td>List of source IpGroups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceKubeSelectorGroups</td>
+<td>List of source Kubernetes Selector Groups for this rule.</td>
+<td>string[]</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="zone has-pivot" data-pivot="deployment-language-arm-template">
+<h2 id="arm-template-resource-definition">ARM template resource definition</h2>
+<p>The firewallPolicies/ruleCollectionGroups resource type can be deployed with operations that target:</p>
+<ul>
+<li><strong>Resource groups</strong> - See <a href="/en-us/azure/azure-resource-manager/templates/deploy-to-resource-group" data-linktype="absolute-path">resource group deployment commands</a>
+For a list of changed properties in each API version, see <a href="../change-log/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">change log</a>.</li>
+</ul>
+<h2 id="usage-examples-1">Usage Examples</h2>
+<h3 id="azure-quickstart-templates">Azure Quickstart Templates</h3>
+<p>The following <a href="https://aka.ms/azqst" data-linktype="external">Azure Quickstart templates</a> deploy this resource type.</p>
+<div class="mx-tableFixed">
+<table>
+<thead>
+<tr>
+<th>Template</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups" data-linktype="external">Create a Firewall and FirewallPolicy with Rules and Ipgroups</a><br><br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups%2Fazuredeploy.json" data-linktype="external"><img src="../../media/deploy-to-azure.svg" alt="Deploy to Azure" data-linktype="relative-path"></a></td>
+<td>This template deploys an Azure Firewall with Firewall Policy (including multiple application and network rules) referencing IP Groups in application and network rules.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/nat-gateway-hub-spoke-firewall" data-linktype="external">Hub-Spoke Network with NAT Gateway and Azure Firewall</a><br><br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fnat-gateway-hub-spoke-firewall%2Fazuredeploy.json" data-linktype="external"><img src="../../media/deploy-to-azure.svg" alt="Deploy to Azure" data-linktype="relative-path"></a></td>
+<td>Deploy a hub-spoke network topology with NAT gateway, Azure Firewall, and virtual machine</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/fwm-docs-qs" data-linktype="external">Secured virtual hubs</a><br><br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ffwm-docs-qs%2Fazuredeploy.json" data-linktype="external"><img src="../../media/deploy-to-azure.svg" alt="Deploy to Azure" data-linktype="relative-path"></a></td>
+<td>This template creates a secured virtual hub using Azure Firewall to secure your cloud network traffic destined to the Internet.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azurefirewall-premium" data-linktype="external">Testing environment for Azure Firewall Premium</a><br><br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazurefirewall-premium%2Fazuredeploy.json" data-linktype="external"><img src="../../media/deploy-to-azure.svg" alt="Deploy to Azure" data-linktype="relative-path"></a></td>
+<td>This template creates an Azure Firewall Premium and Firewall Policy with premium features such as Intrusion Inspection Detection (IDPS), TLS inspection and Web Category filtering</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/azure-firewall-dns-proxy" data-linktype="external">Use Azure Firewall as a DNS Proxy in a Hub &amp; Spoke topology</a><br><br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Fazure-firewall-dns-proxy%2Fazuredeploy.json" data-linktype="external"><img src="../../media/deploy-to-azure.svg" alt="Deploy to Azure" data-linktype="relative-path"></a></td>
+<td>This sample show how to deploy a hub-spoke topology in Azure using the Azure Firewall. The hub virtual network acts as a central point of connectivity to many spoke virtual networks that are connected to hub virtual network via virtual network peering.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="resource-format-1">Resource format</h2>
+<p>To create a Microsoft.Network/firewallPolicies/ruleCollectionGroups resource, add the following JSON to your template.</p>
+<pre><code class="lang-json">{
+  "type": "Microsoft.Network/firewallPolicies/ruleCollectionGroups",
+  "apiVersion": "2026-03-01",
+  "name": "string",
+  "properties": {
+    "priority": "int",
+    "ruleCollections": [ {
+      "name": "string",
+      "priority": "int",
+      "ruleCollectionType": "string"
+      // For remaining properties, see FirewallPolicyRuleCollection objects
+    } ]
+  }
+}
+</code></pre>
+<h3 id="firewallpolicyrulecollection-objects-1">FirewallPolicyRuleCollection objects</h3>
+<p>Set the <strong>ruleCollectionType</strong> property to specify the type of object.</p>
+<p>For <strong>FirewallPolicyFilterRuleCollection</strong>, use:</p>
+<pre><code class="lang-json">{
+  "action": {
+    "type": "string"
+  },
+  "ruleCollectionType": "FirewallPolicyFilterRuleCollection",
+  "rules": [ {
+    "description": "string",
+    "name": "string",
+    "ruleType": "string"
+    // For remaining properties, see FirewallPolicyRule objects
+  } ]
+}
+</code></pre>
+<p>For <strong>FirewallPolicyNatRuleCollection</strong>, use:</p>
+<pre><code class="lang-json">{
+  "action": {
+    "type": "string"
+  },
+  "ruleCollectionType": "FirewallPolicyNatRuleCollection",
+  "rules": [ {
+    "description": "string",
+    "name": "string",
+    "ruleType": "string"
+    // For remaining properties, see FirewallPolicyRule objects
+  } ]
+}
+</code></pre>
+<h3 id="firewallpolicyrule-objects-1">FirewallPolicyRule objects</h3>
+<p>Set the <strong>ruleType</strong> property to specify the type of object.</p>
+<p>For <strong>ApplicationRule</strong>, use:</p>
+<pre><code class="lang-json">{
+  "destinationAddresses": [ "string" ],
+  "fqdnTags": [ "string" ],
+  "httpHeadersToInsert": [
+    {
+      "headerName": "string",
+      "headerValue": "string"
+    }
+  ],
+  "protocols": [
+    {
+      "port": "int",
+      "protocolType": "string"
+    }
+  ],
+  "ruleType": "ApplicationRule",
+  "sourceAddresses": [ "string" ],
+  "sourceIpGroups": [ "string" ],
+  "sourceKubeSelectorGroups": [ "string" ],
+  "targetFqdns": [ "string" ],
+  "targetUrls": [ "string" ],
+  "terminateTLS": "bool",
+  "webCategories": [ "string" ]
+}
+</code></pre>
+<p>For <strong>NatRule</strong>, use:</p>
+<pre><code class="lang-json">{
+  "destinationAddresses": [ "string" ],
+  "destinationPorts": [ "string" ],
+  "ipProtocols": [ "string" ],
+  "ruleType": "NatRule",
+  "sourceAddresses": [ "string" ],
+  "sourceIpGroups": [ "string" ],
+  "translatedAddress": "string",
+  "translatedFqdn": "string",
+  "translatedPort": "string"
+}
+</code></pre>
+<p>For <strong>NetworkRule</strong>, use:</p>
+<pre><code class="lang-json">{
+  "destinationAddresses": [ "string" ],
+  "destinationFqdns": [ "string" ],
+  "destinationGeoLocations": [ "string" ],
+  "destinationIpGroups": [ "string" ],
+  "destinationPorts": [ "string" ],
+  "ipProtocols": [ "string" ],
+  "ruleType": "NetworkRule",
+  "sourceAddresses": [ "string" ],
+  "sourceGeoLocations": [ "string" ],
+  "sourceIpGroups": [ "string" ],
+  "sourceKubeSelectorGroups": [ "string" ]
+}
+</code></pre>
+<h2 id="property-values-1">Property Values</h2>
+<h3 id="microsoftnetworkfirewallpoliciesrulecollectiongroups-1">Microsoft.Network/firewallPolicies/ruleCollectionGroups</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>apiVersion</td>
+<td>The api version</td>
+<td>'2026-03-01'</td>
+</tr>
+<tr>
+<td>name</td>
+<td>The resource name</td>
+<td>string (required)</td>
+</tr>
+<tr>
+<td>properties</td>
+<td>The properties of the firewall policy rule collection group.</td>
+<td><a href="#firewallpolicyrulecollectiongroupproperties-1" data-linktype="self-bookmark">FirewallPolicyRuleCollectionGroupProperties</a></td>
+</tr>
+<tr>
+<td>type</td>
+<td>The resource type</td>
+<td>'Microsoft.Network/firewallPolicies/ruleCollectionGroups'</td>
+</tr>
+</tbody>
+</table>
+<h3 id="applicationrule-1">ApplicationRule</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>destinationAddresses</td>
+<td>List of destination IP addresses or Service Tags.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>fqdnTags</td>
+<td>List of FQDN Tags for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>httpHeadersToInsert</td>
+<td>List of HTTP/S headers to insert.</td>
+<td><a href="#firewallpolicyhttpheadertoinsert-1" data-linktype="self-bookmark">FirewallPolicyHttpHeaderToInsert</a>[]</td>
+</tr>
+<tr>
+<td>protocols</td>
+<td>Array of Application Protocols.</td>
+<td><a href="#firewallpolicyruleapplicationprotocol-1" data-linktype="self-bookmark">FirewallPolicyRuleApplicationProtocol</a>[]</td>
+</tr>
+<tr>
+<td>ruleType</td>
+<td>Rule Type.</td>
+<td>'ApplicationRule' (required)</td>
+</tr>
+<tr>
+<td>sourceAddresses</td>
+<td>List of source IP addresses for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceIpGroups</td>
+<td>List of source IpGroups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceKubeSelectorGroups</td>
+<td>List of source Kubernetes Selector Groups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>targetFqdns</td>
+<td>List of FQDNs for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>targetUrls</td>
+<td>List of Urls for this rule condition.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>terminateTLS</td>
+<td>Terminate TLS connections for this rule.</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>webCategories</td>
+<td>List of destination azure web categories.</td>
+<td>string[]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyfilterrulecollection-1">FirewallPolicyFilterRuleCollection</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>The action type of a Filter rule collection.</td>
+<td><a href="#firewallpolicyfilterrulecollectionaction-1" data-linktype="self-bookmark">FirewallPolicyFilterRuleCollectionAction</a></td>
+</tr>
+<tr>
+<td>ruleCollectionType</td>
+<td>The type of the rule collection.</td>
+<td>'FirewallPolicyFilterRuleCollection' (required)</td>
+</tr>
+<tr>
+<td>rules</td>
+<td>List of rules included in a rule collection.</td>
+<td><a href="#firewallpolicyrule-1" data-linktype="self-bookmark">FirewallPolicyRule</a>[]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyfilterrulecollectionaction-1">FirewallPolicyFilterRuleCollectionAction</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>The type of action.</td>
+<td>'Allow'<br>'Deny'</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyhttpheadertoinsert-1">FirewallPolicyHttpHeaderToInsert</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>headerName</td>
+<td>Contains the name of the header</td>
+<td>string</td>
+</tr>
+<tr>
+<td>headerValue</td>
+<td>Contains the value of the header</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicynatrulecollection-1">FirewallPolicyNatRuleCollection</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>The action type of a Nat rule collection.</td>
+<td><a href="#firewallpolicynatrulecollectionaction-1" data-linktype="self-bookmark">FirewallPolicyNatRuleCollectionAction</a></td>
+</tr>
+<tr>
+<td>ruleCollectionType</td>
+<td>The type of the rule collection.</td>
+<td>'FirewallPolicyNatRuleCollection' (required)</td>
+</tr>
+<tr>
+<td>rules</td>
+<td>List of rules included in a rule collection.</td>
+<td><a href="#firewallpolicyrule-1" data-linktype="self-bookmark">FirewallPolicyRule</a>[]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicynatrulecollectionaction-1">FirewallPolicyNatRuleCollectionAction</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>The type of action.</td>
+<td>'DNAT'</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyrule-1">FirewallPolicyRule</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Description of the rule.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Name of the rule.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>ruleType</td>
+<td>Set to 'ApplicationRule' for type <a href="#applicationrule-1" data-linktype="self-bookmark">ApplicationRule</a>. Set to 'NatRule' for type <a href="#natrule-1" data-linktype="self-bookmark">NatRule</a>. Set to 'NetworkRule' for type <a href="#networkrule-1" data-linktype="self-bookmark">NetworkRule</a>.</td>
+<td>'ApplicationRule'<br>'NatRule'<br>'NetworkRule' (required)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyruleapplicationprotocol-1">FirewallPolicyRuleApplicationProtocol</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>port</td>
+<td>Port number for the protocol, cannot be greater than 64000.</td>
+<td>int <br><br>Constraints:<br>Min value = 0<br>Max value = 64000</td>
+</tr>
+<tr>
+<td>protocolType</td>
+<td>Protocol type.</td>
+<td>'Http'<br>'Https'</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyrulecollection-1">FirewallPolicyRuleCollection</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>The name of the rule collection.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>Priority of the Firewall Policy Rule Collection resource.</td>
+<td>int <br><br>Constraints:<br>Min value = 100<br>Max value = 65000</td>
+</tr>
+<tr>
+<td>ruleCollectionType</td>
+<td>Set to 'FirewallPolicyFilterRuleCollection' for type <a href="#firewallpolicyfilterrulecollection-1" data-linktype="self-bookmark">FirewallPolicyFilterRuleCollection</a>. Set to 'FirewallPolicyNatRuleCollection' for type <a href="#firewallpolicynatrulecollection-1" data-linktype="self-bookmark">FirewallPolicyNatRuleCollection</a>.</td>
+<td>'FirewallPolicyFilterRuleCollection'<br>'FirewallPolicyNatRuleCollection' (required)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyrulecollectiongroupproperties-1">FirewallPolicyRuleCollectionGroupProperties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>priority</td>
+<td>Priority of the Firewall Policy Rule Collection Group resource.</td>
+<td>int <br><br>Constraints:<br>Min value = 100<br>Max value = 65000</td>
+</tr>
+<tr>
+<td>ruleCollections</td>
+<td>Group of Firewall Policy rule collections.</td>
+<td><a href="#firewallpolicyrulecollection-1" data-linktype="self-bookmark">FirewallPolicyRuleCollection</a>[]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="natrule-1">NatRule</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>destinationAddresses</td>
+<td>List of destination IP addresses or Service Tags.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationPorts</td>
+<td>List of destination ports.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>ipProtocols</td>
+<td>Array of FirewallPolicyRuleNetworkProtocols.</td>
+<td>String array containing any of:<br>'Any'<br>'ICMP'<br>'TCP'<br>'UDP'</td>
+</tr>
+<tr>
+<td>ruleType</td>
+<td>Rule Type.</td>
+<td>'NatRule' (required)</td>
+</tr>
+<tr>
+<td>sourceAddresses</td>
+<td>List of source IP addresses for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceIpGroups</td>
+<td>List of source IpGroups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>translatedAddress</td>
+<td>The translated address for this NAT rule.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>translatedFqdn</td>
+<td>The translated FQDN for this NAT rule.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>translatedPort</td>
+<td>The translated port for this NAT rule.</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="networkrule-1">NetworkRule</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>destinationAddresses</td>
+<td>List of destination IP addresses or Service Tags.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationFqdns</td>
+<td>List of destination FQDNs.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationGeoLocations</td>
+<td>List of destination geographic location filters (ISO 3166-1 alpha-2 country codes, e.g. "US", "CA") for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationIpGroups</td>
+<td>List of destination IpGroups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationPorts</td>
+<td>List of destination ports.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>ipProtocols</td>
+<td>Array of FirewallPolicyRuleNetworkProtocols.</td>
+<td>String array containing any of:<br>'Any'<br>'ICMP'<br>'TCP'<br>'UDP'</td>
+</tr>
+<tr>
+<td>ruleType</td>
+<td>Rule Type.</td>
+<td>'NetworkRule' (required)</td>
+</tr>
+<tr>
+<td>sourceAddresses</td>
+<td>List of source IP addresses for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceGeoLocations</td>
+<td>List of source geographic location filters (ISO 3166-1 alpha-2 country codes, e.g. "US", "CA") for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceIpGroups</td>
+<td>List of source IpGroups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceKubeSelectorGroups</td>
+<td>List of source Kubernetes Selector Groups for this rule.</td>
+<td>string[]</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="zone has-pivot" data-pivot="deployment-language-terraform">
+<h2 id="terraform-azapi-provider-resource-definition">Terraform (AzAPI provider) resource definition</h2>
+<p>The firewallPolicies/ruleCollectionGroups resource type can be deployed with operations that target:</p>
+<ul>
+<li><strong>Resource groups</strong>
+For a list of changed properties in each API version, see <a href="../change-log/firewallpolicies/rulecollectiongroups" data-linktype="relative-path">change log</a>.</li>
+</ul>
+<h2 id="usage-examples-2">Usage Examples</h2>
+<h3 id="terraform-samples">Terraform Samples</h3>
+<p>A basic example of deploying Firewall Policy Rule Collection Group.</p>
+<pre><code class="lang-terraform">terraform {
+  required_providers {
+    azapi = {
+      source = "Azure/azapi"
+    }
+  }
+}
+
+provider "azapi" {
+  skip_provider_registration = false
+}
+
+variable "resource_name" {
+  type    = string
+  default = "acctest0001"
+}
+
+variable "location" {
+  type    = string
+  default = "westeurope"
+}
+
+resource "azapi_resource" "resourceGroup" {
+  type     = "Microsoft.Resources/resourceGroups@2020-06-01"
+  name     = var.resource_name
+  location = var.location
+}
+
+resource "azapi_resource" "firewallPolicy" {
+  type      = "Microsoft.Network/firewallPolicies@2022-07-01"
+  parent_id = azapi_resource.resourceGroup.id
+  name      = var.resource_name
+  location  = var.location
+  body = {
+    properties = {
+      threatIntelMode = "Alert"
+    }
+  }
+  schema_validation_enabled = false
+  response_export_values    = ["*"]
+}
+
+resource "azapi_resource" "ruleCollectionGroup" {
+  type      = "Microsoft.Network/firewallPolicies/ruleCollectionGroups@2022-07-01"
+  parent_id = azapi_resource.firewallPolicy.id
+  name      = var.resource_name
+  body = {
+    properties = {
+      priority        = 500
+      ruleCollections = []
+    }
+  }
+  schema_validation_enabled = false
+  response_export_values    = ["*"]
+}
+</code></pre>
+<h2 id="resource-format-2">Resource format</h2>
+<p>To create a Microsoft.Network/firewallPolicies/ruleCollectionGroups resource, add the following Terraform to your template.</p>
+<pre><code class="lang-terraform">resource "azapi_resource" "symbolicname" {
+  type = "Microsoft.Network/firewallPolicies/ruleCollectionGroups@2026-03-01"
+  name = "string"
+  parent_id = "string"
+  body = {
+    properties = {
+      priority = int
+      ruleCollections = [
+        {
+          name = "string"
+          priority = int
+          ruleCollectionType = "string"
+          // For remaining properties, see FirewallPolicyRuleCollection objects
+        }
+      ]
+    }
+  }
+}
+</code></pre>
+<h3 id="firewallpolicyrulecollection-objects-2">FirewallPolicyRuleCollection objects</h3>
+<p>Set the <strong>ruleCollectionType</strong> property to specify the type of object.</p>
+<p>For <strong>FirewallPolicyFilterRuleCollection</strong>, use:</p>
+<pre><code class="lang-terraform">{
+  action = {
+    type = "string"
+  }
+  ruleCollectionType = "FirewallPolicyFilterRuleCollection"
+  rules = [
+    {
+      description = "string"
+      name = "string"
+      ruleType = "string"
+      // For remaining properties, see FirewallPolicyRule objects
+    }
+  ]
+}
+</code></pre>
+<p>For <strong>FirewallPolicyNatRuleCollection</strong>, use:</p>
+<pre><code class="lang-terraform">{
+  action = {
+    type = "string"
+  }
+  ruleCollectionType = "FirewallPolicyNatRuleCollection"
+  rules = [
+    {
+      description = "string"
+      name = "string"
+      ruleType = "string"
+      // For remaining properties, see FirewallPolicyRule objects
+    }
+  ]
+}
+</code></pre>
+<h3 id="firewallpolicyrule-objects-2">FirewallPolicyRule objects</h3>
+<p>Set the <strong>ruleType</strong> property to specify the type of object.</p>
+<p>For <strong>ApplicationRule</strong>, use:</p>
+<pre><code class="lang-terraform">{
+  destinationAddresses = [
+    "string"
+  ]
+  fqdnTags = [
+    "string"
+  ]
+  httpHeadersToInsert = [
+    {
+      headerName = "string"
+      headerValue = "string"
+    }
+  ]
+  protocols = [
+    {
+      port = int
+      protocolType = "string"
+    }
+  ]
+  ruleType = "ApplicationRule"
+  sourceAddresses = [
+    "string"
+  ]
+  sourceIpGroups = [
+    "string"
+  ]
+  sourceKubeSelectorGroups = [
+    "string"
+  ]
+  targetFqdns = [
+    "string"
+  ]
+  targetUrls = [
+    "string"
+  ]
+  terminateTLS = bool
+  webCategories = [
+    "string"
+  ]
+}
+</code></pre>
+<p>For <strong>NatRule</strong>, use:</p>
+<pre><code class="lang-terraform">{
+  destinationAddresses = [
+    "string"
+  ]
+  destinationPorts = [
+    "string"
+  ]
+  ipProtocols = [
+    "string"
+  ]
+  ruleType = "NatRule"
+  sourceAddresses = [
+    "string"
+  ]
+  sourceIpGroups = [
+    "string"
+  ]
+  translatedAddress = "string"
+  translatedFqdn = "string"
+  translatedPort = "string"
+}
+</code></pre>
+<p>For <strong>NetworkRule</strong>, use:</p>
+<pre><code class="lang-terraform">{
+  destinationAddresses = [
+    "string"
+  ]
+  destinationFqdns = [
+    "string"
+  ]
+  destinationGeoLocations = [
+    "string"
+  ]
+  destinationIpGroups = [
+    "string"
+  ]
+  destinationPorts = [
+    "string"
+  ]
+  ipProtocols = [
+    "string"
+  ]
+  ruleType = "NetworkRule"
+  sourceAddresses = [
+    "string"
+  ]
+  sourceGeoLocations = [
+    "string"
+  ]
+  sourceIpGroups = [
+    "string"
+  ]
+  sourceKubeSelectorGroups = [
+    "string"
+  ]
+}
+</code></pre>
+<h2 id="property-values-2">Property Values</h2>
+<h3 id="microsoftnetworkfirewallpoliciesrulecollectiongroups-2">Microsoft.Network/firewallPolicies/ruleCollectionGroups</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>The resource name</td>
+<td>string (required)</td>
+</tr>
+<tr>
+<td>parent_id</td>
+<td>The ID of the resource that is the parent for this resource.</td>
+<td>ID for resource of type: <a href="../firewallpolicies" data-linktype="relative-path">firewallPolicies</a></td>
+</tr>
+<tr>
+<td>properties</td>
+<td>The properties of the firewall policy rule collection group.</td>
+<td><a href="#firewallpolicyrulecollectiongroupproperties-2" data-linktype="self-bookmark">FirewallPolicyRuleCollectionGroupProperties</a></td>
+</tr>
+<tr>
+<td>type</td>
+<td>The resource type</td>
+<td>"Microsoft.Network/firewallPolicies/ruleCollectionGroups@2026-03-01"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="applicationrule-2">ApplicationRule</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>destinationAddresses</td>
+<td>List of destination IP addresses or Service Tags.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>fqdnTags</td>
+<td>List of FQDN Tags for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>httpHeadersToInsert</td>
+<td>List of HTTP/S headers to insert.</td>
+<td><a href="#firewallpolicyhttpheadertoinsert-2" data-linktype="self-bookmark">FirewallPolicyHttpHeaderToInsert</a>[]</td>
+</tr>
+<tr>
+<td>protocols</td>
+<td>Array of Application Protocols.</td>
+<td><a href="#firewallpolicyruleapplicationprotocol-2" data-linktype="self-bookmark">FirewallPolicyRuleApplicationProtocol</a>[]</td>
+</tr>
+<tr>
+<td>ruleType</td>
+<td>Rule Type.</td>
+<td>'ApplicationRule' (required)</td>
+</tr>
+<tr>
+<td>sourceAddresses</td>
+<td>List of source IP addresses for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceIpGroups</td>
+<td>List of source IpGroups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceKubeSelectorGroups</td>
+<td>List of source Kubernetes Selector Groups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>targetFqdns</td>
+<td>List of FQDNs for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>targetUrls</td>
+<td>List of Urls for this rule condition.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>terminateTLS</td>
+<td>Terminate TLS connections for this rule.</td>
+<td>bool</td>
+</tr>
+<tr>
+<td>webCategories</td>
+<td>List of destination azure web categories.</td>
+<td>string[]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyfilterrulecollection-2">FirewallPolicyFilterRuleCollection</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>The action type of a Filter rule collection.</td>
+<td><a href="#firewallpolicyfilterrulecollectionaction-2" data-linktype="self-bookmark">FirewallPolicyFilterRuleCollectionAction</a></td>
+</tr>
+<tr>
+<td>ruleCollectionType</td>
+<td>The type of the rule collection.</td>
+<td>'FirewallPolicyFilterRuleCollection' (required)</td>
+</tr>
+<tr>
+<td>rules</td>
+<td>List of rules included in a rule collection.</td>
+<td><a href="#firewallpolicyrule-2" data-linktype="self-bookmark">FirewallPolicyRule</a>[]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyfilterrulecollectionaction-2">FirewallPolicyFilterRuleCollectionAction</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>The type of action.</td>
+<td>'Allow'<br>'Deny'</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyhttpheadertoinsert-2">FirewallPolicyHttpHeaderToInsert</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>headerName</td>
+<td>Contains the name of the header</td>
+<td>string</td>
+</tr>
+<tr>
+<td>headerValue</td>
+<td>Contains the value of the header</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicynatrulecollection-2">FirewallPolicyNatRuleCollection</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>action</td>
+<td>The action type of a Nat rule collection.</td>
+<td><a href="#firewallpolicynatrulecollectionaction-2" data-linktype="self-bookmark">FirewallPolicyNatRuleCollectionAction</a></td>
+</tr>
+<tr>
+<td>ruleCollectionType</td>
+<td>The type of the rule collection.</td>
+<td>'FirewallPolicyNatRuleCollection' (required)</td>
+</tr>
+<tr>
+<td>rules</td>
+<td>List of rules included in a rule collection.</td>
+<td><a href="#firewallpolicyrule-2" data-linktype="self-bookmark">FirewallPolicyRule</a>[]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicynatrulecollectionaction-2">FirewallPolicyNatRuleCollectionAction</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>type</td>
+<td>The type of action.</td>
+<td>'DNAT'</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyrule-2">FirewallPolicyRule</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>description</td>
+<td>Description of the rule.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>name</td>
+<td>Name of the rule.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>ruleType</td>
+<td>Set to 'ApplicationRule' for type <a href="#applicationrule-2" data-linktype="self-bookmark">ApplicationRule</a>. Set to 'NatRule' for type <a href="#natrule-2" data-linktype="self-bookmark">NatRule</a>. Set to 'NetworkRule' for type <a href="#networkrule-2" data-linktype="self-bookmark">NetworkRule</a>.</td>
+<td>'ApplicationRule'<br>'NatRule'<br>'NetworkRule' (required)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyruleapplicationprotocol-2">FirewallPolicyRuleApplicationProtocol</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>port</td>
+<td>Port number for the protocol, cannot be greater than 64000.</td>
+<td>int <br><br>Constraints:<br>Min value = 0<br>Max value = 64000</td>
+</tr>
+<tr>
+<td>protocolType</td>
+<td>Protocol type.</td>
+<td>'Http'<br>'Https'</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyrulecollection-2">FirewallPolicyRuleCollection</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>The name of the rule collection.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>priority</td>
+<td>Priority of the Firewall Policy Rule Collection resource.</td>
+<td>int <br><br>Constraints:<br>Min value = 100<br>Max value = 65000</td>
+</tr>
+<tr>
+<td>ruleCollectionType</td>
+<td>Set to 'FirewallPolicyFilterRuleCollection' for type <a href="#firewallpolicyfilterrulecollection-2" data-linktype="self-bookmark">FirewallPolicyFilterRuleCollection</a>. Set to 'FirewallPolicyNatRuleCollection' for type <a href="#firewallpolicynatrulecollection-2" data-linktype="self-bookmark">FirewallPolicyNatRuleCollection</a>.</td>
+<td>'FirewallPolicyFilterRuleCollection'<br>'FirewallPolicyNatRuleCollection' (required)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="firewallpolicyrulecollectiongroupproperties-2">FirewallPolicyRuleCollectionGroupProperties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>priority</td>
+<td>Priority of the Firewall Policy Rule Collection Group resource.</td>
+<td>int <br><br>Constraints:<br>Min value = 100<br>Max value = 65000</td>
+</tr>
+<tr>
+<td>ruleCollections</td>
+<td>Group of Firewall Policy rule collections.</td>
+<td><a href="#firewallpolicyrulecollection-2" data-linktype="self-bookmark">FirewallPolicyRuleCollection</a>[]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="natrule-2">NatRule</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>destinationAddresses</td>
+<td>List of destination IP addresses or Service Tags.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationPorts</td>
+<td>List of destination ports.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>ipProtocols</td>
+<td>Array of FirewallPolicyRuleNetworkProtocols.</td>
+<td>String array containing any of:<br>'Any'<br>'ICMP'<br>'TCP'<br>'UDP'</td>
+</tr>
+<tr>
+<td>ruleType</td>
+<td>Rule Type.</td>
+<td>'NatRule' (required)</td>
+</tr>
+<tr>
+<td>sourceAddresses</td>
+<td>List of source IP addresses for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceIpGroups</td>
+<td>List of source IpGroups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>translatedAddress</td>
+<td>The translated address for this NAT rule.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>translatedFqdn</td>
+<td>The translated FQDN for this NAT rule.</td>
+<td>string</td>
+</tr>
+<tr>
+<td>translatedPort</td>
+<td>The translated port for this NAT rule.</td>
+<td>string</td>
+</tr>
+</tbody>
+</table>
+<h3 id="networkrule-2">NetworkRule</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>destinationAddresses</td>
+<td>List of destination IP addresses or Service Tags.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationFqdns</td>
+<td>List of destination FQDNs.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationGeoLocations</td>
+<td>List of destination geographic location filters (ISO 3166-1 alpha-2 country codes, e.g. "US", "CA") for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationIpGroups</td>
+<td>List of destination IpGroups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>destinationPorts</td>
+<td>List of destination ports.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>ipProtocols</td>
+<td>Array of FirewallPolicyRuleNetworkProtocols.</td>
+<td>String array containing any of:<br>'Any'<br>'ICMP'<br>'TCP'<br>'UDP'</td>
+</tr>
+<tr>
+<td>ruleType</td>
+<td>Rule Type.</td>
+<td>'NetworkRule' (required)</td>
+</tr>
+<tr>
+<td>sourceAddresses</td>
+<td>List of source IP addresses for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceGeoLocations</td>
+<td>List of source geographic location filters (ISO 3166-1 alpha-2 country codes, e.g. "US", "CA") for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceIpGroups</td>
+<td>List of source IpGroups for this rule.</td>
+<td>string[]</td>
+</tr>
+<tr>
+<td>sourceKubeSelectorGroups</td>
+<td>List of source Kubernetes Selector Groups for this rule.</td>
+<td>string[]</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2026-10-20T20:55:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2026-10-20
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

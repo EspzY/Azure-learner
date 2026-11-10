@@ -1,0 +1,85 @@
+# PR57 — separat kildevalidering etter kald lås
+
+Utført 5. november 2026 etter uttrykkelig koordinatorautorisasjon. Kilden er kontrollert på HEAD `a3f1b575b2eb5b257fd455fec1a73b30a38706f4`, samme SHA som den kalde previewen. Dette notatet er et nytt tillegg; det erstatter eller endrer ingen originalrapport, solve-fil, skjermdump eller låst evidens.
+
+**Konklusjon:** Alle tre forhold kan rettes i presentasjonen uten å endre eksisterende modeller, numeriske outcomes/prediksjoner, lagringsformat, guidede fullføringsregler eller uavhengige rubrics. Peering-funnet er fortsatt P2 fordi den fremtredende årsaken kan beskrive feil problem. AVD-funnet presiseres til **P3 presentasjonsuklarhet**, ikke en teknisk evaluatorfeil. Den gamle tilgjengelighetsteksten er P3. Ingen av disse er P0/P1 eller blokkering av den avgrensede internpiloten alene.
+
+## Metodisk presisering
+
+Originalrapportens formulering om at scope ble «narrowed by the owner» refererte til koordinatorens beskjeder om å avslutte den risikobaserte passeringen under eierens mandat. Det var **ikke en ny direkte eierbeslutning**. Formuleringen presiseres her etter koordinatorens beskjed; originalen forblir byte-uendret. Faktisk utførte og låste tester påvirkes ikke.
+
+Den kalde låsen ble avsluttet `2026-11-05T14:37:56.133237+00:00`. Alle **527 opprinnelige manifestfiler** er kontrollert mot SHA256 uten avvik; se [original-lock-verification.json](post-lock-evidence/original-lock-verification.json). Etter-lås-filer er uttrykkelig utenfor den opprinnelige manifestlisten.
+
+Dette er AI-kilde-/mekanismevalidering, ikke menneskelig Azure-SME- eller læringseffektgodkjenning. Ingen ny kald bankgjennomgang, faktisk Azure-tilkobling eller ny læringshistorikk er produsert.
+
+## Relevante kontrakter og grense
+
+Lest relevante deler av [AGENTS.md](/workspace/Azure-learner/AGENTS.md:107), særlig P06 og P05; modell-/oppdragskontraktene i [NETWORKING_FOUNDATIONS.md](/workspace/Azure-learner/docs/NETWORKING_FOUNDATIONS.md) og [COMPUTE_HOSTING.md](/workspace/Azure-learner/docs/COMPUTE_HOSTING.md). Historiske verifikasjonsresultater i disse dokumentene er kontekst, ikke bevis for dagens retting.
+
+Kontraktene krever isolerte versjonerte modeller og bevaring av gamle svar, førsteinnleveringer, hjelp/retry, schemas, rubrics, World/receipts og XP. Standardpeering skal være tosidig, ikke-transitiv og ikke-overlappende. AVD er en deklarert konseptmodell; kontrollene skal ærlig vise manglende publisering, host-grunnlag og ugyldige kombinasjoner. Kildene bekrefter at dagens evaluatorer allerede følger disse relevante skillene.
+
+Anbefalingene nedenfor gjelder en eventuell senere smal presentasjonsretting. Denne valideringen har **ikke redigert repositoryet**. Bevar eksisterende `nb.ts`-prefix/objekter etter gjeldende bevaringskrav; gjenbruk presise eksisterende strenger eller legg eventuell ny norsk presentasjonstekst i det autoriserte append-området. Ingen modell-/rubric-versjonsøkning eller migrering er nødvendig for en ren tekstdiagnose.
+
+## 1. Peering: riktig avslag, feil fremtredende forklaring — P2
+
+Kaldt vitne: [123-networking-peering-overlap.txt](evidence/123-networking-peering-overlap.txt). Mål B, A/B har begge konfigurerte sider, B overlapper A, og A/C er allerede Connected. Tabellen viser riktig adresseavslag, mens figurtekst og status fortsatt sier at A↔B↔C ikke automatisk gir A↔C.
+
+**Hva evaluatoren faktisk sier:** [networking-model.ts](/workspace/Azure-learner/src/domain/curriculum/networking-model.ts:144) setter B til `10.84.0.0/17` ved overlap. Hver direkte lenke får `conflict` og status, med overlap foran connected/initiated/missing (linje 152–169). `direct` hentes fra den **valgte mål-lenken** og krever `connected`; deretter vurderes subnet-omfang, deklarert rute og tilgang (linje 171–184). Ingen transitiv grafslutning gjøres.
+
+Den separate, rene etter-lås-proben gir for det kalde moteksemplet:
+
+| Felt | Resultat |
+|---|---|
+| Valgt mål | B |
+| AB-status | `overlap` |
+| AC-status | `connected` |
+| `direct` / `knownPath` / `permitted` | false / false / false |
+| outcome | 0 |
+
+**Årsaken i presentasjonen:** [networking-visuals.tsx:200](/workspace/Azure-learner/src/features/learning/networking-visuals.tsx:200) og [samme fil:236](/workspace/Azure-learner/src/features/learning/networking-visuals.tsx:236) velger `peeringMissing` for alle `!r.direct`. [nb.ts:9715](/workspace/Azure-learner/src/content/nb.ts:9715) binder denne ene strengen til A–C-transitivitet. Evaluatoren har allerede det mer presise `links[].status`; tabellen bruker det korrekt på linje 219.
+
+**Smal retting:** Avled én ren presentasjonsdiagnose fra det lagrede inputets valgte mål og evaluert mål-lenke. Skill overlap, ensidig/Initiated og manglende direkte peering. Bruk A–B–C-moteksemplet bare når det faktisk er relevant for valgt C-mål og toleddet Connected-topologi. Ved Connected må resten fortsatt følge subnet-omfang, rute og tilgang; ingen tekst skal løfte «Connected» til applikasjonssvar. Bruk samme diagnose i figurtekst og status slik at de ikke divergerer.
+
+Dette krever ingen endring i `runPeering`, inputtyper, numerisk outcome, konfigurasjons-/run-events eller fullføringsrubric. Det er et presentasjonsproblem med middels pedagogisk betydning: feil årsak kan føre eleven til å reparere transitivitet når adressene faktisk er problemet. Den korrekte tabellen begrenser skaden. **P2 beholdes, ingen P1.**
+
+**Offisiell kontroll:** Microsoft beskriver adressekravet separat fra tosidig Connected og separat fra ikke-transitivitet. Dermed er adresseoverlapp den relevante forklaringen i dette vitnet; AC-transitivitet er et sant prinsipp brukt på feil situasjon. [Create, change, or delete virtual network peering — Requirements and constraints](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-peering#requirements-and-constraints), kontrollert 5. november 2026; siden oppgir sist oppdatert 29. juli 2025. Kontrollen gjelder standardpeeringen i vitnet, ikke en ny revisjon av alle kvalifikasjonene for subnet peering.
+
+## 2. AVD med null hosts: korrekt skille skjules av generiske labels — P3
+
+Kaldt vitne: [085-compute-avd-no-hosts.txt](evidence/085-compute-avd-no-hosts.txt). Med kompatibel pooled/RemoteApp, workspace-link og tilordnet bruker, men null session hosts, sier overskriften «Noe arbeid eller kapasitet gjenstår». Den detaljerte forklaringen sier allerede riktig at ingen deklarert session host gir kjøregrunnlag.
+
+**Hva evaluatoren faktisk sier:** [compute-model.ts:199](/workspace/Azure-learner/src/domain/curriculum/compute-model.ts:199) beregner `compatible`, deretter `published = compatible && linked && assigned`, og `backed = published && hosts > 0`. Outcome er 0 når publiseringsgrunnlaget mangler, 2 når det også er host-grunnlag, ellers 1. Ved null hosts blir resultatet derfor eksplisitt:
+
+```text
+compatible=true, published=true, backed=false, outcome=1
+```
+
+Den gir ikke kjørbar kapasitet ved null hosts. `published` er modellens pedagogiske navn for den deklarerte registrerings-/tilordningskjeden, ikke en påstand om at en faktisk ny RemoteApp-publisering er utført i Azure.
+
+**Årsaken i presentasjonen:** [compute-workbench.tsx:73](/workspace/Azure-learner/src/features/learning/compute-workbench.tsx:73) har bare egne prediction-labels for container; desktop deler generiske kapasitetslabels fra [nb.ts:8735](/workspace/Azure-learner/src/content/nb.ts:8735). De samme labels brukes i valglisten, fokusert resultatsammendrag på linje 257 og prediksjon/resultat på linje 287–288. Derimot velger [compute-visuals.tsx:590](/workspace/Azure-learner/src/features/learning/compute-visuals.tsx:590) allerede korrekt `invalid`/`missing`/`noHost`/`ready`. De eksisterende presise tekstene finnes i [nb.ts:8511](/workspace/Azure-learner/src/content/nb.ts:8511).
+
+**Smal retting:** Presenter desktop-spesifikke navn for de samme tre kategoriene: manglende gyldig publiseringsgrunnlag; publiseringsgrunnlag uten host-kjøregrunnlag; publiserings- og deklarert host-grunnlag. Gjør prediksjon, fokussammendrag og detaljstatus konsistente. Eksisterende `noHost`/`ready`-tekst kan gjenbrukes i resultatet. Behold alltid at dette ikke tester faktisk sesjon eller brukerrespons.
+
+Behold numerisk prediksjon/outcome 0/1/2, alle inputs, evaluator og lagrede historiske runs. Endre ikke null-host-utfallet fra 1 til 0 for å få den generiske teksten til å passe. [ComputeRun](/workspace/Azure-learner/src/domain/curriculum/compute.ts:83) lagrer input og numerisk prediksjon; valideringen på linje 295–299 krever samme form. Presenterens ordvalg trenger ingen lagringsendring.
+
+**Alvorlighet presisert:** Den kalde P2-vurderingen gjaldt den isolerte overskriftens tvetydighet. Kildekontrollen bekrefter riktig evaluator, riktig detaljtekst og ingen feil fullførings-/tilgangspåstand. Det mest presise etter-lås-nivået er derfor **P3 ordlyds-/konsistensgjeld**, fortsatt nyttig å rette, ingen P1/P2 evaluatorfeil. Originalrapportens P2 er bevart uendret som kald observasjon.
+
+**Offisiell kontroll:** Microsoft skiller host pools/session-host-VM-er fra application groups, workspace-assosiasjon og brukertilordning; RemoteApp er for pooled host pools. Dette støtter at publiseringsmetadata og faktisk kjøregrunnlag er ulike kontrollpunkter. [Azure Virtual Desktop terminology](https://learn.microsoft.com/en-us/azure/virtual-desktop/terminology), kontrollert 5. november 2026; siden oppgir sist oppdatert 20. juni 2025.
+
+Microsofts RemoteApp-veiledning krever dessuten session hosts, minst én påslått host og nødvendige app-/publiseringsforutsetninger. Null hosts gir dermed ikke en kjørbar RemoteApp. Det støtter modellens `backed=false`; det dokumenterer ikke at en helt ny virkelig publisering lykkes med null hosts. [Publish applications with RemoteApp — Prerequisites](https://learn.microsoft.com/en-us/azure/virtual-desktop/publish-applications-stream-remoteapp#prerequisites), kontrollert 5. november 2026; siden oppgir sist oppdatert 1. september 2026.
+
+## 3. Compute Summary: foreldet tilgjengelighetstekst — P3
+
+[nb.ts:8670](/workspace/Azure-learner/src/content/nb.ts:8670) har fortsatt `computeNb.available` med «Storage kommer senere». [Compute Summary:335](/workspace/Azure-learner/src/features/learning/compute.tsx:335) viser denne teksten direkte. Samme felt brukes også i introduksjonen; dette er orienteringskopi, ingen evaluator eller rubric.
+
+Katalogen inneholder allerede Storage A/B/C i [course-outline.ts:27](/workspace/Azure-learner/src/features/course/course-outline.ts:27), og anbefalt rekkefølge går fra connectivity til storage i [course-sequence.ts:11](/workspace/Azure-learner/src/features/course/course-sequence.ts:11). Den kalde Hub-observasjonen bekreftet faktisk synlige lenker. Tilgjengelighetsteksten er derfor foreldet; senere plass i anbefalt rekkefølge er ikke det samme som utilgjengelig innhold.
+
+En smal presentasjon kan vise en oppdatert tilgjengelighetssetning fra godkjent append-tekst i de relevante Compute-orienteringsflatene og la den historiske locale-delen stå urørt. Ingen nye navigasjonsvalg, modultellinger, progresjon eller lagring trengs. **P3 beholdes.**
+
+## Utført validering og videre kontrollgrense
+
+- Kilde-/kontraktlesing og offisiell Microsoft-mekanismekontroll som referert over.
+- En nøytral Node/TypeScript-probe utenfor repositoryet kjørte eksisterende, rene `runPeering`/`runDesktop`-funksjoner på ni avgrensede inndata: fem peering- og fire desktop-tilfeller. Ingen store, nettleserhistorikk eller tekniske kommandoer ble kjørt. [Probe og kildehash](post-lock-evidence/evaluator-probe.json); [skript](post-lock-evidence/evaluator-probe.cjs).
+- Proben skilte peering `missing`, `overlap`, `initiated`, Connected+ukjent rute og Connected+tillatt deklarert vei. AVD skilte to hosts, null hosts, manglende workspace-link og ugyldig personal/RemoteApp.
+- Offisielle URL-er, dokumentdatoer og korte utdrag er registrert i [official-source-checks.json](post-lock-evidence/official-source-checks.json). Verktøyet returnerte offentlig hovedtekst selv der Microsoft viste et generisk autorisasjonsbanner; ingen innlogging eller tilgangsomgåelse ble brukt.
+- Ingen repository-fil eller original kald fil er endret. Ingen full test-suite eller ny deploy påstås kjørt. Fremtidig retting trenger målrettede presenter-kontroller og faktisk UI-bevis for de berørte utfallene, mens modell-/store-/rubric-bytes bevares. Den separate ferske sluttreviewen etter implementering/stamp er fortsatt gjenstående.

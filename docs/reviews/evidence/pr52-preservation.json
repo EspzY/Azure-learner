@@ -1,0 +1,32 @@
+{
+  "base": "eefbcd3bc7f140b690829bad6542d800c57b7f74",
+  "authorizedPresentationChanges": {
+    "src/features/course/course-sidebar.tsx": {
+      "beforeSHA256": "3d45b684640e6c43b9d8e6fbd9c8c31d16c361d117a81c6836e68a9621e4c3e7",
+      "reason": "Owner-authorized chapter sidebar navigation and scoped SVG definition IDs; all original models/geometry/evidence remain."
+    },
+    "src/features/learning/foundations-visuals.tsx": {
+      "beforeSHA256": "c1ebc9c10097159b6a1bf7f0e97b3393404f4706ff4ec389b6075c3a6f8700b7",
+      "reason": "Owner-authorized chapter sidebar navigation and scoped SVG definition IDs; all original models/geometry/evidence remain."
+    },
+    "src/features/learning/responsibility-recap.tsx": {
+      "beforeSHA256": "958dd696e08b240f54830ef69e583b065d77c443c066752863620719f7831fd6",
+      "reason": "Owner-authorized removal of exactly Link import and premature Services Link. Hybrid preservation test pins original full-file hash then compares the complete normalized original body, so model/state/copy/control changes still fail."
+    }
+  },
+  "unchangedDomains": "All src/domain bytes and full src/content/nb.ts remain unchanged; exact checked by cloud-computing-chapters.test.ts. Original PR51 eight exceptions and old proof are not rewritten.",
+  "authorizedTestSetupChanges": {
+    "tests/e2e/serverless.spec.ts": {
+      "beforeSHA256": "dbb3d1728ee6df941ea461f09dd76c308b85c62764784baf1811c75c656f51e6",
+      "reason": "Original initial compact setup now waits settled focus and centers original visible intro paragraph before snapshot, matching exposure-based visits. Final exact protectedBytes equality, all original cases/assertions, first/help/retry/Journal/network and settings unchanged. Product observer unchanged."
+    }
+  },
+  "finalPreservedPaths": 354,
+  "finalLearningNavigation": {
+    "parent": "7ef55815c59ee04cdb6b153f322b64428878d50c",
+    "wholeFilePreservedPaths": 353,
+    "exception": "src/features/learning/responsibility-recap.tsx removes exactly Link import and cross-module Link; normalized complete original model/body equality is recorded in pr52-author-checks.json.finalNavigation.recap. Original354 declaration above is historical7ef scope.",
+    "allDomainAndFullLocale": "unchanged",
+    "historicalDataAndWorld": "unchanged"
+  }
+}

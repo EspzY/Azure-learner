@@ -1,0 +1,328 @@
+{
+  "title": "PR57 cold public product review — Core Architecture A/B, Compute, Networking A/B",
+  "createdUtc": "2026-11-05T14:36:44.321194+00:00",
+  "reviewer": "Independent AI Azure/learning/UX reviewer; not human SME",
+  "verdict": {
+    "readyFor": "limited facilitated internal pilot/demo of tested routes and simulator flows",
+    "p0": 0,
+    "p1": 0,
+    "p2": 2,
+    "p3": 2,
+    "explanation": "No observed P0/P1 blocker in this risk-based pass. Concrete causal-feedback/clarity issues remain. Pilot must retain declared simulator boundaries and may collect novice/human SME/assistive-tech evidence; no validated learning-effect or full bank claim."
+  },
+  "provenance": {
+    "publicBase": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app",
+    "expectedSha": "a3f1b575b2eb5b257fd455fec1a73b30a38706f4",
+    "actualDisplayedSha": "a3f1b575b2eb5b257fd455fec1a73b30a38706f4",
+    "branch": "codex/cc02-vm-debrief-diagnostics",
+    "anonymousRoot": "/ redirected to /learn Hub",
+    "initialCookies": [],
+    "allFourFinalContextCookieCounts": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "sourceNotSeen": true,
+    "priorFindingsNotSeen": true,
+    "keysNotSeenBeforeSolves": true,
+    "scopeIsolation": "Fresh independent BrowserContexts per module route; Core A/B share their module context. Explicit Start/Run/Create/submit only. No fixture injection,auth/protection bypass,source edits,Git mutation,deploy or QAconfig changes.",
+    "operationalReads": [
+      "cloud-environment-runtime SKILL and network policy documentation",
+      "installed browser/axe dependency runtime",
+      "neutral scripts and artifacts only outside repository"
+    ]
+  },
+  "coverage": {
+    "topicCounts": {
+      "architecture": 17,
+      "compute": 14,
+      "networking": 11,
+      "connectivity": 10
+    },
+    "routeInventory": "route-inventory.json",
+    "depth": "Full recommended teaching text read; model controls/diagrams inspected; representative inputs only. See per-trace limitations.",
+    "actualResults": {
+      "compute": {
+        "teachingOpened": "11/11",
+        "guided": "4/4",
+        "independent": "2/14"
+      },
+      "networkingA": {
+        "teachingOpened": "8/8",
+        "guided": "3/4",
+        "independent": "1/12"
+      },
+      "networkingB": {
+        "teachingOpened": "7/7",
+        "guided": "2/4",
+        "independent": "1/12"
+      },
+      "architecture": {
+        "aCriteria": "10/10",
+        "bCriteria": "8/8",
+        "overall": "Not sufficiently documented yet; remaining guided/theory checks not fabricated"
+      }
+    }
+  },
+  "interactionTraces": "interaction-traces.json",
+  "selectedSolves": [
+    {
+      "file": "solves-architecture-a-prefeedback.json",
+      "at": "2026-11-05T14:04:00.039Z"
+    },
+    {
+      "file": "solves-architecture-b-prefeedback.json",
+      "at": "2026-11-05T14:07:31.690Z"
+    },
+    {
+      "file": "solves-compute-cp09-prefeedback.json",
+      "at": "2026-11-05T14:16:55.975Z"
+    },
+    {
+      "file": "solves-compute-cp11-prefeedback.json",
+      "at": "2026-11-05T14:17:51.369Z"
+    },
+    {
+      "file": "solves-connectivity-nc12-prefeedback.json",
+      "at": "2026-11-05T14:31:14.804Z"
+    },
+    {
+      "file": "solves-networking-nw11-prefeedback",
+      "at": "2026-11-05T14:26:16.029Z"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "P2",
+      "route": "/learn/networking?topic=explorer",
+      "title": "Peering overlap feedback repeats unrelated A–C transitivity cause for selected A–B target",
+      "exactText": "A → B · Modellen finner ikke et direkte Connected-grunnlag for valgt mål. A↔B↔C gir ikke automatisk A↔C.",
+      "repro": [
+        "Start Peering Topology guide",
+        "Have both A/B sides selected; select B overlap10.84.0.0/17 and target VNet B",
+        "Predict not fulfilled and Run"
+      ],
+      "observed": "Table correctly says AB Avvist adresseoverlap i standardeksemplet, but main causal sentence explains absent AC transit even though AC is now Connected and selected target is B.",
+      "consequence": "Learner must reconcile correct table with a prominent explanation of a different failed premise; weakens cause-based diagnostic practice.",
+      "recommendation": "Use the actual first failed premise (address overlap), selected target and side status in result explanation.",
+      "evidence": [
+        "evidence/123-networking-peering-overlap.txt",
+        "evidence/123-networking-peering-overlap.png"
+      ],
+      "blocker": false
+    },
+    {
+      "id": "F2",
+      "severity": "P2",
+      "route": "/learn/compute?topic=desktop",
+      "title": "AVD zero-host result uses ambiguous generic capacity headline",
+      "exactText": "Noe arbeid eller kapasitet gjenstår",
+      "repro": [
+        "Start AVD explorer",
+        "Use pooled/RemoteApp,workspace registration and assigned user",
+        "Run with2hosts,then change declared sessionhosts to0,predict partial and Run"
+      ],
+      "observed": "Main result and prediction bucket say some work/capacity remains, while detail correctly says Publiseringen finnes, men ingen deklarert session host gir kjøregrunnlag.",
+      "consequence": "Generic compute-capacity vocabulary blurs publication surviving versus executable capacity; the selected headline can be read as capacity still available with zero hosts. Detailed chain rescues interpretation, so not P1.",
+      "recommendation": "Give AVD a publication-versus-runtime headline/prediction wording or explicitly say published but no host execution basis.",
+      "evidence": [
+        "evidence/084-compute-avd-published-hosts.txt",
+        "evidence/085-compute-avd-no-hosts.txt",
+        "evidence/085-compute-avd-no-hosts.png"
+      ],
+      "blocker": false
+    },
+    {
+      "id": "F3",
+      "severity": "P3",
+      "route": "/learn/compute?topic=summary",
+      "title": "Summary says Storage comes later despite live Hub destinations",
+      "exactText": "Storage kommer senere.",
+      "repro": [
+        "Open Compute Summary",
+        "Compare visible Hub/course sidebar with Storage Parts A/B/C already offered and ConnectivitySummary next link to StorageA"
+      ],
+      "observed": "Outdated availability copy in summary.",
+      "consequence": "Learner may infer Storage is unavailable and stop despite normal navigation offering it.",
+      "recommendation": "Align sentence with current available next module.",
+      "evidence": [
+        "evidence/101-compute-summary.txt",
+        "root-observations.json",
+        "evidence/168-connectivity-summary-stable.txt"
+      ],
+      "blocker": false
+    },
+    {
+      "id": "F4",
+      "severity": "P3",
+      "route": "/learn/connectivity?topic=explorer",
+      "title": "Endpoint model repeats tunnel-encryption boilerplate outside tunnel task",
+      "exactText": "Tunnelkryptering gjelder de erklærte klient-/gatewayendepunktene, ikke automatisk TLS helt til tjenesteprosessen.",
+      "repro": [
+        "Open/start Endpoint & DNS Explorer",
+        "Run endpoint/DNS model and read controls,figure caption,and result note"
+      ],
+      "observed": "Identical hybrid-tunnel limitation repeated around pure endpoint/DNS/authorization model; terms like deklarerte fixtures also appear in teaching.",
+      "consequence": "Adds reading burden and an unrelated technical branch when learner is trying to identify endpoint/DNS/access stage. This is clarity debt, not a demand for new design/content.",
+      "recommendation": "Use brief relevant model-boundary text for this explorer; remove redundant tunnel-specific sentence here.",
+      "evidence": [
+        "evidence/154-connectivity-endpoint-controls.txt",
+        "evidence/158-connectivity-private-with-public-disabled.txt"
+      ],
+      "blocker": false
+    }
+  ],
+  "evidenceBasedPositives": [
+    {
+      "claim": "End-to-end availability reasoning replaces app-count optimism.",
+      "evidence": [
+        "evidence/014-architecture-app-only-run.txt",
+        "evidence/015-architecture-redundant-run.txt"
+      ],
+      "mechanism": "Learner predicts, changes data redundancy while holding zone failure, observes app+data+routing dependency and saves causal explanation."
+    },
+    {
+      "claim": "Core technical boundaries are unusually explicit.",
+      "evidence": [
+        "evidence/007-architecture-zones.txt",
+        "evidence/008-architecture-pairs.txt",
+        "evidence/029-architecture-scope.txt"
+      ],
+      "mechanism": "One-or-more facilities per zone, subscription-specific zone numbering, nonautomatic pairedregion recovery and management ancestry are contrasted, not collapsed into one hierarchy."
+    },
+    {
+      "claim": "Compute VM guide produces inspectable local technical evidence.",
+      "evidence": [
+        "evidence/065-compute-index-receipt-inspect.txt",
+        "evidence/066-compute-vm-return-debrief.txt",
+        "evidence/067-compute-vm-guided-feedback.txt"
+      ],
+      "mechanism": "Ordinary forms, explicit Create,accepted original request,concrete dependencyIDs and explicit confirmations tie configuration to debrief without claiming indexer boot/backup/traffic."
+    },
+    {
+      "claim": "Container and capacity models expose meaningful changed-premise comparisons.",
+      "evidence": [
+        "evidence/070-compute-container-ephemeral-run.txt",
+        "evidence/071-compute-container-persistent-run.txt",
+        "evidence/078-compute-resilience-zones.txt",
+        "evidence/080-compute-resilience-data-failure.txt"
+      ],
+      "mechanism": "Recreate changes instance but external data survives; zone-spread compute still depends on shared data. Models explain what changed and what remained hypothetical."
+    },
+    {
+      "claim": "Networking teaches a diagnostic chain instead of equating DNS with working service.",
+      "evidence": [
+        "evidence/129-networking-dns-path-unknown.txt",
+        "evidence/157-connectivity-public-disabled.txt",
+        "evidence/161-connectivity-dns-correct-auth-denied.txt"
+      ],
+      "mechanism": "Correct DNS is retained while route becomes unknown or authorization denies. Public ingress can be switched independently of Approved Private Endpoint."
+    },
+    {
+      "claim": "Sampled independent prompts have sufficient premises and treat plausible alternatives fairly.",
+      "evidence": [
+        "evidence/100-compute-cp11-feedback.txt",
+        "evidence/135-networking-nw11-feedback.txt",
+        "evidence/165-connectivity-nc12-feedback.txt"
+      ],
+      "mechanism": "Mandatory existingplan reuse disambiguates AppService from ContainerApps; customDNS retained disambiguates forwarding; File support explicitly stated. Feedback explains when alternatives could become valid and why true generic facts do not explain this case."
+    },
+    {
+      "claim": "Summary/Journal separates exposure,guided work and independent attempts.",
+      "evidence": [
+        "evidence/041-architecture-core-summary.txt",
+        "evidence/101-compute-summary.txt",
+        "evidence/136-networking-summary.txt",
+        "evidence/168-connectivity-summary-stable.txt"
+      ],
+      "mechanism": "Opened pages and guides do not earn independent result. Incomplete guides/unsolved cases remain visible and no examreadiness/XP/realAzure success is inferred."
+    }
+  ],
+  "learnerValueBeyondLearn": "Original local predict–Run–change-premise–explain loop, durable differentiated evidence, ordinary local Portal with command provenance and referenced dependencies, and first-answer decision+causal-reason feedback. This is a plausible additional learning mechanism beyond reading Learn; no comparative human learning benefit was measured.",
+  "norwegianClarity": "Core explanations generally precise and well-qualified. English UI/service terms are mostly contextualized. Long repeated guide/boundary prose, implementation identifiers (CP03,P06/P07,CreateVmBundle,replayed inventory) and fused inline spacing (separat64GiB,minst30) add avoidable density. Findings focus on concrete meaning problems, not a visual redesign preference.",
+  "uxChecks": {
+    "at": "2026-11-05T14:31:50.268Z",
+    "checks": [
+      {
+        "name": "architecture",
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/architecture?topic=core-summary",
+        "reducedMotion": true,
+        "axe": {
+          "violations": [],
+          "incomplete": 1
+        }
+      },
+      {
+        "name": "compute",
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/compute?topic=summary",
+        "reducedMotion": true,
+        "axe": {
+          "violations": [],
+          "incomplete": 1
+        }
+      },
+      {
+        "name": "networking",
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/networking?topic=summary",
+        "reducedMotion": true,
+        "axe": {
+          "violations": [],
+          "incomplete": 1
+        }
+      },
+      {
+        "name": "connectivity",
+        "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/connectivity?topic=summary",
+        "reducedMotion": true,
+        "axe": {
+          "violations": [],
+          "incomplete": 1
+        }
+      }
+    ],
+    "shortFocus": {
+      "tag": "SUMMARY",
+      "text": "Kilder og videre lesning (20)",
+      "rect": {
+        "x": 158,
+        "y": 314.5,
+        "width": 708,
+        "height": 46.390625,
+        "top": 314.5,
+        "right": 866,
+        "bottom": 360.890625,
+        "left": 158
+      }
+    },
+    "back": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/connectivity?topic=assessment&case=nc12",
+    "forward": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/connectivity?topic=summary",
+    "reload": {
+      "url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/connectivity?topic=summary",
+      "text": "Kursoversikt\nAzure Networking Part B · Hybrid Connectivity & Endpoints\nMODUL 07 · TILGJENGELIG\nAzure Networking Part B · Hybrid Connectivity & Endpoints\n\nVelg en hybrid forbindelse, undersøk transport og kryptering, og følg et tjenestenavn gjennom endpoint, nettverksvei og applikasjonstilgang.\n\nIntroduction to Cloud Infrastructure: Describe Azure architecture and services · Part B · VPN Gateway, ExpressRoute & Public/Private Endpoints ·1.0.0\nNetworking Part B · dokumenterte resultater\n\nPart A og Part B danner én Networking-modul. Delene beholder egne versjonerte resultater. VNet, subnet, peering og DNS fra Part A er forkunnskaper; Part B legger til VPN Gateway, ExpressRoute og public/private endpoints. Innholdsdekning er ikke eksamensberedskap.\n\nIngen XP, Microsoft Learn-fullføring eller exam readiness utledes.\n\nUndervisningsaktiviteter åpnet\n7/7\nGuidede oppdrag\n2/4\nUavhengige innleveringer\n1/12\n\nPart B-observasjoner er adskilt fra tidligere Part A-svar. Et modellresultat dokumenterer bare den avgrensede konfigureringen og begrunnelsen. Ingen virkelig tunnel, providerforbindelse, DNS-query, tjenestehelse eller ny XP er produsert.\n\nNetworking Part A · VNet, subnet, peering og DNS\n\nPart A-forkunnskaper og tidligere resultater beholdes separat. Å åpne denne delen oppretter ingen ny Part B-evidence.\n\nSe uendrede Part A-resultater\nnc12 · Første uassisterte forsøk · Faglig forsvarlig beslutning og begrunnelse i denne situasjonen\n01\nA · Velg en hybrid forbindelsesplan\n\nFjordverk skal knytte fabrikknettet til et Azure VNet. Transportkravet utelukker offentlig internett, og dataene skal også være kryptert ende til ende. Leverandørtilkobling kan etableres; begge krav må behandles.\n\nCN01–02: skille riktig tilkoblingsomfang, privat transport og ende-til-ende-kryptering.\n\nFullført guidet undersøkelse · tilgjengelig for repetisjon\n\nSe undersøkelsen igjen →\n02\nB · Finn den manglende hybridforutsetningen\n\nEn organisasjon har planlagt ExpressRoute og en kompatibel site-to-site reserve. Nettverksteamet vil vite om manglende rute eller bortfall av providerforbindelsen fortsatt gir en dokumentert vei.\n\nCN01–02: skille circuit, rute, VPN-underlag og eksplisitt reserve fra en tegnet forbindelse.\n\nIkke startet\n\nÅpne SavvyShark-briefing →\n03\nC · Undersøk to innganger til samme tjeneste\n\nEn katalog har en Approved private endpoint. Teamet antar at dette alene stenger tjenestens offentlige inngang. Samtidig må de skille nettverkstilgang fra katalogens brukerrettigheter.\n\nCN03: sammenligne public/private endpoint og tjenestens separate public network access.\n\nFullført guidet undersøkelse · tilgjengelig for repetisjon\n\nSe undersøkelsen igjen →\n04\nD · Finn riktig adresse, så riktig vei\n\nEn klient skal bruke en privat tjenesteinngang. DNS-perspektivet velger først offentlig adresse. Etter retting må klienten fortsatt ha privat vei og nødvendige applikasjonsrettigheter.\n\nCN04: skille resolver-synlighet, adressevalg, endpoint, nettverksvei og autorisasjon.\n\nIkke startet\n\nÅpne SavvyShark-briefing →\nKilder og videre lesning (20)\n\nKvalifisert menneskelig Azure-SME-, novice/IT-, UX-, skjermleser- og målt transfer-validering er ikke gjennomført.\n\nDescribe Azure networking services · Part A · VNet, Subnets, Peering & DNS\n← Forrige aktivitet\nSelvstendig Connectivity-anvendelse\nAzure Networking Part B · Hybrid Connectivity & Endpoints · Aktivitet 10 av 10\nNetworking Part B · dokumenterte resultater\nNeste aktivitet →\nAzure Storage Part A · Accounts & Services\nAzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering."
+    }
+  },
+  "browserLogs": {
+    "file": "evidence/browser-logs.json",
+    "pageErrors": 0,
+    "http4xx5xx": 0,
+    "consoleErrors": 6,
+    "interpretation": "6 console errors are Vercel live-feedback script CSP blocks;52 warnings unused preloaded CSS. No observed app pageerror/HTTP failure. Not scored as learner blocker."
+  },
+  "limitations": [
+    "Independent AI Azure/learning/UX product review, not a human Azure SME, novice study, screen-reader audit or psychometric/learning-effect approval. Correct AI choices do not validate human transfer.",
+    "No repository application source, domain/content files, tests, AGENTS, README/status/review/remediation docs, prior findings or answer keys read before lock. Runtime skill/dependency runtime only. Author feedback seen only after original solve files were written.",
+    "All17Core,14Compute,11NetworkingA,10NetworkingB recommended topic pages fully read as rendered text/control inventories through actual Hub/sidebar/footer links. Not all external citations expanded/validated, optional transfer links and every diagram hotspot/combination exercised.",
+    "PartB Core Portal practical guide not completed. NetworkingA actual-resource guide not started; Compute performed real local VM chain instead in its own fresh context. No fake completions seeded.",
+    "Compute2/14,NetworkingA1/12,NetworkingB1/12 scenario pairs sampled. CoreA/B all displayed criteria solved once. No exhaustive bankreview.",
+    "Guided Compute4/4,NetworkingA3/4,NetworkingB2/4. B hybrid fallback and separate DNSguide uncompleted. DNS/endpoint contrasts were still run in guideC history.",
+    "1440x900 throughout. One1024x500ConnectivitySummary/Journal visual/keyboard sample only; no claim every module or dialog fits short viewport. All contexts requested reduced motion and matchMedia true; no exhaustive animation audit.",
+    "Axe WCAG2A/AA+2.1AA on four final Summary states found0violations and1incomplete each. This excludes interactive state coverage and human assistive-technology behavior.",
+    "Keyboard Tab focus within short Journal and Escape close/return checked; no exhaustive tab order/trap audit. Back/Forward+reload on Connectivity and active ArchitectureA draftreload checked; not every Portal resume/reload path.",
+    "Capture061 was taken before data-disk navigation settled and is OSdisk,not data disk. Dedicated data-disk visual evidence is unavailable; accepted64GiB request/receipt and final guide inspection registration are retained.",
+    "Automated rapid-click races/transient context gate documented without treating them as reproducible learner blockers. Browser/runtime cold startup overhead not scored as app failure.",
+    "No real Azure account/resources, packets, DNSqueries, networkhealth, Windows sessions, backup/restore, application execution or live policy evaluated. Existing learner evidence untouched; fresh contexts exported for review."
+  ],
+  "artifactIntegrity": "Original captures and pre-feedback solve bytes preserved. Final lock.json enumerates SHA256 digests; no later first-pass file edits authorized."
+}

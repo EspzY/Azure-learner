@@ -1,0 +1,104 @@
+
+> azurelab@0.1.0 check
+> npm run typecheck && npm run lint && npm run format:check && npm run docs:check && npm run quality:check && npm run az900:audit:check && npm run curriculum:check && npm run assets:check && npm run legacy:check && npm test && npm run build
+
+
+> azurelab@0.1.0 typecheck
+> node scripts/next.mjs typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+
+> azurelab@0.1.0 lint
+> eslint . --max-warnings 0
+
+
+> azurelab@0.1.0 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> azurelab@0.1.0 docs:check
+> node scripts/docs-check.mjs
+
+Documentation OK: 230 Markdown files; required files and local links verified.
+
+> azurelab@0.1.0 quality:check
+> node scripts/quality-check.mjs
+
+Seven-gate quality contracts/source/activity references valid; no final or human approval inferred.
+
+> azurelab@0.1.0 az900:audit:check
+> node scripts/az900-audit-check.mjs
+
+AZ-900 audit: 57 objectives / 126 facets, evidence references and generated matrix valid; no educational approval inferred.
+
+> azurelab@0.1.0 curriculum:check
+> vitest run src/domain/curriculum/integrity.test.ts src/domain/curriculum/official.test.ts src/domain/curriculum/responsibility.test.ts src/domain/portal/portal.test.ts src/domain/course/course.test.ts src/domain/curriculum/foundations-v2.test.ts src/domain/curriculum/expansion.test.ts src/domain/sandbox/practical.test.ts src/domain/guidance/milestones.test.ts src/domain/curriculum/serverless.test.ts src/domain/curriculum/architecture-physical.test.ts src/domain/curriculum/architecture-management.test.ts src/domain/curriculum/teaching-access.test.ts src/domain/sandbox/missions.test.ts src/domain/curriculum/transfer.test.ts src/domain/curriculum/cost.test.ts src/domain/curriculum/compute.test.ts src/domain/curriculum/networking.test.ts src/domain/curriculum/connectivity.test.ts src/domain/curriculum/storage.test.ts src/domain/curriculum/storage-resilience.test.ts src/domain/curriculum/identity-foundations.test.ts src/domain/curriculum/access-control.test.ts src/domain/curriculum/governance.test.ts src/domain/curriculum/management-tools.test.ts src/domain/curriculum/monitoring.test.ts src/domain/curriculum/security.test.ts src/domain/curriculum/migration.test.ts src/domain/curriculum/refined-assessment.test.ts src/domain/curriculum/application-transfer.test.ts
+
+
+ RUN  v5.0.5 /workspace/azurelab-phase2/integration
+
+
+ Test Files  30 passed (30)
+      Tests  503 passed (503)
+   Start at  21:16:26
+   Duration  11.86s (transform 37%, import 31%, tests 30%, worker 1%)
+
+    Isolate  30 workers spawned · ~289ms startup each (spawn + environment, per file)
+             at least ~2.60s faster with isolate: false — reuses workers across files instead of one per file
+
+
+> azurelab@0.1.0 assets:check
+> node scripts/assets-check.mjs && node scripts/design-assets-check.mjs
+
+Assets: owner-authorized local SavvyShark PNG, 76509 bytes; signature, hash, size and registration valid. Retired game assets are not shipped.
+Portal icons: 44 explicit identities, 42 source SVGs / 43989 bytes, original hashes, local paths, safe SVG and provenance validated. No generic fallback.
+{"produced":3,"approved":0,"planned":19,"fontBytes":146892}
+
+> azurelab@0.1.0 legacy:check
+> node scripts/legacy-check.mjs
+
+Legacy boundary: 582 current source/style files; no retired imports, renderer dependencies or game assets.
+
+> azurelab@0.1.0 test
+> vitest run && node --test scripts/docs-check.test.mjs scripts/az900-audit-check.test.mjs scripts/quality-check.test.mjs scripts/design-assets-check.test.mjs scripts/e2e-preview-build.test.mjs scripts/e2e-shard.test.mjs
+
+
+ RUN  v5.0.5 /workspace/azurelab-phase2/integration
+
+ ❯ src/features/portal/shared-shell.test.ts (13 tests | 1 failed) 30ms
+   ❯ shared Portal catalogue reflects actual versioned capabilities without upgrading engines (11)
+     × catalogue is explicit and icon-complete for laboratory@3.9.0 8ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/portal/shared-shell.test.ts > shared Portal catalogue reflects actual versioned capabilities without upgrading engines > catalogue is explicit and icon-complete for laboratory@3.9.0
+AssertionError: expected true to be false // Object.is equality
+
+- Expected
++ Received
+
+- false
++ true
+
+ ❯ src/features/portal/shared-shell.test.ts:34:11
+     32|         expect(
+     33|           rows.some((r) => r.id === 'apps' || r.id === 'plans' || r.id…
+     34|         ).toBe(false);
+       |           ^
+     35|       }
+     36|       expect(rows.some((r) => r.id === 'vms')).toBe(models.indexOf(mod…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 107 passed (108)
+      Tests  1 failed | 1373 passed (1374)
+   Start at  21:16:39
+   Duration  44.34s (tests 75%, import 17%, transform 8%, worker 1%)
+
+    Isolate  108 workers spawned · ~228ms startup each (spawn + environment, per file)
+             at least ~7.99s faster with isolate: false — reuses workers across files instead of one per file
+

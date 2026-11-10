@@ -1,0 +1,71 @@
+
+ RUN  v5.0.5 /workspace/azurelab-phase2/portal-fidelity
+
+ ❯ src/features/portal/resource-context.test.ts (4 tests | 3 failed) 59ms
+   ❯ one Portal global and resource context projections (4)
+     × scopes actual same-named profiles and their endpoint resources by exact IDs without touching World, revisions or origin receipts 36ms
+     × keeps WAF independent and expresses only the actual security-policy association; SQL databases retain a real server parent and global resource identity 4ms
+     × renders named readable essentials and properties while keeping original JSON and IDs inside a closed technical disclosure 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/features/portal/resource-context.test.ts > one Portal global and resource context projections > scopes actual same-named profiles and their endpoint resources by exact IDs without touching World, revisions or origin receipts
+AssertionError: {"commandId":"fidelity-12","sequence":12,"beforeRevision":11,"afterRevision":11,"operation":"CreateSqlDatabase","targetType":"local/integrated-resource","scopeId":"","location":null,"outcome":"rejected","code":"invalid-name","ruleId":"lab-integration@3.9","addedIds":[],"updatedIds":[],"removedIds":[],"beforeCount":11,"afterCount":11,"field":"name"}: expected 'rejected' to be 'accepted' // Object.is equality
+
+Expected: "accepted"
+Received: "rejected"
+
+ ❯ send src/features/portal/resource-context.test.ts:34:68
+     32|       sequence,
+     33|     );
+     34|     expect(result.receipt.outcome, JSON.stringify(result.receipt)).toB…
+       |                                                                    ^
+     35|     world = result.world;
+     36|     return result.receipt.addedIds[0]!;
+ ❯ fixture src/features/portal/resource-context.test.ts:107:20
+ ❯ src/features/portal/resource-context.test.ts:177:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  src/features/portal/resource-context.test.ts > one Portal global and resource context projections > keeps WAF independent and expresses only the actual security-policy association; SQL databases retain a real server parent and global resource identity
+AssertionError: {"commandId":"fidelity-12","sequence":12,"beforeRevision":11,"afterRevision":11,"operation":"CreateSqlDatabase","targetType":"local/integrated-resource","scopeId":"","location":null,"outcome":"rejected","code":"invalid-name","ruleId":"lab-integration@3.9","addedIds":[],"updatedIds":[],"removedIds":[],"beforeCount":11,"afterCount":11,"field":"name"}: expected 'rejected' to be 'accepted' // Object.is equality
+
+Expected: "accepted"
+Received: "rejected"
+
+ ❯ send src/features/portal/resource-context.test.ts:34:68
+     32|       sequence,
+     33|     );
+     34|     expect(result.receipt.outcome, JSON.stringify(result.receipt)).toB…
+       |                                                                    ^
+     35|     world = result.world;
+     36|     return result.receipt.addedIds[0]!;
+ ❯ fixture src/features/portal/resource-context.test.ts:107:20
+ ❯ src/features/portal/resource-context.test.ts:203:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  src/features/portal/resource-context.test.ts > one Portal global and resource context projections > renders named readable essentials and properties while keeping original JSON and IDs inside a closed technical disclosure
+AssertionError: {"commandId":"fidelity-12","sequence":12,"beforeRevision":11,"afterRevision":11,"operation":"CreateSqlDatabase","targetType":"local/integrated-resource","scopeId":"","location":null,"outcome":"rejected","code":"invalid-name","ruleId":"lab-integration@3.9","addedIds":[],"updatedIds":[],"removedIds":[],"beforeCount":11,"afterCount":11,"field":"name"}: expected 'rejected' to be 'accepted' // Object.is equality
+
+Expected: "accepted"
+Received: "rejected"
+
+ ❯ send src/features/portal/resource-context.test.ts:34:68
+     32|       sequence,
+     33|     );
+     34|     expect(result.receipt.outcome, JSON.stringify(result.receipt)).toB…
+       |                                                                    ^
+     35|     world = result.world;
+     36|     return result.receipt.addedIds[0]!;
+ ❯ fixture src/features/portal/resource-context.test.ts:107:20
+ ❯ src/features/portal/resource-context.test.ts:226:15
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  3 failed | 1 passed (4)
+   Start at  22:00:44
+   Duration  1.83s (import 49%, transform 47%, tests 4%)
+

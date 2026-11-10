@@ -1,0 +1,625 @@
+{
+  "schema": "azurelab-pr57-independent-cold-product-review-v1",
+  "reviewer": "Independent AI Azure/learning/UX reviewer; not human SME",
+  "completed_utc": "2026-11-05T14:27:13.687002Z",
+  "target": {
+    "ordinary_root": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app",
+    "root_redirect": "/learn",
+    "displayed_full_sha": "a3f1b575b2eb5b257fd455fec1a73b30a38706f4",
+    "branch": "codex/cc02-vm-debrief-diagnostics",
+    "provenance": [
+      "evidence/home.txt",
+      "evidence/home-cookies.json",
+      "evidence/build-provenance.txt",
+      "evidence/build-provenance.png",
+      "evidence/final-context-provenance.json"
+    ]
+  },
+  "scope": [
+    "storage",
+    "storage-resilience",
+    "migration",
+    "identity",
+    "access-control",
+    "security"
+  ],
+  "method": {
+    "public_browser_only": true,
+    "prior_findings_source_keys_read": false,
+    "state_injection": false,
+    "fresh_anonymous_module_contexts": 6,
+    "browser": "installed Chromium through Playwright",
+    "viewports": [
+      [
+        1440,
+        900
+      ],
+      [
+        1024,
+        500
+      ]
+    ],
+    "reduced_motion": "reduce on representative six Studio states",
+    "allowed_nonproduct_reads": [
+      "runtime skill and network reference",
+      "nonsecret network policy/status",
+      "installed Playwright/Axe dependencies via createRequire"
+    ],
+    "model_predicted_before_run": "evidence/guided-predictions.json",
+    "independent_pre_feedback_lock": "solves/solve-lock.json"
+  },
+  "verdict": {
+    "recommendation": "Bounded internal RC-readiness evidence supports continuing internal RC. No P0/P1 reproduced in this six-module sample; P2 wording/clarity issues and P3 metadata landmark polish remain. This is not a general release or learning-effect approval.",
+    "severity_counts": {
+      "P0": 0,
+      "P1": 0,
+      "P2": 2,
+      "P3": 1
+    }
+  },
+  "coverage": {
+    "pages_full_read": 69,
+    "rendered_main_characters": 253971,
+    "successful_guided_runs": 24,
+    "guided_completed": 2,
+    "guided_available": 16,
+    "first_independent_submissions": 6,
+    "independent_families_available": 58,
+    "assistance_lifecycle_additional_unsubmitted_family": "security sp01",
+    "route_inventory": "evidence/route-inventory.json",
+    "activity_inventory": "evidence/activity-coverage.json",
+    "per_module": [
+      {
+        "module": "storage",
+        "name": "Storage Part A — Accounts & Services",
+        "entry": "ordinary / → /learn Hub → visible module link",
+        "pages_full_read": 11,
+        "topics_full_read": [
+          "introduction",
+          "blob",
+          "files",
+          "queues",
+          "tables",
+          "accounts",
+          "disks",
+          "studio",
+          "missions",
+          "assessment",
+          "summary"
+        ],
+        "rendered_main_characters": 39891,
+        "page_evidence_pattern": "evidence/storage-<topic>.json/.txt/.png",
+        "coverage_meaning": "all rendered recommended teaching-page body, visible semantic figures/cards/tables and expanded source/link inventory read; assessment landing read is distinct from actual started/submitted scenario",
+        "guided": {
+          "start_explicit": true,
+          "briefing": "evidence/storage-briefing.txt",
+          "successful_runs": [
+            "storage-guided-http",
+            "storage-guided-smb-conflict",
+            "storage-guided-smb-files"
+          ],
+          "completed": 1,
+          "available": 3,
+          "prediction_log": "evidence/guided-predictions.json",
+          "scope": "representative inputs; not all combinations"
+        },
+        "assessment": {
+          "landing": "evidence/storage-assessment.json",
+          "briefing_only": "evidence/storage-independent-start.json",
+          "actual_started_prompt": "evidence/storage-independent-prompt.json",
+          "actual_started_url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/storage?topic=assessment&case=sa04",
+          "family": "sa04",
+          "available_families": 12,
+          "pre_feedback_solve": "solves/storage-pre-feedback.json",
+          "selected": "evidence/storage-independent-selected.json",
+          "submitted_feedback": "evidence/storage-independent-feedback.json",
+          "result": "Faglig forsvarlig beslutning og begrunnelse i denne situasjonen",
+          "first_attempt": "Første uassisterte forsøk",
+          "reload_feedback": "evidence/storage-feedback-reload.json",
+          "scope": "one independently solved pair, one family, submitted; other families not exhaustively opened or answered"
+        },
+        "summary": "evidence/storage-final-summary.json",
+        "journal": "evidence/storage-final-journal.txt",
+        "viewport_1440x900": "evidence/storage-studio.png",
+        "viewport_1024x500_reduced_motion": "evidence/storage-1024x500-reduced.png",
+        "axe": "evidence/storage-axe.json",
+        "keyboard_tab_sample": "evidence/storage-keyboard.json",
+        "mechanism": "HTTP-objekt, SMB-filer, jobbkø og nøkkelbaserte entities er forskjellige datakontrakter. Endring fra HTTP til SMB gjorde Blob-valget utilstrekkelig; Files løste den endrede kontrakten uten å endre de andre tre behovene.",
+        "transfer": "sa04 endret krasjfortellingen: visibility utløp mens worker A fortsatt levde. Valget måtte derfor dekke visibility-håndtering, idempotente effekter og separat varig jobbstatus.",
+        "unsampled": "Account-kompatibilitet og køens krasj/idempotensperspektiv ble lest, men ikke kjørt som egne guidede oppdrag. Managed-disk-inventory var tomt i den anonyme konteksten."
+      },
+      {
+        "module": "storage-resilience",
+        "name": "Storage Part B — Access Tiers & Redundancy",
+        "entry": "ordinary / → /learn Hub → visible module link",
+        "pages_full_read": 10,
+        "topics_full_read": [
+          "introduction",
+          "tiers",
+          "lifecycle",
+          "redundancy",
+          "recovery",
+          "boundaries",
+          "studio",
+          "missions",
+          "assessment",
+          "summary"
+        ],
+        "rendered_main_characters": 36978,
+        "page_evidence_pattern": "evidence/storage-resilience-<topic>.json/.txt/.png",
+        "coverage_meaning": "all rendered recommended teaching-page body, visible semantic figures/cards/tables and expanded source/link inventory read; assessment landing read is distinct from actual started/submitted scenario",
+        "guided": {
+          "start_explicit": true,
+          "briefing": "evidence/storage-resilience-briefing.txt",
+          "successful_runs": [
+            "storage-b-cold",
+            "storage-b-archive-offline",
+            "storage-b-archive-online",
+            "storage-b-archive-zrs"
+          ],
+          "completed": 0,
+          "available": 2,
+          "prediction_log": "evidence/guided-predictions.json",
+          "scope": "representative inputs; not all combinations"
+        },
+        "assessment": {
+          "landing": "evidence/storage-resilience-assessment.json",
+          "briefing_only": "evidence/storage-resilience-independent-start.json",
+          "actual_started_prompt": "evidence/storage-resilience-independent-prompt.json",
+          "actual_started_url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/storage-resilience?topic=assessment&case=rb09",
+          "family": "rb09",
+          "available_families": 10,
+          "pre_feedback_solve": "solves/storage-resilience-pre-feedback.json",
+          "selected": "evidence/storage-resilience-independent-selected.json",
+          "submitted_feedback": "evidence/storage-resilience-independent-feedback.json",
+          "result": "Faglig forsvarlig beslutning og begrunnelse i denne situasjonen",
+          "first_attempt": "Første uassisterte forsøk",
+          "reload_feedback": "evidence/storage-resilience-feedback-reload.json",
+          "scope": "one independently solved pair, one family, submitted; other families not exhaustively opened or answered"
+        },
+        "summary": "evidence/storage-resilience-final-summary.json",
+        "journal": "evidence/storage-resilience-final-journal.txt",
+        "viewport_1440x900": "evidence/storage-resilience-studio.png",
+        "viewport_1024x500_reduced_motion": "evidence/storage-resilience-1024x500-reduced.png",
+        "axe": "evidence/storage-resilience-axe.json",
+        "keyboard_tab_sample": "evidence/storage-resilience-keyboard.json",
+        "mechanism": "Cold beholdt direkte lesing; Archive ga offline-grense. Erklært fullført rehydrering ga online innhold uten å late som ventetiden var målt. Archive + ZRS ble avvist, og indekser ble merket som undervisningsindekser.",
+        "transfer": "rb09 krevde selektiv restore til kontrollert mål etter replisert sletting, med validering og bevaring av nyere skriv i andre containere. Failover er ikke undo; en full tilbakeføring ville brutt bevaringskravet.",
+        "unsampled": "Hele redundans-/recovery-modellens inputrom og lifecycle-alternativene ble ikke kjørt. Det guidede tier-oppdraget ble bare representativt undersøkt, ikke fullført."
+      },
+      {
+        "module": "migration",
+        "name": "Storage Part C — File Movement & Migration",
+        "entry": "ordinary / → /learn Hub → visible module link",
+        "pages_full_read": 12,
+        "topics_full_read": [
+          "introduction",
+          "methods",
+          "azcopy",
+          "explorer",
+          "file-sync",
+          "migrate",
+          "databox",
+          "validation",
+          "studio",
+          "missions",
+          "assessment",
+          "summary"
+        ],
+        "rendered_main_characters": 43427,
+        "page_evidence_pattern": "evidence/migration-<topic>.json/.txt/.png",
+        "coverage_meaning": "all rendered recommended teaching-page body, visible semantic figures/cards/tables and expanded source/link inventory read; assessment landing read is distinct from actual started/submitted scenario",
+        "guided": {
+          "start_explicit": true,
+          "briefing": "evidence/migration-briefing.txt",
+          "successful_runs": [
+            "migration-guide-azcopy",
+            "migration-guide-explorer",
+            "migration-guide-unattended-explorer",
+            "migration-guide-unattended-azcopy"
+          ],
+          "completed": 0,
+          "available": 3,
+          "prediction_log": "evidence/guided-predictions.json",
+          "scope": "representative inputs; not all combinations"
+        },
+        "assessment": {
+          "landing": "evidence/migration-assessment.json",
+          "briefing_only": "evidence/migration-independent-start.json",
+          "actual_started_prompt": "evidence/migration-independent-prompt.json",
+          "actual_started_url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/migration?topic=assessment&case=fm07",
+          "family": "fm07",
+          "available_families": 10,
+          "pre_feedback_solve": "solves/migration-pre-feedback.json",
+          "selected": "evidence/migration-independent-selected.json",
+          "submitted_feedback": "evidence/migration-independent-feedback.json",
+          "result": "Faglig forsvarlig beslutning og begrunnelse i denne situasjonen",
+          "first_attempt": "Første uassisterte forsøk",
+          "reload_feedback": "evidence/migration-feedback-reload.json",
+          "scope": "one independently solved pair, one family, submitted; other families not exhaustively opened or answered"
+        },
+        "summary": "evidence/migration-final-summary.json",
+        "journal": "evidence/migration-final-journal.txt",
+        "viewport_1440x900": "evidence/migration-studio.png",
+        "viewport_1024x500_reduced_motion": "evidence/migration-1024x500-reduced.png",
+        "axe": "evidence/migration-axe.json",
+        "keyboard_tab_sample": "evidence/migration-keyboard.json",
+        "mechanism": "Både AzCopy og Storage Explorer passet en liten stabil enkeltkopi. Da kravet ble ubetjent/scriptet kjøring, falt Explorer bort mens AzCopy passet. Dette hindrer en kunstig universell verktøyfasit.",
+        "transfer": "fm07 krevde et samlet tidsbudsjett for 48 desimale TB: 36+60+72+12=180 timer for tilgjengelig Data Box, 348 timer etter en ukes venting, og ca. 533,33 timer for nettverk ved 200 Mbit/s før annet arbeid. Bare det første opplegget møtte 240 timer.",
+        "unsampled": "File Sync-, Azure Migrate-, manifest- og Data Box-modellene ble lest, men ikke alle kjørt. Guiden ble pauset, reloadet og gjenopptatt med fire observasjoner bevart; ikke fullført."
+      },
+      {
+        "module": "identity",
+        "name": "Identity Part A — Identity Foundations",
+        "entry": "ordinary / → /learn Hub → visible module link",
+        "pages_full_read": 12,
+        "topics_full_read": [
+          "introduction",
+          "directory",
+          "domain",
+          "authentication",
+          "sso",
+          "mfa",
+          "passwordless",
+          "external",
+          "studio",
+          "missions",
+          "assessment",
+          "summary"
+        ],
+        "rendered_main_characters": 44308,
+        "page_evidence_pattern": "evidence/identity-<topic>.json/.txt/.png",
+        "coverage_meaning": "all rendered recommended teaching-page body, visible semantic figures/cards/tables and expanded source/link inventory read; assessment landing read is distinct from actual started/submitted scenario",
+        "guided": {
+          "start_explicit": true,
+          "briefing": "evidence/identity-briefing.txt",
+          "successful_runs": [
+            "identity-modern",
+            "identity-legacy-entra",
+            "identity-legacy-managed",
+            "identity-schema-managed-final",
+            "identity-schema-adds"
+          ],
+          "completed": 0,
+          "available": 3,
+          "prediction_log": "evidence/guided-predictions.json",
+          "scope": "representative inputs; not all combinations"
+        },
+        "assessment": {
+          "landing": "evidence/identity-assessment.json",
+          "briefing_only": "evidence/identity-independent-start.json",
+          "actual_started_prompt": "evidence/identity-independent-prompt.json",
+          "actual_started_url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/identity?topic=assessment&case=if10",
+          "family": "if10",
+          "available_families": 10,
+          "pre_feedback_solve": "solves/identity-pre-feedback.json",
+          "selected": "evidence/identity-independent-selected.json",
+          "submitted_feedback": "evidence/identity-independent-feedback.json",
+          "result": "Faglig forsvarlig beslutning og begrunnelse i denne situasjonen",
+          "first_attempt": "Første uassisterte forsøk",
+          "reload_feedback": "evidence/identity-feedback-reload.json",
+          "scope": "one independently solved pair, one family, submitted; other families not exhaustively opened or answered"
+        },
+        "summary": "evidence/identity-final-summary.json",
+        "journal": "evidence/identity-final-journal.txt",
+        "viewport_1440x900": "evidence/identity-studio.png",
+        "viewport_1024x500_reduced_motion": "evidence/identity-1024x500-reduced.png",
+        "axe": "evidence/identity-axe.json",
+        "keyboard_tab_sample": "evidence/identity-keyboard.json",
+        "mechanism": "Moderne OIDC/SAML passet Entra ID. Et legacy LDAP/Kerberos/domain-krav gjorde dette utilstrekkelig; managed domain passet under erklærte forutsetninger. Et schema-endringskrav krysset igjen en grense og krevde et AD DS-alternativ.",
+        "transfer": "if10 skilte ressursorganisasjonens inbound fra hjemorganisasjonens outbound i B2B direct connect. Teams shared channel ble beholdt; motsatt inbound eller overgang til gjest/standardkanal løste ikke de oppgitte kravene.",
+        "unsampled": "Hele sign-in-, MFA/passwordless- og external-identities-inputrommet ble ikke kjørt. SchemaManaged-forsøk uten ferdig observasjonsfil ble avbrutt av guide-milepæl og teller ikke som kjøring."
+      },
+      {
+        "module": "access-control",
+        "name": "Access Part B — RBAC & Conditional Access",
+        "entry": "ordinary / → /learn Hub → visible module link",
+        "pages_full_read": 12,
+        "topics_full_read": [
+          "introduction",
+          "rbac",
+          "scope",
+          "roles",
+          "planes",
+          "conditional",
+          "policies",
+          "testing",
+          "studio",
+          "missions",
+          "assessment",
+          "summary"
+        ],
+        "rendered_main_characters": 39989,
+        "page_evidence_pattern": "evidence/access-control-<topic>.json/.txt/.png",
+        "coverage_meaning": "all rendered recommended teaching-page body, visible semantic figures/cards/tables and expanded source/link inventory read; assessment landing read is distinct from actual started/submitted scenario",
+        "guided": {
+          "start_explicit": true,
+          "briefing": "evidence/access-control-briefing.txt",
+          "successful_runs": [
+            "access-reader-view",
+            "access-reader-modify",
+            "access-vm-contributor"
+          ],
+          "completed": 0,
+          "available": 2,
+          "prediction_log": "evidence/guided-predictions.json",
+          "scope": "representative inputs; not all combinations"
+        },
+        "assessment": {
+          "landing": "evidence/access-control-assessment.json",
+          "briefing_only": "evidence/access-control-independent-start.json",
+          "actual_started_prompt": "evidence/access-control-independent-prompt.json",
+          "actual_started_url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/access-control?topic=assessment&case=ab06",
+          "family": "ab06",
+          "available_families": 8,
+          "pre_feedback_solve": "solves/access-control-pre-feedback.json",
+          "selected": "evidence/access-control-independent-selected.json",
+          "submitted_feedback": "evidence/access-control-independent-feedback.json",
+          "result": "Faglig forsvarlig beslutning og begrunnelse i denne situasjonen",
+          "first_attempt": "Første uassisterte forsøk",
+          "reload_feedback": "evidence/access-control-feedback-reload.json",
+          "scope": "one independently solved pair, one family, submitted; other families not exhaustively opened or answered"
+        },
+        "summary": "evidence/access-control-final-summary.json",
+        "journal": "evidence/access-control-final-journal.txt",
+        "viewport_1440x900": "evidence/access-control-studio.png",
+        "viewport_1024x500_reduced_motion": "evidence/access-control-1024x500-reduced.png",
+        "axe": "evidence/access-control-axe.json",
+        "keyboard_tab_sample": "evidence/access-control-keyboard.json",
+        "mechanism": "Reader arvet fra abonnement ga visning, men ikke VM-endring. VM Contributor i VM-scope ga den relevante endringen. Kontrollene viste principal, rolle, scope og handling, og skilte management fra data.",
+        "transfer": "ab06 krevde at begge kunne lese og ingen kunne skrive fra nåværende enheter. En VM Contributor måtte erstattes av Reader; en ekstra Reader-tildeling trekker ikke tilbake tillatelser. Å håndheve den oppgitte device-policyen ville blokkert også den nødvendige lesingen.",
+        "unsampled": "Alle scope-/delegasjonskombinasjoner og CA-modellens policykombinasjoner ble ikke kjørt. CA og report-only ble lest og anvendt i den valgte uavhengige situasjonen, men ikke fullført som egen guide."
+      },
+      {
+        "module": "security",
+        "name": "Security Part C — Security Principles & Defender for Cloud",
+        "entry": "ordinary / → /learn Hub → visible module link",
+        "pages_full_read": 12,
+        "topics_full_read": [
+          "introduction",
+          "zero-trust",
+          "depth",
+          "encryption",
+          "defender",
+          "posture",
+          "protection",
+          "score",
+          "studio",
+          "missions",
+          "assessment",
+          "summary"
+        ],
+        "rendered_main_characters": 49378,
+        "page_evidence_pattern": "evidence/security-<topic>.json/.txt/.png",
+        "coverage_meaning": "all rendered recommended teaching-page body, visible semantic figures/cards/tables and expanded source/link inventory read; assessment landing read is distinct from actual started/submitted scenario",
+        "guided": {
+          "start_explicit": true,
+          "briefing": "evidence/security-briefing.txt",
+          "successful_runs": [
+            "security-internal-mfa",
+            "security-external-mfa",
+            "security-device-reviewed-final",
+            "security-minimal-duration",
+            "security-layered-ready"
+          ],
+          "completed": 1,
+          "available": 3,
+          "prediction_log": "evidence/guided-predictions.json",
+          "scope": "representative inputs; not all combinations"
+        },
+        "assessment": {
+          "landing": "evidence/security-assessment.json",
+          "briefing_only": "evidence/security-independent-start.json",
+          "actual_started_prompt": "evidence/security-independent-prompt.json",
+          "actual_started_url": "https://azure-learner-git-codex-cc02-vm-debrief-e275e2-espzys-projects.vercel.app/learn/security?topic=assessment&case=sp08",
+          "family": "sp08",
+          "available_families": 8,
+          "pre_feedback_solve": "solves/security-pre-feedback.json",
+          "selected": "evidence/security-independent-selected.json",
+          "submitted_feedback": "evidence/security-independent-feedback.json",
+          "result": "Faglig forsvarlig beslutning og begrunnelse i denne situasjonen",
+          "first_attempt": "Første uassisterte forsøk",
+          "reload_feedback": "evidence/security-feedback-reload.json",
+          "scope": "one independently solved pair, one family, submitted; other families not exhaustively opened or answered"
+        },
+        "summary": "evidence/security-final-summary.json",
+        "journal": "evidence/security-final-journal.txt",
+        "viewport_1440x900": "evidence/security-studio.png",
+        "viewport_1024x500_reduced_motion": "evidence/security-1024x500-reduced.png",
+        "axe": "evidence/security-axe.json",
+        "keyboard_tab_sample": "evidence/security-keyboard.json",
+        "mechanism": "Intern/ekstern nettverksplassering alene endret ikke manglende enhets-, privilegie- og beredskapsgrunnlag. Dokumentert enhet/review dekket verify explicitly, smal tidsavgrenset tilgang dekket least privilege, og separate data-/containment-/observasjons-/recovery-bidrag dekket assume breach.",
+        "transfer": "sp08 skilte et konfigurasjonsfunn på StorageC fra et separat alert på ServerB. ServerA-vedlikehold var ikke bevis for ServerB. To personer kunne følge opp StorageC-verifikasjon og ServerB-undersøkelse parallelt. To fordelinger var faglig gyldige; den valgte alternative fordelingen ble faktisk akseptert.",
+        "unsampled": "Lag- og Defender-perspektivenes hele inputrom ble ikke kjørt. Ingen plan, skanning, faktisk alert eller Azure-sikkerhetstilstand ble kontrollert."
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "SIS-01",
+      "severity": "P2",
+      "category": "bounded journey language",
+      "title": "Storage A omtaler tilgjengelig Part B som noe som kommer senere",
+      "route": "/learn/storage?topic=introduction",
+      "also_routes": [
+        "/learn/storage?topic=summary",
+        "Knowledge Journal on Storage A"
+      ],
+      "exact_text": "Part A er tilgjengelig med egen versjonert historikk. Part B om access tiers og redundans kommer senere.",
+      "steps": [
+        "Åpne vanlig / og Hub. Storage Part B ligger som synlig tilgjengelig lenke.",
+        "Åpne Storage Part A → introduksjon eller Summary. Les sitatet.",
+        "Se Summarys Neste aktivitet: Storage Part B — Access Tiers & Redundancy, og åpne lenken ved behov."
+      ],
+      "observed": "Part B var tilgjengelig og alle 10 sider lot seg navigere og lese. Tilgjengelighetssetningen i A bruker samtidig «kommer senere».",
+      "consequence": "Kan leses som en utdatert leveransestatus når den egentlig kan mene senere i læringsrekkefølgen. Begrenset orienteringsfriksjon; ingen blokkert aktivitet.",
+      "recommendation": "Presiser «neste del i læringsreisen» eller si at Part B er tilgjengelig. Behold resten av avgrensningen.",
+      "evidence": [
+        "evidence/home.txt",
+        "evidence/home-links.json",
+        "evidence/storage-introduction.txt",
+        "evidence/storage-introduction.png",
+        "evidence/storage-final-summary.txt",
+        "evidence/storage-final-journal.txt",
+        "evidence/storage-resilience-introduction.txt"
+      ],
+      "confidence": "high for observed wording; moderate for learner interpretation; sequence reading is also plausible"
+    },
+    {
+      "id": "SIS-02",
+      "severity": "P2",
+      "category": "bounded Norwegian clarity",
+      "title": "Interne innholdskoder dukker opp uten forklaring i sikkerhetsundervisningen",
+      "route": "/learn/security?topic=zero-trust",
+      "also_routes": [
+        "/learn/security?topic=introduction",
+        "/learn/security?topic=posture"
+      ],
+      "exact_text": [
+        "Dette bygger på P10/P11, men Zero Trust begrenser seg ikke til én Conditional Access-policy eller én innlogging.",
+        "Full A–F-innholdsdekning er ikke dokumentert elevmestring eller eksamensberedskap.",
+        "Dette er en avgrenset fixtureforutsetning, ikke en universell matrise for alle anbefalinger."
+      ],
+      "steps": [
+        "Hub → Security Part C → Zero Trust — tre prinsipper. Les avsnittet Verify explicitly.",
+        "Les introduksjonens Avgrensning og moteksempel, og CSPM-sidens planforbehold.",
+        "Se at sidemeny og forkunnskapslenker bruker modulnavn; de siterte kodene/fixture-uttrykket forklares ikke i sidenes begrepsbokser."
+      ],
+      "observed": "P10/P11 og A–F presenteres som interne referanser i forklarende tekst; «fixtureforutsetning» er utviklerspråk for det ellers godt forklarte deklarerte premisset.",
+      "consequence": "Gir en unødvendig tolkeoppgave for leseren og svekker den ellers konkrete forbindelsen til tidligere navngitte moduler. Den faglige forklaringen er fortsatt mulig å følge.",
+      "recommendation": "Bruk de synlige modulnavnene og «erklært forutsetning i eksemplet»; fjern eller forklar interne koder i de eksisterende setningene.",
+      "evidence": [
+        "evidence/security-zero-trust.txt",
+        "evidence/security-zero-trust.png",
+        "evidence/security-introduction.txt",
+        "evidence/security-posture.txt",
+        "evidence/security-final-journal.txt"
+      ],
+      "confidence": "high for text; reviewer judgment for bounded clarity impact; no human novice observation claimed"
+    },
+    {
+      "id": "SIS-03",
+      "severity": "P3",
+      "category": "optional landmark polish",
+      "title": "Åpen bygginformasjon legger Commit/Gren utenfor landemerke",
+      "route": "/learn/storage?topic=studio",
+      "exact_text": [
+        "Commit: a3f1b575b2eb5b257fd455fec1a73b30a38706f4",
+        "Gren: codex/cc02-vm-debrief-diagnostics"
+      ],
+      "steps": [
+        "Åpne Storage A og utvid Bygginformasjon · forhåndsvisning nederst.",
+        "Kjør Axe på den åpne siden ved 1024×500."
+      ],
+      "observed": "Axe 4.14.0 rapporterte region/moderate for de to metadataavsnittene (.course-build > p:nth-child(2/3)). Ingen andre violations i de seks utvalgte Studio-tilstandene.",
+      "consequence": "Metadataene er mindre lette å finne ved landemerkenavigasjon. Dette gjelder byggmetadata, og det er ingen observert oppgaveblokkering eller skjermlesertest.",
+      "recommendation": "Plasser de eksisterende avsnittene i et passende navngitt landemerke eller footer.",
+      "evidence": [
+        "evidence/storage-axe.json",
+        "evidence/accessibility-summary.json",
+        "evidence/build-provenance.txt",
+        "evidence/build-provenance.png"
+      ],
+      "confidence": "high automated observation; assistive-technology impact not human validated"
+    }
+  ],
+  "strengths": [
+    {
+      "id": "ST-01",
+      "claim": "Seks moduler underviser årsak og avgrensning før valg, og modellkjøringer gir kontrollerbar kontrast.",
+      "evidence": [
+        "evidence/storage-guided-smb-conflict.txt",
+        "evidence/storage-guided-smb-files.txt",
+        "evidence/migration-guide-explorer.txt",
+        "evidence/migration-guide-unattended-explorer.txt",
+        "evidence/identity-schema-managed-final.txt",
+        "evidence/identity-schema-adds.txt",
+        "evidence/guided-predictions.json"
+      ]
+    },
+    {
+      "id": "ST-02",
+      "claim": "Synlig skille mellom teori åpnet, guidet arbeid og innlevering. Bare to faktisk fullførte guider ble rapportert som fullført; åpning av resten ga ikke guidekreditt.",
+      "evidence": [
+        "evidence/storage-final-summary.txt",
+        "evidence/storage-resilience-final-summary.txt",
+        "evidence/migration-final-summary.txt",
+        "evidence/identity-final-summary.txt",
+        "evidence/access-control-final-summary.txt",
+        "evidence/security-final-summary.txt"
+      ]
+    },
+    {
+      "id": "ST-03",
+      "claim": "Uavhengige oppgaver krever både beslutning og forklaring; alle seks forhåndslåste par ble akseptert med begrunnelser for alternativer og endrede premisser. Security sp08 aksepterte også en alternativ gyldig fordeling som var identifisert før feedback.",
+      "evidence": [
+        "solves/solve-lock.json",
+        "evidence/independent-results.json",
+        "evidence/security-independent-feedback.txt"
+      ]
+    },
+    {
+      "id": "ST-04",
+      "claim": "SavvyShark-briefing og milepæler forklarer neste handling, hvor, hvorfor og hva man skal observere. Migration-pause/reload/resume beholdt fire lagrede observasjoner.",
+      "evidence": [
+        "evidence/migration-briefing.txt",
+        "evidence/migration-guide-paused.txt",
+        "evidence/migration-guide-paused-reload.txt",
+        "evidence/migration-guide-resumed.txt",
+        "evidence/security-guided-completed.txt"
+      ]
+    },
+    {
+      "id": "ST-05",
+      "claim": "Ingen faktisk Azure-effekt forveksles med konseptresultat: syntetisk manifest er ikke reell checksum-validering, replika er ikke backup, identitetsgrunnlag er ikke rettigheter, og posture er ikke et bekreftet angrep. Tomt VM-disk-inventory ble beholdt tomt.",
+      "evidence": [
+        "evidence/storage-disks.txt",
+        "evidence/storage-resilience-recovery.txt",
+        "evidence/migration-validation.txt",
+        "evidence/access-control-planes.txt",
+        "evidence/security-protection.txt",
+        "evidence/security-score.txt"
+      ]
+    },
+    {
+      "id": "ST-06",
+      "claim": "Hjelp og gjeneksponering merkes varig gjennom vanlig UI: Journal åpnet under aktivt arbeid endret synlig etikett til Med registrert hjelp før teorien; reload beholdt den. Avbrudd og ny Start ga Gjeneksponert familie / retry.",
+      "evidence": [
+        "evidence/security-lifecycle-started.txt",
+        "evidence/security-lifecycle-helpguard.txt",
+        "evidence/security-lifecycle-assisted-reload.txt",
+        "evidence/security-lifecycle-abandoned.txt",
+        "evidence/security-lifecycle-retry-after-abandon.txt"
+      ]
+    },
+    {
+      "id": "ST-07",
+      "claim": "Representative korte skjermer hadde ingen dokumentbredde-overflyt. Tab viste fokusrammer; Journal åpnet med Enter, fokuserte Close, lot Tab gå til innhold, lukket med Escape og returnerte fokus til triggeren.",
+      "evidence": [
+        "evidence/accessibility-summary.json",
+        "evidence/security-journal-keyboard.json",
+        "evidence/identity-keyboard.json",
+        "evidence/identity-independent-selected.txt"
+      ]
+    }
+  ],
+  "limits": [
+    "Dette er en uavhengig AI-produktgjennomgang, ikke kvalifisert menneskelig Azure-SME-, novice/IT-, UX-, skjermleser-, psykometrisk eller målt lærings-/transfer-validering.",
+    "Alle 69 anbefalte interne sider ble lest, men det er ikke det samme som at alle aktiviteter, inputkombinasjoner eller scenariofamilier ble fullført. 24 vellykkede representative modellkjøringer, to fullførte guider av 16 tilgjengelige og én innlevert førstefamilie per modul (6 av 58 tilgjengelige familier) er faktisk testet.",
+    "Security sp01 ble i tillegg startet for hjelp/avbrudd/retry uten svar eller innlevering. Ingen feilpar ble med hensikt levert; vurdering av delvis/feil beslutning–begrunnelse er ikke validert utover synlig forklaring etter de seks innleveringene.",
+    "Eksterne kilder ble inventarisert og lenketekst lest; Microsoft Learn/dokumentasjonssider ble ikke gjennomgått eller nettverksvalidert. Ingen sertifisering av oppdaterte Azure-produktvilkår utover den synlige forklaringens presise forbehold.",
+    "1440×900 og 1024×500 er representative desktopprøver. Ikke telefon, zoom 400 %, alle nettlesere, alle modaler i korte skjermer eller full manuell WCAG-revisjon. Reduced-motion-preferansen og rendering ble sjekket, ikke hver enkelt animasjonsbane.",
+    "Axe gjelder seks utvalgte Studio-tilstander, ikke alle 69 sider eller alle dynamiske tilstander. Keyboard-prøven omfatter Tab/fokus i alle seks, tastaturvalg i Identity-oppgaven og Security Journal-fokusløp; ikke full oppgaveløsning uten mus i alle moduler.",
+    "Navigasjon via sidemeny og Neste/Forrige ble gjennomgått på alle modulene, med konkrete href-er i inventaret. En ny, isolert Hub→Storage intro→Blob→Back→Forward→reload-prøve passerte. Den tidligere seks-modul Back/Forward-loggen hadde for tidlig avlesning og teller ikke som seks separate beståtte historietester.",
+    "Oppstart av Chromium og noen verktøykall var langsomme under delt miljøbelastning. To prediksjoner uten observasjonsfil ble stoppet av guide-/modalinteraksjon eller kontrollreset; disse regnes ikke som fullførte kjøringer eller appfeil. Et eldre goBack-domcontentloaded-timeout var en harness-lifecycle-venting; den nye commit/URL-baserte prøven passerte.",
+    "Ingen source, app/domain/content/tests, AGENTS.md, README/status/audit/remediation/keys eller tidligere funn ble lest. Ingen source-/Git-endringer, store-injeksjon, fixtureinjeksjon, reell Azure-tilgang, deploy eller bypass. Vanlig nettleserlast av appens ressurser er brukt uten inspeksjon av bundles/nettverksinnhold.",
+    "Anonyme ferske BrowserContexts isolerte modulene. Cookies var tomme ved start og slutt. Læringshistorikk ble bare skrevet av faktisk UI. Ingen utholdenhet mellom separate maskiner eller slettet nettleserlagring er testet."
+  ],
+  "pedagogy": {
+    "prior_knowledge": "Visible prerequisites are explicit and linked. Storage assumes cloud/VM and networking distinction; Identity defines the new tenant/domain vocabulary; Access builds on Identity; Security explicitly expects Identity A/B, networking, Storage, governance and monitoring. These prerequisite modules outside scope were not re-reviewed.",
+    "language_density": "Mostly concrete Norwegian paragraphs, glossary terms, worked examples and counterexamples. Technical English is frequently retained but explained. Repeated truth-boundary and validation disclaimers increase reading length; their accuracy is useful and no measured overload is claimed. SIS-02 is a narrow language correction, not a request for redesign.",
+    "journey_optional_links": "Hub distinguishes subject map from recommended Next order. Bottom Next/Previous links and sidebar routes were captured. Storage Summary explicitly labels new application links Valgfritt fordypningssteg; Security Encryption & Key Vault is an inline Learn-supplement with teaching text and source links. External source lists are further reading, not completed activities.",
+    "guide_utility": "Briefing → explicit Start → prediction → run → saved contrast → causal explanation provides an observable sequence. Draft controls and last saved observation are separated. Migration pause/resume preserved evidence; Storage/Security causal explanations yielded real guide completion. Four other sampled guides intentionally remained incomplete.",
+    "value_beyond_learn": "Observed value is controlled premise changes with saved evidence and causal explanation, followed by new paired decision/reason situations and immutable first-attempt classification. It is more than static paraphrase in these samples. It is not real Azure operational practice or demonstrated learner transfer."
+  }
+}

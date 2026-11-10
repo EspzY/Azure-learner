@@ -1,0 +1,47 @@
+{
+  "fixtureOnly": true,
+  "authority": "Actual full old/current PortalResourceLayout module and dependencies with installed React/ReactDOM; no World, receipt, application route, fetch or runtime claims.",
+  "reactVersion": "19.3.1",
+  "css": [
+    {
+      "path": "src/features/portal/portal.css",
+      "sha256": "09d6a7043e0020855a3b5ec88b0ceca1ef8a0c5c22cf4758d464af7234173039"
+    },
+    {
+      "path": "src/features/portal/presentation.css",
+      "sha256": "96e640afac4484eb92e25dc56c0d8b52dea2b54070308551d93f4ca5be879bfa"
+    }
+  ],
+  "observations": [
+    {
+      "version": "parent",
+      "staleReached": true,
+      "sourceSha256": "863ef6104582d8c072ff8fa0b13583eb753f8d700b8ccbdda65643c33c03bc4d",
+      "sourceHashes": {
+        "src/features/portal/portal.css": "09d6a7043e0020855a3b5ec88b0ceca1ef8a0c5c22cf4758d464af7234173039",
+        "src/features/portal/presentation.css": "96e640afac4484eb92e25dc56c0d8b52dea2b54070308551d93f4ca5be879bfa",
+        "src/features/portal/presentation.tsx": "863ef6104582d8c072ff8fa0b13583eb753f8d700b8ccbdda65643c33c03bc4d",
+        "src/features/portal/service-icon.tsx": "234c559cd272b0f954615b88f04cb8c825a01dbb8ee117c67d09815835bcf675",
+        "src/content/nb.ts": "8081507d1a97e92a1baee370b783b4bc08cecfddba16825f3b0b8ce386cb8b02",
+        "public/icons/manifest.json": "25b6c31b1a330a2f5318309190318c928e2e25ad305c5a14e6c4009becf64981"
+      },
+      "compiledFixtureSha256": "39a0e165b680e99f235096aa73ebfba0bd8495b4188bba273cac1fc0fc1dff33",
+      "pending": true
+    },
+    {
+      "version": "candidate",
+      "staleReached": false,
+      "sourceSha256": "c89639172b228a420631c90cc4fb3826656e27cc1769d3586c320dffabaeffed",
+      "sourceHashes": {
+        "src/features/portal/portal.css": "09d6a7043e0020855a3b5ec88b0ceca1ef8a0c5c22cf4758d464af7234173039",
+        "src/features/portal/presentation.css": "96e640afac4484eb92e25dc56c0d8b52dea2b54070308551d93f4ca5be879bfa",
+        "src/features/portal/presentation.tsx": "c89639172b228a420631c90cc4fb3826656e27cc1769d3586c320dffabaeffed",
+        "src/features/portal/service-icon.tsx": "234c559cd272b0f954615b88f04cb8c825a01dbb8ee117c67d09815835bcf675",
+        "src/content/nb.ts": "8081507d1a97e92a1baee370b783b4bc08cecfddba16825f3b0b8ce386cb8b02",
+        "public/icons/manifest.json": "25b6c31b1a330a2f5318309190318c928e2e25ad305c5a14e6c4009becf64981"
+      },
+      "compiledFixtureSha256": "24282cf694bded5c5976690daacd9678a0fd7fe199da29d54735d3e4a12ffc1d",
+      "pending": true
+    }
+  ]
+}

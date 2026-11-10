@@ -1,0 +1,24 @@
+
+> azurelab@0.1.0 check
+> npm run typecheck && npm run lint && npm run format:check && npm run docs:check && npm run quality:check && npm run az900:audit:check && npm run curriculum:check && npm run assets:check && npm run legacy:check && npm test && npm run build
+
+
+> azurelab@0.1.0 typecheck
+> node scripts/next.mjs typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+
+> azurelab@0.1.0 lint
+> eslint . --max-warnings 0
+
+
+/workspace/Azure-learner/src/pr72-ci-workflow.test.ts
+   16:19  error  Spaces are hard to count. Use {2}  no-regex-spaces
+   23:15  error  Spaces are hard to count. Use {6}  no-regex-spaces
+   59:12  error  Spaces are hard to count. Use {6}  no-regex-spaces
+  102:36  error  Unnecessary escape character: \$   no-useless-escape
+
+✖ 4 problems (4 errors, 0 warnings)
+  3 errors and 0 warnings potentially fixable with the `--fix` option.
+

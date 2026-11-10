@@ -1,0 +1,335 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: laboratory-topology.spec.ts >> topology Studio wrong route opens the actual UDR native Review Save repairs Firewall next hop and LPM with stable identity original receipts and no course credit
+- Location: tests/e2e/laboratory-topology.spec.ts:89:1
+
+# Error details
+
+```
+Error: expect(page).toHaveURL(expected) failed
+
+Expected pattern: /view=route&id=route-20/
+Received string:  "http://127.0.0.1:3000/labs/laboratory?view=route&studio=1&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8&id=route-20&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441"
+Timeout: 5000ms
+
+Call log:
+  - Expect "toHaveURL" with timeout 5000ms
+    14 × locator resolved to <html lang="nb" class="dhKPgG_variable _1nkxxq_variable">…</html>
+       - unexpected value "http://127.0.0.1:3000/labs/laboratory?view=route&studio=1&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8&id=route-20&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441"
+
+```
+
+```yaml
+- alert
+- link "Hopp til innhold":
+  - /url: "#lab-main"
+- banner:
+  - button "Åpne eller lukk portalmenyen" [expanded]
+  - link "AzureLab 3.2.1":
+    - /url: /labs/laboratory
+  - searchbox "Search resources and services"
+  - text: Fri Laboratory
+  - button "Originale kvitteringer"
+  - button "Modellgrenser"
+  - link "Kursarbeidsområde":
+    - /url: /portal
+  - link "Til kurset":
+    - /url: /learn
+- complementary "Laboratory v3 navigasjon":
+  - navigation "Laboratory v3 navigasjon":
+    - link "Create a resource":
+      - /url: /labs/laboratory?view=services&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "All services":
+      - /url: /labs/laboratory?view=services&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - text: FAVORITES
+    - link "All resources":
+      - /url: /labs/laboratory?view=resources&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Architecture Studio":
+      - /url: /labs/laboratory?view=studio&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Azure Firewalls":
+      - /url: /labs/laboratory?view=firewalls&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Firewall Policies":
+      - /url: /labs/laboratory?view=firewallPolicies&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Public IP addresses":
+      - /url: /labs/laboratory?view=publicIps&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Virtual machines":
+      - /url: /labs/laboratory?view=vms&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Managed disks":
+      - /url: /labs/laboratory?view=disks&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Network interfaces":
+      - /url: /labs/laboratory?view=nics&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Network Policy Analysis":
+      - /url: /labs/laboratory?view=policy&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Resource groups":
+      - /url: /labs/laboratory?view=groups&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Storage accounts":
+      - /url: /labs/laboratory?view=accounts&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Virtual networks":
+      - /url: /labs/laboratory?view=vnets&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Network security groups":
+      - /url: /labs/laboratory?view=nsgs&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Route tables":
+      - /url: /labs/laboratory?view=routeTables&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Ruteanalyse":
+      - /url: /labs/laboratory?view=analysis&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+    - link "Originale kvitteringer":
+      - /url: /labs/laboratory?view=history&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+  - text: Støttede tjenester i dette arbeidsområdet
+- main "to-data":
+  - button "Fri Laboratory"
+  - button "Route tables"
+  - button "rt-app"
+  - text: to-data
+  - paragraph:
+    - link "Tilbake til Architecture Studio":
+      - /url: /labs/laboratory?view=studio&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+  - heading "to-data" [level=1]
+  - text: User-defined route · Lokal AzureLab-simulator · eget serverlagret arbeidsområde · ingen kursresultater eller XP
+  - navigation "to-data · Overview":
+    - strong: to-data
+    - text: Search this resource
+    - searchbox "Search this resource"
+    - button "Overview"
+    - button "Activity log"
+    - group:
+      - text: Settings
+      - button "Properties"
+    - text: Lokalt simulator-scope
+  - region "Edit":
+    - button "Edit route"
+    - link "Siste endringskvittering":
+      - /url: /labs/laboratory?view=history&receipt=3ca75ed9-5d6a-4008-9b1d-5201aa07365b&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+  - paragraph: VirtualAppliance peker til en faktisk modellert Firewall og dens private IP. Prefix matching velger ruten; en valgt rute bekrefter ikke kommunikasjon.
+  - button "Delete route"
+  - paragraph: VirtualAppliance peker til en faktisk modellert Firewall og dens private IP. Prefix matching velger ruten; en valgt rute bekrefter ikke kommunikasjon.
+  - term: Lokal ID
+  - definition: route-20
+  - term: Route table
+  - definition:
+    - link "rt-app":
+      - /url: /labs/laboratory?view=routeTable&id=route-table-18
+  - term: Adresseprefiks
+  - definition: 10.20.0.0/16
+  - term: Next hop
+  - definition: None · dropp
+  - link "Åpne original kvittering":
+    - /url: /labs/laboratory?view=history&receipt=topology-21&studio=1&sselected=route-20&sx=76&sy=65&sz=0.2777555110220441&sw=80e0c63d-d992-4931-98e6-c3df74ff28b8
+  - paragraph: VirtualAppliance peker til en faktisk modellert Firewall og dens private IP. Prefix matching velger ruten; en valgt rute bekrefter ikke kommunikasjon.
+  - text: Fri Laboratory
+  - button "Oppdater fra serveren"
+  - text: "World-revisjon: 33 · Arbeidsforsøk: 1 · Arbeidsområdets modell: laboratory@3.7.0"
+  - button "Nullstill eget arbeidsområde"
+```
+
+# Test source
+
+```ts
+  7   | import { laboratoryTopologyNb as x } from '../../src/content/laboratory-topology-nb';
+  8   | import { laboratoryEndpointsNb as e } from '../../src/content/laboratory-endpoints-nb';
+  9   | import { laboratoryFirewallNb as f } from '../../src/content/laboratory-firewall-nb';
+  10  | import { architectureStudioNb as st } from '../../src/content/architecture-studio-nb';
+  11  | const state = async (page: Page) => (await page.request.get('/api/laboratory/state')).json();
+  12  | const url = (view: string, id?: string) =>
+  13  |   '/labs/laboratory?' + new URLSearchParams({ view, ...(id ? { id } : {}) });
+  14  | async function apply(page: Page, command: Command) {
+  15  |   const a = await state(page),
+  16  |     r = await page.request.post('/api/laboratory/command', {
+  17  |       headers: { Origin: 'http://127.0.0.1:3000', 'If-Laboratory-Workspace': a.workspace },
+  18  |       data: { commandId: crypto.randomUUID(), expectedRevision: a.world.revision, command },
+  19  |     });
+  20  |   expect(r.status()).toBe(200);
+  21  |   const b = await r.json();
+  22  |   expect(b.receipt.outcome).toBe('accepted');
+  23  |   return b.receipt;
+  24  | }
+  25  | async function seed(page: Page) {
+  26  |   await page.goto('/labs/laboratory');
+  27  |   await page.getByRole('button', { name: c.start, exact: true }).click();
+  28  |   await expect(page.locator('.laboratory-workspace-status')).toContainText('laboratory@3.7.0');
+  29  |   const a = topologyWorld(),
+  30  |     before = await state(page);
+  31  |   for (const entry of a.s.entries) {
+  32  |     const r = await page.request.post('/api/laboratory/command', {
+  33  |       headers: { Origin: 'http://127.0.0.1:3000', 'If-Laboratory-Workspace': before.workspace },
+  34  |       data: entry.request,
+  35  |     });
+  36  |     expect(r.status()).toBe(200);
+  37  |     expect((await r.json()).receipt).toEqual(entry.receipt);
+  38  |   }
+  39  |   return { ...a, workspace: before.workspace };
+  40  | }
+  41  | async function diagnose(page: Page, a: ReturnType<typeof topologyWorld>) {
+  42  |   await page.goto(url('studio'));
+  43  |   const form = page.locator('.studio-diagnostics .lab-policy-analysis');
+  44  |   if (!(await form.isVisible()))
+  45  |     await page
+  46  |       .locator('.portal-graph-toolbar')
+  47  |       .getByRole('button', { name: st.diagnostics, exact: true })
+  48  |       .click();
+  49  |   await form.getByRole('combobox', { name: e.source, exact: true }).selectOption(a.appNic);
+  50  |   await form.getByRole('combobox', { name: e.destination, exact: true }).selectOption(a.dataNic);
+  51  |   await form.getByRole('textbox', { name: e.destinationPort, exact: true }).fill('1433');
+  52  |   await form.getByRole('button', { name: e.calculate, exact: true }).click();
+  53  |   return form;
+  54  | }
+  55  | async function edit(
+  56  |   page: Page,
+  57  |   kind: 'route' | 'peering',
+  58  |   id: string,
+  59  |   fields: Record<string, string>,
+  60  | ) {
+  61  |   await page.goto(url(kind, id));
+  62  |   const title = kind === 'route' ? x.editRoute : x.editPeering;
+  63  |   await page
+  64  |     .locator('.lab-rule-lifecycle')
+  65  |     .getByRole('button', { name: title, exact: true })
+  66  |     .click();
+  67  |   const dialog = page.getByRole('dialog', { name: title, exact: true });
+  68  |   for (const [key, value] of Object.entries(fields)) {
+  69  |     const name = x.fields[key as keyof typeof x.fields];
+  70  |     if (['nextHopType', 'firewallId', 'value'].includes(key))
+  71  |       await dialog.getByRole('combobox', { name, exact: true }).selectOption(value);
+  72  |     else await dialog.getByRole('textbox', { name, exact: true }).fill(value);
+  73  |   }
+  74  |   return dialog;
+  75  | }
+  76  | async function review(page: Page) {
+  77  |   const dialog = page.getByRole('dialog'),
+  78  |     before = await state(page);
+  79  |   await dialog.getByRole('button', { name: t.review, exact: true }).click();
+  80  |   await expect(dialog.getByRole('button', { name: t.save, exact: true })).toBeEnabled();
+  81  |   await expect(dialog.locator('.lab-rule-review h3')).toBeFocused();
+  82  |   expect(await state(page)).toEqual(before);
+  83  |   return dialog;
+  84  | }
+  85  | async function save(page: Page) {
+  86  |   await page.getByRole('dialog').getByRole('button', { name: t.save, exact: true }).click();
+  87  |   await expect(page.getByRole('dialog')).toHaveCount(0);
+  88  | }
+  89  | test('topology Studio wrong route opens the actual UDR native Review Save repairs Firewall next hop and LPM with stable identity original receipts and no course credit', async ({
+  90  |   page,
+  91  | }) => {
+  92  |   const a = await seed(page),
+  93  |     original = a.s.world.routes.find((r) => r.id === a.route)!;
+  94  |   await apply(page, routeUpdate(a, 'None'));
+  95  |   const before = await state(page),
+  96  |     course = await page.evaluate(() => JSON.stringify(localStorage));
+  97  |   await expect(await diagnose(page, a)).toContainText(f.outcome['routing-drop']);
+  98  |   await page.screenshot({ path: test.info().outputPath('topology-before-route-drop-studio.png') });
+  99  |   await page
+  100 |     .locator('[data-observation="route-blocks-modeled-flow"]')
+  101 |     .getByRole('button', { name: `${original.name} · ${original.id}`, exact: true })
+  102 |     .click();
+  103 |   await page
+  104 |     .getByRole('complementary', { name: st.inspect, exact: true })
+  105 |     .getByRole('link', { name: st.open, exact: true })
+  106 |     .click();
+> 107 |   await expect(page).toHaveURL(new RegExp('view=route&id=' + a.route));
+      |                      ^ Error: expect(page).toHaveURL(expected) failed
+  108 |   await page
+  109 |     .locator('.lab-rule-lifecycle')
+  110 |     .getByRole('button', { name: x.editRoute, exact: true })
+  111 |     .click();
+  112 |   const dialog = page.getByRole('dialog', { name: x.editRoute, exact: true });
+  113 |   await dialog
+  114 |     .getByRole('combobox', { name: x.fields.nextHopType, exact: true })
+  115 |     .selectOption('VirtualAppliance');
+  116 |   await dialog
+  117 |     .getByRole('combobox', { name: x.fields.firewallId, exact: true })
+  118 |     .selectOption(a.firewall);
+  119 |   await review(page);
+  120 |   await expect(dialog.getByRole('table')).toContainText(a.firewall);
+  121 |   await expect(dialog.getByRole('table')).toContainText(a.s.world.firewalls[0]!.privateIpAddress);
+  122 |   await page.screenshot({ path: test.info().outputPath('topology-route-review-firewall.png') });
+  123 |   await save(page);
+  124 |   let after = await state(page);
+  125 |   expect(after.world.routes.find((r: { id: string }) => r.id === a.route)).toEqual(original);
+  126 |   expect(after.entries.slice(0, before.entries.length)).toEqual(before.entries);
+  127 |   await page.locator('.studio-return a').click();
+  128 |   await expect(page.locator('[data-observation="route-blocks-modeled-flow"]')).toHaveCount(0);
+  129 |   await expect(await diagnose(page, a)).toContainText(f.outcome['allowed-via-firewall']);
+  130 |   await page.screenshot({ path: test.info().outputPath('topology-after-firewall-studio.png') });
+  131 |   await edit(page, 'route', a.route, { addressPrefix: '10.99.0.0/16' });
+  132 |   await review(page);
+  133 |   await save(page);
+  134 |   await expect(await diagnose(page, a)).toContainText(f.outcome['routing-drop']);
+  135 |   await edit(page, 'route', a.route, { addressPrefix: '10.20.1.0/24' });
+  136 |   await review(page);
+  137 |   await save(page);
+  138 |   after = await state(page);
+  139 |   expect(after.world.routes.find((r: { id: string }) => r.id === a.route)).toMatchObject({
+  140 |     id: a.route,
+  141 |     name: original.name,
+  142 |     origin: original.origin,
+  143 |     routeTableId: original.routeTableId,
+  144 |     addressPrefix: '10.20.1.0/24',
+  145 |   });
+  146 |   await expect(await diagnose(page, a)).toContainText(f.outcome['allowed-via-firewall']);
+  147 |   await expect(page.locator('.studio-diagnostics')).toContainText('10.20.1.0/24');
+  148 |   await page.reload();
+  149 |   expect(await state(page)).toEqual(after);
+  150 |   await page.goBack();
+  151 |   await page.goForward();
+  152 |   expect(await state(page)).toEqual(after);
+  153 |   expect(await page.evaluate(() => JSON.stringify(localStorage))).toBe(course);
+  154 | });
+  155 | test('topology native complete route validation rejects shared-table incompatible subnet prefix duplicate malformed and arbitrary appliance without a partial write', async ({
+  156 |   page,
+  157 | }) => {
+  158 |   const a = await seed(page);
+  159 |   await apply(page, {
+  160 |     type: 'AssociateSubnetRouteTable',
+  161 |     subnetId: a.dataSubnet,
+  162 |     routeTableId: a.appTable,
+  163 |   });
+  164 |   const before = await state(page);
+  165 |   let dialog = await edit(page, 'route', a.route, {
+  166 |     addressPrefix: '10.10.1.0/24',
+  167 |     nextHopType: 'VnetLocal',
+  168 |   });
+  169 |   await dialog.getByRole('button', { name: t.review, exact: true }).click();
+  170 |   await expect(dialog.getByRole('alert')).toContainText('VnetLocal');
+  171 |   await expect(dialog.getByRole('button', { name: t.save, exact: true })).toBeDisabled();
+  172 |   expect(await state(page)).toEqual(before);
+  173 |   await dialog.getByRole('button', { name: t.cancel, exact: true }).click();
+  174 |   dialog = await edit(page, 'route', a.route, { addressPrefix: '10.20.1.1/24' });
+  175 |   await dialog.getByRole('button', { name: t.review, exact: true }).click();
+  176 |   await expect(dialog.getByRole('alert')).toBeVisible();
+  177 |   await expect(dialog.getByRole('button', { name: t.save, exact: true })).toBeDisabled();
+  178 |   expect(await state(page)).toEqual(before);
+  179 |   await dialog.getByRole('button', { name: t.cancel, exact: true }).click();
+  180 |   dialog = await edit(page, 'route', a.route, { nextHopIp: '10.0.0.99' });
+  181 |   await dialog.getByRole('button', { name: t.review, exact: true }).click();
+  182 |   await expect(dialog.getByRole('alert')).toBeVisible();
+  183 |   expect(await state(page)).toEqual(before);
+  184 | });
+  185 | test('topology explicit subnet NSG disassociation retains NSG rules original association history and Studio removes only the actual attachment without a security score', async ({
+  186 |   page,
+  187 | }) => {
+  188 |   const a = await seed(page),
+  189 |     before = await state(page);
+  190 |   await page.goto(url('subnet', a.appSubnet));
+  191 |   await page
+  192 |     .locator('.lab-rule-lifecycle')
+  193 |     .getByRole('button', { name: x.disassociate, exact: true })
+  194 |     .click();
+  195 |   const dialog = page.getByRole('dialog', { name: x.disassociate, exact: true });
+  196 |   await expect(dialog).toContainText(x.detachNote);
+  197 |   await dialog.getByRole('button', { name: t.review, exact: true }).click();
+  198 |   await expect(dialog.getByRole('button', { name: x.disassociate, exact: true })).toBeDisabled();
+  199 |   expect(await state(page)).toEqual(before);
+  200 |   await dialog.getByRole('checkbox').check();
+  201 |   await dialog.getByRole('button', { name: x.disassociate, exact: true }).click();
+  202 |   await expect(page.getByRole('dialog')).toHaveCount(0);
+  203 |   const after = await state(page),
+  204 |     entry = after.entries.at(-1);
+  205 |   expect(after.world.subnets.find((s: { id: string }) => s.id === a.appSubnet).nsgId).toBeNull();
+  206 |   expect(after.world.nsgs).toEqual(before.world.nsgs);
+  207 |   expect(after.world.securityRules).toEqual(before.world.securityRules);
+```

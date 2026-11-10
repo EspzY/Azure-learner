@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "base": "a3f1b575b2eb5b257fd455fec1a73b30a38706f4",
+  "recordedUTC": "2026-11-05T15:53:43.186435+00:00",
+  "targeted": [
+    {
+      "command": "npm run typecheck",
+      "result": "passed",
+      "exit": 0,
+      "log": "implementation/typecheck-fixed.log"
+    },
+    {
+      "command": "npm run build",
+      "result": "passed",
+      "exit": 0,
+      "log": "implementation/build-targeted.log"
+    },
+    {
+      "command": "vitest new final-quality feedback/preservation files",
+      "result": "passed",
+      "tests": 7,
+      "exit": 0,
+      "log": "implementation/new-focused-vitest.log"
+    },
+    {
+      "command": "playwright new final-quality desktop cases",
+      "result": "passed across scoped initial and corrected harness runs",
+      "cases": 4,
+      "logs": ["implementation/browser-target.log", "implementation/browser-target-fixed.log"],
+      "limits": "Initial combined first case exceeded unchanged30s deadline during goBack default load wait; split into two logical cases and waitUntil commit+settled URL, preserving assertions; second/third original cases passed. No settings changed."
+    },
+    {
+      "command": "actual production browser all-sidebar and module boundaries",
+      "result": "passed",
+      "canonicalRoutes": 200,
+      "nextBoundaries": 17,
+      "previousBoundaries": 17,
+      "assessmentStarts": 0,
+      "sandboxChanged": false,
+      "evidence": "visual/results.json"
+    }
+  ],
+  "retainedFailures": [
+    {
+      "logs": ["implementation/targeted-vitest.log", "implementation/targeted-vitest-batched.log"],
+      "result": "12/14 then11/14; original preservation/new async assertions timed out at unchanged5s limit during concurrent tool work. Subsequent isolated new7 passed and correct baseline5 passed; not claimed a complete candidate pass."
+    },
+    {
+      "log": "implementation/baseline-timing-vitest.log",
+      "result": "Invalid comparison used --root with original current working directory so relative preservation paths read candidate; excluded from product conclusion. Correct cwd baseline5 passed in baseline-timing-cwd-correct.log."
+    },
+    {
+      "log": "visual/check-attempt1.log",
+      "result": "Own screenshot selector did not match actual plain ol; corrected selector, no runtime change. Initial peering element captures contained dialog crop; clear replacement pair used."
+    },
+    {
+      "log": "implementation/full-check-attempt1.log",
+      "result": "Full check exited1 at new preservation-test lint no-regex-spaces; replaced literal two-space regex with equivalent {2}, no assertion/rule/timeout change. Full corrected check is running."
+    },
+    {
+      "log": "implementation/full-check-attempt2.log",
+      "result": "Full check:692/693 Vitest passed; frozen CC03 dependency-report byte guard detected a dated appended status. A targeted recheck also identified the frozen historical AZ900 remediation plan. Restored both originals exactly and moved current follow-up to new RC/finding documents. No assertion weakened; complete recheck required."
+    }
+  ],
+  "fullCheck": {
+    "result": "passed",
+    "exit": 0,
+    "vitestFiles": 56,
+    "vitestTests": 693,
+    "nodeTests": 24,
+    "curriculumTargetTests": 503,
+    "log": "implementation/full-check.log",
+    "completedUTC": "2026-11-05T16:08:41.359587+00:00"
+  },
+  "candidateCI": "pending",
+  "strictRelease": "pending",
+  "externalGate7": "pending",
+  "settings": "No retries/timeouts/workers/skips changed. Earlier unexplained Compute/Axe instability remains open.",
+  "profilePlan": {
+    "result": "passed",
+    "legacyCases": 686,
+    "desktopCases": 343,
+    "compactCases": 36,
+    "candidateCases": 379,
+    "workers": 1,
+    "limits": "Collection only; actual complete CI remains pending."
+  },
+  "docPreservationRecheck": {
+    "result": "passed",
+    "files": 3,
+    "tests": 9,
+    "log": "implementation/doc-preservation-final.log"
+  }
+}

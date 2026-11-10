@@ -1,0 +1,306 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: integrated-chain.spec.ts >> integrated3.9 PostgreSQL native reload and same-value Function Review preserve verifiable JSONB history before a real configuration change
+- Location: tests/e2e/integrated-chain.spec.ts:324:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+```
+Error: locator.isEditable: Test timeout of 30000ms exceeded.
+Call log:
+  - waiting for locator('.lab-form').getByLabel('Name', { exact: true })
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - alert [ref=e2]
+  - generic [ref=e3]:
+    - link "Hopp til innhold" [ref=e4] [cursor=pointer]:
+      - /url: "#lab-main"
+    - banner [ref=e5]:
+      - button "Åpne eller lukk portalmenyen" [expanded] [ref=e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=e8] [cursor=pointer]:
+        - /url: /labs/laboratory
+      - searchbox "Search resources and services" [ref=e10]
+      - generic [ref=e11]: Fri Laboratory
+      - button "Originale kvitteringer" [ref=e12] [cursor=pointer]
+      - button "Modellgrenser" [ref=e14] [cursor=pointer]
+      - link "Kursarbeidsområde" [ref=e16] [cursor=pointer]:
+        - /url: /portal
+      - link "Til kurset" [ref=e17] [cursor=pointer]:
+        - /url: /learn
+      - link "Til forsiden" [ref=e18] [cursor=pointer]:
+        - /url: /
+    - generic [ref=e23]:
+      - complementary "Laboratory v3 navigasjon" [ref=e24]:
+        - navigation "Laboratory v3 navigasjon" [ref=e25]:
+          - link "Create a resource" [ref=e26] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - link "Home" [ref=e28] [cursor=pointer]:
+            - /url: /labs/laboratory?view=home
+          - link "All services" [ref=e30] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - generic [ref=e32]: FAVORITES
+          - link "Subscriptions" [ref=e34] [cursor=pointer]:
+            - /url: /labs/laboratory?view=subscriptions
+          - link "Resource groups" [ref=e36] [cursor=pointer]:
+            - /url: /labs/laboratory?view=groups
+          - link "All resources" [ref=e38] [cursor=pointer]:
+            - /url: /labs/laboratory?view=resources
+          - link "App Services" [ref=e40] [cursor=pointer]:
+            - /url: /labs/laboratory?view=apps
+          - link "App Service plans" [ref=e42] [cursor=pointer]:
+            - /url: /labs/laboratory?view=plans
+          - link "Virtual machines" [ref=e44] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vms
+          - link "Storage accounts" [ref=e46] [cursor=pointer]:
+            - /url: /labs/laboratory?view=accounts
+          - link "Virtual networks" [ref=e48] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vnets
+          - link "Function App" [ref=e50] [cursor=pointer]:
+            - /url: /labs/laboratory?view=functionApp
+          - link "Front Door profiles" [ref=e52] [cursor=pointer]:
+            - /url: /labs/laboratory?view=frontDoor
+          - link "Application Gateways" [ref=e54] [cursor=pointer]:
+            - /url: /labs/laboratory?view=applicationGateway
+          - link "SQL database" [ref=e56] [cursor=pointer]:
+            - /url: /labs/laboratory?view=sqlDatabase
+          - group [ref=e58]:
+            - generic "AzureLab tools" [ref=e59] [cursor=pointer]
+            - link "Architecture Studio" [ref=e61] [cursor=pointer]:
+              - /url: /labs/laboratory?view=studio
+            - link "Ruteanalyse" [ref=e63] [cursor=pointer]:
+              - /url: /labs/laboratory?view=analysis
+            - link "Network Policy Analysis" [ref=e65] [cursor=pointer]:
+              - /url: /labs/laboratory?view=policy
+        - generic [ref=e67]: Støttede tjenester i dette arbeidsområdet
+      - main [ref=e68]:
+        - generic [ref=e69]:
+          - button "Home" [ref=e70] [cursor=pointer]
+          - button "Home" [ref=e72] [cursor=pointer]
+        - generic [ref=e75]:
+          - generic [ref=e79]:
+            - heading "Create a resource group" [active] [level=1] [ref=e80]
+            - generic [ref=e81]: Lokal AzureLab-simulator · eget serverlagret arbeidsområde · ingen kursresultater eller XP
+          - list "Create a resource group" [ref=e82]:
+            - listitem [ref=e83]: Basics
+            - listitem [ref=e84]: Review + create
+          - group "Project details" [ref=e86]:
+            - generic [ref=e88]:
+              - text: Subscription
+              - combobox "Subscription" [ref=e89]:
+                - option "—" [disabled]
+                - option "Shared Sandbox" [selected]
+                - option "App Sandbox"
+            - generic [ref=e90]:
+              - text: Resource group name
+              - textbox "Resource group name" [ref=e91]
+            - heading "Resource details" [level=3] [ref=e92]
+            - generic [ref=e93]:
+              - text: Region
+              - combobox "Region" [ref=e94]:
+                - option "—" [disabled]
+                - option "Norway East" [selected]
+                - option "West Europe"
+                - option "North Europe"
+              - generic [ref=e95]: Region lagrer metadata for ressursgruppen; den bestemmer ikke plasseringen til ressursene i gruppen.
+            - generic [ref=e96]:
+              - button "Review + create" [ref=e97] [cursor=pointer]
+              - button "Avbryt" [ref=e98] [cursor=pointer]
+        - generic [ref=e99]:
+          - generic [ref=e100]: Fri Laboratory
+          - button "Oppdater fra serveren" [ref=e101] [cursor=pointer]
+          - generic [ref=e103]: "World-revisjon: 0 · Arbeidsforsøk: 1 · Arbeidsområdets modell: laboratory@3.9.0"
+          - button "Nullstill eget arbeidsområde" [ref=e104] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  72  |   expect(selected, `Actual parent required for ${name}`).toBe(true);
+  73  |   const menu = page.locator('[data-portal-component="resource-menu"]');
+  74  |   await expect(menu.getByRole('button', { name: context.menu, exact: true })).toBeVisible();
+  75  |   await menu.getByRole('button', { name: context.menu, exact: true }).click();
+  76  |   await expect(
+  77  |     page.getByRole('heading', { level: 2, name: context.menu, exact: true }),
+  78  |   ).toBeVisible();
+  79  | }
+  80  | export const integratedFamilyKinds: Record<string, string> = {
+  81  |   frontDoor: 'frontDoor',
+  82  |   frontDoorEndpoint: 'frontDoor',
+  83  |   originGroup: 'frontDoor',
+  84  |   frontDoorOrigin: 'frontDoor',
+  85  |   frontDoorRoute: 'frontDoor',
+  86  |   frontDoorWafPolicy: 'waf',
+  87  |   frontDoorWafRule: 'waf',
+  88  |   frontDoorSecurityPolicy: 'frontDoor',
+  89  |   applicationGateway: 'applicationGateway',
+  90  |   gatewayBackendPool: 'applicationGateway',
+  91  |   gatewayListener: 'applicationGateway',
+  92  |   gatewayBackendSetting: 'applicationGateway',
+  93  |   gatewayProbe: 'applicationGateway',
+  94  |   gatewayRoutingRule: 'applicationGateway',
+  95  |   postgresServer: 'postgresServer',
+  96  |   postgresDatabase: 'postgresServer',
+  97  |   sqlServer: 'sqlServer',
+  98  |   sqlDatabase: 'sqlDatabase',
+  99  |   databaseFirewallRule: 'settings',
+  100 |   functionPlan: 'plan',
+  101 |   functionApp: 'functionApp',
+  102 |   function: 'functionApp',
+  103 |   databaseConnection: 'settings',
+  104 | };
+  105 | 
+  106 | export const integratedIconFiles: Record<string, string> = {
+  107 |   frontDoor: '10073-icon-service-Front-Door-and-CDN-Profiles.svg',
+  108 |   waf: '10362-icon-service-Web-Application-Firewall-Policies-WAF.svg',
+  109 |   applicationGateway: '10076-icon-service-Application-Gateways.svg',
+  110 |   postgresServer: '10131-icon-service-Azure-Database-PostgreSQL-Server.svg',
+  111 |   sqlServer: '10132-icon-service-SQL-Server.svg',
+  112 |   sqlDatabase: '10130-icon-service-SQL-Database.svg',
+  113 |   functionApp: '10029-icon-service-Function-Apps.svg',
+  114 |   account: '10086-icon-service-Storage-Accounts.svg',
+  115 |   vm: '10021-icon-service-Virtual-Machine.svg',
+  116 |   plan: '00046-icon-service-App-Service-Plans.svg',
+  117 | };
+  118 | export async function expectIntegratedTitleIcon(page: Page, kind: string) {
+  119 |   const icon = page.locator(`.portal-title img[data-icon="${kind}"]`);
+  120 |   await expect(icon).toHaveAttribute('src', '/icons/azure/' + integratedIconFiles[kind]);
+  121 |   await expect(icon).toHaveAttribute('data-icon-source', 'azure');
+  122 |   await expect
+  123 |     .poll(() =>
+  124 |       icon.evaluate(
+  125 |         (image) =>
+  126 |           (image as HTMLImageElement).complete && (image as HTMLImageElement).naturalWidth > 0,
+  127 |       ),
+  128 |     )
+  129 |     .toBe(true);
+  130 | }
+  131 | export async function expectIntegratedRowIcon(page: Page, name: string, kind: string) {
+  132 |   const row = page.getByRole('row').filter({ has: page.getByRole('link', { name, exact: true }) });
+  133 |   const icon = row.locator(`img[data-icon="${kind}"]`);
+  134 |   await expect(icon).toHaveAttribute('src', '/icons/azure/' + integratedIconFiles[kind]);
+  135 |   await expect
+  136 |     .poll(() =>
+  137 |       icon.evaluate(
+  138 |         (image) =>
+  139 |           (image as HTMLImageElement).complete && (image as HTMLImageElement).naturalWidth > 0,
+  140 |       ),
+  141 |     )
+  142 |     .toBe(true);
+  143 | }
+  144 | export const integratedResponse = (page: Page, action: string) =>
+  145 |   page.waitForResponse(
+  146 |     (response) =>
+  147 |       response.request().method() === 'POST' &&
+  148 |       (response.url().endsWith('/api/laboratory/' + action) ||
+  149 |         (response.url().endsWith('/api/laboratory/ephemeral') &&
+  150 |           response.request().postDataJSON().action === action)),
+  151 |   );
+  152 | export const integratedWorld = (snapshot: Snapshot) => {
+  153 |   expect(snapshot.world.model).toBe('laboratory@3.9.0');
+  154 |   return snapshot.world as World;
+  155 | };
+  156 | export async function startIntegrated(page: Page, persistent = false) {
+  157 |   await page.goto('/');
+  158 |   await page.getByRole('link', { name: landing.labLink, exact: true }).click();
+  159 |   await expect(page.getByText('3.9 · Integrated Application Chain', { exact: true })).toBeVisible();
+  160 |   const started = integratedResponse(page, 'session');
+  161 |   await page
+  162 |     .getByRole('button', { name: persistent ? storage.start : temp.start, exact: true })
+  163 |     .click();
+  164 |   const result: Snapshot = await (await started).json();
+  165 |   expect(result.world.model).toBe('laboratory@3.9.0');
+  166 |   await expect(page.locator('[data-portal-component="home"]')).toBeVisible();
+  167 |   return result;
+  168 | }
+  169 | export async function fillIntegrated(page: Page, fields: Record<string, string>) {
+  170 |   for (const [label, value] of Object.entries(fields)) {
+  171 |     const input = page.locator('.lab-form').getByLabel(label, { exact: true });
+> 172 |     if (!(await input.isEditable())) {
+      |                       ^ Error: locator.isEditable: Test timeout of 30000ms exceeded.
+  173 |       await expect(input).toHaveValue(value);
+  174 |       continue;
+  175 |     }
+  176 |     if (await input.evaluate((element) => element.tagName === 'SELECT'))
+  177 |       await input.selectOption(value);
+  178 |     else await input.fill(value);
+  179 |   }
+  180 | }
+  181 | export async function integratedOperation(
+  182 |   page: Page,
+  183 |   label: string,
+  184 |   fields: Record<string, string> = {},
+  185 |   action = 'Create',
+  186 | ): Promise<CommandResult> {
+  187 |   await page.getByRole('button', { name: label, exact: true }).click();
+  188 |   await fillIntegrated(page, fields);
+  189 |   const reviewed = integratedResponse(page, 'review');
+  190 |   await page
+  191 |     .locator('.lab-form')
+  192 |     .getByRole('button', { name: /^Review(?: \+ (?:create|save|delete))?$/ })
+  193 |     .click();
+  194 |   const preview = await (await reviewed).json();
+  195 |   expect(preview.preview.outcome, JSON.stringify(preview.preview)).toBe('accepted');
+  196 |   if (action === 'Delete') await page.locator('.lab-form').getByRole('checkbox').check();
+  197 |   const committed = integratedResponse(page, 'command');
+  198 |   await page.locator('.lab-form').getByRole('button', { name: action, exact: true }).click();
+  199 |   const result: CommandResult = await (await committed).json();
+  200 |   expect(result.receipt.outcome, JSON.stringify(result.receipt)).toBe('accepted');
+  201 |   await expect(page.locator('.lab-integrated-form')).toHaveCount(0);
+  202 |   const suffix = result.receipt.operation.replace(/^(Create|Update)/, '');
+  203 |   const view = suffix.charAt(0).toLowerCase() + suffix.slice(1);
+  204 |   let kind = integratedFamilyKinds[view];
+  205 |   if (kind && action !== 'Delete') {
+  206 |     await expect.poll(() => new URL(page.url()).searchParams.get('view')).toBe(view);
+  207 |     if (view === 'databaseFirewallRule') {
+  208 |       const id = result.receipt.addedIds[0] ?? result.receipt.updatedIds?.[0];
+  209 |       const rule = integratedWorld(result).data.databaseFirewallRules.find(
+  210 |         (rule) => rule.id === id,
+  211 |       );
+  212 |       kind = rule?.type.startsWith('Microsoft.DBforPostgreSQL') ? 'postgresServer' : 'sqlServer';
+  213 |     }
+  214 |     if (kind === 'settings')
+  215 |       await expect(page.locator('.portal-title [data-icon="settings"]')).toHaveAttribute(
+  216 |         'data-icon-source',
+  217 |         'fluent',
+  218 |       );
+  219 |     else await expectIntegratedTitleIcon(page, kind);
+  220 |   }
+  221 |   return result;
+  222 | }
+  223 | export async function integratedApp(page: Page, suffix: string) {
+  224 |   await startIntegrated(page);
+  225 |   const before = await courseBytes(page);
+  226 |   const group = await create(page, storage.newGroup, { name: `rg-${suffix}` });
+  227 |   await service(page, nb.portal.areas.plans);
+  228 |   await integratedOperation(page, application.operations.CreateAppServicePlan, {
+  229 |     [application.fields.name]: `plan-${suffix}`,
+  230 |   });
+  231 |   await service(page, nb.portal.areas.apps);
+  232 |   const app = await integratedOperation(page, application.operations.CreateWebApp, {
+  233 |     [application.fields.name]: `app-${suffix}`,
+  234 |   });
+  235 |   const configured = await integratedOperation(
+  236 |     page,
+  237 |     application.operations.DeploySyntheticApplication,
+  238 |     {},
+  239 |     application.save,
+  240 |   );
+  241 |   return { before, group, app, configured };
+  242 | }
+  243 | 
+```

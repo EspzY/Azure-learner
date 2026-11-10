@@ -1,0 +1,77 @@
+export const laboratoryApplicationNb = {
+  boundary:
+    'Simulert App Service-konfigurasjon. Ingen applikasjonskode, HTTP-trafikk, DNS eller ekte Azure-ressurser kjøres.',
+  deploymentBoundary:
+    'Syntetisk responsprofil brukes bare i konfigurasjonsanalyser. Dette er ingen faktisk deployment eller health probe.',
+  noSecrets:
+    'Bruk bare syntetiske verdier. Ikke legg inn passord, tokens, nøkler eller faktiske connection strings.',
+  localName:
+    'Navnet er unikt i dette arbeidsområdet. Global Azure-navnetilgjengelighet blir ikke kontrollert.',
+  types: {
+    appPlan: 'App Service Plan',
+    webApp: 'Web App',
+    appDeployment: 'Synthetic deployment',
+    appSetting: 'Application setting',
+  },
+  operations: {
+    CreateAppServicePlan: 'Create App Service Plan',
+    UpdateAppServicePlan: 'Scale App Service Plan',
+    DeleteAppServicePlan: 'Delete App Service Plan',
+    CreateWebApp: 'Create Web App',
+    UpdateWebApp: 'Edit Web App configuration',
+    DeleteWebApp: 'Delete Web App',
+    DeploySyntheticApplication: 'Configure synthetic application',
+    SetWebAppSetting: 'Save application setting',
+    DeleteWebAppSetting: 'Delete application setting',
+  },
+  fields: {
+    groupId: 'Resource group',
+    name: 'Name',
+    region: 'Region',
+    os: 'Operating system',
+    sku: 'Pricing tier',
+    planId: 'App Service Plan',
+    runtime: 'Runtime stack',
+    httpsOnly: 'HTTPS only',
+    publicNetworkAccess: 'Public network access',
+    enabled: 'Application configuration enabled',
+    webAppId: 'Web App',
+    template: 'Synthetic application template',
+    healthPath: 'Synthetic health path',
+    responseStatus: 'Configured synthetic response',
+    value: 'Synthetic setting value',
+    settingId: 'Application setting',
+  },
+  hosting: 'App Service Plan hosting',
+  analysis: 'Application configuration analysis',
+  noDeployment: 'Ingen syntetisk applikasjon er konfigurert.',
+  configured: 'Den støttede syntetiske konfigurasjonen er konsistent.',
+  incomplete: 'Konfigurasjonen har begrensninger. Se de konkrete forholdene nedenfor.',
+  issues: {
+    'missing-plan': 'Tilknyttet App Service Plan mangler.',
+    disabled: 'Applikasjonskonfigurasjonen er deaktivert.',
+    'public-access-disabled':
+      'Public network access er deaktivert. Private endpoints er ikke implementert.',
+    'no-deployment': 'Ingen syntetisk applikasjonsprofil er konfigurert.',
+    'synthetic-response-unavailable':
+      'Den syntetiske applikasjonsprofilen returnerer konfigurert 503.',
+  },
+  resourceInUse: 'Ressursen brukes av en annen ressurs. Fjern avhengigheten før sletting.',
+  stale:
+    'Arbeidsområdet eller revisjonen har endret seg. Åpne konfigurasjonen på nytt før du lagrer.',
+  confirm: 'Jeg bekrefter sletting av denne eksakte ressursen i dette arbeidsområdet.',
+  deleteNote:
+    'Web App-sletting fjerner også appens syntetiske deployments og innstillinger. Kvitteringer og historikk bevares.',
+  review: 'Review',
+  save: 'Save',
+  create: 'Create',
+  remove: 'Delete',
+  cancel: 'Cancel',
+  settings: 'Application settings',
+  deployments: 'Synthetic deployments',
+  before: 'Før',
+  after: 'Etter',
+  changes: 'Bekreftet endring',
+  missing: 'Ressursen finnes ikke i denne revisjonen.',
+  latest: 'Latest change receipt',
+} as const;

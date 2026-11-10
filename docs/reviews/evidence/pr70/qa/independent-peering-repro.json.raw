@@ -1,0 +1,369 @@
+[
+  {
+    "disableReverse": false,
+    "revision": 36,
+    "setupEntries": 36,
+    "replayMatches": true,
+    "disabledDirectPeerings": [
+      {
+        "id": "peering-32",
+        "name": "review-app-data",
+        "vnetId": "vnet-3",
+        "remoteVnetId": "vnet-4",
+        "origin": "topology-33",
+        "allowForwardedTraffic": false,
+        "forwardingOrigin": null,
+        "allowVirtualNetworkAccess": false,
+        "accessOrigin": "topology-35"
+      }
+    ],
+    "status": "allowed-by-modeled-network-policy",
+    "reason": "modeled-configuration-path-assessed",
+    "accessEvaluation": "enabled",
+    "virtualNetworkTagScope": "original-enabled-profile",
+    "accessChecks": [
+      {
+        "peeringId": "peering-8",
+        "localVnetId": "vnet-2",
+        "remoteVnetId": "vnet-3",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "accessOrigin": null
+      },
+      {
+        "peeringId": "peering-9",
+        "localVnetId": "vnet-3",
+        "remoteVnetId": "vnet-2",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "accessOrigin": null
+      },
+      {
+        "peeringId": "peering-10",
+        "localVnetId": "vnet-2",
+        "remoteVnetId": "vnet-4",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "accessOrigin": null
+      },
+      {
+        "peeringId": "peering-11",
+        "localVnetId": "vnet-4",
+        "remoteVnetId": "vnet-2",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "accessOrigin": null
+      }
+    ],
+    "firewallPath": {
+      "disposition": "allowed-via-firewall",
+      "configurationPathAssessed": true
+    },
+    "layers": [
+      {
+        "id": "source-nic-outbound",
+        "status": "not-associated",
+        "reason": "no-association",
+        "matchedRuleId": null,
+        "evaluated": []
+      },
+      {
+        "id": "source-subnet-outbound",
+        "status": "allow",
+        "reason": "first-rule",
+        "matchedRuleId": "default:nsg-28:AllowVnetOutBound",
+        "evaluated": [
+          {
+            "id": "default:nsg-28:AllowVnetOutBound",
+            "name": "AllowVnetOutBound",
+            "direction": "Outbound",
+            "priority": 65000,
+            "protocol": "*",
+            "source": "VirtualNetwork",
+            "destination": "VirtualNetwork",
+            "sourcePort": "*",
+            "destinationPort": "*",
+            "access": "Allow",
+            "kind": "default",
+            "origin": null,
+            "result": "match",
+            "checks": [
+              {
+                "field": "protocol",
+                "result": "match",
+                "reason": "literal-match"
+              },
+              {
+                "field": "source",
+                "result": "match",
+                "reason": "known-virtual-network-member"
+              },
+              {
+                "field": "destination",
+                "result": "match",
+                "reason": "known-virtual-network-member"
+              },
+              {
+                "field": "sourcePort",
+                "result": "match",
+                "reason": "literal-match"
+              },
+              {
+                "field": "destinationPort",
+                "result": "match",
+                "reason": "literal-match"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "destination-subnet-inbound",
+        "status": "allow",
+        "reason": "first-rule",
+        "matchedRuleId": "rule-31",
+        "evaluated": [
+          {
+            "id": "rule-31",
+            "nsgId": "nsg-29",
+            "name": "receive-sql",
+            "direction": "Inbound",
+            "protocol": "Tcp",
+            "source": "10.10.1.0/24",
+            "sourcePort": "*",
+            "destination": "10.20.1.0/24",
+            "destinationPort": "1433",
+            "access": "Allow",
+            "priority": 200,
+            "origin": "topology-32",
+            "kind": "custom",
+            "result": "match",
+            "checks": [
+              {
+                "field": "protocol",
+                "result": "match",
+                "reason": "literal-match"
+              },
+              {
+                "field": "source",
+                "result": "match",
+                "reason": "literal-match"
+              },
+              {
+                "field": "destination",
+                "result": "match",
+                "reason": "literal-match"
+              },
+              {
+                "field": "sourcePort",
+                "result": "match",
+                "reason": "literal-match"
+              },
+              {
+                "field": "destinationPort",
+                "result": "match",
+                "reason": "literal-match"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "destination-nic-inbound",
+        "status": "not-associated",
+        "reason": "no-association",
+        "matchedRuleId": null,
+        "evaluated": []
+      }
+    ]
+  },
+  {
+    "disableReverse": true,
+    "revision": 37,
+    "setupEntries": 37,
+    "replayMatches": true,
+    "disabledDirectPeerings": [
+      {
+        "id": "peering-32",
+        "name": "review-app-data",
+        "vnetId": "vnet-3",
+        "remoteVnetId": "vnet-4",
+        "origin": "topology-33",
+        "allowForwardedTraffic": false,
+        "forwardingOrigin": null,
+        "allowVirtualNetworkAccess": false,
+        "accessOrigin": "topology-35"
+      },
+      {
+        "id": "peering-33",
+        "name": "review-data-app",
+        "vnetId": "vnet-4",
+        "remoteVnetId": "vnet-3",
+        "origin": "topology-34",
+        "allowForwardedTraffic": false,
+        "forwardingOrigin": null,
+        "allowVirtualNetworkAccess": false,
+        "accessOrigin": "topology-36"
+      }
+    ],
+    "status": "allowed-by-modeled-network-policy",
+    "reason": "modeled-configuration-path-assessed",
+    "accessEvaluation": "enabled",
+    "virtualNetworkTagScope": "original-enabled-profile",
+    "accessChecks": [
+      {
+        "peeringId": "peering-8",
+        "localVnetId": "vnet-2",
+        "remoteVnetId": "vnet-3",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "accessOrigin": null
+      },
+      {
+        "peeringId": "peering-9",
+        "localVnetId": "vnet-3",
+        "remoteVnetId": "vnet-2",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "accessOrigin": null
+      },
+      {
+        "peeringId": "peering-10",
+        "localVnetId": "vnet-2",
+        "remoteVnetId": "vnet-4",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": false,
+        "accessOrigin": null
+      },
+      {
+        "peeringId": "peering-11",
+        "localVnetId": "vnet-4",
+        "remoteVnetId": "vnet-2",
+        "allowVirtualNetworkAccess": true,
+        "allowForwardedTraffic": true,
+        "accessOrigin": null
+      }
+    ],
+    "firewallPath": {
+      "disposition": "allowed-via-firewall",
+      "configurationPathAssessed": true
+    },
+    "layers": [
+      {
+        "id": "source-nic-outbound",
+        "status": "not-associated",
+        "reason": "no-association",
+        "matchedRuleId": null,
+        "evaluated": []
+      },
+      {
+        "id": "source-subnet-outbound",
+        "status": "allow",
+        "reason": "first-rule",
+        "matchedRuleId": "default:nsg-28:AllowVnetOutBound",
+        "evaluated": [
+          {
+            "id": "default:nsg-28:AllowVnetOutBound",
+            "name": "AllowVnetOutBound",
+            "direction": "Outbound",
+            "priority": 65000,
+            "protocol": "*",
+            "source": "VirtualNetwork",
+            "destination": "VirtualNetwork",
+            "sourcePort": "*",
+            "destinationPort": "*",
+            "access": "Allow",
+            "kind": "default",
+            "origin": null,
+            "result": "match",
+            "checks": [
+              {
+                "field": "protocol",
+                "result": "match",
+                "reason": "literal-match"
+              },
+              {
+                "field": "source",
+                "result": "match",
+                "reason": "known-virtual-network-member"
+              },
+              {
+                "field": "destination",
+                "result": "match",
+                "reason": "known-virtual-network-member"
+              },
+              {
+                "field": "sourcePort",
+                "result": "match",
+                "reason": "literal-match"
+              },
+              {
+                "field": "destinationPort",
+                "result": "match",
+                "reason": "literal-match"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "destination-subnet-inbound",
+        "status": "allow",
+        "reason": "first-rule",
+        "matchedRuleId": "rule-31",
+        "evaluated": [
+          {
+            "id": "rule-31",
+            "nsgId": "nsg-29",
+            "name": "receive-sql",
+            "direction": "Inbound",
+            "protocol": "Tcp",
+            "source": "10.10.1.0/24",
+            "sourcePort": "*",
+            "destination": "10.20.1.0/24",
+            "destinationPort": "1433",
+            "access": "Allow",
+            "priority": 200,
+            "origin": "topology-32",
+            "kind": "custom",
+            "result": "match",
+            "checks": [
+              {
+                "field": "protocol",
+                "result": "match",
+                "reason": "literal-match"
+              },
+              {
+                "field": "source",
+                "result": "match",
+                "reason": "literal-match"
+              },
+              {
+                "field": "destination",
+                "result": "match",
+                "reason": "literal-match"
+              },
+              {
+                "field": "sourcePort",
+                "result": "match",
+                "reason": "literal-match"
+              },
+              {
+                "field": "destinationPort",
+                "result": "match",
+                "reason": "literal-match"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "destination-nic-inbound",
+        "status": "not-associated",
+        "reason": "no-association",
+        "matchedRuleId": null,
+        "evaluated": []
+      }
+    ]
+  }
+]

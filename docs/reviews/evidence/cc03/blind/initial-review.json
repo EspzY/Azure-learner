@@ -1,0 +1,435 @@
+{
+  "reviewType": "Locked initial blind AI assessment-design and Azure-fundamentals review",
+  "lockedAtUTC": "2026-11-04T20:17:10Z",
+  "inputPath": "/workspace/azurelab-pr55/blind/student.json",
+  "inputSHA256": "68e88c192bb33e5f9d66db7369f8a2e06020c407502810e7038c6515a2663307",
+  "blindProcess": {
+    "initialLocalMaterial": [
+      "/workspace/azurelab-pr55/blind/student.json"
+    ],
+    "otherLocalFilesInspected": [],
+    "answerKeysAcceptedPairsRubricsFeedbackAuthorArchitectureOrPriorReviewsAccessed": false,
+    "sourceCodeOrRepositoryInspected": false,
+    "independentPublicSourcesConsulted": "Only Microsoft Learn pages and Microsoft Learn public search, listed below; no author files or repositories were opened.",
+    "solveBasis": "Semantic requirements in the supplied Norwegian scenarios and Web brief, independently checked against public Microsoft documentation. No supplied answer key was used.",
+    "lockCommitment": "This is the initial solve. Any later key comparison must be a separate artifact and must not rewrite this file.",
+    "reviewerLimitations": [
+      "I am an AI reviewer, not a human Azure subject-matter expert or an independent human assessor.",
+      "I reviewed the supplied text artifact. I did not observe students, measure item discrimination or reliability, or validate a rendered UI.",
+      "I did not inspect or operate the Shared Sandbox, verify its capabilities, create resources, obtain receipts, deploy an application, or verify real Azure provisioning.",
+      "Current public documentation supports the stated platform premise; this is not a test of a particular application, subscription, region/SKU combination, or future service behavior.",
+      "I cannot determine hidden scoring, accepted-answer implementation, feedback quality, accessibility, or whether internal identifiers are visible to learners."
+    ]
+  },
+  "decisionRule": "A defensible pair must both fit the stated requirements and give a compatible, factually defensible reason. Mere technical ability to host an application is insufficient when the offered reason contradicts a requirement.",
+  "items": [
+    {
+      "id": "guest-lifecycle",
+      "allProfessionallyDefensiblePairs": [
+        {
+          "decision": "iaas",
+          "reason": "guest-lifecycle",
+          "decisionLabel": "IaaS",
+          "reasonText": "Teamet styrer eget støttet OS-image og vedlikeholder gjesteoperativsystemet."
+        }
+      ],
+      "confidence": "high, under the stated supported-image premise",
+      "decisivePremises": [
+        "The team must retain its own supported OS image and decide, test, and maintain guest-OS updates.",
+        "The text explicitly distinguishes the guest OS from the physical Azure host.",
+        "Delegating guest-OS maintenance is explicitly disallowed.",
+        "The existing custom application must remain; a ready-made product cannot replace it."
+      ],
+      "reasoning": "IaaS supplies a VM/guest-OS responsibility boundary consistent with these requirements while Azure remains responsible for the physical infrastructure. PaaS guest-OS maintenance conflicts with the stipulated operational requirement. SaaS replacement is explicitly excluded. This selects a service model, not a particular VM SKU, image, or patch configuration.",
+      "pairCoverage": [
+        {
+          "decision": "paas",
+          "reason": "component-settings",
+          "defensible": false,
+          "why": "Coherent PaaS description, but provider guest-OS maintenance violates the requirement."
+        },
+        {
+          "decision": "paas",
+          "reason": "guest-lifecycle",
+          "defensible": false,
+          "why": "The reason describes customer guest-image/lifecycle control that the proposed PaaS boundary does not supply."
+        },
+        {
+          "decision": "paas",
+          "reason": "finished-product",
+          "defensible": false,
+          "why": "Reason describes ready-made SaaS and replacement is disallowed."
+        },
+        {
+          "decision": "iaas",
+          "reason": "component-settings",
+          "defensible": false,
+          "why": "Provider guest-OS maintenance conflicts with both the stated requirement and the ordinary IaaS responsibility boundary."
+        },
+        {
+          "decision": "iaas",
+          "reason": "guest-lifecycle",
+          "defensible": true,
+          "why": "Customer guest-image and guest-OS lifecycle control meets the decisive requirement."
+        },
+        {
+          "decision": "iaas",
+          "reason": "finished-product",
+          "defensible": false,
+          "why": "Ready-made product management does not justify IaaS and cannot replace this application."
+        },
+        {
+          "decision": "saas",
+          "reason": "component-settings",
+          "defensible": false,
+          "why": "The reason describes an application-platform boundary, not retained guest-image control or a SaaS solution."
+        },
+        {
+          "decision": "saas",
+          "reason": "guest-lifecycle",
+          "defensible": false,
+          "why": "Customer guest-OS lifecycle control is inconsistent with ordinary SaaS consumption."
+        },
+        {
+          "decision": "saas",
+          "reason": "finished-product",
+          "defensible": false,
+          "why": "Coherent SaaS description, but the scenario explicitly forbids replacing the retained application."
+        }
+      ],
+      "possibleAlternativesAndAmbiguity": [
+        "Custom containers or configurable managed platforms do not supply the stipulated guest-OS lifecycle ownership merely because they permit component or image customization.",
+        "Azure can automate some VM patching, but IaaS is selected because the customer retains the required authority and responsibility; the text does not require manual installation of every update.",
+        "A provider-operated managed service layered over VMs would be a different responsibility arrangement and would fail if it took over the mandated lifecycle decisions.",
+        "The phrase supported image is a premise. Actual image licensing, Azure support, hardware compatibility, patching settings, and application validation remain implementation checks, not competing answers here."
+      ],
+      "assessmentDesign": {
+        "distractors": "The PaaS and SaaS reasons are intelligible definitions of alternative models, but both alternatives are explicitly ruled out in the stem. This is a clear novice classification item with limited independent decision difficulty.",
+        "wordingCue": "The selected reason closely paraphrases the stem: own supported image and guest-OS maintenance. The sentence explicitly declaring provider maintenance unacceptable makes the discrimination criterion very visible.",
+        "positionAndLength": "Selected decision is position 2 and reason is position 2. All three decision positions align with their model-specific reason positions in this item. Reason character lengths are 87, 76, 69; the selected reason is not the longest. Word counts are 9, 8, 10.",
+        "identifierCue": "In the raw supplied JSON, item id guest-lifecycle exactly equals the selected reason id. This is answer cueing if identifiers or the raw JSON are delivered to learners; rendered-UI exposure is unknown."
+      }
+    },
+    {
+      "id": "supported-platform",
+      "allProfessionallyDefensiblePairs": [
+        {
+          "decision": "paas",
+          "reason": "supported-platform",
+          "decisionLabel": "PaaS",
+          "reasonText": "Plattformen dekker de verifiserte appbehovene og drifter OS; teamet drifter appen."
+        }
+      ],
+      "confidence": "high, conditional on the explicitly stipulated successful technical assessment",
+      "decisivePremises": [
+        "The concrete Windows, .NET, and COM dependencies have been verified as supported by Managed Instance in the chosen region and plan type.",
+        "This workload does not need a customer-controlled OS image.",
+        "The team accepts platform OS maintenance and wants as little guest-OS work as possible.",
+        "The team keeps its own application code."
+      ],
+      "reasoning": "The verified managed platform meets the concrete dependency requirements and provides the desired OS maintenance boundary. Windows or COM alone does not force IaaS when a supported managed platform exists. IaaS could run many such programs but is not justified by the offered claim that those dependencies require customer OS-image control. SaaS does not preserve the stipulated operating arrangement for their own application code.",
+      "pairCoverage": [
+        {
+          "decision": "iaas",
+          "reason": "supported-platform",
+          "defensible": false,
+          "why": "The reason justifies the verified platform-operated OS boundary, which is PaaS here."
+        },
+        {
+          "decision": "iaas",
+          "reason": "windows-control",
+          "defensible": false,
+          "why": "The reason infers a need to control the OS image from Windows/COM despite explicit verified support and no such need."
+        },
+        {
+          "decision": "iaas",
+          "reason": "finished-product",
+          "defensible": false,
+          "why": "Ready-made product consumption neither justifies IaaS nor preserves the stated own-code arrangement."
+        },
+        {
+          "decision": "saas",
+          "reason": "supported-platform",
+          "defensible": false,
+          "why": "Running and maintaining their own code on a managed application platform is the PaaS arrangement described."
+        },
+        {
+          "decision": "saas",
+          "reason": "windows-control",
+          "defensible": false,
+          "why": "Customer image control conflicts with SaaS and is not required by the scenario."
+        },
+        {
+          "decision": "saas",
+          "reason": "finished-product",
+          "defensible": false,
+          "why": "This invents a ready-made replacement satisfying the workload; none is supplied and the team is to retain its code."
+        },
+        {
+          "decision": "paas",
+          "reason": "supported-platform",
+          "defensible": true,
+          "why": "Verified platform support and provider OS maintenance directly meet the stated requirements."
+        },
+        {
+          "decision": "paas",
+          "reason": "windows-control",
+          "defensible": false,
+          "why": "The alleged need for customer OS-image control contradicts the scenario and does not justify the selected PaaS boundary."
+        },
+        {
+          "decision": "paas",
+          "reason": "finished-product",
+          "defensible": false,
+          "why": "The reason describes SaaS consumption rather than operation of their own app on a platform."
+        }
+      ],
+      "possibleAlternativesAndAmbiguity": [
+        "Without the explicit successful compatibility assessment, Windows/.NET/COM would require investigation of exact dependencies, permissions, persistence, support, SKU, and region. Neither PaaS nor IaaS would follow from the technology labels alone.",
+        "If a required component were unsupported, if full guest-image lifecycle control were mandated, or if another unmet operational requirement appeared, IaaS could become appropriate. Those are changes to this scenario, not additional defensible supplied pairs.",
+        "The desire for minimum guest-OS effort distinguishes the preferred arrangement from bare technical feasibility on IaaS.",
+        "Managed Instance permits OS/component customization; this must not be generalized to say all OS-level customization requires IaaS. Customers still maintain components they install themselves."
+      ],
+      "assessmentDesign": {
+        "distractors": "The Windows/COM reason targets a plausible dependency-equals-IaaS misconception. The verified-support premise makes that distractor clearly wrong. The SaaS alternative is weak because retaining their own application is explicit and no replacement product is described.",
+        "wordingCue": "The selected reason is almost a summary of the supplied premises. The item tests whether students use the stated responsibility and compatibility boundary, but supplies the technical investigation outcome rather than assessing that investigation.",
+        "positionAndLength": "Selected decision is position 3 and reason is position 1, breaking simple same-position selection across the two items. Reason character lengths are 82, 78, 86; the selected reason is not longest. Word counts are 11, 10, 10, so it is longer by one word only.",
+        "identifierCue": "In the raw supplied JSON, item id supported-platform exactly equals the selected reason id. Exposure to learners would reveal the correct reason independently of Azure understanding."
+      },
+      "changedRequirementEffect": {
+        "changesReasoning": true,
+        "explanation": "Compared with the first item, mandatory customer guest-OS lifecycle ownership is replaced by no need for a customer image, accepted provider OS maintenance, verified platform support, and a preference for low OS effort. Those premises change the defensible model from IaaS to PaaS. Windows and COM do not override them.",
+        "designCaveat": "The text says this is another application, so these are two separate workloads rather than a controlled before/after change to the same application. The title Endret krav may suggest a same-workload counterfactual that the body does not actually provide. No earlier unseen variant was consulted."
+      }
+    }
+  ],
+  "webTask": {
+    "scope": "A third, separate HTTP application; its Portal exercise does not implement or prove the two preceding OS scenarios.",
+    "allProfessionallyDefensibleApplicationPairs": [
+      {
+        "decision": "paas",
+        "reason": "managed-platform",
+        "decisionLabel": "PaaS",
+        "reasonText": "Teamet beholder egen kode og bruker leverandørens administrerte appplattform."
+      }
+    ],
+    "applicationReasoning": "The requested App Service Plan and Web App host their own application on an administered application platform, with no requirement for customer guest-OS administration. This is PaaS. Own code by itself could also run on IaaS, but the task specifically names App Service resources and the offered IaaS reason incorrectly asserts that customer guest-OS control is required.",
+    "applicationPairCoverage": [
+      {
+        "decision": "iaas",
+        "reason": "os-control",
+        "defensible": false,
+        "why": "The brief states no need for customer guest-OS administration and requests managed App Service resources."
+      },
+      {
+        "decision": "iaas",
+        "reason": "managed-platform",
+        "defensible": false,
+        "why": "This reason identifies the requested PaaS arrangement."
+      },
+      {
+        "decision": "iaas",
+        "reason": "ready-service",
+        "defensible": false,
+        "why": "The reason describes ready-made software, whereas this is their own code on App Service."
+      },
+      {
+        "decision": "paas",
+        "reason": "os-control",
+        "defensible": false,
+        "why": "The stated need for customer guest-OS control contradicts the workload and does not justify the requested platform."
+      },
+      {
+        "decision": "paas",
+        "reason": "managed-platform",
+        "defensible": true,
+        "why": "Own application code on the managed application platform fits the brief."
+      },
+      {
+        "decision": "paas",
+        "reason": "ready-service",
+        "defensible": false,
+        "why": "Ready-made software consumption does not explain hosting their own application code."
+      },
+      {
+        "decision": "saas",
+        "reason": "os-control",
+        "defensible": false,
+        "why": "Guest-OS control does not justify SaaS and is not required."
+      },
+      {
+        "decision": "saas",
+        "reason": "managed-platform",
+        "defensible": false,
+        "why": "The reason describes PaaS for the requested own-code workload."
+      },
+      {
+        "decision": "saas",
+        "reason": "ready-service",
+        "defensible": false,
+        "why": "This pair fits a ready-made service, but not the custom HTTP application whose resources the task requires."
+      }
+    ],
+    "finishedCollaborationService": {
+      "model": "saas",
+      "allProfessionallyDefensiblePairsIfAReasonIsRequired": [
+        {
+          "decision": "saas",
+          "reason": "ready-service"
+        }
+      ],
+      "reasoning": "A finished, provider-delivered collaboration application consumed by users is SaaS. The brief asks for its model; it does not supply a named product or require provisioning one. This is separate from the own-code Web App."
+    },
+    "location": {
+      "allProfessionallyDefensibleChoices": [
+        "plan"
+      ],
+      "resourceGroupMetadataRegion": "Norway East",
+      "appServicePlanHostingRegion": "North Europe",
+      "webAppHostingRegion": "North Europe",
+      "reasoning": "The regional plan provides the compute on which its app runs. Placing the resource-group metadata in Norway East does not relocate that compute. A resource group may contain resources in other regions.",
+      "rejectedChoices": [
+        {
+          "id": "metadata",
+          "why": "Resource-group location determines resource-group metadata storage, not all contained resources hosting locations."
+        },
+        {
+          "id": "policy-everywhere",
+          "why": "Azure has no universal rule forcing all resources into one region. A specific allowed-locations policy could restrict deployments, but none is established here and it would not make resource-group metadata the hosting cause."
+        }
+      ],
+      "precisionLimit": "This describes the requested regional App Service hosting relationship. It does not establish every possible data location, replication behavior, or global networking endpoint for the application."
+    },
+    "resourceEvidence": {
+      "actualResourcesVerified": false,
+      "actualReferences": null,
+      "actualReceipts": null,
+      "explanation": "The isolated review material supplies no resource records or receipts, and reviewing other local material or operating the sandbox was outside the authorized blind review. No resource names, IDs, receipts, deployment, or successful execution are asserted.",
+      "evidenceThatWouldDemonstrateTheTask": [
+        "A newly created resource-group reference/name, with its metadata location recorded as Norway East.",
+        "A newly created App Service Plan reference/name in that group, with region North Europe.",
+        "A newly created Web App reference/name in that group and its actual reference to that newly created plan.",
+        "Actual success receipts from this attempt that can be associated with these three resources and their relationships.",
+        "The PaaS/managed-platform selection, the SaaS collaboration classification, and the plan-based location explanation."
+      ],
+      "notDemonstratedByResourceRecordsAlone": "Resource creation and references do not by themselves demonstrate application-code deployment, an HTTP response, a VM, or Managed Instance compatibility for the separate second scenario."
+    },
+    "missingPrerequisitesOrAmbiguity": [
+      "The extract names Shared Sandbox without defining how to access it, its starting state, available permissions, or where to obtain local receipts. These may be supplied by the surrounding environment; absence from this isolated extract is not proof that students lack them.",
+      "The output format and minimum fields for resource references and receipts are not specified in this extract. A standalone task should show the required fields or point to an established submission format.",
+      "Runtime/OS, plan tier/capacity, naming constraints, uniqueness behavior, and whether the sandbox provides compatible defaults are not stated. In real Azure, a compatible OS/runtime, subscription permissions, Microsoft.Web availability, quota, naming rules, and allowed regions/SKUs must be satisfied. A local simulator may deliberately abstract them.",
+      "The brief requests creation of resources, not code deployment or a working HTTP endpoint. Do not assess successful app execution from these instructions alone.",
+      "The Web task is not a request to create a VM or Managed Instance for the two conceptual decisions. Its explicit workload separation makes that boundary clear."
+    ],
+    "assessmentDesign": {
+      "distractors": "The reasons cleanly represent the three service models, but the request for App Service resources already supplies a strong model cue. The universal Policy assertion is a weak absolute distractor; an actual policy-dependent deployment case would require supplied policy evidence.",
+      "positionAndLength": "Models and their corresponding reasons have identical order: IaaS/os-control, PaaS/managed-platform, SaaS/ready-service. The Web model, its reason, and the location cause are all position 2. The selected reason is 77 characters versus 55 and 75; the selected location cause is 71 versus 68 and 66. These are modest local length cues, not a consistent longest-answer key across the whole material.",
+      "practicalValidity": "The different resource-group and plan regions give a useful concrete check of metadata location versus hosting location. Actual references and receipts could verify the local creation relationship, provided the environment and assessment make those records trustworthy."
+    }
+  },
+  "azureClaimReview": {
+    "confirmedMisleadingAssertedClaims": [],
+    "supportedClaims": [
+      "IaaS permits customer control and maintenance of the guest OS while Azure maintains the underlying physical host.",
+      "Azure App Service is PaaS; Managed Instance is a managed hosting option that can support Windows/.NET/COM dependencies without requiring customer VM lifecycle management.",
+      "Managed Instance support is constrained by concrete requirements, region, OS, and SKU. The second scenario explicitly stipulates verification rather than claiming universal compatibility.",
+      "The App Service plan defines regional hosting compute for its app; resource-group metadata location does not define every resource location."
+    ],
+    "cautions": [
+      "Do not turn the first scenario into a rule that any OS-level or COM customization requires IaaS. Managed Instance offers configuration scripts, component installation, and OS-level customization.",
+      "Platform OS maintenance does not mean the provider maintains every customer-installed component. Current Managed Instance documentation retains customer responsibility for components installed through configuration scripts.",
+      "The broad Policy and metadata assertions are false distractors, not endorsed facts in this artifact. Without seeing feedback, I cannot assess how misconceptions are corrected after selection.",
+      "No actual chosen region/SKU or application assessment evidence is supplied for the second item. Its compatibility statement is a problem premise, not independently verified deployment evidence."
+    ]
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "severity": "MEDIUM",
+      "category": "Assessment discrimination",
+      "finding": "Both conceptual items state their deciding responsibility boundary and closely paraphrase it in one reason. They assess straightforward classification more strongly than independent professional solution design.",
+      "consequence": "Students can select the intended pair by close reading and model recognition without demonstrating a compatibility assessment or weighing realistic competing solutions.",
+      "recommendation": "Keep these as clear novice/formative items, or add a short justification identifying which requirement rules out the strongest alternative if deeper decision-making is intended. Do not remove necessary compatibility premises merely to manufacture difficulty."
+    },
+    {
+      "id": "F2",
+      "severity": "MEDIUM",
+      "category": "Answer cueing in raw material",
+      "finding": "The item ids guest-lifecycle and supported-platform exactly match their respective selected reason ids in the supplied JSON.",
+      "consequence": "If learners receive raw JSON or exposed ids, the reasons can be recovered by identifier matching, bypassing the intended content judgment.",
+      "recommendation": "Exclude internal ids from student-visible raw handouts or use neutral item identifiers. Rendered-UI exposure must be checked separately.",
+      "conditionalMajor": "This becomes a MAJOR validity issue if the actual assessment intentionally exposes these identifiers and claims independent reason selection. The blind artifact does not establish the learner UI."
+    },
+    {
+      "id": "F3",
+      "severity": "MEDIUM",
+      "category": "Standalone practical reproducibility",
+      "finding": "The isolated Web brief does not define sandbox access, defaults, receipt retrieval, or the required reference/receipt submission fields.",
+      "consequence": "A student receiving only this extract could understand the cloud concepts yet be unable to produce an unambiguous operational submission.",
+      "recommendation": "Link the established sandbox/setup and evidence-submission instructions or supply the missing fields and defaults. Verify the fixed regions can be used in that sandbox.",
+      "scopeLimit": "This is a conditional stand-alone-material concern, not proof that the surrounding application lacks these prerequisites."
+    },
+    {
+      "id": "F4",
+      "severity": "LOW",
+      "category": "Changed-requirement framing",
+      "finding": "The second title says changed requirement, while its body explicitly describes a different application.",
+      "consequence": "The two answers demonstrate different responsibility requirements, but do not establish a controlled same-application counterfactual.",
+      "recommendation": "Use a title such as another workload with verified platform support, or explicitly keep the same workload and identify the requirements that have changed if counterfactual transfer is the objective."
+    },
+    {
+      "id": "F5",
+      "severity": "LOW",
+      "category": "Distractor and position cues",
+      "finding": "SaaS replacement is explicitly excluded in the conceptual stems; the Web Policy distractor uses an easy universal falsehood. Item 1 and the Web model/reason lists also align by model position.",
+      "consequence": "These choices may have limited discrimination. The middle-position Web model, reason, and location answers form a local pattern, though item 2 breaks a uniform whole-assessment position rule.",
+      "recommendation": "Treat the distractors as novice misconceptions; use plausible context-specific alternatives and independently order model and reason choices if stronger discrimination is needed."
+    },
+    {
+      "id": "F6",
+      "severity": "LOW",
+      "category": "Product specificity and maintenance",
+      "finding": "Managed Instance is a specialized service option with region/SKU limitations and customer-maintained custom components.",
+      "consequence": "Readers could overgeneralize from the item to all App Service offerings or all Windows/COM applications, especially without explanatory feedback.",
+      "recommendation": "Retain the explicit compatibility premise and add a dated Microsoft reference or concise feedback distinguishing platform OS upkeep from customer-installed component maintenance."
+    }
+  ],
+  "severityConclusion": {
+    "confirmedBlockers": [],
+    "confirmedMajorFindings": [],
+    "conditionalMajorRisks": [
+      "Exposing the raw item/reason identifiers to students leaks the selected reason for both conceptual items."
+    ],
+    "overall": "The supplied premises support one defensible pair per conceptual item and one for the own-code Web application, plus SaaS for the finished collaboration service and plan for the hosting-location cause. I found no unconditional Azure-fundamentals contradiction or inherently impossible stated resource topology. The extract alone cannot establish sandbox operability, evidence implementation, or scoring validity."
+  },
+  "publicMicrosoftDocumentation": [
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/security/fundamentals/shared-responsibility",
+      "observed": "Defines IaaS as customer-managed VMs/OS/apps, PaaS as deploying applications without VM/OS management, and SaaS as ready-made applications; Azure manages physical hosts."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview",
+      "observed": "Describes Managed Instance support for COM, registry, MSI, configuration scripts, Windows workloads, and plan-scoped isolation; notes unsupported environments."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/quickstart-managed-instance",
+      "observed": "Calls Managed Instance a PaaS option with infrastructure-level customization; states Windows/select-region/Pv4/Pmv4 restrictions. The page includes a North Europe example, but that does not independently verify every SKU or a student sandbox."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-managed-instance",
+      "observed": "Configuration scripts can install dependencies and customize OS settings. FAQ says instances receive routine platform maintenance and stack updates, while customers maintain components installed by their scripts."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans",
+      "observed": "A plan defines compute and region; apps run on that compute. Describes Managed Instance limitations and SKU/region availability checks."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/overview",
+      "observed": "Resources may be in different regions from their resource group; the group location specifies storage of the group metadata."
+    },
+    {
+      "url": "https://learn.microsoft.com/api/search?search=App%20Service%20Managed%20Instance&locale=en-us&%24top=5",
+      "observed": "Used only to locate independent official Managed Instance documentation."
+    }
+  ]
+}

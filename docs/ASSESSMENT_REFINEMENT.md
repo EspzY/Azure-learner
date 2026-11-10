@@ -1,0 +1,48 @@
+# AS-01 — Benefits og Service Types, versjonerte etterfølgere
+
+PR46 er en avgrenset innholds- og implementeringsretting av PR42s posisjonssvakhet. Den endrer ikke de 57 dekningsradene, Cloud Transfer-banken, undervisning, guided-krav, World, receipts eller XP. Neste prioritet er UX-02; AS-02 og menneskelig validering er separate leveranser. P17/P18 er ikke startet.
+
+## Versjoner og ruter
+
+| Vurdering     | Opprinnelig historikk                | Oppdatert, isolert historikk                    | Eksplisitt gammel rute                                         |
+| ------------- | ------------------------------------ | ----------------------------------------------- | -------------------------------------------------------------- |
+| Benefits      | `azurelab.learning.benefits.v1`      | `azurelab.learning.benefits-assessment.v2`      | `/learn/benefits?topic=assessment&assessment=legacy`           |
+| Service Types | `azurelab.learning.service-types.v2` | `azurelab.learning.service-types-assessment.v3` | `/learn/services?topic=assessment&version=2&assessment=legacy` |
+
+`assessment=updated` velger etterfølgeren. Uten parameter er oppdatert vurdering standard, bortsett fra et aktivt historisk forsøk: dette åpnes og ruten festes til `assessment=legacy` før videre arbeid. Teaching-parameteren `version=1`/`version=2` beholder sin opprinnelige betydning. Ingen gamle records migreres, omskrives eller revurderes. Gamle førsteinnleveringer og gyldige IaaS/os-team- og PaaS/platform-supported-par bruker opprinnelig rubric. Tidligere vurdering er fortsatt tilgjengelig for historisk repetisjon, men dens kjente posisjonssvakhet påstås ikke rettet.
+
+Hver etterfølger har seks nye situasjoner, stabile item/family/variant- og answer-ID-er og fast versjonert alternativrekkefølge. Content, rubric og presentation er festet til Benefits2.0.0/Services3.0.0. Fremtidige endringer i disse publiserte oppgavene krever ny kontrakt; reload omstokker ingenting. Tallfeltet gjelder bare den nye situasjonen:37−4×8=5 forespørsler/s, ikke den gamle oppgavens1.
+
+## Faglig endring
+
+Benefits undersøker kapasitet versus gjenoppretting, nødvendig ende-til-ende-bevis, avgrenset governance-kontroll, feil input i automatisering, bærekraftens målegrunnlag og et kvalifisert kostnadsanslag. Service Types undersøker gjestedriver, OS-vedlikehold, endret runtime-krav, SaaS-offboarding, to forsvarlige arkitekturer og delt App Service Plan med minnebehov i én prosess.
+
+En situasjon godkjennes bare når både beslutning og kompatibel årsaksbegrunnelse passer premissene; Benefits-kapasitet krever også riktig tall. `s-choice` godtar IaaS/os og PaaS/platform. Krysspar godtas ikke: den oppdaterte plattformbegrunnelsen presiserer leverandørdrift av appplattformens OS/runtime. Begge legitime løsninger er likeverdige fordi scenarioet ikke rangerer pris, OS-kontroll eller driftsavlastning. Feedback viser det faktisk valgte paret, kravets betydning, kontrafaktisk forklaring og presis repetisjonslenke. Den er skjult under aktivt forsøk; Summary og Journal går gjennom eksisterende durable teaching-preflight.
+
+## Historikk, lagring og resume
+
+De opprinnelige expansion-domain/store/content/model- og transfer-filene er uendret. Nye assessment-stores følger eksisterende durable CAS/readback-mønster.800 hendelser og tre reserverte terminalplasser gir bounded replay med eksplisitt begin, svarfelt, aid, submit og abandon. ID-er, felter, lovlige overganger, inputlengde og versjoner valideres. Første innlevering bevares etter retry; eksponert/avbrutt forsøk blir senere øving. Ingen navigasjon gir kreditt.
+
+Write-feil publiserer ikke et nytt tilsynelatende varig svar/resultat. En stale fane får konflikt. Scoped recovery sammenligner siste lagrede rådata før bare en ugyldig ny nøkkel kan fjernes; gyldig historikk i annen fane og gamle nøkler beholdes. To konkurrerende nye/historiske aktive kontekster vises eksplisitt med valg av eksisterende forsøk; Hub velger ikke tilfeldig mellom dem. Vanlig prioritet er fortsatt aktiv independent, deretter eksisterende guided, gyldig lagret posisjon og PR45s anbefalte reise.
+
+Begge nye independent contexts inngår i teaching, Summary, Journal, history, missions, automatisk guidance, Portal, Hub/recovery og eksplisitt all-data-reset. Å åpne startdialogen, Avbryt eller Escape oppretter ingen begin. Først eksplisitt Start etter durable write viser oppgavene. Beskyttet hjelp krever registrert assistance før innhold monteres; avvist write gir recovery. Lokal klientlagring er ikke sertifiserbar eller manipulasjonssikker.
+
+## Offisielt kildegrunnlag
+
+Offentlige Microsoft-sider ble hentet og relevante påstander kontrollert2 november2026 før kandidatforfatting. [Maskinlesbart kilde-/claim-kart](../quality/releases/current.json) oppgir URL-er, kontrolltid, hash og avgrensning. Benefits-modulens introduksjon, availability/scalability, reliability/predictability, security/governance, manageability, sustainability og summary, samt Services-modulens introduksjon, IaaS/PaaS/SaaS og summary ble lest. De offentlige assessment-lenkene er identifisert, men spørsmålene er ikke åpnet, kopiert eller brukt som forfattergrunnlag.
+
+Produktreferansene om shared responsibility og App Service Plans kvalifiserer generelle Learn-forklaringer: fysisk vert er ikke gjeste-OS, plattform-OS er ikke kundens egen app, og delte dedikerte planer deler instansressurser. Well-Architected reliability og sustainability brukes til avgrensede krav om ende-til-ende-verifikasjon og målegrunnlag. Brede formuleringer om automatisk regionflytting eller universell karbonnøytralitet brukes ikke som fasit. Alle tall, personer og situasjoner er originale, syntetiske Fjordverk-premisser, ikke målte Azure-data. Ingen beskyttede Microsoft-assessment-spørsmål er brukt.
+
+## Blind kontroll og heuristikker
+
+Separate agent-reviewere fikk bare elevsynlige pakker, uten fasit, rubrics eller feedback. Første låste review fant uklar plattformbegrunnelse, for svake distraktorer og et lengdesignal. Banken ble substansielt revidert. Andre låste review fant et formuleringstilfelle om delbevis og en syklisk relasjon mellom beslutnings- og begrunnelsesposisjoner. Spørsmålet ble presisert til mest direkte fullføringsbevis; flere distraktorer bruker nå sanne, men utilstrekkelige delkontroller, og den systematiske posisjonsrelasjonen er brutt. Korrigert faktisk sluttbank bestod ny låst blind kontroll uten BLOCKER/MAJOR: alle12 svar samsvarte, begge s-choice-par ble identifisert og alle27 posisjonskoblinger ble prøvd. [Første review](reviews/evidence/assessment46-blind-initial.json), [revidert review](reviews/evidence/assessment46-blind-revised.json), [sluttkontroll](reviews/evidence/assessment46-blind-release.json) og [heuristikktall](reviews/evidence/assessment46-heuristics.json) er bevart separat. Benefits all-first ga1/6; Services all-first ga1/6. All-second/all-last/lengst/kortest/absolutt språk ga heller ikke6/6. Aksepterte mindre begrensninger er eksplisitte premisser, intensitet versus samlet fotavtrykk og enkelte lokale posisjonsgjentakelser; ingen generell transfer- eller psykometripåstand. Låste rapporter og hashes beholdes som separate bevis; ingen senere nøkkelsammenligning omskriver en blind rapport.
+
+Automatiske kontroller dekker all-first, all-second, all-last, lengst, kortest, absolutt språk, alle beslutnings-/begrunnelsespar og alle27 mulige faste koblinger mellom de tre posisjonene. Ingen slik strategi skal gi6/6. Faktiske browserinnleveringer tester all-first for begge banker og bevarer det feilaktige førstesvaret etter en korrekt assisted retry. Dette er avgrensede kvalitetssignaler, ikke psykometrisk validering eller bevis for sterk transfer.
+
+## Verifikasjon og begrensninger
+
+[Domene-/replay-kontroller](../src/domain/curriculum/refined-assessment.test.ts) og [browserreiser](../tests/e2e/assessment-refinement.spec.ts) dekker ny/gammel rubric, alternative par, durable denial, stale fane, scoped recovery, eksplisitt start, exact draft resume, Journal, immutable first og teknisk bevaring. Eksisterende kritiske tester beholdes; tre gamle testfiler får bare eksplisitte historiske assessment-ruter.8 nye desktop og1 begrunnet kompakt gir290 kjøringer (267desktop/23kompakt), optional legacy534. Workers, retries, timeouts og skips er uendret.
+
+Faktiske bilder: [Benefits1440](screenshots/assessment-refinement/active-benefits-1440x900.png), [Services1024](screenshots/assessment-refinement/active-services-1024x768.png), [kort vindu](screenshots/assessment-refinement/active-services-1024x500.png), [sentrert start](screenshots/assessment-refinement/start-services-1024x500.png), [Journal](screenshots/assessment-refinement/journal-benefits-1440x900.png). Normal vertikal scroll beholder alle handlinger; ingen horisontal overflow ble observert. Tastatur, fokusretur, reduced motion og Axe kontrolleres på produksjonsbygg. PR43s oppdragsflyt, PR44s modaler og PR45s sekvens retestes målrettet og i autoritativ CI.
+
+Full check, post-stamp uavhengig sluttrevisjon, eksakt-head full CI/streng release og anonym Gate7 med vist full SHA er separate leveransekrav. Endelig faktisk status og deploybevis føres på Draft PR46; Ready eller lokale pass alene lukker ikke AS-01. Avhengighetsvarsler videreføres separat. Den uavklarte eldre Core-testen ble undersøkt avgrenset fordi felles rendering berøres: go-helperen gjør en umiddelbar isVisible-sjekk før et mulig Kursinnhold-klikk. Målrettet faktisk produksjonstest bestod4,3s uten retry; tidligere feil ble ikke reprodusert og årsaken erklæres ikke bekreftet eller rettet. Oppfølgingen forblir separat. Azure-SME, novice UX, skjermleser, psykometri og målt læring/transfer er **uutført**. Ingen merge eller produksjonsdeploy.

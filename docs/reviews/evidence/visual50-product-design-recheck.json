@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "review": "PR50 affected product/design recheck",
+  "reviewer": "/root/visual50_product_review",
+  "date": "2026-11-02",
+  "phase": "Focused developmental recheck of candidate fixes; not the separate final post-stamp audit",
+  "previousReport": "/workspace/azurelab-pr50/product-design-review.json",
+  "decision": "The identified briefing, diagram and Journal mismatch defects are resolved in the inspected specimens. Studio control placement is substantially improved, with a remaining short-height result-discovery limitation. The candidate may remain isolated for human comparison. The resident Portal guide return has a narrowly scoped source correction pending the next built-server retest. Neither direction is approved for broad rollout.",
+  "ranking": {
+    "first": "editorial",
+    "second": "continuity",
+    "changeFromOriginal": "No change: shared fixes improve both candidates and do not establish a human preference."
+  },
+  "evidence": {
+    "server": "http://127.0.0.1:3100",
+    "script": "/workspace/azurelab-pr50/product-recheck.mjs",
+    "rawEvidence": "/workspace/azurelab-pr50/product-recheck/evidence.json",
+    "freshScreenshots": 20,
+    "pageErrors": [],
+    "viewports": [
+      "Both candidates: 1024×500 and 1440×900",
+      "Shared compact treatment: editorial at 390×844"
+    ],
+    "fixtures": [
+      "Portal resources were produced by the original inspectionFixture/SandboxStore command chain; not invented presentation resources",
+      "The Journal non-VM case was created with an accepted original ComputeStore container mission event. It is pending, with no fabricated completion."
+    ],
+    "sourceReviewed": [
+      "visual-review.tsx and visual-review.css affected changes",
+      "compute-vm.tsx presentation link adapter and resident Portal guide returns",
+      "model.ts allowlisted Portal canonicalization",
+      "original serverless.css import and native guidance styles"
+    ],
+    "limitations": [
+      "Focused review only; no full regression or post-stamp audit performed by this reviewer",
+      "No completed non-VM Journal history or every track/version inspected in browser",
+      "No human novice, SME, UX, screen-reader or measured learning validation",
+      "No claim that automated status announcements were heard with a real screen reader"
+    ],
+    "additionalNativeReturnEvidence": "/workspace/azurelab-pr50/product-recheck/native-return-evidence.json"
+  },
+  "statuses": [
+    {
+      "finding": "P50-PD-01",
+      "status": "RESOLVED_IN_AFFECTED_SPECIMEN",
+      "severityRemaining": null,
+      "verified": "Both native briefings now compute reading padding26px32px. Actual 1024×500 screenshots show the title/body inset. Dialog remains y24–476; Cancel and Start remain y414.6–457, with Close visible and independent reading scroll. Compact390×844 also retains the inset and reachable footer controls.",
+      "evidence": [
+        "editorial-briefing-1024x500.png",
+        "continuity-briefing-1024x500.png",
+        "editorial-briefing-390x844.png"
+      ]
+    },
+    {
+      "finding": "P50-PD-02",
+      "status": "RESOLVED_FOR_IDENTIFIED_DIAGRAM_AMBIGUITIES",
+      "severityRemaining": null,
+      "verified": "The diagram explicitly shows Runtime/host and its declared availability, recreate shows sourceA/targetB without an A→B transfer edge, and inspect renders oneA. No ve-model-transfer element remains. The original pending, lost, kept and no-process text was observed after explicit input/run actions; changing an assumption still clears the prior result.",
+      "limits": "This closes the specific visual ambiguities raised, not a new SME or learning-efficacy approval of the whole model.",
+      "evidence": [
+        "editorial-studio-diagram-recreate-1440.png",
+        "editorial-studio-diagram-inspect-1440.png",
+        "continuity-studio-diagram-recreate-1440.png",
+        "evidence.json studio"
+      ]
+    },
+    {
+      "finding": "P50-PD-03",
+      "status": "SUBSTANTIALLY_IMPROVED_RESIDUAL_LIMIT",
+      "severityRemaining": "MINOR_FOR_ISOLATED_PROTOTYPE",
+      "verified": "At1024×500 both candidates now place the prediction/run panel at y364.6–503.4 rather than near y1118–1164. DOM order is assumptions→prediction/run→diagram, also retained in compact. Controls are reachable and the figure remains readable at desktop width.",
+      "remaining": "The result remains around documenty1085 at short height, below the diagram. Running from the top produces no immediately visible result text; the learner must scroll to inspect it. Compact diagram labels also shrink substantially, although a native text alternative is available. Treat this as an explicit prototype limitation and test whether novices discover the result. Before broad rollout, consider a nearby result summary or explicit inspect-result affordance that preserves the diagram and does not cover content.",
+      "evidence": [
+        "editorial-studio-initial-1024x500.png",
+        "editorial-studio-run-1024x500.png",
+        "editorial-studio-run-390x844.png",
+        "evidence.json studio.positions"
+      ]
+    },
+    {
+      "finding": "P50-PD-04",
+      "status": "RESOLVED_IN_NON_VM_PENDING_CASE",
+      "severityRemaining": null,
+      "verified": "A single original container mission yields summarycount1 and a visible 'B · Container or Virtual Machine?' row marked 'Ikke dokumentert ennå' in both candidates. Source now maps all guided records and applies original computeGuidedFacts to non-VM completion rather than filtering the body toVM.",
+      "limits": "A completed container/capacity/hosting record was not separately exercised in this focused recheck.",
+      "evidence": [
+        "editorial-journal-container-history-1440.png",
+        "continuity-journal-container-history-1440.png",
+        "evidence.json journal"
+      ]
+    },
+    {
+      "finding": "P50-PD-05",
+      "status": "PRIMARY_NATIVE_LINKS_RESOLVED_RESIDENT_RETURN_SOURCE_FIXED_PENDING_BUILT_RETEST",
+      "severityRemaining": "MAJOR_FOR_CANDIDATE_JOURNEY_COHERENCE",
+      "verified": "After actual native Start in both directions, Resourcegroups and Virtualmachines actions retain surface=workspace and compute=vm. The review-bar return goes to the same direction's guide. A real vm-pr48 Properties view keeps id=vm-4 and view=properties through reload. The narrowed lesson adapter has an identity default for ordinary course use.",
+      "remaining": "On the inspected build, actually clicking the resident toolbar return in both directions navigated to /learn/compute?topic=dependencies and removed the candidate wrapper. A subsequent source inspection confirms the parent added optional ComputePortalMission returnHref, defaulting to the original course destination, and Portal passes navigation?.courseReturn in the specimen. This source correction was not built during this recheck and must be browser-retested after the parent final build. Preserve ordinary course behavior.",
+      "evidence": [
+        "evidence.json journeys",
+        "editorial-portal-resource-properties-1440.png",
+        "src/features/learning/compute-vm.tsx ComputePortalMission return links",
+        "product-recheck/native-return-evidence.json"
+      ]
+    },
+    {
+      "finding": "P50-PD-06",
+      "status": "OPEN_MINOR",
+      "severityRemaining": "MINOR",
+      "verified": "Compact reviewIdentityVisible remains false; the prototype identity span is still hidden at390px. Useful navigation/helper typography remains small. No overflow was observed in the focused Studio specimens.",
+      "remaining": "Keep a concise review/prototype marker visible in compact; assess useful text sizes and browser zoom with human readers."
+    },
+    {
+      "finding": "P50-PD-07",
+      "status": "OPEN_MINOR",
+      "severityRemaining": "MINOR",
+      "verified": "Journal still shows two identical 'Oppdatert vurdering · Vurderingshistorikk' headings without visible Benefits/Services track names in the modal.",
+      "remaining": "Add the existing track names around these native history sections before claiming the Journal hierarchy is finished."
+    },
+    {
+      "finding": "P50-PD-08",
+      "status": "REACHABLE_WITH_DOCUMENT_SCROLL_RESIDUAL_COMPOSITION_ONLY",
+      "severityRemaining": "MINOR",
+      "verified": "The Portal still starts42px below the review bar and spans to y942 at a900px viewport. At1024×500, scrolling the document exposes the native lower course/architecture controls and footer. They are not proven unreachable. Native guide content has its own scrolling region; no new blocking overlap was identified in the inspected resource view.",
+      "remaining": "The extra wrapper height remains a composition cost, and the top review return scrolls out of view while the resident native return stays visible. Preserve native controls and resolve the return-destination ambiguity above.",
+      "evidence": [
+        "editorial-portal-resource-1024x500.png",
+        "editorial-portal-resource-bottom-1024x500.png",
+        "evidence.json journeys.workspaceDimensions"
+      ]
+    },
+    {
+      "finding": "Additional heading focus repair",
+      "status": "VERIFIED_IN_AFFECTED_STUDIO_ENTRY",
+      "severityRemaining": null,
+      "verified": "Both Studio headings are focused after protected teaching content mounts in fresh1024×500 sessions. Reduced-motion computes animation-name:none."
+    }
+  ],
+  "unchangedBoundaries": [
+    "The three real generated character samples remain rejected and quarantined. The canonical original is still the only active character; the full library remains production-blocked. This recheck does not re-approve image identity or alpha quality.",
+    "Human novice/IT, Azure SME, UX, screen-reader and measured transfer validation remain absent. Broad-rollout or award-quality claims remain unsupported.",
+    "World, commands, receipts, stored learning semantics and content are outside this presentation recheck; no reviewer changes were made to application or documentation files.",
+    "The original report remains the comparative design recommendation; these affected fixes do not authorize a whole-course rewrite."
+  ],
+  "next": "After the parent final build, quickly verify the resident Portal return stays in the same candidate guide. Retain honest minor limitations, then perform the separate required final audit and human comparison. This focused recheck is not release approval."
+}

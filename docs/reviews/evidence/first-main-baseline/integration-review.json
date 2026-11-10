@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "main": "d87fa852ceda7d8a7bff8ddfc72027e8fd9d153c",
+  "common": "249833f7cb7ea41d3e411444ec3c4f83805d3a5f",
+  "parents": {
+    "portal": "95d9e5b26e0cad69063153305b7ec3aa024fcfcf",
+    "course": "50e90f3cf14dce8b81a5bd9b7416d816a147f22a"
+  },
+  "originalMergeExit": 1,
+  "textConflicts": [
+    "quality/releases/current.json",
+    "src/pr72-ci-workflow.test.ts",
+    "src/pr72-shared-portal-preservation.test.ts",
+    "tests/pr72-preservation.ts"
+  ],
+  "automaticContentCombination": {
+    "path": "tests/e2e/premium-landing.spec.ts",
+    "decision": "Both native3.9 group selectors and Bifrost isolated fixture class retained; complete exact transformation is tested."
+  },
+  "historicalEvidence": "All original evidence files are retained unchanged; current release metadata is renewed against main. Parent quality records remain at their exact immutable Git commits.",
+  "sourceCounts": {
+    "parentUnion": 3245,
+    "ancestralUnionBeforeIntegrationCommit": 189
+  },
+  "initialUnitProbe": {
+    "failed": 23,
+    "passed": 32,
+    "filesFailed": 7,
+    "filesPassed": 1,
+    "logSha256": "fbb28ab67f939a96c97718d8085ea1226aaa1050ca264923cda2b597fafdc659",
+    "scope": "Unadapted merged preservation probe; no product or runtime failure inferred from closed-manifest scope mismatch."
+  },
+  "expectedBrowserUnion": {
+    "cases": 510,
+    "desktop": 458,
+    "compact": 52,
+    "requiresActualCollection": true
+  },
+  "previousRunsProvenanceOnly": [
+    {
+      "pr": 79,
+      "head": "95d9e5b26e0cad69063153305b7ec3aa024fcfcf",
+      "ciRun": 42732507513,
+      "cases": 490,
+      "direct": 489,
+      "flaky": 1
+    },
+    {
+      "pr": 77,
+      "head": "50e90f3cf14dce8b81a5bd9b7416d816a147f22a",
+      "ciRun": 42733634594,
+      "cases": 488,
+      "direct": 488,
+      "flaky": 0
+    }
+  ],
+  "currentCandidateBrowserProfile": {
+    "cases": 511,
+    "desktop": 459,
+    "compact": 52,
+    "retainedInputUnion": 510,
+    "added": "one enabled-state frame contrast regression, both themes; no prior test/assertion/settings change"
+  },
+  "initialCombinedCI": {
+    "run": 42773269872,
+    "head": "0c8a8e30630f994b04eedd9640380e97ac06c874",
+    "checkedMerge": "ad4cbe1882689c913d60bd1f2e7bff3cfc7fb463",
+    "cases": 510,
+    "direct": 509,
+    "flaky": 1,
+    "aggregate": "passed",
+    "strict": "passed",
+    "disposition": "Not the final corrected candidate. One actual serious activation-contrast failure was causally reproduced, not dismissed after retry."
+  }
+}

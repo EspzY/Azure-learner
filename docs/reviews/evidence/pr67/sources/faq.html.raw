@@ -1,0 +1,1976 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents faq show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>Azure Firewall FAQ | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="FAQ for Azure Firewall. A managed, cloud-based network security service that protects your Azure Virtual Network resources." />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/azure/firewall/firewall-faq" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="Azure Firewall FAQ" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/azure/firewall/firewall-faq" />
+			<meta property="og:description" content="FAQ for Azure Firewall. A managed, cloud-based network security service that protects your Azure Virtual Network resources." />
+			<meta name="platform_id" content="ff708664-81c9-fe3a-8f24-b79db4554e2a" /> <meta name="scope" content="Azure" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="azure" />
+
+			<meta name="page_type" content="faq" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="summary" content="" />
+	
+		<meta name="schema" content="FAQ" />
+	
+		<meta name="breadcrumb_path" content="/azure/bread/toc.json" />
+	
+		<meta name="feedback_help_link_url" content="https://learn.microsoft.com/answers/tags/113/azure-firewall/" />
+	
+		<meta name="feedback_help_link_type" content="get-help-at-qna" />
+	
+		<meta name="feedback_product_url" content="https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4" />
+	
+		<meta name="feedback_system" content="Standard" />
+	
+		<meta name="permissioned-type" content="public" />
+	
+		<meta name="recommendations" content="true" />
+	
+		<meta name="recommendation_types" content="Training" />
+	
+		<meta name="recommendation_types" content="Certification" />
+	
+		<meta name="ms.suite" content="office" />
+	
+		<meta name="adobe-target" content="true" />
+	
+		<meta name="manager" content="kumud" />
+	
+		<meta name="ms.collection" content="networking" />
+	
+		<meta name="ms.reviewer" content="duau" />
+	
+		<meta name="services" content="firewall" />
+	
+		<meta name="author" content="duongau" />
+	
+		<meta name="ms.service" content="azure-firewall" />
+	
+		<meta name="ms.custom" content="devx-track-azurepowershell" />
+	
+		<meta name="ms.topic" content="faq" />
+	
+		<meta name="ms.date" content="2026-10-14T00:00:00Z" />
+	
+		<meta name="ms.author" content="duau" />
+	
+		<meta name="document_id" content="6bba1b4d-cf65-c0a2-9bb6-4ff7896f0a15" />
+	
+		<meta name="document_version_independent_id" content="7ab0db77-e78d-de58-369f-641782327264" />
+	
+		<meta name="updated_at" content="2026-10-14T11:44:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/firewall/firewall-faq.yml" />
+	
+		<meta name="gitcommit" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/059c203dfdbf03fb0ded07a97689c1d9f0524619/articles/firewall/firewall-faq.yml" />
+	
+		<meta name="git_commit_id" content="059c203dfdbf03fb0ded07a97689c1d9f0524619" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="Azure.azure-documents" />
+	
+		<meta name="toc_rel" content="toc.json" />
+	
+		<meta name="asset_id" content="firewall/firewall-faq" />
+	
+		<meta name="moniker_range_name" content="" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="articles/firewall/firewall-faq.yml" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/firewall/firewall-faq.yml" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/azure/firewall/firewall-faq?accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/85ee13c4-5d0b-41b0-895d-b7e834668123" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/20ed8455-bc18-4537-87a4-83784e7b2a39" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/7e79a0d4-3b49-4899-aac2-fbdd26ca15a8" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/9a7f703b-30bb-4d62-9eb4-97213f571849" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03595.8353-c1321031/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "FAQ",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "azure",
+    "context": {},
+    "standardFeedback": true,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "get-help-at-qna",
+    "feedbackHelpLinkUrl": "https://learn.microsoft.com/answers/tags/113/azure-firewall/",
+    "feedbackSystem": "Standard",
+    "feedbackGitHubRepo": "MicrosoftDocs/azure-docs",
+    "feedbackProductUrl": "https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": true,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03595.8353-c1321031/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div> 
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					aria-expanded="false"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			
+			href="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/firewall/firewall-faq.yml"
+			data-original_content_git_url="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/firewall/firewall-faq.yml"
+			data-original_content_git_url_template="{repo}/blob/{branch}/articles/firewall/firewall-faq.yml"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1>Azure Firewall FAQ</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	  
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	 <div class="content"><article id="faq" class="has-body-background is-full-height">
+	<div class="content margin-top-xs">
+		
+	</div>
+
+	<section id="faq-content-container" class="anchor-headings">
+		<h2 id="general" class="title is-2 margin-top-sm margin-bottom-xs">General</h2>
+			
+			<h3 id="what-is-azure-firewall" class="title is-3 margin-top-sm margin-bottom-xs">What is Azure Firewall?</h3>
+			<div class="content"><p>Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.</p>
+</div>
+			
+			<h3 id="what-capabilities-does-azure-firewall-support" class="title is-3 margin-top-sm margin-bottom-xs">What capabilities does Azure Firewall support?</h3>
+			<div class="content"><p>For a detailed list of Azure Firewall features, see <a href="features" data-linktype="relative-path">Azure Firewall features</a>.</p>
+</div>
+			
+			<h3 id="what-is-the-typical-deployment-model-for-azure-firewall" class="title is-3 margin-top-sm margin-bottom-xs">What is the typical deployment model for Azure Firewall?</h3>
+			<div class="content"><p>Azure Firewall can be deployed on any virtual network. However, it's typically deployed on a central virtual network in a hub-and-spoke model, with other virtual networks peered to it. The default route from the peered virtual networks is set to point to this central firewall virtual network. While global virtual network peering is supported, it isn't recommended due to potential performance and latency issues across regions. For optimal performance, deploy one firewall per region.</p>
+<p>This model allows centralized control over multiple spoke VNets across different subscriptions and offers cost savings by avoiding the need to deploy a firewall in each virtual network. Cost savings should be evaluated against the associated peering costs based on traffic patterns.</p>
+</div>
+			
+			<h3 id="how-can-i-deploy-azure-firewall" class="title is-3 margin-top-sm margin-bottom-xs">How can I deploy Azure Firewall?</h3>
+			<div class="content"><p>Azure Firewall can be deployed using the Azure portal, PowerShell, REST API, or templates. For step-by-step instructions, see <a href="tutorial-firewall-deploy-portal" data-linktype="relative-path">Tutorial: Deploy and configure Azure Firewall using the Azure portal</a>.</p>
+</div>
+			
+			<h3 id="what-are-some-key-azure-firewall-concepts" class="title is-3 margin-top-sm margin-bottom-xs">What are some key Azure Firewall concepts?</h3>
+			<div class="content"><p>Azure Firewall uses rules and rule collections. A rule collection is a set of rules with the same order and priority. Rule collections are executed in priority order. DNAT rule collections have higher priority than network rule collections, which in turn have higher priority than application rule collections. All rules are terminating.</p>
+<p>There are three types of rule collections:</p>
+<ul>
+<li><strong>Application rules</strong>: Configure fully qualified domain names (FQDNs) that can be accessed from a virtual network.</li>
+<li><strong>Network rules</strong>: Configure rules with source addresses, protocols, destination ports, and destination addresses.</li>
+<li><strong>NAT rules</strong>: Configure DNAT rules to allow incoming Internet or intranet (preview) connections.</li>
+</ul>
+<p>For more information, see <a href="rule-processing" data-linktype="relative-path">Configure Azure Firewall rules</a>.</p>
+</div>
+			
+			<h3 id="which-logging-and-analytics-services-does-azure-firewall-support" class="title is-3 margin-top-sm margin-bottom-xs">Which logging and analytics services does Azure Firewall support?</h3>
+			<div class="content"><p>Azure Firewall integrates with Azure Monitor for viewing and analyzing logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hubs and analyzed using tools like Log Analytics, Excel, or Power BI. For more information, see <a href="firewall-diagnostics" data-linktype="relative-path">Tutorial: Monitor Azure Firewall logs</a>.</p>
+</div>
+			
+			<h3 id="how-does-azure-firewall-differ-from-nvas-in-the-marketplace" class="title is-3 margin-top-sm margin-bottom-xs">How does Azure Firewall differ from NVAs in the marketplace?</h3>
+			<div class="content"><p>Azure Firewall is a managed, cloud-based network security service that protects virtual network resources. It's a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. It's preintegrated with third-party security-as-a-service (SECaaS) providers to enhance security for virtual network and branch Internet connections. For more information, see <a href="../networking/security/" data-linktype="relative-path">Azure network security</a>.</p>
+</div>
+			
+			<h3 id="what-is-the-difference-between-application-gateway-waf-and-azure-firewall" class="title is-3 margin-top-sm margin-bottom-xs">What is the difference between Application Gateway WAF and Azure Firewall?</h3>
+			<div class="content"><p>Application Gateway WAF provides centralized inbound protection for web applications against common exploits and vulnerabilities. Azure Firewall provides inbound protection for non-HTTP/S protocols (for example, RDP, SSH, FTP), outbound network-level protection for all ports and protocols, and application-level protection for outbound HTTP/S.</p>
+</div>
+			
+			<h3 id="what-is-the-difference-between-network-security-groups--nsgs--and-azure-firewall" class="title is-3 margin-top-sm margin-bottom-xs">What is the difference between Network Security Groups (NSGs) and Azure Firewall?</h3>
+			<div class="content"><p>Azure Firewall complements NSGs to provide better "defense-in-depth" network security. NSGs offer distributed network layer traffic filtering to limit traffic within virtual networks in each subscription. Azure Firewall provides centralized, fully stateful network and application-level protection across subscriptions and virtual networks.</p>
+</div>
+			
+			<h3 id="are-network-security-groups--nsgs--supported-on-the-azurefirewallsubnet" class="title is-3 margin-top-sm margin-bottom-xs">Are Network Security Groups (NSGs) supported on the AzureFirewallSubnet?</h3>
+			<div class="content"><p>Azure Firewall is a managed service with multiple protection layers, including platform protection with NIC-level NSGs (not viewable). Subnet-level NSGs aren't required on the AzureFirewallSubnet and are disabled to prevent service interruptions.</p>
+</div>
+			
+			<h3 id="what-is-the-added-value-of-azure-firewall-with-private-endpoints" class="title is-3 margin-top-sm margin-bottom-xs">What is the added value of Azure Firewall with private endpoints?</h3>
+			<div class="content"><p>Private endpoints are a component of Private Link, a technology that allows to interact with Azure PaaS services using private IP addresses instead of public ones. Azure Firewall can be used to prevent access to public IP addresses, hence avoiding data exfiltration to Azure services not leveraging Private Link, as well as to implement zero-trust policies by defining who in your organization needs to access those Azure PaaS services, since Private Link per default opens up network access for your whole corporate network.</p>
+<p>The right design to inspect traffic to private endpoints with Azure Firewall will depend on your network architecture, you can find more details in the article <a href="../private-link/inspect-traffic-with-azure-firewall" data-linktype="relative-path">Azure Firewall scenarios to inspect traffic destined to a private endpoint</a>.</p>
+</div>
+			
+			<h3 id="what-is-the-added-value-of-azure-firewall-with-virtual-network-service-endpoints" class="title is-3 margin-top-sm margin-bottom-xs">What is the added value of Azure Firewall with virtual network service endpoints?</h3>
+			<div class="content"><p>Virtual Network service endpoints are an alternative to Private Link to control network access to Azure PaaS services. Even if the client still uses public IP addresses to access the PaaS service, the source subnet is made visible so that the destination PaaS service can implement filter rules and restrict access on a per-subnet basis. You can find a detailed comparison between both mechanisms in <a href="../virtual-network/vnet-integration-for-azure-services" data-linktype="relative-path">Compare Private Endpoints and Service Endpoints</a>.</p>
+<p>Azure Firewall application rules can be used to make sure that no data exfiltration to rogue services takes place, and to implement access policies with an increased granularity beyond the subnet level. Usually, virtual network service endpoints need to be enabled in the subnet of the client that will connect to an Azure service. However, when inspecting traffic to service endpoints with Azure Firewall, you need to enable the corresponding service endpoint in the Azure Firewall subnet instead and disable them on the subnet of the actual client (usually a spoke virtual network). This way you can use Application Rules in Azure Firewall to control to which Azure services your Azure workloads will have access to.</p>
+</div>
+			
+			<h3 id="what-is-the-pricing-for-azure-firewall" class="title is-3 margin-top-sm margin-bottom-xs">What is the pricing for Azure Firewall?</h3>
+			<div class="content"><p>For pricing details, see <a href="https://azure.microsoft.com/pricing/details/azure-firewall/" data-linktype="external">Azure Firewall Pricing</a>.</p>
+</div>
+			
+			<h3 id="what-are-the-known-service-limits-for-azure-firewall" class="title is-3 margin-top-sm margin-bottom-xs">What are the known service limits for Azure Firewall?</h3>
+			<div class="content"><p>For service limits, see <a href="../azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits" data-linktype="relative-path">Azure subscription and service limits, quotas, and constraints</a>.</p>
+</div>
+			
+			<h3 id="where-does-azure-firewall-store-customer-data" class="title is-3 margin-top-sm margin-bottom-xs">Where does Azure Firewall store customer data?</h3>
+			<div class="content"><p>Azure Firewall doesn't move or store customer data outside the region where it's deployed.</p>
+</div>
+			
+			<h3 id="is-azure-firewall-in-secured-virtual-hubs--vwan--supported-in-qatar" class="title is-3 margin-top-sm margin-bottom-xs">Is Azure Firewall in secured virtual hubs (vWAN) supported in Qatar?</h3>
+			<div class="content"><p>No, Azure Firewall in secured virtual hubs (vWAN) isn't currently supported in Qatar.</p>
+</div>
+		<h2 id="supported-capabilities-and-features" class="title is-2 margin-top-sm margin-bottom-xs">Supported capabilities and features</h2>
+			
+			<h3 id="does-azure-firewall-support-inbound-traffic-filtering" class="title is-3 margin-top-sm margin-bottom-xs">Does Azure Firewall support inbound traffic filtering?</h3>
+			<div class="content"><p>Yes, Azure Firewall supports both inbound and outbound traffic filtering. Inbound filtering is typically used for non-HTTP protocols such as RDP, SSH, and FTP. For inbound HTTP and HTTPS traffic, consider using a web application firewall like <a href="../web-application-firewall/overview" data-linktype="relative-path">Azure Web Application Firewall (WAF)</a> or the TLS offload and deep packet inspection features of <a href="premium-features" data-linktype="relative-path">Azure Firewall Premium</a>.</p>
+</div>
+			
+			<h3 id="does-azure-firewall-basic-support-forced-tunneling" class="title is-3 margin-top-sm margin-bottom-xs">Does Azure Firewall Basic support forced tunneling?</h3>
+			<div class="content"><p>Yes, Azure Firewall Basic supports forced tunneling.</p>
+</div>
+			
+			<h3 id="why-does-a-tcp-ping-or-similar-tool-appear-to-connect-to-a-target-fqdn-even-when-no-rule-allows-the-traffic" class="title is-3 margin-top-sm margin-bottom-xs">Why does a TCP ping or similar tool appear to connect to a target FQDN even when no rule allows the traffic?</h3>
+			<div class="content"><p>A TCP ping doesn't actually connect to the target FQDN. Azure Firewall blocks connections to any target IP address or FQDN unless explicitly allowed by a rule.</p>
+<p>In the case of a TCP ping, if no rule allows the traffic, the Firewall itself responds to the client's TCP ping request. This response doesn't reach the target IP address or FQDN and isn't logged. If a network rule explicitly allows access to the target IP address or FQDN, the ping request reaches the target server, and its response is relayed back to the client. This event is logged in the Network rules log.</p>
+</div>
+			
+			<h3 id="does-azure-firewall-support-bgp-peering" class="title is-3 margin-top-sm margin-bottom-xs">Does Azure Firewall support BGP peering?</h3>
+			<div class="content"><p>No, Azure Firewall doesn't natively support BGP peering. However, the <a href="snat-private-range#auto-learn-snat-routes" data-linktype="relative-path">Auto-learn SNAT routes feature</a> indirectly uses BGP through Azure Route Server.</p>
+</div>
+			
+			<h3 id="can-azure-firewall-pass-esp-packets--ipsec-vpn-" class="title is-3 margin-top-sm margin-bottom-xs">Can Azure Firewall pass ESP packets (IPSec VPN)?</h3>
+			<div class="content"><p>Azure Firewall does not natively support ESP (Encapsulating Security Payload), but you can allow ESP traffic by configuring a network rule as follows:</p>
+<p><strong>Azure Firewall configuration (Network Rule):</strong></p>
+<ul>
+<li>Protocol: Any</li>
+<li>Source port: * (Any)</li>
+<li>Destination port: * (Any)</li>
+<li>Source/Destination: Specify IP addresses as needed</li>
+</ul>
+<p>This configuration allows ESP packets (IP protocol number 50) and other non-TCP/UDP traffic to match the rule. However, note that Azure Firewall does not inspect ESP payloads.</p>
+<p><strong>Reference : If using NSG (Network Security Group) instead of Azure Firewall:</strong>
+NSG does not provide a direct option to specify ESP (IP protocol number 50), but ESP packets can be allowed by using the following settings:</p>
+<ul>
+<li>Protocol: Any</li>
+<li>Port: * (Any)</li>
+<li>Source/Destination: Specify IP addresses as needed</li>
+</ul>
+<p><strong>Recommendations:</strong></p>
+<ul>
+<li>For IPsec VPN configurations, using Azure VPN Gateway is recommended.</li>
+<li>Consider using an NVA (Network Virtual Appliance) pattern depending on your requirements.</li>
+</ul>
+</div>
+		<h2 id="management-and-configuration" class="title is-2 margin-top-sm margin-bottom-xs">Management and configuration</h2>
+			
+			<h3 id="how-can-i-stop-and-start-azure-firewall" class="title is-3 margin-top-sm margin-bottom-xs">How can I stop and start Azure Firewall?</h3>
+			<div class="content"><p>You can use Azure PowerShell to deallocate and allocate the Azure Firewall. The process varies depending on the configuration.</p>
+<p><strong>For a firewall without a Management NIC:</strong></p>
+<pre><code class="lang-azurepowershell"># Stop the firewall
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$azfw.Deallocate()
+Set-AzFirewall -AzureFirewall $azfw
+
+# Start the firewall
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$publicip1 = Get-AzPublicIpAddress -Name "Public IP1 Name" -ResourceGroupName "RG Name"
+$publicip2 = Get-AzPublicIpAddress -Name "Public IP2 Name" -ResourceGroupName "RG Name"
+$azfw.Allocate($vnet, @($publicip1, $publicip2))
+Set-AzFirewall -AzureFirewall $azfw
+</code></pre>
+<p><strong>For a firewall with a Management NIC:</strong></p>
+<pre><code class="lang-azurepowershell"># Stop the firewall
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$azfw.Deallocate()
+Set-AzFirewall -AzureFirewall $azfw
+
+# Start the firewall
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$pip = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "azfwpublicip"
+$mgmtPip = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
+$azfw.Allocate($vnet, $pip, $mgmtPip)
+Set-AzFirewall -AzureFirewall $azfw
+</code></pre>
+<p><strong>For a firewall with a Management NIC and no public IP associated with the Dataplane NIC:</strong></p>
+<pre><code class="lang-azurepowershell"># Stop the firewall
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$azfw.Deallocate()
+Set-AzFirewall -AzureFirewall $azfw
+
+# Start the firewall
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$vnet = Get-AzVirtualNetwork -ResourceGroupName "RG Name" -Name "VNet Name"
+$mgmtPip = Get-AzPublicIpAddress -ResourceGroupName "RG Name" -Name "mgmtpip"
+$azfw.Allocate($vnet, $null, $mgmtPip)
+Set-AzFirewall -AzureFirewall $azfw
+</code></pre>
+<p><strong>For a firewall in a secured virtual hub:</strong></p>
+<pre><code class="lang-azurepowershell"># Stop the firewall
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+$azfw.Deallocate()
+Set-AzFirewall -AzureFirewall $azfw
+
+# Start the firewall
+$virtualhub = Get-AzVirtualHub -ResourceGroupName "vHUB RG Name" -Name "vHUB Name"
+$azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "Firewall RG Name"
+$azfw.Allocate($virtualhub.Id)
+Set-AzFirewall -AzureFirewall $azfw
+</code></pre>
+<div class="NOTE">
+<p>Note</p>
+<p>When stopping and starting the firewall, billing stops and starts accordingly. However, the private IP address might change, which can affect connectivity if route tables are configured.</p>
+</div>
+</div>
+			
+			<h3 id="do-i-need-to-specify-availability-zones-when-deploying-azure-firewall" class="title is-3 margin-top-sm margin-bottom-xs">Do I need to specify availability zones when deploying Azure Firewall?</h3>
+			<div class="content"><p>No. For new deployments, don't specify firewall availability zones. Azure manages backend allocation across multiple availability zones in <a href="deploy-availability-zone-powershell#zr-compatible-regions" data-linktype="relative-path">ZR compatible regions</a>. Omit <code>-Zone</code> from <code>New-AzFirewall</code>, <code>--zones</code> from <code>az network firewall create</code>, and the firewall's <code>zones</code> property from deployment templates. Public IP zone configuration is separate.</p>
+<p>In regions without availability zones, the firewall remains a regional resource.</p>
+</div>
+			
+			<h3 id="do-existing-firewalls-need-to-be-redeployed-to-become-zone-redundant" class="title is-3 margin-top-sm margin-bottom-xs">Do existing firewalls need to be redeployed to become zone redundant?</h3>
+			<div class="content"><p>No. Azure automatically migrates existing non-zone-redundant firewalls in regions that support multiple availability zones. Migration is complete in the <a href="deploy-availability-zone-powershell#zr-compatible-regions" data-linktype="relative-path">listed regions</a>.</p>
+<p>You don't need to deallocate, redeploy, or change zone settings to receive the migration.</p>
+</div>
+			
+			<h3 id="why-don-t-the-firewall-s-zone-properties-show-its-backend-zone-redundancy" class="title is-3 margin-top-sm margin-bottom-xs">Why don't the firewall's zone properties show its backend zone redundancy?</h3>
+			<div class="content"><p>Platform-managed migration doesn't necessarily update the configured <code>zones</code> property. It can remain empty or continue to show the originally configured single zone even when the backend is zone redundant. Don't use the portal, ARM, CLI, PowerShell, or Azure Resource Graph zone property alone as proof of backend redundancy. For more information, see <a href="deploy-availability-zone-powershell#understanding-zone-properties-after-migration" data-linktype="relative-path">Understanding zone properties after migration</a>.</p>
+</div>
+			
+			<h3 id="are-there-any-azure-firewall-resource-group-restrictions" class="title is-3 margin-top-sm margin-bottom-xs">Are there any Azure firewall resource group restrictions?</h3>
+			<div class="content"><ul>
+<li>The Azure Firewall and virtual network must be in the same resource group.</li>
+<li>The public IP address can be in a different resource group.</li>
+<li>All resources (Azure firewall, virtual network, public IP) must be in the same subscription.</li>
+</ul>
+</div>
+			
+			<h3 id="what-does-provisioning-state---failed---mean" class="title is-3 margin-top-sm margin-bottom-xs">What does provisioning state **Failed** mean?</h3>
+			<div class="content"><p>A <strong>Failed</strong> provisioning state indicates that a configuration update failed on one or more backend instances. The Azure Firewall remains operational, but the configuration might be inconsistent. Retry the update until the provisioning state changes to <strong>Succeeded</strong>.</p>
+</div>
+			
+			<h3 id="how-does-azure-firewall-handle-planned-maintenance-and-unplanned-failures" class="title is-3 margin-top-sm margin-bottom-xs">How does Azure Firewall handle planned maintenance and unplanned failures?</h3>
+			<div class="content"><p>Azure Firewall uses an active-active configuration with multiple backend nodes. During planned maintenance, connection draining ensures graceful updates. For unplanned failures, a new node replaces the failed one, and connectivity is typically restored within 10 seconds.</p>
+</div>
+			
+			<h3 id="is-there-a-character-limit-for-a-firewall-name" class="title is-3 margin-top-sm margin-bottom-xs">Is there a character limit for a firewall name?</h3>
+			<div class="content"><p>Yes, firewall names are limited to 50 characters.</p>
+</div>
+			
+			<h3 id="why-does-azure-firewall-need-a--26-subnet-size" class="title is-3 margin-top-sm margin-bottom-xs">Why does Azure Firewall need a /26 subnet size?</h3>
+			<div class="content"><p>A /26 subnet ensures sufficient IP addresses for scaling as the Azure Firewall provisions extra virtual machine instances.</p>
+</div>
+			
+			<h3 id="does-the-firewall-subnet-size-need-to-change-as-the-service-scales" class="title is-3 margin-top-sm margin-bottom-xs">Does the firewall subnet size need to change as the service scales?</h3>
+			<div class="content"><p>No, a /26 subnet is sufficient for all scaling scenarios.</p>
+</div>
+			
+			<h3 id="how-can-i-increase-my-firewall-throughput" class="title is-3 margin-top-sm margin-bottom-xs">How can I increase my firewall throughput?</h3>
+			<div class="content"><p>Azure Firewall scales automatically based on CPU usage, throughput, and connection count. Throughput capacity ranges from 2.5–3 Gbps initially to 30 Gbps (Standard SKU) or 100 Gbps (Premium SKU).</p>
+</div>
+			
+			<h3 id="how-many-firewalls-can-reference-a-single-ip-group" class="title is-3 margin-top-sm margin-bottom-xs">How many firewalls can reference a single IP Group?</h3>
+			<div class="content"><p>A single IP Group has a soft limit of 50 referencing firewalls. Exceeding this limit might affect performance and cause IP Group updates to fail. For more information, see <a href="../azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits" data-linktype="relative-path">Azure Firewall limits</a> and <a href="ip-groups" data-linktype="relative-path">IP Groups in Azure Firewall</a>.</p>
+</div>
+			
+			<h3 id="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups" class="title is-3 margin-top-sm margin-bottom-xs">Are there limits for the number of IP addresses supported by IP Groups?</h3>
+			<div class="content"><p>Yes. For details, see <a href="../azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits" data-linktype="relative-path">Azure subscription and service limits, quotas, and constraints</a>.</p>
+</div>
+			
+			<h3 id="can-i-move-an-ip-group-to-another-resource-group" class="title is-3 margin-top-sm margin-bottom-xs">Can I move an IP Group to another resource group?</h3>
+			<div class="content"><p>No, moving an IP Group to another resource group isn't currently supported.</p>
+</div>
+			
+			<h3 id="what-is-the-tcp-idle-timeout-for-azure-firewall" class="title is-3 margin-top-sm margin-bottom-xs">What is the TCP Idle Timeout for Azure Firewall?</h3>
+			<div class="content"><p>A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't user configurable, but you can contact Azure Support to increase the Idle Timeout for inbound and outbound connections up to 15 minutes. Idle Timeout for east-west traffic can't be changed.</p>
+<p>If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the <a href="/en-us/dotnet/api/system.net.servicepoint.settcpkeepalive" data-linktype="absolute-path">.NET examples</a>.</p>
+</div>
+			
+			<h3 id="can-i-deploy-azure-firewall-without-a-public-ip-address" class="title is-3 margin-top-sm margin-bottom-xs">Can I deploy Azure Firewall without a public IP address?</h3>
+			<div class="content"><p>Yes, but you must configure the firewall in Forced Tunneling Mode. This configuration creates a management interface with a public IP address that is used by Azure Firewall for its operations. This public IP address is for management traffic. It's used exclusively by the Azure platform and can't be used for any other purpose. The tenant data path network can be configured without a public IP address, and Internet traffic can be forced tunneled to another Firewall or completely blocked.</p>
+</div>
+			
+			<h3 id="is-there-a-way-to-automatically-back-up-azure-firewall-and-policies" class="title is-3 margin-top-sm margin-bottom-xs">Is there a way to automatically back up Azure Firewall and policies?</h3>
+			<div class="content"><p>Yes. For more information, see <a href="https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928" data-linktype="external">Backup Azure Firewall and Azure Firewall Policy with Logic Apps</a>.</p>
+</div>
+		<h2 id="connectivity-and-routing" class="title is-2 margin-top-sm margin-bottom-xs">Connectivity and routing</h2>
+			
+			<h3 id="how-do-i-set-up-azure-firewall-with-my-service-endpoints" class="title is-3 margin-top-sm margin-bottom-xs">How do I set up Azure Firewall with my service endpoints?</h3>
+			<div class="content"><p>For secure access to PaaS services, we recommend service endpoints. You can choose to enable service endpoints in the Azure Firewall subnet and disable them on the connected spoke virtual networks. This way you benefit from both features: service endpoint security and central logging for all traffic.</p>
+</div>
+			
+			<h3 id="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-multiple-spoke-virtual-networks" class="title is-3 margin-top-sm margin-bottom-xs">Can Azure Firewall in a hub virtual network forward and filter network traffic between multiple spoke virtual networks?</h3>
+			<div class="content"><p>Yes, you can use Azure Firewall in a hub virtual network to route and filter traffic between multiple spoke virtual network. Subnets in each of the spoke virtual networks must have a UDR pointing to the Azure Firewall as a default gateway for this scenario to work properly.</p>
+</div>
+			
+			<h3 id="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks" class="title is-3 margin-top-sm margin-bottom-xs">Can Azure Firewall forward and filter network traffic between subnets in the same virtual network or peered virtual networks?</h3>
+			<div class="content"><p>Yes. However, configuring the UDRs to redirect traffic between subnets in the same virtual network requires more attention. While using the virtual network address range as a target prefix for the UDR is sufficient, this also routes all traffic from one machine to another machine in the same subnet through the Azure Firewall instance. To avoid this, include a route for the subnet in the UDR with a next hop type of <strong>virtual network</strong>. Managing these routes might be cumbersome and prone to error. The recommended method for internal network segmentation is to use Network Security Groups, which don't require UDRs.</p>
+</div>
+			
+			<h3 id="does-azure-firewall-outbound-snat-between-private-networks" class="title is-3 margin-top-sm margin-bottom-xs">Does Azure Firewall outbound SNAT between private networks?</h3>
+			<div class="content"><p>Azure Firewall doesn't SNAT when the destination IP address is a private IP range per <a href="https://tools.ietf.org/html/rfc1918" data-linktype="external">IANA RFC 1918</a> or <a href="https://datatracker.ietf.org/doc/html/rfc6598" data-linktype="external">IANA RFC 6598</a> for private networks. If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to <strong>not</strong> SNAT your public IP address range. For more information, see <a href="snat-private-range" data-linktype="relative-path">Azure Firewall SNAT private IP address ranges</a>.</p>
+<p>In addition, traffic processed by application rules are always SNAT-ed. If you want to see the original source IP address in your logs for FQDN traffic, you can use network rules with the destination FQDN.</p>
+</div>
+			
+			<h3 id="is-forced-tunneling-chaining-to-a-network-virtual-appliance-supported" class="title is-3 margin-top-sm margin-bottom-xs">Is forced tunneling/chaining to a Network Virtual Appliance supported?</h3>
+			<div class="content"><p>Forced tunneling is supported when creating a new firewall, and it is also supported for existing firewalls by adding a management NIC for forced tunneling. For more details about new deployments, see <a href="forced-tunneling" data-linktype="relative-path">Azure Firewall forced tunneling</a>. For existing firewalls, see <a href="management-nic" data-linktype="relative-path">Azure Firewall Management NIC</a>.</p>
+<p>Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the <strong>NextHopType</strong> value set as <strong>Internet</strong> to maintain direct Internet connectivity.</p>
+<p>If your configuration requires forced tunneling to an on-premises network and you can determine the target IP prefixes for your Internet destinations, you can configure these ranges with the on-premises network as the next hop via a user defined route on the AzureFirewallSubnet. Or, you can use BGP to define these routes.</p>
+</div>
+			
+			<h3 id="how-do-wildcards-work-in-target-urls-and-target-fqdns-in-application-rules" class="title is-3 margin-top-sm margin-bottom-xs">How do wildcards work in target URLs and target FQDNs in application rules?</h3>
+			<div class="content"><ul>
+<li><strong>URL</strong> - Asterisks work when placed on the right-most or left-most side. If it is on the left, it can't be part of the FQDN.</li>
+<li><strong>FQDN</strong> - Asterisks work when placed on the left-most side.</li>
+<li><strong>GENERAL</strong> - Asterisks on the left-most side mean literally <em>anything</em> to the left matches, meaning multiple subdomains and/or potentially unwanted domain name variations are matched - see the following examples.</li>
+</ul>
+<p>Examples:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Rule</th>
+<th>Supported?</th>
+<th>Positive examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TargetURL</td>
+<td><code>www.contoso.com</code></td>
+<td>Yes</td>
+<td><code>www.contoso.com</code><br><code>www.contoso.com/</code></td>
+</tr>
+<tr>
+<td>TargetURL</td>
+<td><code>*.contoso.com</code></td>
+<td>Yes</td>
+<td><code>any.contoso.com/</code><br><code>sub1.any.contoso.com</code></td>
+</tr>
+<tr>
+<td>TargetURL</td>
+<td><code>*contoso.com</code></td>
+<td>Yes</td>
+<td><code>example.anycontoso.com</code><br><code>sub1.example.contoso.com</code><br><code>contoso.com</code><br>Warning: this usage of wildcard also allows potentially undesired/risky variations such as <code>th3re4lcontoso.com</code> - use with caution.</td>
+</tr>
+<tr>
+<td>TargetURL</td>
+<td><code>www.contoso.com/test</code></td>
+<td>Yes</td>
+<td><code>www.contoso.com/test</code><br><code>www.contoso.com/test/</code><br><code>www.contoso.com/test?with_query=1</code></td>
+</tr>
+<tr>
+<td>TargetURL</td>
+<td><code>www.contoso.com/test/*</code></td>
+<td>Yes</td>
+<td><code>www.contoso.com/test/anything</code><br>Note: <code>www.contoso.com/test</code> <strong>doesn't</strong> match (last slash)</td>
+</tr>
+<tr>
+<td>TargetURL</td>
+<td><code>www.contoso.*/test/*</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>TargetURL</td>
+<td><code>www.contoso.com/test?example=1</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>TargetURL</td>
+<td><code>www.contoso.*</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>TargetURL</td>
+<td><code>www.*contoso.com</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>TargetURL</td>
+<td><code>www.contoso.com:8080</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>TargetURL</td>
+<td><code>*.contoso.*</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>TargetFQDN</td>
+<td><code>www.contoso.com</code></td>
+<td>Yes</td>
+<td><code>www.contoso.com</code></td>
+</tr>
+<tr>
+<td>TargetFQDN</td>
+<td><code>*.contoso.com</code></td>
+<td>Yes</td>
+<td><code>any.contoso.com</code><br><br>Note: If you want to specifically allow <code>contoso.com</code>, you must include contoso.com in the rule. Otherwise, the connection is dropped by default because the request doesn't match any rule.</td>
+</tr>
+<tr>
+<td>TargetFQDN</td>
+<td><code>*contoso.com</code></td>
+<td>Yes</td>
+<td><code>example.anycontoso.com</code><br><code>contoso.com</code></td>
+</tr>
+<tr>
+<td>TargetFQDN</td>
+<td><code>www.contoso.*</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td>TargetFQDN</td>
+<td><code>*.contoso.*</code></td>
+<td>No</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+			
+			<h3 id="does-azure-firewall-allow-access-to-active-directory-by-default" class="title is-3 margin-top-sm margin-bottom-xs">Does Azure Firewall allow access to Active Directory by default?</h3>
+			<div class="content"><p>No. Azure Firewall blocks Active Directory access by default. To allow access, configure the AzureActiveDirectory service tag. For more information, see <a href="service-tags" data-linktype="relative-path">Azure Firewall service tags</a>.</p>
+</div>
+			
+			<h3 id="can-i-exclude-an-fqdn-or-an-ip-address-from-azure-firewall-threat-intelligence-based-filtering" class="title is-3 margin-top-sm margin-bottom-xs">Can I exclude an FQDN or an IP address from Azure Firewall Threat Intelligence based filtering?</h3>
+			<div class="content"><p>Yes, you can use Azure PowerShell to do it:</p>
+<pre><code class="lang-azurepowershell"># Add a Threat Intelligence allowlist to an Existing Azure Firewall.
+
+# Create the allowlist with both FQDN and IPAddresses
+$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
+$fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
+   -FQDN @("fqdn1", "fqdn2", …) -IpAddress @("ip1", "ip2", …)
+
+# Or Update FQDNs and IpAddresses separately
+$fw = Get-AzFirewall -Name $firewallname -ResourceGroupName $RG
+$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses)
+$fw.ThreatIntelWhitelist.fqdns = @($fw.ThreatIntelWhitelist.fqdns + $fqdns)
+
+
+Set-AzFirewall -AzureFirewall $fw
+</code></pre>
+</div>
+			
+			<h3 id="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic" class="title is-3 margin-top-sm margin-bottom-xs">Why can a TCP ping and similar tools successfully connect to a target FQDN even when no rule on Azure Firewall allows that traffic?</h3>
+			<div class="content"><p>A TCP ping isn't actually connecting  to the target FQDN. Azure Firewall doesn't allow a connection to any target IP address/FQDN unless there's an explicit rule that allows it.</p>
+<p>TCP ping is a unique use case where if there's no allowed rule, the Firewall itself responds to the client's TCP ping request even though the TCP ping doesn't reach the target IP address/FQDN. In this case, the event isn't logged. If there's a network rule that allows access to the target IP address/FQDN, then the ping request reaches the target server and its response is relayed back to the client. This event is logged in the Network rules log.</p>
+</div>
+			
+			<h3 id="why-do-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-ip-address-on-ports-80--443--and-1433-but-aren-t-observed-in-the-azure-firewall-logs" class="title is-3 margin-top-sm margin-bottom-xs">Why do TCP ping and similar tools successfully connect to a target FQDN/IP address on ports 80, 443, and 1433 but aren't observed in the Azure Firewall logs?</h3>
+			<div class="content"><p>Azure Firewall acts as a passive listener for ports 80, 443, and 1433. Azure Firewall doesn't log TCP SYN packets on these ports unless there's application traffic. The HTTP GET request and TLS client hello are logged in Azure Firewall.</p>
+</div>
+			
+			<h3 id="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups" class="title is-3 margin-top-sm margin-bottom-xs">Are there limits for the number of IP addresses supported by IP Groups?</h3>
+			<div class="content"><p>Yes. For more information, see <a href="../azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits" data-linktype="relative-path">Azure subscription and service limits, quotas, and constraints</a></p>
+</div>
+			
+			<h3 id="can-i-move-an-ip-group-to-another-resource-group" class="title is-3 margin-top-sm margin-bottom-xs">Can I move an IP Group to another resource group?</h3>
+			<div class="content"><p>No, moving an IP Group to another resource group isn't currently supported.</p>
+</div>
+			
+			<h3 id="what-is-the-tcp-idle-timeout-for-azure-firewall" class="title is-3 margin-top-sm margin-bottom-xs">What is the TCP Idle Timeout for Azure Firewall?</h3>
+			<div class="content"><p>A standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't user configurable, but you can contact Azure Support to increase the Idle Timeout for inbound and outbound connections up to 15 minutes. Idle Timeout for east-west traffic can't be changed.</p>
+<p>If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the <a href="/en-us/dotnet/api/system.net.servicepoint.settcpkeepalive" data-linktype="absolute-path">.NET examples</a>.</p>
+</div>
+			
+			<h3 id="can-i-deploy-azure-firewall-without-a-public-ip-address" class="title is-3 margin-top-sm margin-bottom-xs">Can I deploy Azure Firewall without a public IP address?</h3>
+			<div class="content"><p>Yes, but you must configure the firewall in Forced Tunneling Mode. This configuration creates a management interface with a public IP address that is used by Azure Firewall for its operations. This public IP address is for management traffic. It's used exclusively by the Azure platform and can't be used for any other purpose. The tenant data path network can be configured without a public IP address, and Internet traffic can be forced tunneled to another Firewall or completely blocked.</p>
+</div>
+			
+			<h3 id="where-does-azure-firewall-store-customer-data" class="title is-3 margin-top-sm margin-bottom-xs">Where does Azure Firewall store customer data?</h3>
+			<div class="content"><p>Azure Firewall doesn't move or store customer data out of the region it's deployed in.</p>
+</div>
+			
+			<h3 id="is-there-a-way-to-automatically-back-up-azure-firewall-and-policies" class="title is-3 margin-top-sm margin-bottom-xs">Is there a way to automatically back up Azure Firewall and policies?</h3>
+			<div class="content"><p>Yes. For more information, see <a href="https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928" data-linktype="external">Backup Azure Firewall and Azure Firewall Policy with Logic Apps</a>.</p>
+</div>
+			
+			<h3 id="is-azure-firewall-in-secured-virtual-hubs--vwan--supported-in-qatar" class="title is-3 margin-top-sm margin-bottom-xs">Is Azure Firewall in secured virtual hubs (vWAN) supported in Qatar?</h3>
+			<div class="content"><p>No, currently Azure Firewall in secured virtual hubs (vWAN) isn't supported in Qatar.</p>
+</div>
+			
+			<h3 id="how-many-parallel-connections-can-azure-firewall-support" class="title is-3 margin-top-sm margin-bottom-xs">How many parallel connections can Azure Firewall support?</h3>
+			<div class="content"><p>Azure Firewall uses Azure Virtual Machines underneath that have a <a href="/en-us/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-active-connections-recommendations" data-linktype="absolute-path">hard limit number of connections</a>. The total number of active connections per virtual machine is 250k.</p>
+<p>The total limit per firewall is the virtual machine connection limit (250k) x the number of virtual machines in the firewall backend pool. Azure Firewall starts with two virtual machines and scales out based on CPU usage and throughput.</p>
+</div>
+			
+			<h3 id="what-is-the-snat-tcp-udp-port-reuse-behavior-in-azure-firewall" class="title is-3 margin-top-sm margin-bottom-xs">What is the SNAT TCP/UDP port reuse behavior in Azure Firewall?</h3>
+			<div class="content"><p>Azure Firewall currently uses TCP/UDP source ports for outbound SNAT traffic, with no idle wait time. When a TCP/UDP connection is closed, the TCP port used is immediately seen as available for upcoming connections.</p>
+<p>As a workaround for certain architectures, you can deploy and scale with <a href="../nat-gateway/tutorial-hub-spoke-nat-firewall" data-linktype="relative-path">NAT Gateway with Azure Firewall</a> to provide a wider pool of SNAT ports for variability and availability.</p>
+</div>
+			
+			<h3 id="how-do-i-resolve-snat-port-exhaustion" class="title is-3 margin-top-sm margin-bottom-xs">How do I resolve SNAT port exhaustion?</h3>
+			<div class="content"><p>You have two options. Add multiple public IP addresses to your firewall for a lower-cost solution, or use an Azure NAT Gateway for a more scalable and robust solution. For a comparison of both options, see <a href="firewall-best-practices#recommendations" data-linktype="relative-path">Best practices for Azure Firewall performance</a>.</p>
+</div>
+			
+			<h3 id="what-are-nat-behaviors-in-azure-firewall" class="title is-3 margin-top-sm margin-bottom-xs">What are NAT behaviors in Azure Firewall?</h3>
+			<div class="content"><p>Specific NAT behaviors depend on the firewall's configuration and the type of NAT that's configured. For example, the firewall has DNAT rules for inbound traffic, and network rules and application rules for outbound traffic through the firewall.</p>
+<p>For more information, see <a href="https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-nat-behaviors/ba-p/3825834" data-linktype="external">Azure Firewall NAT Behaviors</a>.</p>
+</div>
+		<h2 id="timeouts-and-scaling" class="title is-2 margin-top-sm margin-bottom-xs">Timeouts and scaling</h2>
+			
+			<h3 id="how-does-connection-draining-work" class="title is-3 margin-top-sm margin-bottom-xs">How does connection draining work?</h3>
+			<div class="content"><p>For any planned maintenance, connection draining logic gracefully updates backend nodes. Azure Firewall waits 90 seconds for existing connections to close. In the first 45 seconds, the backend node doesn't accept new connections, and in the remaining time it responds with <code>RST</code> to all incoming packets. If needed, clients can automatically re-establish connectivity to another backend node.</p>
+</div>
+			
+			<h3 id="how-does-azure-firewall-handle-vm-instance-shutdowns-during-virtual-machine-scale-set-scale-in--scale-down--or-fleet-software-upgrades" class="title is-3 margin-top-sm margin-bottom-xs">How does Azure Firewall handle VM instance shutdowns during Virtual Machine Scale Set scale in (scale down) or fleet software upgrades?</h3>
+			<div class="content"><p>An Azure Firewall VM instance shutdown might occur during Virtual Machine Scale Set scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and aren't forwarded to the down firewall instance. After 45 seconds, the firewall starts rejecting existing connections by sending TCP RST packets. After another 45 seconds the firewall VM shuts down. For more information, see <a href="../load-balancer/load-balancer-tcp-reset" data-linktype="relative-path">Load Balancer TCP Reset and Idle Timeout</a>.</p>
+</div>
+			
+			<h3 id="how-long-does-it-take-for-azure-firewall-to-scale-out" class="title is-3 margin-top-sm margin-bottom-xs">How long does it take for Azure Firewall to scale out?</h3>
+			<div class="content"><p>Azure Firewall gradually scales when average throughput or CPU consumption is at 60%, or the number of connections usage is at 80%. For example, it starts to scale out when it reaches 60% of its maximum throughput. Maximum throughput numbers vary based on the Azure Firewall SKU and enabled features. For more information, see <a href="firewall-performance" data-linktype="relative-path">Azure Firewall performance</a>.</p>
+<p>Scale out takes five to seven minutes. When performance testing, make sure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created Azure Firewall nodes.</p>
+</div>
+			
+			<h3 id="how-does-azure-firewall-handle-idle-timeouts" class="title is-3 margin-top-sm margin-bottom-xs">How does Azure Firewall handle idle timeouts?</h3>
+			<div class="content"><p>When a connection has an Idle Timeout (four minutes of no activity), Azure Firewall gracefully terminates the connection by sending a TCP RST packet.</p>
+</div>
+		<h2 id="customer-controlled-maintenance" class="title is-2 margin-top-sm margin-bottom-xs">Customer-controlled maintenance</h2>
+			
+			<h3 id="what-type-of-maintenance-does-customer-controlled-maintenance-support-" class="title is-3 margin-top-sm margin-bottom-xs">What type of maintenance does customer-controlled maintenance support?
+</h3>
+			<div class="content"><p>Azure services undergo regular maintenance updates to enhance functionality, reliability, performance, and security. With a configured maintenance period, guest OS maintenance and service maintenance are performed during that window. However, customer-controlled maintenance doesn't include host updates or critical security updates.</p>
+</div>
+			
+			<h3 id="can-i-get-advanced-notification-of-the-maintenance-event-" class="title is-3 margin-top-sm margin-bottom-xs">Can I get advanced notification of the maintenance event?
+</h3>
+			<div class="content"><p>Advanced notifications for Azure Firewall maintenance aren't available.</p>
+</div>
+			
+			<h3 id="can-i-configure-a-maintenance-window-shorter-than-five-hours-" class="title is-3 margin-top-sm margin-bottom-xs">Can I configure a maintenance window shorter than five hours?
+</h3>
+			<div class="content"><p>No, a minimum five-hour maintenance window is required.</p>
+</div>
+			
+			<h3 id="can-i-configure-a-maintenance-window-other-than-a-daily-schedule-" class="title is-3 margin-top-sm margin-bottom-xs">Can I configure a maintenance window other than a daily schedule?
+</h3>
+			<div class="content"><p>No, maintenance windows is currently be configured to recur daily.</p>
+</div>
+			
+			<h3 id="are-there-cases-where-i-can-t-control-certain-updates-" class="title is-3 margin-top-sm margin-bottom-xs">Are there cases where I can't control certain updates?
+</h3>
+			<div class="content"><p>Customer-controlled maintenance supports guest OS and service updates, which account for most maintenance items of concern to customers. However, some updates, such as host updates, are outside the scope of customer-controlled maintenance. In rare cases, we might override your control of the maintenance window to address high-severity security issues.</p>
+</div>
+			
+			<h3 id="do-maintenance-configuration-resources-need-to-be-in-the-same-region-as-the-azure-firewall-" class="title is-3 margin-top-sm margin-bottom-xs">Do maintenance configuration resources need to be in the same region as the Azure Firewall?
+</h3>
+			<div class="content"><p>Yes.</p>
+</div>
+			
+			<h3 id="can-we-create-more-than-one-maintenance-configuration-for-a-single-azure-firewall-" class="title is-3 margin-top-sm margin-bottom-xs">Can we create more than one maintenance configuration for a single Azure Firewall?
+</h3>
+			<div class="content"><p>No. Currently, only one maintenance configuration can be associated with an Azure Firewall.</p>
+</div>
+			
+			<h3 id="which-azure-firewall-skus-can-i-configure-to-use-customer-controlled-maintenance-" class="title is-3 margin-top-sm margin-bottom-xs">Which Azure Firewall SKUs can I configure to use customer-controlled maintenance?
+</h3>
+			<div class="content"><p>All Azure Firewall SKUs - Basic, Standard, and Premium support customer-controlled maintenance.</p>
+</div>
+			
+			<h3 id="how-long-does-it-take-for-a-maintenance-configuration-policy-to-become-effective-after-it-s-assigned-to-the-azure-firewall-" class="title is-3 margin-top-sm margin-bottom-xs">How long does it take for a maintenance configuration policy to become effective after it's assigned to the Azure Firewall?
+</h3>
+			<div class="content"><p>It might take up to 24 hours for the Azure Firewall to follow the maintenance schedule after the maintenance policy is associated.</p>
+</div>
+			
+			<h3 id="i-scheduled-a-maintenance-window-for-a-future-date-for-one-of-my-azure-firewall-resources--are-maintenance-activities-paused-on-this-resource-until-then-" class="title is-3 margin-top-sm margin-bottom-xs">I scheduled a maintenance window for a future date for one of my Azure Firewall resources. Are maintenance activities paused on this resource until then?
+</h3>
+			<div class="content"><p>Maintenance activities on your Azure Firewall aren't paused during the period preceding the scheduled maintenance window. For days that aren't included in your maintenance schedule, regular maintenance operations continue as usual on the resource.</p>
+</div>
+			
+			<h3 id="how-do-i-find-out-more-about-customer-controlled-maintenance-on-the-azure-firewall-" class="title is-3 margin-top-sm margin-bottom-xs">How do I find out more about customer-controlled maintenance on the Azure Firewall?
+</h3>
+			<div class="content"><p>For more information, see <a href="customer-controlled-maintenance" data-linktype="relative-path">Configure customer-controlled maintenance</a>.</p>
+</div>
+	<div class="content"></div>
+	</section>
+</article>
+<script type="application/ld+json">
+	{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.\u003c/p\u003e\n"}},{"@type":"Question","name":"What capabilities does Azure Firewall support?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eFor a detailed list of Azure Firewall features, see \u003ca href=\"features\"\u003eAzure Firewall features\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the typical deployment model for Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall can be deployed on any virtual network. However, it's typically deployed on a central virtual network in a hub-and-spoke model, with other virtual networks peered to it. The default route from the peered virtual networks is set to point to this central firewall virtual network. While global virtual network peering is supported, it isn't recommended due to potential performance and latency issues across regions. For optimal performance, deploy one firewall per region.\u003c/p\u003e\n\u003cp\u003eThis model allows centralized control over multiple spoke VNets across different subscriptions and offers cost savings by avoiding the need to deploy a firewall in each virtual network. Cost savings should be evaluated against the associated peering costs based on traffic patterns.\u003c/p\u003e\n"}},{"@type":"Question","name":"How can I deploy Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall can be deployed using the Azure portal, PowerShell, REST API, or templates. For step-by-step instructions, see \u003ca href=\"tutorial-firewall-deploy-portal\"\u003eTutorial: Deploy and configure Azure Firewall using the Azure portal\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"What are some key Azure Firewall concepts?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall uses rules and rule collections. A rule collection is a set of rules with the same order and priority. Rule collections are executed in priority order. DNAT rule collections have higher priority than network rule collections, which in turn have higher priority than application rule collections. All rules are terminating.\u003c/p\u003e\n\u003cp\u003eThere are three types of rule collections:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eApplication rules\u003c/strong\u003e: Configure fully qualified domain names (FQDNs) that can be accessed from a virtual network.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eNetwork rules\u003c/strong\u003e: Configure rules with source addresses, protocols, destination ports, and destination addresses.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eNAT rules\u003c/strong\u003e: Configure DNAT rules to allow incoming Internet or intranet (preview) connections.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eFor more information, see \u003ca href=\"rule-processing\"\u003eConfigure Azure Firewall rules\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Which logging and analytics services does Azure Firewall support?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall integrates with Azure Monitor for viewing and analyzing logs. Logs can be sent to Log Analytics, Azure Storage, or Event Hubs and analyzed using tools like Log Analytics, Excel, or Power BI. For more information, see \u003ca href=\"firewall-diagnostics\"\u003eTutorial: Monitor Azure Firewall logs\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"How does Azure Firewall differ from NVAs in the marketplace?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall is a managed, cloud-based network security service that protects virtual network resources. It's a fully stateful firewall-as-a-service with built-in high availability and unrestricted cloud scalability. It's preintegrated with third-party security-as-a-service (SECaaS) providers to enhance security for virtual network and branch Internet connections. For more information, see \u003ca href=\"../networking/security/\"\u003eAzure network security\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the difference between Application Gateway WAF and Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eApplication Gateway WAF provides centralized inbound protection for web applications against common exploits and vulnerabilities. Azure Firewall provides inbound protection for non-HTTP/S protocols (for example, RDP, SSH, FTP), outbound network-level protection for all ports and protocols, and application-level protection for outbound HTTP/S.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the difference between Network Security Groups (NSGs) and Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall complements NSGs to provide better \u0026quot;defense-in-depth\u0026quot; network security. NSGs offer distributed network layer traffic filtering to limit traffic within virtual networks in each subscription. Azure Firewall provides centralized, fully stateful network and application-level protection across subscriptions and virtual networks.\u003c/p\u003e\n"}},{"@type":"Question","name":"Are Network Security Groups (NSGs) supported on the AzureFirewallSubnet?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall is a managed service with multiple protection layers, including platform protection with NIC-level NSGs (not viewable). Subnet-level NSGs aren't required on the AzureFirewallSubnet and are disabled to prevent service interruptions.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the added value of Azure Firewall with private endpoints?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003ePrivate endpoints are a component of Private Link, a technology that allows to interact with Azure PaaS services using private IP addresses instead of public ones. Azure Firewall can be used to prevent access to public IP addresses, hence avoiding data exfiltration to Azure services not leveraging Private Link, as well as to implement zero-trust policies by defining who in your organization needs to access those Azure PaaS services, since Private Link per default opens up network access for your whole corporate network.\u003c/p\u003e\n\u003cp\u003eThe right design to inspect traffic to private endpoints with Azure Firewall will depend on your network architecture, you can find more details in the article \u003ca href=\"../private-link/inspect-traffic-with-azure-firewall\"\u003eAzure Firewall scenarios to inspect traffic destined to a private endpoint\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the added value of Azure Firewall with virtual network service endpoints?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eVirtual Network service endpoints are an alternative to Private Link to control network access to Azure PaaS services. Even if the client still uses public IP addresses to access the PaaS service, the source subnet is made visible so that the destination PaaS service can implement filter rules and restrict access on a per-subnet basis. You can find a detailed comparison between both mechanisms in \u003ca href=\"../virtual-network/vnet-integration-for-azure-services\"\u003eCompare Private Endpoints and Service Endpoints\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eAzure Firewall application rules can be used to make sure that no data exfiltration to rogue services takes place, and to implement access policies with an increased granularity beyond the subnet level. Usually, virtual network service endpoints need to be enabled in the subnet of the client that will connect to an Azure service. However, when inspecting traffic to service endpoints with Azure Firewall, you need to enable the corresponding service endpoint in the Azure Firewall subnet instead and disable them on the subnet of the actual client (usually a spoke virtual network). This way you can use Application Rules in Azure Firewall to control to which Azure services your Azure workloads will have access to.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the pricing for Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eFor pricing details, see \u003ca href=\"https://azure.microsoft.com/pricing/details/azure-firewall/\"\u003eAzure Firewall Pricing\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"What are the known service limits for Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eFor service limits, see \u003ca href=\"../azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits\"\u003eAzure subscription and service limits, quotas, and constraints\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Where does Azure Firewall store customer data?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall doesn't move or store customer data outside the region where it's deployed.\u003c/p\u003e\n"}},{"@type":"Question","name":"Is Azure Firewall in secured virtual hubs (vWAN) supported in Qatar?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, Azure Firewall in secured virtual hubs (vWAN) isn't currently supported in Qatar.\u003c/p\u003e\n"}},{"@type":"Question","name":"Does Azure Firewall support inbound traffic filtering?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes, Azure Firewall supports both inbound and outbound traffic filtering. Inbound filtering is typically used for non-HTTP protocols such as RDP, SSH, and FTP. For inbound HTTP and HTTPS traffic, consider using a web application firewall like \u003ca href=\"../web-application-firewall/overview\"\u003eAzure Web Application Firewall (WAF)\u003c/a\u003e or the TLS offload and deep packet inspection features of \u003ca href=\"premium-features\"\u003eAzure Firewall Premium\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Does Azure Firewall Basic support forced tunneling?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes, Azure Firewall Basic supports forced tunneling.\u003c/p\u003e\n"}},{"@type":"Question","name":"Why does a TCP ping or similar tool appear to connect to a target FQDN even when no rule allows the traffic?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eA TCP ping doesn't actually connect to the target FQDN. Azure Firewall blocks connections to any target IP address or FQDN unless explicitly allowed by a rule.\u003c/p\u003e\n\u003cp\u003eIn the case of a TCP ping, if no rule allows the traffic, the Firewall itself responds to the client's TCP ping request. This response doesn't reach the target IP address or FQDN and isn't logged. If a network rule explicitly allows access to the target IP address or FQDN, the ping request reaches the target server, and its response is relayed back to the client. This event is logged in the Network rules log.\u003c/p\u003e\n"}},{"@type":"Question","name":"Does Azure Firewall support BGP peering?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, Azure Firewall doesn't natively support BGP peering. However, the \u003ca href=\"snat-private-range#auto-learn-snat-routes\"\u003eAuto-learn SNAT routes feature\u003c/a\u003e indirectly uses BGP through Azure Route Server.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can Azure Firewall pass ESP packets (IPSec VPN)?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall does not natively support ESP (Encapsulating Security Payload), but you can allow ESP traffic by configuring a network rule as follows:\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eAzure Firewall configuration (Network Rule):\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eProtocol: Any\u003c/li\u003e\n\u003cli\u003eSource port: * (Any)\u003c/li\u003e\n\u003cli\u003eDestination port: * (Any)\u003c/li\u003e\n\u003cli\u003eSource/Destination: Specify IP addresses as needed\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eThis configuration allows ESP packets (IP protocol number 50) and other non-TCP/UDP traffic to match the rule. However, note that Azure Firewall does not inspect ESP payloads.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eReference : If using NSG (Network Security Group) instead of Azure Firewall:\u003c/strong\u003e\nNSG does not provide a direct option to specify ESP (IP protocol number 50), but ESP packets can be allowed by using the following settings:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eProtocol: Any\u003c/li\u003e\n\u003cli\u003ePort: * (Any)\u003c/li\u003e\n\u003cli\u003eSource/Destination: Specify IP addresses as needed\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003e\u003cstrong\u003eRecommendations:\u003c/strong\u003e\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eFor IPsec VPN configurations, using Azure VPN Gateway is recommended.\u003c/li\u003e\n\u003cli\u003eConsider using an NVA (Network Virtual Appliance) pattern depending on your requirements.\u003c/li\u003e\n\u003c/ul\u003e\n"}},{"@type":"Question","name":"How can I stop and start Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYou can use Azure PowerShell to deallocate and allocate the Azure Firewall. The process varies depending on the configuration.\u003c/p\u003e\n\u003cp\u003e\u003cstrong\u003eFor a firewall without a Management NIC:\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"lang-azurepowershell\"\u003e# Stop the firewall\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$azfw.Deallocate()\nSet-AzFirewall -AzureFirewall $azfw\n\n# Start the firewall\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$vnet = Get-AzVirtualNetwork -ResourceGroupName \u0026quot;RG Name\u0026quot; -Name \u0026quot;VNet Name\u0026quot;\n$publicip1 = Get-AzPublicIpAddress -Name \u0026quot;Public IP1 Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$publicip2 = Get-AzPublicIpAddress -Name \u0026quot;Public IP2 Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$azfw.Allocate($vnet, @($publicip1, $publicip2))\nSet-AzFirewall -AzureFirewall $azfw\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eFor a firewall with a Management NIC:\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"lang-azurepowershell\"\u003e# Stop the firewall\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$azfw.Deallocate()\nSet-AzFirewall -AzureFirewall $azfw\n\n# Start the firewall\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$vnet = Get-AzVirtualNetwork -ResourceGroupName \u0026quot;RG Name\u0026quot; -Name \u0026quot;VNet Name\u0026quot;\n$pip = Get-AzPublicIpAddress -ResourceGroupName \u0026quot;RG Name\u0026quot; -Name \u0026quot;azfwpublicip\u0026quot;\n$mgmtPip = Get-AzPublicIpAddress -ResourceGroupName \u0026quot;RG Name\u0026quot; -Name \u0026quot;mgmtpip\u0026quot;\n$azfw.Allocate($vnet, $pip, $mgmtPip)\nSet-AzFirewall -AzureFirewall $azfw\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eFor a firewall with a Management NIC and no public IP associated with the Dataplane NIC:\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"lang-azurepowershell\"\u003e# Stop the firewall\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$azfw.Deallocate()\nSet-AzFirewall -AzureFirewall $azfw\n\n# Start the firewall\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$vnet = Get-AzVirtualNetwork -ResourceGroupName \u0026quot;RG Name\u0026quot; -Name \u0026quot;VNet Name\u0026quot;\n$mgmtPip = Get-AzPublicIpAddress -ResourceGroupName \u0026quot;RG Name\u0026quot; -Name \u0026quot;mgmtpip\u0026quot;\n$azfw.Allocate($vnet, $null, $mgmtPip)\nSet-AzFirewall -AzureFirewall $azfw\n\u003c/code\u003e\u003c/pre\u003e\n\u003cp\u003e\u003cstrong\u003eFor a firewall in a secured virtual hub:\u003c/strong\u003e\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"lang-azurepowershell\"\u003e# Stop the firewall\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;RG Name\u0026quot;\n$azfw.Deallocate()\nSet-AzFirewall -AzureFirewall $azfw\n\n# Start the firewall\n$virtualhub = Get-AzVirtualHub -ResourceGroupName \u0026quot;vHUB RG Name\u0026quot; -Name \u0026quot;vHUB Name\u0026quot;\n$azfw = Get-AzFirewall -Name \u0026quot;FW Name\u0026quot; -ResourceGroupName \u0026quot;Firewall RG Name\u0026quot;\n$azfw.Allocate($virtualhub.Id)\nSet-AzFirewall -AzureFirewall $azfw\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"NOTE\"\u003e\n\u003cp\u003eNote\u003c/p\u003e\n\u003cp\u003eWhen stopping and starting the firewall, billing stops and starts accordingly. However, the private IP address might change, which can affect connectivity if route tables are configured.\u003c/p\u003e\n\u003c/div\u003e\n"}},{"@type":"Question","name":"Do I need to specify availability zones when deploying Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo. For new deployments, don't specify firewall availability zones. Azure manages backend allocation across multiple availability zones in \u003ca href=\"deploy-availability-zone-powershell#zr-compatible-regions\"\u003eZR compatible regions\u003c/a\u003e. Omit \u003ccode\u003e-Zone\u003c/code\u003e from \u003ccode\u003eNew-AzFirewall\u003c/code\u003e, \u003ccode\u003e--zones\u003c/code\u003e from \u003ccode\u003eaz network firewall create\u003c/code\u003e, and the firewall's \u003ccode\u003ezones\u003c/code\u003e property from deployment templates. Public IP zone configuration is separate.\u003c/p\u003e\n\u003cp\u003eIn regions without availability zones, the firewall remains a regional resource.\u003c/p\u003e\n"}},{"@type":"Question","name":"Do existing firewalls need to be redeployed to become zone redundant?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo. Azure automatically migrates existing non-zone-redundant firewalls in regions that support multiple availability zones. Migration is complete in the \u003ca href=\"deploy-availability-zone-powershell#zr-compatible-regions\"\u003elisted regions\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eYou don't need to deallocate, redeploy, or change zone settings to receive the migration.\u003c/p\u003e\n"}},{"@type":"Question","name":"Why don't the firewall's zone properties show its backend zone redundancy?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003ePlatform-managed migration doesn't necessarily update the configured \u003ccode\u003ezones\u003c/code\u003e property. It can remain empty or continue to show the originally configured single zone even when the backend is zone redundant. Don't use the portal, ARM, CLI, PowerShell, or Azure Resource Graph zone property alone as proof of backend redundancy. For more information, see \u003ca href=\"deploy-availability-zone-powershell#understanding-zone-properties-after-migration\"\u003eUnderstanding zone properties after migration\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Are there any Azure firewall resource group restrictions?","acceptedAnswer":{"@type":"Answer","text":"\u003cul\u003e\n\u003cli\u003eThe Azure Firewall and virtual network must be in the same resource group.\u003c/li\u003e\n\u003cli\u003eThe public IP address can be in a different resource group.\u003c/li\u003e\n\u003cli\u003eAll resources (Azure firewall, virtual network, public IP) must be in the same subscription.\u003c/li\u003e\n\u003c/ul\u003e\n"}},{"@type":"Question","name":"What does provisioning state **Failed** mean?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eA \u003cstrong\u003eFailed\u003c/strong\u003e provisioning state indicates that a configuration update failed on one or more backend instances. The Azure Firewall remains operational, but the configuration might be inconsistent. Retry the update until the provisioning state changes to \u003cstrong\u003eSucceeded\u003c/strong\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"How does Azure Firewall handle planned maintenance and unplanned failures?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall uses an active-active configuration with multiple backend nodes. During planned maintenance, connection draining ensures graceful updates. For unplanned failures, a new node replaces the failed one, and connectivity is typically restored within 10 seconds.\u003c/p\u003e\n"}},{"@type":"Question","name":"Is there a character limit for a firewall name?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes, firewall names are limited to 50 characters.\u003c/p\u003e\n"}},{"@type":"Question","name":"Why does Azure Firewall need a /26 subnet size?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eA /26 subnet ensures sufficient IP addresses for scaling as the Azure Firewall provisions extra virtual machine instances.\u003c/p\u003e\n"}},{"@type":"Question","name":"Does the firewall subnet size need to change as the service scales?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, a /26 subnet is sufficient for all scaling scenarios.\u003c/p\u003e\n"}},{"@type":"Question","name":"How can I increase my firewall throughput?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall scales automatically based on CPU usage, throughput, and connection count. Throughput capacity ranges from 2.5–3 Gbps initially to 30 Gbps (Standard SKU) or 100 Gbps (Premium SKU).\u003c/p\u003e\n"}},{"@type":"Question","name":"How many firewalls can reference a single IP Group?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eA single IP Group has a soft limit of 50 referencing firewalls. Exceeding this limit might affect performance and cause IP Group updates to fail. For more information, see \u003ca href=\"../azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits\"\u003eAzure Firewall limits\u003c/a\u003e and \u003ca href=\"ip-groups\"\u003eIP Groups in Azure Firewall\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Are there limits for the number of IP addresses supported by IP Groups?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes. For details, see \u003ca href=\"../azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits\"\u003eAzure subscription and service limits, quotas, and constraints\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I move an IP Group to another resource group?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, moving an IP Group to another resource group isn't currently supported.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the TCP Idle Timeout for Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eA standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't user configurable, but you can contact Azure Support to increase the Idle Timeout for inbound and outbound connections up to 15 minutes. Idle Timeout for east-west traffic can't be changed.\u003c/p\u003e\n\u003cp\u003eIf a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the \u003ca href=\"/dotnet/api/system.net.servicepoint.settcpkeepalive\"\u003e.NET examples\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I deploy Azure Firewall without a public IP address?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes, but you must configure the firewall in Forced Tunneling Mode. This configuration creates a management interface with a public IP address that is used by Azure Firewall for its operations. This public IP address is for management traffic. It's used exclusively by the Azure platform and can't be used for any other purpose. The tenant data path network can be configured without a public IP address, and Internet traffic can be forced tunneled to another Firewall or completely blocked.\u003c/p\u003e\n"}},{"@type":"Question","name":"Is there a way to automatically back up Azure Firewall and policies?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes. For more information, see \u003ca href=\"https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928\"\u003eBackup Azure Firewall and Azure Firewall Policy with Logic Apps\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"How do I set up Azure Firewall with my service endpoints?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eFor secure access to PaaS services, we recommend service endpoints. You can choose to enable service endpoints in the Azure Firewall subnet and disable them on the connected spoke virtual networks. This way you benefit from both features: service endpoint security and central logging for all traffic.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can Azure Firewall in a hub virtual network forward and filter network traffic between multiple spoke virtual networks?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes, you can use Azure Firewall in a hub virtual network to route and filter traffic between multiple spoke virtual network. Subnets in each of the spoke virtual networks must have a UDR pointing to the Azure Firewall as a default gateway for this scenario to work properly.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can Azure Firewall forward and filter network traffic between subnets in the same virtual network or peered virtual networks?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes. However, configuring the UDRs to redirect traffic between subnets in the same virtual network requires more attention. While using the virtual network address range as a target prefix for the UDR is sufficient, this also routes all traffic from one machine to another machine in the same subnet through the Azure Firewall instance. To avoid this, include a route for the subnet in the UDR with a next hop type of \u003cstrong\u003evirtual network\u003c/strong\u003e. Managing these routes might be cumbersome and prone to error. The recommended method for internal network segmentation is to use Network Security Groups, which don't require UDRs.\u003c/p\u003e\n"}},{"@type":"Question","name":"Does Azure Firewall outbound SNAT between private networks?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall doesn't SNAT when the destination IP address is a private IP range per \u003ca href=\"https://tools.ietf.org/html/rfc1918\"\u003eIANA RFC 1918\u003c/a\u003e or \u003ca href=\"https://datatracker.ietf.org/doc/html/rfc6598\"\u003eIANA RFC 6598\u003c/a\u003e for private networks. If your organization uses a public IP address range for private networks, Azure Firewall SNATs the traffic to one of the firewall private IP addresses in AzureFirewallSubnet. You can configure Azure Firewall to \u003cstrong\u003enot\u003c/strong\u003e SNAT your public IP address range. For more information, see \u003ca href=\"snat-private-range\"\u003eAzure Firewall SNAT private IP address ranges\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eIn addition, traffic processed by application rules are always SNAT-ed. If you want to see the original source IP address in your logs for FQDN traffic, you can use network rules with the destination FQDN.\u003c/p\u003e\n"}},{"@type":"Question","name":"Is forced tunneling/chaining to a Network Virtual Appliance supported?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eForced tunneling is supported when creating a new firewall, and it is also supported for existing firewalls by adding a management NIC for forced tunneling. For more details about new deployments, see \u003ca href=\"forced-tunneling\"\u003eAzure Firewall forced tunneling\u003c/a\u003e. For existing firewalls, see \u003ca href=\"management-nic\"\u003eAzure Firewall Management NIC\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eAzure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the \u003cstrong\u003eNextHopType\u003c/strong\u003e value set as \u003cstrong\u003eInternet\u003c/strong\u003e to maintain direct Internet connectivity.\u003c/p\u003e\n\u003cp\u003eIf your configuration requires forced tunneling to an on-premises network and you can determine the target IP prefixes for your Internet destinations, you can configure these ranges with the on-premises network as the next hop via a user defined route on the AzureFirewallSubnet. Or, you can use BGP to define these routes.\u003c/p\u003e\n"}},{"@type":"Question","name":"How do wildcards work in target URLs and target FQDNs in application rules?","acceptedAnswer":{"@type":"Answer","text":"\u003cul\u003e\n\u003cli\u003e\u003cstrong\u003eURL\u003c/strong\u003e - Asterisks work when placed on the right-most or left-most side. If it is on the left, it can't be part of the FQDN.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eFQDN\u003c/strong\u003e - Asterisks work when placed on the left-most side.\u003c/li\u003e\n\u003cli\u003e\u003cstrong\u003eGENERAL\u003c/strong\u003e - Asterisks on the left-most side mean literally \u003cem\u003eanything\u003c/em\u003e to the left matches, meaning multiple subdomains and/or potentially unwanted domain name variations are matched - see the following examples.\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eExamples:\u003c/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eType\u003c/th\u003e\n\u003cth\u003eRule\u003c/th\u003e\n\u003cth\u003eSupported?\u003c/th\u003e\n\u003cth\u003ePositive examples\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com\u003c/code\u003e\u003cbr\u003e\u003ccode\u003ewww.contoso.com/\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e*.contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eany.contoso.com/\u003c/code\u003e\u003cbr\u003e\u003ccode\u003esub1.any.contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e*contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eexample.anycontoso.com\u003c/code\u003e\u003cbr\u003e\u003ccode\u003esub1.example.contoso.com\u003c/code\u003e\u003cbr\u003e\u003ccode\u003econtoso.com\u003c/code\u003e\u003cbr\u003eWarning: this usage of wildcard also allows potentially undesired/risky variations such as \u003ccode\u003eth3re4lcontoso.com\u003c/code\u003e - use with caution.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com/test\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com/test\u003c/code\u003e\u003cbr\u003e\u003ccode\u003ewww.contoso.com/test/\u003c/code\u003e\u003cbr\u003e\u003ccode\u003ewww.contoso.com/test?with_query=1\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com/test/*\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com/test/anything\u003c/code\u003e\u003cbr\u003eNote: \u003ccode\u003ewww.contoso.com/test\u003c/code\u003e \u003cstrong\u003edoesn't\u003c/strong\u003e match (last slash)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.*/test/*\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com/test?example=1\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.*\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.*contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com:8080\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetURL\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e*.contoso.*\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetFQDN\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetFQDN\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e*.contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eany.contoso.com\u003c/code\u003e\u003cbr\u003e\u003cbr\u003eNote: If you want to specifically allow \u003ccode\u003econtoso.com\u003c/code\u003e, you must include contoso.com in the rule. Otherwise, the connection is dropped by default because the request doesn't match any rule.\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetFQDN\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e*contoso.com\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eYes\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003eexample.anycontoso.com\u003c/code\u003e\u003cbr\u003e\u003ccode\u003econtoso.com\u003c/code\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetFQDN\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003ewww.contoso.*\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eTargetFQDN\u003c/td\u003e\n\u003ctd\u003e\u003ccode\u003e*.contoso.*\u003c/code\u003e\u003c/td\u003e\n\u003ctd\u003eNo\u003c/td\u003e\n\u003ctd\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\n"}},{"@type":"Question","name":"Does Azure Firewall allow access to Active Directory by default?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo. Azure Firewall blocks Active Directory access by default. To allow access, configure the AzureActiveDirectory service tag. For more information, see \u003ca href=\"service-tags\"\u003eAzure Firewall service tags\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I exclude an FQDN or an IP address from Azure Firewall Threat Intelligence based filtering?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes, you can use Azure PowerShell to do it:\u003c/p\u003e\n\u003cpre\u003e\u003ccode class=\"lang-azurepowershell\"\u003e# Add a Threat Intelligence allowlist to an Existing Azure Firewall.\n\n# Create the allowlist with both FQDN and IPAddresses\n$fw = Get-AzFirewall -Name \u0026quot;Name_of_Firewall\u0026quot; -ResourceGroupName \u0026quot;Name_of_ResourceGroup\u0026quot;\n$fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `\n   -FQDN @(\u0026quot;fqdn1\u0026quot;, \u0026quot;fqdn2\u0026quot;, …) -IpAddress @(\u0026quot;ip1\u0026quot;, \u0026quot;ip2\u0026quot;, …)\n\n# Or Update FQDNs and IpAddresses separately\n$fw = Get-AzFirewall -Name $firewallname -ResourceGroupName $RG\n$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses)\n$fw.ThreatIntelWhitelist.fqdns = @($fw.ThreatIntelWhitelist.fqdns + $fqdns)\n\n\nSet-AzFirewall -AzureFirewall $fw\n\u003c/code\u003e\u003c/pre\u003e\n"}},{"@type":"Question","name":"Why can a TCP ping and similar tools successfully connect to a target FQDN even when no rule on Azure Firewall allows that traffic?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eA TCP ping isn't actually connecting  to the target FQDN. Azure Firewall doesn't allow a connection to any target IP address/FQDN unless there's an explicit rule that allows it.\u003c/p\u003e\n\u003cp\u003eTCP ping is a unique use case where if there's no allowed rule, the Firewall itself responds to the client's TCP ping request even though the TCP ping doesn't reach the target IP address/FQDN. In this case, the event isn't logged. If there's a network rule that allows access to the target IP address/FQDN, then the ping request reaches the target server and its response is relayed back to the client. This event is logged in the Network rules log.\u003c/p\u003e\n"}},{"@type":"Question","name":"Why do TCP ping and similar tools successfully connect to a target FQDN/IP address on ports 80, 443, and 1433 but aren't observed in the Azure Firewall logs?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall acts as a passive listener for ports 80, 443, and 1433. Azure Firewall doesn't log TCP SYN packets on these ports unless there's application traffic. The HTTP GET request and TLS client hello are logged in Azure Firewall.\u003c/p\u003e\n"}},{"@type":"Question","name":"Are there limits for the number of IP addresses supported by IP Groups?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes. For more information, see \u003ca href=\"../azure-resource-manager/management/azure-subscription-service-limits#azure-firewall-limits\"\u003eAzure subscription and service limits, quotas, and constraints\u003c/a\u003e\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I move an IP Group to another resource group?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, moving an IP Group to another resource group isn't currently supported.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the TCP Idle Timeout for Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eA standard behavior of a network firewall is to ensure TCP connections are kept alive and to promptly close them if there's no activity. Azure Firewall TCP Idle Timeout is four minutes. This setting isn't user configurable, but you can contact Azure Support to increase the Idle Timeout for inbound and outbound connections up to 15 minutes. Idle Timeout for east-west traffic can't be changed.\u003c/p\u003e\n\u003cp\u003eIf a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained. A common practice is to use a TCP keep-alive. This practice keeps the connection active for a longer period. For more information, see the \u003ca href=\"/dotnet/api/system.net.servicepoint.settcpkeepalive\"\u003e.NET examples\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I deploy Azure Firewall without a public IP address?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes, but you must configure the firewall in Forced Tunneling Mode. This configuration creates a management interface with a public IP address that is used by Azure Firewall for its operations. This public IP address is for management traffic. It's used exclusively by the Azure platform and can't be used for any other purpose. The tenant data path network can be configured without a public IP address, and Internet traffic can be forced tunneled to another Firewall or completely blocked.\u003c/p\u003e\n"}},{"@type":"Question","name":"Where does Azure Firewall store customer data?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall doesn't move or store customer data out of the region it's deployed in.\u003c/p\u003e\n"}},{"@type":"Question","name":"Is there a way to automatically back up Azure Firewall and policies?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes. For more information, see \u003ca href=\"https://techcommunity.microsoft.com/t5/azure-network-security-blog/backup-azure-firewall-and-azure-firewall-policy-with-logic-apps/ba-p/3613928\"\u003eBackup Azure Firewall and Azure Firewall Policy with Logic Apps\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"Is Azure Firewall in secured virtual hubs (vWAN) supported in Qatar?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, currently Azure Firewall in secured virtual hubs (vWAN) isn't supported in Qatar.\u003c/p\u003e\n"}},{"@type":"Question","name":"How many parallel connections can Azure Firewall support?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall uses Azure Virtual Machines underneath that have a \u003ca href=\"/azure/virtual-network/virtual-machine-network-throughput#flow-limits-and-active-connections-recommendations\"\u003ehard limit number of connections\u003c/a\u003e. The total number of active connections per virtual machine is 250k.\u003c/p\u003e\n\u003cp\u003eThe total limit per firewall is the virtual machine connection limit (250k) x the number of virtual machines in the firewall backend pool. Azure Firewall starts with two virtual machines and scales out based on CPU usage and throughput.\u003c/p\u003e\n"}},{"@type":"Question","name":"What is the SNAT TCP/UDP port reuse behavior in Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall currently uses TCP/UDP source ports for outbound SNAT traffic, with no idle wait time. When a TCP/UDP connection is closed, the TCP port used is immediately seen as available for upcoming connections.\u003c/p\u003e\n\u003cp\u003eAs a workaround for certain architectures, you can deploy and scale with \u003ca href=\"../nat-gateway/tutorial-hub-spoke-nat-firewall\"\u003eNAT Gateway with Azure Firewall\u003c/a\u003e to provide a wider pool of SNAT ports for variability and availability.\u003c/p\u003e\n"}},{"@type":"Question","name":"How do I resolve SNAT port exhaustion?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYou have two options. Add multiple public IP addresses to your firewall for a lower-cost solution, or use an Azure NAT Gateway for a more scalable and robust solution. For a comparison of both options, see \u003ca href=\"firewall-best-practices#recommendations\"\u003eBest practices for Azure Firewall performance\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"What are NAT behaviors in Azure Firewall?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eSpecific NAT behaviors depend on the firewall's configuration and the type of NAT that's configured. For example, the firewall has DNAT rules for inbound traffic, and network rules and application rules for outbound traffic through the firewall.\u003c/p\u003e\n\u003cp\u003eFor more information, see \u003ca href=\"https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-nat-behaviors/ba-p/3825834\"\u003eAzure Firewall NAT Behaviors\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"How does connection draining work?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eFor any planned maintenance, connection draining logic gracefully updates backend nodes. Azure Firewall waits 90 seconds for existing connections to close. In the first 45 seconds, the backend node doesn't accept new connections, and in the remaining time it responds with \u003ccode\u003eRST\u003c/code\u003e to all incoming packets. If needed, clients can automatically re-establish connectivity to another backend node.\u003c/p\u003e\n"}},{"@type":"Question","name":"How does Azure Firewall handle VM instance shutdowns during Virtual Machine Scale Set scale in (scale down) or fleet software upgrades?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAn Azure Firewall VM instance shutdown might occur during Virtual Machine Scale Set scale in (scale down) or during fleet software upgrade. In these cases, new incoming connections are load balanced to the remaining firewall instances and aren't forwarded to the down firewall instance. After 45 seconds, the firewall starts rejecting existing connections by sending TCP RST packets. After another 45 seconds the firewall VM shuts down. For more information, see \u003ca href=\"../load-balancer/load-balancer-tcp-reset\"\u003eLoad Balancer TCP Reset and Idle Timeout\u003c/a\u003e.\u003c/p\u003e\n"}},{"@type":"Question","name":"How long does it take for Azure Firewall to scale out?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure Firewall gradually scales when average throughput or CPU consumption is at 60%, or the number of connections usage is at 80%. For example, it starts to scale out when it reaches 60% of its maximum throughput. Maximum throughput numbers vary based on the Azure Firewall SKU and enabled features. For more information, see \u003ca href=\"firewall-performance\"\u003eAzure Firewall performance\u003c/a\u003e.\u003c/p\u003e\n\u003cp\u003eScale out takes five to seven minutes. When performance testing, make sure you test for at least 10 to 15 minutes, and start new connections to take advantage of newly created Azure Firewall nodes.\u003c/p\u003e\n"}},{"@type":"Question","name":"How does Azure Firewall handle idle timeouts?","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eWhen a connection has an Idle Timeout (four minutes of no activity), Azure Firewall gracefully terminates the connection by sending a TCP RST packet.\u003c/p\u003e\n"}},{"@type":"Question","name":"What type of maintenance does customer-controlled maintenance support?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAzure services undergo regular maintenance updates to enhance functionality, reliability, performance, and security. With a configured maintenance period, guest OS maintenance and service maintenance are performed during that window. However, customer-controlled maintenance doesn't include host updates or critical security updates.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I get advanced notification of the maintenance event?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAdvanced notifications for Azure Firewall maintenance aren't available.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I configure a maintenance window shorter than five hours?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, a minimum five-hour maintenance window is required.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can I configure a maintenance window other than a daily schedule?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo, maintenance windows is currently be configured to recur daily.\u003c/p\u003e\n"}},{"@type":"Question","name":"Are there cases where I can't control certain updates?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eCustomer-controlled maintenance supports guest OS and service updates, which account for most maintenance items of concern to customers. However, some updates, such as host updates, are outside the scope of customer-controlled maintenance. In rare cases, we might override your control of the maintenance window to address high-severity security issues.\u003c/p\u003e\n"}},{"@type":"Question","name":"Do maintenance configuration resources need to be in the same region as the Azure Firewall?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eYes.\u003c/p\u003e\n"}},{"@type":"Question","name":"Can we create more than one maintenance configuration for a single Azure Firewall?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eNo. Currently, only one maintenance configuration can be associated with an Azure Firewall.\u003c/p\u003e\n"}},{"@type":"Question","name":"Which Azure Firewall SKUs can I configure to use customer-controlled maintenance?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eAll Azure Firewall SKUs - Basic, Standard, and Premium support customer-controlled maintenance.\u003c/p\u003e\n"}},{"@type":"Question","name":"How long does it take for a maintenance configuration policy to become effective after it's assigned to the Azure Firewall?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eIt might take up to 24 hours for the Azure Firewall to follow the maintenance schedule after the maintenance policy is associated.\u003c/p\u003e\n"}},{"@type":"Question","name":"I scheduled a maintenance window for a future date for one of my Azure Firewall resources. Are maintenance activities paused on this resource until then?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eMaintenance activities on your Azure Firewall aren't paused during the period preceding the scheduled maintenance window. For days that aren't included in your maintenance schedule, regular maintenance operations continue as usual on the resource.\u003c/p\u003e\n"}},{"@type":"Question","name":"How do I find out more about customer-controlled maintenance on the Azure Firewall?\n","acceptedAnswer":{"@type":"Answer","text":"\u003cp\u003eFor more information, see \u003ca href=\"customer-controlled-maintenance\"\u003eConfigure customer-controlled maintenance\u003c/a\u003e.\u003c/p\u003e\n"}}]}
+</script>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2026-10-14T11:44:00.000Z"
+		data-article-date-source="git"
+		class="is-invisible"
+	>
+		2026-10-14
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

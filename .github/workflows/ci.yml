@@ -1,0 +1,200 @@
+name: Quality
+on:
+  pull_request:
+  push:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  check:
+    outputs:
+      sha: ${{ steps.revision.outputs.sha }}
+      attempt: ${{ steps.revision.outputs.attempt }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 35 # Complete course, Portal and persistence verification
+    services:
+      laboratory-postgres:
+        image: postgres:17-bookworm@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+        env:
+          POSTGRES_DB: azurelab_lab_ci
+          POSTGRES_PASSWORD: laboratory_ci_only_fixture
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -h 127.0.0.1 -U postgres -d azurelab_lab_ci"
+          --health-interval 5s --health-timeout 3s --health-retries 10
+    env:
+      # Disposable, isolated CI-only credentials; never use for a hosted database.
+      LAB_ADMIN_DATABASE_URL: postgresql://postgres:laboratory_ci_only_fixture@127.0.0.1:5432/azurelab_lab_ci
+      LAB_DATABASE_URL: postgresql://laboratory_v3_app:laboratory_runtime_ci_only@127.0.0.1:5432/azurelab_lab_ci
+      LAB_TEST_ADMIN_DATABASE_URL: postgresql://postgres:laboratory_ci_only_fixture@127.0.0.1:5432/azurelab_lab_test_ci
+      LAB_TEST_DATABASE_URL: postgresql://laboratory_v3_app:laboratory_runtime_ci_only@127.0.0.1:5432/azurelab_lab_test_ci
+      LAB_ORIGIN: http://127.0.0.1:3000
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0 # Compare the actual PR base and reviewed implementation payload.
+      - name: Bind checked revision
+        id: revision
+        env:
+          EXPECTED_REVISION: ${{ github.sha }}
+        shell: bash
+        run: |
+          candidate_sha="$(git rev-parse HEAD)"
+          [[ "$candidate_sha" =~ ^[0-9a-f]{40}$ ]] || exit 1
+          test "$candidate_sha" = "$EXPECTED_REVISION" || exit 1
+          [[ "$GITHUB_RUN_ATTEMPT" =~ ^[1-9][0-9]*$ ]] || exit 1
+          printf 'sha=%s\n' "$candidate_sha" >> "$GITHUB_OUTPUT"
+          printf 'attempt=%s\n' "$GITHUB_RUN_ATTEMPT" >> "$GITHUB_OUTPUT"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lab:db:setup # Explicit initialization of only the isolated local service.
+      - run: npm run check # Includes required documentation/local-link validation
+      - run: npm audit --audit-level=high
+  browser:
+    needs: check
+    if: ${{ always() }}
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    services:
+      laboratory-postgres:
+        image: postgres:17-bookworm@sha256:665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994
+        env:
+          POSTGRES_DB: azurelab_lab_ci
+          POSTGRES_PASSWORD: laboratory_ci_only_fixture
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -h 127.0.0.1 -U postgres -d azurelab_lab_ci"
+          --health-interval 5s --health-timeout 3s --health-retries 10
+    env:
+      # Disposable, isolated CI-only credentials; never use for a hosted database.
+      LAB_ADMIN_DATABASE_URL: postgresql://postgres:laboratory_ci_only_fixture@127.0.0.1:5432/azurelab_lab_ci
+      LAB_DATABASE_URL: postgresql://laboratory_v3_app:laboratory_runtime_ci_only@127.0.0.1:5432/azurelab_lab_ci
+      LAB_TEST_ADMIN_DATABASE_URL: postgresql://postgres:laboratory_ci_only_fixture@127.0.0.1:5432/azurelab_lab_test_ci
+      LAB_TEST_DATABASE_URL: postgresql://laboratory_v3_app:laboratory_runtime_ci_only@127.0.0.1:5432/azurelab_lab_test_ci
+      LAB_ORIGIN: http://127.0.0.1:3000
+      NEXT_TELEMETRY_DISABLED: '1'
+    steps:
+      - name: Require successful checked revision
+        env:
+          CHECK_RESULT: ${{ needs.check.result }}
+          CHECKED_REVISION: ${{ needs.check.outputs.sha }}
+          EXPECTED_REVISION: ${{ github.sha }}
+          CHECKED_ATTEMPT: ${{ needs.check.outputs.attempt }}
+        shell: bash
+        run: |
+          test "$CHECK_RESULT" = success &&
+          [[ "$EXPECTED_REVISION" =~ ^[0-9a-f]{40}$ ]] &&
+          test -n "$CHECKED_REVISION" &&
+          test "$CHECKED_REVISION" = "$EXPECTED_REVISION" &&
+          [[ "$GITHUB_RUN_ATTEMPT" =~ ^[1-9][0-9]*$ ]] &&
+          test "$CHECKED_ATTEMPT" = "$GITHUB_RUN_ATTEMPT"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0 # Compare the actual PR base and reviewed implementation payload.
+      - name: Verify same checkout
+        env:
+          CHECKED_REVISION: ${{ needs.check.outputs.sha }}
+          EXPECTED_REVISION: ${{ github.sha }}
+          CHECKED_ATTEMPT: ${{ needs.check.outputs.attempt }}
+        shell: bash
+        run: |
+          candidate_sha="$(git rev-parse HEAD)"
+          [[ "$candidate_sha" =~ ^[0-9a-f]{40}$ ]] &&
+          test "$candidate_sha" = "$EXPECTED_REVISION" &&
+          test "$candidate_sha" = "$CHECKED_REVISION"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lab:db:setup # Explicit initialization of only the isolated local service.
+      - run: npx playwright install --with-deps chromium
+      - name: Execute one isolated guarded shard
+        env:
+          LAB_CI_SHARD: ${{ matrix.shard }}
+          CHECKED_REVISION: ${{ needs.check.outputs.sha }}
+          CHECKED_ATTEMPT: ${{ needs.check.outputs.attempt }}
+          LAB_CI_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: node scripts/e2e-shard-runner.mjs
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ always() }}
+        with:
+          name: browser-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.shard }}
+          path: .artifacts/ci-shards/browser-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.shard }}/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
+  verify:
+    needs: [check, browser]
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Require complete successful prerequisites
+        env:
+          CHECK_RESULT: ${{ needs.check.result }}
+          BROWSER_RESULT: ${{ needs.browser.result }}
+          CHECKED_REVISION: ${{ needs.check.outputs.sha }}
+          CHECKED_ATTEMPT: ${{ needs.check.outputs.attempt }}
+          EXPECTED_REVISION: ${{ github.sha }}
+        shell: bash
+        run: |
+          test "$CHECK_RESULT" = success &&
+          test "$BROWSER_RESULT" = success &&
+          [[ "$EXPECTED_REVISION" =~ ^[0-9a-f]{40}$ ]] &&
+          test -n "$CHECKED_REVISION" &&
+          test "$CHECKED_REVISION" = "$EXPECTED_REVISION" &&
+          [[ "$GITHUB_RUN_ATTEMPT" =~ ^[1-9][0-9]*$ ]] &&
+          test "$CHECKED_ATTEMPT" = "$GITHUB_RUN_ATTEMPT"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Verify same checkout
+        env:
+          CHECKED_REVISION: ${{ needs.check.outputs.sha }}
+          EXPECTED_REVISION: ${{ github.sha }}
+        shell: bash
+        run: |
+          candidate_sha="$(git rev-parse HEAD)"
+          [[ "$candidate_sha" =~ ^[0-9a-f]{40}$ ]] &&
+          test "$candidate_sha" = "$EXPECTED_REVISION" &&
+          test "$candidate_sha" = "$CHECKED_REVISION"
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: browser-${{ github.run_id }}-${{ github.run_attempt }}-*
+          path: .artifacts/ci-shards/
+      - name: Verify exact complete union and bind aggregate receipt
+        env:
+          CHECK_RESULT: ${{ needs.check.result }}
+          BROWSER_RESULT: ${{ needs.browser.result }}
+          CHECKED_REVISION: ${{ needs.check.outputs.sha }}
+          CHECKED_ATTEMPT: ${{ needs.check.outputs.attempt }}
+          LAB_CI_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: node scripts/e2e-shard-aggregate.mjs
+      - run: npm run quality:release -- --base "${{ github.event.pull_request.base.sha || github.event.before }}"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: ${{ always() }}
+        with:
+          name: browser-aggregate-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .artifacts/ci-shards/aggregate.json
+          if-no-files-found: error
+          include-hidden-files: true
+          retention-days: 7

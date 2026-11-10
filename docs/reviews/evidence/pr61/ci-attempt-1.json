@@ -1,0 +1,186 @@
+{
+  "attempt": 1,
+  "run": "https://github.com/EspzY/Azure-learner/actions/runs/42209846288",
+  "jobId": 127865479935,
+  "head": "61e85f46aad3567d63197f356cbe40f40a6b278a",
+  "testedMerge": "5326387bb6bc92643ca103bb6f64bec09438509c",
+  "base": "d567d19504ac33a27252d30e24385679287d3987",
+  "reviewedFingerprint": "bbcbe0e25e4fa79482c89e65e379811bac79da3b56435c1e7b4bd287284fb988",
+  "result": "FAILED -395passed+1flaky+1failed,27.5min,all397; no positive candidate receipt and strict release not executed",
+  "artifact": "https://github.com/EspzY/Azure-learner/actions/runs/42209846288/artifacts/13499554114",
+  "decodedLocalLog": {
+    "path": "/workspace/azurelab-pr61/ci-attempt1.log",
+    "sha256": "051b00604ece0bd9df2e4b2f7020314d4fc41b5b28332aa38ac2c053c5cf92ae",
+    "hashScope": "Local decoded GitHub tool job-log copy, not artifact ZIP"
+  },
+  "failureExcerpt": "1) [desktop-chromium] \u203a tests/e2e/premium-landing.spec.ts:149:1 \u203a landing unavailable backend and corrupt forged or cross-tab course status never create fake completion or fallback World \n2026-11-06T11:54:49.2567174Z \n2026-11-06T11:54:49.2567516Z     Error: expect(locator).toBeVisible() failed\n2026-11-06T11:54:49.2568479Z \n2026-11-06T11:54:49.2568716Z     Locator: locator('.course-shell')\n2026-11-06T11:54:49.2569177Z     Expected: visible\n2026-11-06T11:54:49.2569861Z     Error: strict mode violation: locator('.course-shell') resolved to 2 elements:\n2026-11-06T11:54:49.2572091Z         1) <div data-course-module=\"computing\" data-course-topic=\"intro-request\" class=\"portal course-shell course-hybrid course-v2\">\u2026</div> aka getByText('Hopp til innholdAzureLabAZ-').first()\n2026-11-06T11:54:49.2575663Z         2) <div data-course-module=\"computing\" data-course-topic=\"intro-request\" class=\"portal course-shell course-hybrid course-v2\">\u2026</div> aka getByText('Hopp til innholdAzureLabAZ-').nth(1)\n2026-11-06T11:54:49.2576945Z \n2026-11-06T11:54:49.2577113Z     Call log:\n2026-11-06T11:54:49.2577708Z       - Expect \"toBeVisible\" locator('.course-shell') with timeout 5000ms\n2026-11-06T11:54:49.2578465Z       - waiting for locator('.course-shell')\n2026-11-06T11:54:49.2578833Z \n2026-11-06T11:54:49.2578843Z \n2026-11-06T11:54:49.2579149Z       158 |   const other = await context.newPage();\n2026-11-06T11:54:49.2579839Z       159 |   await other.goto('/learn/computing?topic=intro-request');\n2026-11-06T11:54:49.2580735Z     > 160 |   await expect(other.locator('.course-shell')).toBeVisible();\n2026-11-06T11:54:49.2581500Z           |                                                ^\n2026-11-06T11:54:49.2582689Z       161 |   await expect(page.locator('.landing-status')).toContainText(t.status.unknown);\n2026-11-06T11:54:49.2583526Z       162 |   await other.close();\n2026-11-06T11:54:49.2583991Z       163 |   await page.reload();\n2026-11-06T11:54:49.2584874Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/premium-landing.spec.ts:160:48\n2026-11-06T11:54:49.2585566Z \n2026-11-06T11:54:49.2586549Z     Error Context: test-results/premium-landing-landing-un-473e5-ompletion-or-fallback-World-desktop-chromium/error-context.md\n2026-11-06T11:54:49.2587554Z \n2026-11-06T11:54:49.2588353Z     attachment #2: trace (application/zip) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n2026-11-06T11:54:49.2589734Z     test-results/premium-landing-landing-un-473e5-ompletion-or-fallback-World-desktop-chromium/trace.zip\n2026-11-06T11:54:49.2590704Z     Usage:\n2026-11-06T11:54:49.2590919Z \n2026-11-06T11:54:49.2591929Z         npx playwright show-trace test-results/premium-landing-landing-un-473e5-ompletion-or-fallback-World-desktop-chromium/trace.zip\n2026-11-06T11:54:49.2593247Z \n2026-11-06T11:54:49.2594022Z     \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n2026-11-06T11:54:49.2594580Z \n2026-11-06T11:54:49.2595689Z     Retry #1 \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n2026-11-06T11:54:49.2596277Z \n2026-11-06T11:54:49.2596564Z     Error: expect(locator).toBeVisible() failed\n2026-11-06T11:54:49.2596935Z \n2026-11-06T11:54:49.2597165Z     Locator: locator('.course-shell')\n2026-11-06T11:54:49.2597632Z     Expected: visible\n2026-11-06T11:54:49.2598399Z     Error: strict mode violation: locator('.course-shell') resolved to 2 elements:\n2026-11-06T11:54:49.2600499Z         1) <div data-course-module=\"computing\" data-course-topic=\"intro-request\" class=\"portal course-shell course-hybrid course-v2\">\u2026</div> aka getByText('Hopp til innholdAzureLabAZ-').first()\n2026-11-06T11:54:49.2603564Z         2) <div data-course-module=\"computing\" data-course-topic=\"intro-request\" class=\"portal course-shell course-hybrid course-v2\">\u2026</div> aka getByText('Hopp til innholdAzureLabAZ-').nth(1)\n2026-11-06T11:54:49.2604807Z \n2026-11-06T11:54:49.2604964Z     Call log:\n2026-11-06T11:54:49.2605570Z       - Expect \"toBeVisible\" locator('.course-shell') with timeout 5000ms\n2026-11-06T11:54:49.2606342Z       - waiting for locator('.course-shell')\n2026-11-06T11:54:49.2607959Z         - locator resolved to <div data-course-module=\"computing\" data-course-topic=\"intro-request\" class=\"portal course-shell course-hybrid course-v2\">\u2026</div>\n2026-11-06T11:54:49.2609207Z         - unexpected value \"hidden\"\n2026-11-06T11:54:49.2609866Z \n2026-11-06T11:54:49.2609875Z \n2026-11-06T11:54:49.2610156Z       158 |   const other = await context.newPage();\n2026-11-06T11:54:49.2610902Z       159 |   await other.goto('/learn/computing?topic=intro-request');\n2026-11-06T11:54:49.2611747Z     > 160 |   await expect(other.locator('.course-shell')).toBeVisible();\n2026-11-06T11:54:49.2612701Z           |                                                ^\n2026-11-06T11:54:49.2613566Z       161 |   await expect(page.locator('.landing-status')).toContainText(t.status.unknown);\n2026-11-06T11:54:49.2614372Z       162 |   await other.close();\n2026-11-06T11:54:49.2614856Z       163 |   await page.reload();\n2026-11-06T11:54:49.2615751Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/premium-landing.spec.ts:160:48\n2026-11-06T11:54:49.2616415Z \n2026-11-06T11:54:49.2617422Z     Error Context: test-results/premium-landing-landing-un-473e5-ompletion-or-fallback-World-desktop-chromium-retry1/error-context.md\n2026-11-06T11:54:49.2618512Z \n2026-11-06T11:54:49.2619313Z     attachment #2: trace (application/zip) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n2026-11-06T11:54:49.2620770Z     test-results/premium-landing-landing-un-473e5-ompletion-or-fallback-World-desktop-chromium-retry1/trace.zip\n2026-11-06T11:54:49.2621817Z     Usage:\n2026-11-06T11:54:49.2622004Z \n2026-11-06T11:54:49.2623291Z         npx playwright show-trace test-results/premium-landing-landing-un-473e5-ompletion-or-fallback-World-desktop-chromium-retry1/trace.zip\n2026-11-06T11:54:49.2624399Z \n2026-11-06T11:54:49.2625069Z     \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n2026-11-06T11:54:49.2625917Z \n2026-11-06T11:54:49.2626655Z     Retry #2 \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n2026-11-06T11:54:49.2627206Z \n2026-11-06T11:54:49.2627465Z     Error: expect(locator).toBeVisible() failed\n2026-11-06T11:54:49.2627846Z \n2026-11-06T11:54:49.2628091Z     Locator: locator('.course-shell')\n2026-11-06T11:54:49.2628557Z     Expected: visible\n2026-11-06T11:54:49.2629226Z     Error: strict mode violation: locator('.course-shell') resolved to 2 elements:\n2026-11-06T11:54:49.2631257Z         1) <div data-course-module=\"computing\" data-course-topic=\"intro-request\" class=\"portal course-shell course-hybrid course-v2\">\u2026</div> aka getByText('Hopp til innholdAzureLabAZ-').first()\n2026-11-06T11:54:49.2634019Z         2) <div data-course-module=\"computing\" data-course-topic=\"intro-request\" class=\"portal course-shell course-hybrid course-v2\">\u2026</div> aka getByText('Hopp til innholdAzureLabAZ-').nth(1)\n2026-11-06T11:54:49.2635154Z \n2026-11-06T11:54:49.2655849Z     Call log:\n2026-11-06T11:54:49.2656580Z       - Expect \"toBeVisible\" locator('.course-shell') with timeout 5000ms\n2026-11-06T11:54:49.2657364Z       - waiting for locator('.course-shell')\n2026-11-06T11:54:49.2657724Z \n2026-11-06T11:54:49.2657735Z \n2026-11-06T11:54:49.2658009Z       158 |   const other = await context.newPage();\n2026-11-06T11:54:49.2659102Z       159 |   await other.goto('/learn/computing?topic=intro-request');\n2026-11-06T11:54:49.2659928Z     > 160 |   await expect(other.locator('.course-shell')).toBeVisible();\n2026-11-06T11:54:49.2660672Z           |                                                ^\n2026-11-06T11:54:49.2661548Z       161 |   await expect(page.locator('.landing-status')).toContainText(t.status.unknown);\n2026-11-06T11:54:49.2662715Z       162 |   await other.close();\n2026-11-06T11:54:49.2663215Z       163 |   await page.reload();\n2026-11-06T11:54:49.2664115Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/premium-landing.spec.ts:160:48\n2026-11-06T11:54:49.2664796Z \n2026-11-06T11:54:49.2665832Z     Error Context: test-results/premium-landing-landing-un-473e5-ompletion-or-fallback-World-desktop-chromium-retry2/error-context.md\n2026-11-06T11:54:49.2666856Z \n2026-11-06T11:54:49.2667678Z     attachment #2: trace (application/zip) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n2026-11-06T11:54:49.2669227Z     test-results/premium-landing-landing-un-473e5-ompletion-or-fallback-World-desktop-chromium-retry2/trace.zip\n2026-11-06T11:54:49.2670276Z     Usage:\n2026-11-06T11:54:49.2670459Z \n2026-11-06T11:54:49.2671522Z         npx playwright show-trace test-results/premium-landing-landing-un-473e5-ompletion-or-fallback-World-desktop-chromium-retry2/trace.zip\n2026-11-06T11:54:49.2672877Z \n2026-11-06T11:54:49.2673570Z     \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n2026-11-06T11:54:49.2674105Z \n2026-11-06T11:54:49.2675419Z   2) [desktop-chromium] \u203a tests/e2e/legacy-retirement.spec.ts:55:1 \u203a current root, Journal and Portal preserve raw historical work without loading the retired game \n2026-11-06T11:54:49.2676515Z \n2026-11-06T11:54:49.2676819Z     Error: expect(page).toHaveURL(expected) failed\n2026-11-06T11:54:49.2677189Z \n2026-11-06T11:54:49.2677395Z     Expected pattern: /\\/learn$/\n2026-11-06T11:54:49.2677952Z     Received string:  \"http://127.0.0.1:3000/\"\n2026-11-06T11:54:49.2678501Z     Timeout: 5000ms\n2026-11-06T11:54:49.2678732Z \n2026-11-06T11:54:49.2678879Z     Call log:\n2026-11-06T11:54:49.2679325Z       - Expect \"toHaveURL\" with timeout 5000ms\n2026-11-06T11:54:49.2680436Z         14 \u00d7 locator resolved to <html lang=\"nb\" class=\"dhKPgG_variable _1nkxxq_variable\">\u2026</html>\n2026-11-06T11:54:49.2681339Z            - unexpected value \"http://127.0.0.1:3000/\"\n2026-11-06T11:54:49.2681738Z \n2026-11-06T11:54:49.2681749Z \n2026-11-06T11:54:49.2681917Z       71 |   }, records);\n2026-11-06T11:54:49.2682616Z       72 |   await page.reload();\n2026-11-06T11:54:49.2683174Z     > 73 |   await expect(page).toHaveURL(/\\/learn$/);\n2026-11-06T11:54:49.2684004Z          |                      ^\n2026-11-06T11:54:49.2684948Z       74 |   await expect(page.getByRole('heading', { name: nb.course.title, exact: true })).toBeVisible();\n2026-11-06T11:54:49.2685806Z       75 |   await expect(\n2026-11-06T11:54:49.2686693Z       76 |     page.locator('a[href*=\"legacy\"],a[href*=\"expedition\"],a[href=\"/explore\"],a[href=\"/missions\"]'),\n2026-11-06T11:54:49.2687981Z         at /home/runner/work/Azure-learner/Azure-learner/tests/e2e/legacy-retirement.spec.ts:73:22\n2026-11-06T11:54:49.2688650Z \n2026-11-06T11:54:49.2689615Z     Error Context: test-results/legacy-retirement-current--134e2-ut-loading-the-retired-game-desktop-chromium/error-context.md\n2026-11-06T11:54:49.2690628Z \n2026-11-06T11:54:49.2691421Z     attachment #2: trace (application/zip) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n2026-11-06T11:54:49.2693064Z     test-results/legacy-retirement-current--134e2-ut-loading-the-retired-game-desktop-chromium/trace.zip\n2026-11-06T11:54:49.2694061Z     Usage:\n2026-11-06T11:54:49.2694258Z \n2026-11-06T11:54:49.2695242Z         npx playwright show-trace test-results/legacy-retirement-current--134e2-ut-loading-the-retired-game-desktop-chromium/trace.zip\n2026-11-06T11:54:49.2696294Z \n2026-11-06T11:54:49.2696995Z     \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n2026-11-06T11:54:49.2697806Z \n2026-11-06T11:54:49.2697955Z   1 failed\n2026-11-06T11:54:49.2699646Z     [desktop-chromium] \u203a tests/e2e/premium-landing.spec.ts:149:1 \u203a landing unavailable backend and corrupt forged or cross-tab course status never create fake completion or fallback World \n2026-11-06T11:54:49.2701009Z   1 flaky\n2026-11-06T11:54:49.2702502Z     [desktop-chromium] \u203a tests/e2e/legacy-retirement.spec.ts:55:1 \u203a current root, Journal and Portal preserve raw historical work without loading the retired game \n2026-11-06T11:54:49.2703797Z   395 passed (27.5m)\n2026-11-06T11:54:51.0791622Z ##[error]Process completed with exit code 1.\n2026-11-06T11:54:51.0872925Z ##[group]Run actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9\n2026-11-06T11:54:51.0873395Z with:\n2026-11-06T11:54:51.0873604Z   name: playwright-report\n2026-11-06T11:54:51.0873862Z   path:",
+  "actualDiagnostic": {
+    "time": "2026-11-06T11:59:06.888Z",
+    "observations": [
+      {
+        "case": "actual other-tab Course shell states",
+        "states": [
+          {
+            "count": 1,
+            "nodes": [
+              {
+                "module": "computing",
+                "topic": "intro-request",
+                "visible": false,
+                "rectHeight": 0,
+                "hiddenAncestor": ""
+              }
+            ]
+          },
+          {
+            "count": 1,
+            "nodes": [
+              {
+                "module": "computing",
+                "topic": "intro-request",
+                "visible": false,
+                "rectHeight": 0,
+                "hiddenAncestor": ""
+              }
+            ]
+          },
+          {
+            "count": 1,
+            "nodes": [
+              {
+                "module": "computing",
+                "topic": "intro-request",
+                "visible": false,
+                "rectHeight": 0,
+                "hiddenAncestor": ""
+              }
+            ]
+          },
+          {
+            "count": 1,
+            "nodes": [
+              {
+                "module": "computing",
+                "topic": "intro-request",
+                "visible": false,
+                "rectHeight": 0,
+                "hiddenAncestor": ""
+              }
+            ]
+          },
+          {
+            "count": 1,
+            "nodes": [
+              {
+                "module": "computing",
+                "topic": "intro-request",
+                "visible": false,
+                "rectHeight": 0,
+                "hiddenAncestor": ""
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "nodes": [
+              {
+                "module": "computing",
+                "topic": "intro-request",
+                "visible": true,
+                "rectHeight": 720,
+                "hiddenAncestor": null
+              },
+              {
+                "module": "computing",
+                "topic": "intro-request",
+                "visible": false,
+                "rectHeight": 0,
+                "hiddenAncestor": ""
+              }
+            ]
+          },
+          {
+            "count": 2,
+            "nodes": [
+              {
+                "module": "computing",
+                "topic": "intro-request",
+                "visible": true,
+                "rectHeight": 3057.171875,
+                "hiddenAncestor": null
+              },
+              {
+                "module": "computing",
+                "topic": "intro-request",
+                "visible": false,
+                "rectHeight": 0,
+                "hiddenAncestor": ""
+              }
+            ]
+          },
+          {
+            "count": 1,
+            "nodes": [
+              {
+                "module": "computing",
+                "topic": "intro-request",
+                "visible": true,
+                "rectHeight": 3057.171875,
+                "hiddenAncestor": null
+              }
+            ]
+          },
+          {
+            "count": 1,
+            "nodes": [
+              {
+                "module": "computing",
+                "topic": "intro-request",
+                "visible": true,
+                "rectHeight": 3058.546875,
+                "hiddenAncestor": null
+              }
+            ]
+          },
+          {
+            "count": 1,
+            "nodes": [
+              {
+                "module": "computing",
+                "topic": "intro-request",
+                "visible": true,
+                "rectHeight": 3058.546875,
+                "hiddenAncestor": null
+              }
+            ]
+          },
+          {
+            "count": 1,
+            "nodes": [
+              {
+                "module": "computing",
+                "topic": "intro-request",
+                "visible": true,
+                "rectHeight": 3058.546875,
+                "hiddenAncestor": null
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "case": "real delayed RSC course navigation before release",
+        "clickResolved": true,
+        "url": "http://127.0.0.1:3000/",
+        "positiveDataInjected": false
+      },
+      {
+        "case": "same actual navigation after commit",
+        "url": "http://127.0.0.1:3000/learn"
+      }
+    ]
+  },
+  "localBefore": "Exact CI historical-review fixture: old root/history case failed same Root URL expectation, cross-tab case passed this single local run. Runtime observer independently recorded two course shells with exactly one visible and one hidden; this transient caused strict ambiguity in every CI retry.",
+  "correction": "Require exactly one visible correct module/topic plus visible chapter in new cross-tab test. Add explicit /learn URL commit assertion after each of3root-to-AZ900 clicks before fixture writes or subsequent navigation. All old assertions remain, as independently exact-body checked. No runtime UI or threshold/retry/timeout/workers/skip change.",
+  "localAfter": "13/13 actual desktop browser journeys1.6m against same CI review-fixture production build,0retries;14new unit/preservation tests passed. Final fullcheck/new stamp/independent followup/exact-head397CI still required."
+}

@@ -1,0 +1,64 @@
+import assert from 'node:assert/strict';
+import { createJiti } from '/workspace/Azure-learner/node_modules/jiti/lib/jiti.mjs';
+import { writeFileSync } from 'node:fs';
+const jiti = createJiti(import.meta.url, { moduleCache: false, fsCache: false });
+const { topologyWorld } = await jiti.import('/workspace/Azure-learner/tests/fixtures/topology-world.ts');
+const { analysePolicy } = await jiti.import('/workspace/Azure-learner/src/laboratory/v37/analysis.ts');
+const { replay, canonical } = await jiti.import('/workspace/Azure-learner/src/laboratory/v37/domain.ts');
+const cases = [
+  { name: 'source-default-local-disabled', disabled: 'local', fallback: 'source', expected: 'undetermined' },
+  { name: 'source-default-reverse-disabled', disabled: 'reverse', fallback: 'source', expected: 'undetermined' },
+  { name: 'source-default-both-disabled', disabled: 'both', fallback: 'source', expected: 'undetermined' },
+  { name: 'destination-default-local-disabled', disabled: 'local', fallback: 'destination', expected: 'undetermined' },
+  { name: 'destination-default-reverse-disabled', disabled: 'reverse', fallback: 'destination', expected: 'undetermined' },
+  { name: 'both-defaults-both-disabled', disabled: 'both', fallback: 'both', expected: 'undetermined' },
+  { name: 'literal-allows-unused-both-disabled', disabled: 'both', fallback: 'none', expected: 'allowed-by-modeled-network-policy' },
+  { name: 'literal-deny-unused-both-disabled', disabled: 'both', fallback: 'none', deny: true, expected: 'denied-by-modeled-network-policy' },
+  { name: 'source-default-unrelated-disabled-range', disabled: 'unrelated', fallback: 'source', expected: 'allowed-by-modeled-network-policy' },
+];
+const output = [];
+for (const c of cases) {
+  const f = topologyWorld();
+  function run(command) {
+    const r = f.s.run(command);
+    assert.equal(r.outcome, 'accepted', JSON.stringify({ command, r }));
+    return r;
+  }
+  const p = f.s.create({ type: 'CreateVnetPeering', vnetId: f.app, remoteVnetId: f.data, name: 'review-app-data' });
+  const q = f.s.create({ type: 'CreateVnetPeering', vnetId: f.data, remoteVnetId: f.app, name: 'review-data-app' });
+  if (c.disabled === 'local' || c.disabled === 'both') run({ type: 'SetPeeringVirtualNetworkAccess', peeringId: p, vnetId: f.app, value: 'false' });
+  if (c.disabled === 'reverse' || c.disabled === 'both') run({ type: 'SetPeeringVirtualNetworkAccess', peeringId: q, vnetId: f.data, value: 'false' });
+  if (c.disabled === 'unrelated') {
+    const other = f.s.create({ type: 'CreateVirtualNetwork', groupId: f.group, name: 'review-unrelated', region: 'norwayeast', addressSpace: '10.88.0.0/16' });
+    const r = f.s.create({ type: 'CreateVnetPeering', vnetId: f.app, remoteVnetId: other, name: 'review-app-other' });
+    f.s.create({ type: 'CreateVnetPeering', vnetId: other, remoteVnetId: f.app, name: 'review-other-app' });
+    run({ type: 'SetPeeringVirtualNetworkAccess', peeringId: r, vnetId: f.app, value: 'false' });
+  }
+  if (c.fallback === 'source' || c.fallback === 'both') run({ type: 'DeleteSecurityRule', ruleId: f.appRule, nsgId: f.appNsg });
+  if (c.fallback === 'destination' || c.fallback === 'both') run({ type: 'DeleteSecurityRule', ruleId: f.dataRule, nsgId: f.dataNsg });
+  if (c.deny) {
+    const r = f.s.world.securityRules.find(r => r.id === f.appRule);
+    run({ type: 'UpdateSecurityRule', ruleId: r.id, nsgId: r.nsgId, direction: r.direction, priority: String(r.priority), protocol: r.protocol, source: r.source, sourcePort: r.sourcePort, destination: r.destination, destinationPort: r.destinationPort, access: 'Deny' });
+  }
+  const before = canonical(f.s.world);
+  const result = analysePolicy(f.s.world, f.input);
+  assert.equal(result.ok, true);
+  const a = result.analysis;
+  assert.equal(a.status, c.expected, c.name);
+  assert.equal(canonical(f.s.world), before, `${c.name}: analysis mutated World`);
+  assert.equal(canonical(replay(f.s.entries)), before, `${c.name}: replay differs`);
+  if (c.expected === 'undetermined') {
+    assert.equal(a.virtualNetworkTagScope, 'undetermined-disabled-peering', c.name);
+    assert.equal(a.firewallPath.configurationPathAssessed, false, c.name);
+    assert.equal(a.firewallPath.disposition, 'incomplete', c.name);
+    assert.equal(a.firewallPath.decision, null, c.name);
+    assert(a.layers.every(l => l.status === 'not-evaluated' && l.matchedRuleId === null && l.uncertainRuleId === null && l.rules.length === 0), c.name);
+  }
+  const summary = { ...c, actual: a.status, accessEvaluation: a.accessEvaluation, virtualNetworkTagScope: a.virtualNetworkTagScope,
+    pathDisposition: a.firewallPath.disposition, configurationPathAssessed: a.firewallPath.configurationPathAssessed,
+    layers: a.layers.map(l => ({ id: l.id, status: l.status, matchedRuleId: l.matchedRuleId })), commandCount: f.s.entries.length, replayMatches: true, analysisReadOnly: true };
+  output.push(summary);
+  writeFileSync(`/workspace/azurelab-pr70/correction/${c.name}-entries.json`, JSON.stringify(f.s.entries, null, 2));
+}
+writeFileSync('/workspace/azurelab-pr70/correction/challenge.json', JSON.stringify(output, null, 2));
+console.log(JSON.stringify(output, null, 2));

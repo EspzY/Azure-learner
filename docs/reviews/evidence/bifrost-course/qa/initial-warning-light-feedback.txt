@@ -1,0 +1,463 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: bifrost-course.spec.ts >> Bifrost light actual Hub question selected state real wrong correct feedback and Journal preserve original evidence
+- Location: tests/e2e/bifrost-course.spec.ts:230:3
+
+# Error details
+
+```
+Error: expect(locator).toHaveCount(expected) failed
+
+Locator:  locator('#cloud-part-intro-request .v2-check')
+Expected: 1
+Received: 0
+Timeout:  5000ms
+
+Call log:
+  - Expect "toHaveCount" locator('#cloud-part-intro-request .v2-check') with timeout 5000ms
+  - waiting for locator('#cloud-part-intro-request .v2-check')
+    2 × locator resolved to 0 elements
+      - unexpected value "0"
+
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - link "Hopp til innhold" [ref=e5] [cursor=pointer]:
+        - /url: "#course-main"
+      - banner [ref=e6]:
+        - link "AzureLab AZ-900" [ref=e7] [cursor=pointer]:
+          - /url: /learn
+          - text: AzureLab
+          - generic [ref=e23]: AZ-900
+        - navigation "Læringsreisen" [ref=e24]:
+          - link "Læringsreisen" [ref=e25] [cursor=pointer]:
+            - /url: /learn
+          - link "Fri Portal-sandbox" [ref=e26] [cursor=pointer]:
+            - /url: /portal
+        - button "Knowledge Journal" [ref=e29] [cursor=pointer]
+        - link "Til forsiden" [ref=e30] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e35]:
+          - generic [ref=e36]: Utseende
+          - combobox "Utseende" [ref=e37] [cursor=pointer]:
+            - option "Følg systemet"
+            - option "Lyst" [selected]
+            - option "Mørkt"
+      - generic [ref=e38]:
+        - complementary [ref=e39]:
+          - navigation "Læringsstier og aktiviteter" [ref=e40]:
+            - generic [ref=e41]:
+              - generic [ref=e42]: AZ-900
+              - strong [ref=e43]: Azure Fundamentals
+            - link "Kursoversikt" [ref=e44] [cursor=pointer]:
+              - /url: /learn
+            - generic [ref=e50]:
+              - generic [ref=e51]:
+                - heading [level=2] [ref=e52]:
+                  - button "01 Cloud Concepts" [expanded] [ref=e53] [cursor=pointer]:
+                    - generic [ref=e54]: "01"
+                    - generic [ref=e55]: Cloud Concepts
+                - list [ref=e59]:
+                  - listitem [ref=e60]:
+                    - generic [ref=e61]:
+                      - generic [ref=e62]:
+                        - link "Cloud computing" [ref=e63] [cursor=pointer]:
+                          - /url: /learn/computing?topic=intro-request
+                        - 'button "Aktiviteter: Cloud computing" [expanded] [ref=e64] [cursor=pointer]'
+                      - list [ref=e67]:
+                        - listitem [ref=e68]:
+                          - link "Fra nettside til fysisk server" [ref=e69] [cursor=pointer]:
+                            - /url: /learn/computing?topic=intro-request
+                        - listitem [ref=e70]:
+                          - link "Virtualisering og bestilling av skykapasitet" [ref=e71] [cursor=pointer]:
+                            - /url: /learn/computing?topic=virtualization
+                        - listitem [ref=e72]:
+                          - link "Kapasitet og etterspørsel" [ref=e73] [cursor=pointer]:
+                            - /url: /learn/computing?topic=capacity-basics
+                        - listitem [ref=e74]:
+                          - link "Ansvar når infrastrukturen blir en tjeneste" [ref=e75] [cursor=pointer]:
+                            - /url: /learn/computing?topic=v2-responsibility
+                        - listitem [ref=e76]:
+                          - link "Cloud-modeller og valg av miljø" [ref=e77] [cursor=pointer]:
+                            - /url: /learn/computing?topic=v2-models
+                        - listitem [ref=e78]:
+                          - link "Forbruk, betaling og risiko" [ref=e79] [cursor=pointer]:
+                            - /url: /learn/computing?topic=v2-metering
+                        - listitem [ref=e80]:
+                          - link "Kode som venter på en hendelse" [ref=e81] [cursor=pointer]:
+                            - /url: /learn/computing?topic=serverless-concept
+                        - listitem [ref=e82]:
+                          - link "Event → Trigger → Execution → Result" [ref=e83] [cursor=pointer]:
+                            - /url: /learn/computing?topic=serverless-mechanism
+                        - listitem [ref=e84]:
+                          - link "Ansvar, hosting og begrensninger" [ref=e85] [cursor=pointer]:
+                            - /url: /learn/computing?topic=serverless-hosting
+                        - listitem [ref=e86]:
+                          - link "Undersøk en hendelseskjede" [ref=e87] [cursor=pointer]:
+                            - /url: /learn/computing?topic=serverless-explorer
+                        - listitem [ref=e88]:
+                          - link "Selvstendig anvendelse · Serverless" [ref=e89] [cursor=pointer]:
+                            - /url: /learn/computing?topic=serverless-assessment
+                        - listitem [ref=e90]:
+                          - link "Ditt serverless-grunnlag" [ref=e91] [cursor=pointer]:
+                            - /url: /learn/computing?topic=serverless-summary
+                        - listitem [ref=e92]:
+                          - link "Fra forståelse til Portal-laboratoriet" [ref=e93] [cursor=pointer]:
+                            - /url: /learn/computing?topic=resource-bridge
+                        - listitem [ref=e94]:
+                          - link "Prøv kunnskapen i nye situasjoner" [ref=e95] [cursor=pointer]:
+                            - /url: /learn/computing?topic=transfer
+                  - listitem [ref=e96]:
+                    - generic [ref=e98]:
+                      - link "Benefits of cloud services" [ref=e99] [cursor=pointer]:
+                        - /url: /learn/benefits?topic=availability
+                      - 'button "Aktiviteter: Benefits of cloud services" [ref=e100] [cursor=pointer]'
+                  - listitem [ref=e103]:
+                    - generic [ref=e105]:
+                      - link "Cloud service types" [ref=e106] [cursor=pointer]:
+                        - /url: /learn/services?topic=overview
+                      - 'button "Aktiviteter: Cloud service types" [ref=e107] [cursor=pointer]'
+              - heading [level=2] [ref=e111]:
+                - button "02 Azure Architecture & Services" [ref=e112] [cursor=pointer]:
+                  - generic [ref=e113]: "02"
+                  - generic [ref=e114]: Azure Architecture & Services
+              - heading [level=2] [ref=e118]:
+                - button "03 Azure Management & Governance" [ref=e119] [cursor=pointer]:
+                  - generic [ref=e120]: "03"
+                  - generic [ref=e121]: Azure Management & Governance
+            - paragraph [ref=e124]: Læringshistorikken lagres i denne nettleseren.
+        - main [ref=e125]:
+          - generic [ref=e126]:
+            - link "Kursoversikt" [ref=e127] [cursor=pointer]:
+              - /url: /learn
+            - generic [ref=e130]: Describe cloud computing
+          - generic [ref=e131]:
+            - generic [ref=e132]: Modul 01 · Tilgjengelig
+            - heading "Describe cloud computing" [level=1] [ref=e133]
+            - paragraph [ref=e134]: Start med en nettside du kjenner. Undersøk maskinen bak den, før vi bruker dette grunnlaget til cloud computing, driftsansvar og kostnadsvalg.
+          - article "Fra nettside til fysisk server" [ref=e136]:
+            - generic [ref=e137]:
+              - heading "Fra nettside til fysisk server" [active] [level=2] [ref=e138]
+              - paragraph [ref=e139]: Følg en forespørsel og undersøk maskinen som kjører programmet som svarer.
+            - article "Du åpner en produktside" [ref=e140]:
+              - heading "Du åpner en produktside" [level=3] [ref=e142]
+              - generic [ref=e143]:
+                - region "Hvorfor dette finnes · Du åpner en produktside" [ref=e144]:
+                  - paragraph [ref=e145]: Du åpner en produktside i nettbutikken. Nettleseren på PC-en din ber et annet program om innholdet. Denne beskjeden kaller vi en forespørsel, eller request. Programmet som ber, har rollen klient. Når tjenesten svarer med innhold, kan nettleseren vise siden. Svaret kan også fortelle at noe gikk galt.
+                  - paragraph [ref=e146]: Butikkens server-side applikasjon kan for eksempel beregne en pris. Nettleseren viser svaret og kan også kjøre egen klientkode. Her følger vi bare én forenklet forespørsel. Pilene er meldinger, ikke Azure-scope eller målt nettverkstrafikk. En internettforbindelse gjør ikke automatisk en datamaskin til en skytjeneste.
+                  - button "Send en forespørsel" [ref=e147] [cursor=pointer]
+                  - generic [ref=e148]:
+                    - checkbox "En enkel nettside kan leveres fra filer. Ikke alle nettsider trenger en egen database. En database brukes når programmet trenger organiserte data det kan hente eller endre." [ref=e149]
+                    - text: En enkel nettside kan leveres fra filer. Ikke alle nettsider trenger en egen database. En database brukes når programmet trenger organiserte data det kan hente eller endre.
+                - region "Skille nettleseren fra programmet som svarer." [ref=e150]:
+                  - generic [ref=e151]:
+                    - img [aria-hidden] [ref=e152]:
+                      - generic [ref=e153]: DIN PC · KLIENT
+                      - generic [ref=e162]: Nettleser
+                      - generic [ref=e167]: Forespørsel
+                      - generic [ref=e168]: Svar
+                      - generic [ref=e169]: BUTIKKENS FYSISKE SERVER
+                      - generic [ref=e170]:
+                        - generic [ref=e174]: Applikasjon
+                        - generic [ref=e176]: Operativsystem
+                        - generic [ref=e179]: CPU
+                    - paragraph [ref=e217]: Forenklet meldingsflyt · ingen målt tid
+                    - list [ref=e218]:
+                      - listitem [ref=e219]: Nettleser
+                      - listitem [ref=e220]: Applikasjon
+                      - listitem [ref=e221]: Svar tilbake til nettleseren
+              - group "Hvor utføres butikkens server-side prisberegning i dette eksempelet?" [ref=e223]:
+                - generic [ref=e225] [cursor=pointer]:
+                  - radio "All programvare flyttes til nettleseren" [ref=e226]
+                  - text: All programvare flyttes til nettleseren
+                - generic [ref=e227] [cursor=pointer]:
+                  - radio "Applikasjonen på serveren behandler den" [ref=e228]
+                  - text: Applikasjonen på serveren behandler den
+                - button "Undersøk begrunnelsen" [ref=e229] [cursor=pointer]
+            - article "Inne i serveren" [ref=e230]:
+              - heading "Inne i serveren" [level=3] [ref=e232]
+              - generic [ref=e233]:
+                - region "Hvorfor dette finnes · Inne i serveren" [ref=e234]:
+                  - paragraph [ref=e235]: "Serveren er her en fysisk datamaskin som leverer en tjeneste til andre. Applikasjonen er programvaren som utfører butikkens oppgaver: finne produktopplysninger og lage et svar. Ordet server brukes også om programvare som tilbyr en tjeneste; i denne tegningen peker det på datamaskinen."
+                  - paragraph [ref=e236]: CPU-en utfører programmets instruksjoner. RAM er arbeidsminnet for data som brukes nå. Lagring beholder for eksempel bilder mellom arbeidsøkter. Nettverket lar maskinen utveksle beskjeder. Operativsystemet fordeler maskinens ressurser og lar applikasjonen kjøre. Mer lagringsplass gir ikke automatisk mer prosessorkraft. Arbeidskopien kan ligge i minnet mens den varige filen ligger på lagring.
+                  - group "Undersøk serverens deler" [ref=e237]:
+                    - button "CPU Utfører instruksjoner" [pressed] [ref=e238] [cursor=pointer]:
+                      - text: CPU
+                      - generic [ref=e239]: Utfører instruksjoner
+                    - button "RAM Arbeidsminne" [ref=e240] [cursor=pointer]:
+                      - text: RAM
+                      - generic [ref=e241]: Arbeidsminne
+                    - button "Lagring Beholder data" [ref=e242] [cursor=pointer]:
+                      - text: Lagring
+                      - generic [ref=e243]: Beholder data
+                    - button "Nettverk Utveksler beskjeder" [ref=e244] [cursor=pointer]:
+                      - text: Nettverk
+                      - generic [ref=e245]: Utveksler beskjeder
+                    - button "Operativsystem Forvalter maskinens ressurser" [ref=e246] [cursor=pointer]:
+                      - text: Operativsystem
+                      - generic [ref=e247]: Forvalter maskinens ressurser
+                    - button "Applikasjon Utfører butikkens oppgave" [ref=e248] [cursor=pointer]:
+                      - text: Applikasjon
+                      - generic [ref=e249]: Utfører butikkens oppgave
+                  - status [ref=e250]:
+                    - strong [ref=e251]: CPU
+                    - text: Prosessoren utfører instruksjonene i programmet. Butikkens produktberegning trenger prosessortid. Mer diskplass gjør ikke i seg selv at CPU-en utfører flere instruksjoner.
+                - region "Skille fysisk maskinvare, operativsystem og applikasjon." [ref=e252]:
+                  - generic [ref=e253]:
+                    - img [aria-hidden] [ref=e254]:
+                      - generic [ref=e255]:
+                        - generic [ref=e256]: BUTIKKENS FYSISKE SERVER
+                        - generic [ref=e260]: Applikasjon
+                        - generic [ref=e262]: Operativsystem
+                        - generic [ref=e265]: CPU
+                      - generic [ref=e303]: MASKINVARE · ENDELIGE RESSURSER
+                      - generic [ref=e304]: PROGRAMVARE
+                    - paragraph [ref=e306]: Utfører instruksjoner
+              - group "Produktbilder skal beholdes mellom arbeidsøkter. Hva skiller dette fra arbeidskopien som brukes nå?" [ref=e308]:
+                - generic [ref=e310] [cursor=pointer]:
+                  - radio "Bare RAM beholder bildene varig" [ref=e311]
+                  - text: Bare RAM beholder bildene varig
+                - generic [ref=e312] [cursor=pointer]:
+                  - radio "Lagring beholder filen; RAM er arbeidsflate" [ref=e313]
+                  - text: Lagring beholder filen; RAM er arbeidsflate
+                - button "Undersøk begrunnelsen" [ref=e314] [cursor=pointer]
+            - region "Fra denne økten til den neste" [ref=e315]:
+              - heading "Dette tar du med videre" [level=3] [ref=e316]
+              - paragraph [ref=e317]: En forespørsel behandles av et program. Programmet bruker prosessor, minne og lagring på en fysisk maskin. Nå skal vi se hvordan flere virtuelle maskiner kan dele denne maskinen.
+            - paragraph [ref=e318]: Original illustrasjon og oppdiktet kapasitetsmodell. Microsoft-kildene under støtter den senere sky- og virtualiseringsforklaringen, ikke tallene eller en Azure-pris.
+            - group [ref=e319]:
+              - generic "Kilder og videre lesning (3)" [ref=e320] [cursor=pointer]:
+                - text: Kilder og videre lesning
+                - generic [ref=e321]: (3)
+          - navigation "Neste aktivitet" [ref=e322]:
+            - generic [ref=e323]:
+              - generic [ref=e324]: Describe cloud computing · Aktivitet 1 av 14
+              - strong [ref=e325]: Fra nettside til fysisk server
+            - link "Neste aktivitet → Virtualisering og bestilling av skykapasitet" [ref=e327] [cursor=pointer]:
+              - /url: /learn/computing?topic=virtualization
+              - text: Neste aktivitet →
+              - generic [ref=e328]: Virtualisering og bestilling av skykapasitet
+          - generic [ref=e329]: AzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering.
+    - complementary "Bygginformasjon · forhåndsvisning" [ref=e330]:
+      - group [ref=e331]:
+        - generic "Bygginformasjon · forhåndsvisning" [ref=e332] [cursor=pointer]
+  - alert [ref=e333]
+```
+
+# Test source
+
+```ts
+  146 |         color: getComputedStyle(el).color,
+  147 |         background: getComputedStyle(el).backgroundColor,
+  148 |         text: el.textContent,
+  149 |         children: [...el.querySelectorAll('h2, h3, p')].map((child) => ({
+  150 |           color: getComputedStyle(child).color,
+  151 |           background: getComputedStyle(child).backgroundColor,
+  152 |           text: child.textContent,
+  153 |         })),
+  154 |       }));
+  155 |       for (const child of journal.children) {
+  156 |         expect(child.color).toBe(journal.color);
+  157 |         expect(child.background).toBe(journal.background);
+  158 |       }
+  159 |       await accessible(page);
+  160 |       await page.screenshot({ path: info.outputPath(`after-${mode}-denied-journal.png`) });
+  161 |       await page.keyboard.press('Escape');
+  162 |       expect(await stored(page)).toEqual(beforeDenial);
+  163 |       expect(await technical(page)).toEqual(beforeTechnical);
+  164 |       results.push({ mode, appearances, journal, learningBytesUnchangedAfterDenial: true });
+  165 |     } finally {
+  166 |       await context.close();
+  167 |     }
+  168 |   }
+  169 |   await writeFile(
+  170 |     info.outputPath('warning-storage-metrics.json'),
+  171 |     `${JSON.stringify({ capturedAt: new Date().toISOString(), results }, null, 2)}\n`,
+  172 |   );
+  173 | });
+  174 | async function accessible(page: Page) {
+  175 |   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  176 |   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  177 | }
+  178 | 
+  179 | async function nativeReview(page: Page, mode: 'light' | 'dark', info: TestInfo, scope = 'native') {
+  180 |   const navigation = page.getByRole('navigation', { name: nb.portal.navLabel, exact: true });
+  181 |   const groups = navigation.getByRole('link', { name: nb.portal.areas.groups, exact: true });
+  182 |   await revealPortalLink(page, groups);
+  183 |   await groups.click();
+  184 |   await page
+  185 |     .locator('.portal-commandbar')
+  186 |     .getByRole('button', { name: nb.portal.create, exact: true })
+  187 |     .click();
+  188 |   const create = page.locator('.portal-create');
+  189 |   await expect(create).toBeVisible();
+  190 |   const before = await technical(page);
+  191 |   const name = page.getByLabel(nb.portal.groupName, { exact: true });
+  192 |   expect(await name.evaluate((el) => getComputedStyle(el).fontFamily)).toMatch(/Segoe UI/);
+  193 |   expect(await name.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe(
+  194 |     'rgb(255, 255, 255)',
+  195 |   );
+  196 |   expect(
+  197 |     await page
+  198 |       .locator('.portal:not(.course-shell)')
+  199 |       .evaluate((el) => getComputedStyle(el).colorScheme),
+  200 |   ).toBe('light');
+  201 |   await name.fill('rg-bifrost-visual-check');
+  202 |   await page
+  203 |     .getByRole('combobox', { name: nb.portal.subscription, exact: true })
+  204 |     .selectOption('sub-app');
+  205 |   await page
+  206 |     .getByRole('combobox', { name: nb.portal.region, exact: true })
+  207 |     .selectOption('norwayeast');
+  208 |   await page.screenshot({ path: info.outputPath(`${mode}-${scope}-create.png`) });
+  209 |   await create
+  210 |     .locator('.portal-create-tabs')
+  211 |     .getByRole('button', { name: nb.portal.review, exact: true })
+  212 |     .click();
+  213 |   await expect(create.locator('.portal-review')).toContainText(nb.portal.valid);
+  214 |   expect(
+  215 |     await create
+  216 |       .locator('.portal-create-footer')
+  217 |       .evaluate((el) => getComputedStyle(el).backgroundColor),
+  218 |   ).toBe('rgb(255, 255, 255)');
+  219 |   await accessible(page);
+  220 |   await page.screenshot({ path: info.outputPath(`${mode}-${scope}-review.png`) });
+  221 |   await create
+  222 |     .locator('.portal-create-footer')
+  223 |     .getByRole('button', { name: nb.portal.close, exact: true })
+  224 |     .click();
+  225 |   await expect(create).toHaveCount(0);
+  226 |   expect(await technical(page)).toEqual(before);
+  227 | }
+  228 | 
+  229 | for (const mode of ['light', 'dark'] as const) {
+  230 |   test(`Bifrost ${mode} actual Hub question selected state real wrong correct feedback and Journal preserve original evidence`, async ({
+  231 |     page,
+  232 |   }, info) => {
+  233 |     await page.setViewportSize({ width: 1440, height: 900 });
+  234 |     await page.goto('/learn');
+  235 |     await theme(page, mode);
+  236 |     await expect(page.locator('.learn-hub-module')).toHaveCount(17);
+  237 |     await expect(page.locator('.learn-hub-start .course-primary')).toHaveAttribute(
+  238 |       'href',
+  239 |       '/learn/computing?topic=intro-request',
+  240 |     );
+  241 |     await accessible(page);
+  242 |     await page.screenshot({ path: info.outputPath(`${mode}-hub.png`) });
+  243 |     const before = await technical(page);
+  244 |     await page.locator('.learn-hub-start .course-primary').click();
+  245 |     const check = page.locator('#cloud-part-intro-request .v2-check');
+> 246 |     await expect(check).toHaveCount(1);
+      |                         ^ Error: expect(locator).toHaveCount(expected) failed
+  247 |     await expect(page.locator('#cloud-part-intro-request .proof-server')).toBeVisible();
+  248 |     await page.getByRole('button', { name: nb.foundationsVisuals.send, exact: true }).click();
+  249 |     await expect(page.locator('#cloud-part-intro-request .proof-causal')).toHaveText(
+  250 |       nb.foundationsV2.traceSteps[0],
+  251 |     );
+  252 |     await page.screenshot({ path: info.outputPath(`${mode}-teaching-info.png`) });
+  253 |     const item = nb.foundationsV2.checkItems['intro-request'];
+  254 |     await expect(check.locator('[data-bf-result]')).toHaveCount(0);
+  255 |     const browser = item.choices.find(([id]) => id === 'browser')![1];
+  256 |     const server = item.choices.find(([id]) => id === 'server')![1];
+  257 |     await check.getByLabel(browser, { exact: true }).check();
+  258 |     await expect(check.locator('[data-bf-result]')).toHaveCount(0);
+  259 |     expect(
+  260 |       await check.getByLabel(browser, { exact: true }).evaluate((el) => {
+  261 |         const row = el.closest('label')!;
+  262 |         return getComputedStyle(row).backgroundColor;
+  263 |       }),
+  264 |     ).not.toBe(
+  265 |       await check
+  266 |         .getByLabel(server, { exact: true })
+  267 |         .evaluate((el) => getComputedStyle(el.closest('label')!).backgroundColor),
+  268 |     );
+  269 |     await check
+  270 |       .getByRole('button', { name: nb.foundationsV2.check, exact: true })
+  271 |       .evaluate((el) => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
+  272 |     await page.screenshot({ path: info.outputPath(`${mode}-question-selected.png`) });
+  273 |     await check.getByRole('button', { name: nb.foundationsV2.check, exact: true }).click();
+  274 |     await expect(check.locator('[data-bf-result="incorrect"]')).toHaveText(item.wrong);
+  275 |     await check
+  276 |       .locator('[data-bf-result="incorrect"]')
+  277 |       .evaluate((el) => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
+  278 |     await page.screenshot({ path: info.outputPath(`${mode}-question-wrong.png`) });
+  279 |     await check.getByLabel(server, { exact: true }).check();
+  280 |     await expect(check.locator('[data-bf-result="incorrect"]')).toHaveText(item.wrong);
+  281 |     await check.getByRole('button', { name: nb.foundationsV2.check, exact: true }).click();
+  282 |     await expect(check.locator('[data-bf-result="correct"]')).toHaveText(item.correct);
+  283 |     await check
+  284 |       .locator('[data-bf-result="correct"]')
+  285 |       .evaluate((el) => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
+  286 |     await page.screenshot({ path: info.outputPath(`${mode}-question-correct.png`) });
+  287 |     await accessible(page);
+  288 |     await page.getByRole('button', { name: nb.course.journal, exact: true }).click();
+  289 |     await expect(page.locator('.bifrost-course-journal')).toBeVisible();
+  290 |     await accessible(page);
+  291 |     await page.screenshot({ path: info.outputPath(`${mode}-journal.png`) });
+  292 |     await page.getByRole('dialog').press('Escape');
+  293 |     await expect(page.getByRole('button', { name: nb.course.journal, exact: true })).toBeFocused();
+  294 |     const facts = v2Facts(
+  295 |       restoreV2(await page.evaluate((key) => localStorage.getItem(key), foundationsV2Key)).save,
+  296 |     );
+  297 |     expect(facts.submissions).toEqual([]);
+  298 |     expect(facts.active).toBe(false);
+  299 |     expect(await technical(page)).toEqual(before);
+  300 |   });
+  301 | 
+  302 |   test(`Bifrost ${mode} existing module reading primitives retain original routes and no automatic assessment`, async ({
+  303 |     page,
+  304 |   }, info) => {
+  305 |     await page.goto('/learn');
+  306 |     await theme(page, mode);
+  307 |     const before = await technical(page);
+  308 |     for (const module of [
+  309 |       'computing',
+  310 |       'benefits',
+  311 |       'services',
+  312 |       'architecture',
+  313 |       'compute',
+  314 |       'networking',
+  315 |       'connectivity',
+  316 |       'storage',
+  317 |       'storage-resilience',
+  318 |       'identity',
+  319 |       'access-control',
+  320 |       'cost',
+  321 |       'governance',
+  322 |       'management-tools',
+  323 |       'monitoring',
+  324 |       'security',
+  325 |       'migration',
+  326 |     ]) {
+  327 |       await page.goto(`/learn/${module}`);
+  328 |       await expect(page.locator('.course-shell')).toHaveCount(1);
+  329 |       await expect(page.locator('.course-shell')).toHaveAttribute('data-course-module', module);
+  330 |       await expect(page.locator('.course-module-header h1')).toBeVisible();
+  331 |       await expect(
+  332 |         page.locator('.compute-assessment form, .v2-assessment form, .expanded-assessment form'),
+  333 |       ).toHaveCount(0);
+  334 |       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+  335 |         true,
+  336 |       );
+  337 |     }
+  338 |     await page.goto('/learn/benefits?topic=availability');
+  339 |     const assumptions = page.locator('.expanded-assumptions');
+  340 |     await assumptions.evaluate((el) => el.scrollIntoView({ block: 'center', behavior: 'instant' }));
+  341 |     await page.screenshot({ path: info.outputPath(`${mode}-warning.png`) });
+  342 |     const savvy = page.locator('.expanded-module .savvy');
+  343 |     await expect(savvy).toBeVisible();
+  344 |     await savvy.scrollIntoViewIfNeeded();
+  345 |     await accessible(page);
+  346 |     await page.screenshot({ path: info.outputPath(`${mode}-savvy.png`) });
+```

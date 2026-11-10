@@ -1,0 +1,2075 @@
+ <!DOCTYPE html>
+		<html
+			class="layout layout-holy-grail   show-table-of-contents conceptual show-breadcrumb default-focus"
+			lang="en-us"
+			dir="ltr"
+			data-authenticated="false"
+			data-auth-status-determined="false"
+			data-target="docs"
+			x-ms-format-detection="none"
+		>
+			
+		<head>
+			<title>Azure virtual network traffic routing | Microsoft Learn</title>
+			<meta charset="utf-8" />
+			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+			<meta name="color-scheme" content="light dark" />
+
+			<meta name="description" content="Learn how Azure routes virtual network traffic, customize routing with user-defined routes, and configure BGP for optimal connectivity between Azure and on-premises resources." />
+			<link rel="canonical" href="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview" /> 
+
+			<!-- Non-customizable open graph and sharing-related metadata -->
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@MicrosoftLearn" />
+			<meta property="og:type" content="website" />
+			<meta property="og:image:alt" content="Microsoft Learn" />
+			<meta property="og:image" content="https://learn.microsoft.com/en-us/media/open-graph-image.png" />
+			<!-- Page specific open graph and sharing-related metadata -->
+			<meta property="og:title" content="Azure virtual network traffic routing" />
+			<meta property="og:url" content="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview" />
+			<meta property="og:description" content="Learn how Azure routes virtual network traffic, customize routing with user-defined routes, and configure BGP for optimal connectivity between Azure and on-premises resources." />
+			<meta name="platform_id" content="2130de1f-e8cd-3c89-2152-9bb0e557364e" /> <meta name="scope" content="Azure" />
+			<meta name="locale" content="en-us" />
+			 
+			<meta name="uhfHeaderId" content="azure" />
+
+			<meta name="page_type" content="conceptual" />
+
+			<!--page specific meta tags-->
+			
+
+			<!-- custom meta tags -->
+			
+		<meta name="breadcrumb_path" content="/azure/bread/toc.json" />
+	
+		<meta name="feedback_help_link_url" content="https://learn.microsoft.com/answers/tags/143/azure-virtual-network/" />
+	
+		<meta name="feedback_help_link_type" content="get-help-at-qna" />
+	
+		<meta name="feedback_product_url" content="https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=f2c41334-8326-ec11-b6e6-000d3a4f0789" />
+	
+		<meta name="feedback_system" content="Standard" />
+	
+		<meta name="permissioned-type" content="public" />
+	
+		<meta name="recommendations" content="true" />
+	
+		<meta name="recommendation_types" content="Training" />
+	
+		<meta name="recommendation_types" content="Certification" />
+	
+		<meta name="ms.suite" content="office" />
+	
+		<meta name="adobe-target" content="true" />
+	
+		<meta name="learn_banner_products" content="azure" />
+	
+		<meta name="manager" content="kumud" />
+	
+		<meta name="ms.collection" content="networking" />
+	
+		<meta name="ms.reviewer" content="allensu" />
+	
+		<meta name="titlesuffix" content="Azure Virtual Network" />
+	
+		<meta name="services" content="virtual-network" />
+	
+		<meta name="author" content="asudbring" />
+	
+		<meta name="ms.service" content="azure-virtual-network" />
+	
+		<meta name="ms.topic" content="concept-article" />
+	
+		<meta name="ms.date" content="2026-03-31T00:00:00Z" />
+	
+		<meta name="ms.author" content="allensu" />
+	
+		<meta name="ms.custom" content="sfi-image-nochange" />
+	
+		<meta name="document_id" content="38bd69ac-a1b5-a401-184d-37b55188a7c4" />
+	
+		<meta name="document_version_independent_id" content="ef976d45-36eb-8a32-4b29-ae03412165d2" />
+	
+		<meta name="updated_at" content="2026-09-16T11:51:00Z" />
+	
+		<meta name="original_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/virtual-network/virtual-networks-udr-overview.md" />
+	
+		<meta name="gitcommit" content="https://github.com/MicrosoftDocs/azure-docs-pr/blob/e60c7dd7c775becfd72486cfd4ff4440c7d875d4/articles/virtual-network/virtual-networks-udr-overview.md" />
+	
+		<meta name="git_commit_id" content="e60c7dd7c775becfd72486cfd4ff4440c7d875d4" />
+	
+		<meta name="site_name" content="Docs" />
+	
+		<meta name="depot_name" content="Azure.azure-documents" />
+	
+		<meta name="schema" content="Conceptual" />
+	
+		<meta name="interactive_type" content="azurepowershell,azurecli" />
+	
+		<meta name="toc_rel" content="toc.json" />
+	
+		<meta name="pdf_url_template" content="https://learn.microsoft.com/pdfstore/en-us/Azure.azure-documents/{branchName}{pdfName}" />
+	
+		<meta name="word_count" content="5636" />
+	
+		<meta name="asset_id" content="virtual-network/virtual-networks-udr-overview" />
+	
+		<meta name="moniker_range_name" content="" />
+	
+		<meta name="item_type" content="Content" />
+	
+		<meta name="source_path" content="articles/virtual-network/virtual-networks-udr-overview.md" />
+	
+		<meta name="previous_tlsh_hash" content="229269F2430EC3009FC31F6BAE7B94378DF8C08694E82D8C042459D1926DBCF7975AA6A5E73F1312AB71A1A192CEB75E63D5E74AC4EC166312F802BDC19D169072C8B6E5D3" />
+	
+		<meta name="github_feedback_content_git_url" content="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/virtual-network/virtual-networks-udr-overview.md" />
+	
+		<meta name="markdown_url" content="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview?accept=text/markdown" />
+	 
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/20ed8455-bc18-4537-87a4-83784e7b2a39" data-source="generated" />
+	
+		<meta name="cmProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/68ec7f3a-2bc6-459f-b959-19beb729907d" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/9a7f703b-30bb-4d62-9eb4-97213f571849" data-source="generated" />
+	
+		<meta name="spProducts" content="https://authoring-docs-microsoft.poolparty.biz/devrel/90370425-aca4-4a39-9533-d52e5e002a5d" data-source="generated" />
+	
+
+			<!-- Apply persisted/system theme before first paint to prevent wrong-theme flash when scripts are deferred. -->
+			<script id="theme-preference">
+				(function () {
+			try {
+				var stored = localStorage.getItem('theme');
+				var theme = /^(light|dark|high-contrast)$/.test(stored)
+					? stored
+					: matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+				document.documentElement.classList.add('theme-' + theme);
+			} catch (e) {}
+		})();;
+			</script>
+
+			<script id="atlas-layout-preferences">
+				(function () {
+			try {
+				var state = JSON.parse(localStorage.getItem('atlas-layout-preferences') || '{}');
+				var view = state["docs-layout-persistence"] || {};
+				var excludesKey = "";
+				var blocked = {};
+				if (excludesKey) {
+					var exclusions = JSON.parse(localStorage.getItem('atlas-layout-exclusions') || '{}');
+					if (Object.prototype.hasOwnProperty.call(exclusions, excludesKey)) {
+						var scoped = exclusions[excludesKey];
+						if (scoped) {
+							if (typeof scoped === 'object') blocked = scoped;
+						}
+					}
+				}
+				var html = document.documentElement;
+				for (var c in view) {
+					if (Object.prototype.hasOwnProperty.call(blocked, c)) continue;
+					if (view[c]) html.classList.add(c);
+					else html.classList.remove(c);
+				}
+			} catch (e) {}
+		})();;
+			</script>
+
+			<!-- assets and js globals -->
+			
+			<link rel="stylesheet" href="/static/assets/0.4.03595.8353-c1321031/styles/site.css" />
+			
+			<script src="https://wcpstatic.microsoft.com/mscc/lib/v2/wcp-consent.js"></script>
+			<!-- Keep this URL in sync with oneDSScriptSelector in instrumentation/one-ds.ts. -->
+			<script async src="https://js.monitor.azure.com/scripts/c/ms.jsll-4.min.js"></script>
+			
+
+			<!-- msdocs global object -->
+			<script id="msdocs-script">
+		var msDocs = {
+  "environment": {
+    "accessLevel": "online",
+    "azurePortalHostname": "portal.azure.com",
+    "reviewFeatures": false,
+    "supportLevel": "production",
+    "systemContent": true,
+    "siteName": "learn",
+    "legacyHosting": false
+  },
+  "data": {
+    "contentLocale": "en-us",
+    "contentDir": "ltr",
+    "userLocale": "en-us",
+    "userDir": "ltr",
+    "pageTemplate": "Conceptual",
+    "layoutStateStorageKey": "docs-layout-persistence",
+    "brand": "azure",
+    "context": {},
+    "standardFeedback": true,
+    "showFeedbackReport": false,
+    "feedbackHelpLinkType": "get-help-at-qna",
+    "feedbackHelpLinkUrl": "https://learn.microsoft.com/answers/tags/143/azure-virtual-network/",
+    "feedbackSystem": "Standard",
+    "feedbackGitHubRepo": "MicrosoftDocs/azure-docs",
+    "feedbackProductUrl": "https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=f2c41334-8326-ec11-b6e6-000d3a4f0789",
+    "extendBreadcrumb": false,
+    "isEditDisplayable": true,
+    "isPrivateUnauthorized": false,
+    "hideViewSource": false,
+    "isPermissioned": false,
+    "hasRecommendations": true
+  },
+  "functions": {}
+};;
+	</script>
+
+			<!-- base scripts, msdocs global should be before this -->
+			<script
+				src="/static/assets/0.4.03595.8353-c1321031/scripts/en-us/index-docs.js"
+				async
+			></script>
+			
+
+			<!-- json-ld -->
+			
+		</head>
+	
+			<body
+				id="body"
+				data-bi-name="body"
+				class="layout-body "
+				lang="en-us"
+				dir="ltr"
+			>
+				<header class="layout-body-header background-color-body-medium">
+		<div class="header-holder has-default-focus">
+			
+		<a
+			href="#main"
+			
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			
+		>
+			Skip to main content
+		</a>
+	
+		<a
+			href="#"
+			data-skip-to-ask-learn
+			style="z-index: 1070"
+			class="outline-color-text visually-hidden-until-focused position-fixed inner-focus focus-visible top-0 left-0 right-0 padding-xs text-align-center background-color-body"
+			hidden
+		>
+			Skip to Ask Learn chat experience
+		</a>
+	
+
+			<div hidden id="cookie-consent-holder" data-test-id="cookie-consent-container"></div>
+			<!-- Unsupported browser warning -->
+			<div
+				id="unsupported-browser"
+				style="background-color: white; color: black; padding: 16px; border-bottom: 1px solid grey;"
+				hidden
+			>
+				<div style="max-width: 800px; margin: 0 auto;">
+					<p style="font-size: 24px">This browser is no longer supported.</p>
+					<p style="font-size: 16px; margin-top: 16px;">
+						Upgrade to Microsoft Edge to take advantage of the latest features, security updates, and technical support.
+					</p>
+					<div style="margin-top: 12px;">
+						<a
+							href="https://go.microsoft.com/fwlink/p/?LinkID=2092881 "
+							style="background-color: #0078d4; border: 1px solid #0078d4; color: white; padding: 6px 12px; border-radius: 2px; display: inline-block;"
+						>
+							Download Microsoft Edge
+						</a>
+						<a
+							href="https://learn.microsoft.com/en-us/lifecycle/faq/internet-explorer-microsoft-edge"
+							style="background-color: white; padding: 6px 12px; border: 1px solid #505050; color: #171717; border-radius: 2px; display: inline-block;"
+						>
+							More info about Internet Explorer and Microsoft Edge
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- site header -->
+			<div
+				id="ms--site-header"
+				data-test-id="site-header-wrapper"
+				itemscope="itemscope"
+				itemtype="http://schema.org/Organization"
+			>
+				<div
+					id="ms--mobile-nav"
+					class="site-header display-none-tablet padding-inline-none gap-none"
+					data-bi-name="mobile-header"
+					data-test-id="mobile-header"
+				></div>
+				<div
+					id="ms--primary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L1-header"
+					data-test-id="primary-header"
+				></div>
+				<div
+					id="ms--secondary-nav"
+					class="site-header display-none display-flex-tablet"
+					data-bi-name="L2-header"
+					data-test-id="secondary-header"
+					
+				></div>
+			</div>
+			
+		<!-- banner -->
+		<div data-banner>
+			<div id="disclaimer-holder"></div>
+			
+		</div>
+		<!-- banner end -->
+	
+		</div>
+	</header>
+				 <section
+					id="layout-body-menu"
+					class="layout-body-menu border-right display-flex background-color-body-medium"
+					data-bi-name="menu"
+			  >
+					
+		<div
+			id="left-container"
+			class="left-container display-none padding-none display-block-tablet width-full display-none-until-layout-restored"
+			data-toc-container="true"
+		>
+			<div
+				id="ms--toc-content"
+				class="padding-left-sm padding-right-none padding-bottom-sm height-full"
+			>
+				<nav
+					id="affixed-left-container"
+					class="margin-top-xxs-tablet position-sticky display-flex flex-direction-column width-full"
+					aria-label="Primary"
+					data-bi-name="left-toc"
+					role="navigation"
+				>
+					<div
+						id="ms--collapsible-toc-header"
+						class="display-flex flex-direction-row-reverse justify-content-center align-items-center margin-bottom-xxs margin-right-xxs"
+					>
+						<button
+							type="button"
+							class="button button-clear button-sm inner-focus"
+							data-collapsible-toc-toggle
+							aria-expanded="true"
+							hidden
+							aria-controls="ms--toc-content"
+							aria-label="Table of contents"
+						>
+							<span class="icon icon-mirrored-rtl" aria-hidden="true">
+								<span
+									class="docon docon-panel-left-contract display-none-layout-menu-collapsed"
+								></span>
+								<span
+									class="docon docon-panel-left-expand display-none display-inline-layout-menu-collapsed"
+								></span>
+							</span>
+						</button>
+						<div
+							id="ms--collapsible-toc-moniker-slot"
+							class="flex-grow-1 display-none-layout-menu-collapsed"
+						></div>
+					</div>
+				</nav>
+			</div>
+		</div>
+	
+			  </section>
+
+				<main
+					id="main"
+					role="main"
+					class="layout-body-main "
+					data-bi-name="content"
+					lang="en-us"
+					dir="ltr"
+				>
+					
+			<div
+		id="ms--content-header"
+		class="content-header default-focus border-bottom-none"
+		data-bi-name="content-header"
+	>
+		<div class="content-header-controls margin-xxs margin-inline-sm-tablet">
+			<button
+				type="button"
+				class="contents-button button button-sm margin-right-xxs"
+				data-bi-name="contents-expand"
+				aria-haspopup="true"
+				data-contents-button
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-menu"></span></span>
+				<span class="contents-expand-title"> Table of contents </span>
+			</button>
+			<button
+				type="button"
+				class="ap-collapse-behavior ap-expanded button button-sm"
+				data-bi-name="ap-collapse"
+				aria-controls="action-panel"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-exit-mode"></span></span>
+				<span>Exit editor mode</span>
+			</button>
+		</div>
+	</div> 
+		<div
+			id="action-panel"
+			role="region"
+			aria-label="Action Panel"
+			class="action-panel"
+			tabindex="-1"
+		></div>
+	
+			<div
+				data-main-column
+				class="reading-width margin-inline-auto layout-padding padding-top-none padding-top-sm-tablet padding-bottom-sm"
+			>
+				<div>
+					
+		<div id="article-header" class="background-color-body margin-bottom-xs display-none-print">
+			<div class="display-flex align-items-center justify-content-space-between">
+				
+		<details
+			id="article-header-breadcrumbs-overflow-popover"
+			class="popover popover-left"
+			data-for="article-header-breadcrumbs"
+		>
+			<summary
+				class="button button-clear button-primary button-sm inner-focus"
+				aria-label="All breadcrumbs"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-more"></span>
+				</span>
+			</summary>
+			<div id="article-header-breadcrumbs-overflow" class="popover-content"></div>
+		</details>
+
+		<bread-crumbs
+			id="article-header-breadcrumbs"
+			role="group"
+			aria-label="Breadcrumbs"
+			data-test-id="article-header-breadcrumbs"
+			class="overflow-hidden flex-grow-1 margin-right-sm margin-right-md-tablet margin-right-lg-desktop margin-left-negative-xxs padding-left-xxs"
+		></bread-crumbs>
+	 
+		<div
+			id="article-header-page-actions"
+			class="opacity-none margin-left-auto display-flex flex-wrap-no-wrap align-items-stretch"
+		>
+			
+		<button
+			class="button button-sm border-none inner-focus display-none-tablet flex-shrink-0 "
+			data-bi-name="ask-learn-assistant-entry"
+			data-test-id="ask-learn-assistant-modal-entry-mobile"
+			data-ask-learn-modal-entry
+			
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-none display-inline-flex-tablet display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-modal-entry-tablet"
+			data-ask-learn-modal-entry
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn "
+			data-bi-name="ask-learn-assistant-entry"
+			
+			data-test-id="ask-learn-assistant-flyout-entry"
+			data-ask-learn-flyout-entry
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	 
+
+			<details class="popover popover-right" id="article-header-page-actions-overflow">
+				<summary
+					class="justify-content-flex-start button button-clear button-sm button-primary inner-focus"
+					aria-label="More actions"
+					aria-expanded="false"
+					title="More actions"
+				>
+					<span class="icon" aria-hidden="true">
+						<span class="docon docon-more-vertical"></span>
+					</span>
+				</summary>
+				<div class="popover-content">
+					
+		<button
+			type="button"
+			id="ms--focus-mode-button"
+			data-focus-mode
+			data-bi-name="focus-mode-entry"
+			data-page-action-item="overflow-all"
+			data-popover-close
+			class="button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus display-none display-inline-flex-tablet"
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-glasses"></span>
+			</span>
+			<span>Reading mode</span>
+		</button>
+	 
+		<button
+			data-page-action-item="overflow-mobile"
+			type="button"
+			class="display-block-layout-menu-collapsed button-block button-sm inner-focus button button-clear display-none-tablet justify-content-flex-start text-align-left"
+			data-bi-name="contents-expand"
+			data-contents-button
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true"
+				><span class="docon docon-editor-list-bullet"></span
+			></span>
+			<span class="contents-expand-title">Table of contents</span>
+		</button>
+	 
+		<a
+			id="lang-link-overflow"
+			class="button-sm inner-focus button button-clear button-block justify-content-flex-start text-align-left"
+			data-bi-name="language-toggle"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-read-in-link
+			href="#"
+			hidden
+		>
+			<span class="icon" aria-hidden="true" data-read-in-link-icon>
+				<span class="docon docon-locale-globe"></span>
+			</span>
+			<span data-read-in-link-text>Read in English</span>
+		</a>
+	
+					
+		<button
+			type="button"
+			class="collection button button-clear button-sm button-block justify-content-flex-start text-align-left inner-focus"
+			data-list-type="collection"
+			data-bi-name="collection"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="collection-status">Add</span>
+		</button>
+	 
+		<button
+			type="button"
+			class="collection button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+			data-list-type="plan"
+			data-bi-name="plan"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			data-popover-close
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-circle-addition"></span>
+			</span>
+			<span class="plan-status">Add to Plans</span>
+		</button>
+	 
+					
+		<a
+			data-contenteditbtn
+			class="button button-clear button-block button-sm inner-focus justify-content-flex-start text-align-left text-decoration-none"
+			data-bi-name="edit"
+			data-page-action-item="overflow-all"
+			data-check-hidden="true"
+			
+			href="https://github.com/MicrosoftDocs/azure-docs/blob/main/articles/virtual-network/virtual-networks-udr-overview.md"
+			data-original_content_git_url="https://github.com/MicrosoftDocs/azure-docs-pr/blob/live/articles/virtual-network/virtual-networks-udr-overview.md"
+			data-original_content_git_url_template="{repo}/blob/{branch}/articles/virtual-network/virtual-networks-udr-overview.md"
+			data-pr_repo=""
+			data-pr_branch=""
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-edit-outline"></span>
+			</span>
+			<span>Edit</span>
+		</a>
+	  
+		<hr class="margin-block-xxs" />
+		
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="copy-markdown"
+					data-page-action-item="overflow-all"
+					data-copy-markdown
+					data-copy-state="idle"
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span data-show-when="idle" class="docon docon-code-lang"></span>
+						<span data-show-when="loading" class="loader" hidden></span>
+						<span data-show-when="success" class="docon docon-check-mark" hidden></span>
+					</span>
+					<span>Copy Markdown</span>
+				</button>
+		   
+				<button
+					class="button button-block button-clear button-sm justify-content-flex-start text-align-left inner-focus"
+					type="button"
+					data-bi-name="print"
+					data-page-action-item="overflow-all"
+					data-popover-close
+					data-print-page
+					data-check-hidden="true"
+				>
+					<span class="icon color-primary" aria-hidden="true">
+						<span class="docon docon-print"></span>
+					</span>
+					<span>Print</span>
+				</button>
+		  
+	
+				</div>
+			</details>
+		</div>
+	
+			</div>
+		</div>
+	  
+		<!-- privateUnauthorizedTemplate is hidden by default -->
+		<div unauthorized-private-section data-bi-name="permission-content-unauthorized-private" hidden>
+			<hr class="hr margin-top-xs margin-bottom-sm" />
+			<div class="notification notification-info">
+				<div class="notification-content">
+					<p class="margin-top-none notification-title">
+						<span class="icon" aria-hidden="true"
+							><span class="docon docon-exclamation-circle-solid"></span
+						></span>
+						<span>Note</span>
+					</p>
+					<p class="margin-top-none authentication-determined not-authenticated">
+						Access to this page requires authorization. You can try <a class="docs-sign-in" href="#" data-bi-name="permission-content-sign-in">signing in</a> or <a  class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+					<p class="margin-top-none authentication-determined authenticated">
+						Access to this page requires authorization. You can try <a class="docs-change-directory" data-bi-name="permisson-content-change-directory">changing directories</a>.
+					</p>
+				</div>
+			</div>
+		</div>
+	
+					<div class="content"><h1 id="azure-virtual-network-traffic-routing">Azure virtual network traffic routing</h1></div>
+					
+		<div
+			id="article-metadata"
+			data-bi-name="article-metadata"
+			data-test-id="article-metadata"
+			class="page-metadata-container display-flex gap-xxs justify-content-space-between align-items-center flex-wrap-wrap"
+		>
+			 
+				<div
+					id="user-feedback"
+					class="margin-block-xxs display-none display-none-print"
+					hidden
+					data-hide-on-archived
+				>
+					
+		<button
+			id="user-feedback-button"
+			data-test-id="conceptual-feedback-button"
+			class="button button-sm button-clear button-primary display-none"
+			type="button"
+			data-bi-name="user-feedback-button"
+			data-user-feedback-button
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-like"></span>
+			</span>
+			<span>Feedback</span>
+		</button>
+	
+				</div>
+		  
+		</div>
+	 
+		<div data-id="ai-summary" class="display-none-print">
+			<div id="ms--ai-summary-cta" class="margin-top-xs display-flex align-items-center">
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-sparkle-fill gradient-text-vivid"></span>
+				</span>
+				<button
+					id="ms--ai-summary"
+					type="button"
+					class="tag tag-sm tag-suggestion margin-left-xxs"
+					data-test-id="ai-summary-cta"
+					data-bi-name="ai-summary-cta"
+					data-an="ai-summary"
+				>
+					<span class="ai-summary-cta-text">
+						Summarize this article for me
+					</span>
+				</button>
+			</div>
+			<!-- Slot where the client will render the summary card after the user clicks the CTA -->
+			<div id="ms--ai-summary-header" class="margin-top-xs"></div>
+		</div>
+	 
+		<nav
+			id="center-doc-outline"
+			class="doc-outline display-none-desktop display-none-print margin-bottom-sm"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h2 id="ms--in-this-article" class="title is-6 margin-block-xs">
+				In this article
+			</h2>
+		</nav>
+	 <div class="content"><p>In this article, you learn how Azure virtual network traffic routing works between Azure, on-premises, and internet resources. Azure automatically creates a route table for each subnet within an Azure virtual network and adds system default routes to the table. Understanding traffic routing helps you optimize connectivity and troubleshoot network issues in your Azure environment. To learn more about virtual networks and subnets, see <a href="virtual-networks-overview" data-linktype="relative-path">Virtual network overview</a>. You can override some of the Azure system routes with <a href="#custom-routes" data-linktype="self-bookmark">custom routes</a> and add more custom routes to route tables. Azure routes outbound traffic from a subnet based on the routes in a subnet's route table.</p>
+<h2 id="system-routes">System routes</h2>
+<p>Azure automatically creates system routes and assigns the routes to each subnet in a virtual network. You can't create system routes, and you can't remove system routes, but you can override some system routes with <a href="#custom-routes" data-linktype="self-bookmark">custom routes</a>. Azure creates default system routes for each subnet and adds more <a href="#optional-default-routes" data-linktype="self-bookmark">optional default routes</a> to specific subnets, or every subnet, when you use specific Azure capabilities.</p>
+<h3 id="default-system-routes">Default system routes</h3>
+<p><a name="default"></a></p>
+<p>Each route includes an address prefix and next hop type. Azure uses the route with the matching address prefix when traffic exits a subnet toward an IP address. Learn more about <a href="#how-azure-selects-routes-for-traffic-routing" data-linktype="self-bookmark">how Azure selects a route</a> when multiple routes contain identical or overlapping prefixes. Whenever a virtual network is created, Azure automatically creates the following default system routes for each subnet within the virtual network:</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Address prefixes</th>
+<th>Next hop type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default</td>
+<td>Unique to the virtual network</td>
+<td>Virtual network</td>
+</tr>
+<tr>
+<td>Default</td>
+<td>0.0.0.0/0</td>
+<td>Internet</td>
+</tr>
+<tr>
+<td>Default</td>
+<td>10.0.0.0/8</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Default</td>
+<td>172.16.0.0/12</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Default</td>
+<td>192.168.0.0/16</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Default</td>
+<td>100.64.0.0/10</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Default</td>
+<td>157.59.0.0/16</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Default</td>
+<td>127.0.0.0/8</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Default</td>
+<td>104.147.0.0/16</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Default</td>
+<td>104.146.0.0/17</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p>The next hop types listed in the previous table represent how Azure routes traffic destined for the address prefix listed. Here are explanations for the next hop types:</p>
+<ul>
+<li><p><strong>Virtual network</strong>: Routes traffic between address ranges within the <a href="manage-virtual-network#add-or-remove-an-address-range" data-linktype="relative-path">address space</a> of a virtual network. Azure creates a route with an address prefix that corresponds to each address range defined within the address space of a virtual network. If the virtual network address space has multiple address ranges defined, Azure creates an individual route for each address range. By default, Azure routes traffic between subnets. You don't need to define route tables or gateways for Azure to route traffic between subnets. Azure doesn't create default routes for subnet address ranges. Each subnet address range is within an address range of the address space of a virtual network.</p>
+</li>
+<li><p><strong>Internet</strong>: Routes traffic specified by the address prefix to the internet. The system default route specifies the 0.0.0.0/0 address prefix. If you don't override the Azure default routes, Azure routes traffic for any address not specified by an address range within a virtual network to the internet. There's one exception to this routing. If the destination address is for an Azure service, Azure routes the traffic directly to the service over the Azure backbone network instead of routing the traffic to the internet. Traffic between Azure services doesn't traverse the internet. It doesn't matter which Azure region the virtual network exists in or which Azure region an instance of the Azure service is deployed in. You can override the Azure default system route for the 0.0.0.0/0 address prefix with a <a href="#custom-routes" data-linktype="self-bookmark">custom route</a>.</p>
+</li>
+<li><p><strong>None</strong>: Traffic routed to the <strong>None</strong> next hop type is dropped rather than routed outside the subnet. Azure automatically creates default routes for the following address prefixes:</p>
+<ul>
+<li><strong>10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16</strong>: Reserved for private use in RFC 1918.</li>
+<li><strong>100.64.0.0/10</strong>: Reserved in RFC 6598.</li>
+</ul>
+<p>If you assign any of the previous address ranges within the address space of a virtual network, Azure automatically changes the next hop type for the route from <strong>None</strong> to <strong>Virtual network</strong>. If you assign an address range to the address space of a virtual network that includes, but isn't the same as, one of the four reserved address prefixes, Azure removes the route for the prefix and adds a route for the address prefix you added, with <strong>Virtual network</strong> as the next hop type. Default Route (0.0.0.0/0) with Next Hop Type = Virtual Network Gateway will cause these Default System Routes with Next Hop Type = None to be removed.&nbsp;</p>
+</li>
+</ul>
+<h3 id="optional-default-routes">Optional default routes</h3>
+<p>Azure creates more default system routes for different Azure capabilities, but only if you enable the capabilities. Depending on the capability, Azure creates optional default routes to either specific subnets within the virtual network or to all subnets within a virtual network. The following table lists the other system routes and next hop types that Azure might add when you enable different capabilities.</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Address prefixes</th>
+<th>Next hop type</th>
+<th>Subnet within virtual network that route is added to</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default</td>
+<td>Unique to the virtual network, for example: 10.1.0.0/16</td>
+<td>Virtual network peering</td>
+<td>All</td>
+</tr>
+<tr>
+<td>Virtual network gateway</td>
+<td>Prefixes advertised from on-premises via Border Gateway Protocol (BGP) or configured in the local network gateway</td>
+<td>Virtual network gateway</td>
+<td>All</td>
+</tr>
+<tr>
+<td>Default</td>
+<td>Multiple</td>
+<td><code>VirtualNetworkServiceEndpoint</code></td>
+<td>Only the subnet for which a service endpoint is enabled</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p><strong>Virtual network peering</strong>: When you create a virtual network peering between two virtual networks, the system adds a route for each address range within the address space of each virtual network involved in the peering. Learn more about <a href="virtual-network-peering-overview" data-linktype="relative-path">virtual network peering</a>.</p>
+</li>
+<li><p><strong>Virtual network gateway</strong>: One or more routes with <strong>Virtual network gateway</strong> listed as the next hop type are added when a virtual network gateway is added to a virtual network. The source is also <strong>Virtual network gateway</strong> because the gateway adds the routes to the subnet. If your on-premises network gateway exchanges BGP routes with a virtual network gateway, the system adds a route for each route. These routes are propagated from the on-premises network gateway. We recommend that you summarize on-premises routes to the largest address range possible so that you propagate the fewest number of routes to an Azure virtual network gateway. There are limits to the number of routes you can propagate to an Azure virtual network gateway. For more information, see <a href="../azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/virtual-network/toc.json#azure-networking-limits" data-linktype="relative-path">Azure limits</a>.</p>
+<div class="TIP">
+<p>Tip</p>
+<p>For routes advertised from Azure to on-premises, you can reduce the number of prefixes advertised by configuring advertised gateway prefixes on the gateway virtual network using the <code>summarizedGatewayPrefixes</code> property. When populated, Azure VPN Gateway and ExpressRoute Gateway advertise the summarized prefixes you provide instead of advertising the hub's address space and covered spoke address spaces. For more information, see <a href="advertised-gateway-prefixes-overview" data-linktype="relative-path">Advertised gateway prefixes overview</a>.</p>
+</div>
+</li>
+<li><p><code>VirtualNetworkServiceEndpoint</code>: Azure includes public IP addresses of certain services to the route table when you enable a service endpoint. Azure includes these routes only to subnets with service endpoints enabled. Azure automatically updates these addresses in the route table when service IP addresses change. Learn more about <a href="virtual-network-service-endpoints-overview" data-linktype="relative-path">virtual network service endpoints</a> and supported services.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>The <strong>Virtual network peering</strong> and <code>VirtualNetworkServiceEndpoint</code> next hop types are added only to route tables of subnets within virtual networks created through the Azure Resource Manager deployment model. The next hop types aren't added to route tables that are associated to virtual network subnets created through the classic deployment model. Learn more about Azure <a href="../azure-resource-manager/management/deployment-models?toc=/azure/virtual-network/toc.json" data-linktype="relative-path">deployment models</a>.</p>
+</div>
+</li>
+</ul>
+<h2 id="custom-routes">Custom routes</h2>
+<p>You create custom routes by either creating <a href="#user-defined" data-linktype="self-bookmark">user-defined</a> routes (UDRs) or exchanging <a href="#border-gateway-protocol" data-linktype="self-bookmark">BGP</a> routes between your on-premises network gateway and an Azure virtual network gateway.</p>
+<h3 id="user-defined-routes">User-defined routes</h3>
+<p><a name="user-defined"></a></p>
+<p>To customize your traffic routes, you shouldn't modify the default routes. You should create custom or user-defined (static) routes, which override the Azure default system routes. In Azure, you create a route table and then associate the route table to zero or more virtual network subnets. Each subnet can have zero or one route table associated to it. To learn about the maximum number of routes that you can add to a route table and the maximum number of UDR tables you can create per Azure subscription, see <a href="../azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/virtual-network/toc.json#azure-networking-limits" data-linktype="relative-path">Azure limits</a>.</p>
+<p>By default, a route table can contain up to 400 UDRs. With the Azure Virtual Network Manager <a href="../virtual-network-manager/concept-user-defined-route" data-linktype="relative-path">routing configuration</a>, this number can expand to 1,000 UDRs per route table. This increased limit supports more advanced routing setups. An example is directing traffic from on-premises datacenters through a firewall to each spoke virtual network in a hub-and-spoke topology when you have a higher number of spoke virtual networks.</p>
+<p>When you create a route table and associate it to a subnet, the table's routes are combined with the subnet's default routes. If there are conflicting route assignments, UDRs override the default routes.</p>
+<p>You can specify the following next hop types when you create a UDR:</p>
+<ul>
+<li><p><strong>Virtual appliance</strong>: A virtual appliance is a virtual machine that typically runs a network application, such as a firewall. To learn about various preconfigured network virtual appliances that you can deploy in a virtual network, see <a href="https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&amp;subcategories=appliances" data-linktype="external">Azure Marketplace</a>. When you create a route with the <strong>Virtual appliance</strong> hop type, you also specify a next hop IP address. The IP address can be:</p>
+<ul>
+<li><p>The <a href="ip-services/private-ip-addresses" data-linktype="relative-path">private IP address</a> of a network interface attached to a virtual machine. Any network interface attached to a virtual machine that forwards network traffic to an address other than its own must have the Azure <strong>Enable IP forwarding</strong> option enabled for it. The setting disables the check of the source and destination for a network interface by Azure. Learn more about how to <a href="virtual-network-network-interface#enable-or-disable-ip-forwarding" data-linktype="relative-path">enable IP forwarding for a network interface</a>. <strong>Enable IP forwarding</strong> is an Azure setting.</p>
+<p>You might need to enable IP forwarding within the virtual machine's operating system for the appliance to forward traffic between private IP addresses assigned to Azure network interfaces. If the appliance needs to route traffic to a public IP address, it must either proxy the traffic or perform network address translation (NAT) from the source's private IP address to its own private IP address. Azure then performs NAT to a public IP address before sending the traffic to the internet. To determine required settings within the virtual machine, see the documentation for your operating system or network application. To understand outbound connections in Azure, see <a href="../load-balancer/load-balancer-outbound-connections?toc=/azure/virtual-network/toc.json" data-linktype="relative-path">Understanding outbound connections</a>.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>Deploy a virtual appliance into a different subnet than the resources that route through the virtual appliance. Deploying the virtual appliance to the same subnet and then applying a route table to the subnet that routes traffic through the virtual appliance can result in routing loops where traffic never leaves the subnet.</p>
+<p>A next hop private IP address must have direct connectivity without having to route through an Azure ExpressRoute gateway or through Azure Virtual WAN. Setting the next hop to an IP address without direct connectivity results in an invalid UDR configuration.</p>
+</div>
+</li>
+<li><p>The private IP address of an Azure <a href="../load-balancer/quickstart-load-balancer-standard-internal-portal?toc=/azure/virtual-network/toc.json" data-linktype="relative-path">internal load balancer</a>. A load balancer is often used as part of a <a href="/en-us/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json" data-linktype="absolute-path">high-availability strategy for network virtual appliances</a>.</p>
+</li>
+</ul>
+<p>You can define a route with 0.0.0.0/0 as the address prefix and a next hop type of virtual appliance. This configuration allows the appliance to inspect the traffic and determine whether to forward or drop the traffic. If you intend to create a UDR that contains the 0.0.0.0/0 address prefix, read <a href="#default-route" data-linktype="self-bookmark">0.0.0.0/0 address prefix</a> first.</p>
+</li>
+<li><p><strong>Virtual network gateway</strong>: User-defined routes with next hop type Virtual Network Gateway allow you to route traffic to a Virtual Network's gateway. A Virtual Network has a single gateway automatically set by the underlying software-defined networking platform based on your deployment. User-defined routes with next hop Virtual Network Gateway are supported only when the Virtual Network's gateway is a <strong>VPN gateway (and not ExpressRoute, RouteServer or Virtual WAN hub router)</strong>.</p>
+<ul>
+<li><p>For Virtual Networks with a VPN Gateway, ExpressRoute Gateway and/or Route Server:</p>
+<ul>
+<li>If RouteServer is deployed in a virtual network, RouteServer is set as the Virtual Network's gateway.</li>
+<li>If VPN Gateway and ExpressRoute Gateway are deployed in the same virtual network (without RouteServer), ExpressRoute Gateway is set as the Virtual Network's gateway.</li>
+<li>If either a VPN Gateway or ExpressRoute Gateway is the only gateway in the virtual network (without RouteServer), the deployed gateway is the Virtual Network's gateway.</li>
+</ul>
+</li>
+<li><p>For Virtual Networks peered to another Virtual Network with gateways or RouteServer and the "Use the remote virtual network's gateway  or Route Server" setting is <strong>enabled</strong>:</p>
+<ul>
+<li>If RouteServer is deployed in the peered virtual network, the remote RouteServer is set as the Virtual Network's gateway.</li>
+<li>If VPN Gateway and ExpressRoute Gateway are deployed in the peered virtual network (without RouteServer), the remote ExpressRoute Gateway is set as the Virtual Network's gateway.</li>
+<li>If either a VPN Gateway or ExpressRoute Gateway is the only gateway in the peered virtual network (without RouteServer), the remote gateway is set as the Virtual Network's gateway.</li>
+</ul>
+</li>
+<li><p>For Virtual Networks connected to a Virtual WAN hub:</p>
+<ul>
+<li>The Virtual Network's gateway is always set to the Virtual WAN hub router.</li>
+</ul>
+<p>On your premises, you might have a device that inspects the traffic and determines whether to forward or drop the traffic. If you intend to create a UDR for the 0.0.0.0/0 address prefix, read <a href="#default-route" data-linktype="self-bookmark">0.0.0.0/0 address prefix</a> first. Instead of configuring a UDR for the 0.0.0.0/0 address prefix, you can advertise a route with the 0.0.0.0/0 prefix via BGP if the <a href="../vpn-gateway/configure-bgp?toc=/azure/virtual-network/toc.json" data-linktype="relative-path">BGP for a VPN virtual network gateway</a> is enabled.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>None</strong>: Specify when you want to drop traffic to an address prefix, rather than forwarding the traffic to a destination. Azure might show <strong>None</strong> for some of the optional system routes if a capability isn't configured. For example, if you see that <strong>Next hop IP address</strong> shows <strong>None</strong> and <strong>Next hop type</strong> shows <strong>Virtual network gateway</strong> or <strong>Virtual appliance</strong>, it might be because the device isn't running or isn't fully configured. Azure creates system <a href="#default" data-linktype="self-bookmark">default routes</a> for reserved address prefixes with <strong>None</strong> as the next hop type.</p>
+</li>
+<li><p><strong>Virtual network</strong>: Specify the <strong>Virtual network</strong> option when you want to override the default routing within a virtual network. For an example of why you might create a route with the <strong>Virtual network</strong> hop type, see <a href="#routing-example" data-linktype="self-bookmark">Routing example</a>.</p>
+</li>
+<li><p><strong>Internet</strong>: Specify the <strong>Internet</strong> option when you want to explicitly route traffic destined to an address prefix to the internet. Or use it if you want traffic destined for Azure services with public IP addresses kept within the Azure backbone network.</p>
+</li>
+</ul>
+<p>You can't specify <strong>Virtual network peering</strong> or <code>VirtualNetworkServiceEndpoint</code> as the next hop type in UDRs. Azure creates routes with <strong>Virtual network peering</strong> or <code>VirtualNetworkServiceEndpoint</code> next hop types only when you configure a virtual network peering or a service endpoint.</p>
+<h3 id="service-tags-for-user-defined-routes">Service tags for user-defined routes</h3>
+<p>You can now specify a <a href="service-tags-overview" data-linktype="relative-path">service tag</a> as the address prefix for a UDR instead of an explicit IP range. A service tag represents a group of IP address prefixes from a specific Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change. This support minimizes the complexity of frequent updates to UDRs and reduces the number of routes that you need to create. You can currently create 25 or fewer routes with service tags in each route table. With this release, using service tags in routing scenarios for containers is also supported. <br></p>
+<h4 id="exact-match">Exact match</h4>
+<p>The system gives preference to the route with the explicit prefix when there's an exact prefix match between a route with an explicit IP prefix and a route with a service tag. When multiple routes with service tags have matching IP prefixes, routes are evaluated in the following order:</p>
+<ol>
+<li><p>Regional tags (for example, <code>Storage.EastUS</code> or <code>AppService.AustraliaCentral</code>)</p>
+</li>
+<li><p>Top-level tags (for example, <code>Storage</code> or <code>AppService</code>)</p>
+</li>
+<li><p><code>AzureCloud</code> regional tags (for example, <code>AzureCloud.canadacentral</code> or <code>AzureCloud.eastasia</code>)</p>
+</li>
+<li><p>The <code>AzureCloud</code> tag</p>
+</li>
+</ol>
+<p>To use this feature, specify a service tag name for the address prefix parameter in route table commands. For example, in PowerShell you can create a new route to direct traffic sent to an Azure Storage IP prefix to a virtual appliance by using this command:</p>
+<pre><code class="lang-azurepowershell" data-interactive="azurepowershell">$param = @{
+    Name = 'StorageRoute'
+    AddressPrefix = 'Storage'
+    NextHopType = 'VirtualAppliance'
+    NextHopIpAddress = '10.0.100.4'
+}
+New-AzRouteConfig @param
+</code></pre>
+<p>The same command for the Azure CLI is:</p>
+<pre><code class="lang-azurecli" data-interactive="azurecli">az network route-table route create \
+    --resource-group MyResourceGroup \
+    --route-table-name MyRouteTable \
+    --name StorageRoute \
+    --address-prefix Storage \
+    --next-hop-type VirtualAppliance \
+    --next-hop-ip-address 10.0.100.4
+</code></pre>
+<h2 id="next-hop-types-across-azure-tools">Next hop types across Azure tools</h2>
+<p>The name displayed and referenced for next hop types is different between the Azure portal and command-line tools, and the Resource Manager and classic deployment models. The following table lists the names used to refer to each next hop type with the different tools and <a href="../azure-resource-manager/management/deployment-models?toc=/azure/virtual-network/toc.json" data-linktype="relative-path">deployment models</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Next hop type</th>
+<th>Azure CLI and PowerShell (Resource Manager)</th>
+<th>Azure classic CLI and PowerShell (classic)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Virtual network gateway</td>
+<td><code>VirtualNetworkGateway</code></td>
+<td><code>VPNGateway</code></td>
+</tr>
+<tr>
+<td>Virtual network</td>
+<td><code>VNetLocal</code></td>
+<td><code>VNETLocal</code> (not available in the classic CLI in classic deployment model mode)</td>
+</tr>
+<tr>
+<td>Internet</td>
+<td>Internet</td>
+<td>Internet (not available in the classic CLI in classic deployment model mode)</td>
+</tr>
+<tr>
+<td>Virtual appliance</td>
+<td><code>VirtualAppliance</code></td>
+<td><code>VirtualAppliance</code></td>
+</tr>
+<tr>
+<td>None</td>
+<td>None</td>
+<td>Null (not available in the classic CLI in classic deployment model mode)</td>
+</tr>
+<tr>
+<td>Virtual network peering</td>
+<td>Virtual network peering</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td>Virtual network service endpoint</td>
+<td><code>VirtualNetworkServiceEndpoint</code></td>
+<td>Not applicable</td>
+</tr>
+</tbody>
+</table>
+<h3 id="border-gateway-protocol-bgp">Border Gateway Protocol (BGP)</h3>
+<p><a name="border-gateway-protocol"></a></p>
+<p>An on-premises network gateway can exchange routes with an Azure virtual network gateway by using the BGP. Using BGP with an Azure virtual network gateway is dependent on the type you selected when you created the gateway:</p>
+<ul>
+<li><strong>ExpressRoute</strong>: You must use BGP to advertise on-premises routes to the edge router in the Microsoft datacenter. You can't create UDRs to force traffic to the ExpressRoute virtual network gateway if you deploy a virtual network gateway deployed as the type <strong>ExpressRoute</strong>. You can use UDRs for forcing traffic from the express route to, for example, a network virtual appliance.</li>
+<li><strong>VPN</strong>: Optionally, you can use BGP. For more information, see <a href="../vpn-gateway/vpn-gateway-bgp-overview?toc=/azure/virtual-network/toc.json" data-linktype="relative-path">BGP with site-to-site VPN connections</a>.</li>
+</ul>
+<p>When you exchange routes with Azure by using BGP, a separate route is added to the route table of all subnets in a virtual network for each advertised prefix. The route is added with <strong>Virtual network gateway</strong> listed as the source and next hop type.</p>
+<p>You can disable ExpressRoute and Azure VPN Gateway route propagation on a subnet by using a property on a route table. When you disable route propagation, the system doesn't add routes to the route table of all subnets with virtual network gateway route propagation disabled. This process applies to both static routes and BGP routes. Connectivity with VPN connections is achieved by using <a href="#custom-routes" data-linktype="self-bookmark">custom routes</a> with a next hop type of <strong>Virtual network gateway</strong>. For more information, see <a href="manage-route-table#create-a-route-table" data-linktype="relative-path">Disable virtual network gateway route propagation</a>.</p>
+<div class="NOTE">
+<p>Note</p>
+<p>Route propagation shouldn't be disabled on <code>GatewaySubnet</code>. If this setting is disabled, the gateway doesn't function.</p>
+</div>
+<h2 id="how-azure-selects-routes-for-traffic-routing">How Azure selects routes for traffic routing</h2>
+<p><a name="how-azure-selects-a-route"></a></p>
+<p>When outbound traffic is sent from a subnet, Azure selects a route based on the destination IP address by using the longest prefix match algorithm. For example, a route table has two routes. One route specifies the 10.0.0.0/24 address prefix, and the other route specifies the 10.0.0.0/16 address prefix.</p>
+<p>Azure directs traffic destined for 10.0.0.5 to the next hop type specified in the route with the 10.0.0.0/24 address prefix. This process occurs because 10.0.0.0/24 is a longer prefix than 10.0.0.0/16, even though 10.0.0.5 falls within both address prefixes.</p>
+<p>Azure directs traffic destined for 10.0.1.5 to the next hop type specified in the route with the 10.0.0.0/16 address prefix. This process occurs because 10.0.1.5 isn't included in the 10.0.0.0/24 address prefix, which makes the route with the 10.0.0.0/16 address prefix the longest matching prefix.</p>
+<p>If multiple routes contain the same address prefix, Azure selects the route type based on the following priority:</p>
+<ol>
+<li><p>User-defined route</p>
+</li>
+<li><p>BGP route</p>
+</li>
+<li><p>System route</p>
+</li>
+</ol>
+<div class="NOTE">
+<p>Note</p>
+<p>System routes for traffic related to virtual network, virtual network peerings, or virtual network service endpoints are preferred routes. They're preferred, even if BGP routes are more specific. Routes with a virtual network service endpoint as the next hop type can't be overridden, even when you use a route table.</p>
+</div>
+<p>For example, a route table contains the following routes:</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>Address prefixes</th>
+<th>Next hop type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default</td>
+<td>0.0.0.0/0</td>
+<td>Internet</td>
+</tr>
+<tr>
+<td>User</td>
+<td>0.0.0.0/0</td>
+<td>Virtual network gateway</td>
+</tr>
+</tbody>
+</table>
+<p>When traffic is destined for an IP address outside the address prefixes of any other routes in the route table, Azure selects the route with the <strong>User</strong> source. Azure makes this choice because UDRs are a higher priority than system default routes.</p>
+<p>For a comprehensive routing table with explanations of the routes in the table, see <a href="#routing-example" data-linktype="self-bookmark">Routing example</a>.</p>
+<h2 id="default-route">0.0.0.0/0 address prefix</h2>
+<p>A route with the 0.0.0.0/0 address prefix gives instructions to Azure. Azure uses these instructions to route traffic destined for an IP address that doesn't fall within the address prefix of any other route in a subnet's route table. When a subnet is created, Azure creates a <a href="#default" data-linktype="self-bookmark">default</a> route to the 0.0.0.0/0 address prefix, with the <strong>Internet</strong> next hop type. If you don't override this route, Azure routes all traffic destined to IP addresses not included in the address prefix of any other route to the internet.</p>
+<p>The exception is that traffic to the public IP addresses of Azure services remains on the Azure backbone network and isn't routed to the internet. When you override this route with a <a href="#custom-routes" data-linktype="self-bookmark">custom</a> route, traffic destined for addresses not within the address prefixes of any other route in the route table is directed. The destination depends on whether you specify a network virtual appliance or virtual network gateway in the custom route.</p>
+<p>When you override the 0.0.0.0/0 address prefix, outbound traffic from the subnet flows through the virtual network gateway or virtual appliance. The following changes also occur with Azure default routing:</p>
+<ul>
+<li><p>Azure sends all traffic to the next hop type specified in the route, including traffic destined for public IP addresses of Azure services.</p>
+<p>When the next hop type for the route with the 0.0.0.0/0 address prefix is <strong>Internet</strong>, traffic from the subnet destined to the public IP addresses of Azure services never leaves the Azure backbone network, regardless of the Azure region in which the virtual network or Azure service resource exist.</p>
+<p>When you create a UDR or a BGP route with a <strong>Virtual network gateway</strong> or <strong>Virtual appliance</strong> next hop type, all traffic is sent to the next hop type specified in the route. Including traffic sent to public IP addresses of Azure services that aren't enabled <a href="virtual-network-service-endpoints-overview" data-linktype="relative-path">service endpoints</a>.</p>
+<p>When you enable a service endpoint for a service, Azure creates a route with address prefixes for the service. Traffic to the service doesn't route to the next hop type in a route with the 0.0.0.0/0 address prefix. The address prefixes for the service are longer than 0.0.0.0/0.</p>
+</li>
+<li><p>You can no longer directly access resources in the subnet from the internet. You can access resources in the subnet from the internet indirectly. The device specified by the next hop type for a route with the 0.0.0.0/0 address prefix must process inbound traffic. After the traffic traverses the device, the traffic reaches the resource in the virtual network. If the route contains the following values for the next hop type:</p>
+<ul>
+<li><p><strong>Virtual appliance</strong>: The appliance must:</p>
+<ul>
+<li>Be accessible from the internet.</li>
+<li>Have a public IP address assigned to it.</li>
+<li>Not have a network security group rule associated to it that prevents communication to the device.</li>
+<li>Not deny the communication.</li>
+<li>Be able to network address translate and forward, or proxy the traffic to the destination resource in the subnet and return the traffic back to the internet.</li>
+</ul>
+</li>
+<li><p><strong>Virtual network gateway</strong>: If the gateway is an ExpressRoute virtual network gateway, an internet-connected device on-premises can network address translate and forward, or proxy the traffic to the destination resource in the subnet, via ExpressRoute <a href="../expressroute/expressroute-circuit-peerings?toc=/azure/virtual-network/toc.json#privatepeering" data-linktype="relative-path">private peering</a>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>If your virtual network is connected to an Azure VPN gateway, don't associate a route table to the <a href="../vpn-gateway/vpn-gateway-about-vpn-gateway-settings?toc=/azure/virtual-network/toc.json#gwsub" data-linktype="relative-path">gateway subnet</a> that includes a route with a destination of 0.0.0.0/0. Doing so can prevent the gateway from functioning properly. For more information, see <a href="../vpn-gateway/vpn-gateway-vpn-faq?toc=/azure/virtual-network/toc.json#gatewayports" data-linktype="relative-path">Why are certain ports opened on my VPN gateway?</a></p>
+<p>For implementation details when you use virtual network gateways between the internet and Azure, see <a href="/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json" data-linktype="absolute-path">DMZ between Azure and your on-premises datacenter</a>.</p>
+<h2 id="routing-example">Routing example</h2>
+<p>To illustrate the concepts in this article, the following sections describe:</p>
+<ul>
+<li>A scenario, with requirements.</li>
+<li>The custom routes that are necessary to meet the requirements.</li>
+<li>The route table that exists for one subnet that includes the default and custom routes that are necessary to meet the requirements.</li>
+</ul>
+<div class="NOTE">
+<p>Note</p>
+<p>This example isn't intended to be a recommended or best practices implementation. The example is provided only to illustrate concepts in this article.</p>
+</div>
+<h3 id="requirements">Requirements</h3>
+<ol>
+<li><p>Implement two virtual networks in the same Azure region and enable resources to communicate between the virtual networks.</p>
+</li>
+<li><p>Enable an on-premises network to communicate securely with both virtual networks through a VPN tunnel over the internet. <em>Alternatively, you can use an ExpressRoute connection, but this example uses a VPN connection.</em></p>
+</li>
+<li><p>For one subnet in one virtual network:</p>
+<ul>
+<li>Route all outbound traffic from the subnet through a network virtual appliance for inspection and logging. Exclude traffic to Azure Storage and within the subnet from this routing.</li>
+<li>Don't inspect traffic between private IP addresses within the subnet. Allow traffic to flow directly between all resources.</li>
+<li>Drop any outbound traffic destined for the other virtual network.</li>
+<li>Enable outbound traffic to Azure Storage to flow directly to storage, without forcing it through a network virtual appliance.</li>
+</ul>
+</li>
+<li><p>Allow all traffic between all other subnets and virtual networks.</p>
+</li>
+</ol>
+<h3 id="implementation">Implementation</h3>
+<p>The following diagram shows an implementation through the Resource Manager deployment model that meets the previous requirements.</p>
+<p><span class="mx-imgBorder">
+<img src="media/virtual-networks-udr-overview/routing-example.png" alt="Diagram that shows a network implementation." data-linktype="relative-path">
+</span>
+</p>
+<p>Arrows show the flow of traffic.</p>
+<h3 id="route-tables">Route tables</h3>
+<p>Here are the route tables for the preceding routing example.</p>
+<h4 id="subnet1">Subnet1</h4>
+<p>The route table for <em>Subnet1</em> in the preceding diagram contains the following routes:</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Source</th>
+<th>State</th>
+<th>Address prefixes</th>
+<th>Next hop type</th>
+<th>Next hop IP address</th>
+<th>UDR name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Default</td>
+<td>Invalid</td>
+<td>10.0.0.0/16</td>
+<td>Virtual network</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>User</td>
+<td>Active</td>
+<td>10.0.0.0/16</td>
+<td>Virtual appliance</td>
+<td>10.0.100.4</td>
+<td>Within-VNet1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>User</td>
+<td>Active</td>
+<td>10.0.0.0/24</td>
+<td>Virtual network</td>
+<td></td>
+<td>Within-Subnet1</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Default</td>
+<td>Invalid</td>
+<td>10.1.0.0/16</td>
+<td>Virtual network peering</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Default</td>
+<td>Invalid</td>
+<td>10.2.0.0/16</td>
+<td>Virtual network peering</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>User</td>
+<td>Active</td>
+<td>10.1.0.0/16</td>
+<td>None</td>
+<td></td>
+<td>ToVNet2-1-Drop</td>
+</tr>
+<tr>
+<td>7</td>
+<td>User</td>
+<td>Active</td>
+<td>10.2.0.0/16</td>
+<td>None</td>
+<td></td>
+<td>ToVNet2-2-Drop</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Default</td>
+<td>Invalid</td>
+<td>10.10.0.0/16</td>
+<td>Virtual network gateway</td>
+<td>[X.X.X.X]</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>User</td>
+<td>Active</td>
+<td>10.10.0.0/16</td>
+<td>Virtual appliance</td>
+<td>10.0.100.4</td>
+<td>To-On-Prem</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Default</td>
+<td>Active</td>
+<td>[X.X.X.X]</td>
+<td><code>VirtualNetworkServiceEndpoint</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Default</td>
+<td>Invalid</td>
+<td>0.0.0.0/0</td>
+<td>Internet</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>User</td>
+<td>Active</td>
+<td>0.0.0.0/0</td>
+<td>Virtual appliance</td>
+<td>10.0.100.4</td>
+<td>Default-NVA</td>
+</tr>
+</tbody>
+</table>
+<p>Here's an explanation of each route ID:</p>
+<ul>
+<li><p><strong>ID1</strong>: Azure automatically added this route for all subnets within <em>Virtual-network-1</em> because 10.0.0.0/16 is the only address range defined in the address space for the virtual network. If you don't create the UDR in route ID2, traffic sent to any address between 10.0.0.1 and 10.0.255.254 is routed within the virtual network. This process occurs because the prefix is longer than 0.0.0.0/0 and doesn't fall within the address prefixes of any other routes.</p>
+<p>Azure automatically changed the state from <strong>Active</strong> to <strong>Invalid</strong>, when ID2, a UDR, was added. It has the same prefix as the default route, and UDRs override default routes. The state of this route is still <strong>Active</strong> for <em>Subnet2</em> because the route table that the UDR, ID2, isn't associated to <em>Subnet2</em>.</p>
+</li>
+<li><p><strong>ID2</strong>: Azure added this route when a UDR for the 10.0.0.0/16 address prefix was associated to the <em>Subnet1</em> subnet in the <em>Virtual-network-1</em> virtual network. The UDR specifies 10.0.100.4 as the IP address of the virtual appliance because the address is the private IP address assigned to the virtual appliance virtual machine. The route table in which this route exists isn't associated to <em>Subnet2</em>, so the route doesn't appear in the route table for <em>Subnet2</em>.</p>
+<p>This route overrides the default route for the 10.0.0.0/16 prefix (ID1), which automatically routed traffic addressed to 10.0.0.1 and 10.0.255.254 within the virtual network through the virtual network next hop type. This route exists to meet <a href="#requirements" data-linktype="self-bookmark">requirement</a> 3, which is to force all outbound traffic through a virtual appliance.</p>
+</li>
+<li><p><strong>ID3</strong>: Azure added this route when a UDR for the 10.0.0.0/24 address prefix was associated to the <em>Subnet1</em> subnet. Traffic destined for addresses between 10.0.0.1 and 10.0.0.254 remains within the subnet. The traffic isn't routed to the virtual appliance specified in the previous rule (ID2) because it has a longer prefix than the ID2 route.</p>
+<p>This route wasn't associated to <em>Subnet2</em>, so the route doesn't appear in the route table for <em>Subnet2</em>. This route effectively overrides the ID2 route for traffic within <em>Subnet1</em>. This route exists to meet <a href="#requirements" data-linktype="self-bookmark">requirement</a> 3.</p>
+</li>
+<li><p><strong>ID4</strong>: Azure automatically added the routes in IDs 4 and 5 for all subnets within <em>Virtual-network-1</em> when the virtual network was peered with <em>Virtual-network-2.</em> <em>Virtual-network-2</em> has two address ranges in its address space, 10.1.0.0/16 and 10.2.0.0/16, so Azure added a route for each range. If you don't create the UDRs in route IDs 6 and 7, traffic sent to any address between 10.1.0.1-10.1.255.254 and 10.2.0.1-10.2.255.254 is routed to the peered virtual network. This process occurs because the prefix is longer than 0.0.0.0/0 and doesn't fall within the address prefixes of any other routes.</p>
+<p>When you added the routes in IDs 6 and 7, Azure automatically changed the state from <strong>Active</strong> to <strong>Invalid</strong>. This process occurs because they have the same prefixes as the routes in IDs 4 and 5, and UDRs override default routes. The state of the routes in IDs 4 and 5 are still <strong>Active</strong> for <em>Subnet2</em> because the route table in which the UDRs in IDs 6 and 7 isn't associated to <em>Subnet2</em>. A virtual network peering was created to meet <a href="#requirements" data-linktype="self-bookmark">requirement</a> 1.</p>
+</li>
+<li><p><strong>ID5</strong>: Same explanation as ID4.</p>
+</li>
+<li><p><strong>ID6</strong>: Azure added this route and the route in ID7 when UDRs for the 10.1.0.0/16 and 10.2.0.0/16 address prefixes were associated to the <em>Subnet1</em> subnet. Azure drops traffic destined for addresses between 10.1.0.1-10.1.255.254 and 10.2.0.1-10.2.255.254, rather than being routed to the peered virtual network, because UDRs override default routes. The routes aren't associated to <em>Subnet2</em>, so the routes don't appear in the route table for <em>Subnet2</em>. The routes override the ID4 and ID5 routes for traffic leaving <em>Subnet1</em>. The ID6 and ID7 routes exist to meet <a href="#requirements" data-linktype="self-bookmark">requirement</a> 3 to drop traffic destined to the other virtual network.</p>
+</li>
+<li><p><strong>ID7</strong>: Same explanation as ID6.</p>
+</li>
+<li><p><strong>ID8</strong>: Azure automatically added this route for all subnets within <em>Virtual-network-1</em> when a VPN type virtual network gateway was created within the virtual network. Azure added the public IP address of the virtual network gateway to the route table. Traffic sent to any address between 10.10.0.1 and 10.10.255.254 is routed to the virtual network gateway. The prefix is longer than 0.0.0.0/0 and not within the address prefixes of any of the other routes. A virtual network gateway was created to meet <a href="#requirements" data-linktype="self-bookmark">requirement</a> 2.</p>
+</li>
+<li><p><strong>ID9</strong>: Azure added this route when a UDR for the 10.10.0.0/16 address prefix was added to the route table associated to <em>Subnet1</em>. This route overrides ID8. The route sends all traffic destined for the on-premises network to a network virtual appliance for inspection, rather than routing traffic directly on-premises. This route was created to meet <a href="#requirements" data-linktype="self-bookmark">requirement</a> 3.</p>
+</li>
+<li><p><strong>ID10</strong>: Azure automatically added this route to the subnet when a service endpoint to an Azure service was enabled for the subnet. Azure routes traffic from the subnet to a public IP address of the service, over the Azure infrastructure network. The prefix is longer than 0.0.0.0/0 and not within the address prefixes of any of the other routes. A service endpoint was created to meet <a href="#requirements" data-linktype="self-bookmark">requirement</a> 3 to enable traffic destined for Azure Storage to flow directly to Azure Storage.</p>
+</li>
+<li><p><strong>ID11</strong>: Azure automatically added this route to the route table of all subnets within <em>Virtual-network-1</em> and <em>Virtual-network-2.</em> The 0.0.0.0/0 address prefix is the shortest prefix. Any traffic sent to addresses within a longer address prefix are routed based on other routes.</p>
+<p>By default, Azure routes all traffic destined for addresses other than the addresses specified in one of the other routes to the internet. Azure automatically changed the state from <strong>Active</strong> to <strong>Invalid</strong> for the <em>Subnet1</em> subnet when a UDR for the 0.0.0.0/0 address prefix (ID12) was associated to the subnet. The state of this route is still <strong>Active</strong> for all other subnets within both virtual networks because the route isn't associated to any other subnets within any other virtual networks.</p>
+</li>
+<li><p><strong>ID12</strong>: Azure added this route when a UDR for the 0.0.0.0/0 address prefix was associated to the <em>Subnet1</em> subnet. The UDR specifies 10.0.100.4 as the IP address of the virtual appliance. This route isn't associated to <em>Subnet2</em>, so the route doesn't appear in the route table for <em>Subnet2</em>. All traffic for any address not included in the address prefixes of any of the other routes is sent to the virtual appliance.</p>
+<p>The addition of this route changed the state of the default route for the 0.0.0.0/0 address prefix (ID11) from <strong>Active</strong> to <strong>Invalid</strong> for <em>Subnet1</em> because a UDR overrides a default route. This route exists to meet <a href="#requirements" data-linktype="self-bookmark">requirement</a> 3.</p>
+</li>
+</ul>
+<h4 id="subnet2">Subnet2</h4>
+<p>The route table for <em>Subnet2</em> in the preceding diagram contains the following routes:</p>
+<table>
+<thead>
+<tr>
+<th>Source</th>
+<th>State</th>
+<th>Address prefixes</th>
+<th>Next hop type</th>
+<th>Next hop IP address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Default</td>
+<td>Active</td>
+<td>10.0.0.0/16</td>
+<td>Virtual network</td>
+<td></td>
+</tr>
+<tr>
+<td>Default</td>
+<td>Active</td>
+<td>10.1.0.0/16</td>
+<td>Virtual network peering</td>
+<td></td>
+</tr>
+<tr>
+<td>Default</td>
+<td>Active</td>
+<td>10.2.0.0/16</td>
+<td>Virtual network peering</td>
+<td></td>
+</tr>
+<tr>
+<td>Default</td>
+<td>Active</td>
+<td>10.10.0.0/16</td>
+<td>Virtual network gateway</td>
+<td>[X.X.X.X]</td>
+</tr>
+<tr>
+<td>Default</td>
+<td>Active</td>
+<td>0.0.0.0/0</td>
+<td>Internet</td>
+<td></td>
+</tr>
+<tr>
+<td>Default</td>
+<td>Active</td>
+<td>10.0.0.0/8</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>Default</td>
+<td>Active</td>
+<td>100.64.0.0/10</td>
+<td>None</td>
+<td></td>
+</tr>
+<tr>
+<td>Default</td>
+<td>Active</td>
+<td>192.168.0.0/16</td>
+<td>None</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The route table for <em>Subnet2</em> contains all Azure-created default routes and the optional virtual network peering and virtual network gateway optional routes. Azure added the optional routes to all subnets in the virtual network when the gateway and peering were added to the virtual network.</p>
+<p>Azure removed the routes for the 10.0.0.0/8, 192.168.0.0/16, and 100.64.0.0/10 address prefixes from the <em>Subnet1</em> route table when the UDR for the 0.0.0.0/0 address prefix was added to <em>Subnet1</em>.</p>
+<h2 id="related-content">Related content</h2>
+<ul>
+<li><a href="tutorial-create-route-table-portal" data-linktype="relative-path">Create a UDR table with routes and a network virtual appliance</a>.</li>
+<li><a href="../vpn-gateway/configure-bgp?toc=/azure/virtual-network/toc.json" data-linktype="relative-path">Configure BGP for an Azure VPN Gateway</a>.</li>
+<li><a href="../expressroute/expressroute-routing?toc=/azure/virtual-network/toc.json#route-aggregation-and-prefix-limits" data-linktype="relative-path">Use BGP with ExpressRoute</a>.</li>
+<li><a href="diagnose-network-routing-problem" data-linktype="relative-path">View all routes for a subnet</a>. A UDR table shows you only the UDRs, not the default, and BGP routes for a subnet. Viewing all routes shows you the default, BGP, and UDRs for the subnet in which a network interface is located.</li>
+<li><a href="../network-watcher/diagnose-vm-network-routing-problem?toc=/azure/virtual-network/toc.json" data-linktype="relative-path">Determine the next hop type</a> between a virtual machine and a destination IP address. You can use the Azure Network Watcher next hop feature to determine whether traffic is leaving a subnet and being routed to where you think it should be.</li>
+</ul>
+</div>
+					
+		<div
+			id="ms--inline-notifications"
+			class="margin-block-xs"
+			data-bi-name="inline-notification"
+		></div>
+	 
+		<div
+			id="assertive-live-region"
+			role="alert"
+			aria-live="assertive"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+		<div
+			id="polite-live-region"
+			role="status"
+			aria-live="polite"
+			class="visually-hidden"
+			aria-relevant="additions"
+			aria-atomic="true"
+		></div>
+	
+					
+		<!-- feedback section -->
+		<section
+			id="site-user-feedback-footer"
+			class="font-size-sm margin-top-md display-none-print display-none-desktop"
+			data-test-id="site-user-feedback-footer"
+			data-bi-name="site-feedback-section"
+		>
+			<hr class="hr" />
+			<h2 id="ms--feedback" class="title is-3">Feedback</h2>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="buttons">
+					<button
+						class="thumb-rating-button like button button-primary button-sm"
+						data-test-id="footer-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+						<span>Yes</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike button button-primary button-sm"
+						id="standard-rating-no-button"
+						hidden
+						data-test-id="footer-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+						<span>No</span>
+					</button>
+					<details
+						class="popover popover-top"
+						id="mobile-help-popover"
+						data-test-id="footer-feedback-popover"
+					>
+						<summary
+							class="thumb-rating-button dislike button button-primary button-sm"
+							data-test-id="details-footer-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+							<span>No</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading"
+							aria-describedby="popover-description"
+						>
+							<p id="popover-heading" class="font-size-lg margin-bottom-xxs font-weight-semibold">
+								Need help with this topic?
+							</p>
+							<p id="popover-description" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+		<!-- end feedback section -->
+	
+				</div>
+				
+		<div id="ms--additional-resources-mobile" class="display-none-print">
+			<hr class="hr" hidden />
+			<h2 id="ms--additional-resources-mobile-heading" class="title is-3" hidden>
+				Additional resources
+			</h2>
+			
+		<section
+			id="right-rail-recommendations-mobile"
+			class=""
+			data-bi-name="recommendations"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-training-mobile"
+			class=""
+			data-bi-name="learning-resource-card"
+			hidden
+		></section>
+	 
+		<section
+			id="right-rail-events-mobile"
+			class=""
+			data-bi-name="events-card"
+			hidden
+		></section>
+	
+		</div>
+	 
+		<div
+			id="article-metadata-footer"
+			data-bi-name="article-metadata-footer"
+			data-test-id="article-metadata-footer"
+			class="page-metadata-container"
+		>
+			<hr class="hr" />
+			<ul class="metadata page-metadata" data-bi-name="page info" lang="en-us" dir="ltr">
+				<li class="visibility-hidden-visual-diff">
+			<span class="badge badge-sm text-wrap-pretty">
+				<span>Last updated on <local-time format="twoDigitNumeric"
+		datetime="2026-03-31T08:00:00.000Z"
+		data-article-date-source="calculated"
+		class="is-invisible"
+	>
+		2026-03-31
+	</local-time></span>
+			</span>
+		</li>
+			</ul>
+		</div>
+	
+			</div>
+		
+				</main>
+				<aside
+					id="layout-body-aside"
+					class="layout-body-aside  "
+					data-bi-name="aside"
+					aria-label="Additional resources"
+			  >
+					
+		<div
+			id="ms--additional-resources"
+			class="right-container padding-sm display-none display-block-desktop height-full"
+			data-bi-name="pageactions"
+		>
+			<div id="affixed-right-container" data-bi-name="right-column">
+				
+		<nav
+			id="side-doc-outline"
+			class="doc-outline border-bottom padding-bottom-xs margin-bottom-xs scrollbar-width-thin"
+			data-bi-name="intopic toc"
+			aria-label="In this article"
+		>
+			<h3>In this article</h3>
+		</nav>
+	
+				<!-- Feedback -->
+				
+		<section
+			id="ms--site-user-feedback-right-rail"
+			class="font-size-sm display-none-print"
+			data-test-id="site-user-feedback-right-rail"
+			data-bi-name="site-feedback-right-rail"
+		>
+			<div class="display-flex flex-wrap-wrap align-items-center">
+				<p class="font-weight-semibold margin-xxs margin-left-none">
+					Was this page helpful?
+				</p>
+				<div class="display-flex flex-wrap-nowrap">
+					<button
+						class="thumb-rating-button like inner-focus"
+						data-test-id="right-rail-rating-yes"
+						data-binary-rating-response="rating-yes"
+						type="button"
+						title="This article is helpful"
+						aria-label="This article is helpful"
+						data-bi-name="button-rating-yes"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-like"></span>
+						</span>
+					</button>
+					<button
+						class="thumb-rating-button dislike inner-focus"
+						id="right-rail-no-button"
+						hidden
+						data-test-id="right-rail-rating-no"
+						data-binary-rating-response="rating-no"
+						type="button"
+						title="This article is not helpful"
+						aria-label="This article is not helpful"
+						data-bi-name="button-rating-no"
+						aria-pressed="false"
+					>
+						<span class="icon" aria-hidden="true">
+							<span class="docon docon-dislike"></span>
+						</span>
+					</button>
+					<details class="popover popover-right" id="help-popover" data-test-id="feedback-popover">
+						<summary
+							tabindex="0"
+							class="thumb-rating-button dislike inner-focus"
+							data-test-id="details-right-rail-rating-no"
+							data-binary-rating-response="rating-no"
+							title="This article is not helpful"
+							aria-label="This article is not helpful"
+							data-bi-name="button-rating-no"
+							aria-pressed="false"
+							data-bi-an="feedback-unhelpful-popover"
+						>
+							<span class="icon" aria-hidden="true">
+								<span class="docon docon-dislike"></span>
+							</span>
+						</summary>
+						<div
+							class="popover-content width-200 width-300-tablet"
+							role="dialog"
+							aria-labelledby="popover-heading-right-rail"
+							aria-describedby="popover-description-right-rail"
+						>
+							<p
+								id="popover-heading-right-rail"
+								class="font-size-lg margin-bottom-xxs font-weight-semibold"
+							>
+								Need help with this topic?
+							</p>
+							<p id="popover-description-right-rail" class="font-size-sm margin-bottom-xs">
+								Want to try using Ask Learn to clarify or guide you through this topic?
+							</p>
+							
+		<div class="buttons flex-direction-row flex-wrap justify-content-center gap-xxs">
+			<div>
+		<button
+			class="button button-sm border inner-focus display-none margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-test-id="ask-learn-assistant-modal-entry-mobile-feedback"
+			data-ask-learn-modal-entry-feedback
+			data-bi-an=feedback-unhelpful-popover
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-label="Ask Learn"
+			hidden
+		>
+			<span class="icon" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+		</button>
+		<button
+			class="button button-sm display-inline-flex display-none-desktop flex-shrink-0 margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-modal-entry-tablet-feedback"
+			data-ask-learn-modal-entry-feedback
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+		<button
+			class="button button-sm display-none flex-shrink-0 display-inline-flex-desktop margin-right-xxs border-color-ask-learn margin-right-xxs"
+			data-bi-name="ask-learn-assistant-entry-troubleshoot"
+			data-bi-an=feedback-unhelpful-popover
+			data-test-id="ask-learn-assistant-flyout-entry-feedback"
+			data-ask-learn-flyout-entry-show-only
+			data-flyout-button="toggle"
+			type="button"
+			style="min-width: max-content;"
+			aria-expanded="false"
+			aria-controls="ask-learn-flyout"
+			hidden
+		>
+			<span class="icon font-size-lg" aria-hidden="true">
+				<span class="docon docon-chat-sparkle-fill gradient-ask-learn-logo"></span>
+			</span>
+			<span>Ask Learn</span>
+		</button>
+	</div>
+			<button
+				type="button"
+				class="button button-sm margin-right-xxs"
+				data-help-option="suggest-fix"
+				data-bi-name="feedback-suggest"
+				data-bi-an="feedback-unhelpful-popover"
+				data-test-id="suggest-fix"
+			>
+				<span class="icon" aria-hidden="true">
+					<span class="docon docon-feedback"></span>
+				</span>
+				<span> Suggest a fix? </span>
+			</button>
+		</div>
+	
+						</div>
+					</details>
+				</div>
+			</div>
+		</section>
+	
+			</div>
+		</div>
+	
+			  </aside> <section
+					id="layout-body-flyout"
+					class="layout-body-flyout "
+					data-bi-name="flyout"
+			  >
+					 <div
+	class="height-full border-left background-color-body-medium"
+	id="ask-learn-flyout"
+></div>
+			  </section> <div class="layout-body-footer " data-bi-name="layout-footer">
+		<footer
+			id="footer"
+			data-test-id="footer"
+			data-bi-name="footer"
+			class="footer-layout padding-xs padding-sm-desktop has-default-focus border-top"
+			role="contentinfo"
+		>
+			<div class="display-flex gap-xs flex-wrap-wrap is-full-height padding-right-lg-desktop">
+				
+		<a
+			data-mscc-ic="false"
+			href="#"
+			data-bi-name="select-locale"
+			class="locale-selector-link flex-shrink-0 button button-sm button-clear external-link-indicator"
+			id=""
+			title=""
+			><span class="icon" aria-hidden="true"
+				><span class="docon docon-world"></span></span
+			><span class="local-selector-link-text">en-us</span></a
+		>
+	 <div class="ccpa-privacy-link" data-ccpa-privacy-link hidden>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://aka.ms/yourcaliforniaprivacychoices"
+			data-bi-name="your-privacy-choices"
+			class="button button-sm button-clear flex-shrink-0 external-link-indicator"
+			id=""
+			title=""
+			>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 30 14"
+			xml:space="preserve"
+			height="16"
+			width="43"
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path
+				d="M7.4 12.8h6.8l3.1-11.6H7.4C4.2 1.2 1.6 3.8 1.6 7s2.6 5.8 5.8 5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#fff"
+			></path>
+			<path
+				d="M22.6 0H7.4c-3.9 0-7 3.1-7 7s3.1 7 7 7h15.2c3.9 0 7-3.1 7-7s-3.2-7-7-7zm-21 7c0-3.2 2.6-5.8 5.8-5.8h9.9l-3.1 11.6H7.4c-3.2 0-5.8-2.6-5.8-5.8z"
+				style="fill-rule:evenodd;clip-rule:evenodd;fill:#06f"
+			></path>
+			<path
+				d="M24.6 4c.2.2.2.6 0 .8L22.5 7l2.2 2.2c.2.2.2.6 0 .8-.2.2-.6.2-.8 0l-2.2-2.2-2.2 2.2c-.2.2-.6.2-.8 0-.2-.2-.2-.6 0-.8L20.8 7l-2.2-2.2c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0l2.2 2.2L23.8 4c.2-.2.6-.2.8 0z"
+				style="fill:#fff"
+			></path>
+			<path
+				d="M12.7 4.1c.2.2.3.6.1.8L8.6 9.8c-.1.1-.2.2-.3.2-.2.1-.5.1-.7-.1L5.4 7.7c-.2-.2-.2-.6 0-.8.2-.2.6-.2.8 0L8 8.6l3.8-4.5c.2-.2.6-.2.9 0z"
+				style="fill:#06f"
+			></path>
+		</svg>
+	
+			<span>Your Privacy Choices</span></a
+		>
+	
+	</div>
+				<div class="flex-shrink-0">
+		<div class="dropdown has-caret-up">
+			<button
+				data-test-id="theme-selector-button"
+				class="dropdown-trigger button button-clear button-sm inner-focus theme-dropdown-trigger"
+				aria-controls="{{ themeMenuId }}"
+				aria-haspopup="true"
+				aria-expanded="false"
+				data-bi-name="theme"
+			>
+				<span class="icon" aria-hidden="true"><span class="docon docon-sun"></span></span>
+				<span>Theme</span>
+				<span class="icon expanded-indicator" aria-hidden="true">
+					<span class="docon docon-chevron-down-light"></span>
+				</span>
+			</button>
+			<div class="dropdown-menu" id="{{ themeMenuId }}" role="menu">
+				<ul class="theme-selector padding-xxs" data-test-id="theme-dropdown-menu" role="none">
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="light"
+							tabindex="-1"
+						>
+							<span class="theme-light margin-right-xxs">
+								<span
+									class="theme-selector-icon border display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Light </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="dark"
+							tabindex="-1"
+						>
+							<span class="theme-dark margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> Dark </span>
+						</button>
+					</li>
+					<li class="theme display-block" role="none">
+						<button
+							class="button button-clear button-sm theme-control button-block justify-content-flex-start text-align-left"
+							role="menuitemradio"
+							aria-checked="false"
+							data-theme-to="high-contrast"
+							tabindex="-1"
+						>
+							<span class="theme-high-contrast margin-right-xxs">
+								<span
+									class="border theme-selector-icon display-inline-block has-body-background"
+									aria-hidden="true"
+								>
+									<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 14">
+										<rect width="22" height="14" class="has-fill-body-background" />
+										<rect x="5" y="5" width="12" height="4" class="has-fill-secondary" />
+										<rect x="5" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="8" y="2" width="2" height="1" class="has-fill-secondary" />
+										<rect x="11" y="2" width="3" height="1" class="has-fill-secondary" />
+										<rect x="1" y="1" width="2" height="2" class="has-fill-secondary" />
+										<rect x="5" y="10" width="7" height="2" rx="0.3" class="has-fill-primary" />
+										<rect x="19" y="1" width="2" height="2" rx="1" class="has-fill-secondary" />
+									</svg>
+								</span>
+							</span>
+							<span> High contrast </span>
+						</button>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+			</div>
+			<ul class="links" data-bi-name="footerlinks">
+				<li class="manage-cookies-holder" hidden=""></li>
+				<li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/principles-for-ai-generated-content"
+			data-bi-name="aiDisclaimer"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>AI Disclaimer</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/previous-versions/"
+			data-bi-name="archivelink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Previous Versions</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://techcommunity.microsoft.com/t5/microsoft-learn-blog/bg-p/MicrosoftLearnBlog"
+			data-bi-name="bloglink"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Blog</a
+		>
+	
+	</li> <li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/contribute"
+			data-bi-name="contributorGuide"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Contribute</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?LinkId=521839"
+			data-bi-name="privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://go.microsoft.com/fwlink/?linkid=2259814"
+			data-bi-name="consumer-health-privacy"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Consumer Health Privacy</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://learn.microsoft.com/en-us/legal/termsofuse"
+			data-bi-name="termsofuse"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Terms of Use</a
+		>
+	
+	</li><li>
+		
+		<a
+			data-mscc-ic="false"
+			href="https://www.microsoft.com/legal/intellectualproperty/Trademarks/"
+			data-bi-name="trademarks"
+			class=" external-link-indicator"
+			id=""
+			title=""
+			>Trademarks</a
+		>
+	
+	</li>
+				<li>&copy; Microsoft 2026</li>
+			</ul>
+		</footer>
+	</footer>
+			</body>
+		</html>

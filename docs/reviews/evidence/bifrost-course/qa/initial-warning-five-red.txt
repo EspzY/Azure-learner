@@ -1,0 +1,230 @@
+
+Running 5 tests using 1 worker
+
+(node:157507) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:22:1 › Bifrost blocked appearance storage and denied independent Journal remain honest readable and within 320px in both themes (14.7s)
+(node:157693) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  2 [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:230:3 › Bifrost light actual Hub question selected state real wrong correct feedback and Journal preserve original evidence (9.6s)
+(node:157806) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  3 [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:432:3 › Bifrost light compact keyboard reduced motion and native Portal Laboratory theme boundary remain usable (50.3s)
+(node:157997) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  4 [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:230:3 › Bifrost dark actual Hub question selected state real wrong correct feedback and Journal preserve original evidence (18.7s)
+(node:158156) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  5 [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:432:3 › Bifrost dark compact keyboard reduced motion and native Portal Laboratory theme boundary remain usable (31.1s)
+
+
+  1) [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:22:1 › Bifrost blocked appearance storage and denied independent Journal remain honest readable and within 320px in both themes 
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  -  1
+    + Received  + 58
+
+    - Array []
+    + Array [
+    +   Object {
+    +     "description": "Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds",
+    +     "help": "Elements must meet minimum color contrast ratio thresholds",
+    +     "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/color-contrast?application=playwright",
+    +     "id": "color-contrast",
+    +     "impact": "serious",
+    +     "nodes": Array [
+    +       Object {
+    +         "all": Array [],
+    +         "any": Array [
+    +           Object {
+    +             "data": Object {
+    +               "bgColor": "#4d3200",
+    +               "contrastRatio": 2.05,
+    +               "expectedContrastRatio": "4.5:1",
+    +               "fgColor": "#0067b8",
+    +               "fontSize": "12.0pt (16px)",
+    +               "fontWeight": "normal",
+    +               "messageKey": null,
+    +             },
+    +             "id": "color-contrast",
+    +             "impact": "serious",
+    +             "message": "Element has insufficient color contrast of 2.05 (foreground color: #0067b8, background color: #4d3200, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +             "relatedNodes": Array [
+    +               Object {
+    +                 "html": "<div>",
+    +                 "target": Array [
+    +                   ".course-storage[role=\"status\"] > div",
+    +                 ],
+    +               },
+    +             ],
+    +           },
+    +         ],
+    +         "failureSummary": "Fix any of the following:
+    +   Element has insufficient color contrast of 2.05 (foreground color: #0067b8, background color: #4d3200, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1",
+    +         "html": "<button type=\"button\">Les lagret vurderingskontekst på nytt</button>",
+    +         "impact": "serious",
+    +         "none": Array [],
+    +         "target": Array [
+    +           ".course-storage[role=\"status\"] > div > button[type=\"button\"]",
+    +         ],
+    +       },
+    +     ],
+    +     "tags": Array [
+    +       "cat.color",
+    +       "wcag2aa",
+    +       "wcag143",
+    +       "TTv5",
+    +       "TT13.c",
+    +       "EN-301-549",
+    +       "EN-9.1.4.3",
+    +       "ACT",
+    +       "RGAAv4",
+    +       "RGAA-3.2.1",
+    +     ],
+    +   },
+    + ]
+
+      174 | async function accessible(page: Page) {
+      175 |   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    > 176 |   expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+          |                                                                 ^
+      177 | }
+      178 |
+      179 | async function nativeReview(page: Page, mode: 'light' | 'dark', info: TestInfo, scope = 'native') {
+        at accessible (/workspace/azurelab-phase2/course/tests/e2e/bifrost-course.spec.ts:176:65)
+        at /workspace/azurelab-phase2/course/tests/e2e/bifrost-course.spec.ts:159:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-warning-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-warning-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../tmp/bifrost-course-warning-results/bifrost-course-Bifrost-blo-47b43-within-320px-in-both-themes-desktop-chromium/error-context.md
+
+  2) [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:230:3 › Bifrost light actual Hub question selected state real wrong correct feedback and Journal preserve original evidence 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('#cloud-part-intro-request .v2-check')
+    Expected: 1
+    Received: 0
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('#cloud-part-intro-request .v2-check') with timeout 5000ms
+      - waiting for locator('#cloud-part-intro-request .v2-check')
+        2 × locator resolved to 0 elements
+          - unexpected value "0"
+
+
+      244 |     await page.locator('.learn-hub-start .course-primary').click();
+      245 |     const check = page.locator('#cloud-part-intro-request .v2-check');
+    > 246 |     await expect(check).toHaveCount(1);
+          |                         ^
+      247 |     await expect(page.locator('#cloud-part-intro-request .proof-server')).toBeVisible();
+      248 |     await page.getByRole('button', { name: nb.foundationsVisuals.send, exact: true }).click();
+      249 |     await expect(page.locator('#cloud-part-intro-request .proof-causal')).toHaveText(
+        at /workspace/azurelab-phase2/course/tests/e2e/bifrost-course.spec.ts:246:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-warning-results/bifrost-course-Bifrost-lig-a4e83--preserve-original-evidence-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../tmp/bifrost-course-warning-results/bifrost-course-Bifrost-lig-a4e83--preserve-original-evidence-desktop-chromium/error-context.md
+
+  3) [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:432:3 › Bifrost light compact keyboard reduced motion and native Portal Laboratory theme boundary remain usable 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('.course-shell')
+    Expected: 1
+    Received: 0
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('.course-shell') with timeout 5000ms
+      - waiting for locator('.course-shell')
+
+
+      15 |   });
+      16 | async function theme(page: Page, mode: 'light' | 'dark') {
+    > 17 |   await expect(page.locator('.course-shell')).toHaveCount(1);
+         |                                               ^
+      18 |   await page.getByLabel(themeCopy.label, { exact: true }).selectOption(mode);
+      19 |   await expect(page.locator('html')).toHaveAttribute('data-bf-theme', mode);
+      20 | }
+        at theme (/workspace/azurelab-phase2/course/tests/e2e/bifrost-course.spec.ts:17:47)
+        at /workspace/azurelab-phase2/course/tests/e2e/bifrost-course.spec.ts:437:11
+
+    Error Context: ../../../tmp/bifrost-course-warning-results/bifrost-course-Bifrost-lig-8ea95-heme-boundary-remain-usable-desktop-chromium/error-context.md
+
+  4) [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:230:3 › Bifrost dark actual Hub question selected state real wrong correct feedback and Journal preserve original evidence 
+
+    Error: expect(locator).toHaveCount(expected) failed
+
+    Locator:  locator('.course-shell')
+    Expected: 1
+    Received: 0
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveCount" locator('.course-shell') with timeout 5000ms
+      - waiting for locator('.course-shell')
+
+
+      15 |   });
+      16 | async function theme(page: Page, mode: 'light' | 'dark') {
+    > 17 |   await expect(page.locator('.course-shell')).toHaveCount(1);
+         |                                               ^
+      18 |   await page.getByLabel(themeCopy.label, { exact: true }).selectOption(mode);
+      19 |   await expect(page.locator('html')).toHaveAttribute('data-bf-theme', mode);
+      20 | }
+        at theme (/workspace/azurelab-phase2/course/tests/e2e/bifrost-course.spec.ts:17:47)
+        at /workspace/azurelab-phase2/course/tests/e2e/bifrost-course.spec.ts:235:11
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-30e30--preserve-original-evidence-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-30e30--preserve-original-evidence-desktop-chromium/error-context.md
+
+  5) [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:432:3 › Bifrost dark compact keyboard reduced motion and native Portal Laboratory theme boundary remain usable 
+
+    Test timeout of 30000ms exceeded.
+
+    Error: page.screenshot: Test timeout of 30000ms exceeded.
+    Call log:
+      - taking page screenshot
+      - waiting for fonts to load...
+      - fonts loaded
+
+
+      448 |       expect(await select.evaluate((el) => getComputedStyle(el).outlineStyle)).toBe('solid');
+      449 |       await accessible(page);
+    > 450 |       await page.screenshot({
+          |                  ^
+      451 |         path: info.outputPath(`${mode}-hub-${viewport.width}x${viewport.height}.png`),
+      452 |       });
+      453 |     }
+        at /workspace/azurelab-phase2/course/tests/e2e/bifrost-course.spec.ts:450:18
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-6e93e-heme-boundary-remain-usable-desktop-chromium/test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ../../../tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-6e93e-heme-boundary-remain-usable-desktop-chromium/test-failed-2.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ../../../tmp/bifrost-course-warning-results/bifrost-course-Bifrost-dar-6e93e-heme-boundary-remain-usable-desktop-chromium/error-context.md
+
+  5 failed
+    [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:22:1 › Bifrost blocked appearance storage and denied independent Journal remain honest readable and within 320px in both themes 
+    [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:230:3 › Bifrost light actual Hub question selected state real wrong correct feedback and Journal preserve original evidence 
+    [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:432:3 › Bifrost light compact keyboard reduced motion and native Portal Laboratory theme boundary remain usable 
+    [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:230:3 › Bifrost dark actual Hub question selected state real wrong correct feedback and Journal preserve original evidence 
+    [desktop-chromium] › tests/e2e/bifrost-course.spec.ts:432:3 › Bifrost dark compact keyboard reduced motion and native Portal Laboratory theme boundary remain usable 

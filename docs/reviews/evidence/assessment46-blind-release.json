@@ -1,0 +1,1269 @@
+{
+  "schema_version": 1,
+  "review_type": "blind_actual_release_packet_recheck",
+  "candidate": {
+    "path": "/workspace/azurelab-pr46/blind-release-candidate.json",
+    "sha256": "771cd0fc625508548fbd97fdf9ce4038613b038a55b02dbe23e7e12a8cf26ab5",
+    "case_count": 12
+  },
+  "lock": {
+    "status": "locked_before_any_key_or_repository_comparison",
+    "created_at_utc": "2026-11-02T09:00:39.726993+00:00",
+    "comparison_performed": false
+  },
+  "source_boundary": {
+    "only_content_source_read_in_this_recheck": "/workspace/azurelab-pr46/blind-release-candidate.json",
+    "repository_source_read": false,
+    "author_keys_read_or_received": false,
+    "rubrics_read": false,
+    "feedback_read": false,
+    "other_reviewer_reports_read": false,
+    "earlier_locked_report_reopened_or_rewritten": false
+  },
+  "independence_note": "Answers were re-derived from the release learner packet. This reviewer has its own earlier blind-review conversational context; this is not claimed to be a first exposure. No author key, repository implementation, prior other reviewer report, rubric or feedback was accessed.",
+  "scope": "Bounded foundational content quality, ambiguity, responsibility scope, strongest-evidence wording and generalized position/length/language cues. No application/source changes and no new exam-engine proposal.",
+  "limitations": [
+    "Agent content review, not human subject-matter expert sign-off.",
+    "No empirical student, psychometric, reliability or discrimination evidence.",
+    "Heuristic coverage is against this blind report’s valid pairs. No actual key, scoring implementation, option shuffling or feedback behavior was inspected.",
+    "The one numeric response is evaluated separately; position and length rules do not derive it."
+  ],
+  "verdict": {
+    "status": "PASS_FOR_BOUNDED_FOUNDATIONAL_USE",
+    "blocker_count": 0,
+    "major_count": 0,
+    "material_answer_ambiguity_found": false,
+    "summary": "All twelve cases have defensible solutions with no release-blocking or major content issue found. The strongest-evidence recovery wording is sufficiently selective. Both s-choice responsibility-matched answers remain valid. Introductory premise density and limited breadth constrain what performance can establish."
+  },
+  "answers": [
+    {
+      "case_id": "b-capacity",
+      "valid_pairs": [
+        {
+          "decision_id": "add",
+          "reason_id": "capacity"
+        }
+      ],
+      "numeric_answer": {
+        "value": 5,
+        "unit": "forespørsler/s",
+        "calculation": "4 * 8 = 32; 37 - 32 = 5. A fifth instance raises capacity to 40 requests/s."
+      },
+      "reasoning": "Four healthy instances cannot provide more than the documented 32 requests/s at the agreed response time. Routing and restoration do not close this aggregate-capacity shortfall. Add the fifth instance.",
+      "other_defensible_full_pairs": [],
+      "ambiguity": "None material.",
+      "adjacent_misconceptions": [
+        "Load balancing creates aggregate capacity.",
+        "Recovery practice increases the capacity of healthy instances."
+      ],
+      "consequence_test": "Quantitative capacity gap and the capacity-versus-recovery distinction.",
+      "cue_limit": "Equal load distribution and absence of failures explicitly eliminate the two alternatives."
+    },
+    {
+      "case_id": "b-recovery",
+      "valid_pairs": [
+        {
+          "decision_id": "flow",
+          "reason_id": "end"
+        }
+      ],
+      "reasoning": "A completed, signed order through the agreed fallback gives the most direct evidence that the necessary business process works despite the unavailable normal signing service. Responsive UI and readable database records are partial component evidence.",
+      "other_defensible_full_pairs": [],
+      "ambiguity": "No remaining material ambiguity under the most-direct-evidence wording. front/latency and database/copies are true partial checks, but neither is an equally defensible answer to this comparative question.",
+      "adjacent_misconceptions": [
+        "Component restoration proves completion of a dependent business transaction.",
+        "A responsive front end proves the signing dependency or fallback is usable."
+      ],
+      "consequence_test": "The unavailable dependency matters because a signature is a condition of completed business work.",
+      "cue_limit": "The unused fallback and absence of a completed signed order strongly cue the action. Appropriate for foundational application; one successful order is not proof of capacity or comprehensive resilience."
+    },
+    {
+      "case_id": "b-rule",
+      "valid_pairs": [
+        {
+          "decision_id": "scope",
+          "reason_id": "bounded"
+        }
+      ],
+      "reasoning": "A report evaluating resource-region fields supports that evaluated configuration requirement. It does not establish where external application dependencies process data or compliance with all business data-location obligations. Other unevaluated security requirements need their own controls.",
+      "other_defensible_full_pairs": [],
+      "ambiguity": "None material. Region placement and complete data-location compliance are distinct scopes.",
+      "adjacent_misconceptions": [
+        "Resource-region metadata establishes locations used by external dependencies.",
+        "One region-policy result establishes every data-location obligation."
+      ],
+      "consequence_test": "Appropriate scope of a governance control and limits on what its evidence establishes.",
+      "cue_limit": "All and sufficient remain overclaim cues, but the distractors now concern an adjacent region-versus-data-location misconception rather than wholly unrelated controls."
+    },
+    {
+      "case_id": "b-template",
+      "valid_pairs": [
+        {
+          "decision_id": "review",
+          "reason_id": "inputs"
+        }
+      ],
+      "reasoning": "Automation reproduces declared inputs. Incorrect size parameters should be reviewed and corrected, the change validated, and the actual deployed result tested. Reusing unchanged bad inputs does not repair them; manual screenshots do not replace controlled repeatability.",
+      "other_defensible_full_pairs": [],
+      "ambiguity": "No material ambiguity. Validating the change reasonably implies a correction; explicitly saying correct erroneous parameter values would be a small clarity improvement.",
+      "adjacent_misconceptions": [
+        "A shared definition guarantees correct parameter values.",
+        "Unchanged reruns correct unchanged bad inputs.",
+        "Screenshots replace reviewed repeatable configuration."
+      ],
+      "consequence_test": "Input differences produce deployment differences; deployment correctness and application function still need verification.",
+      "cue_limit": "The stem already names differing parameter values as the cause, and the preferred option combines review, validation and testing."
+    },
+    {
+      "case_id": "b-footprint",
+      "valid_pairs": [
+        {
+          "decision_id": "compare",
+          "reason_id": "utility"
+        }
+      ],
+      "reasoning": "An environmental claim needs an energy/emissions basis linked to delivered work and comparable quality. Price-corrected cost and a resource inventory are valid financial/inventory observations but do not establish the environmental claim. Cost per order is 0.8 / 0.5 = 1.6, or 60 percent higher; no emissions direction follows from the supplied figures.",
+      "other_defensible_full_pairs": [],
+      "ambiguity": "The preferred investigation is clear among these choices. Total footprint and footprint per order are different claims; the broad word sustainability does not specify which is intended. The other pairs can support subsidiary financial/inventory checks, but they do not independently test an environmental footprint claim.",
+      "adjacent_misconceptions": [
+        "Lower spend establishes lower environmental impact.",
+        "Resource counts establish environmental impact.",
+        "A lower total due to less useful output proves better efficiency."
+      ],
+      "consequence_test": "Activity normalization, quality comparability and an appropriate environmental evidence basis.",
+      "cue_limit": "Missing energy/emissions evidence is explicitly stated. The distractor reasons are true but limited, so simple true/false sentence selection is insufficient.",
+      "optional_refinement": "Specify environmental efficiency if the target is footprint per order; if the claim is broader, examine both total footprint and footprint per delivered order."
+    },
+    {
+      "case_id": "b-estimate",
+      "valid_pairs": [
+        {
+          "decision_id": "usage",
+          "reason_id": "drivers"
+        }
+      ],
+      "reasoning": "The best justified forecast models fixed and variable costs using expected usage, prices, known growth and uncertainty. An old bill and base configuration are useful observations, but the listed alternatives deliberately omit known drivers.",
+      "other_defensible_full_pairs": [],
+      "ambiguity": "None material because best justified forecast is explicitly requested.",
+      "adjacent_misconceptions": [
+        "Historical actual charges alone forecast changed future activity.",
+        "Baseline compute describes variable transaction and egress charges.",
+        "A forecast guarantees later spend."
+      ],
+      "consequence_test": "Select an appropriate cost-driver model; no price-table calculation is required.",
+      "cue_limit": "The preferred option mirrors the known inputs. The other reasons are factually true descriptions of incomplete evidence rather than false claims."
+    },
+    {
+      "case_id": "s-driver",
+      "valid_pairs": [
+        {
+          "decision_id": "iaas",
+          "reason_id": "control"
+        }
+      ],
+      "reasoning": "Customer installation and maintenance of a guest-OS driver require control of that guest OS. The Azure VM proposal provides that model; Azure App Service and a finished SaaS application do not provide general guest-OS driver administration. The customer retains responsibility for this software environment.",
+      "other_defensible_full_pairs": [],
+      "ambiguity": "None material for the stated control requirement. This selects the responsibility model, not a guarantee that every driver is compatible with every virtual machine.",
+      "adjacent_misconceptions": [
+        "Provider platform-OS ownership gives the customer guest-driver rights.",
+        "SaaS user administration provides control over the service host OS."
+      ],
+      "consequence_test": "Concrete OS control and retained IaaS responsibility.",
+      "cue_limit": "The premise names actual considered offerings rather than explicitly saying the two alternatives cannot work; the preferred option still repeats the required control."
+    },
+    {
+      "case_id": "s-patching",
+      "valid_pairs": [
+        {
+          "decision_id": "customer",
+          "reason_id": "guest"
+        }
+      ],
+      "reasoning": "Fjordverk administers the IaaS guest OS and must arrange the outstanding guest security update and verify the recorded guest update level. Host maintenance and app-function testing can be useful within their own scopes but do not establish that guest patch installation occurred.",
+      "other_defensible_full_pairs": [],
+      "ambiguity": "No technical ambiguity. The question asks who while the options name actions; Fjordverk is clearly identified as responsible in the premises.",
+      "adjacent_misconceptions": [
+        "Provider host maintenance discharges customer guest-patching responsibility.",
+        "Updating or function-testing the application establishes the OS patch level."
+      ],
+      "consequence_test": "Distinguishes infrastructure, guest OS and application scopes and asks for verification of the relevant guest state.",
+      "cue_limit": "The premises directly state guest responsibility and that the notice concerns the host. The wrong reasons are true but do not justify the guest-patch action.",
+      "optional_refinement": "Ask which follow-up Fjordverk must perform, or identify an actor in each option."
+    },
+    {
+      "case_id": "s-runtime",
+      "valid_pairs": [
+        {
+          "decision_id": "fit",
+          "reason_id": "compatibility"
+        }
+      ],
+      "reasoning": "The new app runtime is unsupported on the current offering, so verify a supported app/runtime/hosting combination before taking it into production. Larger compute resources do not establish runtime-version support, and a deployment receipt establishes management processing rather than functional application compatibility.",
+      "other_defensible_full_pairs": [],
+      "ambiguity": "None material. It is sufficient to investigate another app version or hosting combination; this does not require assuming that all PaaS products have identical runtime restrictions.",
+      "adjacent_misconceptions": [
+        "Capacity expansion resolves unsupported software requirements.",
+        "Accepted management deployment proves operational runtime compatibility."
+      ],
+      "consequence_test": "Good capacity-versus-compatibility and control-plane-versus-runtime distinction.",
+      "cue_limit": "The explicit sentence that CPU/memory cannot change support is absent; the learner now needs that elementary inference. The supported-version/alternative-hosting investigation is still named in a premise."
+    },
+    {
+      "case_id": "s-departure",
+      "valid_pairs": [
+        {
+          "decision_id": "access",
+          "reason_id": "tenant"
+        }
+      ],
+      "reasoning": "The customer retains user-access, sharing, data-ownership and retention responsibilities in SaaS. End the consultant’s relevant access while reviewing shared documents so remaining staff retain appropriate access. Provider application/OS operation does not transfer the customer’s offboarding decisions.",
+      "other_defensible_full_pairs": [],
+      "ambiguity": "None material. End relevant access is compatible with preserving project documents; it does not direct deletion of shared data.",
+      "adjacent_misconceptions": [
+        "SaaS operation transfers customer access and data-governance decisions to the provider.",
+        "Tenant user administration includes provider server maintenance."
+      ],
+      "consequence_test": "Concrete SaaS offboarding consequence including continuity of shared work.",
+      "cue_limit": "The customer-access responsibility is no longer stated as a premise, so it must be applied from the model. Provider OS operation still clearly excludes the wrong server-operation choices."
+    },
+    {
+      "case_id": "s-choice",
+      "valid_pairs": [
+        {
+          "decision_id": "iaas",
+          "reason_id": "os"
+        },
+        {
+          "decision_id": "paas",
+          "reason_id": "platform"
+        }
+      ],
+      "reasoning": "Both reviewed proposals meet the app and scaling requirements. Customer OS/runtime/app operation is feasible and matches iaas/os. Provider operation of the managed platform OS/runtime with customer app/data responsibility matches paas/platform. No stated objective ranks those feasible options. The finished SaaS product is explicitly not a hosting environment for this custom code.",
+      "other_defensible_full_pairs": [],
+      "ambiguity": "Two valid matched pairs are intentional and justified. There is no warrant to invent lowest-cost, lowest-effort or special-OS-control preferences.",
+      "invalid_cross_pairs": [
+        {
+          "decision_id": "iaas",
+          "reason_id": "platform"
+        },
+        {
+          "decision_id": "paas",
+          "reason_id": "os"
+        }
+      ],
+      "cross_pair_explanation": "A true responsibility statement about the other proposal does not explain exactly the selected proposal.",
+      "adjacent_misconceptions": [
+        "One cloud model is always preferable regardless of requirements.",
+        "A finished SaaS product hosts arbitrary existing custom application code.",
+        "An accurate statement about a different model is a matching reason."
+      ],
+      "consequence_test": "Matching feasible choices to their respective operational responsibilities without adding an unstated selection criterion.",
+      "cue_limit": "The premises deliberately remove ranking criteria and exclude SaaS. This makes the two-answer structure clear rather than measuring a complex trade-off."
+    },
+    {
+      "case_id": "s-plan",
+      "valid_pairs": [
+        {
+          "decision_id": "scaleup",
+          "reason_id": "compute"
+        }
+      ],
+      "reasoning": "A job running in one process requires enough memory within one instance. Increase the shared App Service Plan to the larger supported size. More separate instances add aggregate capacity for parallel processes but do not provide that memory to this process, and app settings do not add physical capacity. Both apps remain on and share the changed plan resources.",
+      "other_defensible_full_pairs": [],
+      "ambiguity": "None material under the specified current-size bottleneck and supported larger SKU. This does not promise exclusive reserved capacity to the one app.",
+      "adjacent_misconceptions": [
+        "Separate instances pool memory for one process.",
+        "A configuration limit creates physical memory.",
+        "A shared-plan size change affects only the app that prompted it."
+      ],
+      "consequence_test": "Strong foundational test of per-instance versus aggregate resources and shared-plan scope.",
+      "cue_limit": "The premises establish insufficient current size and sufficient larger size; one process replaces an explicit cannot-be-distributed statement. Wrong reasons are true statements about parallel work or limiting use, but do not solve the stated need."
+    }
+  ],
+  "responsibility_scope_assessment": {
+    "s_driver": "IaaS gives required guest-OS administration and retains customer responsibility; it is not an all-driver compatibility guarantee.",
+    "s_patching": "Customer guest-OS responsibility is distinct from provider physical-host maintenance and app-code testing.",
+    "s_departure": "SaaS provider app/OS operation leaves customer user, sharing, ownership and retention decisions; preserving shared documents is consistent with ending the consultant’s access.",
+    "s_choice": "iaas/os and paas/platform are both valid. Cross-pairs fail because the question requires a reason matching exactly the selected proposal. No unstated operational-effort or price preference is justified.",
+    "s_plan": "Scale-up changes instance resources for the shared plan; both apps share the new capacity and the single process needs memory in one instance."
+  },
+  "strongest_evidence_assessment": {
+    "b_recovery": "flow/end is uniquely the most direct evidence of the necessary completed order process. front/latency and database/copies remain useful partial evidence, so they are plausible distractors, but no longer coequal responses to the comparative question.",
+    "other_true_distractor_reasons": "Several financial, infrastructure, deployment, parallel-capacity and resource-limit statements are true within their own scope. Truth alone is insufficient: they fail to justify a decision that solves the stated problem. This is appropriate foundational evidence-scope testing."
+  },
+  "position_audit": {
+    "method": "Enumerate all 27 fixed deterministic functions from three decision positions to three reason positions; a case is covered if any blind valid pair obeys the function. This is an optimistic reason-selection bound assuming the correct decision can already be supplied. It is not a complete content-blind decision solver.",
+    "valid_pair_positions": [
+      {
+        "case_id": "b-capacity",
+        "valid_pairs": [
+          {
+            "decision_id": "add",
+            "reason_id": "capacity",
+            "decision_position": 2,
+            "reason_position": 3
+          }
+        ]
+      },
+      {
+        "case_id": "b-recovery",
+        "valid_pairs": [
+          {
+            "decision_id": "flow",
+            "reason_id": "end",
+            "decision_position": 1,
+            "reason_position": 1
+          }
+        ]
+      },
+      {
+        "case_id": "b-rule",
+        "valid_pairs": [
+          {
+            "decision_id": "scope",
+            "reason_id": "bounded",
+            "decision_position": 3,
+            "reason_position": 2
+          }
+        ]
+      },
+      {
+        "case_id": "b-template",
+        "valid_pairs": [
+          {
+            "decision_id": "review",
+            "reason_id": "inputs",
+            "decision_position": 2,
+            "reason_position": 3
+          }
+        ]
+      },
+      {
+        "case_id": "b-footprint",
+        "valid_pairs": [
+          {
+            "decision_id": "compare",
+            "reason_id": "utility",
+            "decision_position": 1,
+            "reason_position": 2
+          }
+        ]
+      },
+      {
+        "case_id": "b-estimate",
+        "valid_pairs": [
+          {
+            "decision_id": "usage",
+            "reason_id": "drivers",
+            "decision_position": 3,
+            "reason_position": 1
+          }
+        ]
+      },
+      {
+        "case_id": "s-driver",
+        "valid_pairs": [
+          {
+            "decision_id": "iaas",
+            "reason_id": "control",
+            "decision_position": 3,
+            "reason_position": 2
+          }
+        ]
+      },
+      {
+        "case_id": "s-patching",
+        "valid_pairs": [
+          {
+            "decision_id": "customer",
+            "reason_id": "guest",
+            "decision_position": 1,
+            "reason_position": 3
+          }
+        ]
+      },
+      {
+        "case_id": "s-runtime",
+        "valid_pairs": [
+          {
+            "decision_id": "fit",
+            "reason_id": "compatibility",
+            "decision_position": 2,
+            "reason_position": 3
+          }
+        ]
+      },
+      {
+        "case_id": "s-departure",
+        "valid_pairs": [
+          {
+            "decision_id": "access",
+            "reason_id": "tenant",
+            "decision_position": 3,
+            "reason_position": 1
+          }
+        ]
+      },
+      {
+        "case_id": "s-choice",
+        "valid_pairs": [
+          {
+            "decision_id": "iaas",
+            "reason_id": "os",
+            "decision_position": 1,
+            "reason_position": 3
+          },
+          {
+            "decision_id": "paas",
+            "reason_id": "platform",
+            "decision_position": 3,
+            "reason_position": 1
+          }
+        ]
+      },
+      {
+        "case_id": "s-plan",
+        "valid_pairs": [
+          {
+            "decision_id": "scaleup",
+            "reason_id": "compute",
+            "decision_position": 1,
+            "reason_position": 1
+          }
+        ]
+      }
+    ],
+    "all_27_mapping_results": [
+      {
+        "decision_1_reason": 1,
+        "decision_2_reason": 1,
+        "decision_3_reason": 1,
+        "covered_cases": 5,
+        "case_ids": ["b-recovery", "b-estimate", "s-departure", "s-choice", "s-plan"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 1,
+        "decision_2_reason": 1,
+        "decision_3_reason": 2,
+        "covered_cases": 4,
+        "case_ids": ["b-recovery", "b-rule", "s-driver", "s-plan"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 1,
+        "decision_2_reason": 1,
+        "decision_3_reason": 3,
+        "covered_cases": 2,
+        "case_ids": ["b-recovery", "s-plan"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 1,
+        "decision_2_reason": 2,
+        "decision_3_reason": 1,
+        "covered_cases": 5,
+        "case_ids": ["b-recovery", "b-estimate", "s-departure", "s-choice", "s-plan"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 1,
+        "decision_2_reason": 2,
+        "decision_3_reason": 2,
+        "covered_cases": 4,
+        "case_ids": ["b-recovery", "b-rule", "s-driver", "s-plan"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 1,
+        "decision_2_reason": 2,
+        "decision_3_reason": 3,
+        "covered_cases": 2,
+        "case_ids": ["b-recovery", "s-plan"],
+        "one_to_one": true
+      },
+      {
+        "decision_1_reason": 1,
+        "decision_2_reason": 3,
+        "decision_3_reason": 1,
+        "covered_cases": 8,
+        "case_ids": [
+          "b-capacity",
+          "b-recovery",
+          "b-template",
+          "b-estimate",
+          "s-runtime",
+          "s-departure",
+          "s-choice",
+          "s-plan"
+        ],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 1,
+        "decision_2_reason": 3,
+        "decision_3_reason": 2,
+        "covered_cases": 7,
+        "case_ids": [
+          "b-capacity",
+          "b-recovery",
+          "b-rule",
+          "b-template",
+          "s-driver",
+          "s-runtime",
+          "s-plan"
+        ],
+        "one_to_one": true
+      },
+      {
+        "decision_1_reason": 1,
+        "decision_2_reason": 3,
+        "decision_3_reason": 3,
+        "covered_cases": 5,
+        "case_ids": ["b-capacity", "b-recovery", "b-template", "s-runtime", "s-plan"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 2,
+        "decision_2_reason": 1,
+        "decision_3_reason": 1,
+        "covered_cases": 4,
+        "case_ids": ["b-footprint", "b-estimate", "s-departure", "s-choice"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 2,
+        "decision_2_reason": 1,
+        "decision_3_reason": 2,
+        "covered_cases": 3,
+        "case_ids": ["b-rule", "b-footprint", "s-driver"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 2,
+        "decision_2_reason": 1,
+        "decision_3_reason": 3,
+        "covered_cases": 1,
+        "case_ids": ["b-footprint"],
+        "one_to_one": true
+      },
+      {
+        "decision_1_reason": 2,
+        "decision_2_reason": 2,
+        "decision_3_reason": 1,
+        "covered_cases": 4,
+        "case_ids": ["b-footprint", "b-estimate", "s-departure", "s-choice"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 2,
+        "decision_2_reason": 2,
+        "decision_3_reason": 2,
+        "covered_cases": 3,
+        "case_ids": ["b-rule", "b-footprint", "s-driver"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 2,
+        "decision_2_reason": 2,
+        "decision_3_reason": 3,
+        "covered_cases": 1,
+        "case_ids": ["b-footprint"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 2,
+        "decision_2_reason": 3,
+        "decision_3_reason": 1,
+        "covered_cases": 7,
+        "case_ids": [
+          "b-capacity",
+          "b-template",
+          "b-footprint",
+          "b-estimate",
+          "s-runtime",
+          "s-departure",
+          "s-choice"
+        ],
+        "one_to_one": true
+      },
+      {
+        "decision_1_reason": 2,
+        "decision_2_reason": 3,
+        "decision_3_reason": 2,
+        "covered_cases": 6,
+        "case_ids": ["b-capacity", "b-rule", "b-template", "b-footprint", "s-driver", "s-runtime"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 2,
+        "decision_2_reason": 3,
+        "decision_3_reason": 3,
+        "covered_cases": 4,
+        "case_ids": ["b-capacity", "b-template", "b-footprint", "s-runtime"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 3,
+        "decision_2_reason": 1,
+        "decision_3_reason": 1,
+        "covered_cases": 4,
+        "case_ids": ["b-estimate", "s-patching", "s-departure", "s-choice"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 3,
+        "decision_2_reason": 1,
+        "decision_3_reason": 2,
+        "covered_cases": 4,
+        "case_ids": ["b-rule", "s-driver", "s-patching", "s-choice"],
+        "one_to_one": true
+      },
+      {
+        "decision_1_reason": 3,
+        "decision_2_reason": 1,
+        "decision_3_reason": 3,
+        "covered_cases": 2,
+        "case_ids": ["s-patching", "s-choice"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 3,
+        "decision_2_reason": 2,
+        "decision_3_reason": 1,
+        "covered_cases": 4,
+        "case_ids": ["b-estimate", "s-patching", "s-departure", "s-choice"],
+        "one_to_one": true
+      },
+      {
+        "decision_1_reason": 3,
+        "decision_2_reason": 2,
+        "decision_3_reason": 2,
+        "covered_cases": 4,
+        "case_ids": ["b-rule", "s-driver", "s-patching", "s-choice"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 3,
+        "decision_2_reason": 2,
+        "decision_3_reason": 3,
+        "covered_cases": 2,
+        "case_ids": ["s-patching", "s-choice"],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 3,
+        "decision_2_reason": 3,
+        "decision_3_reason": 1,
+        "covered_cases": 7,
+        "case_ids": [
+          "b-capacity",
+          "b-template",
+          "b-estimate",
+          "s-patching",
+          "s-runtime",
+          "s-departure",
+          "s-choice"
+        ],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 3,
+        "decision_2_reason": 3,
+        "decision_3_reason": 2,
+        "covered_cases": 7,
+        "case_ids": [
+          "b-capacity",
+          "b-rule",
+          "b-template",
+          "s-driver",
+          "s-patching",
+          "s-runtime",
+          "s-choice"
+        ],
+        "one_to_one": false
+      },
+      {
+        "decision_1_reason": 3,
+        "decision_2_reason": 3,
+        "decision_3_reason": 3,
+        "covered_cases": 5,
+        "case_ids": ["b-capacity", "b-template", "s-patching", "s-runtime", "s-choice"],
+        "one_to_one": false
+      }
+    ],
+    "best_general_mapping_coverage": 8,
+    "best_general_mappings": [
+      {
+        "decision_1_reason": 1,
+        "decision_2_reason": 3,
+        "decision_3_reason": 1,
+        "covered_cases": 8,
+        "case_ids": [
+          "b-capacity",
+          "b-recovery",
+          "b-template",
+          "b-estimate",
+          "s-runtime",
+          "s-departure",
+          "s-choice",
+          "s-plan"
+        ],
+        "one_to_one": false
+      }
+    ],
+    "best_one_to_one_permutation_coverage": 7,
+    "cyclic_next_reason_coverage": 7,
+    "fixed_pair_results": [
+      {
+        "decision_position": 1,
+        "reason_position": 1,
+        "covered_cases": 2,
+        "case_ids": ["b-recovery", "s-plan"]
+      },
+      {
+        "decision_position": 1,
+        "reason_position": 2,
+        "covered_cases": 1,
+        "case_ids": ["b-footprint"]
+      },
+      {
+        "decision_position": 1,
+        "reason_position": 3,
+        "covered_cases": 2,
+        "case_ids": ["s-patching", "s-choice"]
+      },
+      {
+        "decision_position": 2,
+        "reason_position": 1,
+        "covered_cases": 0,
+        "case_ids": []
+      },
+      {
+        "decision_position": 2,
+        "reason_position": 2,
+        "covered_cases": 0,
+        "case_ids": []
+      },
+      {
+        "decision_position": 2,
+        "reason_position": 3,
+        "covered_cases": 3,
+        "case_ids": ["b-capacity", "b-template", "s-runtime"]
+      },
+      {
+        "decision_position": 3,
+        "reason_position": 1,
+        "covered_cases": 3,
+        "case_ids": ["b-estimate", "s-departure", "s-choice"]
+      },
+      {
+        "decision_position": 3,
+        "reason_position": 2,
+        "covered_cases": 2,
+        "case_ids": ["b-rule", "s-driver"]
+      },
+      {
+        "decision_position": 3,
+        "reason_position": 3,
+        "covered_cases": 0,
+        "case_ids": []
+      }
+    ],
+    "best_fixed_pair_coverage": 3,
+    "case_count": 12,
+    "conclusion": "No generalized fixed decision-position-to-reason-position mapping covers all cases. The maximum is 8/12 for 1->1, 2->3, 3->1; a one-to-one permutation reaches at most 7/12. The three decision-position-2 cases all use reason position 3, a residual local cue, but other decision positions have conflicting valid reason positions. No major generalized mapping flaw remains."
+  },
+  "length_audit": {
+    "method": "Choose longest or shortest option independently for decisions and reasons, using Unicode character count or whitespace token count and earliest-position tie breaking.",
+    "results": [
+      {
+        "metric": "characters",
+        "direction": "longest",
+        "tie_policy": "earliest displayed option",
+        "valid_decisions": 6,
+        "valid_reasons": 7,
+        "valid_full_pairs": 2,
+        "selections": [
+          {
+            "case_id": "b-capacity",
+            "decision_id": "add",
+            "reason_id": "available",
+            "valid_decision": true,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-recovery",
+            "decision_id": "database",
+            "reason_id": "end",
+            "valid_decision": false,
+            "valid_reason": true,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-rule",
+            "decision_id": "scope",
+            "reason_id": "identity",
+            "valid_decision": true,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-template",
+            "decision_id": "review",
+            "reason_id": "inputs",
+            "valid_decision": true,
+            "valid_reason": true,
+            "valid_full_pair": true
+          },
+          {
+            "case_id": "b-footprint",
+            "decision_id": "compare",
+            "reason_id": "cost",
+            "valid_decision": true,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-estimate",
+            "decision_id": "budget",
+            "reason_id": "drivers",
+            "valid_decision": false,
+            "valid_reason": true,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-driver",
+            "decision_id": "iaas",
+            "reason_id": "software",
+            "valid_decision": true,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-patching",
+            "decision_id": "vendor",
+            "reason_id": "guest",
+            "valid_decision": false,
+            "valid_reason": true,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-runtime",
+            "decision_id": "group",
+            "reason_id": "compatibility",
+            "valid_decision": false,
+            "valid_reason": true,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-departure",
+            "decision_id": "patch",
+            "reason_id": "servers",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-choice",
+            "decision_id": "paas",
+            "reason_id": "platform",
+            "valid_decision": true,
+            "valid_reason": true,
+            "valid_full_pair": true
+          },
+          {
+            "case_id": "s-plan",
+            "decision_id": "resourcegroup",
+            "reason_id": "compute",
+            "valid_decision": false,
+            "valid_reason": true,
+            "valid_full_pair": false
+          }
+        ]
+      },
+      {
+        "metric": "characters",
+        "direction": "shortest",
+        "tie_policy": "earliest displayed option",
+        "valid_decisions": 3,
+        "valid_reasons": 4,
+        "valid_full_pairs": 1,
+        "selections": [
+          {
+            "case_id": "b-capacity",
+            "decision_id": "route",
+            "reason_id": "recover",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-recovery",
+            "decision_id": "front",
+            "reason_id": "latency",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-rule",
+            "decision_id": "application",
+            "reason_id": "bounded",
+            "valid_decision": false,
+            "valid_reason": true,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-template",
+            "decision_id": "manual",
+            "reason_id": "record",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-footprint",
+            "decision_id": "count",
+            "reason_id": "utility",
+            "valid_decision": false,
+            "valid_reason": true,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-estimate",
+            "decision_id": "usage",
+            "reason_id": "limit",
+            "valid_decision": true,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-driver",
+            "decision_id": "paas",
+            "reason_id": "platform",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-patching",
+            "decision_id": "provider",
+            "reason_id": "host",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-runtime",
+            "decision_id": "size",
+            "reason_id": "capacity",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-departure",
+            "decision_id": "capacity",
+            "reason_id": "tenant",
+            "valid_decision": false,
+            "valid_reason": true,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-choice",
+            "decision_id": "iaas",
+            "reason_id": "os",
+            "valid_decision": true,
+            "valid_reason": true,
+            "valid_full_pair": true
+          },
+          {
+            "case_id": "s-plan",
+            "decision_id": "scaleup",
+            "reason_id": "container",
+            "valid_decision": true,
+            "valid_reason": false,
+            "valid_full_pair": false
+          }
+        ]
+      },
+      {
+        "metric": "words",
+        "direction": "longest",
+        "tie_policy": "earliest displayed option",
+        "valid_decisions": 5,
+        "valid_reasons": 6,
+        "valid_full_pairs": 3,
+        "selections": [
+          {
+            "case_id": "b-capacity",
+            "decision_id": "add",
+            "reason_id": "capacity",
+            "valid_decision": true,
+            "valid_reason": true,
+            "valid_full_pair": true
+          },
+          {
+            "case_id": "b-recovery",
+            "decision_id": "flow",
+            "reason_id": "copies",
+            "valid_decision": true,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-rule",
+            "decision_id": "access",
+            "reason_id": "identity",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-template",
+            "decision_id": "rerun",
+            "reason_id": "repeat",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-footprint",
+            "decision_id": "count",
+            "reason_id": "utility",
+            "valid_decision": false,
+            "valid_reason": true,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-estimate",
+            "decision_id": "usage",
+            "reason_id": "limit",
+            "valid_decision": true,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-driver",
+            "decision_id": "saas",
+            "reason_id": "platform",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-patching",
+            "decision_id": "vendor",
+            "reason_id": "guest",
+            "valid_decision": false,
+            "valid_reason": true,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-runtime",
+            "decision_id": "fit",
+            "reason_id": "compatibility",
+            "valid_decision": true,
+            "valid_reason": true,
+            "valid_full_pair": true
+          },
+          {
+            "case_id": "s-departure",
+            "decision_id": "access",
+            "reason_id": "tenant",
+            "valid_decision": true,
+            "valid_reason": true,
+            "valid_full_pair": true
+          },
+          {
+            "case_id": "s-choice",
+            "decision_id": "saas",
+            "reason_id": "os",
+            "valid_decision": false,
+            "valid_reason": true,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-plan",
+            "decision_id": "scaleout",
+            "reason_id": "spread",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          }
+        ]
+      },
+      {
+        "metric": "words",
+        "direction": "shortest",
+        "tie_policy": "earliest displayed option",
+        "valid_decisions": 5,
+        "valid_reasons": 5,
+        "valid_full_pairs": 1,
+        "selections": [
+          {
+            "case_id": "b-capacity",
+            "decision_id": "route",
+            "reason_id": "recover",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-recovery",
+            "decision_id": "front",
+            "reason_id": "end",
+            "valid_decision": false,
+            "valid_reason": true,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-rule",
+            "decision_id": "application",
+            "reason_id": "bounded",
+            "valid_decision": false,
+            "valid_reason": true,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-template",
+            "decision_id": "review",
+            "reason_id": "record",
+            "valid_decision": true,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-footprint",
+            "decision_id": "compare",
+            "reason_id": "cost",
+            "valid_decision": true,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "b-estimate",
+            "decision_id": "sla",
+            "reason_id": "drivers",
+            "valid_decision": false,
+            "valid_reason": true,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-driver",
+            "decision_id": "paas",
+            "reason_id": "platform",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-patching",
+            "decision_id": "customer",
+            "reason_id": "host",
+            "valid_decision": true,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-runtime",
+            "decision_id": "size",
+            "reason_id": "scope",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-departure",
+            "decision_id": "capacity",
+            "reason_id": "servers",
+            "valid_decision": false,
+            "valid_reason": false,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-choice",
+            "decision_id": "iaas",
+            "reason_id": "platform",
+            "valid_decision": true,
+            "valid_reason": true,
+            "valid_full_pair": false
+          },
+          {
+            "case_id": "s-plan",
+            "decision_id": "scaleup",
+            "reason_id": "compute",
+            "valid_decision": true,
+            "valid_reason": true,
+            "valid_full_pair": true
+          }
+        ]
+      }
+    ],
+    "conclusion": "Longest characters yields 2/12 full pairs; shortest characters 1/12; longest words 3/12; shortest words 1/12. No tested length rule solves the bank, and none derives the numeric answer."
+  },
+  "language_and_prompt_cues": {
+    "assessment": "Residual introductory cues remain; no full-credit content-blind language rule was demonstrated. A reader must still connect an action and reason to the actual stated need. Several distractor reasons are true partial statements, reducing the reliability of simply choosing a true, longer or non-absolute sentence.",
+    "remaining_cues": [
+      "Correct options frequently use review, verify, model or bounded-responsibility language.",
+      "b-capacity, b-template, b-estimate, s-patching, s-choice and s-plan provide decisive assumptions explicitly.",
+      "b-rule still contrasts a bounded evaluated property with all/ sufficient data-location claims.",
+      "The two feasible s-choice models are intentionally easy to recognize after reading the constraints."
+    ],
+    "bounded_interpretation": "This is acceptable for foundational guided application and adjacent misconception recognition. It should not be described as a broad operational certification, deep troubleshooting exercise, or validated psychometric instrument."
+  },
+  "remaining_findings": [
+    {
+      "id": "R1",
+      "severity": "MINOR",
+      "case_ids": ["b-footprint"],
+      "issue": "Total environmental footprint versus footprint intensity is implicit in the broad sustainability claim.",
+      "impact": "The preferred pair remains clearly the best available environmental investigation. Per-order improvement alone would not establish a lower total footprint.",
+      "recommendation": "Optional clarification: name environmental efficiency or examine both total footprint and footprint per delivered order at comparable quality.",
+      "release_blocking": false
+    },
+    {
+      "id": "R2",
+      "severity": "MINOR_EDITORIAL",
+      "case_ids": ["s-patching"],
+      "issue": "The question asks who while the options are actions.",
+      "impact": "Fjordverk is plainly responsible under the premises; no technical answer ambiguity.",
+      "recommendation": "Optionally ask which follow-up Fjordverk must perform or name the responsible actor in the choices.",
+      "release_blocking": false
+    },
+    {
+      "id": "R3",
+      "severity": "BOUNDED_LIMITATION",
+      "case_ids": [
+        "b-capacity",
+        "b-recovery",
+        "b-rule",
+        "b-template",
+        "b-footprint",
+        "b-estimate",
+        "s-driver",
+        "s-patching",
+        "s-runtime",
+        "s-departure",
+        "s-choice",
+        "s-plan"
+      ],
+      "issue": "Small foundational bank with explicit premises and frequent one-step inferences.",
+      "impact": "Performance demonstrates application within supplied assumptions, not independent diagnosis or broad operational competence.",
+      "recommendation": "Keep claims and intended use bounded. No expansion into a full exam bank or engine redesign is demanded by this review.",
+      "release_blocking": false
+    },
+    {
+      "id": "R4",
+      "severity": "LOW_CUE",
+      "case_ids": ["b-capacity", "b-template", "s-runtime"],
+      "issue": "All three cases whose valid decision is at position 2 have their valid reason at position 3.",
+      "impact": "Residual local regularity; all generalized fixed mappings still fail at least four cases. This does not provide a full-bank solver.",
+      "recommendation": "Optional authored-order variation or independently shuffled delivery can further reduce cues; no new engine requirement is asserted.",
+      "release_blocking": false
+    }
+  ],
+  "release_recommendation": "No BLOCKER or MAJOR content issue found. Acceptable as the specified bounded foundational release, with the minor scope/editorial notes and interpretation limits recorded above."
+}

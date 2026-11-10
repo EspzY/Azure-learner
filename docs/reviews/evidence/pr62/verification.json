@@ -1,0 +1,57 @@
+{
+  "at": "2026-11-06T14:43:54.096528+00:00",
+  "priorResults": [
+    {
+      "id": "browser-initial",
+      "rawLogSha256": "5a49cb3e701da8cd0a34452880db1572689cb031bc4ed600013241ff5a23da00",
+      "rawLogPathOutsideRepo": "/workspace/azurelab-pr62/browser-first.log",
+      "observation": "1passed+5failed; exact CIDR accessible-name selectors saw nested helper text. Corrected field names/describedby and pre-emptively corrected NSG Allow default; no assertions removed."
+    },
+    {
+      "id": "browser-regression-first",
+      "rawLogSha256": "6b1029d9feaec6614e92cca2e7d1f4a6aab6cdfff4f4dd9932db3f997c659634",
+      "rawLogPathOutsideRepo": "/workspace/azurelab-pr62/browser-final.log",
+      "observation": "14passed+1failed; compact page.screenshot stalled after fonts loaded; trace teardown also timed out/truncated. Cause unresolved; no timeout/retry/worker/skip change. A new isolated retest and fullCI remain required."
+    },
+    {
+      "id": "domain-first",
+      "rawLogSha256": "1aaa61704472f05cc44c534dd095297b5d44c06559aa52742ceaef677939398e",
+      "rawLogPathOutsideRepo": "/workspace/azurelab-pr62/targeted-domains.log",
+      "observation": "107passed+2failed; independent preservation checks caught global replacement of an expected string in the import adapter. Restored exact old assertion body, only first import delegated; subsequent111passed."
+    },
+    {
+      "id": "plan-first",
+      "rawLogSha256": "4cdd2f9ea2e8c0be9f855143622e580b6d63effcf4b2ff81d0b39f2e7529befa",
+      "rawLogPathOutsideRepo": "/workspace/azurelab-pr62/plan.log",
+      "observation": "Collection subprocess hit its existing30s cap while overlapping a redundant direct tsc and build. Redundant tsc cancelled; unchanged serial plan passed403. Not a product test success."
+    },
+    {
+      "id": "full-check-initial",
+      "rawLogSha256": "bb40e837a44f079c2ebf2ad37db13d0f5eaee074f95c2e66ed139500fd7d03a7",
+      "observation": "831passed+1failed: existing whole-file preservation correctly detected new capability-matrix header. Added bounded historical projection plus independent exact original-body check; unchanged current implementation then passed full833."
+    },
+    {
+      "id": "authoritative-ci-run99",
+      "url": "https://github.com/EspzY/Azure-learner/actions/runs/42240969708",
+      "head": "8b722953b44f9ee0cc510e5cda1960549f566a78",
+      "testedMerge": "002e355e1d1b86d9a0208e1de6f696b8ef7fdd97",
+      "observation": "Full check passed833Vitest/24Node; full404 browser profile:403passed+1failed27.6m. New main network browser case clicked receipt before committed rule navigation, resolving two NSG-page links, on original and both existing retries. Strict release correctly did not run. Correction waits for target rule heading and binds receipt href to the original stored rule origin; no production source or retry/timeout/worker/skip change."
+    },
+    {
+      "id": "browser-ci-correction",
+      "rawLogSha256": "924d723174198c5c39e699d7e2bd97b5263236b02ae9500282cfe8c552a1d23a",
+      "rawLogPathOutsideRepo": "/workspace/azurelab-pr62/ci-correction-browser.log",
+      "observation": "7/7 network executions passed52.7s0retries, including corrected target navigation/original receipt, real PostgreSQL concurrency, original3.0, scopes and desktop/compact keyboard/Axe/reload/reset"
+    }
+  ],
+  "current": {
+    "fullCheck": "Renewed after CI-only test synchronization correction:833Vitest/24Node/503curriculum and all mandatory static/quality/build checks exit0",
+    "browserScopeFollowup": "3passed29.6s0retries; duplicate actual parent scopes and desktop/compact keyboard/focus/Axe short-height witnesses",
+    "priorScreenshotStall": "Unresolved screenshot/trace stall; unmodified compact isolated recheck1passed11s and new scoped compact passed12.8s. No causal fix claimed.",
+    "ci404": "Run99 failed403passed+1new selector/navigation synchronization failure; corrected complete exact-head CI pending",
+    "publicNetworking": "DEFERRED by owner, no external database",
+    "independentAudit": "Original six-domain and scoped follow-up complete; new test/evidence-only checkpoint requires renewed review",
+    "browserCiCorrection": "7/7 network executions passed52.7s0retries, including corrected target navigation/original receipt, real PostgreSQL concurrency, original3.0, scopes and desktop/compact keyboard/Axe/reload/reset"
+  },
+  "updatedAt": "2026-11-06T15:55:01.816967+00:00"
+}

@@ -1,0 +1,5212 @@
+{
+  "schema": 1,
+  "audit": "PR42",
+  "base": "4732f93dfcdd233dcb6d7acc2a4838ba7a292141",
+  "checkedDateEuropeOslo": "2026-11-01",
+  "preview": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app",
+  "deployedBaseSHA": "4732f93dfcdd233dcb6d7acc2a4838ba7a292141",
+  "browser": {
+    "playwright": "1.64.1",
+    "chromiumBuild": 1248,
+    "anonymous": true
+  },
+  "limits": [
+    "Audit-only; no product fix implemented",
+    "217topics structurally enumerated; risk-based browser coverage, not all interactions completed",
+    "No human SME,noviceUX,screenreader,psychometric or measured transfer validation",
+    "NoP17/P18,merge,production or realAzure operation"
+  ],
+  "counts": {
+    "routeModules": 17,
+    "pedagogicalParts": 19,
+    "sequencedURLs": 205,
+    "canonicalTopics": 217,
+    "theoryTokenEstimate": 49171,
+    "laterPresetGuides": 41,
+    "pairedCases": 152,
+    "moduleQualifiedFamilies": 110,
+    "possibleAnswerPairs": 1368,
+    "legacyForms": 8,
+    "legacyFields": 60,
+    "legacyChoiceFields": 57,
+    "legacyNumericFields": 3
+  },
+  "routeMap": {
+    "base": "4732f93dfcdd233dcb6d7acc2a4838ba7a292141",
+    "modules": [
+      {
+        "path": "cloud",
+        "group": "Cloud computing",
+        "module": "computing",
+        "sequence": [
+          {
+            "topic": "intro-request",
+            "url": "/learn/computing?topic=intro-request"
+          },
+          {
+            "topic": "physical-server",
+            "url": "/learn/computing?topic=physical-server"
+          },
+          {
+            "topic": "virtualization",
+            "url": "/learn/computing?topic=virtualization"
+          },
+          {
+            "topic": "provisioning",
+            "url": "/learn/computing?topic=provisioning"
+          },
+          {
+            "topic": "capacity-basics",
+            "url": "/learn/computing?topic=capacity-basics"
+          },
+          {
+            "topic": "v2-capacity",
+            "url": "/learn/computing?topic=v2-capacity"
+          },
+          {
+            "topic": "v2-responsibility",
+            "url": "/learn/computing?topic=v2-responsibility"
+          },
+          {
+            "topic": "v2-models",
+            "url": "/learn/computing?topic=v2-models"
+          },
+          {
+            "topic": "v2-placement",
+            "url": "/learn/computing?topic=v2-placement"
+          },
+          {
+            "topic": "v2-metering",
+            "url": "/learn/computing?topic=v2-metering"
+          },
+          {
+            "topic": "v2-pricing",
+            "url": "/learn/computing?topic=v2-pricing"
+          },
+          {
+            "topic": "serverless-concept",
+            "url": "/learn/computing?topic=serverless-concept"
+          },
+          {
+            "topic": "serverless-mechanism",
+            "url": "/learn/computing?topic=serverless-mechanism"
+          },
+          {
+            "topic": "serverless-hosting",
+            "url": "/learn/computing?topic=serverless-hosting"
+          },
+          {
+            "topic": "serverless-explorer",
+            "url": "/learn/computing?topic=serverless-explorer"
+          },
+          {
+            "topic": "serverless-assessment",
+            "url": "/learn/computing?topic=serverless-assessment"
+          },
+          {
+            "topic": "serverless-summary",
+            "url": "/learn/computing?topic=serverless-summary"
+          },
+          {
+            "topic": "resource-bridge",
+            "url": "/learn/computing?topic=resource-bridge"
+          },
+          {
+            "topic": "transfer",
+            "url": "/learn/computing?topic=transfer"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "intro-request",
+            "url": "/learn/computing?topic=intro-request",
+            "inSequence": true
+          },
+          {
+            "topic": "physical-server",
+            "url": "/learn/computing?topic=physical-server",
+            "inSequence": true
+          },
+          {
+            "topic": "virtualization",
+            "url": "/learn/computing?topic=virtualization",
+            "inSequence": true
+          },
+          {
+            "topic": "provisioning",
+            "url": "/learn/computing?topic=provisioning",
+            "inSequence": true
+          },
+          {
+            "topic": "capacity-basics",
+            "url": "/learn/computing?topic=capacity-basics",
+            "inSequence": true
+          },
+          {
+            "topic": "v2-capacity",
+            "url": "/learn/computing?topic=v2-capacity",
+            "inSequence": true
+          },
+          {
+            "topic": "v2-responsibility",
+            "url": "/learn/computing?topic=v2-responsibility",
+            "inSequence": true
+          },
+          {
+            "topic": "v2-models",
+            "url": "/learn/computing?topic=v2-models",
+            "inSequence": true
+          },
+          {
+            "topic": "v2-placement",
+            "url": "/learn/computing?topic=v2-placement",
+            "inSequence": true
+          },
+          {
+            "topic": "v2-metering",
+            "url": "/learn/computing?topic=v2-metering",
+            "inSequence": true
+          },
+          {
+            "topic": "v2-pricing",
+            "url": "/learn/computing?topic=v2-pricing",
+            "inSequence": true
+          },
+          {
+            "topic": "serverless-concept",
+            "url": "/learn/computing?topic=serverless-concept",
+            "inSequence": true
+          },
+          {
+            "topic": "serverless-mechanism",
+            "url": "/learn/computing?topic=serverless-mechanism",
+            "inSequence": true
+          },
+          {
+            "topic": "serverless-hosting",
+            "url": "/learn/computing?topic=serverless-hosting",
+            "inSequence": true
+          },
+          {
+            "topic": "serverless-explorer",
+            "url": "/learn/computing?topic=serverless-explorer",
+            "inSequence": true
+          },
+          {
+            "topic": "serverless-assessment",
+            "url": "/learn/computing?topic=serverless-assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "serverless-summary",
+            "url": "/learn/computing?topic=serverless-summary",
+            "inSequence": true
+          },
+          {
+            "topic": "resource-bridge",
+            "url": "/learn/computing?topic=resource-bridge",
+            "inSequence": true
+          },
+          {
+            "topic": "transfer",
+            "url": "/learn/computing?topic=transfer",
+            "inSequence": true
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/computing?topic=summary",
+            "inSequence": false
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/computing?topic=assessment",
+            "inSequence": false
+          },
+          {
+            "topic": "capacity",
+            "url": "/learn/computing?topic=capacity",
+            "inSequence": false
+          },
+          {
+            "topic": "responsibility",
+            "url": "/learn/computing?topic=responsibility",
+            "inSequence": false
+          },
+          {
+            "topic": "models",
+            "url": "/learn/computing?topic=models",
+            "inSequence": false
+          },
+          {
+            "topic": "placement",
+            "url": "/learn/computing?topic=placement",
+            "inSequence": false
+          },
+          {
+            "topic": "metering",
+            "url": "/learn/computing?topic=metering",
+            "inSequence": false
+          },
+          {
+            "topic": "pricing",
+            "url": "/learn/computing?topic=pricing",
+            "inSequence": false
+          },
+          {
+            "topic": "v2-assessment",
+            "url": "/learn/computing?topic=v2-assessment",
+            "inSequence": false
+          },
+          {
+            "topic": "v2-summary",
+            "url": "/learn/computing?topic=v2-summary",
+            "inSequence": false
+          }
+        ]
+      },
+      {
+        "path": "cloud",
+        "group": "Benefits of cloud services",
+        "module": "benefits",
+        "sequence": [
+          {
+            "topic": "availability",
+            "url": "/learn/benefits?topic=availability"
+          },
+          {
+            "topic": "reliability",
+            "url": "/learn/benefits?topic=reliability"
+          },
+          {
+            "topic": "governance",
+            "url": "/learn/benefits?topic=governance"
+          },
+          {
+            "topic": "management",
+            "url": "/learn/benefits?topic=management"
+          },
+          {
+            "topic": "sustainability",
+            "url": "/learn/benefits?topic=sustainability"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/benefits?topic=summary"
+          },
+          {
+            "topic": "transfer",
+            "url": "/learn/benefits?topic=transfer"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "transfer",
+            "url": "/learn/benefits?topic=transfer",
+            "inSequence": true
+          },
+          {
+            "topic": "availability",
+            "url": "/learn/benefits?topic=availability",
+            "inSequence": true
+          },
+          {
+            "topic": "reliability",
+            "url": "/learn/benefits?topic=reliability",
+            "inSequence": true
+          },
+          {
+            "topic": "governance",
+            "url": "/learn/benefits?topic=governance",
+            "inSequence": true
+          },
+          {
+            "topic": "management",
+            "url": "/learn/benefits?topic=management",
+            "inSequence": true
+          },
+          {
+            "topic": "sustainability",
+            "url": "/learn/benefits?topic=sustainability",
+            "inSequence": true
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/benefits?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/benefits?topic=assessment",
+            "inSequence": false
+          }
+        ]
+      },
+      {
+        "path": "cloud",
+        "group": "Cloud service types",
+        "module": "services",
+        "sequence": [
+          {
+            "topic": "overview",
+            "url": "/learn/services?topic=overview"
+          },
+          {
+            "topic": "iaas",
+            "url": "/learn/services?topic=iaas"
+          },
+          {
+            "topic": "paas",
+            "url": "/learn/services?topic=paas"
+          },
+          {
+            "topic": "saas",
+            "url": "/learn/services?topic=saas"
+          },
+          {
+            "topic": "selection",
+            "url": "/learn/services?topic=selection"
+          },
+          {
+            "topic": "practice",
+            "url": "/learn/services?topic=practice"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/services?topic=summary"
+          },
+          {
+            "topic": "transfer",
+            "url": "/learn/services?topic=transfer"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "transfer",
+            "url": "/learn/services?topic=transfer",
+            "inSequence": true
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/services?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "overview",
+            "url": "/learn/services?topic=overview",
+            "inSequence": true
+          },
+          {
+            "topic": "iaas",
+            "url": "/learn/services?topic=iaas",
+            "inSequence": true
+          },
+          {
+            "topic": "paas",
+            "url": "/learn/services?topic=paas",
+            "inSequence": true
+          },
+          {
+            "topic": "saas",
+            "url": "/learn/services?topic=saas",
+            "inSequence": true
+          },
+          {
+            "topic": "selection",
+            "url": "/learn/services?topic=selection",
+            "inSequence": true
+          },
+          {
+            "topic": "practice",
+            "url": "/learn/services?topic=practice",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/services?topic=assessment",
+            "inSequence": false
+          }
+        ]
+      },
+      {
+        "path": "architecture",
+        "group": "Core Architecture",
+        "module": "architecture",
+        "sequence": [
+          {
+            "topic": "datacenters",
+            "url": "/learn/architecture?topic=datacenters"
+          },
+          {
+            "topic": "regions",
+            "url": "/learn/architecture?topic=regions"
+          },
+          {
+            "topic": "zones",
+            "url": "/learn/architecture?topic=zones"
+          },
+          {
+            "topic": "pairs",
+            "url": "/learn/architecture?topic=pairs"
+          },
+          {
+            "topic": "sovereign",
+            "url": "/learn/architecture?topic=sovereign"
+          },
+          {
+            "topic": "explorer",
+            "url": "/learn/architecture?topic=explorer"
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/architecture?topic=assessment"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/architecture?topic=summary"
+          },
+          {
+            "topic": "organization",
+            "url": "/learn/architecture?topic=organization"
+          },
+          {
+            "topic": "resources",
+            "url": "/learn/architecture?topic=resources"
+          },
+          {
+            "topic": "groups",
+            "url": "/learn/architecture?topic=groups"
+          },
+          {
+            "topic": "subscriptions",
+            "url": "/learn/architecture?topic=subscriptions"
+          },
+          {
+            "topic": "management",
+            "url": "/learn/architecture?topic=management"
+          },
+          {
+            "topic": "hierarchy",
+            "url": "/learn/architecture?topic=hierarchy"
+          },
+          {
+            "topic": "scope",
+            "url": "/learn/architecture?topic=scope"
+          },
+          {
+            "topic": "management-assessment",
+            "url": "/learn/architecture?topic=management-assessment"
+          },
+          {
+            "topic": "core-summary",
+            "url": "/learn/architecture?topic=core-summary"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "management",
+            "url": "/learn/architecture?topic=management",
+            "inSequence": true
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/architecture?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "datacenters",
+            "url": "/learn/architecture?topic=datacenters",
+            "inSequence": true
+          },
+          {
+            "topic": "regions",
+            "url": "/learn/architecture?topic=regions",
+            "inSequence": true
+          },
+          {
+            "topic": "zones",
+            "url": "/learn/architecture?topic=zones",
+            "inSequence": true
+          },
+          {
+            "topic": "pairs",
+            "url": "/learn/architecture?topic=pairs",
+            "inSequence": true
+          },
+          {
+            "topic": "sovereign",
+            "url": "/learn/architecture?topic=sovereign",
+            "inSequence": true
+          },
+          {
+            "topic": "explorer",
+            "url": "/learn/architecture?topic=explorer",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/architecture?topic=assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "organization",
+            "url": "/learn/architecture?topic=organization",
+            "inSequence": true
+          },
+          {
+            "topic": "resources",
+            "url": "/learn/architecture?topic=resources",
+            "inSequence": true
+          },
+          {
+            "topic": "groups",
+            "url": "/learn/architecture?topic=groups",
+            "inSequence": true
+          },
+          {
+            "topic": "subscriptions",
+            "url": "/learn/architecture?topic=subscriptions",
+            "inSequence": true
+          },
+          {
+            "topic": "hierarchy",
+            "url": "/learn/architecture?topic=hierarchy",
+            "inSequence": true
+          },
+          {
+            "topic": "scope",
+            "url": "/learn/architecture?topic=scope",
+            "inSequence": true
+          },
+          {
+            "topic": "management-assessment",
+            "url": "/learn/architecture?topic=management-assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "core-summary",
+            "url": "/learn/architecture?topic=core-summary",
+            "inSequence": true
+          }
+        ]
+      },
+      {
+        "path": "architecture",
+        "group": "Compute & Hosting",
+        "module": "compute",
+        "sequence": [
+          {
+            "topic": "introduction",
+            "url": "/learn/compute?topic=introduction"
+          },
+          {
+            "topic": "fundamentals",
+            "url": "/learn/compute?topic=fundamentals"
+          },
+          {
+            "topic": "vm",
+            "url": "/learn/compute?topic=vm"
+          },
+          {
+            "topic": "dependencies",
+            "url": "/learn/compute?topic=dependencies"
+          },
+          {
+            "topic": "containers",
+            "url": "/learn/compute?topic=containers"
+          },
+          {
+            "topic": "functions",
+            "url": "/learn/compute?topic=functions"
+          },
+          {
+            "topic": "options",
+            "url": "/learn/compute?topic=options"
+          },
+          {
+            "topic": "resilience",
+            "url": "/learn/compute?topic=resilience"
+          },
+          {
+            "topic": "desktop",
+            "url": "/learn/compute?topic=desktop"
+          },
+          {
+            "topic": "hosting",
+            "url": "/learn/compute?topic=hosting"
+          },
+          {
+            "topic": "context",
+            "url": "/learn/compute?topic=context"
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/compute?topic=missions"
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/compute?topic=assessment"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/compute?topic=summary"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "summary",
+            "url": "/learn/compute?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/compute?topic=assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "introduction",
+            "url": "/learn/compute?topic=introduction",
+            "inSequence": true
+          },
+          {
+            "topic": "fundamentals",
+            "url": "/learn/compute?topic=fundamentals",
+            "inSequence": true
+          },
+          {
+            "topic": "vm",
+            "url": "/learn/compute?topic=vm",
+            "inSequence": true
+          },
+          {
+            "topic": "dependencies",
+            "url": "/learn/compute?topic=dependencies",
+            "inSequence": true
+          },
+          {
+            "topic": "containers",
+            "url": "/learn/compute?topic=containers",
+            "inSequence": true
+          },
+          {
+            "topic": "functions",
+            "url": "/learn/compute?topic=functions",
+            "inSequence": true
+          },
+          {
+            "topic": "options",
+            "url": "/learn/compute?topic=options",
+            "inSequence": true
+          },
+          {
+            "topic": "resilience",
+            "url": "/learn/compute?topic=resilience",
+            "inSequence": true
+          },
+          {
+            "topic": "desktop",
+            "url": "/learn/compute?topic=desktop",
+            "inSequence": true
+          },
+          {
+            "topic": "hosting",
+            "url": "/learn/compute?topic=hosting",
+            "inSequence": true
+          },
+          {
+            "topic": "context",
+            "url": "/learn/compute?topic=context",
+            "inSequence": true
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/compute?topic=missions",
+            "inSequence": true
+          }
+        ]
+      },
+      {
+        "path": "architecture",
+        "group": "Networking",
+        "module": "networking",
+        "sequence": [
+          {
+            "topic": "introduction",
+            "url": "/learn/networking?topic=introduction"
+          },
+          {
+            "topic": "fundamentals",
+            "url": "/learn/networking?topic=fundamentals"
+          },
+          {
+            "topic": "vnet",
+            "url": "/learn/networking?topic=vnet"
+          },
+          {
+            "topic": "addressing",
+            "url": "/learn/networking?topic=addressing"
+          },
+          {
+            "topic": "dependencies",
+            "url": "/learn/networking?topic=dependencies"
+          },
+          {
+            "topic": "peering",
+            "url": "/learn/networking?topic=peering"
+          },
+          {
+            "topic": "dns",
+            "url": "/learn/networking?topic=dns"
+          },
+          {
+            "topic": "explorer",
+            "url": "/learn/networking?topic=explorer"
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/networking?topic=missions"
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/networking?topic=assessment"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/networking?topic=summary"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "summary",
+            "url": "/learn/networking?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "explorer",
+            "url": "/learn/networking?topic=explorer",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/networking?topic=assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "introduction",
+            "url": "/learn/networking?topic=introduction",
+            "inSequence": true
+          },
+          {
+            "topic": "fundamentals",
+            "url": "/learn/networking?topic=fundamentals",
+            "inSequence": true
+          },
+          {
+            "topic": "dependencies",
+            "url": "/learn/networking?topic=dependencies",
+            "inSequence": true
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/networking?topic=missions",
+            "inSequence": true
+          },
+          {
+            "topic": "vnet",
+            "url": "/learn/networking?topic=vnet",
+            "inSequence": true
+          },
+          {
+            "topic": "addressing",
+            "url": "/learn/networking?topic=addressing",
+            "inSequence": true
+          },
+          {
+            "topic": "peering",
+            "url": "/learn/networking?topic=peering",
+            "inSequence": true
+          },
+          {
+            "topic": "dns",
+            "url": "/learn/networking?topic=dns",
+            "inSequence": true
+          }
+        ]
+      },
+      {
+        "path": "architecture",
+        "group": "Networking",
+        "module": "connectivity",
+        "sequence": [
+          {
+            "topic": "introduction",
+            "url": "/learn/connectivity?topic=introduction"
+          },
+          {
+            "topic": "vpn",
+            "url": "/learn/connectivity?topic=vpn"
+          },
+          {
+            "topic": "expressroute",
+            "url": "/learn/connectivity?topic=expressroute"
+          },
+          {
+            "topic": "endpoints",
+            "url": "/learn/connectivity?topic=endpoints"
+          },
+          {
+            "topic": "private-dns",
+            "url": "/learn/connectivity?topic=private-dns"
+          },
+          {
+            "topic": "hybrid",
+            "url": "/learn/connectivity?topic=hybrid"
+          },
+          {
+            "topic": "explorer",
+            "url": "/learn/connectivity?topic=explorer"
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/connectivity?topic=missions"
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/connectivity?topic=assessment"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/connectivity?topic=summary"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "summary",
+            "url": "/learn/connectivity?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "explorer",
+            "url": "/learn/connectivity?topic=explorer",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/connectivity?topic=assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "introduction",
+            "url": "/learn/connectivity?topic=introduction",
+            "inSequence": true
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/connectivity?topic=missions",
+            "inSequence": true
+          },
+          {
+            "topic": "vpn",
+            "url": "/learn/connectivity?topic=vpn",
+            "inSequence": true
+          },
+          {
+            "topic": "expressroute",
+            "url": "/learn/connectivity?topic=expressroute",
+            "inSequence": true
+          },
+          {
+            "topic": "endpoints",
+            "url": "/learn/connectivity?topic=endpoints",
+            "inSequence": true
+          },
+          {
+            "topic": "private-dns",
+            "url": "/learn/connectivity?topic=private-dns",
+            "inSequence": true
+          },
+          {
+            "topic": "hybrid",
+            "url": "/learn/connectivity?topic=hybrid",
+            "inSequence": true
+          }
+        ]
+      },
+      {
+        "path": "architecture",
+        "group": "Storage",
+        "module": "storage",
+        "sequence": [
+          {
+            "topic": "introduction",
+            "url": "/learn/storage?topic=introduction"
+          },
+          {
+            "topic": "blob",
+            "url": "/learn/storage?topic=blob"
+          },
+          {
+            "topic": "files",
+            "url": "/learn/storage?topic=files"
+          },
+          {
+            "topic": "queues",
+            "url": "/learn/storage?topic=queues"
+          },
+          {
+            "topic": "tables",
+            "url": "/learn/storage?topic=tables"
+          },
+          {
+            "topic": "accounts",
+            "url": "/learn/storage?topic=accounts"
+          },
+          {
+            "topic": "disks",
+            "url": "/learn/storage?topic=disks"
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/storage?topic=studio"
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/storage?topic=missions"
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/storage?topic=assessment"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/storage?topic=summary"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "summary",
+            "url": "/learn/storage?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/storage?topic=assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "introduction",
+            "url": "/learn/storage?topic=introduction",
+            "inSequence": true
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/storage?topic=missions",
+            "inSequence": true
+          },
+          {
+            "topic": "blob",
+            "url": "/learn/storage?topic=blob",
+            "inSequence": true
+          },
+          {
+            "topic": "files",
+            "url": "/learn/storage?topic=files",
+            "inSequence": true
+          },
+          {
+            "topic": "queues",
+            "url": "/learn/storage?topic=queues",
+            "inSequence": true
+          },
+          {
+            "topic": "tables",
+            "url": "/learn/storage?topic=tables",
+            "inSequence": true
+          },
+          {
+            "topic": "accounts",
+            "url": "/learn/storage?topic=accounts",
+            "inSequence": true
+          },
+          {
+            "topic": "disks",
+            "url": "/learn/storage?topic=disks",
+            "inSequence": true
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/storage?topic=studio",
+            "inSequence": true
+          }
+        ]
+      },
+      {
+        "path": "architecture",
+        "group": "Storage",
+        "module": "storage-resilience",
+        "sequence": [
+          {
+            "topic": "introduction",
+            "url": "/learn/storage-resilience?topic=introduction"
+          },
+          {
+            "topic": "tiers",
+            "url": "/learn/storage-resilience?topic=tiers"
+          },
+          {
+            "topic": "lifecycle",
+            "url": "/learn/storage-resilience?topic=lifecycle"
+          },
+          {
+            "topic": "redundancy",
+            "url": "/learn/storage-resilience?topic=redundancy"
+          },
+          {
+            "topic": "recovery",
+            "url": "/learn/storage-resilience?topic=recovery"
+          },
+          {
+            "topic": "boundaries",
+            "url": "/learn/storage-resilience?topic=boundaries"
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/storage-resilience?topic=studio"
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/storage-resilience?topic=missions"
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/storage-resilience?topic=assessment"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/storage-resilience?topic=summary"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "summary",
+            "url": "/learn/storage-resilience?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/storage-resilience?topic=assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "introduction",
+            "url": "/learn/storage-resilience?topic=introduction",
+            "inSequence": true
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/storage-resilience?topic=missions",
+            "inSequence": true
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/storage-resilience?topic=studio",
+            "inSequence": true
+          },
+          {
+            "topic": "tiers",
+            "url": "/learn/storage-resilience?topic=tiers",
+            "inSequence": true
+          },
+          {
+            "topic": "lifecycle",
+            "url": "/learn/storage-resilience?topic=lifecycle",
+            "inSequence": true
+          },
+          {
+            "topic": "redundancy",
+            "url": "/learn/storage-resilience?topic=redundancy",
+            "inSequence": true
+          },
+          {
+            "topic": "recovery",
+            "url": "/learn/storage-resilience?topic=recovery",
+            "inSequence": true
+          },
+          {
+            "topic": "boundaries",
+            "url": "/learn/storage-resilience?topic=boundaries",
+            "inSequence": true
+          }
+        ]
+      },
+      {
+        "path": "architecture",
+        "group": "Storage",
+        "module": "migration",
+        "sequence": [
+          {
+            "topic": "introduction",
+            "url": "/learn/migration?topic=introduction"
+          },
+          {
+            "topic": "methods",
+            "url": "/learn/migration?topic=methods"
+          },
+          {
+            "topic": "azcopy",
+            "url": "/learn/migration?topic=azcopy"
+          },
+          {
+            "topic": "explorer",
+            "url": "/learn/migration?topic=explorer"
+          },
+          {
+            "topic": "file-sync",
+            "url": "/learn/migration?topic=file-sync"
+          },
+          {
+            "topic": "migrate",
+            "url": "/learn/migration?topic=migrate"
+          },
+          {
+            "topic": "databox",
+            "url": "/learn/migration?topic=databox"
+          },
+          {
+            "topic": "validation",
+            "url": "/learn/migration?topic=validation"
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/migration?topic=studio"
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/migration?topic=missions"
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/migration?topic=assessment"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/migration?topic=summary"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "summary",
+            "url": "/learn/migration?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "explorer",
+            "url": "/learn/migration?topic=explorer",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/migration?topic=assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "introduction",
+            "url": "/learn/migration?topic=introduction",
+            "inSequence": true
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/migration?topic=missions",
+            "inSequence": true
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/migration?topic=studio",
+            "inSequence": true
+          },
+          {
+            "topic": "methods",
+            "url": "/learn/migration?topic=methods",
+            "inSequence": true
+          },
+          {
+            "topic": "azcopy",
+            "url": "/learn/migration?topic=azcopy",
+            "inSequence": true
+          },
+          {
+            "topic": "file-sync",
+            "url": "/learn/migration?topic=file-sync",
+            "inSequence": true
+          },
+          {
+            "topic": "migrate",
+            "url": "/learn/migration?topic=migrate",
+            "inSequence": true
+          },
+          {
+            "topic": "databox",
+            "url": "/learn/migration?topic=databox",
+            "inSequence": true
+          },
+          {
+            "topic": "validation",
+            "url": "/learn/migration?topic=validation",
+            "inSequence": true
+          }
+        ]
+      },
+      {
+        "path": "architecture",
+        "group": "Identity, Access & Security",
+        "module": "identity",
+        "sequence": [
+          {
+            "topic": "introduction",
+            "url": "/learn/identity?topic=introduction"
+          },
+          {
+            "topic": "directory",
+            "url": "/learn/identity?topic=directory"
+          },
+          {
+            "topic": "domain",
+            "url": "/learn/identity?topic=domain"
+          },
+          {
+            "topic": "authentication",
+            "url": "/learn/identity?topic=authentication"
+          },
+          {
+            "topic": "sso",
+            "url": "/learn/identity?topic=sso"
+          },
+          {
+            "topic": "mfa",
+            "url": "/learn/identity?topic=mfa"
+          },
+          {
+            "topic": "passwordless",
+            "url": "/learn/identity?topic=passwordless"
+          },
+          {
+            "topic": "external",
+            "url": "/learn/identity?topic=external"
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/identity?topic=studio"
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/identity?topic=missions"
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/identity?topic=assessment"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/identity?topic=summary"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "summary",
+            "url": "/learn/identity?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/identity?topic=assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "introduction",
+            "url": "/learn/identity?topic=introduction",
+            "inSequence": true
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/identity?topic=missions",
+            "inSequence": true
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/identity?topic=studio",
+            "inSequence": true
+          },
+          {
+            "topic": "directory",
+            "url": "/learn/identity?topic=directory",
+            "inSequence": true
+          },
+          {
+            "topic": "domain",
+            "url": "/learn/identity?topic=domain",
+            "inSequence": true
+          },
+          {
+            "topic": "authentication",
+            "url": "/learn/identity?topic=authentication",
+            "inSequence": true
+          },
+          {
+            "topic": "sso",
+            "url": "/learn/identity?topic=sso",
+            "inSequence": true
+          },
+          {
+            "topic": "mfa",
+            "url": "/learn/identity?topic=mfa",
+            "inSequence": true
+          },
+          {
+            "topic": "passwordless",
+            "url": "/learn/identity?topic=passwordless",
+            "inSequence": true
+          },
+          {
+            "topic": "external",
+            "url": "/learn/identity?topic=external",
+            "inSequence": true
+          }
+        ]
+      },
+      {
+        "path": "architecture",
+        "group": "Identity, Access & Security",
+        "module": "access-control",
+        "sequence": [
+          {
+            "topic": "introduction",
+            "url": "/learn/access-control?topic=introduction"
+          },
+          {
+            "topic": "rbac",
+            "url": "/learn/access-control?topic=rbac"
+          },
+          {
+            "topic": "scope",
+            "url": "/learn/access-control?topic=scope"
+          },
+          {
+            "topic": "roles",
+            "url": "/learn/access-control?topic=roles"
+          },
+          {
+            "topic": "planes",
+            "url": "/learn/access-control?topic=planes"
+          },
+          {
+            "topic": "conditional",
+            "url": "/learn/access-control?topic=conditional"
+          },
+          {
+            "topic": "policies",
+            "url": "/learn/access-control?topic=policies"
+          },
+          {
+            "topic": "testing",
+            "url": "/learn/access-control?topic=testing"
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/access-control?topic=studio"
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/access-control?topic=missions"
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/access-control?topic=assessment"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/access-control?topic=summary"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "summary",
+            "url": "/learn/access-control?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/access-control?topic=assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "scope",
+            "url": "/learn/access-control?topic=scope",
+            "inSequence": true
+          },
+          {
+            "topic": "introduction",
+            "url": "/learn/access-control?topic=introduction",
+            "inSequence": true
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/access-control?topic=missions",
+            "inSequence": true
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/access-control?topic=studio",
+            "inSequence": true
+          },
+          {
+            "topic": "rbac",
+            "url": "/learn/access-control?topic=rbac",
+            "inSequence": true
+          },
+          {
+            "topic": "roles",
+            "url": "/learn/access-control?topic=roles",
+            "inSequence": true
+          },
+          {
+            "topic": "planes",
+            "url": "/learn/access-control?topic=planes",
+            "inSequence": true
+          },
+          {
+            "topic": "conditional",
+            "url": "/learn/access-control?topic=conditional",
+            "inSequence": true
+          },
+          {
+            "topic": "policies",
+            "url": "/learn/access-control?topic=policies",
+            "inSequence": true
+          },
+          {
+            "topic": "testing",
+            "url": "/learn/access-control?topic=testing",
+            "inSequence": true
+          }
+        ]
+      },
+      {
+        "path": "architecture",
+        "group": "Identity, Access & Security",
+        "module": "security",
+        "sequence": [
+          {
+            "topic": "introduction",
+            "url": "/learn/security?topic=introduction"
+          },
+          {
+            "topic": "zero-trust",
+            "url": "/learn/security?topic=zero-trust"
+          },
+          {
+            "topic": "depth",
+            "url": "/learn/security?topic=depth"
+          },
+          {
+            "topic": "encryption",
+            "url": "/learn/security?topic=encryption"
+          },
+          {
+            "topic": "defender",
+            "url": "/learn/security?topic=defender"
+          },
+          {
+            "topic": "posture",
+            "url": "/learn/security?topic=posture"
+          },
+          {
+            "topic": "protection",
+            "url": "/learn/security?topic=protection"
+          },
+          {
+            "topic": "score",
+            "url": "/learn/security?topic=score"
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/security?topic=studio"
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/security?topic=missions"
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/security?topic=assessment"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/security?topic=summary"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "summary",
+            "url": "/learn/security?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/security?topic=assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "introduction",
+            "url": "/learn/security?topic=introduction",
+            "inSequence": true
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/security?topic=missions",
+            "inSequence": true
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/security?topic=studio",
+            "inSequence": true
+          },
+          {
+            "topic": "zero-trust",
+            "url": "/learn/security?topic=zero-trust",
+            "inSequence": true
+          },
+          {
+            "topic": "depth",
+            "url": "/learn/security?topic=depth",
+            "inSequence": true
+          },
+          {
+            "topic": "encryption",
+            "url": "/learn/security?topic=encryption",
+            "inSequence": true
+          },
+          {
+            "topic": "defender",
+            "url": "/learn/security?topic=defender",
+            "inSequence": true
+          },
+          {
+            "topic": "posture",
+            "url": "/learn/security?topic=posture",
+            "inSequence": true
+          },
+          {
+            "topic": "protection",
+            "url": "/learn/security?topic=protection",
+            "inSequence": true
+          },
+          {
+            "topic": "score",
+            "url": "/learn/security?topic=score",
+            "inSequence": true
+          }
+        ]
+      },
+      {
+        "path": "management",
+        "group": "Cost Management",
+        "module": "cost",
+        "sequence": [
+          {
+            "topic": "introduction",
+            "url": "/learn/cost?topic=introduction"
+          },
+          {
+            "topic": "drivers",
+            "url": "/learn/cost?topic=drivers"
+          },
+          {
+            "topic": "estimate",
+            "url": "/learn/cost?topic=estimate"
+          },
+          {
+            "topic": "analysis",
+            "url": "/learn/cost?topic=analysis"
+          },
+          {
+            "topic": "budgets",
+            "url": "/learn/cost?topic=budgets"
+          },
+          {
+            "topic": "tags",
+            "url": "/learn/cost?topic=tags"
+          },
+          {
+            "topic": "optimization",
+            "url": "/learn/cost?topic=optimization"
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/cost?topic=assessment"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/cost?topic=summary"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "summary",
+            "url": "/learn/cost?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/cost?topic=assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "introduction",
+            "url": "/learn/cost?topic=introduction",
+            "inSequence": true
+          },
+          {
+            "topic": "drivers",
+            "url": "/learn/cost?topic=drivers",
+            "inSequence": true
+          },
+          {
+            "topic": "estimate",
+            "url": "/learn/cost?topic=estimate",
+            "inSequence": true
+          },
+          {
+            "topic": "analysis",
+            "url": "/learn/cost?topic=analysis",
+            "inSequence": true
+          },
+          {
+            "topic": "budgets",
+            "url": "/learn/cost?topic=budgets",
+            "inSequence": true
+          },
+          {
+            "topic": "tags",
+            "url": "/learn/cost?topic=tags",
+            "inSequence": true
+          },
+          {
+            "topic": "optimization",
+            "url": "/learn/cost?topic=optimization",
+            "inSequence": true
+          }
+        ]
+      },
+      {
+        "path": "management",
+        "group": "Governance & Compliance",
+        "module": "governance",
+        "sequence": [
+          {
+            "topic": "introduction",
+            "url": "/learn/governance?topic=introduction"
+          },
+          {
+            "topic": "purview",
+            "url": "/learn/governance?topic=purview"
+          },
+          {
+            "topic": "catalog",
+            "url": "/learn/governance?topic=catalog"
+          },
+          {
+            "topic": "policy",
+            "url": "/learn/governance?topic=policy"
+          },
+          {
+            "topic": "assignments",
+            "url": "/learn/governance?topic=assignments"
+          },
+          {
+            "topic": "compliance",
+            "url": "/learn/governance?topic=compliance"
+          },
+          {
+            "topic": "locks",
+            "url": "/learn/governance?topic=locks"
+          },
+          {
+            "topic": "planes",
+            "url": "/learn/governance?topic=planes"
+          },
+          {
+            "topic": "trust",
+            "url": "/learn/governance?topic=trust"
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/governance?topic=studio"
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/governance?topic=missions"
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/governance?topic=assessment"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/governance?topic=summary"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "summary",
+            "url": "/learn/governance?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/governance?topic=assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "introduction",
+            "url": "/learn/governance?topic=introduction",
+            "inSequence": true
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/governance?topic=missions",
+            "inSequence": true
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/governance?topic=studio",
+            "inSequence": true
+          },
+          {
+            "topic": "planes",
+            "url": "/learn/governance?topic=planes",
+            "inSequence": true
+          },
+          {
+            "topic": "purview",
+            "url": "/learn/governance?topic=purview",
+            "inSequence": true
+          },
+          {
+            "topic": "catalog",
+            "url": "/learn/governance?topic=catalog",
+            "inSequence": true
+          },
+          {
+            "topic": "policy",
+            "url": "/learn/governance?topic=policy",
+            "inSequence": true
+          },
+          {
+            "topic": "assignments",
+            "url": "/learn/governance?topic=assignments",
+            "inSequence": true
+          },
+          {
+            "topic": "compliance",
+            "url": "/learn/governance?topic=compliance",
+            "inSequence": true
+          },
+          {
+            "topic": "locks",
+            "url": "/learn/governance?topic=locks",
+            "inSequence": true
+          },
+          {
+            "topic": "trust",
+            "url": "/learn/governance?topic=trust",
+            "inSequence": true
+          }
+        ]
+      },
+      {
+        "path": "management",
+        "group": "Management & Deployment Tools",
+        "module": "management-tools",
+        "sequence": [
+          {
+            "topic": "introduction",
+            "url": "/learn/management-tools?topic=introduction"
+          },
+          {
+            "topic": "portal",
+            "url": "/learn/management-tools?topic=portal"
+          },
+          {
+            "topic": "shell",
+            "url": "/learn/management-tools?topic=shell"
+          },
+          {
+            "topic": "cli",
+            "url": "/learn/management-tools?topic=cli"
+          },
+          {
+            "topic": "powershell",
+            "url": "/learn/management-tools?topic=powershell"
+          },
+          {
+            "topic": "arm",
+            "url": "/learn/management-tools?topic=arm"
+          },
+          {
+            "topic": "iac",
+            "url": "/learn/management-tools?topic=iac"
+          },
+          {
+            "topic": "templates",
+            "url": "/learn/management-tools?topic=templates"
+          },
+          {
+            "topic": "bicep",
+            "url": "/learn/management-tools?topic=bicep"
+          },
+          {
+            "topic": "changes",
+            "url": "/learn/management-tools?topic=changes"
+          },
+          {
+            "topic": "arc",
+            "url": "/learn/management-tools?topic=arc"
+          },
+          {
+            "topic": "copilot",
+            "url": "/learn/management-tools?topic=copilot"
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/management-tools?topic=studio"
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/management-tools?topic=missions"
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/management-tools?topic=assessment"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/management-tools?topic=summary"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "summary",
+            "url": "/learn/management-tools?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/management-tools?topic=assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "introduction",
+            "url": "/learn/management-tools?topic=introduction",
+            "inSequence": true
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/management-tools?topic=missions",
+            "inSequence": true
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/management-tools?topic=studio",
+            "inSequence": true
+          },
+          {
+            "topic": "portal",
+            "url": "/learn/management-tools?topic=portal",
+            "inSequence": true
+          },
+          {
+            "topic": "shell",
+            "url": "/learn/management-tools?topic=shell",
+            "inSequence": true
+          },
+          {
+            "topic": "cli",
+            "url": "/learn/management-tools?topic=cli",
+            "inSequence": true
+          },
+          {
+            "topic": "powershell",
+            "url": "/learn/management-tools?topic=powershell",
+            "inSequence": true
+          },
+          {
+            "topic": "arm",
+            "url": "/learn/management-tools?topic=arm",
+            "inSequence": true
+          },
+          {
+            "topic": "iac",
+            "url": "/learn/management-tools?topic=iac",
+            "inSequence": true
+          },
+          {
+            "topic": "templates",
+            "url": "/learn/management-tools?topic=templates",
+            "inSequence": true
+          },
+          {
+            "topic": "bicep",
+            "url": "/learn/management-tools?topic=bicep",
+            "inSequence": true
+          },
+          {
+            "topic": "changes",
+            "url": "/learn/management-tools?topic=changes",
+            "inSequence": true
+          },
+          {
+            "topic": "arc",
+            "url": "/learn/management-tools?topic=arc",
+            "inSequence": true
+          },
+          {
+            "topic": "copilot",
+            "url": "/learn/management-tools?topic=copilot",
+            "inSequence": true
+          }
+        ]
+      },
+      {
+        "path": "management",
+        "group": "Monitoring & Diagnostic Tools",
+        "module": "monitoring",
+        "sequence": [
+          {
+            "topic": "introduction",
+            "url": "/learn/monitoring?topic=introduction"
+          },
+          {
+            "topic": "advisor",
+            "url": "/learn/monitoring?topic=advisor"
+          },
+          {
+            "topic": "health",
+            "url": "/learn/monitoring?topic=health"
+          },
+          {
+            "topic": "monitor",
+            "url": "/learn/monitoring?topic=monitor"
+          },
+          {
+            "topic": "signals",
+            "url": "/learn/monitoring?topic=signals"
+          },
+          {
+            "topic": "logs",
+            "url": "/learn/monitoring?topic=logs"
+          },
+          {
+            "topic": "alerts",
+            "url": "/learn/monitoring?topic=alerts"
+          },
+          {
+            "topic": "insights",
+            "url": "/learn/monitoring?topic=insights"
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/monitoring?topic=studio"
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/monitoring?topic=missions"
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/monitoring?topic=assessment"
+          },
+          {
+            "topic": "summary",
+            "url": "/learn/monitoring?topic=summary"
+          }
+        ],
+        "allowed": [
+          {
+            "topic": "summary",
+            "url": "/learn/monitoring?topic=summary",
+            "inSequence": true
+          },
+          {
+            "topic": "assessment",
+            "url": "/learn/monitoring?topic=assessment",
+            "inSequence": true
+          },
+          {
+            "topic": "introduction",
+            "url": "/learn/monitoring?topic=introduction",
+            "inSequence": true
+          },
+          {
+            "topic": "missions",
+            "url": "/learn/monitoring?topic=missions",
+            "inSequence": true
+          },
+          {
+            "topic": "studio",
+            "url": "/learn/monitoring?topic=studio",
+            "inSequence": true
+          },
+          {
+            "topic": "advisor",
+            "url": "/learn/monitoring?topic=advisor",
+            "inSequence": true
+          },
+          {
+            "topic": "health",
+            "url": "/learn/monitoring?topic=health",
+            "inSequence": true
+          },
+          {
+            "topic": "monitor",
+            "url": "/learn/monitoring?topic=monitor",
+            "inSequence": true
+          },
+          {
+            "topic": "signals",
+            "url": "/learn/monitoring?topic=signals",
+            "inSequence": true
+          },
+          {
+            "topic": "logs",
+            "url": "/learn/monitoring?topic=logs",
+            "inSequence": true
+          },
+          {
+            "topic": "alerts",
+            "url": "/learn/monitoring?topic=alerts",
+            "inSequence": true
+          },
+          {
+            "topic": "insights",
+            "url": "/learn/monitoring?topic=insights",
+            "inSequence": true
+          }
+        ]
+      }
+    ],
+    "distinctSequencedURLs": 205,
+    "distinctAllowedURLs": 217,
+    "additionalViews": [
+      "computing version=1",
+      "services version=1",
+      "activity=lab|debrief",
+      "Portal challenge independent",
+      "three practical lab kinds vm/paas/saas",
+      "four mission origins diagnose/governance/infrastructure/platform"
+    ],
+    "note": "Allowed canonical topic URLs from actual parser over all exported candidate ids; query selections, case/variant/perspective and historical version/activity views are distinct states, not new canonical activities."
+  },
+  "partMetrics": [
+    {
+      "id": "computing",
+      "domain": "foundations-v2",
+      "copy": "nb.foundationsV2",
+      "theoryWords": 1217,
+      "manuscriptSections": 12,
+      "missions": [],
+      "missionBriefWords": {},
+      "prerequisite": null,
+      "independentItems": 0
+    },
+    {
+      "id": "serverless",
+      "domain": "serverless",
+      "copy": "serverlessNb",
+      "theoryWords": 1008,
+      "manuscriptSections": 3,
+      "missions": [],
+      "missionBriefWords": {},
+      "prerequisite": "Bygger på servere og VM-er, provisioning, delt ansvar, forbruk og prising. Du kan gå tilbake til disse temaene i kursmenyen. Ingen Azure-konto eller programmering er nødvendig.",
+      "independentItems": 0
+    },
+    {
+      "id": "benefits",
+      "domain": "expansion",
+      "copy": "nb.expansion.benefits",
+      "theoryWords": 2517,
+      "manuscriptSections": 5,
+      "missions": [],
+      "missionBriefWords": {},
+      "prerequisite": null,
+      "independentItems": 0
+    },
+    {
+      "id": "services",
+      "domain": "expansion",
+      "copy": "nb.expansion.services",
+      "theoryWords": 2655,
+      "manuscriptSections": 6,
+      "missions": [],
+      "missionBriefWords": {},
+      "prerequisite": null,
+      "independentItems": 0
+    },
+    {
+      "id": "architecture-a",
+      "domain": "architecture-physical",
+      "copy": "architectureNb",
+      "theoryWords": 1561,
+      "manuscriptSections": 5,
+      "missions": [],
+      "missionBriefWords": {},
+      "prerequisite": "Bygger på fysisk server og virtualisering i Cloud Computing, ansvar i Service Types og forskjellen på kapasitet og tilgjengelighet i Benefits. Du kan gå tilbake i kursmenyen. Ingen Azure-konto er nødvendig.",
+      "independentItems": 0
+    },
+    {
+      "id": "architecture-b",
+      "domain": "architecture-management",
+      "copy": "managementNb",
+      "theoryWords": 1456,
+      "manuscriptSections": 5,
+      "missions": [],
+      "missionBriefWords": {},
+      "prerequisite": "Forkunnskaper: Cloud Concepts, tjenestemodeller og Part A. Skill en konfigurert ressurs fra faktisk drift, og region fra administrativt scope.",
+      "independentItems": 0
+    },
+    {
+      "id": "compute",
+      "domain": "compute",
+      "copy": "computeNb",
+      "theoryWords": 3729,
+      "manuscriptSections": 11,
+      "missions": ["vm", "container", "capacity", "hosting"],
+      "missionBriefWords": {
+        "vm": 182,
+        "container": 137,
+        "capacity": 142,
+        "hosting": 143
+      },
+      "prerequisite": "Forkunnskaper: fysiske servere og virtualisering, IaaS/PaaS, regioner og soner, management-hierarki og forbruksmodeller. Vi bygger videre på disse uten å endre tidligere resultater.",
+      "independentItems": 14
+    },
+    {
+      "id": "networking",
+      "domain": "networking",
+      "copy": "networkingNb",
+      "theoryWords": 2734,
+      "manuscriptSections": 8,
+      "missions": ["inspect", "address", "peering", "dns"],
+      "missionBriefWords": {
+        "inspect": 155,
+        "address": 144,
+        "peering": 144,
+        "dns": 149
+      },
+      "prerequisite": "Bygger på nettleser/server fra Cloud Computing, fysisk og administrativ arkitektur fra Core og VM/NIC-relasjoner fra Compute. IP, CIDR og DNS forklares her før de brukes. Ingen Azure-konto eller nettverksverktøy kreves.",
+      "independentItems": 12
+    },
+    {
+      "id": "connectivity",
+      "domain": "connectivity",
+      "copy": "connectivityNb",
+      "theoryWords": 2232,
+      "manuscriptSections": 7,
+      "missions": ["choose", "diagnose", "endpoint", "dns"],
+      "missionBriefWords": {
+        "choose": 156,
+        "diagnose": 162,
+        "endpoint": 168,
+        "dns": 160
+      },
+      "prerequisite": "Bygger på Part A: VNet, subnet, peering, DNS og forskjellen mellom navn, nettverksvei og tilgang. Core forklarer scope og region; Compute forklarer VM/NIC. Ingen Azure-konto, VPN-klient, provideravtale eller credentials kreves i denne lokale undervisningen.",
+      "independentItems": 12
+    },
+    {
+      "id": "storage",
+      "domain": "storage",
+      "copy": "storageNb",
+      "theoryWords": 2714,
+      "manuscriptSections": 8,
+      "missions": ["design", "accounts", "delivery"],
+      "missionBriefWords": {
+        "design": 144,
+        "accounts": 137,
+        "delivery": 138
+      },
+      "prerequisite": "Forkunnskaper: cloud-tjenester, VM-er og forskjellen mellom nettverksvei og autorisasjon fra Networking. Du trenger ingen Azure-konto. Vi definerer objekt, filshare, melding, entity og account før du bruker dem.",
+      "independentItems": 12
+    },
+    {
+      "id": "storage-resilience",
+      "domain": "storage-resilience",
+      "copy": "storageResilienceNb",
+      "theoryWords": 2923,
+      "manuscriptSections": 7,
+      "missions": ["tiers", "replication"],
+      "missionBriefWords": {
+        "tiers": 192,
+        "replication": 187
+      },
+      "prerequisite": "Bygg på Storage Part A: account, tjeneste og data er forskjellige nivåer. Core Architecture forklarer regioner og Availability Zones; Cost Management skiller enhetskostnad fra total bruk.",
+      "independentItems": 10
+    },
+    {
+      "id": "migration",
+      "domain": "migration",
+      "copy": "migrationNb",
+      "theoryWords": 2839,
+      "manuscriptSections": 9,
+      "missions": ["method", "sync", "planning"],
+      "missionBriefWords": {
+        "method": 161,
+        "sync": 161,
+        "planning": 145
+      },
+      "prerequisite": "Forkunnskaper: Storage Part A/B, nettverksforbindelser, datarettigheter og Management. Her bruker du disse begrepene til å planlegge bevegelse og validering av data.",
+      "independentItems": 10
+    },
+    {
+      "id": "identity",
+      "domain": "identity-foundations",
+      "copy": "identityNb",
+      "theoryWords": 2962,
+      "manuscriptSections": 9,
+      "missions": ["directory", "journey", "external"],
+      "missionBriefWords": {
+        "directory": 163,
+        "journey": 186,
+        "external": 171
+      },
+      "prerequisite": "Forkunnskaper: tenant/subscription/resource group fra Core Architecture og kundens identitets-/tilgangsansvar fra Service Types. Storage Part B forklarer at data kan være bevart og tilgjengelige uten at en bestemt bruker har tilgang.",
+      "independentItems": 10
+    },
+    {
+      "id": "access-control",
+      "domain": "access-control",
+      "copy": "accessNb",
+      "theoryWords": 2714,
+      "manuscriptSections": 9,
+      "missions": ["rbac", "conditional"],
+      "missionBriefWords": {
+        "rbac": 180,
+        "conditional": 185
+      },
+      "prerequisite": "Forkunnskaper: Identity Part A om identitetsbevis og AuthN/AuthZ; Core Architecture om tenant, subscription og management-scope.",
+      "independentItems": 8
+    },
+    {
+      "id": "security",
+      "domain": "security",
+      "copy": "securityNb",
+      "theoryWords": 3070,
+      "manuscriptSections": 9,
+      "missions": ["trust", "depth", "defender"],
+      "missionBriefWords": {
+        "trust": 163,
+        "depth": 184,
+        "defender": 184
+      },
+      "prerequisite": "Forkunnskaper: Identity Part A/B, networking, Storage, governance og monitoring. Her bygger du helhetlig sikkerhetsforståelse, uten å gjenta de tidligere modellene eller endre deres resultater.",
+      "independentItems": 8
+    },
+    {
+      "id": "cost",
+      "domain": "cost",
+      "copy": "costNb",
+      "theoryWords": 2143,
+      "manuscriptSections": 7,
+      "missions": ["estimate", "analysis", "budgets", "tags"],
+      "missionBriefWords": {
+        "estimate": 156,
+        "analysis": 140,
+        "budgets": 123,
+        "tags": 139
+      },
+      "prerequisite": "Bygger på måling og prising i Cloud Computing, tjenestevalgene i Service Types og skillet mellom subscription, resource group og fysisk lokasjon. Gjenta de konkrete begrepene nedenfor ved behov.",
+      "independentItems": 10
+    },
+    {
+      "id": "governance",
+      "domain": "governance",
+      "copy": "governanceNb",
+      "theoryWords": 3563,
+      "manuscriptSections": 10,
+      "missions": ["data", "policy", "locks"],
+      "missionBriefWords": {
+        "data": 146,
+        "policy": 230,
+        "locks": 150
+      },
+      "prerequisite": "Forkunnskaper: Cost Management om tags og ansvar, Core Architecture om scopes og Access Control om tillatelser. De gamle resultatene dine forblir separate.",
+      "independentItems": 9
+    },
+    {
+      "id": "management-tools",
+      "domain": "management-tools",
+      "copy": "toolsNb",
+      "theoryWords": 3893,
+      "manuscriptSections": 13,
+      "missions": ["intent", "change", "arc"],
+      "missionBriefWords": {
+        "intent": 214,
+        "change": 209,
+        "arc": 173
+      },
+      "prerequisite": "Forkunnskaper: Core Architecture om scope og ressurser, Access Control om tillatelser og Governance om konfigurasjonskrav og locks. Tidligere resultater beholdes separat.",
+      "independentItems": 10
+    },
+    {
+      "id": "monitoring",
+      "domain": "monitoring",
+      "copy": "monitoringNb",
+      "theoryWords": 3241,
+      "manuscriptSections": 9,
+      "missions": ["evidence", "health", "telemetry"],
+      "missionBriefWords": {
+        "evidence": 165,
+        "health": 172,
+        "telemetry": 232
+      },
+      "prerequisite": "Du kjenner ressursorganisering, lokal Portal-konfigurasjon, tilgang og skillet mellom management-resultat og applikasjonsdrift. Her undersøker du hvilke observasjoner som trengs i tillegg.",
+      "independentItems": 8
+    }
+  ],
+  "theoryMethod": {
+    "theoryWords": "Whitespace/token estimate over section dictionaries; includes terms/examples/limits, excludes separate control labels/feedback/source maps. Not duration or cognitive load.",
+    "bank": "All exported paired-case tables; legacy form criteria separately retained. Not all are independent unexposed families."
+  },
+  "bankMetrics": {
+    "items": 152,
+    "pairCombinations": 1368,
+    "families": 110,
+    "modules": [
+      {
+        "module": "compute",
+        "items": 14,
+        "families": 14,
+        "decisionPositions": {
+          "3": 3.5,
+          "1": 5.5,
+          "2": 5.0
+        },
+        "reasonPositions": {
+          "1": 4.5,
+          "3": 5.5,
+          "2": 4.0
+        },
+        "uniquelyShortestCorrectReasonWords": 3,
+        "uniquelyLongestCorrectReasonWords": 7
+      },
+      {
+        "module": "networking",
+        "items": 12,
+        "families": 4,
+        "decisionPositions": {
+          "2": 4.0,
+          "3": 3.5,
+          "1": 4.5
+        },
+        "reasonPositions": {
+          "3": 4.0,
+          "1": 4.5,
+          "2": 3.5
+        },
+        "uniquelyShortestCorrectReasonWords": 5,
+        "uniquelyLongestCorrectReasonWords": 1
+      },
+      {
+        "module": "connectivity",
+        "items": 12,
+        "families": 4,
+        "decisionPositions": {
+          "3": 4.0,
+          "1": 4.0,
+          "2": 4.0
+        },
+        "reasonPositions": {
+          "2": 4.0,
+          "3": 4.0,
+          "1": 4.0
+        },
+        "uniquelyShortestCorrectReasonWords": 5,
+        "uniquelyLongestCorrectReasonWords": 4
+      },
+      {
+        "module": "storage",
+        "items": 12,
+        "families": 6,
+        "decisionPositions": {
+          "2": 4.0,
+          "1": 4.0,
+          "3": 4.0
+        },
+        "reasonPositions": {
+          "3": 4.0,
+          "2": 4.0,
+          "1": 4.0
+        },
+        "uniquelyShortestCorrectReasonWords": 2,
+        "uniquelyLongestCorrectReasonWords": 6
+      },
+      {
+        "module": "storage-resilience",
+        "items": 10,
+        "families": 8,
+        "decisionPositions": {
+          "2": 3.0,
+          "3": 3.0,
+          "1": 4.0
+        },
+        "reasonPositions": {
+          "3": 4.0,
+          "1": 3.0,
+          "2": 3.0
+        },
+        "uniquelyShortestCorrectReasonWords": 3,
+        "uniquelyLongestCorrectReasonWords": 5
+      },
+      {
+        "module": "migration",
+        "items": 10,
+        "families": 10,
+        "decisionPositions": {
+          "2": 4.0,
+          "1": 2.5,
+          "3": 3.5
+        },
+        "reasonPositions": {
+          "1": 3.0,
+          "2": 3.0,
+          "3": 4.0
+        },
+        "uniquelyShortestCorrectReasonWords": 3,
+        "uniquelyLongestCorrectReasonWords": 3
+      },
+      {
+        "module": "identity",
+        "items": 10,
+        "families": 9,
+        "decisionPositions": {
+          "2": 3.0,
+          "1": 3.0,
+          "3": 4.0
+        },
+        "reasonPositions": {
+          "3": 4.0,
+          "2": 4.0,
+          "1": 2.0
+        },
+        "uniquelyShortestCorrectReasonWords": 2,
+        "uniquelyLongestCorrectReasonWords": 2
+      },
+      {
+        "module": "access-control",
+        "items": 8,
+        "families": 8,
+        "decisionPositions": {
+          "2": 3.0,
+          "3": 1.5,
+          "1": 3.5
+        },
+        "reasonPositions": {
+          "3": 3.0,
+          "1": 3.0,
+          "2": 2.0
+        },
+        "uniquelyShortestCorrectReasonWords": 2,
+        "uniquelyLongestCorrectReasonWords": 1
+      },
+      {
+        "module": "security",
+        "items": 8,
+        "families": 8,
+        "decisionPositions": {
+          "3": 3.5,
+          "1": 1.5,
+          "2": 3.0
+        },
+        "reasonPositions": {
+          "1": 2.0,
+          "3": 3.0,
+          "2": 3.0
+        },
+        "uniquelyShortestCorrectReasonWords": 2,
+        "uniquelyLongestCorrectReasonWords": 3
+      },
+      {
+        "module": "cost",
+        "items": 10,
+        "families": 5,
+        "decisionPositions": {
+          "2": 4.0,
+          "1": 3.0,
+          "3": 3.0
+        },
+        "reasonPositions": {
+          "3": 4.0,
+          "2": 4.0,
+          "1": 2.0
+        },
+        "uniquelyShortestCorrectReasonWords": 1,
+        "uniquelyLongestCorrectReasonWords": 2
+      },
+      {
+        "module": "governance",
+        "items": 9,
+        "families": 9,
+        "decisionPositions": {
+          "3": 3.0,
+          "1": 3.0,
+          "2": 3.0
+        },
+        "reasonPositions": {
+          "2": 3.0,
+          "3": 3.0,
+          "1": 3.0
+        },
+        "uniquelyShortestCorrectReasonWords": 1,
+        "uniquelyLongestCorrectReasonWords": 4
+      },
+      {
+        "module": "management-tools",
+        "items": 10,
+        "families": 10,
+        "decisionPositions": {
+          "1": 3.5,
+          "3": 3.5,
+          "2": 3.0
+        },
+        "reasonPositions": {
+          "1": 4.0,
+          "3": 3.0,
+          "2": 3.0
+        },
+        "uniquelyShortestCorrectReasonWords": 3,
+        "uniquelyLongestCorrectReasonWords": 3
+      },
+      {
+        "module": "monitoring",
+        "items": 8,
+        "families": 8,
+        "decisionPositions": {
+          "3": 2.5,
+          "2": 4.5,
+          "1": 1.0
+        },
+        "reasonPositions": {
+          "3": 2.0,
+          "2": 4.0,
+          "1": 2.0
+        },
+        "uniquelyShortestCorrectReasonWords": 2,
+        "uniquelyLongestCorrectReasonWords": 1
+      },
+      {
+        "module": "transfer",
+        "items": 19,
+        "families": 7,
+        "decisionPositions": {
+          "2": 6.5,
+          "1": 7.0,
+          "3": 5.5
+        },
+        "reasonPositions": {
+          "3": 5.0,
+          "1": 5.5,
+          "2": 8.5
+        },
+        "uniquelyShortestCorrectReasonWords": 4,
+        "uniquelyLongestCorrectReasonWords": 7
+      }
+    ],
+    "markers": {
+      "automatisk": {
+        "correctOptions": 3,
+        "incorrectOptions": 3
+      },
+      "alltid": {
+        "correctOptions": 0,
+        "incorrectOptions": 4
+      },
+      "garanter": {
+        "correctOptions": 0,
+        "incorrectOptions": 0
+      },
+      "uansett": {
+        "correctOptions": 0,
+        "incorrectOptions": 0
+      },
+      "derfor": {
+        "correctOptions": 6,
+        "incorrectOptions": 28
+      },
+      "dermed": {
+        "correctOptions": 1,
+        "incorrectOptions": 7
+      }
+    },
+    "sampleIDs": [
+      "compute/cp01",
+      "compute/cp14",
+      "networking/nw01",
+      "networking/nw12",
+      "connectivity/nc02",
+      "connectivity/nc12",
+      "storage/sa02",
+      "storage/sa12",
+      "storage-resilience/rb03",
+      "storage-resilience/rb10",
+      "migration/fm03",
+      "migration/fm10",
+      "identity/if02",
+      "identity/if10",
+      "access-control/ab10",
+      "access-control/ab09",
+      "security/sp01",
+      "security/sp08",
+      "cost/cm01",
+      "cost/cm10",
+      "governance/gc01",
+      "governance/gc09",
+      "management-tools/mt02",
+      "management-tools/mt10",
+      "monitoring/md02",
+      "monitoring/md08",
+      "transfer/campaign-pricing",
+      "transfer/two-valid-hosts"
+    ],
+    "sampling": "Per each of14 paired banks: strongest simple word-length/extreme-language risk (deterministic tie) + last distinct case;28of152. Descriptive risk sampling, not representative learner validation."
+  },
+  "legacyMetrics": [
+    {
+      "form": "foundations-v1",
+      "fields": 8,
+      "choiceFields": 7,
+      "firstOptionAccepted": 2
+    },
+    {
+      "form": "foundations-v2",
+      "fields": 11,
+      "choiceFields": 10,
+      "firstOptionAccepted": 2
+    },
+    {
+      "form": "serverless",
+      "fields": 7,
+      "choiceFields": 7,
+      "firstOptionAccepted": 4
+    },
+    {
+      "form": "architecture-a",
+      "fields": 10,
+      "choiceFields": 10,
+      "firstOptionAccepted": 4
+    },
+    {
+      "form": "architecture-b",
+      "fields": 8,
+      "choiceFields": 8,
+      "firstOptionAccepted": 2
+    },
+    {
+      "form": "benefits",
+      "fields": 6,
+      "choiceFields": 5,
+      "firstOptionAccepted": 5
+    },
+    {
+      "form": "services",
+      "fields": 7,
+      "choiceFields": 7,
+      "firstOptionAccepted": 7
+    },
+    {
+      "form": "original-services-v1",
+      "fields": 3,
+      "choiceFields": 3,
+      "firstOptionAccepted": 0
+    }
+  ],
+  "bankMetadata": [
+    {
+      "module": "compute",
+      "id": "cp01",
+      "family": "compute-control",
+      "variant": "v1",
+      "objectives": ["CP01"],
+      "repeat": "containers"
+    },
+    {
+      "module": "compute",
+      "id": "cp02",
+      "family": "compute-events",
+      "variant": "v1",
+      "objectives": ["CP01"],
+      "repeat": "functions"
+    },
+    {
+      "module": "compute",
+      "id": "cp03",
+      "family": "compute-lifecycle",
+      "variant": "v1",
+      "objectives": ["CP01"],
+      "repeat": "containers"
+    },
+    {
+      "module": "compute",
+      "id": "cp04",
+      "family": "vm-fleet",
+      "variant": "v1",
+      "objectives": ["CP02"],
+      "repeat": "options"
+    },
+    {
+      "module": "compute",
+      "id": "cp05",
+      "family": "vm-boundaries",
+      "variant": "v1",
+      "objectives": ["CP02"],
+      "repeat": "resilience"
+    },
+    {
+      "module": "compute",
+      "id": "cp06",
+      "family": "desktop-publication",
+      "variant": "v1",
+      "objectives": ["CP02"],
+      "repeat": "desktop"
+    },
+    {
+      "module": "compute",
+      "id": "cp07",
+      "family": "desktop-assignment",
+      "variant": "v1",
+      "objectives": ["CP02"],
+      "repeat": "desktop"
+    },
+    {
+      "module": "compute",
+      "id": "cp08",
+      "family": "vm-storage",
+      "variant": "v1",
+      "objectives": ["CP03"],
+      "repeat": "dependencies"
+    },
+    {
+      "module": "compute",
+      "id": "cp09",
+      "family": "vm-network",
+      "variant": "v1",
+      "objectives": ["CP03"],
+      "repeat": "dependencies"
+    },
+    {
+      "module": "compute",
+      "id": "cp10",
+      "family": "hosting-orchestration",
+      "variant": "v1",
+      "objectives": ["CP04"],
+      "repeat": "hosting"
+    },
+    {
+      "module": "compute",
+      "id": "cp11",
+      "family": "hosting-authorized-reuse",
+      "variant": "v1",
+      "objectives": ["CP04"],
+      "repeat": "hosting"
+    },
+    {
+      "module": "compute",
+      "id": "cp12",
+      "family": "hosting-batch",
+      "variant": "v1",
+      "objectives": ["CP04"],
+      "repeat": "hosting"
+    },
+    {
+      "module": "compute",
+      "id": "cp13",
+      "family": "vm-app-availability",
+      "variant": "v1",
+      "objectives": ["CP02"],
+      "repeat": "resilience"
+    },
+    {
+      "module": "compute",
+      "id": "cp14",
+      "family": "vm-configuration",
+      "variant": "v1",
+      "objectives": ["CP03"],
+      "repeat": "dependencies"
+    },
+    {
+      "module": "networking",
+      "id": "nw01",
+      "family": "network-structure",
+      "variant": "scope",
+      "objectives": ["NW01"],
+      "repeat": "vnet"
+    },
+    {
+      "module": "networking",
+      "id": "nw02",
+      "family": "network-structure",
+      "variant": "zones",
+      "objectives": ["NW01"],
+      "repeat": "vnet"
+    },
+    {
+      "module": "networking",
+      "id": "nw03",
+      "family": "network-address",
+      "variant": "boundary",
+      "objectives": ["NW02"],
+      "repeat": "addressing"
+    },
+    {
+      "module": "networking",
+      "id": "nw04",
+      "family": "network-address",
+      "variant": "capacity",
+      "objectives": ["NW02"],
+      "repeat": "addressing"
+    },
+    {
+      "module": "networking",
+      "id": "nw05",
+      "family": "network-address",
+      "variant": "canonical",
+      "objectives": ["NW02"],
+      "repeat": "addressing"
+    },
+    {
+      "module": "networking",
+      "id": "nw06",
+      "family": "network-peering",
+      "variant": "one-side",
+      "objectives": ["NW03"],
+      "repeat": "peering"
+    },
+    {
+      "module": "networking",
+      "id": "nw07",
+      "family": "network-peering",
+      "variant": "migration",
+      "objectives": ["NW03"],
+      "repeat": "peering"
+    },
+    {
+      "module": "networking",
+      "id": "nw08",
+      "family": "network-peering",
+      "variant": "restricted-subnet",
+      "objectives": ["NW03"],
+      "repeat": "peering"
+    },
+    {
+      "module": "networking",
+      "id": "nw09",
+      "family": "network-dns",
+      "variant": "delegation",
+      "objectives": ["NW04"],
+      "repeat": "dns"
+    },
+    {
+      "module": "networking",
+      "id": "nw10",
+      "family": "network-dns",
+      "variant": "alias",
+      "objectives": ["NW04"],
+      "repeat": "dns"
+    },
+    {
+      "module": "networking",
+      "id": "nw11",
+      "family": "network-dns",
+      "variant": "custom-resolver",
+      "objectives": ["NW04"],
+      "repeat": "dns"
+    },
+    {
+      "module": "networking",
+      "id": "nw12",
+      "family": "network-dns",
+      "variant": "authorization",
+      "objectives": ["NW04"],
+      "repeat": "explorer"
+    },
+    {
+      "module": "connectivity",
+      "id": "nc01",
+      "family": "connectivity-vpn",
+      "variant": "roaming-client",
+      "objectives": ["CN01"],
+      "repeat": "vpn"
+    },
+    {
+      "module": "connectivity",
+      "id": "nc02",
+      "family": "connectivity-vpn",
+      "variant": "branch-network",
+      "objectives": ["CN01"],
+      "repeat": "vpn"
+    },
+    {
+      "module": "connectivity",
+      "id": "nc03",
+      "family": "connectivity-vpn",
+      "variant": "vnet-encryption",
+      "objectives": ["CN01"],
+      "repeat": "vpn"
+    },
+    {
+      "module": "connectivity",
+      "id": "nc04",
+      "family": "connectivity-expressroute",
+      "variant": "private-vs-microsoft-peering",
+      "objectives": ["CN02"],
+      "repeat": "expressroute"
+    },
+    {
+      "module": "connectivity",
+      "id": "nc05",
+      "family": "connectivity-expressroute",
+      "variant": "encryption-scope",
+      "objectives": ["CN02"],
+      "repeat": "expressroute"
+    },
+    {
+      "module": "connectivity",
+      "id": "nc06",
+      "family": "connectivity-expressroute",
+      "variant": "backup-scope",
+      "objectives": ["CN02"],
+      "repeat": "hybrid"
+    },
+    {
+      "module": "connectivity",
+      "id": "nc07",
+      "family": "connectivity-endpoint",
+      "variant": "public-source-gate",
+      "objectives": ["CN03"],
+      "repeat": "endpoints"
+    },
+    {
+      "module": "connectivity",
+      "id": "nc08",
+      "family": "connectivity-endpoint",
+      "variant": "parallel-partner-entry",
+      "objectives": ["CN03"],
+      "repeat": "endpoints"
+    },
+    {
+      "module": "connectivity",
+      "id": "nc09",
+      "family": "connectivity-endpoint",
+      "variant": "pending-approval",
+      "objectives": ["CN03"],
+      "repeat": "endpoints"
+    },
+    {
+      "module": "connectivity",
+      "id": "nc10",
+      "family": "connectivity-dns",
+      "variant": "on-premises-resolution",
+      "objectives": ["CN04"],
+      "repeat": "private-dns"
+    },
+    {
+      "module": "connectivity",
+      "id": "nc11",
+      "family": "connectivity-dns",
+      "variant": "service-hostname",
+      "objectives": ["CN04"],
+      "repeat": "private-dns"
+    },
+    {
+      "module": "connectivity",
+      "id": "nc12",
+      "family": "connectivity-endpoint",
+      "variant": "target-subresource",
+      "objectives": ["CN03"],
+      "repeat": "endpoints"
+    },
+    {
+      "module": "storage",
+      "id": "sa01",
+      "family": "object-file",
+      "variant": "http-media",
+      "objectives": ["SG01"],
+      "repeat": "blob"
+    },
+    {
+      "module": "storage",
+      "id": "sa02",
+      "family": "shared-files",
+      "variant": "unchanged-smb-client",
+      "objectives": ["SG01"],
+      "repeat": "files"
+    },
+    {
+      "module": "storage",
+      "id": "sa03",
+      "family": "object-file",
+      "variant": "changed-mount-contract",
+      "objectives": ["SG01"],
+      "repeat": "files"
+    },
+    {
+      "module": "storage",
+      "id": "sa04",
+      "family": "asynchronous-work",
+      "variant": "visibility-expires-while-worker-alive",
+      "objectives": ["SG02"],
+      "repeat": "queues"
+    },
+    {
+      "module": "storage",
+      "id": "sa05",
+      "family": "keyed-data",
+      "variant": "two-part-key",
+      "objectives": ["SG02"],
+      "repeat": "tables"
+    },
+    {
+      "module": "storage",
+      "id": "sa06",
+      "family": "keyed-data",
+      "variant": "relational-constraints",
+      "objectives": ["SG02"],
+      "repeat": "tables"
+    },
+    {
+      "module": "storage",
+      "id": "sa07",
+      "family": "account-services",
+      "variant": "premium-object-plus-queue",
+      "objectives": ["SG03"],
+      "repeat": "accounts"
+    },
+    {
+      "module": "storage",
+      "id": "sa08",
+      "family": "account-services",
+      "variant": "classic-nfs-plus-queue",
+      "objectives": ["SG03"],
+      "repeat": "accounts"
+    },
+    {
+      "module": "storage",
+      "id": "sa09",
+      "family": "account-services",
+      "variant": "blob-type-premium",
+      "objectives": ["SG03"],
+      "repeat": "accounts"
+    },
+    {
+      "module": "storage",
+      "id": "sa10",
+      "family": "disk-contract",
+      "variant": "vm-block-volume",
+      "objectives": ["SG04"],
+      "repeat": "disks"
+    },
+    {
+      "module": "storage",
+      "id": "sa11",
+      "family": "disk-contract",
+      "variant": "external-object-export",
+      "objectives": ["SG04"],
+      "repeat": "disks"
+    },
+    {
+      "module": "storage",
+      "id": "sa12",
+      "family": "shared-files",
+      "variant": "two-client-sharing",
+      "objectives": ["SG01", "SG04"],
+      "repeat": "disks"
+    },
+    {
+      "module": "storage-resilience",
+      "id": "rb01",
+      "family": "tier-selection",
+      "variant": "rare-online-priority",
+      "objectives": ["STB01"],
+      "repeat": "tiers"
+    },
+    {
+      "module": "storage-resilience",
+      "id": "rb02",
+      "family": "tier-selection",
+      "variant": "short-project-total",
+      "objectives": ["STB01"],
+      "repeat": "tiers"
+    },
+    {
+      "module": "storage-resilience",
+      "id": "rb03",
+      "family": "archive-workflow",
+      "variant": "retain-early-source",
+      "objectives": ["STB01"],
+      "repeat": "lifecycle"
+    },
+    {
+      "module": "storage-resilience",
+      "id": "rb04",
+      "family": "tier-inheritance",
+      "variant": "existing-inferred-explicit",
+      "objectives": ["STB01"],
+      "repeat": "lifecycle"
+    },
+    {
+      "module": "storage-resilience",
+      "id": "rb05",
+      "family": "combined-constraints",
+      "variant": "online-zone-retained",
+      "objectives": ["STB01", "STB02"],
+      "repeat": "boundaries"
+    },
+    {
+      "module": "storage-resilience",
+      "id": "rb06",
+      "family": "physical-boundary",
+      "variant": "single-region-zone",
+      "objectives": ["STB02"],
+      "repeat": "redundancy"
+    },
+    {
+      "module": "storage-resilience",
+      "id": "rb07",
+      "family": "physical-boundary",
+      "variant": "zone-and-region",
+      "objectives": ["STB02"],
+      "repeat": "redundancy"
+    },
+    {
+      "module": "storage-resilience",
+      "id": "rb08",
+      "family": "secondary-access",
+      "variant": "read-before-failover",
+      "objectives": ["STB02"],
+      "repeat": "recovery"
+    },
+    {
+      "module": "storage-resilience",
+      "id": "rb09",
+      "family": "recovery-boundary",
+      "variant": "propagated-deletion",
+      "objectives": ["STB02"],
+      "repeat": "recovery"
+    },
+    {
+      "module": "storage-resilience",
+      "id": "rb10",
+      "family": "service-boundary",
+      "variant": "ssd-share-and-disk",
+      "objectives": ["STB02"],
+      "repeat": "boundaries"
+    },
+    {
+      "module": "migration",
+      "id": "fm01",
+      "family": "movement-rollback-content-versus-timestamp-and-retention",
+      "variant": "movement-rollback-content-versus-timestamp-and-retention-constraints-v1",
+      "objectives": ["MOVE01"],
+      "repeat": "azcopy"
+    },
+    {
+      "module": "migration",
+      "id": "fm02",
+      "family": "movement-management-plus-data-versus-scoped-data-access",
+      "variant": "movement-management-plus-data-versus-scoped-data-access-constraints-v1",
+      "objectives": ["MOVE01"],
+      "repeat": "explorer"
+    },
+    {
+      "module": "migration",
+      "id": "fm03",
+      "family": "movement-partial-recall-and-policy-change-offline-boundary",
+      "variant": "movement-partial-recall-and-policy-change-offline-boundary-constraints-v1",
+      "objectives": ["MOVE01"],
+      "repeat": "file-sync"
+    },
+    {
+      "module": "migration",
+      "id": "fm04",
+      "family": "movement-new-share-version-and-smb-preservation",
+      "variant": "movement-new-share-version-and-smb-preservation-constraints-v1",
+      "objectives": ["MOVE01"],
+      "repeat": "azcopy"
+    },
+    {
+      "module": "migration",
+      "id": "fm05",
+      "family": "migration-configuration-import-matches-as-is-assessment",
+      "variant": "migration-configuration-import-matches-as-is-assessment-constraints-v1",
+      "objectives": ["MOVE02"],
+      "repeat": "migrate"
+    },
+    {
+      "module": "migration",
+      "id": "fm06",
+      "family": "migration-complementary-physical-server-and-separate-archive",
+      "variant": "migration-complementary-physical-server-and-separate-archive-constraints-v1",
+      "objectives": ["MOVE02"],
+      "repeat": "migrate"
+    },
+    {
+      "module": "migration",
+      "id": "fm07",
+      "family": "migration-full-stage-time-and-availability-offset",
+      "variant": "migration-full-stage-time-and-availability-offset-constraints-v1",
+      "objectives": ["MOVE02"],
+      "repeat": "databox"
+    },
+    {
+      "module": "migration",
+      "id": "fm08",
+      "family": "migration-delta-capture-versus-write-fence",
+      "variant": "migration-delta-capture-versus-write-fence-constraints-v1",
+      "objectives": ["MOVE02"],
+      "repeat": "validation"
+    },
+    {
+      "module": "migration",
+      "id": "fm09",
+      "family": "movement-graphical-approval-to-unattended-pipeline",
+      "variant": "movement-graphical-approval-to-unattended-pipeline-v1",
+      "objectives": ["MOVE01"],
+      "repeat": "methods"
+    },
+    {
+      "module": "migration",
+      "id": "fm10",
+      "family": "movement-retired-server-relationship-cache-and-one-off-directional-job",
+      "variant": "movement-retired-server-relationship-cache-and-one-off-directional-job-v1",
+      "objectives": ["MOVE01"],
+      "repeat": "file-sync"
+    },
+    {
+      "module": "identity",
+      "id": "if01",
+      "family": "directory-boundary",
+      "variant": "shared-workforce-subscriptions",
+      "objectives": ["IDF01"],
+      "repeat": "directory"
+    },
+    {
+      "module": "identity",
+      "id": "if02",
+      "family": "directory-capability",
+      "variant": "schema-required-without-customer-domain-operations",
+      "objectives": ["IDF01"],
+      "repeat": "domain"
+    },
+    {
+      "module": "identity",
+      "id": "if03",
+      "family": "directory-synchronization",
+      "variant": "correct-source-for-synced-user",
+      "objectives": ["IDF01"],
+      "repeat": "domain"
+    },
+    {
+      "module": "identity",
+      "id": "if04",
+      "family": "signin-context",
+      "variant": "separate-idps-with-mfa",
+      "objectives": ["IDF02"],
+      "repeat": "sso"
+    },
+    {
+      "module": "identity",
+      "id": "if05",
+      "family": "authentication-factors",
+      "variant": "two-independent-stores",
+      "objectives": ["IDF02"],
+      "repeat": "mfa"
+    },
+    {
+      "module": "identity",
+      "id": "if06",
+      "family": "passwordless-strength",
+      "variant": "relay-phishing-requirement",
+      "objectives": ["IDF02"],
+      "repeat": "passwordless"
+    },
+    {
+      "module": "identity",
+      "id": "if07",
+      "family": "passwordless-strength",
+      "variant": "replacement-device-without-hello-credential",
+      "objectives": ["IDF02"],
+      "repeat": "passwordless"
+    },
+    {
+      "module": "identity",
+      "id": "if08",
+      "family": "external-authorization",
+      "variant": "existing-guest-new-app",
+      "objectives": ["IDF03"],
+      "repeat": "external"
+    },
+    {
+      "module": "identity",
+      "id": "if09",
+      "family": "external-purpose",
+      "variant": "customer-becomes-partner-with-work-identity",
+      "objectives": ["IDF03"],
+      "repeat": "external"
+    },
+    {
+      "module": "identity",
+      "id": "if10",
+      "family": "external-direct-connect",
+      "variant": "mutual-channel-boundary",
+      "objectives": ["IDF03"],
+      "repeat": "external"
+    },
+    {
+      "module": "access-control",
+      "id": "ab01",
+      "family": "rbac-additive",
+      "variant": "inherited-delete-despite-custom-exclusion",
+      "objectives": ["ACF02"],
+      "repeat": "roles"
+    },
+    {
+      "module": "access-control",
+      "id": "ab02",
+      "family": "rbac-delegation",
+      "variant": "split-rg-read-and-single-vm-access-delegation",
+      "objectives": ["ACF02"],
+      "repeat": "roles"
+    },
+    {
+      "module": "access-control",
+      "id": "ab03",
+      "family": "rbac-data-plane",
+      "variant": "portal-management-complements-api-data-role",
+      "objectives": ["ACF02"],
+      "repeat": "planes"
+    },
+    {
+      "module": "access-control",
+      "id": "ab04",
+      "family": "rbac-directory-boundary",
+      "variant": "direct-or-group-reader-under-directory-admin",
+      "objectives": ["ACF02"],
+      "repeat": "roles"
+    },
+    {
+      "module": "access-control",
+      "id": "ab05",
+      "family": "ca-coverage",
+      "variant": "mfa-required-with-unmanaged-work-preserved",
+      "objectives": ["ACF01"],
+      "repeat": "policies"
+    },
+    {
+      "module": "access-control",
+      "id": "ab06",
+      "family": "ca-versus-rbac",
+      "variant": "handover-read-only-with-report-only-device-counterevidence",
+      "objectives": ["ACF01"],
+      "repeat": "policies"
+    },
+    {
+      "module": "access-control",
+      "id": "ab09",
+      "family": "ca-policy-combination",
+      "variant": "preserve-user-by-app-exception-matrix",
+      "objectives": ["ACF01"],
+      "repeat": "policies"
+    },
+    {
+      "module": "access-control",
+      "id": "ab10",
+      "family": "rbac-versus-policy",
+      "variant": "paired-authorized-create-resource-tag-difference",
+      "objectives": ["ACF02"],
+      "repeat": "planes"
+    },
+    {
+      "module": "security",
+      "id": "sp01",
+      "family": "zt-export-context-versus-internal-session",
+      "variant": "zt-export-context-versus-internal-session-constraints-v1",
+      "objectives": ["SEC01"],
+      "repeat": "zero-trust"
+    },
+    {
+      "module": "security",
+      "id": "sp02",
+      "family": "zt-timebound-read-only-support-architectures",
+      "variant": "zt-timebound-read-only-support-architectures-constraints-v1",
+      "objectives": ["SEC01"],
+      "repeat": "zero-trust"
+    },
+    {
+      "module": "security",
+      "id": "sp03",
+      "family": "zt-preserve-batch-workflow-limit-potential-blast",
+      "variant": "zt-preserve-batch-workflow-limit-potential-blast-constraints-v1",
+      "objectives": ["SEC01"],
+      "repeat": "zero-trust"
+    },
+    {
+      "module": "security",
+      "id": "sp04",
+      "family": "depth-confidential-offline-export-boundary",
+      "variant": "depth-confidential-offline-export-boundary-constraints-v1",
+      "objectives": ["SEC02"],
+      "repeat": "encryption"
+    },
+    {
+      "module": "security",
+      "id": "sp05",
+      "family": "depth-asynchronous-result-release-boundary",
+      "variant": "depth-asynchronous-result-release-boundary-constraints-v1",
+      "objectives": ["SEC02"],
+      "repeat": "depth"
+    },
+    {
+      "module": "security",
+      "id": "sp06",
+      "family": "defender-arc-connected-server-plan-evidence-gap",
+      "variant": "defender-arc-connected-server-plan-evidence-gap-constraints-v1",
+      "objectives": ["SEC03"],
+      "repeat": "protection"
+    },
+    {
+      "module": "security",
+      "id": "sp07",
+      "family": "defender-supported-subset-improvement-versus-estate-trend",
+      "variant": "defender-supported-subset-improvement-versus-estate-trend-constraints-v1",
+      "objectives": ["SEC03"],
+      "repeat": "score"
+    },
+    {
+      "module": "security",
+      "id": "sp08",
+      "family": "defender-parallel-posture-alert-triage-context",
+      "variant": "defender-parallel-posture-alert-triage-context-constraints-v1",
+      "objectives": ["SEC03"],
+      "repeat": "protection"
+    },
+    {
+      "module": "cost",
+      "id": "cm01",
+      "family": "drivers",
+      "variant": null,
+      "objectives": ["CM01"],
+      "repeat": "drivers"
+    },
+    {
+      "module": "cost",
+      "id": "cm02",
+      "family": "drivers",
+      "variant": null,
+      "objectives": ["CM01"],
+      "repeat": "drivers"
+    },
+    {
+      "module": "cost",
+      "id": "cm03",
+      "family": "calculator",
+      "variant": null,
+      "objectives": ["CM02"],
+      "repeat": "estimate"
+    },
+    {
+      "module": "cost",
+      "id": "cm04",
+      "family": "calculator",
+      "variant": null,
+      "objectives": ["CM02", "CM01"],
+      "repeat": "estimate"
+    },
+    {
+      "module": "cost",
+      "id": "cm05",
+      "family": "management",
+      "variant": null,
+      "objectives": ["CM03"],
+      "repeat": "analysis"
+    },
+    {
+      "module": "cost",
+      "id": "cm06",
+      "family": "management",
+      "variant": null,
+      "objectives": ["CM03"],
+      "repeat": "budgets"
+    },
+    {
+      "module": "cost",
+      "id": "cm07",
+      "family": "tags",
+      "variant": null,
+      "objectives": ["CM04"],
+      "repeat": "tags"
+    },
+    {
+      "module": "cost",
+      "id": "cm08",
+      "family": "tags",
+      "variant": null,
+      "objectives": ["CM04"],
+      "repeat": "tags"
+    },
+    {
+      "module": "cost",
+      "id": "cm09",
+      "family": "optimization",
+      "variant": null,
+      "objectives": ["CM05", "CM01"],
+      "repeat": "optimization"
+    },
+    {
+      "module": "cost",
+      "id": "cm10",
+      "family": "optimization",
+      "variant": null,
+      "objectives": ["CM05", "CM01"],
+      "repeat": "optimization"
+    },
+    {
+      "module": "governance",
+      "id": "gc01",
+      "family": "data-business-meaning",
+      "variant": "two-retained-source-definitions",
+      "objectives": ["GOV01"],
+      "repeat": "purview"
+    },
+    {
+      "module": "governance",
+      "id": "gc02",
+      "family": "data-change-impact",
+      "variant": "registered-multistep-lineage-before-change",
+      "objectives": ["GOV01"],
+      "repeat": "catalog"
+    },
+    {
+      "module": "governance",
+      "id": "gc03",
+      "family": "data-source-access",
+      "variant": "direct-client-after-classification",
+      "objectives": ["GOV01"],
+      "repeat": "catalog"
+    },
+    {
+      "module": "governance",
+      "id": "gc04",
+      "family": "policy-layering",
+      "variant": "permanent-pilot-with-production-deny-preserved",
+      "objectives": ["GOV02"],
+      "repeat": "assignments"
+    },
+    {
+      "module": "governance",
+      "id": "gc05",
+      "family": "policy-remediation",
+      "variant": "mixed-new-request-and-partial-remediation-scope",
+      "objectives": ["GOV02"],
+      "repeat": "compliance"
+    },
+    {
+      "module": "governance",
+      "id": "gc06",
+      "family": "policy-exemption",
+      "variant": "single-initiative-requirement-mitigated-until-expiry",
+      "objectives": ["GOV02"],
+      "repeat": "assignments"
+    },
+    {
+      "module": "governance",
+      "id": "gc07",
+      "family": "lock-scope-redesign",
+      "variant": "release-one-workload-preserve-two-readonly-groups",
+      "objectives": ["GOV03"],
+      "repeat": "locks"
+    },
+    {
+      "module": "governance",
+      "id": "gc08",
+      "family": "lock-service-route",
+      "variant": "file-share-data-delete-under-account-readonly",
+      "objectives": ["GOV03"],
+      "repeat": "planes"
+    },
+    {
+      "module": "governance",
+      "id": "gc09",
+      "family": "lock-and-recovery",
+      "variant": "daily-management-changes-plus-logical-restore",
+      "objectives": ["GOV03"],
+      "repeat": "planes"
+    },
+    {
+      "module": "management-tools",
+      "id": "mt01",
+      "family": "portal-identity-across-scopes",
+      "variant": "portal-identity-across-scopes-constraints-v1",
+      "objectives": ["MGT01", "MGT05"],
+      "repeat": "portal"
+    },
+    {
+      "module": "management-tools",
+      "id": "mt02",
+      "family": "portal-management-status-versus-runtime",
+      "variant": "portal-management-status-versus-runtime-constraints-v1",
+      "objectives": ["MGT01"],
+      "repeat": "portal"
+    },
+    {
+      "module": "management-tools",
+      "id": "mt03",
+      "family": "hosted-powershell-without-local-install",
+      "variant": "hosted-powershell-without-local-install-constraints-v1",
+      "objectives": ["MGT02"],
+      "repeat": "shell"
+    },
+    {
+      "module": "management-tools",
+      "id": "mt04",
+      "family": "scheduled-cli-existing-runner",
+      "variant": "scheduled-cli-existing-runner-constraints-v1",
+      "objectives": ["MGT02", "MGT05"],
+      "repeat": "cli"
+    },
+    {
+      "module": "management-tools",
+      "id": "mt05",
+      "family": "arc-generic-server-hardware-boundary",
+      "variant": "registered-server-versus-underlying-capacity-v1",
+      "objectives": ["MGT03"],
+      "repeat": "arc"
+    },
+    {
+      "module": "management-tools",
+      "id": "mt06",
+      "family": "arc-cluster-disconnected-gitops",
+      "variant": "arc-cluster-disconnected-gitops-constraints-v1",
+      "objectives": ["MGT03"],
+      "repeat": "arc"
+    },
+    {
+      "module": "management-tools",
+      "id": "mt07",
+      "family": "iac-two-reviewed-authoring-approaches",
+      "variant": "iac-two-reviewed-authoring-approaches-constraints-v1",
+      "objectives": ["MGT04", "MGT05"],
+      "repeat": "iac"
+    },
+    {
+      "module": "management-tools",
+      "id": "mt08",
+      "family": "iac-effective-input-review",
+      "variant": "unchanged-definition-changed-parameter-artifact-v1",
+      "objectives": ["MGT04"],
+      "repeat": "iac"
+    },
+    {
+      "module": "management-tools",
+      "id": "mt09",
+      "family": "whatif-permission-boundary",
+      "variant": "whatif-permission-boundary-constraints-v1",
+      "objectives": ["MGT05"],
+      "repeat": "changes"
+    },
+    {
+      "module": "management-tools",
+      "id": "mt10",
+      "family": "existing-plan-reference-not-new-order",
+      "variant": "existing-plan-reference-not-new-order-constraints-v1",
+      "objectives": ["MGT05"],
+      "repeat": "bicep"
+    },
+    {
+      "module": "monitoring",
+      "id": "md01",
+      "family": "advisor-filter-scope-versus-recorded-spend",
+      "variant": "advisor-filter-scope-versus-recorded-spend-constraints-v1",
+      "objectives": ["MON01"],
+      "repeat": "advisor"
+    },
+    {
+      "module": "monitoring",
+      "id": "md02",
+      "family": "advisor-category-and-incident-boundary",
+      "variant": "advisor-category-and-incident-boundary-constraints-v1",
+      "objectives": ["MON01"],
+      "repeat": "advisor"
+    },
+    {
+      "module": "monitoring",
+      "id": "md03",
+      "family": "health-targeted-history-versus-public-page",
+      "variant": "health-targeted-history-versus-public-page-constraints-v1",
+      "objectives": ["MON02"],
+      "repeat": "health"
+    },
+    {
+      "module": "monitoring",
+      "id": "md04",
+      "family": "health-unavailable-nonplatform-customer-stop",
+      "variant": "health-unavailable-nonplatform-customer-stop-constraints-v1",
+      "objectives": ["MON02"],
+      "repeat": "health"
+    },
+    {
+      "module": "monitoring",
+      "id": "md05",
+      "family": "monitor-management-audit-and-missing-resource-logs",
+      "variant": "monitor-management-audit-and-missing-resource-logs-constraints-v1",
+      "objectives": ["MON03"],
+      "repeat": "logs"
+    },
+    {
+      "module": "monitoring",
+      "id": "md06",
+      "family": "monitor-two-valid-correlated-investigation-views",
+      "variant": "monitor-two-valid-correlated-investigation-views-constraints-v1",
+      "objectives": ["MON03"],
+      "repeat": "insights"
+    },
+    {
+      "module": "monitoring",
+      "id": "md07",
+      "family": "monitor-stateful-condition-versus-user-response",
+      "variant": "monitor-stateful-condition-versus-user-response-constraints-v1",
+      "objectives": ["MON03"],
+      "repeat": "alerts"
+    },
+    {
+      "module": "monitoring",
+      "id": "md08",
+      "family": "monitor-query-is-not-a-rule-or-collection-proof",
+      "variant": "monitor-query-is-not-a-rule-or-collection-proof-constraints-v1",
+      "objectives": ["MON03"],
+      "repeat": "logs"
+    },
+    {
+      "module": "transfer",
+      "id": "public-information",
+      "family": "deployment",
+      "variant": "cc01",
+      "objectives": ["az900.cloud.models", "az900.cloud.model-use"],
+      "repeat": "/learn/computing?topic=v2-models"
+    },
+    {
+      "module": "transfer",
+      "id": "exclusive-research",
+      "family": "deployment",
+      "variant": "cc02",
+      "objectives": ["az900.cloud.models", "az900.cloud.model-use"],
+      "repeat": "/learn/computing?topic=v2-models"
+    },
+    {
+      "module": "transfer",
+      "id": "integrated-production",
+      "family": "deployment",
+      "variant": "cc03",
+      "objectives": ["az900.cloud.models", "az900.cloud.model-use"],
+      "repeat": "/learn/computing?topic=v2-placement"
+    },
+    {
+      "module": "transfer",
+      "id": "campaign-pricing",
+      "family": "pricing",
+      "variant": "cc04",
+      "objectives": ["az900.cloud.pricing"],
+      "repeat": "/learn/computing?topic=v2-pricing"
+    },
+    {
+      "module": "transfer",
+      "id": "baseline-pricing",
+      "family": "pricing",
+      "variant": "cc05",
+      "objectives": ["az900.cloud.pricing"],
+      "repeat": "/learn/computing?topic=v2-pricing"
+    },
+    {
+      "module": "transfer",
+      "id": "batch-pricing",
+      "family": "pricing",
+      "variant": "cc06",
+      "objectives": ["az900.cloud.pricing"],
+      "repeat": "/learn/computing?topic=v2-pricing"
+    },
+    {
+      "module": "transfer",
+      "id": "memory-capacity",
+      "family": "availability",
+      "variant": "cc07",
+      "objectives": ["az900.benefits.availability-scale"],
+      "repeat": "/learn/benefits?topic=availability"
+    },
+    {
+      "module": "transfer",
+      "id": "route-replica",
+      "family": "availability",
+      "variant": "cc08",
+      "objectives": ["az900.benefits.availability-scale"],
+      "repeat": "/learn/benefits?topic=availability"
+    },
+    {
+      "module": "transfer",
+      "id": "shared-payment",
+      "family": "availability",
+      "variant": "cc09",
+      "objectives": ["az900.benefits.availability-scale"],
+      "repeat": "/learn/benefits?topic=reliability"
+    },
+    {
+      "module": "transfer",
+      "id": "parallel-demand",
+      "family": "availability",
+      "variant": "cc19",
+      "objectives": ["az900.benefits.availability-scale"],
+      "repeat": "/learn/benefits?topic=availability"
+    },
+    {
+      "module": "transfer",
+      "id": "recovery-evidence",
+      "family": "reliability",
+      "variant": "cc10",
+      "objectives": ["az900.benefits.reliability-predictability"],
+      "repeat": "/learn/benefits?topic=reliability"
+    },
+    {
+      "module": "transfer",
+      "id": "forecast-change",
+      "family": "reliability",
+      "variant": "cc11",
+      "objectives": ["az900.benefits.reliability-predictability"],
+      "repeat": "/learn/benefits?topic=reliability"
+    },
+    {
+      "module": "transfer",
+      "id": "accepted-configuration",
+      "family": "governance",
+      "variant": "cc12",
+      "objectives": ["az900.benefits.security-governance"],
+      "repeat": "/learn/benefits?topic=governance"
+    },
+    {
+      "module": "transfer",
+      "id": "signed-in-operator",
+      "family": "governance",
+      "variant": "cc13",
+      "objectives": ["az900.benefits.security-governance"],
+      "repeat": "/learn/benefits?topic=governance"
+    },
+    {
+      "module": "transfer",
+      "id": "manual-drift",
+      "family": "manageability",
+      "variant": "cc14",
+      "objectives": ["az900.benefits.manageability"],
+      "repeat": "/learn/benefits?topic=management"
+    },
+    {
+      "module": "transfer",
+      "id": "repeatable-error",
+      "family": "manageability",
+      "variant": "cc15",
+      "objectives": ["az900.benefits.manageability"],
+      "repeat": "/learn/benefits?topic=management"
+    },
+    {
+      "module": "transfer",
+      "id": "kernel-workload",
+      "family": "services",
+      "variant": "cc16",
+      "objectives": ["az900.services.use-cases"],
+      "repeat": "/learn/services?topic=iaas&version=2"
+    },
+    {
+      "module": "transfer",
+      "id": "ready-collaboration",
+      "family": "services",
+      "variant": "cc17",
+      "objectives": ["az900.services.use-cases"],
+      "repeat": "/learn/services?topic=saas&version=2"
+    },
+    {
+      "module": "transfer",
+      "id": "two-valid-hosts",
+      "family": "services",
+      "variant": "cc18",
+      "objectives": ["az900.services.use-cases"],
+      "repeat": "/learn/services?topic=selection&version=2"
+    }
+  ],
+  "owner01and03": {
+    "timeUTC": "2026-11-01T18:57:52.169Z",
+    "events": [
+      {
+        "name": "mission-link-opens-studio",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=studio&perspective=trust",
+        "dialogs": 0,
+        "guide": null
+      },
+      {
+        "name": "shark-briefing",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=studio&perspective=trust",
+        "geometry": {
+          "x": 200,
+          "y": 24,
+          "width": 1040,
+          "height": 852,
+          "viewport": [1440, 900],
+          "margin": "24px 200px",
+          "inset": "0px",
+          "position": "fixed",
+          "scrollHeight": 850,
+          "clientHeight": 850
+        }
+      },
+      {
+        "name": "partial-guide",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=studio&perspective=trust",
+        "next": "/learn/security?topic=missions",
+        "learning": {
+          "active": false,
+          "assisted": false,
+          "completed": [],
+          "firsts": [],
+          "topic": "studio",
+          "currentItem": null,
+          "guideRuns": 1
+        }
+      },
+      {
+        "name": "next-after-partial",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=missions",
+        "learning": {
+          "active": false,
+          "assisted": false,
+          "completed": [],
+          "firsts": [],
+          "topic": "studio",
+          "currentItem": null,
+          "guideRuns": 1
+        }
+      },
+      {
+        "name": "hub-after-partial",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn",
+        "resume": "/learn/security?topic=studio&perspective=trust"
+      },
+      {
+        "name": "resumed-partial",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=studio&perspective=trust",
+        "learning": {
+          "active": false,
+          "assisted": false,
+          "completed": [],
+          "firsts": [],
+          "topic": "studio",
+          "currentItem": null,
+          "guideRuns": 1
+        }
+      },
+      {
+        "name": "completed-guide",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=studio&perspective=trust",
+        "next": "/learn/security?topic=missions",
+        "learning": {
+          "active": false,
+          "assisted": false,
+          "completed": ["trust"],
+          "firsts": [],
+          "topic": "studio",
+          "currentItem": null,
+          "guideRuns": 6
+        }
+      },
+      {
+        "name": "hub-after-completed-guide",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn",
+        "resume": "/learn/security?topic=studio&perspective=trust"
+      },
+      {
+        "name": "assessment-start-dialog-1440x900",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=assessment&case=sp01",
+        "geometry": {
+          "x": 0,
+          "y": 0,
+          "width": 750,
+          "height": 563.984375,
+          "viewport": [1440, 900],
+          "margin": "0px",
+          "inset": "0px",
+          "position": "fixed",
+          "scrollHeight": 562,
+          "clientHeight": 562
+        }
+      },
+      {
+        "name": "assessment-start-dialog-1024x768",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=assessment&case=sp01",
+        "geometry": {
+          "x": 0,
+          "y": 0,
+          "width": 750,
+          "height": 563.984375,
+          "viewport": [1024, 768],
+          "margin": "0px",
+          "inset": "0px",
+          "position": "fixed",
+          "scrollHeight": 562,
+          "clientHeight": 562
+        }
+      },
+      {
+        "name": "assessment-start-dialog-1024x500",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=assessment&case=sp01",
+        "geometry": {
+          "x": 0,
+          "y": 0,
+          "width": 750,
+          "height": 450,
+          "viewport": [1024, 500],
+          "margin": "0px",
+          "inset": "0px",
+          "position": "fixed",
+          "scrollHeight": 562,
+          "clientHeight": 448
+        }
+      },
+      {
+        "name": "margin-auto-isolated-probe",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=assessment&case=sp01",
+        "before": {
+          "x": 0,
+          "y": 0,
+          "width": 750,
+          "height": 450,
+          "viewport": [1024, 500],
+          "margin": "0px",
+          "inset": "0px",
+          "position": "fixed",
+          "scrollHeight": 562,
+          "clientHeight": 448
+        },
+        "after": {
+          "x": 137,
+          "y": 25,
+          "width": 750,
+          "height": 450,
+          "viewport": [1024, 500],
+          "margin": "25px 137px",
+          "inset": "0px",
+          "position": "fixed",
+          "scrollHeight": 562,
+          "clientHeight": 448
+        }
+      },
+      {
+        "name": "escape-restores-start",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=assessment&case=sp01",
+        "focused": "Start selvstendig forsøk",
+        "learning": {
+          "active": false,
+          "assisted": false,
+          "completed": ["trust"],
+          "firsts": [],
+          "topic": "assessment",
+          "currentItem": null,
+          "guideRuns": 6
+        }
+      },
+      {
+        "name": "independent-next",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=summary",
+        "learning": {
+          "active": true,
+          "assisted": false,
+          "completed": ["trust"],
+          "firsts": [],
+          "topic": "assessment",
+          "currentItem": "sp01",
+          "guideRuns": 6
+        },
+        "disposition": "Immediate post-URL snapshot was stale; settled durable assistance=true independently verified below. Not a leakage finding."
+      },
+      {
+        "name": "independent-root-resume",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn",
+        "resume": "/learn/security?topic=assessment&case=sp01",
+        "learning": {
+          "active": true,
+          "assisted": true,
+          "completed": ["trust"],
+          "firsts": [],
+          "topic": "assessment",
+          "currentItem": "sp01",
+          "guideRuns": 6
+        }
+      },
+      {
+        "name": "sources-security-studio",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=studio",
+        "actualURL": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=studio",
+        "metrics": [
+          {
+            "heading": "Offisielle kilder · kontrollert 1. november 2026",
+            "links": 6,
+            "height": 296.40625,
+            "collapsed": false
+          }
+        ],
+        "viewportNote": "Early probe viewport changes are contextual; authoritative1440x900 measurements are breadth.source below."
+      },
+      {
+        "name": "sources-security-summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=summary",
+        "actualURL": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=summary",
+        "metrics": [
+          {
+            "heading": "Offisielle kilder · kontrollert 1. november 2026",
+            "links": 28,
+            "height": 920.328125,
+            "collapsed": false
+          }
+        ],
+        "viewportNote": "Early probe viewport changes are contextual; authoritative1440x900 measurements are breadth.source below."
+      },
+      {
+        "name": "sources-migration-summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/migration?topic=summary",
+        "actualURL": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/migration?topic=summary",
+        "metrics": [
+          {
+            "heading": "Offisielle kilder · kontrollert 1. november 2026",
+            "links": 30,
+            "height": 1177.125,
+            "collapsed": false
+          }
+        ],
+        "viewportNote": "Early probe viewport changes are contextual; authoritative1440x900 measurements are breadth.source below."
+      },
+      {
+        "name": "sources-management-tools-summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/management-tools?topic=summary",
+        "actualURL": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/management-tools?topic=summary",
+        "metrics": [
+          {
+            "heading": "Offisielle kilder · kontrollert 1. november 2026",
+            "links": 40,
+            "height": 1579.5,
+            "collapsed": false
+          }
+        ],
+        "viewportNote": "Early probe viewport changes are contextual; authoritative1440x900 measurements are breadth.source below."
+      },
+      {
+        "name": "sources-networking-summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/networking?topic=summary",
+        "actualURL": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/networking?topic=summary",
+        "metrics": [
+          {
+            "heading": "Offisielle kilder · kontrollert 28. oktober 2026",
+            "links": 19,
+            "height": 536.1875,
+            "collapsed": false
+          }
+        ],
+        "viewportNote": "Early probe viewport changes are contextual; authoritative1440x900 measurements are breadth.source below."
+      },
+      {
+        "name": "sources-computing-intro-request",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/computing?topic=intro-request",
+        "actualURL": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/computing?topic=intro-request",
+        "metrics": [],
+        "viewportNote": "Early probe viewport changes are contextual; authoritative1440x900 measurements are breadth.source below."
+      },
+      {
+        "name": "fresh-global-journal",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn",
+        "actualURL": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn",
+        "links": 2,
+        "sourceSections": 0,
+        "geometry": {
+          "x": 0,
+          "y": 0,
+          "scrollHeight": 2061,
+          "clientHeight": 689
+        }
+      }
+    ],
+    "pageErrors": []
+  },
+  "breadth": {
+    "timeUTC": "2026-11-01T19:07:17.297Z",
+    "source": [
+      {
+        "module": "computing",
+        "topic": "intro-request",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/computing?topic=intro-request",
+        "viewport": [1440, 900],
+        "heading": ["Du åpner en produktside"],
+        "sections": [],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "computing",
+        "topic": "serverless-summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/computing?topic=serverless-summary",
+        "viewport": [1440, 900],
+        "heading": ["Ditt serverless-grunnlag"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder og grenser",
+            "links": 12,
+            "height": 432.59375,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "benefits",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/benefits?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Observasjoner og neste steg"],
+        "sections": [],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "services",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/services?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Observasjoner og neste steg"],
+        "sections": [],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "architecture",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/architecture?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Dine observasjoner · Part A"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder og modellgrenser",
+            "links": 14,
+            "height": 420.5625,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "compute",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/compute?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Oppsummering og dokumenterte resultater"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder · kontrollert 28. oktober 2026",
+            "links": 38,
+            "height": 762.9375,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "networking",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/networking?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Part A · oppsummering og dokumenterte resultater"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder · kontrollert 28. oktober 2026",
+            "links": 19,
+            "height": 435.375,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "connectivity",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/connectivity?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Networking Part B · dokumenterte resultater"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder · kontrollert 28. oktober 2026",
+            "links": 20,
+            "height": 449.765625,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "storage",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/storage?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Storage Part A · dokumenterte resultater"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder · kontrollert31 oktober2026",
+            "links": 21,
+            "height": 662.75,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "storage-resilience",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/storage-resilience?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Summary — Storage Part B"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder · kontrollert31 oktober2026",
+            "links": 23,
+            "height": 672.34375,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "migration",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/migration?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Summary — Storage Part C"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder · kontrollert 1. november 2026",
+            "links": 30,
+            "height": 869.125,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "identity",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/identity?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Summary — Identity Foundations"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder · kontrollert31 oktober2026",
+            "links": 29,
+            "height": 995.125,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "access-control",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/access-control?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Summary — Access Control"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder · kontrollert31 oktober2026",
+            "links": 30,
+            "height": 1013.921875,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "security",
+        "topic": "zero-trust",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=zero-trust",
+        "viewport": [1440, 900],
+        "heading": ["Zero Trust — tre prinsipper"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder · kontrollert 1. november 2026",
+            "links": 3,
+            "height": 174.8125,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "security",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Summary — Security Part C"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder · kontrollert 1. november 2026",
+            "links": 28,
+            "height": 920.328125,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "cost",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/cost?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Hva har du dokumentert?"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder · kontrollert 27. oktober 2026",
+            "links": 29,
+            "height": 523.84375,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "governance",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/governance?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Summary — Governance"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder · kontrollert31 oktober2026",
+            "links": 36,
+            "height": 1177.90625,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "management-tools",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/management-tools?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Summary — Management & Deployment"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder · kontrollert 1. november 2026",
+            "links": 40,
+            "height": 1300.28125,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      },
+      {
+        "module": "monitoring",
+        "topic": "summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/monitoring?topic=summary",
+        "viewport": [1440, 900],
+        "heading": ["Summary — Monitoring & Diagnostics"],
+        "sections": [
+          {
+            "heading": "Offisielle kilder · kontrollert 1. november 2026",
+            "links": 34,
+            "height": 1117.109375,
+            "collapsed": false
+          }
+        ],
+        "horizontalOverflow": false
+      }
+    ],
+    "missionEntrances": [
+      {
+        "module": "compute",
+        "entry": "/learn/compute?topic=dependencies",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/compute?topic=dependencies",
+        "next": "/learn/compute?topic=containers",
+        "automaticDialog": 0,
+        "text": "Kursoversikt\nDescribe Azure compute services\nMODUL 05 · TILGJENGELIG\nDescribe Azure compute services\n\nFra arbeidslast til kjørende kode: undersøk VM-er, containere, Functions, virtuelle skrivebord og hosting. Bygg én faktisk lokal VM-konfigurasjon og test avgrensede arkitekturmodeller før nye selvstendige situasjoner.\n\nIntroduction to Cloud Infrastructure: Describe Azure architecture and services ·1.0.0\nVM Resources & Dependencies\nVM-en er ett ledd i en faktisk ressurskjede\n\nOS disk inneholder guest-operativsystemets lagrede filer. En data disk kan gi et separat blokkvolum for applikasjonsdata"
+      },
+      {
+        "module": "networking",
+        "entry": "/learn/networking?topic=dependencies",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/networking?topic=dependencies",
+        "next": "/learn/networking?topic=peering",
+        "automaticDialog": 0,
+        "text": "Kursoversikt\nDescribe Azure networking services\nMODUL 06 · TILGJENGELIG\nDescribe Azure networking services\n\nFølg en faktisk VM til nettverket. Design adresseområder, undersøk peering og skill et DNS-svar fra en dokumentert nettverksvei.\n\nIntroduction to Cloud Infrastructure: Describe Azure architecture and services · Part A · VNet, Subnets, Peering & DNS ·1.0.0\nUndersøk en faktisk VM-nettverkskjede\nFølg referansene som faktisk finnes\n\nEn VM-konfigurasjon refererer sin NIC. NIC-en har et subnetId; subnettet har et vnetId og et adresseprefix; VNet har et adresseområde. Du skal følge identitetene"
+      },
+      {
+        "module": "storage",
+        "entry": "/learn/storage?topic=studio&perspective=design",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/storage?topic=studio&perspective=design",
+        "next": "/learn/storage?topic=missions",
+        "automaticDialog": 0,
+        "text": "Kursoversikt\nAzure Storage Part A · Accounts & Services\nMODUL 08 · TILGJENGELIG\nAzure Storage Part A · Accounts & Services\n\nVelg lagring etter data og tilgangsmønster. Undersøk fire tjenestemekanismer, støttede kontoalternativer og forskjellen fra VM-disker.\n\nAzure Architecture & Services · Part A · kontoer og tjenester ·1.0.0\nStorage Workload Studio\nEndre kravet og undersøk årsaken\n\nStorage Workload Studio samler tjenestevalg, account-kompatibilitet og datarelasjoner i én undervisningsflate. Du forutsier et resultat, kjører et eksplisitt deterministisk eksempel og sammenligner den lagrede obs"
+      },
+      {
+        "module": "identity",
+        "entry": "/learn/identity?topic=studio&perspective=directory",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/identity?topic=studio&perspective=directory",
+        "next": "/learn/identity?topic=missions",
+        "automaticDialog": 0,
+        "text": "Kursoversikt\nMicrosoft Entra ID, Authentication & External Identities\nMODUL IDENTITY, ACCESS & SECURITY · PART A · TILGJENGELIG\nMicrosoft Entra ID, Authentication & External Identities\n\nFra hvem du er, til hvordan det bevises — og hva du får gjøre.\n\n02 — Azure Architecture & Services · Identity, Access & Security · Part A · 1.0.0\nIdentity & Authentication Studio\nUndersøk krav, identitetsbevis og tilgang i tre perspektiver\n\nVelg først katalog-/domeneegenskaper, deretter en innloggingsreise og til slutt en ekstern identitetsgrense. Start et guidet oppdrag, forutsi konsekvensen, kjør den determin"
+      },
+      {
+        "module": "cost",
+        "entry": "/learn/cost?topic=estimate",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/cost?topic=estimate",
+        "next": "/learn/cost?topic=analysis",
+        "automaticDialog": 0,
+        "text": "Kursoversikt\nDescribe cost management in Azure\nMODUL 06 · TILGJENGELIG\nDescribe cost management in Azure\n\nForstå kostnadsdrivere, bygg et begrunnet estimat, undersøk et avvik og fordel kostnader. Fire guidede undersøkelser og nye selvstendige situasjoner bruker tydelig fiktive data.\n\nIntroduction to Cloud Infrastructure: Describe Azure management and governance ·1.0.0\nPricing Calculator · bygg og sammenlign\nEt estimat er en etterprøvbar samling antakelser\n\nAzure Pricing Calculator brukes til å undersøke forventet kostnad før man velger og oppretter tjenester. Legg til et produkt, velg relevant"
+      },
+      {
+        "module": "governance",
+        "entry": "/learn/governance?topic=studio&perspective=data",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/governance?topic=studio&perspective=data",
+        "next": "/learn/governance?topic=missions",
+        "automaticDialog": 0,
+        "text": "Kursoversikt\nGovernance & Compliance\nMODUL DATASTYRING, RESSURSKRAV OG ADMINISTRATIV BESKYTTELSE · TILGJENGELIG\nGovernance & Compliance\n\nVelg riktig styringsmekanisme, forstå dens konsekvenser og undersøk faktisk lokal Policy-håndheving.\n\n03 — Azure Management & Governance · Datastyring, ressurskrav og administrativ beskyttelse · 1.0.0\nGovernance Decision Studio\n\nVelg datastyring, Policy eller ressursbeskyttelse. Forutsi, kjør og sammenlign deklarerte konsekvenser. Faktiske lokale Policy-receipts holdes separat fra konseptmodellene.\n\n01\nData Governance\n02\nPolicy Decision Explorer\n03\nResource L"
+      },
+      {
+        "module": "management-tools",
+        "entry": "/learn/management-tools?topic=studio&perspective=intent",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/management-tools?topic=studio&perspective=intent",
+        "next": "/learn/management-tools?topic=missions",
+        "automaticDialog": 0,
+        "text": "Kursoversikt\nManagement & Deployment Tools\nMODUL GRENSESNITT, ARM, INFRASTRUCTURE AS CODE OG AZURE ARC · TILGJENGELIG\nManagement & Deployment Tools\n\nFølg en administrativ intensjon gjennom verktøy, management-lag og ressurskonfigurasjon — og kontroller hva resultatet faktisk beviser.\n\n03 — Azure Management & Governance · Grensesnitt, ARM, Infrastructure as Code og Azure Arc · 1.0.0\nManagement & Deployment Studio\n\nVelg verktøyperspektiv, deklarativ endring eller Arc. Konseptberegninger og illustrerte tekster holdes tydelig adskilt fra faktiske lokale Portal-operasjoner.\n\n01\nSame Intent, Differe"
+      },
+      {
+        "module": "monitoring",
+        "entry": "/learn/monitoring?topic=studio&perspective=evidence",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/monitoring?topic=studio&perspective=evidence",
+        "next": "/learn/monitoring?topic=missions",
+        "automaticDialog": 0,
+        "text": "Kursoversikt\nMonitoring & Diagnostic Tools\nMODUL EVIDENS, HELSE, TELEMETRI OG OPPFØLGING · TILGJENGELIG\nMonitoring & Diagnostic Tools\n\nSkill forbedringsråd, plattformhendelse, ressurshelse og applikasjonssignaler — og begrunn hva du faktisk kan konkludere.\n\n03 — Azure Management & Governance · Evidens, helse, telemetri og oppfølging · 1.0.0\nMonitoring & Diagnostics Studio\n\nAlle tall, hendelser og spor er faste syntetiske Fjordverk-eksempler. De er ikke målinger av ressursene i din Sandbox. Velg en hypotese, forutsi, kjør og sammenlign lagrede observasjoner.\n\n01\nChoose the Right Evidence\n02\nHea"
+      }
+    ],
+    "otherDialogs": [
+      {
+        "module": "storage",
+        "viewport": [1440, 900],
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 750,
+          "height": 535.984375
+        }
+      },
+      {
+        "module": "identity",
+        "viewport": [1440, 900],
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 750,
+          "height": 507.984375
+        }
+      },
+      {
+        "module": "monitoring",
+        "viewport": [1440, 900],
+        "box": {
+          "x": 0,
+          "y": 0,
+          "width": 750,
+          "height": 563.984375
+        }
+      }
+    ],
+    "settledIndependent": [
+      {
+        "action": "next-summary",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/security?topic=summary",
+        "visibleSummary": true,
+        "active": true,
+        "assisted": true,
+        "item": "sp01"
+      },
+      {
+        "action": "journal",
+        "sourceLists": 1,
+        "links": 33,
+        "active": true,
+        "assisted": true,
+        "item": "sp01"
+      },
+      {
+        "action": "hub",
+        "resume": "/learn/security?topic=assessment&case=sp01"
+      }
+    ],
+    "shortHub": {
+      "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn",
+      "primaryVisible": true,
+      "overflow": false
+    },
+    "corruptState": {
+      "text": "AZ-900\nAZURE FUNDAMENTALS\nForstå skyen. Bygg med innsikt.\n\nLær Microsoft Azure gjennom teori, interaktive modeller og praktiske oppdrag i en simulert Azure Portal.\n\nKontroller læringshistorikken\nLagret fremdrift kan ikke bekreftes. Åpne den berørte aktiviteten for å kontrollere historikken.\n\nLokal simulator · Ingen Azure-konto eller skykostnader.\n\nKontroller læringshistorikken\n\nLagret fremdrift kan ikke bekreftes. Åpne den berørte aktiviteten for å kontrollere historikken.\n\nSecurity Part C · corrupt\nLes lagringen på nytt · Security Part C\nKontroller aktivitet · Security Part C\nLÆRINGSREISEN DIN\nTre stier. Ett solid grunnlag.\n\nFølg rekkefølgen, eller åpne en modul direkte.\n\n01\n3 moduler tilgjengelig\nCloud Concepts\n\nBygg grunnlaget: skyens prinsipper, fordeler og tjenestemodeller.\n\nCloud computing\nHistorikk ikke bekreftet\nBenefits of cloud services\nHistorikk ikke bekreftet\nCloud service types\nHistorikk ikke bekreftet\nOppdrag og vurderinger\n02\n5 moduler tilgjengelig\nAzure Architecture & Services\n\nUtforsk Azure fra infrastruktur til compute, nettverk, lagring og identitet.\n\nCore Architecture\nHistorikk ikke bekreftet\nCompute & Hosting\nHistorikk ikke bekreftet\nNetworking\nDel A · Nettverksgrunnlag\nHistorikk ikke bekreftet\nDel B · Hybrid og endpoints\nHistorikk ikke bekreftet\nStorage\nStorage Accounts & Services · Part A\nHistorikk ikke bekreftet\nPart B — Tiers & Redundancy\nHistorikk ikke bekreftet\nPart C — File Movement & Migration\nHistorikk ikke bekreftet\nIdentity, Access & Security\nPart A — Identity Foundations\nHistorikk ikke bekreftet\nPart B — RBAC & Conditional Access\nHistorikk ikke bekreftet\nPart C — Security Principles & Defender for Cloud\nHistorikk ikke bekreftet\nOppdrag og vurderinger\n03\n4 moduler tilgjengelig\nAzure Management & Governance\n\nForstå kostnader, styring og ve",
+      "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn"
+    },
+    "pageErrors": []
+  },
+  "portal": {
+    "timeUTC": "2026-11-01T19:09:38.527Z",
+    "events": [
+      {
+        "name": "home",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/portal",
+        "missingIcons": 0,
+        "icons": [
+          {
+            "name": "subscriptions",
+            "src": "/icons/azure/10002-icon-service-Subscriptions.svg"
+          },
+          {
+            "name": "groups",
+            "src": "/icons/azure/10007-icon-service-Resource-Groups.svg"
+          },
+          {
+            "name": "resources",
+            "src": "/icons/azure/10001-icon-service-All-Resources.svg"
+          },
+          {
+            "name": "apps",
+            "src": "/icons/azure/10035-icon-service-App-Services.svg"
+          },
+          {
+            "name": "plans",
+            "src": "/icons/azure/00046-icon-service-App-Service-Plans.svg"
+          },
+          {
+            "name": "vms",
+            "src": "/icons/azure/10021-icon-service-Virtual-Machine.svg"
+          },
+          {
+            "name": "activity",
+            "src": "/icons/azure/00007-icon-service-Activity-Log.svg"
+          }
+        ],
+        "text": "Home\nAzureLab Directory · Lokalt treningsmiljø · ingen Azure-tilkobling\nFree Sandbox\nTilbake til kurset\nArchitecture Explorer\nTilbake til læringen\nAzure services\nCreate a resource\nSubscriptions\nResource groups\nAll resources\nApp Services\nApp Service plans\nVirtual machines\nActivity log\nMore services\nRecently visited resources\n\nRessurser du har åpnet i denne økten. Inventaret gjenopprettes separat fra tekniske kommandoer.\n\nIngen ressurser er åpnet i denne lokale økten ennå.\n\nAll resources\nNavigate\nSubscriptions\nResource groups\nAll resources\nAzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering."
+      },
+      {
+        "name": "search-storage",
+        "text": "Search results\n\nIngen treff i det støttede treningsutvalget."
+      },
+      {
+        "name": "actual-policy-denial",
+        "text": "Home\nActivity log\nActivity log\nAzureLab Directory · Lokalt treningsmiljø · ingen Azure-tilkobling\nRefresh\nFree Sandbox\nTilbake til kurset\nArchitecture Explorer\nTilbake til læringen\nOperations\nSequence\tOperation\tResult\tWorld revision\nportal-1\tOpprett resource group\tRegistrert\ncreated\n\t0 → 1\nportal-2\tOpprett App Service plan\tAvvist\npolicy-location-denied\n\t1 → 1\nAvvist · portal-2\nTeknisk årsak og tilstand\n\nWeb-ressursens lokasjon bryter den gjeldende tildelingen. Undersøk policyens scope, typefilter og tillatte regioner.\n\nOperasjon\nOpprett App Service plan\nRessurstype\nMicrosoft.Web/serverfarms\nMål-scope\ngroup-1\nForespurt / avledet lokasjon\nNorth Europe\nModellregel\nallowed-web-location@1\npolicy-location-denied\nVerdensrevisjon\n1 → 1\nAktive objekter\n6 → 6\n\nIngen ressurs ble lagt til. Tidligere godkjente operasjoner står fortsatt.\n\nEgendefinert læringspolicy\n\npolicy-web-location → sub-app\n\nMicrosoft.Web/serverfarms / North Europe ∉ West Europe\n\nUndersøk gjeldende policy\nEndre konfigurasjon\nAzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering."
+      },
+      {
+        "name": "ledger",
+        "text": "Home\nActivity log\nActivity log\nAzureLab Directory · Lokalt treningsmiljø · ingen Azure-tilkobling\nRefresh\nFree Sandbox\nTilbake til kurset\nArchitecture Explorer\nTilbake til læringen\nOperations\nSequence\tOperation\tResult\tWorld revision\nportal-1\tOpprett resource group\tRegistrert\ncreated\n\t0 → 1\nportal-2\tOpprett App Service plan\tAvvist\npolicy-location-denied\n\t1 → 1\nAzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering."
+      },
+      {
+        "name": "hub-accessibility",
+        "viewport": [1440, 900],
+        "axe": [],
+        "overflow": false,
+        "focused": "Hopp til innhold"
+      },
+      {
+        "name": "hub-accessibility",
+        "viewport": [1024, 768],
+        "axe": [],
+        "overflow": false,
+        "focused": "Hopp til innhold"
+      },
+      {
+        "name": "hub-accessibility",
+        "viewport": [1024, 500],
+        "axe": [],
+        "overflow": false,
+        "focused": "Hopp til innhold"
+      }
+    ],
+    "readOnlyBoundary": {
+      "worldBytesUnchanged": true
+    },
+    "probeLimitation": "Initial notification exact-name selector missed accessible count; separate followup confirms intended sidepanel. This is a harness error, not product defect."
+  },
+  "followup": {
+    "time": "2026-11-01T19:18:35.212Z",
+    "events": [
+      {
+        "name": "sidepanel",
+        "box": {
+          "x": 584,
+          "y": 40,
+          "width": 440,
+          "height": 460
+        },
+        "class": "portal-dialog portal-side-panel"
+      },
+      {
+        "name": "sources-architecture-core-summary",
+        "heading": ["Core Architecture · samlet resultat"],
+        "details": [],
+        "sourceHeadings": [
+          "01Cloud Concepts",
+          "02Azure Architecture & Services",
+          "03Azure Management & Governance",
+          "Describe the core architectural components of Azure",
+          "Core Architecture · samlet resultat",
+          "Samlede, versjonerte observasjoner fra Part A og B",
+          "Part A · fysisk infrastruktur",
+          "Part B · administrativ struktur",
+          "Offisielle kilder og modellgrenser"
+        ]
+      },
+      {
+        "name": "sources-benefits-availability",
+        "heading": ["Kapasitet er ikke det samme som tilgjengelighet"],
+        "details": [
+          {
+            "open": false,
+            "summary": "Kilder og valgfri fordypning",
+            "links": 2
+          }
+        ],
+        "sourceHeadings": [
+          "01Cloud Concepts",
+          "02Azure Architecture & Services",
+          "03Azure Management & Governance",
+          "Describe the benefits of using cloud services",
+          "Kapasitet er ikke det samme som tilgjengelighet",
+          "Mekanismen",
+          "I Azure og i drift",
+          "Gjennomarbeidet eksempel",
+          "Forutsetninger og modellgrenser",
+          "Misforståelse og moteksempel",
+          "Observasjoner før veiledet godkjenning",
+          "Se dette i den praktiske modellen",
+          "IaaS · En VM med virkelige lokale avhengigheter",
+          "Prøv kunnskapen i nye situasjoner"
+        ]
+      },
+      {
+        "name": "sources-computing-intro-request",
+        "heading": ["Du åpner en produktside"],
+        "details": [
+          {
+            "open": false,
+            "summary": "Kilder og modellgrenser",
+            "links": 1
+          }
+        ],
+        "sourceHeadings": [
+          "01Cloud Concepts",
+          "02Azure Architecture & Services",
+          "03Azure Management & Governance",
+          "Describe cloud computing",
+          "Du åpner en produktside",
+          "Prøv kunnskapen i nye situasjoner"
+        ]
+      },
+      {
+        "name": "old-mission-briefing",
+        "geometry": {
+          "x": 200,
+          "y": 24,
+          "width": 1040,
+          "height": 852
+        }
+      },
+      {
+        "name": "old-mission-start",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/portal?area=vms&mission=diagnose",
+        "next": null
+      },
+      {
+        "name": "old-mission-hub",
+        "resume": "/learn/benefits?topic=reliability&activity=mission"
+      },
+      {
+        "name": "old-mission-resume",
+        "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app/learn/benefits?topic=reliability&activity=mission",
+        "facts": {
+          "sessions": [
+            {
+              "type": "start",
+              "mission": "diagnose",
+              "mode": "guided",
+              "attempt": 1,
+              "boundary": null,
+              "id": 1,
+              "target": null,
+              "inspected": [],
+              "runs": [],
+              "drafts": [],
+              "answers": {
+                "decision": null,
+                "reason": null
+              },
+              "aided": false,
+              "status": "active",
+              "through": null
+            }
+          ],
+          "current": {
+            "type": "start",
+            "mission": "diagnose",
+            "mode": "guided",
+            "attempt": 1,
+            "boundary": null,
+            "id": 1,
+            "target": null,
+            "inspected": [],
+            "runs": [],
+            "drafts": [],
+            "answers": {
+              "decision": null,
+              "reason": null
+            },
+            "aided": false,
+            "status": "active",
+            "through": null
+          },
+          "activeSession": {
+            "type": "start",
+            "mission": "diagnose",
+            "mode": "guided",
+            "attempt": 1,
+            "boundary": null,
+            "id": 1,
+            "target": null,
+            "inspected": [],
+            "runs": [],
+            "drafts": [],
+            "answers": {
+              "decision": null,
+              "reason": null
+            },
+            "aided": false,
+            "status": "active",
+            "through": null
+          },
+          "active": false,
+          "assisted": false
+        }
+      }
+    ]
+  },
+  "sources": {
+    "checked": "2026-11-01",
+    "rows": [
+      {
+        "id": "AP01",
+        "requested": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900",
+        "url": "https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-900?accept=text/markdown",
+        "status": 200,
+        "bytes": 11486,
+        "sha256": "177b736af1bae8702d9e04ef68bac8c1f2985838652bb40818a5ac25ed320716",
+        "title": "Study guide for Exam AZ-900: Microsoft Azure Fundamentals | Microsoft Learn",
+        "access": "public anonymous GET; no credentials",
+        "claim": "AZ-900 scope and authored coverage differ from learner mastery; unchanged57/126 matrix.",
+        "reviewed": "2026-11-01",
+        "version": "2026-05-31T00:00:00.0000000Z"
+      },
+      {
+        "id": "AP02",
+        "requested": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview",
+        "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-overview?accept=text/markdown",
+        "status": 200,
+        "bytes": 10610,
+        "sha256": "50482578f6a1c53b0f09e1c9e00111e785c2a5cf8b3793ae878f74a377e6c8af",
+        "title": "What is the Azure portal? - Azure portal | Microsoft Learn",
+        "access": "public anonymous GET; no credentials",
+        "claim": "Portal shell: menu/header/search/breadcrumbs/command and service menu; supported AzureLab subset compared.",
+        "reviewed": "2026-11-01",
+        "version": "2026-01-26T00:00:00.0000000Z"
+      },
+      {
+        "id": "AP03",
+        "requested": "https://learn.microsoft.com/en-us/azure/azure-portal/set-preferences",
+        "url": "https://learn.microsoft.com/en-us/azure/azure-portal/set-preferences?accept=text/markdown",
+        "status": 200,
+        "bytes": 20562,
+        "sha256": "f11fe63c2fd2c359204a60223ecdeb7cb5ebcb4ddb8e1d4b718b9f08c76a9c27",
+        "title": "Manage Azure portal settings and preferences - Azure portal | Microsoft Learn",
+        "access": "public anonymous GET; no credentials",
+        "claim": "Docked/flyout preference is documented UI behavior, not proof all Portal preferences are simulated.",
+        "reviewed": "2026-11-01",
+        "version": "2026-04-06T00:00:00.0000000Z"
+      },
+      {
+        "id": "AP04",
+        "requested": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal",
+        "url": "https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal?accept=text/markdown",
+        "status": 200,
+        "bytes": 9799,
+        "sha256": "db87abe4855cb8e62f66f3a9296b69ac62c429b5ff9f4e4f03a280050999b073",
+        "title": "Use the Azure portal and Azure Resource Manager to Manage Resource Groups - Azure Resource Manager | Microsoft Learn",
+        "access": "public anonymous GET; no credentials",
+        "claim": "Resource Group subscription/name/metadata-location and review/create workflow; local AzureLab subset has no universal cascade delete.",
+        "reviewed": "2026-11-01",
+        "version": "2026-02-27T00:00:00.0000000Z"
+      },
+      {
+        "id": "AP05",
+        "requested": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal",
+        "url": "https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal?accept=text/markdown",
+        "status": 200,
+        "bytes": 9763,
+        "sha256": "20760c51a5a600324d58c05bb7703c30325f1d13e5f632b49c23231c2edbfccb",
+        "title": "Quickstart - Create a Linux VM in the Azure portal - Azure Virtual Machines | Microsoft Learn",
+        "access": "public anonymous GET; no credentials",
+        "claim": "VM Project/Instance details and review/create; actual Azure login/SSH/runtime are outside simulator capability.",
+        "reviewed": "2026-11-01",
+        "version": "2026-02-06T00:00:00.0000000Z"
+      },
+      {
+        "id": "AP06",
+        "requested": "https://learn.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore",
+        "url": "https://learn.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?accept=text/markdown",
+        "status": 200,
+        "bytes": 41405,
+        "sha256": "aab12e17f352063b628b9d270ac98a8bf8af401f31008500495e41e6f8563619",
+        "title": "Quickstart: Deploy an ASP.NET web app - Azure App Service | Microsoft Learn",
+        "access": "public anonymous GET; no credentials",
+        "claim": "App Service creation depends on selected plan/scope; application deployment/runtime differ from local configuration.",
+        "reviewed": "2026-11-01",
+        "version": "2025-12-15T00:00:00.0000000Z"
+      },
+      {
+        "id": "AP07",
+        "requested": "https://learn.microsoft.com/en-us/azure/app-service/configure-common",
+        "url": "https://learn.microsoft.com/en-us/azure/app-service/configure-common?accept=text/markdown",
+        "status": 200,
+        "bytes": 32292,
+        "sha256": "a047a2738093a1eafd8a9c74d499a5ba5b2dfc753124c78e505570bad9eeb03c",
+        "title": "Configure an App Service App - Azure App Service | Microsoft Learn",
+        "access": "public anonymous GET; no credentials",
+        "claim": "App settings are under Environment variables; settings/app configuration and actual runtime/permissions are distinct.",
+        "reviewed": "2026-11-01",
+        "version": "2026-04-13T00:00:00.0000000Z"
+      },
+      {
+        "id": "AP08",
+        "requested": "https://learn.microsoft.com/en-us/azure/azure-portal/manage-filter-resource-views",
+        "url": "https://learn.microsoft.com/en-us/azure/azure-portal/manage-filter-resource-views?accept=text/markdown",
+        "status": 200,
+        "bytes": 5692,
+        "sha256": "808fa9e6436040c9e4f133103d7433df962c97444cd01647e2cc8c78f3eebf06",
+        "title": "View and filter Azure resource information - Azure portal | Microsoft Learn",
+        "access": "public anonymous GET; no credentials",
+        "claim": "Resource filtering and saved views are genuine Portal features; local subset not universal parity.",
+        "reviewed": "2026-11-01",
+        "version": "2025-05-15T00:00:00.0000000Z"
+      },
+      {
+        "id": "AP09",
+        "requested": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-keyboard-shortcuts",
+        "url": "https://learn.microsoft.com/en-us/azure/azure-portal/azure-portal-keyboard-shortcuts?accept=text/markdown",
+        "status": 200,
+        "bytes": 3433,
+        "sha256": "d4612351ebe162219fb39635e44853319f26994852e47fd73ba9b3cc78ddde0e",
+        "title": "Azure portal keyboard shortcuts - Azure portal | Microsoft Learn",
+        "access": "public anonymous GET; no credentials",
+        "claim": "Portal keyboard shortcuts exist; no claim AzureLab supports the entire documented shortcut set.",
+        "reviewed": "2026-11-01",
+        "version": "2026-01-26T00:00:00.0000000Z"
+      }
+    ]
+  },
+  "assessmentSubreview": {
+    "reviewFile": "docs/reviews/evidence/audit42-assessment.json",
+    "seal": {
+      "path": ".artifacts/a42/blind-review-lock.json",
+      "sha256": "ebcca6548c6f6ae93efd6bb5ba979a5ec408996339bc569238ae0cd90e67de19",
+      "sealed_at_utc": "2026-11-01T19:02:24.700551+00:00",
+      "mode": "0o444",
+      "packet_sha256": "9a9850d969713f83e788d5edf0ebd3dfd0c06777de064194c2d7f25e53fb28b3",
+      "first_only_preseal_input": "blind-sample-final.json"
+    },
+    "population": {
+      "paired_cases": 152,
+      "paired_banks": 14,
+      "module_qualified_authored_families": 110,
+      "legacy_forms": 8,
+      "legacy_criterion_fields": 60,
+      "legacy_numeric_fields": 3,
+      "legacy_selectable_fields": 57,
+      "not_valid_unit": "212 scenarios"
+    },
+    "blind": {
+      "paired_cases": 28,
+      "cases_per_bank": 2,
+      "legacy_forms": 4,
+      "legacy_fields": 34,
+      "sampling": "risk-selected, descriptive, not representative",
+      "all_sampled_pair_sets_match": true,
+      "all_sampled_legacy_fields_match": true
+    },
+    "browser": {
+      "url": "https://azure-learner-git-codex-az900-file-movem-438e7b-espzys-projects.vercel.app",
+      "actual_full_sha": "4732f93dfcdd233dcb6d7acc2a4838ba7a292141",
+      "followup_actual_full_sha": "4732f93dfcdd233dcb6d7acc2a4838ba7a292141",
+      "viewport": [1440, 900],
+      "paired_cases_order_checked": 28,
+      "legacy_forms_order_checked": 7,
+      "legacy_fields_checked": 57,
+      "remaining_historical_form_not_browser_checked": "original-services-v1 (3 criterion fields)",
+      "page_errors": [],
+      "inspected_images": [
+        "assessment-services-1440.png",
+        "assessment-sp01-1440.png",
+        "assessment-fm10-1440.png"
+      ],
+      "probe_corrections": "Initial Cost and Architecture B selectors and Foundations v2 field extractor corrected in followup; not product failures."
+    },
+    "errata": [
+      "Sealed Foundations v2 note says8/10 second; correct recount7/10; seal unchanged",
+      "Foundations v1 shortfall is numeric despite retained copy choices; root corrected private extraction after report",
+      "Locked Foundations v2 commitment question inherits original installation wording; renderer substitutes museum question, same choices/key",
+      "Services guessed storage-key lookup in first-option probe returned false; persistence was not evaluated by that lookup"
+    ]
+  },
+  "images": [
+    {
+      "path": "docs/reviews/screenshots/assessment-benefits-1440.png",
+      "bytes": 139475,
+      "sha256": "7afb488614bb0150837f97f91f474c3ae6a025730eb8d652ce1f7279db69ef11"
+    },
+    {
+      "path": "docs/reviews/screenshots/assessment-benefits-first-options-result-1440.png",
+      "bytes": 131073,
+      "sha256": "05b9ff9eff69657ab566af8af7840a64d94ada6104e6bf9c71882b6d92347208"
+    },
+    {
+      "path": "docs/reviews/screenshots/assessment-services-1440.png",
+      "bytes": 143699,
+      "sha256": "19c85582466e39ad9a23ae8b069c718a2b27b7172931d45cd60fee1c066464d5"
+    },
+    {
+      "path": "docs/reviews/screenshots/assessment-services-first-options-result-1440.png",
+      "bytes": 138989,
+      "sha256": "e719eb91a3e9478167aa0b463e5394ca2c224c8750ee3d72a2bce3a4d1342d86"
+    },
+    {
+      "path": "docs/reviews/screenshots/corrupt-state-1024x500.png",
+      "bytes": 70671,
+      "sha256": "0745b685c355c892ed0cca263cf1682bf1aca4007b769918383b199bef0f5423"
+    },
+    {
+      "path": "docs/reviews/screenshots/hub-short-1024x500.png",
+      "bytes": 64779,
+      "sha256": "b9f61be308358f5cbaf0fb4bd98fab972cb3845f874561cc70888475006f8224"
+    },
+    {
+      "path": "docs/reviews/screenshots/owner01-independent-protection.png",
+      "bytes": 138021,
+      "sha256": "6c12be6ac7ee74a384d57e83eb5290d8c36743e69c8320cb49f92e81aeef3dd8"
+    },
+    {
+      "path": "docs/reviews/screenshots/owner01-mission-list.png",
+      "bytes": 165317,
+      "sha256": "dcc041b872dec741202552c9fa2603c7311f383a883fad470e2c93af01a138e3"
+    },
+    {
+      "path": "docs/reviews/screenshots/owner01-native-briefing.png",
+      "bytes": 56346,
+      "sha256": "9886d2b66acd4cae8f04f6733b3b6e75b077e9dbcb502df4d2c0eb3de06536ab"
+    },
+    {
+      "path": "docs/reviews/screenshots/owner01-next-returns-list.png",
+      "bytes": 166428,
+      "sha256": "5ed863a4c6889d4bb587fc635fb7f9977c28b4e62baf6378f481a10cf3b21187"
+    },
+    {
+      "path": "docs/reviews/screenshots/owner02-open-sources-1024.png",
+      "bytes": 191991,
+      "sha256": "35687c741763e8754adacc7636e337c704dae2b2af3e53b7f523136140385664"
+    },
+    {
+      "path": "docs/reviews/screenshots/owner03-assessment-dialog-1024x500.png",
+      "bytes": 86508,
+      "sha256": "b7a3a2149b589d14a532f114473940f64ae1b22c2f191a9bfc3e896211acd51e"
+    },
+    {
+      "path": "docs/reviews/screenshots/owner03-assessment-dialog-1024x768.png",
+      "bytes": 126325,
+      "sha256": "1685a4709d8cf692e8a60ce6f6487934546724e51f4cb1a8ba14d2d0d0bd002f"
+    },
+    {
+      "path": "docs/reviews/screenshots/owner03-assessment-dialog-1440x900.png",
+      "bytes": 149781,
+      "sha256": "914d81bc858d7594963a6e066b052605d0228d56fc71a3ed82951a02ff28a45b"
+    },
+    {
+      "path": "docs/reviews/screenshots/owner03-journal-1440.png",
+      "bytes": 70558,
+      "sha256": "3cd28dd843bff901236732a325da52ffe9770c005372a3ad500842763a4b032f"
+    },
+    {
+      "path": "docs/reviews/screenshots/portal-actual-ledger-1440.png",
+      "bytes": 72515,
+      "sha256": "d09c4399d3184b73d896e56190abf62ae5b0946fd1794bc4ed69650522d8a3f9"
+    },
+    {
+      "path": "docs/reviews/screenshots/portal-group-basics-1440.png",
+      "bytes": 89384,
+      "sha256": "24ce4b7e64aeaf86245270b6914f8a709c1a3f4b1338624d91209b6c4f1ead9d"
+    },
+    {
+      "path": "docs/reviews/screenshots/portal-home-1440.png",
+      "bytes": 83740,
+      "sha256": "f57631441a9d08c0f3364a3fec8e8306d8dc18ed7028749ebd41462e5cbbea4f"
+    },
+    {
+      "path": "docs/reviews/screenshots/portal-notification-sidepanel-1024x500.png",
+      "bytes": 46984,
+      "sha256": "fa9295ad4c25741601849f9d69ad848f735274820e92eb66e5f1af78f4ca4e6b"
+    },
+    {
+      "path": "docs/reviews/screenshots/portal-plan-basics-1440.png",
+      "bytes": 93541,
+      "sha256": "1fa43c3a403c142d2059cedb06c255fd9099129b15bcfddab59ef6adb62a8905"
+    },
+    {
+      "path": "docs/reviews/screenshots/portal-policy-denial-1440.png",
+      "bytes": 96017,
+      "sha256": "7bc6f36f40f9ae85b1d586d9495ad2cb9b5a4c683c0678b8006502859154f84a"
+    },
+    {
+      "path": "docs/reviews/screenshots/portal-storage-search-1440.png",
+      "bytes": 86171,
+      "sha256": "8796d484b351a1578b265e143363d8963f5726f0c7091daa506775bfbb93202b"
+    },
+    {
+      "path": "docs/reviews/screenshots/root-1440.png",
+      "bytes": 108340,
+      "sha256": "87a4e5b4e41743115462e408b0e6258494400bf159f2c6c950e0f8537b2e6382"
+    },
+    {
+      "path": "docs/reviews/screenshots/sequence-migration-prerequisites-1024.png",
+      "bytes": 167081,
+      "sha256": "b2866334c317b2d54a40895cf8193933458a72a7044229e05ac4e4c1d5106b1f"
+    },
+    {
+      "path": "docs/reviews/screenshots/hub-first-fold-1440.png",
+      "bytes": 133116,
+      "sha256": "982778a4792d909fe555fa0cda3a5d542941c1eae2e044920225c1d55aaf3157"
+    },
+    {
+      "path": "docs/reviews/screenshots/hub-first-fold-1024.png",
+      "bytes": 106441,
+      "sha256": "2d83ac296f2d31e101f201fe635541b519058a4da2c6623c980a415c5f94c546"
+    }
+  ]
+}

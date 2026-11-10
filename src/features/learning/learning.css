@@ -1,0 +1,243 @@
+.knowledge-journal h3 {
+  font-size: 21px;
+  line-height: 1.35;
+  margin: 8px 0 14px;
+  color: #f1edff;
+}
+.knowledge-journal p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: #dfdef0;
+  margin: 12px 0;
+}
+.knowledge-journal button {
+  min-height: 44px;
+  background: #29204c;
+  color: #f0eaff;
+  border: 1px solid #9c86dd7a;
+  padding: 10px 14px;
+  margin: 8px 5px 8px 0;
+  cursor: pointer;
+}
+.knowledge-journal :focus-visible {
+  outline: 3px solid #50d8e8;
+  outline-offset: 3px;
+}
+.knowledge-journal label {
+  display: grid;
+  gap: 7px;
+  font-size: 15px;
+  line-height: 1.55;
+  margin: 12px 0;
+  color: #eceafa;
+}
+.knowledge-journal select {
+  background: #10182c;
+  color: #f4f0ff;
+  border: 1px solid #817c9c;
+  border-radius: 4px;
+  padding: 10px;
+  min-height: 44px;
+  max-width: 100%;
+  width: 100%;
+  font: inherit;
+}
+.learning-answers label,
+.learning-transfer label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+}
+.learning-feedback {
+  border-left: 3px solid #f4b578;
+  padding: 4px 15px;
+  background: #121b32;
+  margin: 18px 0;
+}
+.learning-feedback.feedback-correct {
+  border-color: #50d8e8;
+}
+.learning-result {
+  border-top: 1px solid #50d8e850;
+  margin: 20px 0;
+  padding-top: 15px;
+}
+.learning-bars {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+  height: 90px;
+  align-items: end;
+}
+.learning-bars > div {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+}
+.bar-pair {
+  position: relative;
+  display: flex;
+  align-items: end;
+  gap: 4px;
+  height: 60px;
+}
+.bar-pair em {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 17px;
+  background: #f4b578;
+}
+.bar-pair i,
+.bar-pair b {
+  display: block;
+  width: 17px;
+  min-height: 1px;
+  background: #ec93ca;
+}
+.bar-pair b {
+  background: #50d8e8;
+}
+.learning-timeline table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 15px;
+  font-size: 13px;
+}
+.learning-timeline caption {
+  caption-side: top;
+  text-align: left;
+  color: #dad6e9;
+  margin-bottom: 10px;
+}
+.learning-timeline th,
+.learning-timeline td {
+  padding: 7px;
+  text-align: left;
+  border-bottom: 1px solid #77708b50;
+}
+.learning-totals {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 14px 0;
+}
+.learning-totals dt {
+  font-size: 12px;
+  color: #c0b9d2;
+}
+.learning-totals dd {
+  font: 22px var(--mono);
+  color: #8fe5f0;
+  margin: 5px 0;
+}
+.learning-topology {
+  display: grid;
+  grid-template-columns: 1fr 26px 1fr;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 20px 0;
+  color: #9be8f0;
+}
+.learning-topology span {
+  padding: 18px 8px;
+  border-bottom: 2px solid #a58bff;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.learning-topology .boundary-muted {
+  opacity: 0.5;
+}
+.learning-topology small {
+  grid-column: 1/-1;
+}
+.learning-summary dl > div,
+.learning-roles > div,
+.knowledge-journal dl > div {
+  border-top: 1px solid #84779860;
+  padding: 15px 0;
+}
+.learning-summary dt,
+.learning-roles dt,
+.knowledge-journal dt {
+  font-weight: 600;
+  color: #ded3ff;
+}
+.learning-summary dd,
+.learning-roles dd,
+.knowledge-journal dd {
+  margin: 8px 0;
+  color: #dedbea;
+  line-height: 1.7;
+}
+.knowledge-journal {
+  max-width: 70ch;
+  margin: auto;
+}
+.knowledge-journal article {
+  padding: 18px 0;
+}
+.knowledge-journal section {
+  margin: 28px 0;
+}
+.knowledge-journal h4 {
+  font-size: 17px;
+  color: #d2baff;
+  margin: 0 0 10px;
+}
+.knowledge-journal a {
+  color: #8ee5ee;
+  text-decoration: underline;
+}
+.knowledge-journal li {
+  margin: 12px 0;
+}
+@media (max-width: 700px) {
+  .knowledge-journal p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 700px) {
+  .topbar-right > .button {
+    font-size: 11px;
+    padding: 7px;
+    max-width: 110px;
+    line-height: 1.2;
+  }
+}
+
+.curriculum-trail {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #c4bfd7;
+  margin: 8px 0;
+}
+.curriculum-trail summary {
+  cursor: pointer;
+  min-height: 34px;
+}
+.curriculum-trail dl {
+  margin: 10px 0;
+}
+.curriculum-trail dt {
+  font: 10px var(--mono);
+  color: #a6ccdc;
+}
+.curriculum-trail dd {
+  margin: 0 0 8px;
+  overflow-wrap: anywhere;
+}
+.curriculum-trail a {
+  color: #c9b6ff;
+}
+.curriculum-modules {
+  display: grid;
+  gap: 8px;
+  padding-left: 20px;
+}
+.curriculum-modules small {
+  display: block;
+  color: #b6d2d9;
+}

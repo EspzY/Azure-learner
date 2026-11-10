@@ -1,0 +1,203 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: integrated-chain.spec.ts >> integrated3.9 default native Portal forms commit the actual app PostgreSQL binding FrontDoor chain and one Studio authority
+- Location: tests/e2e/integrated-chain.spec.ts:25:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e1]:
+  - alert [ref=e2]: AzureLab — Lær Azure ved å bruke det
+  - generic [ref=e3]:
+    - link "Hopp til innhold" [ref=e4] [cursor=pointer]:
+      - /url: "#lab-main"
+    - banner [ref=e5]:
+      - button "Åpne eller lukk portalmenyen" [expanded] [ref=e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=e8] [cursor=pointer]:
+        - /url: /labs/laboratory
+      - searchbox "Search resources and services" [ref=e10]
+      - generic [ref=e11]: Fri Laboratory
+      - button "Originale kvitteringer" [ref=e12] [cursor=pointer]
+      - button "Modellgrenser" [ref=e14] [cursor=pointer]
+      - link "Kursarbeidsområde" [ref=e16] [cursor=pointer]:
+        - /url: /portal
+      - link "Til kurset" [ref=e17] [cursor=pointer]:
+        - /url: /learn
+      - link "Til forsiden" [ref=e18] [cursor=pointer]:
+        - /url: /
+    - generic [ref=e23]:
+      - complementary "Laboratory v3 navigasjon" [ref=e24]:
+        - navigation "Laboratory v3 navigasjon" [ref=e25]:
+          - link "Create a resource" [ref=e26] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - link "Home" [ref=e28] [cursor=pointer]:
+            - /url: /labs/laboratory?view=home
+          - link "All services" [ref=e30] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - generic [ref=e32]: FAVORITES
+          - link "Subscriptions" [ref=e34] [cursor=pointer]:
+            - /url: /labs/laboratory?view=subscriptions
+          - link "Resource groups" [ref=e36] [cursor=pointer]:
+            - /url: /labs/laboratory?view=groups
+          - link "All resources" [ref=e38] [cursor=pointer]:
+            - /url: /labs/laboratory?view=resources
+          - link "App Services" [ref=e40] [cursor=pointer]:
+            - /url: /labs/laboratory?view=apps
+          - link "App Service plans" [ref=e42] [cursor=pointer]:
+            - /url: /labs/laboratory?view=plans
+          - link "Virtual machines" [ref=e44] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vms
+          - link "Storage accounts" [ref=e46] [cursor=pointer]:
+            - /url: /labs/laboratory?view=accounts
+          - link "Virtual networks" [ref=e48] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vnets
+          - link "Function App" [ref=e50] [cursor=pointer]:
+            - /url: /labs/laboratory?view=functionApp
+          - link "Front Door profiles" [ref=e52] [cursor=pointer]:
+            - /url: /labs/laboratory?view=frontDoor
+          - link "Application Gateways" [ref=e54] [cursor=pointer]:
+            - /url: /labs/laboratory?view=applicationGateway
+          - link "SQL database" [ref=e56] [cursor=pointer]:
+            - /url: /labs/laboratory?view=sqlDatabase
+          - group [ref=e58]:
+            - generic "AzureLab tools" [ref=e59] [cursor=pointer]
+            - link "Architecture Studio" [ref=e61] [cursor=pointer]:
+              - /url: /labs/laboratory?view=studio
+            - link "Ruteanalyse" [ref=e63] [cursor=pointer]:
+              - /url: /labs/laboratory?view=analysis
+            - link "Network Policy Analysis" [ref=e65] [cursor=pointer]:
+              - /url: /labs/laboratory?view=policy
+        - generic [ref=e67]: Støttede tjenester i dette arbeidsområdet
+      - main [ref=e68]:
+        - generic [ref=e69]:
+          - button "Home" [ref=e70] [cursor=pointer]
+          - button "All resources" [ref=e72] [cursor=pointer]
+        - generic [ref=e76]:
+          - heading "All resources" [active] [level=1] [ref=e77]
+          - generic [ref=e78]: Midlertidig Sandbox · nullstilles ved ny innlasting · ingen kursresultater eller XP
+        - generic [ref=e81]:
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - text: Filter by name or type
+              - searchbox "Filter by name or type" [ref=e84]
+            - generic [ref=e85]:
+              - text: Subscription
+              - combobox "Subscription" [ref=e86]:
+                - option "All subscriptions" [selected]
+                - option "Shared Sandbox"
+            - generic [ref=e87]:
+              - text: Type
+              - combobox "Type" [ref=e88]:
+                - option "All types" [selected]
+                - option "Virtual network"
+                - option "Network interface"
+                - option "Virtual machine"
+                - option "Managed disk"
+                - option "App Service Plan"
+                - option "Web App"
+                - option "Front Door profile"
+                - option "Azure Database for PostgreSQL flexible server"
+            - generic [ref=e89]:
+              - text: Location
+              - combobox "Location" [ref=e90]:
+                - option "All locations" [selected]
+                - option "Norway East"
+                - option "global"
+          - table [ref=e92]:
+            - caption [ref=e93]: Resources · 8
+            - rowgroup [ref=e94]:
+              - row [ref=e95]:
+                - columnheader [ref=e96]:
+                  - button "Name" [ref=e97] [cursor=pointer]:
+                    - text: Name
+                    - generic [aria-hidden] [ref=e98]: ↑
+                - columnheader [ref=e99]:
+                  - button "Type" [ref=e100] [cursor=pointer]
+                - columnheader "Resource group" [ref=e101]
+                - columnheader [ref=e102]:
+                  - button "Location" [ref=e103] [cursor=pointer]
+                - columnheader "Subscription" [ref=e104]
+            - rowgroup [ref=e105]:
+              - row [ref=e106]:
+                - cell [ref=e107]:
+                  - link "app-integrated-chain" [ref=e108] [cursor=pointer]:
+                    - /url: /labs/laboratory?view=webApp&id=web-app-3
+                - cell "Web App" [ref=e110]
+                - cell "rg-integrated-chain" [ref=e111]
+                - cell "Norway East" [ref=e112]
+                - cell "Shared Sandbox" [ref=e113]
+              - row [ref=e114]:
+                - cell [ref=e115]:
+                  - link "chain-frontdoor" [ref=e116] [cursor=pointer]:
+                    - /url: /labs/laboratory?view=frontDoor&id=frontdoor-8
+                - cell "Front Door profile" [ref=e118]
+                - cell "rg-integrated-chain" [ref=e119]
+                - cell "global" [ref=e120]
+                - cell "Shared Sandbox" [ref=e121]
+              - row [ref=e122]:
+                - cell [ref=e123]:
+                  - link "chain-postgres" [ref=e124] [cursor=pointer]:
+                    - /url: /labs/laboratory?view=postgresServer&id=postgres-server-5
+                - cell "Azure Database for PostgreSQL flexible server" [ref=e126]
+                - cell "rg-integrated-chain" [ref=e127]
+                - cell "Norway East" [ref=e128]
+                - cell "Shared Sandbox" [ref=e129]
+              - row [ref=e130]:
+                - cell [ref=e131]:
+                  - link "plan-integrated-chain" [ref=e132] [cursor=pointer]:
+                    - /url: /labs/laboratory?view=appPlan&id=app-plan-2
+                - cell "App Service Plan" [ref=e134]
+                - cell "rg-integrated-chain" [ref=e135]
+                - cell "Norway East" [ref=e136]
+                - cell "Shared Sandbox" [ref=e137]
+              - row [ref=e138]:
+                - cell [ref=e139]:
+                  - link "vm-icon-regression" [ref=e140] [cursor=pointer]:
+                    - /url: /labs/laboratory?view=vm&id=vm-16
+                - cell "Virtual machine" [ref=e142]
+                - cell "rg-integrated-chain" [ref=e143]
+                - cell "Norway East" [ref=e144]
+                - cell "Shared Sandbox" [ref=e145]
+              - row [ref=e146]:
+                - cell [ref=e147]:
+                  - link "vm-icon-regression-nic" [ref=e148] [cursor=pointer]:
+                    - /url: /labs/laboratory?view=nic&id=nic-15
+                - cell "Network interface" [ref=e150]
+                - cell "rg-integrated-chain" [ref=e151]
+                - cell "Norway East" [ref=e152]
+                - cell "Shared Sandbox" [ref=e153]
+              - row [ref=e154]:
+                - cell [ref=e155]:
+                  - link "vm-icon-regression-os" [ref=e156] [cursor=pointer]:
+                    - /url: /labs/laboratory?view=disk&id=disk-17
+                - cell "Managed disk" [ref=e158]
+                - cell "rg-integrated-chain" [ref=e159]
+                - cell "Norway East" [ref=e160]
+                - cell "Shared Sandbox" [ref=e161]
+              - row [ref=e162]:
+                - cell [ref=e163]:
+                  - link "vnet-icon-regression" [ref=e164] [cursor=pointer]:
+                    - /url: /labs/laboratory?view=vnet&id=vnet-13
+                - cell "Virtual network" [ref=e166]
+                - cell "rg-integrated-chain" [ref=e167]
+                - cell "Norway East" [ref=e168]
+                - cell "Shared Sandbox" [ref=e169]
+        - generic [ref=e170]:
+          - generic [ref=e171]: Fri Laboratory
+          - status [ref=e172]: Midlertidig – ingen lagring · nullstilles ved ny innlasting
+          - button "Oppdater visningen" [ref=e173] [cursor=pointer]
+          - generic [ref=e175]: "World-revisjon: 15 · Arbeidsforsøk: 1 · Arbeidsområdets modell: laboratory@3.9.0"
+          - button "Nullstill eget arbeidsområde" [ref=e176] [cursor=pointer]
+```

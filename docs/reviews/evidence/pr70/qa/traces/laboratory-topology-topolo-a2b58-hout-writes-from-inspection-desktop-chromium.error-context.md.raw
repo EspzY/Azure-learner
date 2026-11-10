@@ -1,0 +1,366 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: laboratory-topology.spec.ts >> topology peering access native edit keeps Connected remote flags and forwarding separate and revises server diagnostics conservatively without writes from inspection
+- Location: tests/e2e/laboratory-topology.spec.ts:223:1
+
+# Error details
+
+```
+Error: expect(received).toMatchObject(expected)
+
+- Expected  - 1
++ Received  + 1
+
+@@ -1,7 +1,7 @@
+  Object {
+-   "accessOrigin": null,
++   "accessOrigin": "4d2e75e6-aa20-4a24-ae22-300688eb1b46",
+    "allowForwardedTraffic": true,
+    "allowVirtualNetworkAccess": false,
+    "forwardingOrigin": "topology-12",
+    "id": "peering-9",
+    "name": "app-hub",
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f1e1]:
+  - alert [ref=f1e2]
+  - generic [ref=f1e3]:
+    - link "Hopp til innhold" [ref=f1e4] [cursor=pointer]:
+      - /url: "#lab-main"
+    - banner [ref=f1e5]:
+      - button "Åpne eller lukk portalmenyen" [expanded] [ref=f1e6] [cursor=pointer]
+      - link "AzureLab 3.2.1" [ref=f1e8] [cursor=pointer]:
+        - /url: /labs/laboratory
+      - searchbox "Search resources and services" [ref=f1e10]
+      - generic [ref=f1e11]: Fri Laboratory
+      - button "Originale kvitteringer" [ref=f1e12] [cursor=pointer]
+      - button "Modellgrenser" [ref=f1e14] [cursor=pointer]
+      - link "Kursarbeidsområde" [ref=f1e16] [cursor=pointer]:
+        - /url: /portal
+      - link "Til kurset" [ref=f1e17] [cursor=pointer]:
+        - /url: /learn
+    - generic [ref=f1e18]:
+      - complementary "Laboratory v3 navigasjon" [ref=f1e19]:
+        - navigation "Laboratory v3 navigasjon" [ref=f1e20]:
+          - link "Create a resource" [ref=f1e21] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - link "All services" [ref=f1e23] [cursor=pointer]:
+            - /url: /labs/laboratory?view=services
+          - generic [ref=f1e25]: FAVORITES
+          - link "All resources" [ref=f1e27] [cursor=pointer]:
+            - /url: /labs/laboratory?view=resources
+          - link "Architecture Studio" [ref=f1e29] [cursor=pointer]:
+            - /url: /labs/laboratory?view=studio
+          - link "Azure Firewalls" [ref=f1e31] [cursor=pointer]:
+            - /url: /labs/laboratory?view=firewalls
+          - link "Firewall Policies" [ref=f1e33] [cursor=pointer]:
+            - /url: /labs/laboratory?view=firewallPolicies
+          - link "Public IP addresses" [ref=f1e35] [cursor=pointer]:
+            - /url: /labs/laboratory?view=publicIps
+          - link "Virtual machines" [ref=f1e37] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vms
+          - link "Managed disks" [ref=f1e39] [cursor=pointer]:
+            - /url: /labs/laboratory?view=disks
+          - link "Network interfaces" [ref=f1e41] [cursor=pointer]:
+            - /url: /labs/laboratory?view=nics
+          - link "Network Policy Analysis" [ref=f1e43] [cursor=pointer]:
+            - /url: /labs/laboratory?view=policy
+          - link "Resource groups" [ref=f1e45] [cursor=pointer]:
+            - /url: /labs/laboratory?view=groups
+          - link "Storage accounts" [ref=f1e47] [cursor=pointer]:
+            - /url: /labs/laboratory?view=accounts
+          - link "Virtual networks" [ref=f1e49] [cursor=pointer]:
+            - /url: /labs/laboratory?view=vnets
+          - link "Network security groups" [ref=f1e51] [cursor=pointer]:
+            - /url: /labs/laboratory?view=nsgs
+          - link "Route tables" [ref=f1e53] [cursor=pointer]:
+            - /url: /labs/laboratory?view=routeTables
+          - link "Ruteanalyse" [ref=f1e55] [cursor=pointer]:
+            - /url: /labs/laboratory?view=analysis
+          - link "Originale kvitteringer" [ref=f1e57] [cursor=pointer]:
+            - /url: /labs/laboratory?view=history
+        - generic [ref=f1e59]: Støttede tjenester i dette arbeidsområdet
+      - main [ref=f1e60]:
+        - generic [ref=f1e61]:
+          - button "Fri Laboratory" [ref=f1e62] [cursor=pointer]
+          - button "Virtual networks" [ref=f1e64] [cursor=pointer]
+          - button "vnet-app" [ref=f1e66] [cursor=pointer]
+          - generic [ref=f1e68]: app-hub
+        - generic [ref=f1e72]:
+          - heading "app-hub" [level=1] [ref=f1e73]
+          - generic [ref=f1e74]: VNet peering · Lokal AzureLab-simulator · eget serverlagret arbeidsområde · ingen kursresultater eller XP
+        - generic [ref=f1e77]:
+          - navigation "app-hub · Overview" [ref=f1e78]:
+            - strong [ref=f1e79]: app-hub
+            - generic [ref=f1e81]:
+              - generic [ref=f1e82]: Search this resource
+              - searchbox "Search this resource" [ref=f1e83]
+            - button "Overview" [ref=f1e84] [cursor=pointer]
+            - button "Activity log" [ref=f1e86] [cursor=pointer]
+            - group [ref=f1e88]:
+              - generic "Settings" [ref=f1e89] [cursor=pointer]
+              - button "Properties" [ref=f1e90] [cursor=pointer]
+            - generic [ref=f1e92]: Lokalt simulator-scope
+          - generic [ref=f1e93]:
+            - region "Edit" [ref=f1e94]:
+              - generic [ref=f1e95]:
+                - button "Edit virtual network access" [active] [ref=f1e96] [cursor=pointer]
+                - link "Siste endringskvittering" [ref=f1e97] [cursor=pointer]:
+                  - /url: /labs/laboratory?view=history&receipt=4d2e75e6-aa20-4a24-ae22-300688eb1b46
+            - heading "Allow forwarded traffic" [level=2] [ref=f1e98]
+            - paragraph [ref=f1e99]: Allow forwarded traffic gjelder mottak fra det eksterne VNet-et. Endringen gjelder denne retningen alene og oppretter ingen rute eller transitiv peering.
+            - generic [ref=f1e101]:
+              - term [ref=f1e102]: Allow forwarded traffic
+              - definition [ref=f1e103]: På
+            - button "Configure forwarded traffic" [ref=f1e104] [cursor=pointer]
+            - link "Åpne original kvittering" [ref=f1e105] [cursor=pointer]:
+              - /url: /labs/laboratory?view=history&receipt=topology-12
+            - paragraph [ref=f1e106]: VirtualAppliance peker til en faktisk modellert Firewall og dens private IP. Prefix matching velger ruten; en valgt rute bekrefter ikke kommunikasjon.
+            - generic [ref=f1e107]:
+              - generic [ref=f1e108]:
+                - term [ref=f1e109]: Lokal ID
+                - definition [ref=f1e110]: peering-9
+              - generic [ref=f1e111]:
+                - term [ref=f1e112]: Lokalt VNet
+                - definition [ref=f1e113]:
+                  - link "vnet-app" [ref=f1e114] [cursor=pointer]:
+                    - /url: /labs/laboratory?view=vnet&id=vnet-3
+              - generic [ref=f1e115]:
+                - term [ref=f1e116]: Eksternt VNet
+                - definition [ref=f1e117]:
+                  - link "vnet-hub" [ref=f1e118] [cursor=pointer]:
+                    - /url: /labs/laboratory?view=vnet&id=vnet-2
+              - generic [ref=f1e119]:
+                - term [ref=f1e120]: Status
+                - definition [ref=f1e121]: Connected
+              - generic [ref=f1e122]:
+                - term [ref=f1e123]: Tilgang mellom VNets
+                - definition [ref=f1e124]: Deaktivert
+            - link "Åpne original kvittering" [ref=f1e125] [cursor=pointer]:
+              - /url: /labs/laboratory?view=history&receipt=topology-9
+            - paragraph [ref=f1e126]: Allow forwarded traffic gjelder mottak fra det eksterne VNet-et. Endringen gjelder denne retningen alene og oppretter ingen rute eller transitiv peering.
+            - paragraph [ref=f1e127]:
+              - link "Åpne peerings i eksternt VNet" [ref=f1e128] [cursor=pointer]:
+                - /url: /labs/laboratory?view=peerings&id=vnet-2
+        - generic [ref=f1e129]:
+          - generic [ref=f1e130]: Fri Laboratory
+          - button "Oppdater fra serveren" [ref=f1e131] [cursor=pointer]
+          - generic [ref=f1e133]: "World-revisjon: 33 · Arbeidsforsøk: 1 · Arbeidsområdets modell: laboratory@3.7.0"
+          - button "Nullstill eget arbeidsområde" [ref=f1e134] [cursor=pointer]
+```
+
+# Test source
+
+```ts
+  133 |   await save(page);
+  134 |   await expect(await diagnose(page, a)).toContainText(f.outcome['routing-drop']);
+  135 |   await edit(page, 'route', a.route, { addressPrefix: '10.20.1.0/24' });
+  136 |   await review(page);
+  137 |   await save(page);
+  138 |   after = await state(page);
+  139 |   expect(after.world.routes.find((r: { id: string }) => r.id === a.route)).toMatchObject({
+  140 |     id: a.route,
+  141 |     name: original.name,
+  142 |     origin: original.origin,
+  143 |     routeTableId: original.routeTableId,
+  144 |     addressPrefix: '10.20.1.0/24',
+  145 |   });
+  146 |   await expect(await diagnose(page, a)).toContainText(f.outcome['allowed-via-firewall']);
+  147 |   await expect(page.locator('.studio-diagnostics')).toContainText('10.20.1.0/24');
+  148 |   await page.reload();
+  149 |   expect(await state(page)).toEqual(after);
+  150 |   await page.goBack();
+  151 |   await page.goForward();
+  152 |   expect(await state(page)).toEqual(after);
+  153 |   expect(await page.evaluate(() => JSON.stringify(localStorage))).toBe(course);
+  154 | });
+  155 | test('topology native complete route validation rejects shared-table incompatible subnet prefix duplicate malformed and arbitrary appliance without a partial write', async ({
+  156 |   page,
+  157 | }) => {
+  158 |   const a = await seed(page);
+  159 |   await apply(page, {
+  160 |     type: 'AssociateSubnetRouteTable',
+  161 |     subnetId: a.dataSubnet,
+  162 |     routeTableId: a.appTable,
+  163 |   });
+  164 |   const before = await state(page);
+  165 |   let dialog = await edit(page, 'route', a.route, {
+  166 |     addressPrefix: '10.10.1.0/24',
+  167 |     nextHopType: 'VnetLocal',
+  168 |   });
+  169 |   await dialog.getByRole('button', { name: t.review, exact: true }).click();
+  170 |   await expect(dialog.getByRole('alert')).toContainText('VnetLocal');
+  171 |   await expect(dialog.getByRole('button', { name: t.save, exact: true })).toBeDisabled();
+  172 |   expect(await state(page)).toEqual(before);
+  173 |   await dialog.getByRole('button', { name: t.cancel, exact: true }).click();
+  174 |   dialog = await edit(page, 'route', a.route, { addressPrefix: '10.20.1.1/24' });
+  175 |   await dialog.getByRole('button', { name: t.review, exact: true }).click();
+  176 |   await expect(dialog.getByRole('alert')).toBeVisible();
+  177 |   await expect(dialog.getByRole('button', { name: t.save, exact: true })).toBeDisabled();
+  178 |   expect(await state(page)).toEqual(before);
+  179 |   await dialog.getByRole('button', { name: t.cancel, exact: true }).click();
+  180 |   dialog = await edit(page, 'route', a.route, { nextHopIp: '10.0.0.99' });
+  181 |   await dialog.getByRole('button', { name: t.review, exact: true }).click();
+  182 |   await expect(dialog.getByRole('alert')).toBeVisible();
+  183 |   expect(await state(page)).toEqual(before);
+  184 | });
+  185 | test('topology explicit subnet NSG disassociation retains NSG rules original association history and Studio removes only the actual attachment without a security score', async ({
+  186 |   page,
+  187 | }) => {
+  188 |   const a = await seed(page),
+  189 |     before = await state(page);
+  190 |   await page.goto(url('subnet', a.appSubnet));
+  191 |   await page
+  192 |     .locator('.lab-rule-lifecycle')
+  193 |     .getByRole('button', { name: x.disassociate, exact: true })
+  194 |     .click();
+  195 |   const dialog = page.getByRole('dialog', { name: x.disassociate, exact: true });
+  196 |   await expect(dialog).toContainText(x.detachNote);
+  197 |   await dialog.getByRole('button', { name: t.review, exact: true }).click();
+  198 |   await expect(dialog.getByRole('button', { name: x.disassociate, exact: true })).toBeDisabled();
+  199 |   expect(await state(page)).toEqual(before);
+  200 |   await dialog.getByRole('checkbox').check();
+  201 |   await dialog.getByRole('button', { name: x.disassociate, exact: true }).click();
+  202 |   await expect(page.getByRole('dialog')).toHaveCount(0);
+  203 |   const after = await state(page),
+  204 |     entry = after.entries.at(-1);
+  205 |   expect(after.world.subnets.find((s: { id: string }) => s.id === a.appSubnet).nsgId).toBeNull();
+  206 |   expect(after.world.nsgs).toEqual(before.world.nsgs);
+  207 |   expect(after.world.securityRules).toEqual(before.world.securityRules);
+  208 |   expect(after.world.nics).toEqual(before.world.nics);
+  209 |   const form = await diagnose(page, a);
+  210 |   await expect(form).toContainText(e.layerStatus['not-associated']);
+  211 |   await expect(page.locator('.studio-inspector')).not.toContainText('Security Score');
+  212 |   await page.goto(url('history') + '&receipt=' + entry.receipt.commandId);
+  213 |   await page.getByRole('button', { name: t.verify, exact: true }).click();
+  214 |   await expect(page.getByRole('status')).toContainText(t.verified);
+  215 |   await page.screenshot({
+  216 |     path: test.info().outputPath('topology-subnet-disassociation-history.png'),
+  217 |   });
+  218 |   const historic = await page.request.get('/api/laboratory/state?through=' + before.entries.length);
+  219 |   expect((await historic.json()).world).toEqual(before.world);
+  220 |   await page.reload();
+  221 |   expect(await state(page)).toEqual(after);
+  222 | });
+  223 | test('topology peering access native edit keeps Connected remote flags and forwarding separate and revises server diagnostics conservatively without writes from inspection', async ({
+  224 |   page,
+  225 | }) => {
+  226 |   const a = await seed(page),
+  227 |     before = await state(page),
+  228 |     original = before.world.peerings.find((p: { id: string }) => p.id === a.appHub);
+  229 |   await edit(page, 'peering', a.appHub, { value: 'false' });
+  230 |   await review(page);
+  231 |   await save(page);
+  232 |   const after = await state(page);
+> 233 |   expect(after.world.peerings.find((p: { id: string }) => p.id === a.appHub)).toMatchObject({
+      |                                                                               ^ Error: expect(received).toMatchObject(expected)
+  234 |     ...original,
+  235 |     allowVirtualNetworkAccess: false,
+  236 |   });
+  237 |   expect(after.world.peerings.filter((p: { id: string }) => p.id !== a.appHub)).toEqual(
+  238 |     before.world.peerings.filter((p: { id: string }) => p.id !== a.appHub),
+  239 |   );
+  240 |   await expect(page.locator('main')).toContainText('Connected');
+  241 |   await expect(page.locator('main')).toContainText('Deaktivert');
+  242 |   const form = await diagnose(page, a);
+  243 |   await expect(form.locator('.lab-topology-access')).toContainText(x.accessLimit);
+  244 |   await expect(form).toContainText(f.outcome.incomplete);
+  245 |   await page.screenshot({ path: test.info().outputPath('topology-disabled-peering-studio.png') });
+  246 |   expect(await state(page)).toEqual(after);
+  247 |   await edit(page, 'peering', a.appHub, { value: 'true' });
+  248 |   await review(page);
+  249 |   await save(page);
+  250 |   await expect(await diagnose(page, a)).toContainText(f.outcome['allowed-via-firewall']);
+  251 | });
+  252 | test('topology two native editors reject stale Save idempotent redelivery and changed workspace without lost update or fake success', async ({
+  253 |   page,
+  254 |   context,
+  255 | }) => {
+  256 |   const a = await seed(page),
+  257 |     other = await context.newPage();
+  258 |   await edit(page, 'route', a.route, { nextHopType: 'None' });
+  259 |   await review(page);
+  260 |   await edit(other, 'route', a.route, { nextHopType: 'Internet' });
+  261 |   await review(other);
+  262 |   // Natural cross-tab notification may disable Save; an unrefreshed editor must instead receive the server conflict.
+  263 |   await save(page);
+  264 |   const after = await state(page);
+  265 |   const button = other.getByRole('dialog').getByRole('button', { name: t.save, exact: true });
+  266 |   if (await button.isEnabled()) {
+  267 |     await button.click();
+  268 |     await expect(other.locator('main')).toContainText('stale-revision');
+  269 |   } else await expect(other.getByRole('dialog').getByRole('alert')).toContainText(t.stale);
+  270 |   const final = await state(page);
+  271 |   expect(final.world).toEqual(after.world);
+  272 |   const original = after.entries.at(-1).request;
+  273 |   const response = await page.request.post('/api/laboratory/command', {
+  274 |     headers: { Origin: 'http://127.0.0.1:3000', 'If-Laboratory-Workspace': a.workspace },
+  275 |     data: original,
+  276 |   });
+  277 |   expect(response.status()).toBe(200);
+  278 |   expect((await response.json()).receipt).toEqual(after.entries.at(-1).receipt);
+  279 |   expect((await state(page)).world).toEqual(after.world);
+  280 |   await other.close();
+  281 |   await edit(page, 'route', a.route, { nextHopType: 'Internet' });
+  282 |   await review(page);
+  283 |   const replacement = await page.request.post('/api/laboratory/session', {
+  284 |     headers: { Origin: 'http://127.0.0.1:3000' },
+  285 |     data: { model: 'laboratory@3.7.0', newWorkspace: true },
+  286 |   });
+  287 |   expect(replacement.status()).toBe(200);
+  288 |   await page.getByRole('dialog').getByRole('button', { name: t.save, exact: true }).click();
+  289 |   await expect(page.getByRole('dialog')).toHaveCount(0);
+  290 |   await expect(page.locator('main')).toContainText('workspace-changed');
+  291 |   const empty = await state(page);
+  292 |   expect(empty.workspace).not.toBe(a.workspace);
+  293 |   expect(empty.entries).toEqual([]);
+  294 |   expect(empty.world.routes).toEqual([]);
+  295 | });
+  296 | test('topology native short desktop Review keyboard focus reduced motion Axe and pinned disassociation preserve actual resource evidence', async ({
+  297 |   page,
+  298 | }) => {
+  299 |   const a = await seed(page);
+  300 |   await page.emulateMedia({ reducedMotion: 'reduce' });
+  301 |   await edit(page, 'route', a.route, { nextHopType: 'None' });
+  302 |   const dialog = await review(page);
+  303 |   await expect(dialog.getByRole('textbox')).toHaveCount(0);
+  304 |   await dialog.getByRole('button', { name: t.backEdit, exact: true }).click();
+  305 |   await expect(
+  306 |     dialog.getByRole('textbox', { name: x.fields.addressPrefix, exact: true }),
+  307 |   ).toBeFocused();
+  308 |   expect(
+  309 |     await dialog.getByRole('combobox', { name: x.fields.nextHopType, exact: true }).inputValue(),
+  310 |   ).toBe('None');
+  311 |   await review(page);
+  312 |   for (const viewport of [
+  313 |     { width: 1440, height: 900 },
+  314 |     { width: 1024, height: 768 },
+  315 |     { width: 1024, height: 500 },
+  316 |   ]) {
+  317 |     await page.setViewportSize(viewport);
+  318 |     expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+  319 |     expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+  320 |       true,
+  321 |     );
+  322 |     await expect(dialog.getByRole('button', { name: t.save, exact: true })).toBeInViewport();
+  323 |     await page.screenshot({
+  324 |       path: test.info().outputPath(`topology-review-${viewport.width}-${viewport.height}.png`),
+  325 |     });
+  326 |   }
+  327 |   await save(page);
+  328 |   await page.goto(url('subnet', a.appSubnet));
+  329 |   await page
+  330 |     .locator('.lab-rule-lifecycle')
+  331 |     .getByRole('button', { name: x.disassociate, exact: true })
+  332 |     .click();
+  333 |   await page.getByRole('dialog').getByRole('button', { name: t.review, exact: true }).click();
+```

@@ -1,0 +1,162 @@
+import { createRequire } from 'node:module';
+import { readFileSync } from 'node:fs';
+import { randomUUID } from 'node:crypto';
+
+// Execute from the Application worktree; resolve its exact pinned packages.
+const require = createRequire(process.cwd() + '/package.json');
+const { chromium, expect } = require('@playwright/test');
+const ts = require('typescript');
+require.extensions['.ts'] = (module, path) =>
+  module._compile(
+    ts.transpileModule(readFileSync(path, 'utf8'), {
+      compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2023 },
+    }).outputText,
+    path,
+  );
+const { nb, landingNb: landing, laboratoryV3Nb: c } = require('./src/content/nb.ts');
+const { laboratoryEphemeralNb: temp } = require('./src/content/laboratory-ephemeral-nb.ts');
+const { laboratoryApplicationNb: a } = require('./src/content/laboratory-application-nb.ts');
+const base = 'http://127.0.0.1:3000';
+const browser = await chromium.launch({ headless: true });
+const response = (page, action) =>
+  page.waitForResponse(
+    (r) =>
+      r.request().method() === 'POST' &&
+      (r.url().endsWith('/api/laboratory/' + action) ||
+        (r.url().endsWith('/api/laboratory/ephemeral') &&
+          r.request().postDataJSON().action === action)),
+  );
+const courseBytes = (page) =>
+  page.evaluate(() =>
+    JSON.stringify(
+      Object.fromEntries(
+        Object.entries(localStorage)
+          .filter(([key]) => key.startsWith('azurelab.'))
+          .sort(([left], [right]) => left.localeCompare(right)),
+      ),
+    ),
+  );
+async function review(page) {
+  const pending = response(page, 'review');
+  await page.locator('.lab-form').getByRole('button', { name: a.review, exact: true }).click();
+  const result = await (await pending).json();
+  expect(result.preview.outcome).toBe('accepted');
+  return page.getByRole('region', { name: a.review, exact: true });
+}
+async function operation(page, name, fields, action = a.create) {
+  await page.getByRole('button', { name, exact: true }).click();
+  for (const [label, value] of Object.entries(fields)) {
+    const input = page.locator('.lab-form').getByLabel(label, { exact: true });
+    if (await input.evaluate((element) => element.tagName === 'SELECT'))
+      await input.selectOption(value);
+    else await input.fill(value);
+  }
+  const panel = await review(page);
+  const pending = response(page, 'command');
+  await panel.getByRole('button', { name: action, exact: true }).click();
+  const result = await (await pending).json();
+  expect(result.receipt.outcome).toBe('accepted');
+  await expect(page.locator('.lab-form')).toHaveCount(0);
+  return result;
+}
+async function ready(page, persistent, suffix) {
+  await page.goto(base);
+  await page.getByRole('link', { name: landing.labLink, exact: true }).click();
+  const pending = response(page, 'session');
+  await page.getByRole('button', { name: persistent ? c.start : temp.start, exact: true }).click();
+  expect((await (await pending).json()).world.model).toBe('laboratory@3.8.0');
+  const bytes = await courseBytes(page);
+  await operation(page, c.newGroup, { [c.name]: 'rg-audit-' + suffix });
+  await page
+    .getByRole('navigation', { name: c.navigation, exact: true })
+    .getByRole('link', { name: nb.portal.areas.plans, exact: true })
+    .click();
+  await operation(page, a.operations.CreateAppServicePlan, {
+    [a.fields.name]: 'plan-audit-' + suffix,
+  });
+  await page
+    .getByRole('navigation', { name: c.navigation, exact: true })
+    .getByRole('link', { name: nb.portal.areas.apps, exact: true })
+    .click();
+  const app = await operation(page, a.operations.CreateWebApp, {
+    [a.fields.name]: 'web-audit-' + suffix,
+  });
+  return { bytes, app };
+}
+try {
+  const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await context.newPage();
+  const state = await ready(page, false, 'failed-write');
+  await page.getByRole('button', { name: 'Edit', exact: true }).click();
+  await page.getByLabel(a.fields.publicNetworkAccess, { exact: true }).selectOption('Disabled');
+  const panel = await review(page);
+  let denied = 0;
+  // Negative fault only. Every positive World/Review/receipt came from actual commands.
+  await page.route('**/api/laboratory/ephemeral', async (route) => {
+    const request = route.request();
+    if (request.method() === 'POST' && request.postDataJSON().action === 'command') {
+      denied++;
+      await route.fulfill({
+        status: 503,
+        contentType: 'application/json',
+        body: JSON.stringify({ error: 'server-result-unavailable' }),
+      });
+    } else await route.continue();
+  });
+  await panel.getByRole('button', { name: a.save, exact: true }).click();
+  await expect(page.locator('.lab-form')).toHaveCount(1);
+  await expect(page.locator('.lab-form').getByRole('alert')).toContainText(
+    'Endringen ble ikke bekreftet',
+  );
+  await expect(panel.getByRole('button', { name: a.save, exact: true })).toBeDisabled();
+  expect(denied).toBe(1);
+  expect(await courseBytes(page)).toBe(state.bytes);
+  await context.close();
+  console.log(
+    'PASS native failed write: negative503 only; editor retained, visible unconfirmed error, disabled Save, course bytes unchanged.',
+  );
+
+  const persistent = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const pgPage = await persistent.newPage();
+  const pgState = await ready(pgPage, true, 'stale');
+  await pgPage.getByRole('button', { name: 'Edit', exact: true }).click();
+  await pgPage.getByLabel(a.fields.publicNetworkAccess, { exact: true }).selectOption('Disabled');
+  const stalePanel = await review(pgPage);
+  let appCommands = 0;
+  pgPage.on('request', (request) => {
+    if (
+      request.url().endsWith('/api/laboratory/command') &&
+      request.method() === 'POST' &&
+      request.postDataJSON().command?.type === 'UpdateWebApp'
+    )
+      appCommands++;
+  });
+  const competing = await pgPage.request.post(base + '/api/laboratory/command', {
+    headers: { Origin: base, 'If-Laboratory-Workspace': pgState.app.workspace },
+    data: {
+      commandId: randomUUID(),
+      expectedRevision: pgState.app.world.revision,
+      command: {
+        type: 'UpdateAppServicePlan',
+        planId: pgState.app.world.plans[0].id,
+        sku: 'P1v3',
+      },
+    },
+  });
+  expect(competing.status()).toBe(200);
+  expect((await competing.json()).receipt.outcome).toBe('accepted');
+  await pgPage.getByRole('button', { name: 'Oppdater fra serveren', exact: true }).click();
+  await expect(pgPage.locator('.lab-form').getByRole('alert')).toHaveText(a.stale);
+  await expect(stalePanel.getByRole('button', { name: a.save, exact: true })).toBeDisabled();
+  expect(appCommands).toBe(0);
+  const actual = await (await pgPage.request.get(base + '/api/laboratory/state')).json();
+  expect(actual.world.revision).toBe(pgState.app.world.revision + 1);
+  expect(actual.world.webApps[0].publicNetworkAccess).toBe('Enabled');
+  expect(await courseBytes(pgPage)).toBe(pgState.bytes);
+  await persistent.close();
+  console.log(
+    'PASS native actual PG stale Review: real competing plan Save+server refresh disables old Review; zero app Save, revision advanced once, app configuration/course bytes unchanged.',
+  );
+} finally {
+  await browser.close();
+}

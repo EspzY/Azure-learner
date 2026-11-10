@@ -1,0 +1,32 @@
+(!) Your Vite config uses features that are unsupported by `configLoader: 'native'`, which is planned to become the default in a future major version of Vite:
+  - ESM syntax in a file loaded as CommonJS (../azurelab-pr69/independent/vitest.config.ts:1:1). Use a `.mjs` extension or set `"type": "module"` in the closest package.json
+Set `VITE_CONFIG_NATIVE_IGNORE_WARNING=true` to suppress this warning.
+
+ RUN  v5.0.5 /workspace/Azure-learner
+
+ ❯ ../azurelab-pr69/independent/adversarial.test.ts (4 tests | 1 failed) 1929ms
+   × independent multiple forbidden fields retain deterministic rejected receipts after PostgreSQL JSONB storage 781ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  ../azurelab-pr69/independent/adversarial.test.ts > independent multiple forbidden fields retain deterministic rejected receipts after PostgreSQL JSONB storage
+Error: unverifiable-history
+ ❯ Repository.verified src/laboratory/v3/repository.ts:84:13
+     82|       canonical(original) !== canonical(row.world)
+     83|     )
+     84|       throw new LabError('unverifiable-history', 503);
+       |             ^
+     85|     return entries;
+     86|   }
+ ❯ src/laboratory/v3/repository.ts:114:19
+ ❯ Repository.transaction src/laboratory/v3/repository.ts:42:22
+ ❯ ../azurelab-pr69/independent/adversarial.test.ts:39:63
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 3 passed (4)
+   Start at  18:47:29
+   Duration  2.97s (tests 76%, transform 15%, import 8%, worker 1%)
+

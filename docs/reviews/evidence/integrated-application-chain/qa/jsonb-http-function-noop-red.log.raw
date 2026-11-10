@@ -1,0 +1,50 @@
+
+ RUN  v5.0.5 /workspace/azurelab-phase2/integration
+
+stdout | src/laboratory-integrated.integration.test.ts > real isolated3.9 JSONB HTTP Function no-op cannot commit a false update or make original history unverifiable
+JSONB_HTTP_FUNCTION_NOOP_WITNESS {"request":{"commandId":"6ff79cf5-8f05-41bc-97b1-c980427e3436","expectedRevision":5,"command":{"type":"UpdateFunction","functionId":"function-6","enabled":"true","method":"GET","route":"/hello","containerId":"","behavior":"static-text","responseText":"Synthetic HTTP output"}},"receipt":{"commandId":"6ff79cf5-8f05-41bc-97b1-c980427e3436","sequence":6,"beforeRevision":5,"afterRevision":6,"operation":"UpdateFunction","targetType":"Microsoft.Web/sites/functions","scopeId":"function-app-5","location":"norwayeast","outcome":"accepted","code":"updated","ruleId":"lab-integration@3.9","addedIds":[],"updatedIds":["function-6"],"removedIds":[],"beforeCount":6,"afterCount":6,"integrationChange":{"id":"function-6","name":"http-noop","type":"Microsoft.Web/sites/functions","parentId":"function-app-5","createOrigin":"c80b2fb0-e845-452d-b2b0-0c23a229d62f","before":{"id":"function-6","name":"http-noop","type":"Microsoft.Web/sites/functions","appId":"function-app-5","origin":"c80b2fb0-e845-452d-b2b0-0c23a229d62f","region":"norwayeast","enabled":true,"groupId":"group-1","trigger":{"kind":"http","route":"/hello","method":"GET","authLevel":"anonymous"},"behavior":"static-text","responseText":"Synthetic HTTP output"},"after":{"id":"function-6","name":"http-noop","type":"Microsoft.Web/sites/functions","appId":"function-app-5","origin":"c80b2fb0-e845-452d-b2b0-0c23a229d62f","region":"norwayeast","enabled":true,"groupId":"group-1","trigger":{"kind":"http","method":"GET","route":"/hello","authLevel":"anonymous"},"behavior":"static-text","responseText":"Synthetic HTTP output"}}},"triggerKeysBefore":["kind","route","method","authLevel"],"beforeRevision":5,"afterRevision":6,"beforeNextId":7,"afterNextId":7,"nextReadError":{"code":"unverifiable-history","status":503}}
+
+ ❯ src/laboratory-integrated.integration.test.ts (8 tests | 1 failed | 7 skipped) 611ms
+   × real isolated3.9 JSONB HTTP Function no-op cannot commit a false update or make original history unverifiable 608ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/laboratory-integrated.integration.test.ts > real isolated3.9 JSONB HTTP Function no-op cannot commit a false update or make original history unverifiable
+AssertionError: expected { …(17) } to match object { outcome: 'rejected', …(6) }
+(17 matching properties omitted from actual)
+
+- Expected
++ Received
+
+  {
+    "addedIds": [],
+-   "afterRevision": 5,
++   "afterRevision": 6,
+    "beforeRevision": 5,
+-   "code": "no-change",
+-   "outcome": "rejected",
++   "code": "updated",
++   "outcome": "accepted",
+    "removedIds": [],
+-   "updatedIds": [],
++   "updatedIds": [
++     "function-6",
++   ],
+  }
+
+ ❯ src/laboratory-integrated.integration.test.ts:467:26
+    465|         }),
+    466|       );
+    467|     expect(made.receipt).toMatchObject({
+       |                          ^
+    468|       outcome: 'rejected',
+    469|       code: 'no-change',
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 7 skipped (8)
+   Start at  20:59:46
+   Duration  1.46s (tests 58%, transform 27%, import 14%, worker 1%)
+

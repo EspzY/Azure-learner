@@ -1,0 +1,191 @@
+{
+  "outcome": "AUTHORITATIVE_CI131_FAILED_NO_RELEASE_ACCEPTANCE",
+  "run": {
+    "id": 42725727353,
+    "number": 131,
+    "attempt": 1,
+    "url": "https://github.com/EspzY/Azure-learner/actions/runs/42725727353",
+    "head": "9d574a77028f2e4feac9c1988754f963421d8420",
+    "testedMerge": "9c33401aeb601c1666ee2e824226fcfa51c79005",
+    "base": "c4119f3f770d6767881dc5ee455686cbae0150d7",
+    "tree": "6a4a3780593dd09dc4672a45dd1b718151f46076",
+    "fingerprint": "a15fbcb765fbc301bb66ba339e4a53f2773b0f3176ae85135e2e0904adf9c89c",
+    "conclusion": "failure"
+  },
+  "check": {
+    "status": "passed",
+    "vitest": 1395,
+    "vitestFiles": 111,
+    "curriculum": 503,
+    "node": 35,
+    "isolatedPostgreSQLSetup": "passed",
+    "normalProductionBuild": "passed",
+    "highSeverityAudit": "passed",
+    "moderateAdvisories": 10,
+    "localCorrectedWholeCheckPassClaimed": false
+  },
+  "plan": {
+    "cases": 490,
+    "desktop": 438,
+    "compact": 52,
+    "shards": [123, 123, 122, 122],
+    "independentOriginalHeadCollectionDigest": "d636f59fc002dc7ac076d3d31fb5c182856e449a265bbf07665dda3ef5705d48"
+  },
+  "actualReportedCaseOutcomes": {
+    "directPassed": 472,
+    "flaky": 1,
+    "failed": 17,
+    "total": 490,
+    "attempts": 525,
+    "attemptsBasis": "Original JSON results for shards1\u20133 and exact retained shard4 log:3 failures each3 attempts and VM-debrief passed retry1."
+  },
+  "shards": [
+    {
+      "index": 1,
+      "passed": 123,
+      "failed": 0,
+      "flaky": 0
+    },
+    {
+      "index": 2,
+      "passed": 116,
+      "failed": 7,
+      "flaky": 0
+    },
+    {
+      "index": 3,
+      "passed": 115,
+      "failed": 7,
+      "flaky": 0
+    },
+    {
+      "index": 4,
+      "passed": 118,
+      "failed": 3,
+      "flaky": 1
+    }
+  ],
+  "failureGrouping": {
+    "oldRGNameSelectors": 15,
+    "oldMainAllServicesSelectors": 2,
+    "VMFlakyCase": "vm-debrief.spec.ts:209; original strict .course-storage locator collision, passed configured retry1; cause remains OPEN"
+  },
+  "verify": {
+    "prerequisiteGuard": "failed as required",
+    "aggregate": "skipped; no receipt or aggregate artifact issued",
+    "strictRelease": "skipped; no strict success claimed",
+    "aggregateUpload": "failed because no aggregate file existed after closed guard"
+  },
+  "completeCandidateAccepted": false,
+  "localArchives": {
+    "retrieved": [1, 2, 3],
+    "zipDigestsAndAllFileHashesVerified": true,
+    "manifestFilesVerified": 441,
+    "exactExecutedOriginalPlanIdentitiesVerifiedForCases": 368,
+    "threeShardDetail": [
+      {
+        "index": 1,
+        "exactExecutedCaseIdentitiesMatchOriginalIndependentPlan": true,
+        "cases": 123,
+        "attempts": 123,
+        "passed": 123,
+        "flaky": 0,
+        "failed": 0,
+        "status": "passed"
+      },
+      {
+        "index": 2,
+        "exactExecutedCaseIdentitiesMatchOriginalIndependentPlan": true,
+        "cases": 123,
+        "attempts": 137,
+        "passed": 116,
+        "flaky": 0,
+        "failed": 7,
+        "status": "failed"
+      },
+      {
+        "index": 3,
+        "exactExecutedCaseIdentitiesMatchOriginalIndependentPlan": true,
+        "cases": 122,
+        "attempts": 136,
+        "passed": 115,
+        "flaky": 0,
+        "failed": 7,
+        "status": "failed"
+      }
+    ]
+  },
+  "unavailableArchive": {
+    "artifactId": 13722764362,
+    "name": "browser-42725727353-1-4",
+    "bytes": 1423509314,
+    "digest": "sha256:1447d7726b3ba4b4e55a48156e5544bf9e7f6173cceac97bd1247375db0377c2",
+    "actualConnectorError": "InvalidInputException: Artifact exceeds max size of 536870912 bytes: 1423509314 bytes.",
+    "localArchiveDownloaded": false,
+    "localTraceInspection": false,
+    "retainedEvidence": "Exact original full job log and final GitHub artifact metadata; no aggregate was issued."
+  },
+  "jobs": [
+    {
+      "id": 129530739143,
+      "name": "check",
+      "conclusion": "success"
+    },
+    {
+      "id": 129532153359,
+      "name": "browser (3)",
+      "conclusion": "failure"
+    },
+    {
+      "id": 129532153537,
+      "name": "browser (2)",
+      "conclusion": "failure"
+    },
+    {
+      "id": 129532153540,
+      "name": "browser (4)",
+      "conclusion": "failure"
+    },
+    {
+      "id": 129532153564,
+      "name": "browser (1)",
+      "conclusion": "success"
+    },
+    {
+      "id": 129541728106,
+      "name": "verify",
+      "conclusion": "failure"
+    }
+  ],
+  "remoteArtifacts": [
+    {
+      "id": 13723860812,
+      "name": "browser-42725727353-1-3",
+      "bytes": 68858161,
+      "digest": "sha256:d6e771d0dfd7bb4e0eba3f2f6a0ffe4319587b92169e87b8092e8c4b80d09daa",
+      "expiresAt": "2026-11-17T00:26:39Z"
+    },
+    {
+      "id": 13722774446,
+      "name": "browser-42725727353-1-2",
+      "bytes": 51095891,
+      "digest": "sha256:15f0cea4909cffa5227fbfebe62e5203cd8d64252b6905dd278140824cb442cf",
+      "expiresAt": "2026-11-17T00:31:21Z"
+    },
+    {
+      "id": 13722764362,
+      "name": "browser-42725727353-1-4",
+      "bytes": 1423509314,
+      "digest": "sha256:1447d7726b3ba4b4e55a48156e5544bf9e7f6173cceac97bd1247375db0377c2",
+      "expiresAt": "2026-11-17T00:29:41Z"
+    },
+    {
+      "id": 13722273464,
+      "name": "browser-42725727353-1-1",
+      "bytes": 4145711,
+      "digest": "sha256:8ed06aa98dbd3f55e5d77381a432c6c65bf39e3923f8c0ff5d714b83605dd7b4",
+      "expiresAt": "2026-11-17T00:16:46Z"
+    }
+  ],
+  "sourceFixStatus": "Root authorized four precise test-only current-form/navigation compatibility adapters. Whole-file before/after/hash/AST assertion proof is outside in ci-selector-fix. No new native pass, corrected full-check pass, push, rerun or new-head acceptance is inferred. Source publication requires fresh stamp/audit/new final-head GO."
+}

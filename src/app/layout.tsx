@@ -1,0 +1,125 @@
+import { Challenge2Provider } from '@/features/portal/challenge-v2-provider';
+import { ApplicationProvider } from '@/features/learning/application-provider';
+import { RefinedProvider } from '@/features/learning/refined-assessment-provider';
+import { MigrationProvider } from '@/features/learning/migration-provider';
+import { SecurityProvider } from '@/features/learning/security-provider';
+import { MonitoringProvider } from '@/features/learning/monitoring-provider';
+import { ToolsProvider } from '@/features/learning/management-tools-provider';
+import { GovernanceProvider } from '@/features/learning/governance-provider';
+import { AccessProvider } from '@/features/learning/access-control-provider';
+import { IdentityProvider } from '@/features/learning/identity-foundations-provider';
+import { ResilienceProvider } from '@/features/learning/storage-resilience-provider';
+import { StorageProvider } from '@/features/learning/storage-provider';
+import { ConnectivityProvider } from '@/features/learning/connectivity-provider';
+import { NetworkingProvider } from '@/features/learning/networking-provider';
+import { ManagementProvider } from '@/features/learning/management-provider';
+import { TransferProvider } from '@/features/learning/transfer-provider';
+import { ComputeProvider } from '@/features/learning/compute-provider';
+import { CostProvider } from '@/features/learning/cost-provider';
+import { MissionProvider } from '@/features/course/mission-provider';
+import { PhysicalProvider } from '@/features/learning/physical-provider';
+import { SaasProvider } from '@/features/portal/saas-provider';
+import { PracticalProvider } from '@/features/course/practical-provider';
+import { SandboxProvider } from '@/features/portal/sandbox-provider';
+import type { Metadata } from 'next';
+import { AppShell } from '@/components/app-shell';
+import { ProgressProvider } from '@/components/progress-provider';
+import { nb } from '@/content/nb';
+import { LearningProvider } from '@/features/learning/provider';
+import { PortalLearningProvider } from '@/features/portal/learning-provider';
+import { FoundationsV2Provider } from '@/features/learning/v2-provider';
+import { CourseProvider } from '@/features/course/provider';
+import { ExpansionProvider } from '@/features/learning/expansion-provider';
+import { ServerlessProvider } from '@/features/learning/serverless-provider';
+import '@xyflow/react/dist/style.css';
+import './globals.css';
+import { learningSans, learningEditorial } from '@/features/course/learning-fonts';
+import { bifrostOpenSans } from '@/features/design/fonts';
+import { BifrostThemeInit } from '@/features/design/theme-init';
+import { BifrostThemeProvider } from '@/features/design/theme';
+import '@/features/design/tokens.css';
+
+export const metadata: Metadata = {
+  title: nb.metadata.title,
+  description: nb.metadata.description,
+};
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html
+      lang="nb"
+      className={`${learningSans.variable} ${learningEditorial.variable} ${bifrostOpenSans.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <BifrostThemeInit />
+      </head>
+      <body>
+        <ApplicationProvider>
+          <RefinedProvider>
+            <ProgressProvider>
+              <StorageProvider>
+                <AccessProvider>
+                  <IdentityProvider>
+                    <ResilienceProvider>
+                      <ConnectivityProvider>
+                        <NetworkingProvider>
+                          <ComputeProvider>
+                            <CostProvider>
+                              <TransferProvider>
+                                <MissionProvider>
+                                  <ManagementProvider>
+                                    <PortalLearningProvider>
+                                      <Challenge2Provider>
+                                        <FoundationsV2Provider>
+                                          <CourseProvider>
+                                            <ExpansionProvider>
+                                              <SandboxProvider>
+                                                <GovernanceProvider>
+                                                  <ToolsProvider>
+                                                    <MonitoringProvider>
+                                                      <SecurityProvider>
+                                                        <MigrationProvider>
+                                                          <SaasProvider>
+                                                            <PracticalProvider>
+                                                              <ServerlessProvider>
+                                                                <PhysicalProvider>
+                                                                  <LearningProvider>
+                                                                    <BifrostThemeProvider>
+                                                                      <AppShell>
+                                                                        {children}
+                                                                      </AppShell>
+                                                                    </BifrostThemeProvider>
+                                                                  </LearningProvider>
+                                                                </PhysicalProvider>
+                                                              </ServerlessProvider>
+                                                            </PracticalProvider>
+                                                          </SaasProvider>
+                                                        </MigrationProvider>
+                                                      </SecurityProvider>
+                                                    </MonitoringProvider>
+                                                  </ToolsProvider>
+                                                </GovernanceProvider>
+                                              </SandboxProvider>
+                                            </ExpansionProvider>
+                                          </CourseProvider>
+                                        </FoundationsV2Provider>
+                                      </Challenge2Provider>
+                                    </PortalLearningProvider>
+                                  </ManagementProvider>
+                                </MissionProvider>
+                              </TransferProvider>
+                            </CostProvider>
+                          </ComputeProvider>
+                        </NetworkingProvider>
+                      </ConnectivityProvider>
+                    </ResilienceProvider>
+                  </IdentityProvider>
+                </AccessProvider>
+              </StorageProvider>
+            </ProgressProvider>
+          </RefinedProvider>
+        </ApplicationProvider>
+      </body>
+    </html>
+  );
+}

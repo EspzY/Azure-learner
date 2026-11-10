@@ -1,0 +1,1026 @@
+{
+  "baseline": "065d42cccde0f28052b5453ac10704eaa9eb57e7",
+  "rubricSHA256": "2e74b866536ae87eb6957fa214628405b0856e0b1fbaecd40e199ecea28d6840",
+  "cases": [
+    {
+      "name": "fresh-schema2",
+      "save": {
+        "schema": 2,
+        "content": "2.0.0",
+        "model": "2.0.0",
+        "rubric": "2.0.0",
+        "choice": null,
+        "events": []
+      },
+      "facts": {
+        "practice": {
+          "schema": 1,
+          "content": "1.0.0",
+          "model": "1.0.0",
+          "rubric": "1.0.0",
+          "unit": "capacity",
+          "events": []
+        },
+        "observed": {
+          "observations": {
+            "capacity": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "responsibility": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "models": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "placement": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "metering": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "pricing": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            }
+          },
+          "evidence": {
+            "FC01": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC02": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC03": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC04": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC05": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC06": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC07": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            }
+          },
+          "submissions": [],
+          "active": false,
+          "draft": {},
+          "assisted": false,
+          "guidedComplete": false
+        },
+        "memory": [3, 3],
+        "runs": [],
+        "active": false,
+        "assisted": false,
+        "draft": {},
+        "submissions": [],
+        "complete": false
+      }
+    },
+    {
+      "name": "old-guided-and-navigation",
+      "save": {
+        "schema": 2,
+        "content": "2.0.0",
+        "model": "2.0.0",
+        "rubric": "2.0.0",
+        "choice": null,
+        "events": [
+          {
+            "kind": "visit",
+            "topic": "intro-request"
+          },
+          {
+            "kind": "visit",
+            "topic": "physical-server"
+          },
+          {
+            "kind": "visit",
+            "topic": "virtualization"
+          },
+          {
+            "kind": "visit",
+            "topic": "provisioning"
+          },
+          {
+            "kind": "visit",
+            "topic": "capacity-basics"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-capacity"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-responsibility"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-models"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-placement"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-metering"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-pricing"
+          },
+          {
+            "kind": "visit",
+            "topic": "resource-bridge"
+          },
+          {
+            "kind": "memory",
+            "requested": [5, 3]
+          },
+          {
+            "kind": "capacity",
+            "allocation": 6,
+            "prediction": 7
+          }
+        ]
+      },
+      "facts": {
+        "practice": {
+          "schema": 1,
+          "content": "1.0.0",
+          "model": "1.0.0",
+          "rubric": "1.0.0",
+          "unit": "capacity",
+          "events": []
+        },
+        "observed": {
+          "observations": {
+            "capacity": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "responsibility": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "models": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "placement": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "metering": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "pricing": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            }
+          },
+          "evidence": {
+            "FC01": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC02": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC03": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC04": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC05": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC06": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC07": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            }
+          },
+          "submissions": [],
+          "active": false,
+          "draft": {},
+          "assisted": false,
+          "guidedComplete": false
+        },
+        "memory": [5, 3],
+        "runs": [
+          {
+            "kind": "capacity",
+            "allocation": 6,
+            "prediction": 7
+          }
+        ],
+        "active": false,
+        "assisted": false,
+        "draft": {},
+        "submissions": [],
+        "complete": false
+      }
+    },
+    {
+      "name": "active-historical-draft",
+      "save": {
+        "schema": 2,
+        "content": "2.0.0",
+        "model": "2.0.0",
+        "rubric": "2.0.0",
+        "choice": null,
+        "events": [
+          {
+            "kind": "visit",
+            "topic": "intro-request"
+          },
+          {
+            "kind": "visit",
+            "topic": "physical-server"
+          },
+          {
+            "kind": "visit",
+            "topic": "virtualization"
+          },
+          {
+            "kind": "visit",
+            "topic": "provisioning"
+          },
+          {
+            "kind": "visit",
+            "topic": "capacity-basics"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-capacity"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-responsibility"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-models"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-placement"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-metering"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-pricing"
+          },
+          {
+            "kind": "visit",
+            "topic": "resource-bridge"
+          },
+          {
+            "kind": "memory",
+            "requested": [5, 3]
+          },
+          {
+            "kind": "capacity",
+            "allocation": 6,
+            "prediction": 7
+          },
+          {
+            "kind": "begin"
+          },
+          {
+            "kind": "draft",
+            "answers": {
+              "host": "finite",
+              "shortfall": "3"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "practice": {
+          "schema": 1,
+          "content": "1.0.0",
+          "model": "1.0.0",
+          "rubric": "1.0.0",
+          "unit": "capacity",
+          "events": []
+        },
+        "observed": {
+          "observations": {
+            "capacity": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "responsibility": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "models": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "placement": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "metering": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "pricing": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            }
+          },
+          "evidence": {
+            "FC01": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC02": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC03": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC04": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC05": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC06": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC07": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            }
+          },
+          "submissions": [],
+          "active": false,
+          "draft": {},
+          "assisted": false,
+          "guidedComplete": false
+        },
+        "memory": [5, 3],
+        "runs": [
+          {
+            "kind": "capacity",
+            "allocation": 6,
+            "prediction": 7
+          }
+        ],
+        "active": true,
+        "assisted": false,
+        "draft": {
+          "host": "finite",
+          "shortfall": "3"
+        },
+        "submissions": [],
+        "complete": false
+      }
+    },
+    {
+      "name": "first-unaided-wrong-host",
+      "save": {
+        "schema": 2,
+        "content": "2.0.0",
+        "model": "2.0.0",
+        "rubric": "2.0.0",
+        "choice": null,
+        "events": [
+          {
+            "kind": "visit",
+            "topic": "intro-request"
+          },
+          {
+            "kind": "visit",
+            "topic": "physical-server"
+          },
+          {
+            "kind": "visit",
+            "topic": "virtualization"
+          },
+          {
+            "kind": "visit",
+            "topic": "provisioning"
+          },
+          {
+            "kind": "visit",
+            "topic": "capacity-basics"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-capacity"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-responsibility"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-models"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-placement"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-metering"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-pricing"
+          },
+          {
+            "kind": "visit",
+            "topic": "resource-bridge"
+          },
+          {
+            "kind": "memory",
+            "requested": [5, 3]
+          },
+          {
+            "kind": "capacity",
+            "allocation": 6,
+            "prediction": 7
+          },
+          {
+            "kind": "begin"
+          },
+          {
+            "kind": "draft",
+            "answers": {
+              "host": "finite",
+              "shortfall": "3"
+            }
+          },
+          {
+            "kind": "submit",
+            "answers": {
+              "shortfall": "2",
+              "unused": "1,3,4",
+              "cause": "allocation",
+              "host": "infinite",
+              "service": "provisioning",
+              "duties": "customer",
+              "exclusive": "private",
+              "integration": "hybrid",
+              "idle": "allocated",
+              "uncertain": "usage",
+              "commitment": "paid"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "practice": {
+          "schema": 1,
+          "content": "1.0.0",
+          "model": "1.0.0",
+          "rubric": "1.0.0",
+          "unit": "capacity",
+          "events": []
+        },
+        "observed": {
+          "observations": {
+            "capacity": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "responsibility": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "models": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "placement": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "metering": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "pricing": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            }
+          },
+          "evidence": {
+            "FC01": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC02": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC03": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC04": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC05": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC06": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC07": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            }
+          },
+          "submissions": [],
+          "active": false,
+          "draft": {},
+          "assisted": false,
+          "guidedComplete": false
+        },
+        "memory": [5, 3],
+        "runs": [
+          {
+            "kind": "capacity",
+            "allocation": 6,
+            "prediction": 7
+          }
+        ],
+        "active": false,
+        "assisted": false,
+        "draft": {},
+        "submissions": [
+          {
+            "answers": {
+              "shortfall": "2",
+              "unused": "1,3,4",
+              "cause": "allocation",
+              "host": "infinite",
+              "service": "provisioning",
+              "duties": "customer",
+              "exclusive": "private",
+              "integration": "hybrid",
+              "idle": "allocated",
+              "uncertain": "usage",
+              "commitment": "paid"
+            },
+            "assisted": false,
+            "retry": false,
+            "criteria": {
+              "shortfall": true,
+              "unused": true,
+              "cause": true,
+              "host": false,
+              "service": true,
+              "duties": true,
+              "exclusive": true,
+              "integration": true,
+              "idle": true,
+              "uncertain": true,
+              "commitment": true
+            }
+          }
+        ],
+        "complete": false
+      }
+    },
+    {
+      "name": "assisted-retry-immutable-first",
+      "save": {
+        "schema": 2,
+        "content": "2.0.0",
+        "model": "2.0.0",
+        "rubric": "2.0.0",
+        "choice": null,
+        "events": [
+          {
+            "kind": "visit",
+            "topic": "intro-request"
+          },
+          {
+            "kind": "visit",
+            "topic": "physical-server"
+          },
+          {
+            "kind": "visit",
+            "topic": "virtualization"
+          },
+          {
+            "kind": "visit",
+            "topic": "provisioning"
+          },
+          {
+            "kind": "visit",
+            "topic": "capacity-basics"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-capacity"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-responsibility"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-models"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-placement"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-metering"
+          },
+          {
+            "kind": "visit",
+            "topic": "v2-pricing"
+          },
+          {
+            "kind": "visit",
+            "topic": "resource-bridge"
+          },
+          {
+            "kind": "memory",
+            "requested": [5, 3]
+          },
+          {
+            "kind": "capacity",
+            "allocation": 6,
+            "prediction": 7
+          },
+          {
+            "kind": "begin"
+          },
+          {
+            "kind": "draft",
+            "answers": {
+              "host": "finite",
+              "shortfall": "3"
+            }
+          },
+          {
+            "kind": "submit",
+            "answers": {
+              "shortfall": "2",
+              "unused": "1,3,4",
+              "cause": "allocation",
+              "host": "infinite",
+              "service": "provisioning",
+              "duties": "customer",
+              "exclusive": "private",
+              "integration": "hybrid",
+              "idle": "allocated",
+              "uncertain": "usage",
+              "commitment": "paid"
+            }
+          },
+          {
+            "kind": "begin"
+          },
+          {
+            "kind": "aid"
+          },
+          {
+            "kind": "submit",
+            "answers": {
+              "shortfall": "2",
+              "unused": "1,3,4",
+              "cause": "allocation",
+              "host": "finite",
+              "service": "provisioning",
+              "duties": "customer",
+              "exclusive": "private",
+              "integration": "hybrid",
+              "idle": "allocated",
+              "uncertain": "usage",
+              "commitment": "paid"
+            }
+          }
+        ]
+      },
+      "facts": {
+        "practice": {
+          "schema": 1,
+          "content": "1.0.0",
+          "model": "1.0.0",
+          "rubric": "1.0.0",
+          "unit": "capacity",
+          "events": []
+        },
+        "observed": {
+          "observations": {
+            "capacity": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "responsibility": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "models": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "placement": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "metering": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            },
+            "pricing": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "probes": []
+            }
+          },
+          "evidence": {
+            "FC01": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC02": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC03": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC04": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC05": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC06": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            },
+            "FC07": {
+              "introduced": false,
+              "practiced": false,
+              "guided": false,
+              "independent": false
+            }
+          },
+          "submissions": [],
+          "active": false,
+          "draft": {},
+          "assisted": false,
+          "guidedComplete": false
+        },
+        "memory": [5, 3],
+        "runs": [
+          {
+            "kind": "capacity",
+            "allocation": 6,
+            "prediction": 7
+          }
+        ],
+        "active": false,
+        "assisted": true,
+        "draft": {},
+        "submissions": [
+          {
+            "answers": {
+              "shortfall": "2",
+              "unused": "1,3,4",
+              "cause": "allocation",
+              "host": "infinite",
+              "service": "provisioning",
+              "duties": "customer",
+              "exclusive": "private",
+              "integration": "hybrid",
+              "idle": "allocated",
+              "uncertain": "usage",
+              "commitment": "paid"
+            },
+            "assisted": false,
+            "retry": false,
+            "criteria": {
+              "shortfall": true,
+              "unused": true,
+              "cause": true,
+              "host": false,
+              "service": true,
+              "duties": true,
+              "exclusive": true,
+              "integration": true,
+              "idle": true,
+              "uncertain": true,
+              "commitment": true
+            }
+          },
+          {
+            "answers": {
+              "shortfall": "2",
+              "unused": "1,3,4",
+              "cause": "allocation",
+              "host": "finite",
+              "service": "provisioning",
+              "duties": "customer",
+              "exclusive": "private",
+              "integration": "hybrid",
+              "idle": "allocated",
+              "uncertain": "usage",
+              "commitment": "paid"
+            },
+            "assisted": true,
+            "retry": true,
+            "criteria": {
+              "shortfall": true,
+              "unused": true,
+              "cause": true,
+              "host": true,
+              "service": true,
+              "duties": true,
+              "exclusive": true,
+              "integration": true,
+              "idle": true,
+              "uncertain": true,
+              "commitment": true
+            }
+          }
+        ],
+        "complete": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "base": "a667b26276cc7a1bbed9aa9203cf431eb9001ada",
+  "captured": "2026-11-06T06:20:13.377292+00:00",
+  "scope": "Stop-rule blocker delivery; no production runtime or Storage activation.",
+  "targetedUnit": {
+    "command": "npx vitest run src/laboratory-activation.test.ts src/laboratory-contract.test.ts",
+    "exit": 0,
+    "tests": 19,
+    "new": 8,
+    "scope": "New checkpoints/preservation plus original11 golden tests; no v3 model/replay approval."
+  },
+  "mixedVersionBrowser": {
+    "command": "npx playwright test tests/e2e/laboratory-activation.spec.ts --config=playwright.desktop.config.ts --project=desktop-chromium",
+    "exit": 0,
+    "tests": 3,
+    "scope": "Passing reproduction proves three candidate protocol weaknesses; original PR58 writers with9 source hashes and new test-only checkpoint probe share one controlled origin. No full v3 client or Storage UI."
+  },
+  "fullCheck": {
+    "exit": 0,
+    "vitest": 712,
+    "node": 24,
+    "curriculumTargeted": 503,
+    "build": "passed"
+  },
+  "plan": {
+    "desktop": 346,
+    "compact": 36,
+    "total": 382,
+    "baselinePreserved": 379,
+    "newDesktop": 3,
+    "workers": 1,
+    "configurationChanges": false
+  },
+  "initialHarnessError": "First CLI invocation used --project without = before positional path; collection treated path as project and exited1 without running tests. Corrected CLI spelling only; no retries/timeout/assertion changes.",
+  "candidateCI": "pending",
+  "strictRelease": "pending candidate full-browser receipt",
+  "externalGate7": "pending exact-head unchanged-application journey; not Storage verification",
+  "activationGate": "BLOCKED: actual ABA fork can go undetected after reload; LP59-ACT-01 remains open for Stage1",
+  "knownInstability": "Earlier Compute/Axe and unchanged CC03 timing are not closed.",
+  "humanValidation": "unperformed"
+}

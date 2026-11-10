@@ -1,0 +1,35 @@
+[WebServer] (node:15658) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:15674) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:550:1 › firewall native untouched dedicated subnet default matches posted Review and owning scope after an ordinary subnet in another group and region (5.0s)
+
+
+  1) [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:550:1 › firewall native untouched dedicated subnet default matches posted Review and owning scope after an ordinary subnet in another group and region 
+
+    TypeError: Cannot read properties of undefined (reading 'unicode')
+
+      586 |   await fill(page, { name: 'fw-default' });
+      587 |   await expect(
+    > 588 |     page.locator('.lab-form').getByLabel(f.fields.subnetId, { exact: true }),
+          |                               ^
+      589 |   ).toHaveValue(subnet);
+      590 |   const previewResponse = page.waitForResponse((x) => x.url().endsWith('/api/laboratory/review'));
+      591 |   await page.getByRole('button', { name: c.review, exact: true }).click();
+        at /workspace/Azure-learner/tests/e2e/laboratory-firewall.spec.ts:588:31
+
+    Error Context: ../azurelab-pr67/default-red/laboratory-firewall-firewa-cfa49-in-another-group-and-region-desktop-chromium/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    ../azurelab-pr67/default-red/laboratory-firewall-firewa-cfa49-in-another-group-and-region-desktop-chromium/trace.zip
+    Usage:
+
+        npx playwright show-trace ../azurelab-pr67/default-red/laboratory-firewall-firewa-cfa49-in-another-group-and-region-desktop-chromium/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  1 failed
+    [desktop-chromium] › tests/e2e/laboratory-firewall.spec.ts:550:1 › firewall native untouched dedicated subnet default matches posted Review and owning scope after an ordinary subnet in another group and region 

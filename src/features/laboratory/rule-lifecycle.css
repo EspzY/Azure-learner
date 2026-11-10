@@ -1,0 +1,86 @@
+.lab-rule-lifecycle .portal-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.lab-rule-lifecycle .portal-dialog {
+  width: min(56rem, calc(100vw - 2rem));
+}
+.lab-rule-editor .portal-properties {
+  font-size: 0.85rem;
+}
+.portal .lab-rule-editor form {
+  min-height: 0;
+}
+.portal .lab-rule-editor form[hidden] {
+  display: none;
+}
+.lab-rule-editor .portal-properties dd {
+  overflow-wrap: anywhere;
+}
+@media (min-width: 800px) {
+  .lab-topology-editor .portal-properties {
+    grid-template-columns: minmax(7rem, auto) minmax(0, 1fr) minmax(7rem, auto) minmax(0, 1fr);
+    column-gap: 0.8rem;
+  }
+}
+.lab-rule-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+  border: 0;
+  padding: 0;
+}
+.lab-rule-fields label {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.lab-rule-fields input,
+.lab-rule-fields select {
+  min-width: 0;
+  width: 100%;
+}
+.lab-rule-review {
+  margin-top: 1rem;
+}
+.lab-rule-review h3 {
+  scroll-margin-top: 4rem;
+}
+.lab-rule-editor .lab-rule-confirm {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-block: 1rem;
+}
+.lab-rule-confirm input[type='checkbox'] {
+  width: 1rem;
+  min-width: 1rem;
+  height: 1rem;
+}
+.lab-rule-editor .portal-create-footer {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: 0.8rem 0;
+  gap: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.lab-rule-history {
+  margin: 1rem 0;
+}
+.lab-rule-history pre {
+  overflow: auto;
+  max-width: 100%;
+}
+@media (max-width: 800px) {
+  .lab-rule-fields {
+    grid-template-columns: 1fr;
+  }
+}
+.portal a.lab-evidence-link {
+  text-decoration: underline;
+}

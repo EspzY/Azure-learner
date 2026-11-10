@@ -1,0 +1,152 @@
+# Current default after the first main integration
+
+One main agent, sequential work, one active implementation PR. Start from verified current main; define one bounded objective, reuse existing architecture/status/results, run targeted checks during development, then full mandatory check/browser profile, independent post-stamp review, actual preview and strict release before requesting merge approval. Merge approved bounded deliveries regularly. Parallel implementation requires a documented technical gain that outweighs token and integration cost; it is not the default. Independent review is separate from implementation, and the approved four-shard CI strategy remains unchanged.
+
+Passing CI does not authorize merge or production. Before the first main update, resolve actual Vercel production branch/autodeployment controls with the owner; no configuration changes are authorized by this integration. See FIRST_MAIN_BASELINE and BASELINE_ROADMAP. Historical workflow sections below remain versioned reference.
+
+# Resource Platform — complete sharded candidate verification
+
+The owner-requested sharding study is now being implemented because two measured Application browser jobs exhausted the existing35-minute cap: Quality123 completed450/475 cases; final Quality125 completed474/475 with no observed failures/retries and fast dependency installation. Both remain incomplete failures, with original logs retained. A green collection or partial profile is never acceptance.
+
+The active bounded graph is `check → browser[1..4] → verify`. `check` retains the full mandatory check, real isolated PostgreSQL integrations, normal production build and high-level dependency audit. Four independent35-minute browser jobs each retain one Playwright worker, the original retries/timeouts/assertions, their own isolated PostgreSQL/Next/build/browser/artifacts and the same-revision historical fixture. This increases simultaneous job environments and compute; it is an explicit change from PR72's serial allocation. The original serial full-profile command remains available unchanged.
+
+Always-running `verify` requires successful check and every browser job in the same run attempt, actual immutable checkout SHA and four exact artifact identities. It independently recollects the complete candidate and every native shard, verifies their exact disjoint union, revalidates reports and provenance, rejects missing/skipped/extra/duplicate executions and only then writes an explicit aggregate full-profile receipt. The unchanged strict-release command follows immediately against the actual base. A rerun of only failed jobs cannot combine artifacts from different attempts; rerun the entire workflow. See [the active protocol and negative gates](CI_SHARDED_VERIFICATION.md).
+
+The prior serial workflow section below is preserved historical evidence, not a second active pipeline. No source rule, course result, replay model, substantive browser assertion, worker, retry, test-timeout or35-minute cap is relaxed. Sharding does not establish a cause or repair for known Compute/Axe/hydration/runner slowdowns. Actual new-head execution and independent post-stamp audit are still required before declaring this allocation verified.
+
+# Development workflow — owner direction, 29 October 2026
+
+## PR72 — serial mandatory checks and complete browser verification
+
+Measured Quality119 attempts on unchanged8a3967f4eba699c3042aeb561c76a639e5616198 reached the35-minute job limit after439 and446 completed cases. Neither produced full-profile evidence or ran strict release. Check plus dependency audit consumed about158seconds; passing browser cases were broadly slower than Quality118, without a proven runner/CPU/browser cause. Both cancellations and the known Firewall retry remain recorded.
+
+The bounded maintenance changes job allocation, not coverage or test limits. `check` executes the original full `npm run check` (including normal production build and real isolated PostgreSQL tests) and high-level dependency audit. Its successful output binds the actual checkout to immutable `github.sha`. Existing required `verify` waits for that terminal prerequisite, runs even when it failed/skipped/cancelled and explicitly fails on any non-success or empty/mismatched revision. It then checks out the same immutable SHA and compares actual HEAD with both event SHA and prerequisite output before further work.
+
+`verify` retains its own isolated PostgreSQL setup, the original historical review-fixture build, pinned Chromium installation, complete unselected `node scripts/verify-desktop-ci.mjs`, and immediate unchanged strict release. Each job keeps35minutes. Jobs are sequential: there is no extra simultaneous Playwright worker. **The combined workflow can exceed35minutes.** All468 cases, assertions, one-worker/retry/test-timeout/skip settings, fixed whole-command receipt ownership and existing failure-artifact handling remain unchanged. No learner/database history is transferred between jobs.
+
+Actual-file negative tests reject missing dependencies, skipped required verification, omitted/selected commands, reversed release order, failure-masking shells/defaults, extra execution environments, changed caps and SHA mismatches. They execute the actual Bash status/revision guards. Historical presentation readers remain bounded; the independent actual-filesystem guard admits only this exact workflow/documentation amendment. New stamp/audit and complete exact-head CI/strict remain required. This allocation offers measured headroom; it neither proves the underlying slowdown fixed nor guarantees a run will fit. A local full or interrupted diagnostic is never substituted for authoritative CI.
+
+## PR51 owner corrections
+
+Retain329 inherited browser executions. Seven scoped desktop lifecycle/navigation/feedback cases and one initial compact reflow/keyboard/Axe witness give337 (307desktop/30compact); optional legacy614. Original settings and critical assertions remain; Foundations selectors now explicitly open the approved secondary disclosure and use readable first-submission status. See [owner contract](PR51_OWNER_ACCEPTANCE.md). No broad design rollout or Stage2–5.
+
+## P16 candidate extension
+
+Preserve all232 inherited executions. Eight File Movement desktop cases plus one justified initial compact manifest/native-dialog witness extend the candidate to241 (222/19); optional legacy444 remains. Targeted checks cover method alternatives/support/access/fidelity, directional manifests and hybrid/cache/conflict boundaries, current planning/dependency/transport/validation distinctions, persisted causal contrasts, immutable first/help/retry, all24 assistance contexts, cross-tab/recovery and Storage A/B/C navigation/resume. Pinned Chromium, worker1 and existing retries/timeouts/skips remain. Correct serious blind-bank findings substantively and recheck independently. Fresh post-stamp six-domain audit, full exact-head CI/strict and actual anonymous root/fullSHA/journey remain distinct required proof. After P16, perform the separately approved whole-course learning journey audit before P17/P18.
+
+## P15 candidate extension
+
+Preserve all224 earlier executions. Seven Security desktop cases plus one compact witness extend the candidate to232 (214/18); optional legacy428. Targeted checks cover three security mechanisms, plan/evidence/score boundaries, persisted causal contrasts, source links, actual read-only Portal context, immutable first/help/retry, assistance/cross-tab/recovery and Part C navigation/resume. Pinned Chromium, worker1 and existing retries/timeouts/skips remain unchanged. Systematic final-bank cues must be corrected and independently rechecked. Full exact-head CI/strict and anonymous root/fullSHA/journey are separate mandatory delivery proof.
+
+## P14 candidate extension
+
+Preserve all216 previous executions. Seven new Monitoring desktop cases plus one compact witness extend the approved candidate to224 (207/17); optional legacy414. Dedicated checks cover source/evidence boundaries, temporal Health context, aggregation/NULL/collection/rules/notification, immutable assessment, assistance/cross-tab/recovery and Hub/resume/Portal navigation. Pinned Chromium, worker1 and existing retries/timeouts/skips remain unchanged. Full exact-head CI/strict is authoritative; local targeted results and collection are separate evidence.
+
+This is the bounded process follow-up to PR29, based on the owner's **Strategic Development Pivot: Quality, Efficiency & Product Experience**. PR29 is unchanged: exact head `0d9b96ed73780ec881bf3dac20ccc71cba97a9cf`, green [Quality run40895484858](https://github.com/EspzY/Azure-learner/actions/runs/40895484858),283 browser passes/17 inherited skips. Its external Gate7 remains SSO-blocked. Do not reopen approved PR29 implementation without a concrete finding.
+
+## Permanent requirements and selectable methods
+
+| Permanent requirement                                                                                                                    | Method chosen for the change                                                                                                 |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Correct, substantive original teaching and current official claims                                                                       | Recheck new/changed claims and their actual public sources; preserve unchanged source evidence.                              |
+| Authoritative Sandbox commands/resources/receipts, deterministic models, immutable versioned learning evidence and assistance boundaries | Domain/negative/replay/storage tests for affected rules; unchanged critical regression coverage remains in authoritative CI. |
+| Readable desktop interaction, keyboard access, compact/short windows and accessible essential instructions                               | Inspect changed surfaces at relevant desktop sizes, actual screenshots and targeted Axe/keyboard/reflow probes early.        |
+| Independent Final Audit, exact base/head, traceable stamp and correction of every BLOCKER/MAJOR                                          | A fresh reviewer addresses all six domains; depth follows risk, with explicit preservation evidence for unchanged domains.   |
+| Complete approved CI and honest deployed-root/SHA verification                                                                           | One authoritative complete CI run on the delivered commit; local tests, CI and external preview remain distinct.             |
+
+No historical answer, rubric, XP, technical rule or critical invariant may be weakened to save time. No question, mission or variant is added to satisfy an arbitrary count. Human SME, UX, screen-reader and measured learning reviews may only be credited when actually performed.
+
+## Risk-based execution
+
+| Change                                             | Required focus                                                                                                                                               |
+| -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Simulator rules, persistence, assistance or schema | Deep invalid/negative/replay/corruption/stale-writer/terminal-capacity checks; representative actual commands and every affected protection boundary.        |
+| Teaching, answer keys or rubrics                   | Relevant current official sources, substantive rationale/ambiguity/transfer review; blind decisions before keys when changed; preserve historical versions.  |
+| Course navigation or UX                            | Real start/resume/return, exact active assessment, durable assistance, keyboard/focus/scroll/short windows and old records; professional desktop inspection. |
+| Isolated visual or documentation change            | Changed surface/links/accessibility and bounded preservation checks. Do not repeat unchanged full content/model audits.                                      |
+| Quality contracts or test distribution             | Explicit before/after coverage, no assertion loss, unchanged safety gates, negative gate checks and independent review before adoption.                      |
+
+1. Confirm the actual base and bounded scope. Reuse prior orientation; read only relevant contracts/code.
+2. Use repository-pinned Node/Playwright Chromium from the start. Run new model/domain checks and targeted browser tests early. Inspect actual visuals while implementing.
+3. Before delivery, run full `npm run check`, thoroughly test new/affected behavior and inspect actual desktop results. A small fix repeats affected checks; broaden only for changed risk, concrete failures or uncertainty.
+4. Stamp the candidate and conduct one fresh, risk-based final audit. Fix serious findings, retest affected behavior and renew the affected stamped review. Do not repeat near-identical audits without a finding/change.
+5. Publish Draft and use the complete approved CI on its exact commit as authoritative regression. Correct CI failures, then retest the correction and verify the new commit. No merge/production deploy without separate approval.
+6. Verify the stable preview anonymously or through legitimately authorized access, full displayed SHA, ordinary-root journey and return. Report BLOCKED when unavailable; do not equate Ready with a verified app.
+
+Report implementation completion, real blockers/serious findings, completed testing with actual exit status, completed independent audit and delivered/external status. Do not stream pass counters or infer completion from a log tail.
+
+## Owner-approved desktop-first CI standard — activation verification required
+
+**Owner approval recorded30 October2026.** The owner explicitly approved all150 existing desktop cases plus10 justified compact witnesses, activation in a separate bounded change and an actual complete160-case GitHub CI pass with correct Playwright Chromium, mandatory plan validation and strict release before the standard is considered active. No merge/production deploy is authorized.
+
+The activation CI invokes `npm run test:e2e:desktop`. Successful exact-commit execution of all160 plus strict release is the activation condition; actual run/head/results are recorded on the activation Draft PR before delivery. Do not credit collection-only or local-targeted output as that proof. This does not close external product Gate7 or infer an anonymous deployed-app journey.
+
+`playwright.config.ts` and `npm run test:e2e` retain the complete legacy300-case desktop + Pixel7 regression for specifically justified larger changes, unusual risk and debugging. They are not mandatory duplicates for every future PR. Nothing removes a test, changes assertions/timeouts, adds a skip or changes runtime behavior.
+
+`npm run test:e2e:desktop` first requires a successful plan check, then runs the approved complete profile using `playwright.desktop.config.ts`: the entire desktop project plus explicitly selected existing compact cases in desktop Chromium at800×700, representing a snapped PC window. It is not a new mobile product. Existing tests still exercise their explicit1024/short/narrow layouts. `npm run test:e2e:plan` enumerates both actual Playwright plans, checks desktop identity and exact declared selection, requires the documented compact surfaces and keeps one worker. Missing/renamed/ambiguous compact witnesses therefore fail the candidate entry command before execution. Discovery children have a30-second bound. Case counts are observations, not quality targets.
+
+| Existing compact witness                       | Reason for extra initial compact execution                                                                                       |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Course keyboard/Journal/lifecycle              | Navigation, focus restoration, guide targets and invalid context from a constrained initial course.                              |
+| Portal keyboard/search/reference/first         | Resource menu/search, explicit help and storage recovery from a constrained initial Portal.                                      |
+| Physical architecture example/short controls   | Start/briefing and model choices before explicit viewport sweeps.                                                                |
+| Cloud transfer composition/briefing            | Independent controls, long choices, native briefing and keyboard.                                                                |
+| Compute container accessibility                | Initial folded navigation/model briefing; all explicit desktop sizes remain.                                                     |
+| Networking Part A accessibility                | Initial navigation and DNS controls; full desktop/narrow sweeps retained.                                                        |
+| Networking Part B short briefing/stages        | Initial navigation, native short scroll, staged explanation and keyboard.                                                        |
+| Serverless ordinary journey                    | Preserves the existing non-desktop393px rendering branch in addition to full desktop evidence.                                   |
+| Cost1024×500 assessment and analysis workbench | Initial constrained course/assessment, long feedback and largest semantic data table. Other Cost layouts remain in full desktop. |
+
+All technical command journeys, independent-context/storage regressions and other cases remain in the complete desktop project. Core management, policy milestones and practical mission accessibility already sweep compact/short sizes in that project; a second identical entire journey adds no required device coverage. This profile does not claim real-device touch validation. Desktop-first does not relax compact-window, keyboard or accessibility requirements. Add targeted witnesses when a new feature changes those risks; the approval counts are a baseline, not a ceiling.
+
+Prior proposal verification (PR30): the unchanged legacy plan has300 configured cases; the candidate has the same150 desktop cases plus10 explicit compact witnesses. The10 candidate compact cases passed without retry (1.2m, exit0) using the repository-pinned browser and production build. That proposal had no runtime/test-source/CI/lockfile difference against PR29; this activation changes only CI orchestration, status text and documentation. This measures selected execution only, not total-CI speed or equivalent real-device mobile coverage.
+
+Representative actual images: [800×700 Portal](screenshots/workflow/portal-compact.png) and [1024×500 endpoint stages](screenshots/workflow/endpoint-short.png). Both were personally inspected; the endpoint view uses ordinary vertical scrolling. Additional actual transfer frames at1920×1080,1440×900,1366×768 and1024×768 are retained as ignored test artifacts and inspected before stamp.
+
+No parallel worker increase is proposed. A future increase needs evidence of storage/context/server/artifact isolation and repeatable stability first. The owner-approved activation is the separate CI command change. Verify its actual full160-case CI and strict release before declaring the standard active; do not silently restore full mobile regression without a concrete risk rationale.
+
+## Product order and delivery boundaries
+
+1. Finish PR29 under its existing controls; preserve its documented external block.
+2. Owner-approved working model: verify and document the separate160-case CI activation, then use that standard for future deliveries.
+3. Public AzureLab: inspect actual domains, deployment scopes, protection and earlier previews; expose only the approved ordinary site and verify anonymously. See [public access boundary](PUBLIC_ACCESS_REVIEW.md). No broad preview exposure, merge or production deploy is inferred.
+4. Course Hub: a separate professional UX delivery with one clear start/continue entry, learning paths/module hierarchy, collapsible sidebar, honest progress, integrated missions and fewer competing entries/repeated cards. Preserve all teaching, route/resume/assistance behavior, inventory and history. It is not part of this process-only change.
+5. Resume P08 Storage, then the existing P09–P16 roadmap. After P16, review the complete Fundamentals journey—prerequisites, progression, repetition, scenario variety, Sandbox, SavvyShark, navigation and load—before final certification diagnostics. Preserve the existing blueprint/competency architecture.
+
+## Candidate browser evidence in CI — PR32 compatibility correction
+
+P08/PR33 extends that inherited166-case profile to175: eight relevant Storage desktop cases and one initial compact Storage briefing/semantic-controls witness. All previous cases and settings remain; legacy expands to328. The Storage witness adds a distinct new interaction surface with its own actual desktop/short-window sweep. It is not a mobile-product expansion or a new permission to change workers/retries/timeouts. Actual exact-head execution remains the delivery condition.
+
+The approved command remains `npm run test:e2e:desktop`. CI runs it through `node scripts/verify-desktop-ci.mjs`, which owns the fixed complete command and accepts no selectors. Only its own exit0 writes a candidate SHA/fingerprint-bound passed entry to runner `current.json`; failure/signal cannot create or inherit success. The unchanged strict release follows immediately. Profile selection, mandatory plancheck, browser installation, retries/timeouts, worker1 and failure artifacts remain.
+
+Repository candidate verification remains pending before actual execution. An implementation audit may accept pending delivery; local strict preflight then honestly exits nonzero for missing candidate full-browser evidence, with all other errors resolved. Do not fill a passed flag from collection, a targeted run or a historical base run. Final acceptance still requires exact-head complete approved GitHub CI and its strict release. Six Hub cases extend the original160 baseline to166; legacy300 remains available and grows to312 with the same new cases on both projects.
+
+## P09 / PR34 scoped profile extension
+
+Storage Part B retains all175 inherited cases and adds six desktop investigations/assessment/navigation/storage/accessibility cases plus one justified initial compact witness. Collection validates170 desktop+12 compact=182; legacy340 remains. This is not executed candidate proof until actual exact-head CI and strict release succeed. No worker/retry/timeout increase, test deletion, assertion weakening or new skip. Local regression is targeted; corrections receive affected retests rather than repeated complete profiles.
+
+## P10 / PR35 scoped profile extension
+
+Retain all182 inherited desktop/compact cases. Seven focused Identity journeys plus one justified initial compact witness give190 (177 desktop/13 compact), optional legacy354. The new witness covers a distinct three-perspective flow, semantic details, factor distinctions, keyboard/Axe/reduced motion and short native briefing; existing full desktop sweeps remain. No new skips, assertion weakening, worker/retry/timeout increase or dependency. Early targeted work and affected correction retests precede one complete authoritative exact-head GitHub CI/strict run. Blind scenario decisions are locked before keys; a fresh post-stamp six-domain audit remains mandatory. [Bounded implementation](IDENTITY_FOUNDATIONS.md).
+
+## P11 / PR36 bounded profile extension
+
+Retain all190 previous cases. Seven distinct new desktop cases cover Part B continuity, read-only actual scope/causal RBAC, simultaneous CA, independent history, fail-closed recovery, compact accessibility and deterministic shared teaching readiness. One justified initial compact Studio/native-dialog witness gives198 (184/14); optionallegacy368 remains. No settings/skips/assertion weakening. The old Benefits assertion is retained after awaiting real lesson mount, with a causal held-frame/denied-write negative. Full exact-head CI/strict is authoritative; local regressions remain targeted.
+
+## P12 / PR37 bounded profile extension
+
+Retain all198 previous executions and their assertions. Eight distinct Governance desktop cases cover Course navigation/resume, metadata/source access, actual Portal policy denial/correction/receipts, management/data lock consequences, immutable first/retry, denied/cross-tab assistance, old-receipt/scoped recovery and keyboard/Axe/short desktop layouts. One justified compact semantic Studio/native-dialog witness adds207 executions (192desktop/15compact); optional full legacy384 remains. Pinned Chromium, worker1 and existing retries/timeouts remain. Complete exact-head CI/strict is authoritative; targeted local checks and collection alone are not activation proof.
+
+## P13 / PR38 bounded profile extension
+
+Retain all207 earlier browser executions and assertions. Eight new Management desktop cases cover third-path navigation/resume, five tools with original local Portal RG/Plan/App receipts/dependency, IaC references/ordering/changes/uncertainty, Arc boundaries, paired immutable first/retry, denied/cross-tab assistance, scoped recovery and keyboard/Axe/code/short desktop layouts. One justified compact semantic Studio/native-dialog witness extends the candidate to216 (200desktop/16compact); optional full legacy400 remains. Pinned Chromium, worker1 and existing retries/timeouts/skips are unchanged. Actual complete exact-head CI/strict is required; collection and targeted local runs are not full-profile proof.
+
+## PR52 — PD-01 Cloud Computing Stage A
+
+Retain all337 inherited browser executions, including PR51 lifecycle/assistance/PaaS and earlier course/Portal safeguards. Eight focused desktop cases and one distinct initial compact session/disclosure/keyboard witness give346 (315desktop/31compact), optional legacy630. The19→14 session projection changes old topic selectors and the expected internal Next boundary only; every original behavioral assertion remains scoped to its actual part. No worker/retry/timeout/skip change. New checks cover all old URLs/resume, visible/control-triggered visits without completion, preserved source unions/models, schema2/3/abandon/assistance and six desktop sizes. Full exact-head CI/strict and actual publicSHA root→sessions→model→Portal→return/Journal are separate mandatory delivery proof. Human learning validation remains unperformed; broader PD-01 is not closed.
+
+PR52 historical review coverage: ordinary fullcheck builds the actual branch first. CI then explicitly uses `build:e2e:review`, a nonhosted same-revision browser fixture with frozen PR51 child review metadata. Full346 receipt describes that fixture, while public PR52 normal-build Gate7 must independently show fullSHA and Designlab404. Runtime branch allowlist remains unchanged. The helper rejects every Vercel metadata key before spawning; Node tests enforce parent/real-SHA preservation and fail propagation. No skip, retry, worker or timeout change.
+
+PR52 owner refinement retains all346 prior executions and settings. Two bounded desktop cases plus one compact flat-navigation/reading-start witness extend to349(317/32), legacy634. Removed-menu test helpers now use actual main-session links; exact historical URL/history coverage remains separate, including original Back/Forward destinations. No rubric/store/content changes or relaxed assertions. Same fullcheck→fresh stamped audit→exact-head completeCI/strict→anonymous new-SHA Gate7 sequence applies.
+
+PR52 final learning-navigation cleanup retains349 earlier executions; one closing-choice case on desktop and distinct compact adds2→351(318/33), optional legacy636. Removed shortcuts are tested absent; original destinations, actual closing-entry Back/Forward, explicit Starts, history/assistance and full prior assertions remain. Only the recap presenter leaves whole-file preservation for an exact two-line Link removal; all other353 protected paths remain. Same fixed full CI command and settings, fresh stamp/audit and ordinary public new-SHA Gate7; known inherited Compute help/Back flake remains separate.
