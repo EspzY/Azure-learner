@@ -40,6 +40,23 @@ export const baselineAdditions = [
   'docs/FIRST_MAIN_BASELINE.md',
   'docs/BASELINE_ROADMAP.md',
   'docs/reviews/evidence/first-main-baseline/integration-review.json',
+  'docs/reviews/evidence/first-main-baseline/capture-provenance.json',
+  'docs/screenshots/first-main-baseline/landing-light.png',
+  'docs/screenshots/first-main-baseline/landing-dark.png',
+  'docs/screenshots/first-main-baseline/course-hub-light.png',
+  'docs/screenshots/first-main-baseline/course-hub-dark.png',
+  'docs/screenshots/first-main-baseline/question-wrong.png',
+  'docs/screenshots/first-main-baseline/question-correct.png',
+  'docs/screenshots/first-main-baseline/journal.png',
+  'docs/screenshots/first-main-baseline/guided-savvy.png',
+  'docs/screenshots/first-main-baseline/catalogue-icons.png',
+  'docs/screenshots/first-main-baseline/application-chain.png',
+  'docs/screenshots/first-main-baseline/functions.png',
+  'docs/screenshots/first-main-baseline/gateway.png',
+  'docs/screenshots/first-main-baseline/studio.png',
+  'docs/screenshots/first-main-baseline/subscriptions-current.png',
+  'docs/screenshots/first-main-baseline/review-compact.png',
+  'docs/screenshots/first-main-baseline/original-receipt.png',
 ] as const;
 export const baselineBlob = (bytes: Buffer) =>
   createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');

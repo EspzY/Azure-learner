@@ -984,12 +984,124 @@
     "sme": "unperformed",
     "learning": "unperformed"
   },
-  "visualEvidence": [],
+  "visualEvidence": [
+    {
+      "path": "docs/screenshots/first-main-baseline/landing-light.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "All three course cards and the independent Lab link fit the1440x900 light canvas; planned cards have no false active CTA."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/landing-dark.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Same balanced layout and whole-card links in dark theme; no duplicate CTA or neon overlay."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/course-hub-light.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Bifrost header, original learning paths, authoritative start link and approved SavvyShark remain visible."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/course-hub-dark.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Dark course surfaces and selected navigation remain readable with the original course structure."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/question-wrong.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual submitted incorrect choice has alert icon/text and explanatory feedback; no invented outcome."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/question-correct.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual subsequent correct answer has success icon/text and original explanation."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/journal.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Original Journal content opens in a readable dark modal with a visible close control."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/guided-savvy.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Native blue Azure Portal is preserved; separate dark resident SavvyShark panel and return links remain."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/catalogue-icons.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual3.9 resource rows use distinct service icons and bounded global favorites. Capture catches unpainted header brand/exit text; stable subscription and later public checks must be assessed separately, not a claim that every capture is visually perfect."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/application-chain.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual Front Door endpoint has parent-scoped Routes, Essentials and configuration analysis; no actual HTTP/runtime claim. Header brand/exit text is not painted in this capture."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/functions.png",
+      "viewport": "1440x960",
+      "inspected": true,
+      "observation": "Function App exposes hosting/storage/container dependencies and context navigation; native Portal colors remain."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/gateway.png",
+      "viewport": "1440x960",
+      "inspected": true,
+      "observation": "Private gateway profile exposes backend/listener/probe relationships and explicitly undetermined configuration result."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/studio.png",
+      "viewport": "1440x960",
+      "inspected": true,
+      "observation": "Historical3.5 hub/spoke topology and selected VM relations remain inspectable. This capture proves an older workspace, not a new3.9 Studio model claim; header brand/exit text is unpainted here."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/subscriptions-current.png",
+      "viewport": "1440x900",
+      "inspected": true,
+      "observation": "Actual3.9 subscription Essentials and resource/group lists are readable; native blue header and home exit are visible despite dark learning theme."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/review-compact.png",
+      "viewport": "1024x500",
+      "inspected": true,
+      "observation": "1024x500 PostgreSQL Review displays supported values, validation and commit controls; vertical scrolling is necessary for the full review."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/original-receipt.png",
+      "viewport": "1440x960",
+      "inspected": true,
+      "observation": "Create receipt is retained after deletion with sequence/revision/command identity and original history; native Portal remains separate from Bifrost."
+    }
+  ],
   "verification": [
     {
       "command": "verified input provenance",
       "result": "passed",
-      "details": "Exact PR79CI132 and PR77CI133 source records retained; no candidate fullcheck/browser/strict/preview credit."
+      "details": "Exact PR79CI132 and PR77CI133 records are immutable input provenance, never combined candidate acceptance."
+    },
+    {
+      "command": "npm run check at integrated code checkpoint3db1684",
+      "result": "passed",
+      "details": "Actual1459Vitest116files+35Node+503curriculum/realPG/allgates/normalbuild0 before finite capture/metadata additions. Initial1458/1459 timing red retained; no timing-cause closure. New final-source check still required."
+    },
+    {
+      "command": "npm run test:e2e:plan",
+      "result": "passed",
+      "details": "Actual510=458desktop52compact, legacy916, unchanged worker/retry/timeout/skip settings."
+    },
+    {
+      "command": "normal combined native risk journeys",
+      "result": "passed",
+      "details": "Actual37/37 original cases plus1 actual3.9 Home/Subscriptions both-theme witness, zero retries; same normal buildqmLnEY0VJ0KnkImZGbFVy, real localPG and original commands/receipts, immutable inputs/capture provenance recorded."
     }
   ],
   "review": {
