@@ -1,0 +1,214 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: bifrost-course.spec.ts >> Bifrost blocked appearance storage and denied independent Journal remain honest readable and within 320px in both themes
+- Location: tests/e2e/bifrost-course.spec.ts:28:1
+
+# Error details
+
+```
+Test timeout of 30000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - link "Hopp til innhold" [ref=e5] [cursor=pointer]:
+        - /url: "#course-main"
+      - banner [ref=e6]:
+        - link "AzureLab AZ-900" [ref=e7] [cursor=pointer]:
+          - /url: /learn
+          - text: AzureLab
+          - generic [ref=e23]: AZ-900
+        - navigation "Læringsreisen" [ref=e24]:
+          - link "Læringsreisen" [ref=e25] [cursor=pointer]:
+            - /url: /learn
+          - link "Fri Portal-sandbox" [ref=e26] [cursor=pointer]:
+            - /url: /portal
+        - button "Knowledge Journal" [ref=e29] [cursor=pointer]
+        - link "Til forsiden" [ref=e30] [cursor=pointer]:
+          - /url: /
+        - generic [ref=e34]:
+          - generic [ref=e35]: Utseende
+          - combobox "Utseende" [ref=e36] [cursor=pointer]:
+            - option "Følg systemet"
+            - option "Lyst"
+            - option "Mørkt" [selected]
+          - generic [ref=e37]: Valget brukes her, men kan ikke lagres i nettleseren.
+      - generic [ref=e38]:
+        - complementary [ref=e39]:
+          - button "Kursinnhold" [ref=e40] [cursor=pointer]
+        - main [ref=e42]:
+          - generic [ref=e43]:
+            - region [ref=e44]:
+              - generic [ref=e45]:
+                - generic [ref=e46]: AZ-900
+                - text: AZURE FUNDAMENTALS
+              - heading "Forstå skyen. Bygg med innsikt." [level=1] [ref=e47]
+              - paragraph [ref=e48]: Lær Microsoft Azure gjennom teori, interaktive modeller og praktiske oppdrag i en simulert Azure Portal.
+              - generic [ref=e49]:
+                - link "Begynn med cloud computing" [ref=e50] [cursor=pointer]:
+                  - /url: /learn/computing?topic=intro-request
+                - generic [ref=e53]: Begynn i sti 01 · Cloud computing
+              - paragraph [ref=e54]: Lokal simulator · Ingen Azure-konto eller skykostnader.
+              - complementary [ref=e58]:
+                - paragraph [ref=e59]: Lær et konsept. Undersøk mekanismen. Prøv det i den lokale simulatoren.
+            - region [ref=e60]:
+              - generic [ref=e61]:
+                - generic [ref=e62]:
+                  - text: LÆRINGSREISEN DIN
+                  - heading "Tre stier. Ett solid grunnlag." [level=2] [ref=e63]
+                - paragraph [ref=e64]: Åpne et tema direkte, eller bruk Neste for den anbefalte reisen.
+              - paragraph [ref=e65]: Faggruppene er et oppslagskart. Start/Fortsett og Neste følger en anbefalt læringsreise på tvers av stiene.
+              - generic [ref=e66]:
+                - article [ref=e67]:
+                  - generic [ref=e68]:
+                    - generic [ref=e69]: "01"
+                    - generic [ref=e70]: 3 moduler tilgjengelig
+                  - heading "Cloud Concepts" [level=3] [ref=e71]
+                  - paragraph [ref=e72]: "Bygg grunnlaget: skyens prinsipper, fordeler og tjenestemodeller."
+                  - list [ref=e73]:
+                    - listitem [ref=e74]:
+                      - generic [ref=e75]:
+                        - 'link "Åpne modul: Cloud computing" [ref=e76] [cursor=pointer]':
+                          - /url: /learn/computing?topic=intro-request
+                          - generic [ref=e77]: Cloud computing
+                        - generic [ref=e80]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e81]:
+                      - generic [ref=e82]:
+                        - 'link "Åpne modul: Benefits of cloud services" [ref=e83] [cursor=pointer]':
+                          - /url: /learn/benefits?topic=availability
+                          - generic [ref=e84]: Benefits of cloud services
+                        - generic [ref=e87]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e88]:
+                      - generic [ref=e89]:
+                        - 'link "Åpne modul: Cloud service types" [ref=e90] [cursor=pointer]':
+                          - /url: /learn/services?topic=overview
+                          - generic [ref=e91]: Cloud service types
+                        - generic [ref=e94]: "Veiledede observasjoner: 0"
+                  - group [ref=e95]:
+                    - generic "Oppdrag og vurderinger · Cloud Concepts" [ref=e96] [cursor=pointer]: Oppdrag og vurderinger
+                - article [ref=e97]:
+                  - generic [ref=e98]:
+                    - generic [ref=e99]: "02"
+                    - generic [ref=e100]: 5 moduler tilgjengelig
+                  - heading "Azure Architecture & Services" [level=3] [ref=e101]
+                  - paragraph [ref=e102]: Utforsk Azure fra infrastruktur til compute, nettverk, lagring og identitet.
+                  - list [ref=e103]:
+                    - listitem [ref=e104]:
+                      - generic [ref=e105]:
+                        - link "Åpne Core Architecture" [ref=e106] [cursor=pointer]:
+                          - /url: /learn/architecture?topic=datacenters
+                          - generic [ref=e107]: Core Architecture
+                        - generic [ref=e110]: "Veiledede observasjoner · A: 0 · B: 0"
+                    - listitem [ref=e111]:
+                      - generic [ref=e112]:
+                        - 'link "Åpne modul: Compute & Hosting" [ref=e113] [cursor=pointer]':
+                          - /url: /learn/compute?topic=introduction
+                          - generic [ref=e114]: Compute & Hosting
+                        - generic [ref=e117]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e118]:
+                      - strong [ref=e119]: Networking
+                      - generic [ref=e120]:
+                        - 'link "Åpne modul: Del A · Nettverksgrunnlag" [ref=e121] [cursor=pointer]':
+                          - /url: /learn/networking?topic=introduction
+                          - generic [ref=e122]: Del A · Nettverksgrunnlag
+                        - generic [ref=e125]: "Veiledede observasjoner: 0"
+                      - generic [ref=e126]:
+                        - 'link "Åpne modul: Del B · Hybrid og endpoints" [ref=e127] [cursor=pointer]':
+                          - /url: /learn/connectivity?topic=introduction
+                          - generic [ref=e128]: Del B · Hybrid og endpoints
+                        - generic [ref=e131]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e132]:
+                      - strong [ref=e133]: Storage
+                      - generic [ref=e134]:
+                        - 'link "Åpne modul: Storage Accounts & Services · Part A" [ref=e135] [cursor=pointer]':
+                          - /url: /learn/storage?topic=introduction
+                          - generic [ref=e136]: Storage Accounts & Services · Part A
+                        - generic [ref=e139]: "Veiledede observasjoner: 0"
+                      - generic [ref=e140]:
+                        - 'link "Åpne modul: Part B — Tiers & Redundancy" [ref=e141] [cursor=pointer]':
+                          - /url: /learn/storage-resilience?topic=introduction
+                          - generic [ref=e142]: Part B — Tiers & Redundancy
+                        - generic [ref=e145]: "Veiledede observasjoner: 0"
+                      - generic [ref=e146]:
+                        - 'link "Åpne modul: Part C — File Movement & Migration" [ref=e147] [cursor=pointer]':
+                          - /url: /learn/migration?topic=introduction
+                          - generic [ref=e148]: Part C — File Movement & Migration
+                        - generic [ref=e151]: Avsluttende anvendelse
+                        - generic [ref=e152]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e153]:
+                      - strong [ref=e154]: Identity, Access & Security
+                      - generic [ref=e155]:
+                        - 'link "Åpne modul: Part A — Identity Foundations" [ref=e156] [cursor=pointer]':
+                          - /url: /learn/identity?topic=introduction
+                          - generic [ref=e157]: Part A — Identity Foundations
+                        - generic [ref=e160]: "Veiledede observasjoner: 0"
+                      - generic [ref=e161]:
+                        - 'link "Åpne modul: Part B — RBAC & Conditional Access" [ref=e162] [cursor=pointer]':
+                          - /url: /learn/access-control?topic=introduction
+                          - generic [ref=e163]: Part B — RBAC & Conditional Access
+                        - generic [ref=e166]: "Veiledede observasjoner: 0"
+                      - generic [ref=e167]:
+                        - 'link "Åpne modul: Part C — Security Principles & Defender for Cloud" [ref=e168] [cursor=pointer]':
+                          - /url: /learn/security?topic=introduction
+                          - generic [ref=e169]: Part C — Security Principles & Defender for Cloud
+                        - generic [ref=e172]: Avsluttende anvendelse
+                        - generic [ref=e173]: "Veiledede observasjoner: 0"
+                  - group [ref=e174]:
+                    - generic "Oppdrag og vurderinger · Azure Architecture & Services" [ref=e175] [cursor=pointer]: Oppdrag og vurderinger
+                - article [ref=e176]:
+                  - generic [ref=e177]:
+                    - generic [ref=e178]: "03"
+                    - generic [ref=e179]: 4 moduler tilgjengelig
+                  - heading "Azure Management & Governance" [level=3] [ref=e180]
+                  - paragraph [ref=e181]: Forstå kostnader, styring og verktøy for et Azure-miljø.
+                  - list [ref=e182]:
+                    - listitem [ref=e183]:
+                      - generic [ref=e184]:
+                        - 'link "Åpne modul: Cost Management" [ref=e185] [cursor=pointer]':
+                          - /url: /learn/cost?topic=introduction
+                          - generic [ref=e186]: Cost Management
+                        - generic [ref=e189]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e190]:
+                      - generic [ref=e191]:
+                        - 'link "Åpne modul: Governance & Compliance" [ref=e192] [cursor=pointer]':
+                          - /url: /learn/governance?topic=introduction
+                          - generic [ref=e193]: Governance & Compliance
+                        - generic [ref=e196]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e197]:
+                      - generic [ref=e198]:
+                        - 'link "Åpne modul: Management & Deployment Tools" [ref=e199] [cursor=pointer]':
+                          - /url: /learn/management-tools?topic=introduction
+                          - generic [ref=e200]: Management & Deployment Tools
+                        - generic [ref=e203]: "Veiledede observasjoner: 0"
+                    - listitem [ref=e204]:
+                      - generic [ref=e205]:
+                        - 'link "Åpne modul: Monitoring & Diagnostic Tools" [ref=e206] [cursor=pointer]':
+                          - /url: /learn/monitoring?topic=introduction
+                          - generic [ref=e207]: Monitoring & Diagnostic Tools
+                        - generic [ref=e210]: "Veiledede observasjoner: 0"
+                  - group [ref=e211]:
+                    - generic "Oppdrag og vurderinger · Azure Management & Governance" [ref=e212] [cursor=pointer]: Oppdrag og vurderinger
+            - generic [ref=e213]:
+              - paragraph [ref=e217]:
+                - strong [ref=e218]: Din progresjon, med tydelige skiller
+                - generic [ref=e219]: Veiledet praksis og selvstendige besvarelser registreres hver for seg. Å åpne en modul betyr ikke at den er fullført.
+              - link "Utforsk Sandbox fritt" [ref=e220] [cursor=pointer]:
+                - /url: /portal
+              - link "Laboratory v3 · separat" [ref=e225] [cursor=pointer]:
+                - /url: /labs/laboratory
+          - generic [ref=e226]: AzureLab er uavhengig av Microsoft. Dette er original undervisning og lokal simulering, ikke Azure Portal, Microsoft Learn-fullføring eller en sertifisering.
+    - complementary "Bygginformasjon · forhåndsvisning" [ref=e227]:
+      - group [ref=e228]:
+        - generic "Bygginformasjon · forhåndsvisning" [ref=e229] [cursor=pointer]
+  - alert [ref=e230]
+```

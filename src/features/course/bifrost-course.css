@@ -1,0 +1,1050 @@
+/* Course presentation only. The native Portal and Laboratory retain their own skin. */
+.bifrost-learning.course-shell {
+  --learning-ink: var(--bfc-base-c);
+  --learning-paper: var(--bfc-base);
+  --learning-muted: var(--bfc-base-c-2);
+  --learning-action: var(--bfc-theme);
+  --learning-teal: var(--bfc-theme-fade-c);
+  --learning-line: var(--bfc-base-dimmed);
+  --learning-sans: var(--bf-font-open-sans);
+  --learning-editorial: var(--bf-font-satoshi);
+  --course-accent: var(--bfc-theme);
+  color: var(--bfc-base-c);
+  background: var(--bfc-base);
+  font:
+    14px/1.75 var(--bf-font-open-sans),
+    sans-serif;
+  color-scheme: light;
+}
+html[data-bf-theme='dark'] .bifrost-learning.course-shell {
+  color-scheme: dark;
+}
+.bifrost-learning.course-shell .course-header {
+  min-height: 72px;
+  gap: 20px;
+  padding: 12px 24px;
+  background: var(--bfc-theme);
+  color: var(--bfc-theme-hc);
+  border-bottom: 1px solid var(--bfc-theme-c);
+}
+.bifrost-learning.course-shell .course-header :is(a, button) {
+  color: var(--bfc-theme-hc);
+  border-radius: var(--bf-radius);
+  font-size: 12px;
+  font-weight: 600;
+}
+.bifrost-learning.course-shell .course-header .course-brand {
+  gap: 10px;
+  font:
+    800 20px/1.2 var(--bf-font-satoshi),
+    sans-serif;
+  letter-spacing: -0.035em;
+}
+.bifrost-learning.course-shell .course-brand-mark {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  fill: initial;
+  stroke: none;
+}
+.bifrost-learning.course-shell .course-brand small {
+  padding: 5px 7px;
+  color: var(--bfc-theme-hc);
+  background: var(--bfc-theme-3);
+  border: 1px solid var(--bfc-theme-c);
+  letter-spacing: 0.04em;
+  font:
+    700 10px/1.2 var(--bf-font-open-sans),
+    sans-serif;
+}
+.bifrost-learning.course-shell .course-header nav {
+  gap: 4px;
+}
+.bifrost-learning.course-shell .course-header nav a,
+.bifrost-learning.course-shell .course-header > button,
+.bifrost-learning.course-shell .course-header .course-home-link {
+  padding: 9px 10px;
+  background: transparent;
+  border: 1px solid transparent;
+  min-height: 38px;
+}
+.bifrost-learning.course-shell .course-header :is(a, button):hover {
+  background: var(--bfc-theme-3);
+}
+.bifrost-learning.course-shell .course-header .bf-theme-toggle {
+  flex: none;
+}
+.bifrost-learning.course-shell .course-layout {
+  grid-template-columns: 264px minmax(0, 1fr);
+}
+.bifrost-learning.course-shell .course-navigation {
+  background: var(--bfc-base-2);
+  border-color: var(--bfc-base-dimmed);
+  padding: 24px 14px;
+  top: 72px;
+  height: calc(100dvh - 72px);
+  scrollbar-width: thin;
+}
+.bifrost-learning.course-shell .course-navigation :is(a, button, strong, h2, small, p, span) {
+  color: var(--bfc-base-c);
+}
+.bifrost-learning.course-shell
+  .course-navigation
+  :is(
+    .course-tree-group,
+    .course-tree-number,
+    .course-activity-section,
+    .course-sidebar-note,
+    .course-sidebar-heading small,
+    .course-tree-planned
+  ) {
+  color: var(--bfc-base-c-2);
+}
+.bifrost-learning.course-shell
+  .course-navigation
+  :is(.course-path-tree, .course-tree-modules, .course-units, .course-sidebar-note) {
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .course-tree-path h2,
+.bifrost-learning.course-shell .course-tree-path:has(a[aria-current]) > h2,
+.bifrost-learning.course-shell .course-tree-module:has(a[aria-current]) {
+  background: var(--bfc-base-2);
+}
+.bifrost-learning.course-shell .course-navigation button {
+  background: transparent;
+}
+.bifrost-learning.course-shell .course-navigation :is(a, button):hover:not(:disabled) {
+  background: var(--bfc-neutral-fade);
+  color: var(--bfc-base-c);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .course-navigation a[aria-current],
+.bifrost-learning.course-shell .course-navigation .course-units a[aria-current] {
+  color: var(--bfc-theme-fade-c);
+  background: var(--bfc-theme-fade);
+  border-left-color: var(--bfc-theme);
+  font-weight: 700;
+}
+.bifrost-learning.course-shell .course-navigation .course-observed {
+  color: var(--bfc-success-fade-c);
+}
+.bifrost-learning.course-shell .course-navigation .course-units a {
+  padding-block: 9px;
+  font-size: 12px;
+}
+.bifrost-learning.course-shell .course-main {
+  padding: 32px clamp(24px, 3.5vw, 56px) 0;
+  max-width: 1440px;
+}
+.bifrost-learning.course-shell
+  :is(.course-main, .bifrost-course-journal)
+  :is(h1, h2, h3, h4, h5, legend) {
+  color: var(--bfc-base-c);
+  font-family: var(--bf-font-satoshi), sans-serif;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+.bifrost-learning.course-shell :is(.course-intro h1, .course-module-header h1) {
+  font-size: clamp(30px, 3vw, 44px);
+  letter-spacing: -0.04em;
+  font-weight: 800;
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(
+    .course-breadcrumb,
+    .course-module-header > small,
+    .course-module-header > p,
+    .course-footer,
+    .course-journey-context,
+    .source-context,
+    .expanded-intro,
+    .responsibility-instruction
+  ) {
+  color: var(--bfc-base-c-2);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(.course-breadcrumb a, .source-disclosure a, .course-journey-context a) {
+  color: var(--bfc-theme-fade-c);
+}
+.bifrost-learning.course-shell .course-module-header {
+  padding-bottom: 24px;
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell
+  :is(.course-main, .bifrost-course-journal)
+  :is(.compute-lesson, .foundations-v2, .expanded-module, .expanded-reference, .knowledge-journal) {
+  --compute-ink: var(--bfc-base-c);
+  --compute-blue: var(--bfc-theme);
+  --compute-line: var(--bfc-base-dimmed);
+  --compute-pale: var(--bfc-base-2);
+  color: var(--bfc-base-c);
+}
+.bifrost-learning.course-shell
+  :is(.course-main, .bifrost-course-journal)
+  :is(
+    .v2-explanation,
+    .v2-manuscript,
+    .compute-theory,
+    .expanded-explanation,
+    .expanded-reference,
+    .knowledge-journal
+  )
+  :is(p, li, dt, dd) {
+  color: var(--bfc-base-c);
+  line-height: 1.85;
+}
+.bifrost-learning.course-shell
+  :is(.course-primary, .compute-primary, .proof-primary, .course-main button.primary) {
+  color: var(--bfc-theme-hc) !important;
+  background: var(--bfc-theme);
+  border: 1px solid var(--bfc-theme);
+  border-radius: var(--bf-radius);
+  font-weight: 700;
+}
+.bifrost-learning.course-shell
+  :is(.course-primary, .compute-primary, .proof-primary, .course-main button.primary):hover:not(
+    :disabled
+  ) {
+  background: var(--bfc-theme-2);
+  border-color: var(--bfc-theme-2);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(button, select, textarea, input:not([type='radio'], [type='checkbox'], [type='range'])) {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-3);
+  border: 1px solid var(--bfc-base-dimmed);
+  border-radius: var(--bf-radius);
+  font-family: var(--bf-font-open-sans), sans-serif;
+  min-height: 40px;
+  max-width: 100%;
+}
+.bifrost-learning.course-shell
+  .course-main
+  button:hover:not(
+    :disabled,
+    .primary,
+    .course-primary,
+    .compute-primary,
+    .proof-primary,
+    .sl-primary,
+    .pa-primary,
+    .cost-primary
+  ) {
+  background: var(--bfc-neutral-fade);
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell .course-main button:disabled {
+  background: var(--bfc-base-2);
+  border-color: var(--bfc-base-dimmed);
+  color: var(--bfc-base-c-2) !important;
+  opacity: 1;
+  cursor: default;
+}
+.bifrost-learning.course-shell
+  .course-main
+  button:is(
+    .primary,
+    .course-primary,
+    .compute-primary,
+    .proof-primary,
+    .sl-primary,
+    .pa-primary,
+    .cost-primary
+  ):not(:disabled) {
+  background: var(--bfc-theme);
+  color: var(--bfc-theme-hc);
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell
+  .course-main
+  button:is(
+    .primary,
+    .course-primary,
+    .compute-primary,
+    .proof-primary,
+    .sl-primary,
+    .pa-primary,
+    .cost-primary
+  ):hover:not(:disabled) {
+  background: var(--bfc-theme-2);
+  border-color: var(--bfc-theme-2);
+}
+.bifrost-learning.course-shell .course-main .compute-lesson h2 {
+  font-family: var(--bf-font-open-sans), sans-serif;
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(input[type='radio'], input[type='checkbox'], input[type='range']) {
+  accent-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell
+  :is(.course-main, .bifrost-course-journal)
+  :is(
+    .v2-check,
+    .sl-check,
+    .pa-question,
+    .cost-answer-grid,
+    .transfer-response,
+    .sl-assessment,
+    .pa-assessment,
+    .expanded-practice,
+    .expanded-assessment form,
+    .v2-assessment form,
+    .compute-assessment form,
+    .learning-answers,
+    .learning-transfer,
+    .course-debrief
+  ) {
+  background: var(--bfc-base-2);
+  border: 1px solid var(--bfc-base-dimmed);
+  border-radius: var(--bf-radius-lg);
+  padding: clamp(18px, 2vw, 28px);
+  margin-block: 24px;
+  min-width: 0;
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(
+    .v2-check,
+    .sl-check,
+    .pa-question,
+    .cost-answer-grid,
+    .transfer-response,
+    .sl-assessment,
+    .pa-assessment,
+    .expanded-practice,
+    .expanded-assessment,
+    .v2-assessment,
+    .compute-assessment,
+    .learning-answers,
+    .learning-transfer,
+    .course-debrief
+  )
+  fieldset {
+  background: transparent;
+  border-color: var(--bfc-base-dimmed);
+  border-radius: var(--bf-radius);
+  min-width: 0;
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(
+    .v2-check,
+    .sl-check,
+    .pa-question,
+    .cost-answer-grid,
+    .transfer-response,
+    .sl-assessment,
+    .pa-assessment,
+    .expanded-practice,
+    .compute-answer-grid,
+    .v2-assessment,
+    .learning-answers,
+    .learning-transfer,
+    .course-debrief
+  )
+  label:has(input:is([type='radio'], [type='checkbox'])) {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-3);
+  border: 1px solid var(--bfc-base-dimmed);
+  border-radius: var(--bf-radius);
+  padding: 12px 14px;
+  margin: 9px 0;
+  line-height: 1.65;
+  cursor: pointer;
+}
+.bifrost-learning.course-shell
+  .course-main
+  label:has(input:is([type='radio'], [type='checkbox']))
+  input {
+  width: 18px;
+  height: 18px;
+  min-height: 18px;
+  flex: none;
+  margin: 3px 0 0;
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(
+    .v2-check,
+    .sl-check,
+    .pa-question,
+    .cost-answer-grid,
+    .transfer-response,
+    .sl-assessment,
+    .pa-assessment,
+    .expanded-practice,
+    .compute-answer-grid,
+    .v2-assessment,
+    .learning-answers,
+    .learning-transfer,
+    .course-debrief
+  )
+  label:has(input:checked) {
+  color: var(--bfc-theme-fade-c);
+  background: var(--bfc-theme-fade);
+  border-color: var(--bfc-theme);
+  box-shadow: inset 3px 0 var(--bfc-theme);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(.v2-check, .expanded-practice, .compute-answer-grid, .v2-assessment)
+  label:has(input):hover {
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(
+    .course-storage,
+    .course-assessment-warning,
+    .learn-hub-recovery,
+    .compute-boundary,
+    .expanded-assumptions,
+    .expanded-counterexample
+  ) {
+  background: var(--bfc-warning-fade);
+  color: var(--bfc-warning-fade-c);
+  border: 1px solid var(--bfc-warning-fade-c);
+  border-left-width: 3px;
+  border-radius: var(--bf-radius-lg);
+  padding: 16px 20px;
+}
+.bifrost-learning.course-shell .course-main :is(.v2-check, .expanded-practice) [data-bf-result] {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid currentColor;
+  border-radius: var(--bf-radius);
+  font-weight: 600;
+}
+.bifrost-learning.course-shell .course-main [data-bf-result] svg {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  margin-top: 2px;
+}
+.bifrost-learning.course-shell .course-main :is([data-bf-result='correct'], .feedback-correct) {
+  color: var(--bfc-success-fade-c);
+  background: var(--bfc-success-fade);
+}
+.bifrost-learning.course-shell .course-main :is([data-bf-result='incorrect'], .feedback-wrong) {
+  color: var(--bfc-alert-fade-c);
+  background: var(--bfc-alert-fade);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(
+    .v2-feedback,
+    .compute-feedback,
+    .expanded-assessment-feedback,
+    .v2-feedback-history,
+    .compute-worked,
+    .expanded-worked,
+    .compute-workbench,
+    .expanded-experiment,
+    .source-disclosure
+  ) {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-3);
+  border-color: var(--bfc-base-dimmed);
+  border-radius: var(--bf-radius-lg);
+}
+.bifrost-learning.course-shell
+  .course-main
+  .v2-feedback-items
+  :is(details, summary, .v2-feedback-detail) {
+  background: var(--bfc-base-3);
+  color: var(--bfc-base-c);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .v2-feedback-items [data-correct] {
+  padding: 3px 9px;
+  border-radius: var(--bf-radius);
+}
+.bifrost-learning.course-shell .v2-feedback-items [data-correct='true'] {
+  background: var(--bfc-success-fade);
+  color: var(--bfc-success-fade-c);
+}
+.bifrost-learning.course-shell .v2-feedback-items [data-correct='false'] {
+  background: var(--bfc-alert-fade);
+  color: var(--bfc-alert-fade-c);
+}
+.bifrost-learning.course-shell .savvy {
+  color: var(--bfc-base-c);
+  background: var(--bfc-theme-fade);
+  border: 1px solid var(--bfc-base-dimmed);
+  border-radius: var(--bf-radius-lg);
+  padding: 18px 22px;
+  margin-block: 20px;
+  gap: 20px;
+  font-family: var(--bf-font-open-sans), sans-serif;
+}
+.bifrost-learning.course-shell .savvy :is(strong, small) {
+  color: var(--bfc-theme-fade-c);
+}
+.bifrost-learning.course-shell .savvy > div > strong {
+  font-family: var(--bf-font-satoshi), sans-serif;
+  font-size: 16px;
+}
+.bifrost-learning.course-shell .savvy p {
+  color: var(--bfc-base-c);
+}
+.bifrost-learning.course-shell .savvy > img {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+}
+.bifrost-learning.course-shell .savvy-compact > img {
+  width: 58px;
+}
+.bifrost-learning.course-shell .learn-hub-intro {
+  padding-bottom: 32px;
+}
+.bifrost-learning.course-shell .learn-hub-intro :is(p, .learn-hub-start-context),
+.bifrost-learning.course-shell .learn-hub-section-heading :is(small, p),
+.bifrost-learning.course-shell
+  :is(
+    .learn-hub-journey-note,
+    .learn-hub-path-description,
+    .learn-hub-module small,
+    .learn-hub-availability,
+    .learn-hub-footer
+  ) {
+  color: var(--bfc-base-c-2);
+}
+.bifrost-learning.course-shell .learn-hub-eyebrow {
+  color: var(--bfc-base-c-2);
+  font-family: var(--bf-font-satoshi), sans-serif;
+}
+.bifrost-learning.course-shell .learn-hub-eyebrow span {
+  background: var(--bfc-theme-fade);
+  color: var(--bfc-theme-fade-c);
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell .learn-hub-path-grid {
+  gap: 18px;
+}
+.bifrost-learning.course-shell .learn-hub-path {
+  border: 1px solid var(--bfc-base-dimmed);
+  border-top: 3px solid var(--bfc-theme);
+  background: var(--bfc-base-3);
+  border-radius: var(--bf-radius-lg);
+  padding: 22px;
+  box-shadow: 0 2px 8px var(--bfc-shadow);
+}
+.bifrost-learning.course-shell .learn-hub-path h3 {
+  font-size: 23px;
+}
+.bifrost-learning.course-shell
+  :is(
+    .learn-hub-path-number,
+    .learn-hub-module > a,
+    .learn-hub-footer a,
+    .learn-hub-path-activities summary
+  ) {
+  color: var(--bfc-theme-fade-c);
+}
+.bifrost-learning.course-shell .learn-hub-module-group {
+  color: var(--bfc-base-c);
+}
+.bifrost-learning.course-shell
+  :is(
+    .learn-hub-modules,
+    .learn-hub-planned,
+    .learn-hub-path-activities,
+    .learn-hub-footer,
+    .learn-hub-path-activities nav
+  ) {
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .learn-hub-planned {
+  background: var(--bfc-base-2);
+  color: var(--bfc-base-c-2);
+}
+.bifrost-learning.course-shell .learn-hub-path-activities > div {
+  background: var(--bfc-base-2);
+  color: var(--bfc-base-c);
+}
+.bifrost-learning.course-shell .course-step-navigation {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-3);
+  border-color: var(--bfc-base-dimmed);
+  box-shadow: 0 -3px 14px var(--bfc-shadow);
+}
+.bifrost-learning.course-shell .course-step-navigation :is(a, small, .course-nav-context) {
+  color: var(--bfc-base-c-2);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .course-step-navigation .course-primary small {
+  color: var(--bfc-theme-hc);
+}
+.bifrost-learning.course-shell :focus-visible {
+  outline: 3px solid var(--bf-focus-ring, var(--bfc-theme));
+  outline-offset: 3px;
+}
+.bifrost-learning.course-shell .course-header :focus-visible {
+  outline-color: var(--bfc-theme-hc);
+}
+.bifrost-learning.course-shell .course-navigation :is(a, button):focus-visible {
+  outline-color: var(--bf-focus-ring, var(--bfc-theme));
+}
+.bifrost-learning.course-shell
+  :is(
+    .portal-dialog:has(.bifrost-course-journal, .compute-brief, .cost-brief, .transfer-brief),
+    .expanded-assessment > .portal-dialog
+  ) {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-3);
+  border: 1px solid var(--bfc-base-dimmed);
+  border-radius: var(--bf-radius-lg);
+  font-family: var(--bf-font-open-sans), sans-serif;
+}
+.bifrost-learning.course-shell
+  :is(
+    .portal-dialog:has(.bifrost-course-journal, .compute-brief, .cost-brief, .transfer-brief),
+    .expanded-assessment > .portal-dialog
+  )
+  > header {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-2);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell
+  :is(
+    .portal-dialog:has(.bifrost-course-journal, .compute-brief, .cost-brief, .transfer-brief),
+    .expanded-assessment > .portal-dialog
+  )
+  > header
+  h2 {
+  color: var(--bfc-base-c);
+  font-family: var(--bf-font-satoshi), sans-serif;
+}
+.bifrost-learning.course-shell .course-header .bifrost-theme-control {
+  color: var(--bfc-theme-hc);
+  flex: 0 1 auto;
+  min-width: 0;
+  max-width: 100%;
+}
+.bifrost-learning.course-shell .course-header .bifrost-theme-storage-note {
+  color: var(--bfc-warning-fade-c);
+  background: var(--bfc-warning-fade);
+  border-radius: var(--bf-radius);
+  padding: 6px 8px;
+  min-width: 0;
+  max-width: min(32ch, 100%);
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+.bifrost-learning.course-shell .learn-hub-path-activities {
+  background: var(--bfc-base-2);
+}
+.bifrost-learning.course-shell .learn-hub-footer strong {
+  color: var(--bfc-base-c);
+}
+.bifrost-learning.course-shell .course-main a:not(.course-primary) {
+  color: var(--bfc-theme-fade-c);
+}
+.bifrost-learning.course-shell .course-main .transfer-cases > a[aria-current] {
+  color: var(--bfc-theme-fade-c);
+  background: var(--bfc-theme-fade);
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell .course-main .transfer-scenario {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-2);
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell .course-main .transfer-scenario aside {
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .course-main .transfer-feedback .transfer-selected {
+  color: var(--bfc-base-c);
+  background: var(--bfc-theme-fade);
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell .course-main .transfer-feedback .transfer-selected small {
+  color: var(--bfc-theme-fade-c);
+}
+.bifrost-learning.course-shell .course-main .tools-perspectives span {
+  color: var(--bfc-base-c-2);
+}
+.bifrost-learning.course-shell .course-main .tools-perspectives a[aria-current] {
+  color: var(--bfc-theme-fade-c);
+  background: var(--bfc-theme-fade);
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell .course-main .tools-perspectives a[aria-current] span {
+  color: var(--bfc-theme-fade-c);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(.tools-arc-map, .tools-physical-lanes > section, .tools-facts > div) {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-2);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .course-main .tools-arc-map figcaption {
+  color: var(--bfc-base-c);
+}
+.bifrost-learning.course-shell .course-main .tools-facts dt {
+  color: var(--bfc-base-c-2);
+}
+.bifrost-learning.course-shell .course-main .tools-physical-lanes .tools-active-location {
+  background: var(--bfc-theme-fade);
+  border-color: var(--bfc-theme);
+}
+.bifrost-learning.course-shell .course-main .tools-active-location small,
+.bifrost-learning.course-shell .course-main .tools-management-link span {
+  color: var(--bfc-theme-fade-c);
+}
+.bifrost-learning.course-shell .course-main :is(.tools-representation, .sl-pipeline) {
+  color: var(--bfc-base-c);
+  background: var(--bfc-base-2);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(.tools-representation, .sl-pipeline)
+  :is(strong, p) {
+  color: var(--bfc-base-c);
+}
+.bifrost-learning.course-shell .course-main :is(.tools-representation, .sl-pipeline) small {
+  color: var(--bfc-base-c-2);
+}
+.bifrost-learning.course-shell .course-main .sl-pipeline :is(.sl-arrow, b) {
+  color: var(--bfc-theme-fade-c);
+}
+.bifrost-learning.course-shell .course-main .sl-workers > div {
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell
+  .course-main
+  .compute-lesson
+  button.compute-primary:hover:not(:disabled) {
+  background: var(--bfc-theme-2);
+  color: var(--bfc-theme-hc);
+  border-color: var(--bfc-theme-2);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(
+    .compute-reading > aside,
+    .compute-parameter-grid,
+    .compute-feedback > dl,
+    .compute-premises,
+    .v2-manuscript dl,
+    .v2-review-areas,
+    .v2-attempt-note,
+    .v2-abandoned,
+    .expanded-guidance > div,
+    .expanded-assessment [data-refined-item],
+    .expanded-result,
+    .cost-reading > aside
+  ) {
+  background: var(--bfc-base-2);
+  color: var(--bfc-base-c);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(
+    .proof-causal:not([data-bf-result]),
+    .proof-part-detail,
+    .expanded-technical,
+    .compute-result-summary
+  ) {
+  background: var(--bfc-theme-fade);
+  color: var(--bfc-theme-fade-c);
+  border-color: var(--bfc-theme);
+  border-radius: var(--bf-radius);
+  padding: 14px 16px;
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(.compute-reading > aside, .cost-reading > aside, .compute-feedback > dl, .compute-premises)
+  :is(p, dt, dd, li) {
+  color: var(--bfc-base-c);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(.compute-lesson, .cost-lesson, .expanded-module, .foundations-v2, .serverless-lesson)
+  :is(table, th, td) {
+  background: var(--bfc-base-3);
+  color: var(--bfc-base-c);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .course-main .cost-lesson {
+  --cost-blue: var(--bfc-theme);
+  --cost-ink: var(--bfc-base-c);
+  color: var(--bfc-base-c);
+}
+.bifrost-learning.course-shell .course-main small,
+.bifrost-learning.course-shell
+  .course-main
+  :is(.proof-parts button span, .guided-mission-status, .expanded-guidance dt) {
+  color: var(--bfc-base-c-2);
+}
+.bifrost-learning.course-shell .course-main summary {
+  color: var(--bfc-theme-fade-c);
+}
+.bifrost-learning.course-shell .course-main summary .source-count {
+  color: inherit;
+}
+.bifrost-learning.course-shell .course-main .expanded-heading > p {
+  color: var(--bfc-base-c-2);
+}
+.bifrost-learning.course-shell .course-main .expanded-intuition {
+  color: var(--bfc-base-c);
+}
+.bifrost-learning.course-shell .course-main :is(.practical-entry, .cost-worked, .cost-cycle > a) {
+  background: var(--bfc-base-2);
+  color: var(--bfc-base-c);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .course-main p.compute-boundary {
+  color: var(--bfc-warning-fade-c);
+}
+.bifrost-learning.course-shell .course-main .curriculum-trail {
+  background: var(--bfc-base-2);
+  color: var(--bfc-base-c);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .bifrost-course-journal :is(small, .v2-lesson-heading p) {
+  color: var(--bfc-base-c-2);
+}
+.bifrost-learning.course-shell .bifrost-course-journal .v2-teaching {
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+.bifrost-learning.course-shell .bifrost-course-journal .management-lesson .course-storage {
+  color: var(--bfc-warning-fade-c);
+  background: var(--bfc-warning-fade);
+  border-color: var(--bfc-warning-fade-c);
+  border-radius: var(--bf-radius);
+}
+.bifrost-learning.course-shell
+  .bifrost-course-journal
+  .management-lesson
+  .course-storage
+  :is(h2, h3, p, strong, a, button, div, [role='status']) {
+  color: var(--bfc-warning-fade-c);
+  background: var(--bfc-warning-fade);
+  border-color: var(--bfc-warning-fade-c);
+}
+.bifrost-learning.course-shell .bifrost-course-journal .management-lesson .course-storage button {
+  border: 1px solid var(--bfc-warning-fade-c);
+}
+.bifrost-learning.course-shell
+  .bifrost-course-journal
+  .management-lesson
+  .course-storage
+  :is(a, button):focus-visible {
+  outline: 3px solid var(--bfc-warning-fade-c);
+  outline-offset: 3px;
+}
+.bifrost-learning.course-shell
+  :is(
+    .portal-dialog:has(.bifrost-course-journal, .compute-brief, .cost-brief, .transfer-brief),
+    .expanded-assessment > .portal-dialog
+  )
+  > header
+  > button {
+  color: var(--bfc-base-c);
+  background: transparent;
+}
+.bifrost-learning.course-shell .course-main .v2-check button[type='submit'] {
+  background: var(--bfc-theme);
+  color: var(--bfc-theme-hc);
+  border-color: var(--bfc-theme);
+  font-weight: 700;
+}
+.bifrost-learning.course-shell .course-main .v2-check button[type='submit']:hover:not(:disabled) {
+  background: var(--bfc-theme-2);
+}
+.bifrost-learning.course-shell .course-main .v2-check legend {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.bifrost-learning.course-shell .savvy .expanded-guidance > div {
+  background: transparent;
+  padding-block: 8px;
+  border-bottom: 1px solid var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .savvy .expanded-guidance > div:last-child {
+  border-bottom: 0;
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(.serverless-lesson, .physical-lesson, .transfer-workspace) {
+  --sl-ink: var(--bfc-base-c);
+  --sl-blue: var(--bfc-theme);
+  --sl-line: var(--bfc-base-dimmed);
+  --pa-ink: var(--bfc-base-c);
+  --pa-blue: var(--bfc-theme);
+  --pa-border: var(--bfc-base-dimmed);
+  color: var(--bfc-base-c);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(
+    .sl-prerequisite,
+    .sl-assumptions,
+    .pa-prerequisite,
+    .pa-assumptions,
+    .cost-entry,
+    .compute-entry,
+    .networking-entry
+  ) {
+  background: var(--bfc-theme-fade);
+  color: var(--bfc-theme-fade-c);
+  border-color: var(--bfc-theme);
+  border-radius: var(--bf-radius-lg);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(
+    .sl-problem,
+    .sl-plans,
+    .sl-chain li,
+    .sl-ownership > section,
+    .sl-controls,
+    .pa-cutaway,
+    .pa-feedback,
+    .sl-feedback,
+    .cost-feedback,
+    .transfer-feedback,
+    .transfer-response fieldset
+  ) {
+  background: var(--bfc-base-2);
+  color: var(--bfc-base-c);
+  border-color: var(--bfc-base-dimmed);
+}
+.bifrost-learning.course-shell .course-main .serverless-lesson caption {
+  color: var(--bfc-base-c-2);
+}
+@media (max-width: 760px) {
+  .bifrost-learning.course-shell .course-main .serverless-lesson .sl-controls {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .bifrost-learning.course-shell .course-main .serverless-lesson .sl-execution {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+.bifrost-learning.course-shell .course-main .transfer-pass {
+  color: var(--bfc-success-fade-c);
+  background: var(--bfc-success-fade);
+}
+.bifrost-learning.course-shell .course-main .transfer-fail {
+  color: var(--bfc-alert-fade-c);
+  background: var(--bfc-alert-fade);
+}
+.bifrost-learning.course-shell
+  .course-main
+  :is(.course-storage, .expanded-assumptions, .expanded-counterexample)::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 8px;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3 2 21h20L12 3ZM12 9v5m0 3v1' fill='none' stroke='currentColor' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+.bifrost-learning.course-shell .course-main .proof-causal:not([data-bf-result])::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 0 8px -3px 0;
+  background: currentColor;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='9' fill='none' stroke='currentColor' stroke-width='2'/%3E%3Cpath d='M12 11v6m0-10v1' stroke='currentColor' stroke-width='2'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+@media (max-width: 1100px) {
+  .bifrost-learning.course-shell .course-header {
+    gap: 10px;
+    padding-inline: 16px;
+  }
+  .bifrost-learning.course-shell .course-layout {
+    grid-template-columns: 232px minmax(0, 1fr);
+  }
+  .bifrost-learning.course-shell .course-main {
+    padding-inline: 24px;
+  }
+  .bifrost-learning.course-shell .learn-hub-path :is(h3, .learn-hub-path-description) {
+    min-height: 0;
+  }
+}
+@media (max-width: 800px) {
+  .bifrost-learning.course-shell .learn-hub-path-grid {
+    grid-template-columns: 1fr;
+  }
+  .bifrost-learning.course-shell .course-header {
+    gap: 8px;
+  }
+  .bifrost-learning.course-shell .course-header nav {
+    gap: 4px;
+    flex-basis: 100%;
+    order: 3;
+  }
+  .bifrost-learning.course-shell .course-header > button {
+    margin-left: 0;
+  }
+  .bifrost-learning.course-shell .course-layout {
+    display: block;
+  }
+  .bifrost-learning.course-shell .course-navigation {
+    height: auto;
+    padding: 10px 16px;
+  }
+  .bifrost-learning.course-shell .course-menu-toggle {
+    color: var(--bfc-base-c);
+  }
+  .bifrost-learning.course-shell .course-main {
+    padding: 24px 18px 0;
+  }
+  .bifrost-learning.course-shell .learn-hub-intro {
+    padding-right: 0;
+  }
+  .bifrost-learning.course-shell .savvy {
+    padding: 16px;
+    gap: 14px;
+  }
+}
+@media (max-height: 600px) {
+  .bifrost-learning.course-shell .cloud-chapter-heading {
+    margin-bottom: var(--bf-space-2);
+  }
+  .bifrost-learning.course-shell .cloud-chapter-heading > p {
+    margin-top: var(--bf-space-1);
+  }
+  .bifrost-learning.course-shell .cloud-chapter-guide {
+    margin-block: 0;
+  }
+  .bifrost-learning.course-shell .cloud-chapter > .cloud-chapter-part:first-of-type {
+    margin-top: var(--bf-space-1);
+  }
+  .bifrost-learning.course-shell .cloud-chapter-part .v2-lesson-heading,
+  .bifrost-learning.course-shell .cloud-chapter-part .v2-lesson-heading h3 {
+    margin-bottom: var(--bf-space-2);
+  }
+  .bifrost-learning.course-shell .cloud-chapter-part .v2-teaching {
+    margin-top: var(--bf-space-2);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bifrost-learning.course-shell :is(a, button, summary) {
+    transition: none;
+  }
+}

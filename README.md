@@ -1,3 +1,7 @@
+# First integrated main candidate
+
+The isolated baseline combines Laboratory3.9/Portal Fidelity and the complete Bifrost course/design stack. See [integration, validation and merge boundaries](docs/FIRST_MAIN_BASELINE.md) and [sequential roadmap](docs/BASELINE_ROADMAP.md). Actual main is still the original initialization; combined QA is pending. No merge or production deployment is authorized. Historical status sections below retain their original versioned context.
+
 # AzureLab 3.2.1
 
 ## Product entry · PR61

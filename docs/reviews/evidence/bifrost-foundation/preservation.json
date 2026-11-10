@@ -1,0 +1,96 @@
+{
+  "base": "249833f7cb7ea41d3e411444ec3c4f83805d3a5f",
+  "files": {
+    ".github/workflows/ci.yml": {
+      "before": "81c61c13f64f31472e8bc09e443499eb0a2e00cf",
+      "after": "726ded53f73930400991933c68c825b10cb93ae0"
+    },
+    "package.json": {
+      "before": "633d7f329dc72ba850ee13af7e153e0f6071dd06",
+      "after": "611bc9dafed6f577e823e222d13ea6e595c473a2"
+    },
+    "scripts/quality-check.mjs": {
+      "before": "b17705bce180ad0255f04b099ae9ce2e9f38126c",
+      "after": "f42c2c062d061987d4c4e46418b37776e3cbac57"
+    },
+    "scripts/quality-check.test.mjs": {
+      "before": "21190793dc6087504aebddf5869523ab34f6d1f0",
+      "after": "81cb0606fe422ef80f5d130289af4c49f5df49be"
+    },
+    "src/app/layout.tsx": {
+      "before": "b1eb65a0c6e0a6877683bd07ca4218a4cf9e0c17",
+      "after": "b440dd3457ba0a8ec41341f2bf6ee523605a368d"
+    },
+    "src/features/landing/landing.css": {
+      "before": "3095f8fd35f809a5ffa3aa5f06fefb972d945813",
+      "after": "75f7d827e9c216078764a5dfff0998624ae13d92"
+    },
+    "src/features/landing/landing.tsx": {
+      "before": "2daa49b0e87d78d369006726c188354bed22fb8f",
+      "after": "dfa689297e387913ad8a3d063fc0af99658a08a3"
+    },
+    "src/pr72-ci-workflow.test.ts": {
+      "before": "4ebd0be035a011e6527886984a00ab1343792888",
+      "after": "094080d96c99fbf37f52e9bcddb1db422e71ab75"
+    },
+    "src/pr72-shared-portal-preservation.test.ts": {
+      "before": "5e9befea51f06ad526de3f52745911cd9b87fd28",
+      "after": "3af3d6314eefbd6a559a7e9cd57eea836d0e291f"
+    },
+    "tests/e2e/premium-landing.spec.ts": {
+      "before": "8dc784f699a64a91e90dcc860374d96f67b9cfd3",
+      "after": "de491265e4e328dbac473b8f56b9d467eb701f67"
+    },
+    "tests/pr72-preservation.ts": {
+      "before": "18134608acd5ef983856118ac14c30498f3a04d9",
+      "after": "7ace3e70afb22fbb4c057359349272231b9d2eb0"
+    }
+  },
+  "added": {
+    "docs/design/AZURELAB_BIFROST_DESIGN.md": "bc4460698e967e53f05308b06c880a0918ee7d30",
+    "docs/design/BIFROST_AUTHOR_QA.md": "c5f1dae407f595de2a43c15672a2e64febc08da8",
+    "docs/design/BIFROST_CI_VERIFICATION.md": "01543c8f46bb369c06e42158f4cc94560aa2bb0f",
+    "docs/design/bifrost-ci-port-provenance.json": "454cb71418e0a097f863200406c0987d6355bf06",
+    "docs/design/bifrost-demo-reference.json": "81e99ec99705528ad7548565a97e6be8eab23eab",
+    "docs/design/bifrost-source-provenance.json": "9ab498db843a4cc1317781cfcdfda109ed3ce3ae",
+    "docs/design/evidence/bifrost-before-hydration-fonts-blocked-dark.png": "747a61203881ccb164045689d4bfb6150a972390",
+    "docs/design/evidence/bifrost-before-hydration-fonts-blocked-light.png": "feeceaf03d7b42e7905363f9c923bed61e8c6fc1",
+    "docs/design/evidence/bifrost-boundary-course.png": "e6ec8e31e6c04b2b7dff44ad605e39875a640714",
+    "docs/design/evidence/bifrost-boundary-free.png": "fede2a80cc46159387def5d5c8c3084b1ab820c0",
+    "docs/design/evidence/bifrost-dark-1024-500.png": "e5f40932fdd47dad2512dd45972115f7c89033d9",
+    "docs/design/evidence/bifrost-dark-1440-900.png": "a2bf820f1b42d5c280be8de0a411f2d591f85451",
+    "docs/design/evidence/bifrost-dark-800-700.png": "27fd5b4b2471f39eb405d98020323578bd6ef446",
+    "docs/design/evidence/bifrost-light-1024-500.png": "eb0a351331e7d40c891f237d34099cadf8495f30",
+    "docs/design/evidence/bifrost-light-1440-900.png": "14cf2f3c2f0bacf7f692ce219676da27f818d2e1",
+    "docs/design/evidence/bifrost-light-800-700.png": "5883d6788bc886e760b578a03f61e98c5e51849c",
+    "docs/design/evidence/bifrost-native-zoom-dark-1.25.png": "6322c0ca8e47e023a65797c35402e3a91c8c96de",
+    "docs/design/evidence/bifrost-native-zoom-dark-2.png": "c71036283399d2fed50f2deaa23d341d681b47b0",
+    "docs/design/evidence/bifrost-native-zoom-light-1.25.png": "9baddb7cd0685f48bfc369ca0c8ac28ab73f1f85",
+    "docs/design/evidence/bifrost-native-zoom-light-2.png": "772ae2fa3a26a073b1e6bf0da17210b2c5905982",
+    "docs/design/evidence/initial-landmark-error.md": "43c26da3ff771b80c6c6010f5755f4dfdaf43d2c",
+    "docs/design/evidence/owner-demo-dark.png": "c9b7d792a3d12186e36555789c77f604cf0da34d",
+    "docs/design/evidence/owner-demo-light.png": "9e590ea10f8c72c0cd641f196ba3234dc7145d53",
+    "docs/design/evidence/production-measurements.json": "c89d9272ec2b0fd6efd8ba9a4f612c4fded31a32",
+    "docs/design/evidence/visual-provenance.json": "cac6bbc7df10a904b2687815694f00560f38544a",
+    "docs/reviews/evidence/bifrost-foundation/check-initial.json": "1c2f879c27199426bad242efc5033060af3a9f20",
+    "docs/reviews/evidence/bifrost-foundation/check-initial.redacted.txt": "cbcf55b46279cbd87f420be215054e6777aee7df",
+    "public/design/bifrost/fonts/OFL-Open-Sans.txt": "d762c3c4629d0950bfcb101ea82dd52b4ebf3707",
+    "public/design/bifrost/fonts/open-sans-latin-variable.woff2": "b5d54e7629057f310f8ef458e67ba2f568032139",
+    "scripts/e2e-shard-aggregate.mjs": "5ce691db76cce0c7e226af5198a011e2122849df",
+    "scripts/e2e-shard-plan.mjs": "a0fbead81d9a30d0ac9aeac5ea1822061019db14",
+    "scripts/e2e-shard-runner.mjs": "38366aa80c30094178edb01feff6d37bbda0efd0",
+    "scripts/e2e-shard.test.mjs": "710a6773c917f767b6a55b8040caa739dc6ebd33",
+    "src/features/design/brand-mark.tsx": "e05028ee5ea9a97fbcd9f0cade31fa0cd6820fcb",
+    "src/features/design/fonts.ts": "a7fd343130cc559f7cef7d98198f0033cfc440e3",
+    "src/features/design/foundation.test.ts": "b57e334847ed6c4d55d62ea31c0aeb8746c05471",
+    "src/features/design/preservation.test.ts": "bbcc416738476459006042c8d82c4eaf32be5abd",
+    "src/features/design/theme-copy.ts": "be52a3aa5a7c61a25cec917732d2ca415c02be2c",
+    "src/features/design/theme-init.tsx": "5307420d807aa3a65bd8ff96cf65c77bc957cdf3",
+    "src/features/design/theme.tsx": "7bc29ae8fb4df61eb0b8ef54705007039920ee97",
+    "src/features/design/tokens.css": "e965dd5521b1bd1fa779d3508f7bb74153450e65",
+    "src/features/landing/bifrost-presentation.test.ts": "ee96432a2b7c63e0fe230c835354329a7144ec26",
+    "src/resource-platform-ci-workflow.test.ts": "cc630571f078aaa9f191621aa4402876216cb2c1",
+    "tests/bifrost-foundation-preservation.ts": "4b48b96706a0c91781121d9c8f220b19a110cd50",
+    "tests/e2e/bifrost-landing.spec.ts": "e920383c8447ea26dcd32d9a4fa7d9bcbacc1e2a"
+  }
+}

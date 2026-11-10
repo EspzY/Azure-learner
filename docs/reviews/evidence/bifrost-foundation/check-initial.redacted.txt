@@ -1,0 +1,108 @@
+
+> azurelab@0.1.0 check
+> npm run typecheck && npm run lint && npm run format:check && npm run docs:check && npm run quality:check && npm run az900:audit:check && npm run curriculum:check && npm run assets:check && npm run legacy:check && npm test && npm run build
+
+
+> azurelab@0.1.0 typecheck
+> node scripts/next.mjs typegen && tsc --noEmit
+
+Generating route types...
+✓ Types generated successfully
+
+> azurelab@0.1.0 lint
+> eslint . --max-warnings 0
+
+
+> azurelab@0.1.0 format:check
+> prettier --check .
+
+Checking formatting...
+All matched files use Prettier code style!
+
+> azurelab@0.1.0 docs:check
+> node scripts/docs-check.mjs
+
+Documentation OK: 220 Markdown files; required files and local links verified.
+
+> azurelab@0.1.0 quality:check
+> node scripts/quality-check.mjs
+
+Seven-gate quality contracts/source/activity references valid; no final or human approval inferred.
+
+> azurelab@0.1.0 az900:audit:check
+> node scripts/az900-audit-check.mjs
+
+AZ-900 audit: 57 objectives / 126 facets, evidence references and generated matrix valid; no educational approval inferred.
+
+> azurelab@0.1.0 curriculum:check
+> vitest run src/domain/curriculum/integrity.test.ts src/domain/curriculum/official.test.ts src/domain/curriculum/responsibility.test.ts src/domain/portal/portal.test.ts src/domain/course/course.test.ts src/domain/curriculum/foundations-v2.test.ts src/domain/curriculum/expansion.test.ts src/domain/sandbox/practical.test.ts src/domain/guidance/milestones.test.ts src/domain/curriculum/serverless.test.ts src/domain/curriculum/architecture-physical.test.ts src/domain/curriculum/architecture-management.test.ts src/domain/curriculum/teaching-access.test.ts src/domain/sandbox/missions.test.ts src/domain/curriculum/transfer.test.ts src/domain/curriculum/cost.test.ts src/domain/curriculum/compute.test.ts src/domain/curriculum/networking.test.ts src/domain/curriculum/connectivity.test.ts src/domain/curriculum/storage.test.ts src/domain/curriculum/storage-resilience.test.ts src/domain/curriculum/identity-foundations.test.ts src/domain/curriculum/access-control.test.ts src/domain/curriculum/governance.test.ts src/domain/curriculum/management-tools.test.ts src/domain/curriculum/monitoring.test.ts src/domain/curriculum/security.test.ts src/domain/curriculum/migration.test.ts src/domain/curriculum/refined-assessment.test.ts src/domain/curriculum/application-transfer.test.ts
+
+
+ RUN  v5.0.5 /workspace/azurelab-phase2/design
+
+
+ Test Files  30 passed (30)
+      Tests  503 passed (503)
+   Start at  20:03:12
+   Duration  9.98s (tests 37%, import 35%, transform 26%, worker 1%)
+
+    Isolate  30 workers spawned · ~256ms startup each (spawn + environment, per file)
+             at least ~2.30s faster with isolate: false — reuses workers across files instead of one per file
+
+
+> azurelab@0.1.0 assets:check
+> node scripts/assets-check.mjs && node scripts/design-assets-check.mjs
+
+Assets: owner-authorized local SavvyShark PNG, 76509 bytes; signature, hash, size and registration valid. Retired game assets are not shipped.
+Portal icons: 44 explicit identities, 42 source SVGs / 43989 bytes, original hashes, local paths, safe SVG and provenance validated. No generic fallback.
+{"produced":3,"approved":0,"planned":19,"fontBytes":146892}
+
+> azurelab@0.1.0 legacy:check
+> node scripts/legacy-check.mjs
+
+Legacy boundary: 556 current source/style files; no retired imports, renderer dependencies or game assets.
+
+> azurelab@0.1.0 test
+> vitest run && node --test scripts/docs-check.test.mjs scripts/az900-audit-check.test.mjs scripts/quality-check.test.mjs scripts/design-assets-check.test.mjs scripts/e2e-preview-build.test.mjs
+
+
+ RUN  v5.0.5 /workspace/azurelab-phase2/design
+
+(node:128164) DeprecationWarning: Client.activeQuery is deprecated and will be removed in pg@9.0
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:128164) DeprecationWarning: Client.queryQueue is deprecated and will be removed in pg@9.0.
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯ Uncaught Exception ⎯⎯⎯⎯⎯
+error: terminating connection due to administrator command
+ ❯ parseErrorMessage node_modules/pg-protocol/dist/parser.js:306:11
+ ❯ Parser.handlePacket node_modules/pg-protocol/dist/parser.js:143:27
+ ❯ Parser.parse node_modules/pg-protocol/dist/parser.js:37:38
+ ❯ Socket.<anonymous> node_modules/pg-protocol/dist/index.js:12:42
+ ❯ Socket.emit node:events:509:28
+ ❯ addChunk node:internal/streams/readable:563:12
+ ❯ readableAddChunkPushByteMode node:internal/streams/readable:514:3
+ ❯ Readable.push node:internal/streams/readable:394:5
+ ❯ TCP.onStreamRead node:internal/stream_base_commons:189:23
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+Serialized Error: { length: 116, severity: 'FATAL', code: '57P01', detail: undefined, hint: undefined, position: undefined, internalPosition: undefined, internalQuery: undefined, where: undefined, schema: undefined, table: undefined, dataType: undefined, constraint: undefined, file: 'postgres.c', routine: 'ProcessInterrupts', client: { _events: [Object], _eventsCount: 1, _maxListeners: undefined, connectionParameters: [Object], user: 'laboratory_v3_app', database: 'azurelab_lab_test_topology_84776b44f5', port: 55460, host: '127.0.0.1', password: '[REDACTED disposable test credential]', replication: undefined, _Promise: 'Function<Promise>', _types: [Object], _ending: true, _ended: false, _connecting: false, _connected: true, _connectionError: false, _queryable: false, _activeQuery: null, _txStatus: 'I', enableChannelBinding: false, scramMaxIterations: 100000, connection: [Object], _queryQueue: [Array], _sentQueryQueue: [Array], pipeline: false, binary: false, processID: 5915, secretKey: [REDACTED protocol key], ssl: false, sslNegotiation: 'postgres', _connectionTimeoutMillis: 0, _connectionCallback: null, saslSession: null, release: 'Function<anonymous>', readyForQuery: true, hasExecuted: true, _poolUseCount: 33, constructor: 'Function<Client>', activeQuery: null, _getActiveQuery: 'Function<_getActiveQuery>', _errorAllQueries: 'Function<_errorAllQueries>', _connect: 'Function<_connect>', connect: 'Function<connect>', _attachListeners: 'Function<_attachListeners>', _getPassword: 'Function<_getPassword>', _handleAuthCleartextPassword: 'Function<_handleAuthCleartextPassword>', _handleAuthMD5Password: 'Function<_handleAuthMD5Password>', _handleAuthSASL: 'Function<_handleAuthSASL>', _handleAuthSASLContinue: 'Function<_handleAuthSASLContinue>', _handleAuthSASLFinal: 'Function<_handleAuthSASLFinal>', _handleBackendKeyData: 'Function<_handleBackendKeyData>', _handleReadyForQuery: 'Function<_handleReadyForQuery>', _handleErrorWhileConnecting: 'Function<_handleErrorWhileConnecting>', _handleErrorEvent: 'Function<_handleErrorEvent>', _handleErrorMessage: 'Function<_handleErrorMessage>', _handleRowDescription: 'Function<_handleRowDescription>', _handleDataRow: 'Function<_handleDataRow>', _handlePortalSuspended: 'Function<_handlePortalSuspended>', _handleEmptyQuery: 'Function<_handleEmptyQuery>', _handleCommandComplete: 'Function<_handleCommandComplete>', _handleParseComplete: 'Function<_handleParseComplete>', _handleCopyInResponse: 'Function<_handleCopyInResponse>', _handleCopyData: 'Function<_handleCopyData>', _handleNotification: 'Function<_handleNotification>', _handleNotice: 'Function<_handleNotice>', getStartupConf: 'Function<getStartupConf>', cancel: 'Function<cancel>', setTypeParser: 'Function<setTypeParser>', getTypeParser: 'Function<getTypeParser>', escapeIdentifier: 'Function<escapeIdentifier>', escapeLiteral: 'Function<escapeLiteral>', _pulseQueryQueue: 'Function<_pulseQueryQueue>', _pulsePipelinedQueryQueue: 'Function<_pulsePipelinedQueryQueue>', query: 'Function<query>', ref: 'Function<ref>', unref: 'Function<unref>', getTransactionStatus: 'Function<getTransactionStatus>', end: 'Function<end>', queryQueue: [Array], setMaxListeners: 'Function<setMaxListeners>', getMaxListeners: 'Function<getMaxListeners>', emit: 'Function<emit>', addListener: 'Function<addListener>', on: 'Function<addListener>', prependListener: 'Function<prependListener>', once: 'Function<once>', prependOnceListener: 'Function<prependOnceListener>', removeListener: 'Function<removeListener>', off: 'Function<removeListener>', removeAllListeners: 'Function<removeAllListeners>', listeners: 'Function<listeners>', rawListeners: 'Function<rawListeners>', listenerCount: 'Function<listenerCount>', eventNames: 'Function<eventNames>' } }
+This error originated in "src/laboratory-topology.integration.test.ts" test file. It doesn't mean the error was thrown inside the file itself, but while it was running.
+The last test to run before this error was "008 3.5 install/upgrade preserves all historical workspaces and repeat setup without narrowing constraints". This means either:
+- the error was thrown while Vitest was running this test, or
+- the error was thrown after the test completed, and this was the most recent test at that point.
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+
+ Test Files  98 passed (98)
+      Tests  1148 passed (1148)
+     Errors  1 error
+   Start at  20:03:24
+   Duration  37.51s (tests 76%, import 15%, transform 9%, worker 1%)
+
+    Isolate  98 workers spawned · ~199ms startup each (spawn + environment, per file)
+             at least ~6.29s faster with isolate: false — reuses workers across files instead of one per file
+

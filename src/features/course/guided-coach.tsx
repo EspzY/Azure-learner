@@ -1,4 +1,5 @@
 'use client';
+import './bifrost-guidance.css';
 import { useChallenge2 } from '@/features/portal/challenge-v2-provider';
 import { useApplication } from '@/features/learning/application-provider';
 import { useRefined } from '@/features/learning/refined-assessment-provider';
@@ -112,7 +113,7 @@ export function GuidedCoach({
       )}
       <aside
         tabIndex={-1}
-        className={`guided-coach ${minimized ? 'coach-minimized' : ''}`}
+        className={`guided-coach bifrost-learning bifrost-guide-island ${minimized ? 'coach-minimized' : ''}`}
         aria-label={c.guided}
         data-step={step.id}
         data-target-kind={step.targetKind}

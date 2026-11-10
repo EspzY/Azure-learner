@@ -1,3 +1,9 @@
+# Current default after the first main integration
+
+One main agent, sequential work, one active implementation PR. Start from verified current main; define one bounded objective, reuse existing architecture/status/results, run targeted checks during development, then full mandatory check/browser profile, independent post-stamp review, actual preview and strict release before requesting merge approval. Merge approved bounded deliveries regularly. Parallel implementation requires a documented technical gain that outweighs token and integration cost; it is not the default. Independent review is separate from implementation, and the approved four-shard CI strategy remains unchanged.
+
+Passing CI does not authorize merge or production. Before the first main update, resolve actual Vercel production branch/autodeployment controls with the owner; no configuration changes are authorized by this integration. See FIRST_MAIN_BASELINE and BASELINE_ROADMAP. Historical workflow sections below remain versioned reference.
+
 # Resource Platform — complete sharded candidate verification
 
 The owner-requested sharding study is now being implemented because two measured Application browser jobs exhausted the existing35-minute cap: Quality123 completed450/475 cases; final Quality125 completed474/475 with no observed failures/retries and fast dependency installation. Both remain incomplete failures, with original logs retained. A green collection or partial profile is never acceptance.

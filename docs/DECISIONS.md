@@ -1,3 +1,9 @@
+# First main baseline and sequential delivery
+
+Owner decision: integrate exact technical95d9e5b and full Bifrost50e90f3 using a real merge that retains both histories, independently verify the combined tree against actual main d87fa85, then stop for owner approval. Do not individually squash the historical stack. New baseline quality evidence must cover the actual combined source; preserve old proof manifests and assertion bodies through finite test-only parent views plus a native actual-source guard. Main merge may trigger Vercel production; provider configuration is unknown and must be confirmed before merge.
+
+After integration: one main agent and one active implementation PR by default, prioritized course/engine convergence → realistic resources/dependencies → Portal UX/fidelity → established Bifrost/SavvyShark → later new practical tasks. Parallel implementation needs a documented net technical gain. Regular approved main updates and a separate production decision replace long chains of dependent drafts. No merge, configuration change, tag or production release is performed by this decision record.
+
 ## 9 November2026 — one Portal entry experience, controlled engine convergence
 
 Adopt [shared Portal consolidation](SHARED_PORTAL_CONSOLIDATION.md). Reuse the actual course Home structure in one common component; derive scope/resource membership from authoritative adapter state; use one version-aware service catalogue. Preserve old evaluators and learning history. Next implement a new versioned Web/plan vertical, then a course-owned workspace/evidence pilot; do not claim that a shared header unifies the engines.

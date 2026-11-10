@@ -5,6 +5,7 @@ import type { MissionId } from '@/domain/sandbox/missions';
 import type { LabKind } from '@/domain/sandbox/practical';
 import { SavvyShark } from './savvy-shark';
 import './mission-briefing.css';
+import './bifrost-guidance.css';
 
 /** Presentation only. Starting a session remains the caller's validated operation. */
 export function MissionBriefing({
@@ -41,7 +42,7 @@ export function MissionBriefing({
   return (
     <dialog
       ref={dialog}
-      className="mission-briefing"
+      className="mission-briefing bifrost-learning"
       aria-labelledby={title}
       onCancel={(e) => {
         e.preventDefault();

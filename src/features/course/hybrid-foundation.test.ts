@@ -2,7 +2,7 @@ import { assertCC02Change, cc02PresentationChanges } from '../../../tests/cc02-p
 import { assertCC03Change, cc03Authorized } from '../../../tests/cc03-preservation';
 import { assertCC01Change, cc01Authorized } from '../../../tests/cc01-preservation';
 import { expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readBifrostCourse as readFileSync } from '../../../tests/bifrost-course-preservation';
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import pd01 from '../../../docs/reviews/evidence/pr52-preservation.json';

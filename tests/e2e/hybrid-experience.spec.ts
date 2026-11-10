@@ -369,7 +369,16 @@ test('hybrid desktop compact type keyboard native Journal short-height and reduc
   const pathControl = page.locator('button[aria-controls="course-path-architecture"]');
   await pathControl.hover();
   expect(await pathControl.evaluate((el) => getComputedStyle(el).backgroundColor)).toBe(
-    'rgb(41, 73, 94)',
+    // Owner-authorized presentation replacement: the strict hover equality now
+    // uses the exact Bifrost neutral token, pinned by the foundation token tests.
+    await pathControl.evaluate((el) => {
+      const probe = document.createElement('span');
+      probe.style.backgroundColor = 'var(--bfc-neutral-fade)';
+      el.append(probe);
+      const color = getComputedStyle(probe).backgroundColor;
+      probe.remove();
+      return color;
+    }),
   );
   await noOverflow(page);
   await axe(page);

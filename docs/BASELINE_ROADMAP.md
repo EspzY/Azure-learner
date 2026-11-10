@@ -1,0 +1,11 @@
+# AzureLab roadmap after the first main baseline
+
+The owner correction supersedes the default parallel-track model. One main agent coordinates sequential development with one active implementation PR. Reuse existing architecture, status, decisions and verified evidence; investigate again only when a concrete change or missing fact requires it. Bounded independent review is a quality gate, not a second implementation stream. CI sharding remains the unchanged test execution strategy.
+
+1. Complete versioned integration between course tasks and the Laboratory engine. Reuse LABORATORY_COURSE_INTEGRATION_PLAN and SHARED_PORTAL_CONSOLIDATION; preserve legacy v2 Worlds, original receipts, first/help/retry/abandon, rubrics, Journal and XP. No automatic upgrade or client-attested assessment evidence.
+2. Extend realistic Azure resources, configuration and typed technical dependencies in the same versioned engine and Portal. Reuse the capability/remediation matrices; prefer coherent supported verticals over catalogue breadth.
+3. Improve usability and Portal fidelity from concrete browser evidence. Maintain PORTAL_RESOURCE_FAMILY_MATRIX; distinguish current matched behavior, bounded approximation and unsupported configuration. Investigate the known VM-debrief duplicate-status flake causally; a green retry does not close it.
+4. Refine the established Bifrost design and SavvyShark using the existing design specification, licensed assets and both themes. Keep native Azure Portal styling separate and existing assessment logic unchanged. Satoshi redistribution and human validation remain unapproved/unperformed.
+5. Only later author new practical tasks on the mature simulator, through explicit versioned scenario/evidence contracts. No new mission, assessment or pedagogical scenario in this baseline.
+
+Each delivery has one bounded objective, targeted development tests, actual browser checks and a fresh independent audit followed by complete mandatory CI/strict release. Merge approved small deliveries regularly so stable main remains current. Feature branches start from verified main; use explicit dependencies only when unavoidable. Reintroduce parallel implementation only for a documented technical gain that outweighs token use and integration cost. Neither a passing CI run nor a Draft PR authorizes merge or production.

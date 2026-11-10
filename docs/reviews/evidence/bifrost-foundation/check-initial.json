@@ -1,0 +1,13 @@
+{
+  "command": "npm run check",
+  "result": "failed",
+  "originalLogOutsideRepository": "/workspace/azurelab-phase2/b-fullcheck.log",
+  "originalSha256": "b8e065f166714e2685463c5b4ad427df48f458d43ab9b134a9c65f784b7de1d3",
+  "redactedLog": "docs/reviews/evidence/bifrost-foundation/check-initial.redacted.txt",
+  "redactedSha256": "c033b25527be2db09b6aa9bdaf12fa377d561a9e8203e7570233a6fcb984ce03",
+  "redactions": [
+    "Disposable test password in pg client error serialization",
+    "PostgreSQL protocol cancellation key"
+  ],
+  "observation": "1148/1148 tests in98files passed, but Vitest reports one unhandled PostgreSQL57P01 terminating connection due to administrator command during historical008 3.5 migration fixture. This is not a passing fullcheck. Exact cleanup cause remains unproven; no historical test or database semantics changed."
+}

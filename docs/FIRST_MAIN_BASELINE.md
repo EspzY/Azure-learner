@@ -1,0 +1,33 @@
+# First integrated main baseline
+
+Status: isolated integration candidate; complete combined check, browser profile, post-stamp independent audit, strict release and actual preview remain PENDING. No merge or production deployment is authorized.
+
+The pinned technical parent is PR79 `95d9e5b26e0cad69063153305b7ec3aa024fcfcf`; the complete Bifrost parent is PR77 `50e90f3cf14dce8b81a5bd9b7416d816a147f22a`, including PR76. Their merge base is PR72 `249833f7cb7ea41d3e411444ec3c4f83805d3a5f`. Actual main is the one-file initialization `d87fa852ceda7d8a7bff8ddfc72027e8fd9d153c`. An ordinary two-parent merge preserves both histories. No squash, rebase or discarded-parent strategy is used.
+
+The source ancestry includes current PR1–72 and PR75–79 heads:189 distinct ancestral commits before the integration commit. PR73/74 are not ancestors; their ten imported Delivery/Data files match their original Git blobs exactly and their PRs remain separate historical component proposals. Do not claim every old PR was independently approved or should be squash-merged. All original review evidence remains unchanged; source commits retain original current quality records.
+
+## Conflict decisions and actual preservation
+
+Four textual conflicts were recorded before resolution: current quality record and three PR72 historical reader imports. The new record must bind actual main, not either feature PR base. The three reader files retain the technical chain; their complete non-import bodies are identical on both parents. Both independent old preservation chains still run against their exact pinned source views. The automatically merged premium-landing test retains the native3.9 selectors and the Bifrost fixture class; its entire resulting file is checked against the exact one-class transformation.
+
+The first unadapted preservation probe failed23/55 controls across7files; the source transcript is retained outside the checkout. The failure is a genuine scope conflict between two formerly closed whole-tree manifests. Historical records are not expanded or rewritten to pretend they reviewed the combined product. Four test-only import adapters admit a pinned parent view only after actual integrated bytes match the finite source contract. A new native-filesystem guard checks every actual path and source hash, the real runtime/SQL merge, unchanged old test bodies and adversarial unknown/missing/changed authority cases. Runtime never imports these adapters. Domain engines, assessment rules, stores, commands and receipt semantics come byte-for-byte from the verified input heads.
+
+The nine shared CI/package/quality/shard files were identical and are retained. Existing worker/retry/timeout/skip settings and every prior browser assertion remain. Expected collection is510cases (458desktop/52compact); actual collection and exact identity union must establish it. Previous green475/488/490 profiles are provenance, never combined acceptance.
+
+## Production boundary and approval checklist
+
+Read-only GitHub inspection found main unprotected with no repository rulesets/applicable main rules; detailed protection settings returned403, so unavailable fine settings are not invented. Default branch is main; merge/squash/rebase methods are enabled and auto-merge is disabled. No setting is changed.
+
+The repository has no Vercel configuration file or production deployment command. Automatic feature-branch previews are owner-authorized. The actual Vercel production branch, automatic production deployment, protection, active deployment/SHA, domains and production environment bindings could not be read: current project API returned403 without a configured Vercel identity. Defaults do not establish the current configuration. **Treat merging main as capable of triggering production. Before merge approval the owner must inspect the connected project's production Git branch, automatic deployment behavior, deployment controls and current known-good recovery target.** Main merge and production approval cannot be represented as separate operational decisions until those controls are confirmed. Do not change them in this PR.
+
+The combined app includes seven Laboratory API handlers and optional server-only `LAB_DATABASE_URL`/`LAB_ORIGIN`; historical no-backend observations are superseded. The build does not run database setup. Public temporary Laboratory requires no database; persistent unconfigured mode honestly returns503. No production variables/credentials or database are created or changed.
+
+After candidate QA: recheck current main/base/head and tree; confirm complete current CI, actual preview SHA, no open new blocker/major, preserved histories and reviewed deployment controls. Recommend GitHub **Create a merge commit** after explicit owner approval: this preserves the long existing ancestry and all proof commit references. Do not individually squash historical stacked PRs. Review old PR states after integration rather than bulk-closing or deleting branches now.
+
+## Recovery and version marker
+
+Record pre-merge main SHA and any current provider deployment before approval. For a Git merge regression, prepare and test a first-parent revert of the eventual main merge commit, then obtain owner approval; do not rewrite published main. A revert push may itself trigger deployment. A provider rollback is a separate owner-approved operation to a verified prior deployment; none is assumed to exist for the original initialization. Git/provider rollback does not restore database or browser history: keep persisted technical evidence, backups and original model evaluators; no reset or reverse migration is part of this candidate.
+
+Propose the annotated tag `azurelab-baseline-2026-11-10` on the exact approved merged main commit after its required checks. No tag or GitHub release is created here. Product3.2.1 and Laboratory3.9 identifiers are unchanged; a baseline marker is not a new resource model or course completion claim.
+
+Follow the [sequential roadmap](BASELINE_ROADMAP.md) and [development workflow](DEVELOPMENT_WORKFLOW.md). New code follows one active implementation PR, complete candidate verification and explicit merge approval; production remains a separate approval with verified controls.

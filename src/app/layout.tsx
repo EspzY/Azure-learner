@@ -34,6 +34,10 @@ import { ServerlessProvider } from '@/features/learning/serverless-provider';
 import '@xyflow/react/dist/style.css';
 import './globals.css';
 import { learningSans, learningEditorial } from '@/features/course/learning-fonts';
+import { bifrostOpenSans } from '@/features/design/fonts';
+import { BifrostThemeInit } from '@/features/design/theme-init';
+import { BifrostThemeProvider } from '@/features/design/theme';
+import '@/features/design/tokens.css';
 
 export const metadata: Metadata = {
   title: nb.metadata.title,
@@ -41,7 +45,14 @@ export const metadata: Metadata = {
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="nb" className={`${learningSans.variable} ${learningEditorial.variable}`}>
+    <html
+      lang="nb"
+      className={`${learningSans.variable} ${learningEditorial.variable} ${bifrostOpenSans.variable}`}
+      suppressHydrationWarning
+    >
+      <head>
+        <BifrostThemeInit />
+      </head>
       <body>
         <ApplicationProvider>
           <RefinedProvider>
@@ -73,7 +84,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                                                               <ServerlessProvider>
                                                                 <PhysicalProvider>
                                                                   <LearningProvider>
-                                                                    <AppShell>{children}</AppShell>
+                                                                    <BifrostThemeProvider>
+                                                                      <AppShell>
+                                                                        {children}
+                                                                      </AppShell>
+                                                                    </BifrostThemeProvider>
                                                                   </LearningProvider>
                                                                 </PhysicalProvider>
                                                               </ServerlessProvider>

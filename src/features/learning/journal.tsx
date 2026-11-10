@@ -6,6 +6,7 @@ import { unitIds, units, sourceUrl, type UnitId } from '@/domain/curriculum/mani
 import { CommandDialog } from '@/components/command-dialog';
 import { ManagementTeachingBoundary } from './management-access';
 import './learning.css';
+import '@/features/course/bifrost-guidance.css';
 import { LearningDiagram } from './diagram';
 import { initialProbe } from '@/domain/curriculum/foundations';
 import { CurriculumTrail } from './curriculum-trail';
@@ -24,7 +25,7 @@ export function KnowledgeJournal({
   return (
     <CommandDialog title={t.journal} onClose={onClose} wide>
       <ManagementTeachingBoundary identity={`global-journal:${unit}`}>
-        <div className="knowledge-journal">
+        <div className="knowledge-journal bifrost-learning">
           <Challenge2History />
           <p>{t.journalHint}</p>
           <CurriculumTrail overview unit={unit} />

@@ -1,7 +1,10 @@
 /** Test-only view of the verified pre-fidelity presentation. Current runtime,
  * browser tests and the independent raw-filesystem guard never use this view. */
-import { readFileSync, realpathSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
+import { realpathSync } from 'node:fs';
+import {
+  readPortalBaseline as readFileSync,
+  execPortalBaseline as execFileSync,
+} from './baseline-preservation';
 import { createHash } from 'node:crypto';
 import { strict as assert } from 'node:assert';
 import { isAbsolute, relative, sep } from 'node:path';
