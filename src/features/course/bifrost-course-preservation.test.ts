@@ -19,6 +19,7 @@ import {
 const approved = [
   'src/features/course/course.css',
   'src/features/course/course.tsx',
+  'src/features/course/cloud-computing-chapters.test.ts',
   'src/features/course/guidance-milestones.tsx',
   'src/features/course/guidance-window.tsx',
   'src/features/course/guided-coach.tsx',
@@ -28,6 +29,7 @@ const approved = [
   'src/features/learning/foundations-v2.tsx',
   'src/features/learning/journal.tsx',
   'src/features/learning/networking-inspection.tsx',
+  'src/features/learning/serverless.tsx',
   'tests/e2e/hybrid-experience.spec.ts',
   'tests/e2e/storage-resilience.spec.ts',
   'tests/e2e/identity-foundations.spec.ts',
@@ -117,6 +119,8 @@ const additions = [
   'docs/screenshots/bifrost-course/ci130-after-dark-hub-800x700.png',
   'docs/screenshots/bifrost-course/ci130-after-light-transfer-feedback.png',
   'docs/screenshots/bifrost-course/ci130-after-dark-transfer-feedback.png',
+  'docs/screenshots/bifrost-course/ci130-after-light-serverless-320.png',
+  'docs/screenshots/bifrost-course/ci130-after-dark-serverless-320.png',
   ...[1, 2, 3, 4].map(
     (shard) => `docs/reviews/evidence/bifrost-course/qa/ci130-shard-${shard}.txt`,
   ),
@@ -356,6 +360,12 @@ it('preserves whole original resident controller bodies after only exact class a
     );
 });
 it('preserves all original course handlers, authorization and Journal selection after the finite shell wrappers', async () => {
+  await unchangedExcept('src/features/learning/serverless.tsx', (source) =>
+    source.replace(
+      '<section className="sl-execution" aria-label={c.trace}>',
+      '<section className="sl-execution" aria-label={c.trace} tabIndex={0}>',
+    ),
+  );
   await unchangedExcept('src/features/course/course.tsx', (source) =>
     source
       .replace(
@@ -445,6 +455,7 @@ it('retains every inherited preservation assertion with only finite reader impor
     ['tests/bifrost-foundation-preservation.ts', './', false],
     ['src/features/design/preservation.test.ts', '../../../tests/', true],
     ['src/features/course/hybrid-foundation.test.ts', '../../../tests/', false],
+    ['src/features/course/cloud-computing-chapters.test.ts', '../../../tests/', false],
   ] as const)
     await unchangedExcept(path, (source) => {
       let expected = source.replace(

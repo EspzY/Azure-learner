@@ -932,6 +932,15 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
 .bifrost-learning.course-shell .course-main .serverless-lesson caption {
   color: var(--bfc-base-c-2);
 }
+@media (max-width: 760px) {
+  .bifrost-learning.course-shell .course-main .serverless-lesson .sl-controls {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .bifrost-learning.course-shell .course-main .serverless-lesson .sl-execution {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
 .bifrost-learning.course-shell .course-main .transfer-pass {
   color: var(--bfc-success-fade-c);
   background: var(--bfc-success-fade);

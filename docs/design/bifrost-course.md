@@ -1,5 +1,29 @@
 # Bifrost course presentation
 
+## Final159-file source · exact historical test-reader correction
+
+The mandatory check on the158-file source reported1173/1174 Vitest passing. The single200ms failure was an old whole-manuscript equality: its raw filesystem import observed the approved Serverless `tabIndex={0}`. The actual before/after diff is only that attribute; this is not a timing failure. The original command log and explicit exit1 are retained in the existing CI evidence. Node tests and the final check build were not reached.
+
+Only that old test's filesystem import now uses the already established, hash-validated historical course reader. Every original assertion and its entire body remain unchanged, enforced by an exact whole-original-file import transform. The reader itself is unchanged; it validates current and original blob identities before returning the independently protected B source. Native Git proves the Serverless source in B and the older target both have blob `e1bccbd9dc191ac1354c3c6606f6981ef595edc9`. The direct whole-original Serverless body plus exactly one tabIndex guard remains in place.
+
+This makes the final source159files=20finite inherited+138additions+proof, with106 actual PNGs and the unchanged488-case browser plan. Runtime/UI bytes remain exactly the14-path `snFG…` bindings; no new native screenshots are relabelled or fabricated. A fresh159-source check, independent affected renewal and exact-head complete CI/strict/public delivery remain required.
+
+## Latest corrective source · confirmed320px reflow
+
+A fresh independent audit of the historical155-file `18ef…` / `bmq…` candidate measured a350px document in a320px viewport. The actual five-column execution table was332px inside its284px section; separately, an implicit minimum on the controls grid expanded native controls to311px. The pipeline itself fit. These are observed presentation defects, not fabricated learning results or a timing explanation.
+
+The correction uses only scoped Serverless rules at widths<=760px: a `minmax(0, 1fr)` control track and local horizontal scrolling on the existing labelled execution section. No document overflow is hidden, no font is shrunk and no table cell is clipped. The first CSS-only retest passed document fit and real Chromium focus/ArrowRight scrolling but failed the full Axe `scrollable-region-focusable` rule because explicit focus was absent for other browser semantics. That original red remains preserved. Only `tabIndex={0}` was then added to the existing section; an exact whole-original-file transform proves every original handler, input, explanation, assessment and state transition remains unchanged. This is not an actual Safari-browser test claim.
+
+Normal build `snFGcSyEWXTbbLRRJMXC-`, bound to14 actual runtime source hashes, passed the strengthened existing both-theme Serverless case in14.0seconds under its unchanged30-second limit. Actual native Start/Run, original milestone,1440px and320px full-page Axe, document fit, named-region focus and ArrowRight scrolling all passed. The case remains one of the existing three additions: the plan stays488=439desktop+49compact. The prior five Identity/Storage deadlines remain open observations.
+
+The final finite candidate now has158 implementation files:19 explicit inherited modifications,138 exact additions and the proof itself;106 actual PNGs. The19th inherited path is exactly the single presentation attribute in Serverless. Two real final-build320px captures are included below. The previous22 images retain literal VX/gG build/source lineage; they are not relabelled as final-build. Their widths are>=800px, so the new narrow CSS rules do not apply. Prior18ef fullcheck0 is historical and does not validate this final correction. Fresh final-source independent approval, complete CI/strict and public delivery remain required.
+
+![Actual final light320px execution region](../screenshots/bifrost-course/ci130-after-light-serverless-320.png)
+
+![Actual final dark320px execution region](../screenshots/bifrost-course/ci130-after-dark-serverless-320.png)
+
+## Historical155-file corrective source and preceding investigation
+
 ## Current corrective candidate ·10 November2026
 
 The current presentation source corrects the actual CI130 regressions and the later dark activated-state findings. It is stacked on B foundation `7d68b2c40988385c31c1e514e67e5135a1fbe25e`; course controllers, authored material, assessment rules, stores, original mascot and histories remain unchanged. No new learner task or Azure operation is introduced.

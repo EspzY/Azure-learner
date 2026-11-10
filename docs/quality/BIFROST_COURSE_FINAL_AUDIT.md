@@ -1,5 +1,79 @@
 # Bifrost course experience · Independent Final Audit
 
+**Current Gate 6 review: COMPLETE for the bounded repair. Complete candidate CI, strict release and anonymous final-head delivery verification remain PENDING.**
+
+Reviewer: `/root/course_repair_final_audit`, separate agent. Final implementation stamp: **2026-11-10T00:57:15.723Z**; renewed independent review began **2026-11-10T00:57:55.000Z**. Reviewed B base: `7d68b2c40988385c31c1e514e67e5135a1fbe25e`. Final fingerprint: **`197a28384f8600c2971f8df2a2780ae03eb29270dbd98291959b23fff8d5d844`**. The **159-file** snapshot is **20 finite inherited paths + 138 additions + the proof manifest**, including **106 PNGs**. This review covers that working-tree payload; the previously published `687e338…` remains the failed Quality130 baseline, not new-head acceptance.
+
+## Repair content
+
+No teaching, source claim, question, rubric, model, completion policy, learner history or XP meaning changed. Raw native Git/filesystem comparison rehashed all **2,834 B blobs**: **2,813 current inherited paths match exactly**, twenty have finite before/after bindings, and only the mutable release record is excluded from current inherited-byte equality. The complete locale and domain/store authorities remain protected. Original explanations and actual submitted feedback were inspected; no example completion or answer state was injected. Earlier content PARTIAL and human SME/learning limitations remain unchanged.
+
+## Repair technical
+
+Independent raw proof verifies all **159 normalized hashes and the fingerprint**, exact changed/untracked paths, all 138 additions and 106 decoded PNGs. Six adverse mutations reject altered current/base/added bytes, a missing expected addition, an unknown domain path and an unknown QA Markdown path. Exact historical projections validate the actual finite bytes first; unrelated Git commands remain native. The only mutable metadata paths remain the existing two named QA reports and `current.json`; there is no wildcard or new report exception.
+
+Whole original bodies are retained after four exact reader-import transformations, four resident guide class/import transformations and the previously declared shell/result presentation changes. The entire original `serverless.tsx` equals B after **one `tabIndex={0}` addition** to its existing labelled execution section; no handler or controller statement changes. Its original B and older `eefbcd…` blobs are both `e1bccbd9dc191ac1354c3c6606f6981ef595edc9`.
+
+The final159 correction changes only the old Cloud Computing test's `readFileSync` import to the existing, unchanged, hash-validated historical reader. Native whole-file reconstruction and TypeScript AST comparison preserve the ten other module statements and all four complete original test calls in order. Every original assertion remains. The preceding158 fullcheck's **1173/1174** result was an actual byte mismatch on the approved attribute, not timing; Node/build were not reached. That red remains in the [finite repair evidence](../reviews/evidence/bifrost-course/ci-browser-regressions.json).
+
+Both independently exercised operational Portal boundaries retain Segoe UI, `rgb(0,120,212)` headers, light color scheme and no Bifrost ancestor. No Portal styling, technical engine, SQL, receipt, store, first/help/retry/abandon authority or mascot asset changed.
+
+## Repair visual
+
+The confirmed Transfer, global Journal, Arc, Serverless, Hub and reading-exposure findings are corrected with the existing approved pairs and owned presentation rules. Actual selected Transfer links measure **5.681:1 light / 5.363:1 dark**; their Start controls measure **8.115:1 / 6.813:1**. Expanded global Journal trail text measures **6.952:1 / 5.552:1**. Arc representation and Serverless pipeline small text measure at least **6.608:1 / 5.858:1**. Complete-page Axe passes in the executed critical states.
+
+Execution lineage is explicit:
+
+| Actual execution                        | Scope and applicability to final159                                                                                                                                                                                                                                                                                  |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `18ef…` / build `bmqXZMcYUhLBxgJ9pxG0F` | Five completed light groups: Hub, exposure, actual Transfer submission, global Journal and Arc. Their enclosing batch later failed on320 Serverless overflow. These are retained completed groups, not a complete batch or reruns. Later changes affect only owned Serverless presentation and a test-reader import. |
+| `77bf…` / build `snFGcSyEWXTbbLRRJMXC-` | Seven fresh groups: both-theme Serverless and all six dark groups, plus both Portal boundaries. Continuation **exit0**, `complete=true`; all fourteen runtime hashes match final159. No native run is relabelled as having occurred after the final test-only stamp.                                                 |
+| Final `197a…` source                    | Independent affected guards **21/21, zero failed/pending**; literal final-source fullcheck **exit0**. The reader-only delta requires no UI recapture.                                                                                                                                                                |
+
+The fresh dark Hub passes1920×1080,1440×900,1366×768,1024×768,1024×500,800×700 and320×700; original desktop headings remain exposed where required. Both-theme reading exposure is **74.109375px** against the unchanged **64px** observer criterion, with actual4/8px shared spacing, original focus/scroll behavior and provisioning still unvisited. The earlier86.109375px measurement belongs to invalid spacing-variable declarations resolving to initial margins; it is preserved as historical and receives no final-spacing credit.
+
+Independent320 inspection found a real further MAJOR: the page was **350px** wide, with a332px table and311px native controls inside284px containers. The owned narrow rule now gives controls a `minmax(0,1fr)` track and contains the semantic table in its existing labelled section. Both themes now have a **320px document**,284px scroll region and332px table. Native ArrowRight reaches `scrollLeft=40`; explicit focus has a visible3px outline. All five column headers and seven row headers remain. Full Axe is zero at1440/800/320. No document overflow is hidden, fonts shrunk or cells removed. The first CSS-only correction's focusability Axe failure is retained; the one explicit tab stop closes it without a controller change. No actual Safari execution is claimed.
+
+All **24 literal author image rows** independently match their actual source bytes, PNG dimensions, build, role and source-map reference: **16 VX + 6 gG + 2 snFG**. The five spacing-name corrections are confined to the height600 block; the additional Serverless layout block is confined to widths760 and below. Retained images are labelled with their real earlier producers, rather than claiming whole CSS equality or a new-build recapture. The historical fourteenth Serverless source is explicitly reconstructed from Git, not invented as part of the older thirteen-file producer maps. Fresh independent short/desktop, feedback and focus images were also inspected. [Design and lineage](../design/bifrost-course.md) retain the declared evidence.
+
+## Repair assessment
+
+Real native Start/confirmation, unanswered/selected controls and an actual wrong Submit preserve the original feedback boundary: no result or decisive explanation appears before submission. The original submitted-check comparison, permitted result branch, answer ordering, required rules and handlers remain exact. Technical/XP bytes remain unchanged through the executed concept interactions. The three inherited hover expectations change only their strict expected background to the exact resolved shared token; every substantive prior browser interaction/assertion remains. The complete old485-case source is retained and three actual-UI cases extend the collected plan to **488 = 439 desktop + 49 compact**, legacy878. Collection is not complete CI credit.
+
+## Repair guidance
+
+Original SavvyShark artwork, copy, briefing/Start/Cancel, assistance and independent-context controllers remain preserved. Actual original model Start/Run and milestone Escape were used, and the ordinary expanded global Journal was exercised in both themes. Existing denied-assistance/warning evidence remains historical and source-bound; it is not described as freshly rerun here. The guide submits no resource operation and creates no World/receipt/XP claim. No new guidance or pedagogical authority is approved.
+
+## Repair findings and disposition
+
+| Findings   | Current disposition                                                                                                                                                                                                                                          |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| C-FA-01–02 | Earlier warning contrast/reflow corrections remain preserved; their original red/intermediate evidence and bounded prior retests remain historical.                                                                                                          |
+| C-FA-06–11 | **MAJOR / fixed:** selected Transfer/Start, global Journal, Arc representation, original reading exposure, Serverless pipeline and desktop Hub heading exposure. Source proof, original affected author cases and independent actual states support closure. |
+| C-FA-12–14 | **MAJOR / fixed:** activated dark Transfer scenario/selected feedback, Serverless controls/responsibility/table and Arc topology/facts. Original failed audits remain; both-theme actual UI/full Axe and unchanged-controller proof support closure.         |
+| C-FA-15    | **Note / fixed:** five undefined spacing references now use actual foundation4/8px tokens; the new source guard checks definitions. Corrected original exposure/owner-navigation cases and actual geometry pass.                                             |
+| C-FA-16    | **MAJOR / fixed:** independent320 Serverless document/control/table overflow and the intermediate scroll-focusability failure. Both-theme current-source native fit, labelled focus, keyboard scroll, semantic headers and full Axe pass.                    |
+| C-FA-17    | **MAJOR regression gate / fixed:** the old manuscript guard lacked the finite historical-reader import for the approved tab stop. Its complete four original tests/assertions remain; independent21 and final159 fullcheck pass.                             |
+| C-FA-03–05 | **Notes / open:** Satoshi redistribution/fidelity, unproven earlier CI/browser timing causes and the earlier public dark-theme application observation. No source cause or human acceptance is invented.                                                     |
+
+The first independent158 browser batch's real320 failure and its bounded measurements remain outside the checkout. A later outside audit harness mistakenly counted all twelve semantic header cells as five; its invocation is preserved separately. Corrected selectors verify five column plus seven row headers, with no product/test/settings change. This instrumentation error is not a new product finding or a performance fix.
+
+## Repair regression and delivery boundary
+
+Final159 `npm run check` has actual **exit0**: **1,174 Vitest tests /100 files,503 curriculum tests /30 files,35 Node tests /zero skips**, real isolated local PostgreSQL, all mandatory checks and normal build **`qfMnw8ABwrREwt9yDcE7R`**. Log SHA-256: **`3fde16ab05efe986d2a748eab7ec91cbed51cb59a4f79ec5e4e302e8483439e8`**. The original formatting red, source155 check, source158 manuscript failure, full CI130 reds and all earlier native/harness failures remain separately labelled.
+
+Independent final receipts remain under `/tmp/bifrost-course-final-audit/`: `repair-197a-raw-result.json`, `repair-197a-reader-result.json`, `repair-197a-test-retention.json`, `repair-197a-affected21.json`, `repair-77bf-lineage-result.json` and `repair-77bf-continuation-native/result.json`. Private native ZIPs remain outside Git with mode600. The actual author artifact and frozen guard bind the committed evidence; these local receipts do not impersonate CI.
+
+The original23-case affected batch remains **18 passed /5 cumulative30-second deadlines**: Identity desktop/compact, Storage B desktop/compact and Storage Services desktop. Repeated completed Axe work was measured, but CPU/renderer/scheduler/source causality is unproven. The eight comparison analyses retained equal violation/incomplete sets, then the writer failed without elapsed data; **no Axe option, timing benefit or timing-cause resolution is claimed**. No worker, retry, timeout, skip, old assertion or test-body relaxation was used.
+
+Complete actual new-head488-case CI, immediate strict release and anonymous exact-full-SHA journeys remain delivery gates owned by root. Prior public8/8, targeted passes and this local audit do not replace them. Human SME, novice/IT usability, screen-reader, typography and measured learning/psychometric review remain unperformed. No external infrastructure, credentials, push, PR mutation, merge or production deployment was performed by this reviewer.
+
+---
+
+## Historical reviews and reopened CI130 record
+
+The records below preserve their original source, dates, findings and pending-at-the-time status. The current repair review above supersedes their implementation approval status without erasing their failures or limits.
+
 **REOPENED: current review is PENDING. Actual CI130 exposes open MAJOR visual/accessibility and exposure findings. No whole-course or current delivery approval is inferred from the earlier targeted reviews.**
 
 CI130 tested published `687e338da697ebe3cb85955aed6453dfdd044ed7`, bound to the 103-file `5d3706cdedba209212f6b9afe793b93db2943b1c7a492450a05bad05f6c9b0ba` payload. Its mandatory 1,174-test check passed; the complete browser command reported **23 failed / 462 passed / 485 total**. Full browser/strict acceptance did not pass. The original CI128 timing issue is separate and supplies no explanation for these actual color or exposure failures.

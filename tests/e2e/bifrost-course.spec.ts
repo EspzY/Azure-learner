@@ -650,6 +650,20 @@ test('Bifrost activated Serverless controls observation and pipeline retain cont
       expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
       expect(await technical(page)).toEqual(before);
       await page.screenshot({ path: info.outputPath(`${mode}-activated-serverless.png`) });
+      await page.setViewportSize({ width: 320, height: 700 });
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(
+        true,
+      );
+      const trace = page.locator('.sl-execution');
+      await expect(trace).toHaveAccessibleName(serverlessNb.trace);
+      await trace.scrollIntoViewIfNeeded();
+      await trace.focus();
+      await expect(trace).toBeFocused();
+      await page.keyboard.press('ArrowRight');
+      await expect.poll(() => trace.evaluate((el) => el.scrollLeft)).toBeGreaterThan(0);
+      expect((await new AxeBuilder({ page }).analyze()).violations).toEqual([]);
+      expect(await technical(page)).toEqual(before);
+      await page.screenshot({ path: info.outputPath(`${mode}-activated-serverless-320.png`) });
     } finally {
       await context.close();
     }

@@ -8,7 +8,7 @@ import {
 } from '../../../tests/cc01-preservation';
 import { describe, it, expect } from 'vitest';
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { readBifrostCourse as readFileSync } from '../../../tests/bifrost-course-preservation';
 import {
   cloudChapters,
   cloudChapterFor,

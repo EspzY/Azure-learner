@@ -504,7 +504,7 @@ function Explorer({ blocked }: { blocked: boolean }) {
 }
 function ExecutionTrace({ result }: { result: NonNullable<ReturnType<typeof executeEvents>> }) {
   return (
-    <section className="sl-execution" aria-label={c.trace}>
+    <section className="sl-execution" aria-label={c.trace} tabIndex={0}>
       <div className="sl-pipeline" aria-hidden="true">
         <div className="sl-inbox">
           <small>{c.event}</small>

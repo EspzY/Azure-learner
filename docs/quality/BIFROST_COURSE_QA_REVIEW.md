@@ -1,5 +1,29 @@
 # Bifrost course experience · release QA
 
+## Independent final audit · complete on final159 source
+
+The separate final reviewer completed Gate6 on fingerprint `197a28384f8600c2971f8df2a2780ae03eb29270dbd98291959b23fff8d5d844` after the actual final159 fullcheck0 and its own renewed21/21 affected guards. The existing [final audit](BIFROST_COURSE_FINAL_AUDIT.md) preserves all prior reports and distinguishes actual fresh native states, applicable carried light-state evidence, original observer/test failures and the exact import-only renewal. All confirmed MAJOR presentation findings are fixed; source/images remain frozen. Full exact-head488browser CI, strict release and new anonymous full-SHA public acceptance remain pending until actually executed. Human validation remains unperformed, old timing observations remain open, and no merge/production deployment is approved.
+
+## Actual final159 fullcheck · passed
+
+The implementation is frozen at `2026-11-10T00:57:15.723Z`, fingerprint `197a28384f8600c2971f8df2a2780ae03eb29270dbd98291959b23fff8d5d844`. The exact import-only historical-reader correction first passed21/21 targeted guard cases in7.20s, retaining every original assertion and the Serverless one-attribute whole-file guard.
+
+Literal final159 `npm run check` then ended0:1174Vitest/100files,503curriculum/30files,35Node/0skips,real isolated local PostgreSQL,all mandatory gates and normal production build `qfMnw8ABwrREwt9yDcE7R`. Actual logSHA256 `3fde16ab05efe986d2a748eab7ec91cbed51cb59a4f79ec5e4e302e8483439e8` and explicit exit0 remain outside the checkout. All159 implementation hashes were rechecked exact after completion. Original158/format failures below remain evidence. Fresh independent affected renewal is running; complete exact-head488browser CI/strict and anonymous full-SHA public acceptance remain pending. No timing cause or old five-deadline closure is claimed.
+
+## Final159-file candidate · original158 check failure preserved
+
+The158-file fullcheck ended1 with1173/1174Vitest: an unchanged historical manuscript assertion observed the one authorized Serverless tabIndex. Exact causal correction is only the old test's import of the existing hash-validated historical course reader. Every old assertion/body and the complete original Serverless single-attribute guard remain pinned; the reader itself and all runtime/UI bytes are unchanged. Native Git proves B/older historical Serverless blobs identical. This20th finite import-only path makes159sourcefiles,138additions,106PNGs; the488 browser plan/settings remain unchanged. New stamp, actual159 fullcheck and independent affected renewal are pending; no158 pass or timing closure is invented.
+
+## Latest158-file candidate · final320px repair awaiting independent closure
+
+Final implementation stamp: `2026-11-10T00:45:38.525Z`, fingerprint `77bf519fb3b0e2128820ff7ee775919d93b9ed74ee4d208c581aabf315a36d80`. The source is frozen; a new post-stamp independent audit is pending.
+
+The previous `18ef…` / `c0257db…` complete check0 below is historical. A fresh independent audit then measured actual Serverless document overflow at320px:350px document,332px table in284px section and311px control track. Narrow owned CSS corrects the control-track minimum and keeps the readable semantic table in its own labelled horizontal-scroll region. The initial CSS-only run passed Chromium keyboard scrolling/document fit but retained a serious Axe explicit-focus finding; the original red is preserved. Exactly one `tabIndex={0}` attribute on the existing named section resolves that cross-browser accessibility contract without changing any controller semantics.
+
+The final normal build `snFGcSyEWXTbbLRRJMXC-` has14 actual runtime bindings. One strengthened existing new case passed1/1 in14.0seconds(16.3s invocation), both themes at1440px and320px with full Axe, document fit, native named-region focus/ArrowRight scrolling, original Start/Run/milestone and technical/XP invariance. The actual plan remains488cases. Two final320px images extend the exact source scope to158files=19inherited+138added+proof,106PNGs. Earlier22 images retain explicit historical16VX/6gG producers; no whole-source identity or final-build capture is invented. All original485 cases/assertions/settings remain.
+
+Source proof/new stamp, remaining fresh independent native/audit groups and complete exact-head CI/strict/public gates must follow on these actual final bytes. No new final fullcheck credit is inherited from18ef. The five original Identity/Storage deadlines and historical unproven CI/Compute/Axe/landing observations remain open. No merge or production deployment.
+
 ## Final local check ·10 November2026
 
 The final155-file implementation is stamped `2026-11-10T00:29:38.198Z`, fingerprint `18ef53dab57a4f65afbecd2b0a2220dd7af98a86092d7f38a7c7e1d8d71c0885`. Its first complete-check attempt ended1 solely at formatting of the existing excluded historical audit report, after TypeScript/ESLint passed. That original red remains `/tmp/bifrost-course-ci130-final-fullcheck.log`. Prettier-only report formatting left all155 implementation hashes and the fingerprint exact.
