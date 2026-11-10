@@ -636,7 +636,53 @@
       "bytes": 162424,
       "viewport": "1440x960",
       "producer": "37 original risk-selected cases plus one actual3.9 Home/Subscriptions two-theme read-only journey; normal build, no retries"
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/action-enabled-light.png",
+      "producerPath": "/workspace/azurelab-baseline/contrast-capture-results/first-main-baseline-integr-14191-ut-submitting-an-assessment-desktop-chromium/action-enabled-light.png",
+      "sha256": "24df267c12a75445cfabeaca92fe47113748b61a9f37216d6851828d19c356d6",
+      "bytes": 55048,
+      "viewport": "800x700",
+      "producer": "Actual corrected normal-build activation contrast regression; real original fm10 Start/radio controls, no Submit or positive state injection."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/action-enabled-dark.png",
+      "producerPath": "/workspace/azurelab-baseline/contrast-capture-results/first-main-baseline-integr-14191-ut-submitting-an-assessment-desktop-chromium/action-enabled-dark.png",
+      "sha256": "4dcde31cc3e69a2e5e04b3c21e31e4c560646606c00b499871f9a4f71f71c765",
+      "bytes": 55814,
+      "viewport": "800x700",
+      "producer": "Actual corrected normal-build activation contrast regression; real original fm10 Start/radio controls, no Submit or positive state injection."
     }
   ],
-  "limits": "Actual normal-build screenshots from the stated checkpoint, not fabricated final-head captures. Later changes may affect only tests/evidence/docs; runtime equality must be rechecked. Final public acceptance must independently bind deployed final SHA/build/bundles. No authenticated live Azure parity or human approval inferred."
+  "limits": "Actual normal-build screenshots from the stated checkpoint, not fabricated final-head captures. Later changes may affect only tests/evidence/docs; runtime equality must be rechecked. Final public acceptance must independently bind deployed final SHA/build/bundles. No authenticated live Azure parity or human approval inferred.",
+  "contrastCorrection": {
+    "baseCommit": "0c8a8e30630f994b04eedd9640380e97ac06c874",
+    "normalBuild": "-lZMAAgfSsVBMUTclYNK3",
+    "runtimeDelta": "Only two-line CSS change in src/features/course/bifrost-course.css; earlier491 input hashes/captures describe the preceding checkpoint, not the later corrected source. Settled palette/content and Portal are unchanged.",
+    "cssSHA256": "525e7623b27d36d70b9877f8de0736840e9597cb94c3eae6fa11498148bb402c",
+    "reproduction": {
+      "ciRun": 42773269872,
+      "artifact": 13743990160,
+      "artifactSHA256": "b53939be460b764038aa150442498b1108eb1ece0af26c6acee5ec649bccd232",
+      "axeContrast": 3.78,
+      "minimumLightBefore": 1.0521756036072196,
+      "minimumDarkBefore": 1.0566859600526604,
+      "oldSourceRegression": "new original assertion failed on the guarded public0c candidate; private before trace/report retained"
+    },
+    "after": [
+      {
+        "theme": "light",
+        "enabledFrames": 17,
+        "minimumContrast": 8.114757824878996,
+        "sha256": "58b57aeeecfd5cdbcb2f2364de3fd291d37cfe2685f5c61ebb68595e7340f7e0"
+      },
+      {
+        "theme": "dark",
+        "enabledFrames": 16,
+        "minimumContrast": 6.81317801566898,
+        "sha256": "660e9690b80018abc623e20f9a881d4231d2ea9e06d84d20c09b6e2790545332"
+      }
+    ],
+    "limitations": "Normal corrected local build with explicit source hash, not final-SHA public proof. Full new-head CI/strict/public and follow-up independent audit still required. Old broad Compute/Axe causes are not blanket-closed."
+  }
 }

@@ -53,5 +53,23 @@
       "direct": 488,
       "flaky": 0
     }
-  ]
+  ],
+  "currentCandidateBrowserProfile": {
+    "cases": 511,
+    "desktop": 459,
+    "compact": 52,
+    "retainedInputUnion": 510,
+    "added": "one enabled-state frame contrast regression, both themes; no prior test/assertion/settings change"
+  },
+  "initialCombinedCI": {
+    "run": 42773269872,
+    "head": "0c8a8e30630f994b04eedd9640380e97ac06c874",
+    "checkedMerge": "ad4cbe1882689c913d60bd1f2e7bff3cfc7fb463",
+    "cases": 510,
+    "direct": 509,
+    "flaky": 1,
+    "aggregate": "passed",
+    "strict": "passed",
+    "disposition": "Not the final corrected candidate. One actual serious activation-contrast failure was causally reproduced, not dismissed after retry."
+  }
 }

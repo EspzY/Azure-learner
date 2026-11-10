@@ -27,6 +27,7 @@ export const baselineEdits = [
   'src/portal-fidelity-preservation.test.ts',
   'tests/bifrost-course-preservation.ts',
   'src/features/course/bifrost-course-preservation.test.ts',
+  'src/features/course/bifrost-course.css',
   'tests/e2e/premium-landing.spec.ts',
   'AGENTS.md',
   'README.md',
@@ -57,6 +58,9 @@ export const baselineAdditions = [
   'docs/screenshots/first-main-baseline/subscriptions-current.png',
   'docs/screenshots/first-main-baseline/review-compact.png',
   'docs/screenshots/first-main-baseline/original-receipt.png',
+  'tests/e2e/first-main-baseline.spec.ts',
+  'docs/screenshots/first-main-baseline/action-enabled-light.png',
+  'docs/screenshots/first-main-baseline/action-enabled-dark.png',
 ] as const;
 export const baselineBlob = (bytes: Buffer) =>
   createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex');

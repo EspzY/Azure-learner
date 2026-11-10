@@ -5,7 +5,7 @@
   "author": "first-main-baseline-author",
   "scope": {
     "kind": "first-integrated-main-baseline",
-    "description": "History-preserving integration of the exact Portal/Laboratory3.9 and complete Bifrost/course source stacks into one candidate against original main. No new service, course, model, SQL or assessment semantics. Actual combined verification required; production effects are unverified and merge remains owner-gated.",
+    "description": "History-preserving integration of the exact Portal/Laboratory3.9 and complete Bifrost/course source stacks into one candidate against original main. No new service, course, model, SQL or assessment semantics. Actual combined verification required; production effects are unverified and merge remains owner-gated. One demonstrated enabled-action contrast defect is corrected by a two-line Bifrost-only transition change; one frame-based browser regression retains every previous assertion and setting.",
     "objectives": ["BIFROST-COURSE", "PORTAL-FIDELITY", "PORTAL-PRESERVATION"]
   },
   "sources": [
@@ -1080,6 +1080,18 @@
       "viewport": "1440x960",
       "inspected": true,
       "observation": "Create receipt is retained after deletion with sequence/revision/command identity and original history; native Portal remains separate from Bifrost."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/action-enabled-light.png",
+      "viewport": "800x700",
+      "inspected": true,
+      "observation": "Actual light fm10 choices remain selected but unsubmitted; enabled action is visible after native scrolling. Per-frame measured contrast is recorded separately, not inferred from this settled screenshot."
+    },
+    {
+      "path": "docs/screenshots/first-main-baseline/action-enabled-dark.png",
+      "viewport": "800x700",
+      "inspected": true,
+      "observation": "Actual dark fm10 choices remain selected but unsubmitted; enabled action is visible after native scrolling. Per-frame measured contrast is recorded separately, not inferred from this settled screenshot."
     }
   ],
   "verification": [
@@ -1104,137 +1116,24 @@
       "details": "Actual37/37 original cases plus1 actual3.9 Home/Subscriptions both-theme witness, zero retries; same normal buildqmLnEY0VJ0KnkImZGbFVy, real localPG and original commands/receipts, immutable inputs/capture provenance recorded."
     },
     {
-      "command": "npm run check",
+      "command": "npm run check before contrast correction at f107ab2",
       "result": "passed",
       "details": "Actual final-source f107ab2:1459/1459Vitest116files,35/35Node,503/503curriculum, real isolated PostgreSQL/all mandatory gates/normal build EXIT0. Only excluded audit/QA/release verification metadata changed afterward. Whole510-case CI/strict/public remain pending actual execution."
+    },
+    {
+      "command": "Quality134 before contrast correction",
+      "result": "passed",
+      "details": "Actual initial0c candidate1459Vitest+35Node+503curriculum,510cases509direct+1flaky, all4shards/aggregate/strict succeeded. The serious recovered activation contrast defect was reproduced and is being corrected; this is not acceptance of the later source."
     }
   ],
   "review": {
-    "status": "complete",
-    "fingerprint": "ff2bb1a70594614b6a80feba24f1e72b48a902cef19b0b2791c725ccbe68aa6d",
-    "reviewer": {
-      "id": "first-main-baseline-independent-final-audit",
-      "kind": "agent"
-    },
-    "started": "2026-11-10T07:03:35.000Z",
-    "domains": {
-      "content": {
-        "finding": "Existing content/source/rubric facts are byte-preserved from the normal verified input merge; no new pedagogical approval.",
-        "evidence": [
-          {
-            "path": "src/first-main-baseline-preservation.test.ts"
-          },
-          {
-            "path": "docs/FIRST_MAIN_BASELINE.md"
-          }
-        ]
-      },
-      "technical": {
-        "finding": "Independently verified498 runtime/SQL paths,491 producer input hashes,10 original component blobs and exact normal merge; original engines/receipts/isolation remain.",
-        "evidence": [
-          {
-            "path": "tests/baseline-preservation.ts"
-          },
-          {
-            "path": "src/first-main-baseline-preservation.test.ts"
-          },
-          {
-            "path": "docs/reviews/evidence/first-main-baseline/capture-provenance.json"
-          }
-        ]
-      },
-      "visual": {
-        "finding": "Personally inspected all16 actual combined captures across both themes, feedback, guided/native/free surfaces and compact Review; imperfect header frames and historical Studio scope remain explicit.",
-        "evidence": [
-          {
-            "path": "docs/reviews/evidence/first-main-baseline/capture-provenance.json"
-          },
-          {
-            "path": "docs/screenshots/first-main-baseline/subscriptions-current.png"
-          },
-          {
-            "path": "docs/screenshots/first-main-baseline/guided-savvy.png"
-          }
-        ]
-      },
-      "assessment": {
-        "finding": "Original learning domains/stores/rubrics and first/help/retry/abandon/XP are unchanged; actual native question outcomes and independent boundaries are retained.",
-        "evidence": [
-          {
-            "path": "src/first-main-baseline-preservation.test.ts"
-          },
-          {
-            "path": "tests/e2e/bifrost-course.spec.ts"
-          }
-        ]
-      },
-      "guidance": {
-        "finding": "Approved SavvyShark remains a separate guided pedagogical layer with original assistance boundaries; free Laboratory creates no course credit.",
-        "evidence": [
-          {
-            "path": "docs/screenshots/first-main-baseline/guided-savvy.png"
-          },
-          {
-            "path": "tests/e2e/bifrost-course.spec.ts"
-          }
-        ]
-      },
-      "regression": {
-        "finding": "Independent raw/AST/source/config/provenance checks pass; actual37+1 normal-build cases are distinct from still-required510 complete CI/strict/public gates. Historical reds remain.",
-        "evidence": [
-          {
-            "path": "src/first-main-baseline-preservation.test.ts"
-          },
-          {
-            "path": "docs/quality/FIRST_MAIN_BASELINE_QA.md"
-          },
-          {
-            "path": "docs/quality/FIRST_MAIN_BASELINE_FINAL_AUDIT.md"
-          }
-        ]
-      }
-    },
-    "findings": [
-      {
-        "id": "IFMB-01",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "Vercel production controls are unverified; main merge remains owner-blocked until actual provider behavior and recovery target are inspected."
-      },
-      {
-        "id": "IFMB-02",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "PR73/74 provenance commits are not ancestors. Retain refs until separately approved archival tags or verified provenance replacement."
-      },
-      {
-        "id": "IFMB-03",
-        "severity": "minor",
-        "status": "open",
-        "description": "Older timing/landing/Compute/VM-debrief/Axe findings remain open; current passes or retries do not establish causal closure."
-      },
-      {
-        "id": "IFMB-04",
-        "severity": "minor",
-        "status": "open",
-        "description": "Some retained frames have unpainted header text; stable frames show controls, but cause is not established. Preserve captures and compare final public behavior; historic3.5 Studio is not current3.9 proof."
-      },
-      {
-        "id": "IFMB-05",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "Course-v2 and Laboratory3.9 still need an approved versioned engine/evidence adapter. No automatic migration or full consolidation claim."
-      },
-      {
-        "id": "IFMB-06",
-        "severity": "note",
-        "status": "accepted-limitation",
-        "description": "Complete new-candidate CI/aggregate/strict and final-SHA public verification remain pending delivery gates, not implementation audit credit."
-      }
-    ],
-    "report": {
-      "path": "docs/quality/FIRST_MAIN_BASELINE_FINAL_AUDIT.md"
-    }
+    "status": "pending",
+    "fingerprint": null,
+    "reviewer": null,
+    "started": null,
+    "domains": {},
+    "findings": [],
+    "report": null
   },
   "snapshot": {
     "files": {

@@ -259,6 +259,8 @@ html[data-bf-theme='dark'] .bifrost-learning.course-shell {
   background: var(--bfc-theme);
   color: var(--bfc-theme-hc);
   border-color: var(--bfc-theme);
+  /* State color pairs change together; interpolated backgrounds lose contrast. */
+  transition-property: border-color, box-shadow;
 }
 .bifrost-learning.course-shell
   .course-main

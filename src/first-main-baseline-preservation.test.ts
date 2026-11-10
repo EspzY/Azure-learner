@@ -72,9 +72,12 @@ it('checks the complete actual integrated path union using native filesystem and
     'docs/screenshots/first-main-baseline/subscriptions-current.png',
     'docs/screenshots/first-main-baseline/review-compact.png',
     'docs/screenshots/first-main-baseline/original-receipt.png',
+    'tests/e2e/first-main-baseline.spec.ts',
+    'docs/screenshots/first-main-baseline/action-enabled-light.png',
+    'docs/screenshots/first-main-baseline/action-enabled-dark.png',
   ]);
   expect([...baselineEdits].filter((p) => p.startsWith('src/') && !p.endsWith('.test.ts'))).toEqual(
-    [],
+    ['src/features/course/bifrost-course.css'],
   );
   expect(expected.has(baselineManifest)).toBe(false);
 });
@@ -86,13 +89,24 @@ it.each(['assets', 'historical evidence', 'documents', 'source and tests'])(
     for (const [path, hash] of rows) expect(actual.get(path), path).toBe(hash);
   },
 );
-it('keeps every runtime module and migration byte-identical to the normal parent merge', () => {
+it('keeps the normal runtime and SQL merge with only the exact demonstrated contrast correction', () => {
   const p = baselineTree(baselineParents.portal),
     c = baselineTree(baselineParents.course),
     b = baselineTree(baselineCommon);
   for (const path of new Set([...p.keys(), ...c.keys()])) {
     if (!(path.startsWith('src/') && !path.endsWith('.test.ts')) && !path.startsWith('database/'))
       continue;
+    if (path === 'src/features/course/bifrost-course.css') {
+      const before = original('course', path).toString();
+      const old =
+        '  background: var(--bfc-theme);\n  color: var(--bfc-theme-hc);\n  border-color: var(--bfc-theme);\n';
+      const next =
+        old +
+        '  /* State color pairs change together; interpolated backgrounds lose contrast. */\n  transition-property: border-color, box-shadow;\n';
+      expect(before.split(old)).toHaveLength(2);
+      expect(readFileSync(path, 'utf8')).toBe(before.replace(old, next));
+      continue;
+    }
     const ph = p.get(path),
       ch = c.get(path),
       bh = b.get(path);
