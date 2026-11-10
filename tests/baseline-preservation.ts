@@ -154,7 +154,7 @@ function parentView(kind: keyof typeof baselineParents) {
       return nativeRead(path, options as undefined);
     }
     const key = relative(root, canonical).split(sep).join('/');
-    assert(tree.has(key), 'not a pinned parent path: ' + key);
+    assert(tree.has(key), 'unapproved read: not a pinned parent path: ' + key);
     const actual = nativeRead(path);
     if (!metadata.has(key))
       assert.equal(
