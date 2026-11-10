@@ -757,14 +757,46 @@
       "objectives": ["PORTAL-FIDELITY"],
       "claims": ["portal.fidelity-subset"],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed.",
-      "theory": [{ "path": "docs/PORTAL_RESOURCE_FIDELITY.md" }],
-      "mechanism": [{ "path": "src/features/portal/resource-context.ts" }],
-      "practice": [{ "path": "tests/e2e/portal-resource-fidelity.spec.ts" }],
-      "feedback": [{ "path": "src/features/portal/resource-details.tsx" }],
-      "visual": [{ "path": "src/features/laboratory/integrated-resource.tsx" }],
-      "accessible": [{ "path": "tests/e2e/portal-resource-fidelity.spec.ts" }],
-      "assessment": [{ "path": "src/portal-fidelity-preservation.test.ts" }],
-      "savvyshark": [{ "path": "src/features/course/guided-coach.tsx" }],
+      "theory": [
+        {
+          "path": "docs/PORTAL_RESOURCE_FIDELITY.md"
+        }
+      ],
+      "mechanism": [
+        {
+          "path": "src/features/portal/resource-context.ts"
+        }
+      ],
+      "practice": [
+        {
+          "path": "tests/e2e/portal-resource-fidelity.spec.ts"
+        }
+      ],
+      "feedback": [
+        {
+          "path": "src/features/portal/resource-details.tsx"
+        }
+      ],
+      "visual": [
+        {
+          "path": "src/features/laboratory/integrated-resource.tsx"
+        }
+      ],
+      "accessible": [
+        {
+          "path": "tests/e2e/portal-resource-fidelity.spec.ts"
+        }
+      ],
+      "assessment": [
+        {
+          "path": "src/portal-fidelity-preservation.test.ts"
+        }
+      ],
+      "savvyshark": [
+        {
+          "path": "src/features/course/guided-coach.tsx"
+        }
+      ],
       "assessmentStatus": "unchanged-existing"
     }
   ],
@@ -3717,35 +3749,66 @@
   ],
   "gates": {
     "source": {
-      "checks": [{ "path": "docs/reviews/evidence/portal-resource-fidelity/public-sources.json" }],
+      "checks": [
+        {
+          "path": "docs/reviews/evidence/portal-resource-fidelity/public-sources.json"
+        }
+      ],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "curriculum": {
-      "checks": [{ "path": "src/portal-fidelity-preservation.test.ts" }],
+      "checks": [
+        {
+          "path": "src/portal-fidelity-preservation.test.ts"
+        }
+      ],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "simulation": {
-      "checks": [{ "path": "src/portal-fidelity-preservation.test.ts" }],
+      "checks": [
+        {
+          "path": "src/portal-fidelity-preservation.test.ts"
+        }
+      ],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "savvyshark": {
-      "checks": [{ "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md" }],
+      "checks": [
+        {
+          "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md"
+        }
+      ],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "visual-accessibility": {
-      "checks": [{ "path": "tests/e2e/portal-resource-fidelity.spec.ts" }],
+      "checks": [
+        {
+          "path": "tests/e2e/portal-resource-fidelity.spec.ts"
+        }
+      ],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "independent-final-audit": {
-      "checks": [{ "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md" }],
+      "checks": [
+        {
+          "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md"
+        }
+      ],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     },
     "delivery": {
-      "checks": [{ "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_RELEASE_REVIEW.md" }],
+      "checks": [
+        {
+          "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_RELEASE_REVIEW.md"
+        }
+      ],
       "limits": "Technical Portal presentation and QA only, not a new learner task or teaching claim. One unchanged authoritative Laboratory3.9 World and original command/replay/persistence contracts; course-v2 remains preserved and technically separate until an approved versioned adapter. No domain/SQL/model, assessment, first/help/retry/abandon, Journal, XP, mascot, external infrastructure, credentials/Vercel, merge or production change. Official public documentation/images establish bounded hierarchy and supported workflow patterns, not authenticated live Azure parity, full service coverage or blanket icon UI rights. Unsupported controls remain absent. Human SME/learning/screen-reader and formal rights review unperformed."
     }
   },
-  "humanReview": { "sme": "unperformed", "learning": "unperformed" },
+  "humanReview": {
+    "sme": "unperformed",
+    "learning": "unperformed"
+  },
   "visualEvidence": [
     {
       "path": "docs/reviews/evidence/portal-resource-fidelity/after/function-app-overview.png",
@@ -3822,13 +3885,113 @@
     }
   ],
   "review": {
-    "status": "pending",
+    "status": "complete",
     "fingerprint": "a15fbcb765fbc301bb66ba339e4a53f2773b0f3176ae85135e2e0904adf9c89c",
-    "reviewer": null,
-    "started": null,
-    "domains": {},
-    "findings": [],
-    "report": null
+    "reviewer": {
+      "id": "agent:/root/fidelity_independent_final",
+      "kind": "agent"
+    },
+    "started": "2026-11-10T00:02:50.536Z",
+    "domains": {
+      "content": {
+        "finding": "Actual 39 HTML sources and 18 publisher images, bounded rights and hierarchy claims checked; no new teaching authority.",
+        "evidence": [
+          {
+            "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md",
+            "marker": "39 actual captured"
+          }
+        ]
+      },
+      "technical": {
+        "finding": "Exact-ID hierarchy, original native receipts and read-only PostgreSQL World and all five event rows passed; engines, SQL and controllers preserved.",
+        "evidence": [
+          {
+            "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md",
+            "marker": "READ ONLY PostgreSQL"
+          }
+        ]
+      },
+      "visual": {
+        "finding": "IAC-03 fixed and actual fresh production Basics full Axe returned zero violations; current desktop and compact captures inspected with honest producer bindings.",
+        "evidence": [
+          {
+            "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md",
+            "marker": "Final affected renewal"
+          }
+        ]
+      },
+      "assessment": {
+        "finding": "All 2,964 parent paths and 110 snapshot entries independently bound; original histories and first-attempt/course bytes preserved.",
+        "evidence": [
+          {
+            "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md",
+            "marker": "2,964 parent files"
+          }
+        ]
+      },
+      "guidance": {
+        "finding": "Actual guided Start, minimize, native create and exact return, plus independent suppression passed; free absence and neutral bytes retained.",
+        "evidence": [
+          {
+            "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md",
+            "marker": "Actual native guided"
+          }
+        ]
+      },
+      "regression": {
+        "finding": "Own 37 affected tests passed on unchanged correction bodies; fresh final affected case passed. Complete 490-case CI, full check, strict release and public verification remain pending; red history and timing uncertainty retained.",
+        "evidence": [
+          {
+            "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md",
+            "marker": "Actual affected native retest"
+          }
+        ]
+      }
+    },
+    "findings": [
+      {
+        "id": "IAC-01",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Inherited PostgreSQL inventory expectation contradicted authorized child classification.",
+        "fix": "Only exact category literal changes; whole-original-file transform guard retains every other assertion.",
+        "retests": [
+          {
+            "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md",
+            "marker": "37 affected tests"
+          }
+        ]
+      },
+      {
+        "id": "IAC-02",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Historical reader rejected genuine native temporary publisher output.",
+        "fix": "Canonical actual repository/temp handling retains per-read pins, full-tree validation and symlink protection.",
+        "retests": [
+          {
+            "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md",
+            "marker": "37 affected tests"
+          }
+        ]
+      },
+      {
+        "id": "IAC-03",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Actual new resource-group 3.9 Basics Axe failed heading-order on H3 after page H1 without H2.",
+        "fix": "Only native Resource details H3 becomes H2; the existing new test adds exact heading and full Basics Axe assertions.",
+        "retests": [
+          {
+            "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md",
+            "marker": "Actual affected native retest"
+          }
+        ]
+      }
+    ],
+    "report": {
+      "path": "docs/quality/PORTAL_RESOURCE_FIDELITY_FINAL_AUDIT.md"
+    }
   },
   "snapshot": {
     "files": {
