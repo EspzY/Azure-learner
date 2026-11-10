@@ -950,6 +950,12 @@
         },
         {
           "path": "src/first-main-baseline-preservation.test.ts"
+        },
+        {
+          "path": "tests/e2e/first-main-baseline.spec.ts"
+        },
+        {
+          "path": "src/features/course/bifrost-course.css"
         }
       ],
       "limits": "Candidate-specific combined verification is required. Parent results are historical provenance only. No human SME/learning/screen-reader or blanket license approval is inferred. No old domain, SQL, receipt, assessment, first/help/retry/abandon, Journal or XP semantic change; course-v2 remains separate from Laboratory3.9. Production settings are unavailable; no merge or production/configuration action is authorized."
@@ -1124,16 +1130,176 @@
       "command": "Quality134 before contrast correction",
       "result": "passed",
       "details": "Actual initial0c candidate1459Vitest+35Node+503curriculum,510cases509direct+1flaky, all4shards/aggregate/strict succeeded. The serious recovered activation contrast defect was reproduced and is being corrected; this is not acceptance of the later source."
+    },
+    {
+      "command": "npm run check",
+      "result": "passed",
+      "details": "Actual corrected-source ec05631 fullcheck EXIT0:1459/1459Vitest116files,35/35Node,503/503curriculum, real isolated PostgreSQL, mandatory gates and normal build. Earlier timing/guard/type reds and stopped143 run retained. Fresh511-case CI/strict/public still required."
+    },
+    {
+      "command": "corrected activation contrast and affected native controls",
+      "result": "passed",
+      "details": "New regression first failed on actual public0c before correction. Corrected production build: original migration and new both-theme activation2/2, actual light/dark feedback+Journal2/2, final capture witness1/1; no retries. First enabled frames stay >=8.114light/6.813dark. No answer submitted by the frame regression; all original assertions remain."
+    },
+    {
+      "command": "npm run test:e2e:plan after contrast correction",
+      "result": "passed",
+      "details": "Actual511=459desktop52compact, legacy918; retained510input cases plus one targeted state-change contrast regression. Original settings unchanged."
     }
   ],
   "review": {
-    "status": "pending",
-    "fingerprint": null,
-    "reviewer": null,
-    "started": null,
-    "domains": {},
-    "findings": [],
-    "report": null
+    "status": "complete",
+    "fingerprint": "7660994e3bd558fe6c9ba3e1fdb5be56e6a5e890f9aa9ab22786dd47f9dab1ba",
+    "reviewer": {
+      "id": "first-main-baseline-independent-final-audit",
+      "kind": "agent"
+    },
+    "started": "2026-11-10T07:44:27.000Z",
+    "domains": {
+      "content": {
+        "finding": "Original content/source facts retain initial raw preservation evidence; only scoped presentation contrast changed, with no new teaching or human approval.",
+        "evidence": [
+          {
+            "path": "src/first-main-baseline-preservation.test.ts"
+          },
+          {
+            "path": "docs/FIRST_MAIN_BASELINE.md"
+          }
+        ]
+      },
+      "technical": {
+        "finding": "Sole runtime delta is the exact two-line enabled-primary CSS transformation; original engine/SQL/store/receipt/session/assessment semantics remain unchanged. All3183 snapshot bytes independently checked.",
+        "evidence": [
+          {
+            "path": "src/first-main-baseline-preservation.test.ts"
+          },
+          {
+            "path": "src/features/course/bifrost-course.css"
+          },
+          {
+            "path": "docs/reviews/evidence/first-main-baseline/capture-provenance.json"
+          }
+        ]
+      },
+      "visual": {
+        "finding": "Independent causal review links original3.78 Axe failure and old1.052/1.057 frame minima to180ms background interpolation. Corrected17/16 enabled frames yield minima8.115/6.813; both new actual captures inspected. Prior header frames and older Compute/Axe causes remain open.",
+        "evidence": [
+          {
+            "path": "tests/e2e/first-main-baseline.spec.ts"
+          },
+          {
+            "path": "docs/screenshots/first-main-baseline/action-enabled-light.png"
+          },
+          {
+            "path": "docs/screenshots/first-main-baseline/action-enabled-dark.png"
+          },
+          {
+            "path": "docs/reviews/evidence/first-main-baseline/capture-provenance.json"
+          }
+        ]
+      },
+      "assessment": {
+        "finding": "Regression uses original Start/radio controls but never Submit; existing assessment/first/help/retry/abandon/rubric/Journal/XP behavior and original migration assertions remain byte-identical.",
+        "evidence": [
+          {
+            "path": "tests/e2e/file-movement-migration.spec.ts"
+          },
+          {
+            "path": "tests/e2e/first-main-baseline.spec.ts"
+          },
+          {
+            "path": "src/first-main-baseline-preservation.test.ts"
+          }
+        ]
+      },
+      "guidance": {
+        "finding": "Native Portal, approved SavvyShark and assistance boundaries are outside the sole scoped course-button delta; original guided/free separation evidence remains valid with explicit producer provenance.",
+        "evidence": [
+          {
+            "path": "docs/screenshots/first-main-baseline/guided-savvy.png"
+          },
+          {
+            "path": "src/first-main-baseline-preservation.test.ts"
+          }
+        ]
+      },
+      "regression": {
+        "finding": "Corrected-source fullcheck1459+35+503/realPG/build0, original migration+new regression2/2 and affected feedback/Journal2/2 pass without retry.511=459+52 collection is not full new-head CI. Earlier510CI/public passes and original failures remain historical only.",
+        "evidence": [
+          {
+            "path": "docs/quality/FIRST_MAIN_BASELINE_QA.md"
+          },
+          {
+            "path": "tests/e2e/first-main-baseline.spec.ts"
+          },
+          {
+            "path": "docs/quality/FIRST_MAIN_BASELINE_FINAL_AUDIT.md"
+          }
+        ]
+      }
+    },
+    "findings": [
+      {
+        "id": "IFMB-01",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "Vercel production controls are unverified; main merge remains owner-blocked until actual provider behavior and recovery target are inspected."
+      },
+      {
+        "id": "IFMB-02",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "PR73/74 provenance commits are not ancestors. Retain refs until separately approved archival tags or verified provenance replacement."
+      },
+      {
+        "id": "IFMB-03",
+        "severity": "minor",
+        "status": "open",
+        "description": "Older timing/landing/Compute/VM-debrief/Axe findings remain open; current passes or retries do not establish causal closure."
+      },
+      {
+        "id": "IFMB-04",
+        "severity": "minor",
+        "status": "open",
+        "description": "Some retained frames have unpainted header text; stable frames show controls, but cause is not established. Preserve captures and compare final public behavior; historic3.5 Studio is not current3.9 proof."
+      },
+      {
+        "id": "IFMB-05",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "Course-v2 and Laboratory3.9 still need an approved versioned engine/evidence adapter. No automatic migration or full consolidation claim."
+      },
+      {
+        "id": "IFMB-06",
+        "severity": "note",
+        "status": "accepted-limitation",
+        "description": "Corrected-source fullcheck passed, but complete511-case exact-candidate CI/aggregate/strict and corrected-head public verification remain pending delivery. Initial510CI/public results are not inherited."
+      },
+      {
+        "id": "IFMB-07",
+        "severity": "major",
+        "status": "fixed",
+        "description": "Enabled primary action foreground changed instantly while background transitioned180ms, producing actual3.78 Axe contrast and old-frame minima1.052light/1.057dark.",
+        "fix": "Only the two scoped CSS lines restrict enabled-primary transitions to border-color/box-shadow, preserving state color pairs; exact complete stylesheet transformation is pinned.",
+        "retests": [
+          {
+            "path": "tests/e2e/first-main-baseline.spec.ts"
+          },
+          {
+            "path": "tests/e2e/file-movement-migration.spec.ts"
+          },
+          {
+            "path": "docs/reviews/evidence/first-main-baseline/capture-provenance.json"
+          },
+          {
+            "path": "docs/quality/FIRST_MAIN_BASELINE_QA.md"
+          }
+        ]
+      }
+    ],
+    "report": {
+      "path": "docs/quality/FIRST_MAIN_BASELINE_FINAL_AUDIT.md"
+    }
   },
   "snapshot": {
     "files": {
@@ -1142,7 +1308,7 @@
       ".gitignore": "4f3bae9e26813f1a305e3f32c0d581b9c5bad196a2e19f72339e4fdf15d03d40",
       ".prettierignore": "0242eb0f294ef1d4c6bcde7b56f5cd08a75b2c88e55ce27203c1fef4c1171588",
       ".prettierrc.json": "f583ff6d8ba542b76af46c4c024a0941b77aee51133bb0f69ec6eb1fa613de7e",
-      "AGENTS.md": "e566a308d092e98c8c93672d1894295002cc29efc6964c192c4ce13f99d3edfa",
+      "AGENTS.md": "0d09f0493b3d35d1073431f7578341740ee1f87506d9e28c88bb65f4e7887d4d",
       "README.md": "e727790de74d8b16c4d1da897d7f4a0ed6ffd5b8a81bf5db735b698506e63608",
       "database/laboratory-v3/001.sql": "354de1d0f35d321ffbeaf02481c41b062d2a779c3551ce313d24d69f34f24cda",
       "database/laboratory-v3/002-networking.sql": "64e41a6f786e8d1c8a7c0144655c3594745738b433949014c7252e9355f48a9d",
@@ -1202,7 +1368,7 @@
       "docs/EXPERIENCE_DESIGN.md": "3a1bd2d6f44b120748865659e31bc6244d448fc431e024e3b8de409e84d3ca21",
       "docs/EXPERIENCE_PATTERNS.md": "0dcebb46077950f1d49f6a2f3911daa19f87399d5bff2ba15b630653531ca752",
       "docs/FILE_MOVEMENT_MIGRATION.md": "07cd085038ce30669d0579c5d4d9f1c5be83709e3fd2424c0b122221ea3b3efa",
-      "docs/FIRST_MAIN_BASELINE.md": "15d8aa1d55cc81798f562474d019c819261bb18632387fdba99ac563d86da316",
+      "docs/FIRST_MAIN_BASELINE.md": "2e9a2851ca6467664eda88f343e518509f823ce2b92e86bc3d5ddf51f971544a",
       "docs/FOUNDATIONS_01_CONTENT.md": "306dcd8af53315cbadbe7a16aef3f1cf3fba947e15f5c8890b4ef3eab5c518f6",
       "docs/FOUNDATIONS_31A_STORYBOARD.md": "f502fed4ef3e8c264d3c4cabeffb9411a581c6b5497a9cc63310f54779fc959d",
       "docs/FOUNDATIONS_31B_HANDOFF.md": "f0f041b41c27d6c8801bdad1a123759ceb5fbe77ca06443aa9ea9e6f33391679",
@@ -1475,9 +1641,9 @@
       "docs/reviews/evidence/cloud-concepts-independent/selected-images.json": "c5c29cfca79aef098e4960ba6606b469fd152a1771c3158bcf8707627cc47461",
       "docs/reviews/evidence/cloud-concepts-independent/source-check.json": "a5bdbdc77660c5d5bebe590564f61d21b2b06f90d9db3b85affb9ad6bccdd79d",
       "docs/reviews/evidence/cloud-concepts-independent/source-discovery.json": "880988ed6265eb77f1a82ec52e005c61ad2f733a31e7cd28b3b0f83883211918",
-      "docs/reviews/evidence/first-main-baseline/capture-provenance.json": "70fcb78920462915588fc7a7d60dd84284152f737679785c3684367abe104c36",
-      "docs/reviews/evidence/first-main-baseline/integration-review.json": "69d93d18d46091cb097b9eac99d7eadb8f4f0480d5b3b66c5d0e79c792d3b107",
-      "docs/reviews/evidence/first-main-baseline/source-manifest.json": "5ae42887cc918c551785d9d0969c234424d9fd654ae73aeb2539d7121d102a20",
+      "docs/reviews/evidence/first-main-baseline/capture-provenance.json": "038f30d6f38c163689949a777a396be63cfad33cdc45c25b0294799fc65e0554",
+      "docs/reviews/evidence/first-main-baseline/integration-review.json": "495ddf566eec57ce1e2b5593064f2e8318b239ca59daf1760dbe4cdb86272c89",
+      "docs/reviews/evidence/first-main-baseline/source-manifest.json": "9edb3efe5531d36773b9988d81eb757dbc10efcff8e879289c52807dc4f2fdb0",
       "docs/reviews/evidence/hybrid51-author-browser.json": "efbf6262af8a9ae458aa6dcdbc726f87742f352f36ab0c143f0a79b549a03a88",
       "docs/reviews/evidence/hybrid51-design-sources.json": "9d76480a8ed8f0ffc7b2f7c8fd0d840901790251ea1e45440087a8aea84ed120",
       "docs/reviews/evidence/hybrid51-preservation.json": "780d5377156d278d3be8cd5d083a463786fcbbc8017cb2159ba531dcc4cf31c5",
@@ -2920,6 +3086,8 @@
       "docs/screenshots/expedition-mobile-teaching.png": "823c5ec3f8aefec7efb7c406fcb5195f975021912e412c3fc9a5da416ad85ef6",
       "docs/screenshots/expedition-mobile-world.png": "846271bc3498efc18759e65e152a6b51751089698cbf929642b9611866dc2d70",
       "docs/screenshots/expedition-narrow-portal.png": "1c8a1c0edbcb8a12742e5afa358587904972e0e04939e45fd342a7120fedd864",
+      "docs/screenshots/first-main-baseline/action-enabled-dark.png": "4dcde31cc3e69a2e5e04b3c21e31e4c560646606c00b499871f9a4f71f71c765",
+      "docs/screenshots/first-main-baseline/action-enabled-light.png": "24df267c12a75445cfabeaca92fe47113748b61a9f37216d6851828d19c356d6",
       "docs/screenshots/first-main-baseline/application-chain.png": "3e901c8ff2e00dd26e16bb6416450baec2b292bc5af7a360c04f313e1c3f7819",
       "docs/screenshots/first-main-baseline/catalogue-icons.png": "d0f97bd6df71d745a0ea14e9128ff4062e0147bcfcfdf1cd8a3e98284978778b",
       "docs/screenshots/first-main-baseline/course-hub-dark.png": "b0a7de70b189b2a821d698055dfd983251cb548276e99ed30658d51844b3a08c",
@@ -3812,7 +3980,7 @@
       "src/features/course/audit-review.test.ts": "69175dd514563ae11d895d779146d4c7715467c43321d7db70a41ec4a969509b",
       "src/features/course/audit-review.ts": "90d6dfea5b5e430b587dd2c06e24ec5813ffad86ea38336e785e8cc6c43882f5",
       "src/features/course/bifrost-course-preservation.test.ts": "f74cfb30a3890724b88b594b8435624b69611f5d6df4fc7c0a63f489182c06ec",
-      "src/features/course/bifrost-course.css": "b65a787f1f87e555390ca1b673773673f41d1814937cd3345e103436f211153c",
+      "src/features/course/bifrost-course.css": "525e7623b27d36d70b9877f8de0736840e9597cb94c3eae6fa11498148bb402c",
       "src/features/course/bifrost-guidance.css": "ce26f45dbf7f8aa039406a489aac6a552b416d5c9bd17fa862477a34819c0568",
       "src/features/course/challenge-return.tsx": "2e5df315c64a493f6245d0fb3f883a2ba2ce2e4e478f3ff75f0c5579fddfc058",
       "src/features/course/cloud-computing-chapters.test.ts": "988109cb1f988835cbb84d5dabfbda29e77a96d9413bd01ab8b0fedc03df2bd3",
@@ -4097,7 +4265,7 @@
       "src/features/portal/shared.tsx": "8cc6d82f78a295a2f7ea3009d2e03baf3307dfc3a85aaae529b9f8a311913ef9",
       "src/features/portal/subscriptions.tsx": "4aa869d5a314a59d5c700d2449aa77ff58ccd2d061d099096cd38e8bd44e2fd4",
       "src/features/portal/vm-form.tsx": "ff9d70d5f2073493de3180fd3776297f5db0a7a76d64df98119fac4177bc83b2",
-      "src/first-main-baseline-preservation.test.ts": "d1ee1c8b2709bd87b00b769d67dacb187e6abdfd0a628f764fa1b5d246d2457b",
+      "src/first-main-baseline-preservation.test.ts": "165029d4076b6293355f8edb95ac355bbfea3755974c47f243297e0842a70950",
       "src/integrated-platform-preservation.test.ts": "374edc8816531a93ce05852f6cbbcbf88294ade8f025845c9ac8130b8dd48809",
       "src/laboratory-activation.test.ts": "10fd2e2ccc49072469c4d9d1a2670cd61bdd98a075841a9f5dfaf68b04777467",
       "src/laboratory-application-api.test.ts": "0d4ec6f2a63b8f3eeeaf9c21f40d65ad0d8c7a3151ea7b6a45852c5475613547",
@@ -4196,7 +4364,7 @@
       "src/resource-platform-ci-workflow.test.ts": "cc0bfbbe6bd4a63d910847408fdd2e3648107d4e928a8ff392a61f51e300a302",
       "src/resource-platform-preservation.test.ts": "18fdfda41546c3e8e0bdf16078e5c684b39e3e6420b3896dc9ccf414d315d26e",
       "src/shared-portal-preservation.test.ts": "603d2899924aa515d81feb5485d499ade75ea49b5a1398c489dd7a70b9b2300a",
-      "tests/baseline-preservation.ts": "63c21448fbb889fcad426d79a740b7aa7b331a94e2f82d187e5a37a1fd56f53f",
+      "tests/baseline-preservation.ts": "03854e71bdd36f4b058cd1bacada7f8d98f5f631d4d3380465de1ee43342f730",
       "tests/bifrost-course-preservation.ts": "15f386ff978bbfe4e4da3a9598ad35d10d94e12560f0ef00852a67dff102bafd",
       "tests/bifrost-foundation-preservation.ts": "a7e846277e4cee2cfd3d88d6ca7dc47448df069314f08a76694756bf2893c742",
       "tests/cc01-preservation.ts": "f0d989d5ee60205edbadb837bf6151d836eae27108f538b677cfe798762e5a62",
@@ -4231,6 +4399,7 @@
       "tests/e2e/ephemeral-landing.spec.ts": "e529a618f69b87f2d82c2e58701ac8710260cc931d2aba1036a08c0a73da90e2",
       "tests/e2e/file-movement-migration.spec.ts": "6e75693997e2855846a059c6d56c7fcde3dcab4f1cf3ef5b48ca14abddcfbdd9",
       "tests/e2e/final-quality-sprint.spec.ts": "bcc98e202c74fbd7953cb01739d8aeb68defb8e9d0c3662e45d678e43c010157",
+      "tests/e2e/first-main-baseline.spec.ts": "9b4db6c297566476c1871708557a198901fc1f387104198deab06dcc8c89dcee",
       "tests/e2e/foundations-v2.spec.ts": "95bf621b57923043976a08cf1da7b03f1f1591859ecfc8721c5f240fc82ef7ed",
       "tests/e2e/governance-compliance.spec.ts": "f0f47e51d2eac31c63b7a35167913528d667ca074fab511c941b46d5ad1ae845",
       "tests/e2e/guided-learning-polish.spec.ts": "28e9faf90ba69a23f351fab2e78c20e2211d21c8a3947a1dc32f74dfe93c3467",
@@ -4319,5 +4488,5 @@
       "vitest.config.ts": "e6042c625d1b2c2bb1f590fae0cbefa454bb074dfde76ac1982e8f60ad893f7f"
     }
   },
-  "implementationFinished": "2026-11-10T07:03:31.960Z"
+  "implementationFinished": "2026-11-10T07:42:33.134Z"
 }

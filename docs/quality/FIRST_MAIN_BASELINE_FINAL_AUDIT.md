@@ -1,3 +1,29 @@
+# Latest verdict — post-fix Independent Final Audit
+
+**Accepted implementation after the causal contrast correction; no open new BLOCKER/MAJOR. Corrected-head complete CI/strict/public delivery remains pending. No merge or production action is approved.**
+
+## Post-fix follow-up —10 November2026
+
+Separate reviewer `first-main-baseline-independent-final-audit` reviewed the bounded delta after the new `2026-11-10T07:42:33.134Z` stamp. The current3183-file fingerprint is `7660994e3bd558fe6c9ba3e1fdb5be56e6a5e890f9aa9ab22786dd47f9dab1ba`; source checkpoint `ec05631`. The initial audit below is retained as historical evidence for the preceding3180-file candidate, not presented as the new fingerprint.
+
+Quality134 on the initial published0c8a8e3 completed510 cases509direct/1flaky and passed aggregate/strict. Its recovered File Movement Axe error was nevertheless a serious actual contrast defect, not proof of safety from retry. I read the original CI log at `file-movement-migration.spec.ts:436`, its actual3.78:1 white/`#996cde` enabled-submit finding and the recovered trace archive. Actual old public-source frame samples show the enabled foreground switching immediately while background-color interpolates for180ms from the disabled surface: minima1.052light and1.057dark. The new regression failed on that old source; this establishes the relevant state transition cause rather than just a green rerun.
+
+The **only runtime delta** from the preceding reviewed candidate is two CSS lines in the existing `.bifrost-learning.course-shell .course-main button:is(...):not(:disabled)` rule, restricting transitions to border-color and box-shadow. Background/foreground state pairs now change together. It neither changes palettes/content nor applies to native Azure Portal controls, engine/store/receipt/assessment behavior or SavvyShark assistance. Reduced motion remains intact. The new source guard independently pins the entire stylesheet to the exact PR77 bytes plus only this unique enabled-selector transformation; other original assertions remain unchanged.
+
+I independently checked all3183 actual snapshot hashes, the exact whole-CSS transformation, unchanged original File Movement test and CI/Playwright/quality controls.490 of the previous491 producer input hashes still match; the sole changed CSS is explicitly hash-bound by `contrastCorrection`. Earlier16 captures/build hashes remain accurately labeled as the preceding3db1684 checkpoint. Both new enabled-state PNGs match actual producer files/digests and were personally viewed in light and dark modes.
+
+I independently decoded the corrected real frame attachments and recomputed WCAG luminance ratios:17 enabled light frames have minimum8.115:1;16 dark frames minimum6.813:1. Their SHA256 hashes match the recorded provenance. The regression observes requestAnimationFrame samples starting before the actual original assessment Start/radio actions, checks every enabled sampled frame and never clicks Submit. It does not defer Axe until the transition finishes, inject a result, change the answer key or weaken the original test. Original migration plus regression2/2, light/dark real feedback/Journal2/2 and the capture witness1/1 passed without retry. This closes this specific enabled-action transition defect; it does **not** close unrelated older Compute/Axe or header-paint findings.
+
+The corrected ec05631 fullcheck has actual exit0:1459Vitest/116files,35Node,503curriculum, real isolated PostgreSQL/all mandatory gates/normal build. The actual plan is511=459desktop+52compact, legacy918 and unchanged worker/retry/timeout/skip controls. Original TypeScript development failure, the nonunique guard-anchor red47-case run and the premature fullcheck termination143 remain recorded; correction used an explicit Window declaration and a unique full enabled-selector anchor, retaining exact equality/uniqueness checks.
+
+All six domains were reconsidered proportionally: content, assessment and guidance retain prior preservation evidence; technical review admits only the exact scoped CSS delta; visual review adds real activation-frame contrast and both new captures; regression review retains every prior assertion and adds one demonstrated failing-before/passing-after browser case. Existing production-403/main-merge stop, PR73/74 ref retention, historic3.5 Studio labeling and deferred course-v2 engine integration remain. The earlier public9 Laboratory/14 course journeys belong only to the pre-fix head. No new-head public or511-case complete CI/release pass is inferred here.
+
+**IFMB-07 — major, fixed:** enabled primary action contrast failed during180ms background interpolation. Fix is the two-line scoped CSS correction, protected by exact whole-file preservation and the new frame regression. Relevant retests above passed against the actual corrected local build; complete current-head CI/strict/public remain mandatory delivery gates. All earlier open minor findings remain as recorded below.
+
+---
+
+# Historical initial audit — preceding3180-file candidate
+
 # First integrated main baseline — Independent Final Audit
 
 **Implementation verdict: accepted for candidate CI and public verification, with no open new BLOCKER/MAJOR. Delivery and main merge are not approved by this audit.**
